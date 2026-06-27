@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Do not use ToString on GetType result"}
-  description={"Using `.GetType().ToString()` returns the full type name. Consider using `.GetType().Name` or `.GetType().FullName` instead for clarity."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindDoNotUseToStringIfObject"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/finddonotusetostringifobject.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Do not use ToString on GetType result</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using `.GetType().ToString()` returns the full type name. Consider using `.GetType().Name` or `.GetType().FullName` instead for clarity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindDoNotUseToStringIfObject","displayName":"Do not use ToString on GetType result","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

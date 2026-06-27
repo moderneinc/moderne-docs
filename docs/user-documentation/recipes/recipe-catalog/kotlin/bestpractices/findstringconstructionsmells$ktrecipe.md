@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find string-construction smells"}
-  description={"Trivial `String.format(\"%s\", x)` calls and `\"\" + x` / `x + \"\"` concatenations that read more clearly as Kotlin string templates."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindStringConstructionSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstringconstructionsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find trivial `String.format(\"%s\", x)` calls","href":"kotlin/bestpractices/findstringformattrivial$ktrecipe"},{"name":"Find `\"\" + x` patterns","href":"kotlin/bestpractices/findstringconcatwithemptyleft$ktrecipe"},{"name":"Find `x + \"\"` patterns","href":"kotlin/bestpractices/findstringconcatwithemptyright$ktrecipe"}]}>
+<RecipeHeader.Title>Find string-construction smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Trivial `String.format("%s", x)` calls and `"" + x` / `x + ""` concatenations that read more clearly as Kotlin string templates.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find trivial `String.format(\"%s\", x)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstringformattrivial$ktrecipe/"},{"name":"Find `\"\" + x` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstringconcatwithemptyleft$ktrecipe/"},{"name":"Find `x + \"\"` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstringconcatwithemptyright$ktrecipe/"}]}>
 
 ## Definition
 

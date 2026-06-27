@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `java.io.File(...)` allocations inside a `@Composable` body"}
-  description={"Filesystem objects allocated inside a `@Composable` body get rebuilt on every recomposition. Even if the constructor is cheap, the I/O performed by callers (`File.exists()`, `File.length()`) often is not. Move the allocation into a `remember { File(...) }` block or out of the composable entirely."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindSideEffectAllocationsInBody$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findsideeffectallocationsinbody$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `java.io.File(...)` allocations inside a `@Composable` body</RecipeHeader.Title>
+
+<RecipeHeader.Description>Filesystem objects allocated inside a `@Composable` body get rebuilt on every recomposition. Even if the constructor is cheap, the I/O performed by callers (`File.exists()`, `File.length()`) often is not. Move the allocation into a `remember { File(...) }` block or out of the composable entirely.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindSideEffectAllocationsInBody$KtRecipe","displayName":"Find `java.io.File(...)` allocations inside a `@Composable` body","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

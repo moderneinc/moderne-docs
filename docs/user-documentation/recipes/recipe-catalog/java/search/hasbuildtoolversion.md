@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find files with a particular build tool version"}
-  description={"Finds Java source files built with a particular build tool. This is useful especially as a precondition for other recipes."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.HasBuildToolVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/hasbuildtoolversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Find files with a particular build tool version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds Java source files built with a particular build tool. This is useful especially as a precondition for other recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Type","name":"type","required":true,"description":"The build tool to search for.","example":"Maven"},{"type":"String","name":"version","required":true,"description":"An exact version number or node-style semver selector used to select the version number.","example":"3.6.0-9999"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Reorder annotations alphabetically"}
-  description={"Consistently order annotations by comparing their simple name."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReorderAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/reorderannotations.md"}
-/>
+>
+
+<RecipeHeader.Title>Reorder annotations alphabetically</RecipeHeader.Title>
+
+<RecipeHeader.Description>Consistently order annotations by comparing their simple name.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport org.junitpioneer.jupiter.ExpectedToFail;\nimport org.junitpioneer.jupiter.Issue;\nclass A {\n    @Issue(\"https://github.com/openrewrite/rewrite/issues/2973\")\n    @Test\n    @ExpectedToFail\n    void explicitImplementationClassInApi() {\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport org.junitpioneer.jupiter.ExpectedToFail;\nimport org.junitpioneer.jupiter.Issue;\nclass A {\n    @ExpectedToFail\n    @Issue(\"https://github.com/openrewrite/rewrite/issues/2973\")\n    @Test\n    void explicitImplementationClassInApi() {\n    }\n}\n","diff":"@@ -5,0 +5,1 @@\nimport org.junitpioneer.jupiter.Issue;\nclass A {\n+   @ExpectedToFail\n    @Issue(\"https://github.com/openrewrite/rewrite/issues/2973\")\n@@ -7,1 +8,0 @@\n    @Issue(\"https://github.com/openrewrite/rewrite/issues/2973\")\n    @Test\n-   @ExpectedToFail\n    void explicitImplementationClassInApi() {\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change the default value for feature key"}
-  description={"Change the default value for `Variation` invocations for feature key."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-feature-flags"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.featureflags.launchdarkly.ChangeVariationDefault"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/changevariationdefault.md"}
-/>
+>
+
+<RecipeHeader.Title>Change the default value for feature key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the default value for `Variation` invocations for feature key.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"featureKey","required":true,"description":"The key of the feature flag to remove.","example":"flag-key-123abc"},{"type":"String","name":"defaultValue","required":true,"description":"The default value to use in feature flag invocations.","example":"true"}]}>
 

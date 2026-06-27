@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StreamRules.StreamTakeWhile`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamTakeWhile<T> {\n    \n    @BeforeTemplate\n    Stream<T> before(Stream<T> stream, Predicate<? super T> predicate) {\n        return stream.takeWhile(predicate).filter(predicate);\n    }\n    \n    @AfterTemplate\n    Stream<T> after(Stream<T> stream, Predicate<? super T> predicate) {\n        return stream.takeWhile(predicate);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamTakeWhileRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/streamrulesrecipes$streamtakewhilerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StreamRules.StreamTakeWhile`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class StreamTakeWhile<T> {
+    
+    @BeforeTemplate
+    Stream<T> before(Stream<T> stream, Predicate<? super T> predicate) {
+        return stream.takeWhile(predicate).filter(predicate);
+    }
+    
+    @AfterTemplate
+    Stream<T> after(Stream<T> stream, Predicate<? super T> predicate) {
+        return stream.takeWhile(predicate);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamTakeWhileRecipe","displayName":"Refaster template `StreamRules.StreamTakeWhile`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

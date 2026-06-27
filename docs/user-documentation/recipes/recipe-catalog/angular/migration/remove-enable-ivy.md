@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `enableIvy` compiler option"}
-  description={"Removes the `enableIvy` option from `angularCompilerOptions` in `tsconfig.json`. Ivy is the only rendering engine since Angular 12, and the option was removed in Angular 15."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-enable-ivy"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-enable-ivy.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `enableIvy` compiler option</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the `enableIvy` option from `angularCompilerOptions` in `tsconfig.json`. Ivy is the only rendering engine since Angular 12, and the option was removed in Angular 15.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.remove-enable-ivy","displayName":"Remove `enableIvy` compiler option","npmPackage":"@openrewrite/recipes-angular"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade MyBatis to Spring Boot 2.6"}
-  description={"Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 2.6."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeMyBatisToSpringBoot_2_6"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_6.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade MyBatis to Spring Boot 2.5","href":"java/spring/boot3/upgrademybatistospringboot_2_5"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Upgrade MyBatis to Spring Boot 2.6</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade MyBatis Spring modules to a version corresponding to Spring Boot 2.6.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade MyBatis to Spring Boot 2.5","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_5/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Lint UI5 projects with UI5 linter"}
-  description={"Runs the [UI5 Linter](https://github.com/SAP/ui5-linter), a static code analysis tool for UI5 projects. It checks JavaScript, TypeScript, XML, JSON, and other files in your project and reports findings."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.UI5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/ui5.md"}
-/>
+>
+
+<RecipeHeader.Title>Lint UI5 projects with UI5 linter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Runs the [UI5 Linter](https://github.com/SAP/ui5-linter), a static code analysis tool for UI5 projects. It checks JavaScript, TypeScript, XML, JSON, and other files in your project and reports findings.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.codemods.UI5","displayName":"Lint UI5 projects with UI5 linter","groupId":"org.openrewrite.recipe","artifactId":"rewrite-codemods","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CODEMODS","requiresConfiguration":false}}>
 

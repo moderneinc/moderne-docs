@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use modernized `java.lang` APIs"}
-  description={"Certain Java lang APIs have become deprecated and their usages changed, necessitating usage changes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.JavaLangAPIs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/javalangapis.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `Character#isJavaIdentifierStart(char)`","href":"java/migrate/lang/migratecharacterisjavalettertoisjavaidentifierstart"},{"name":"Use `Character#isJavaIdentifierPart(char)`","href":"java/migrate/lang/migratecharacterisjavaletterordigittoisjavaidentifierpart"},{"name":"Use `Character#isWhitespace(char)`","href":"java/migrate/lang/migratecharacterisspacetoiswhitespace"},{"name":"Use `Runtime.Version#feature()`","href":"java/migrate/lang/migrateruntimeversionmajortofeature"},{"name":"Use `Runtime.Version#interim()`","href":"java/migrate/lang/migrateruntimeversionminortointerim"},{"name":"Use `Runtime.Version#update()`","href":"java/migrate/lang/migrateruntimeversionsecuritytoupdate"},{"name":"Use `SecurityManager#checkMulticast(InetAddress)`","href":"java/migrate/lang/migratesecuritymanagermulticast"},{"name":"Use `ClassLoader#defineClass(String, byte[], int, int)`","href":"java/migrate/lang/migrateclassloaderdefineclass"},{"name":"Use `Class#getDeclaredConstructor().newInstance()`","href":"java/migrate/lang/migrateclassnewinstancetogetdeclaredconstructornewinstance"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use modernized `java.lang` APIs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Certain Java lang APIs have become deprecated and their usages changed, necessitating usage changes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `Character#isJavaIdentifierStart(char)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/migratecharacterisjavalettertoisjavaidentifierstart/"},{"name":"Use `Character#isJavaIdentifierPart(char)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/migratecharacterisjavaletterordigittoisjavaidentifierpart/"},{"name":"Use `Character#isWhitespace(char)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/migratecharacterisspacetoiswhitespace/"},{"name":"Use `Runtime.Version#feature()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/migrateruntimeversionmajortofeature/"},{"name":"Use `Runtime.Version#interim()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/migrateruntimeversionminortointerim/"},{"name":"Use `Runtime.Version#update()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/migrateruntimeversionsecuritytoupdate/"},{"name":"Use `SecurityManager#checkMulticast(InetAddress)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/migratesecuritymanagermulticast/"},{"name":"Use `ClassLoader#defineClass(String, byte[], int, int)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/migrateclassloaderdefineclass/"},{"name":"Use `Class#getDeclaredConstructor().newInstance()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/migrateclassnewinstancetogetdeclaredconstructornewinstance/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

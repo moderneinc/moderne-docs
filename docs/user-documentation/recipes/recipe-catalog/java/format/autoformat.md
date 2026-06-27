@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Format Java code"}
-  description={"Format Java code using a standard comprehensive set of Java formatting recipes."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.format.AutoFormat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/format/autoformat.md"}
-/>
+>
+
+<RecipeHeader.Title>Format Java code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format Java code using a standard comprehensive set of Java formatting recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"style","required":false,"description":"An OpenRewrite [style](https://docs.openrewrite.org/concepts-and-explanations/styles) formatted in YAML.","example":"type: specs.openrewrite.org/v1beta/style\nname: com.yourorg.YesTabsNoStarImports\nstyleConfigs:\n  - org.openrewrite.java.style.TabsAndIndentsStyle:\n      useTabCharacter: true"}]}>
 

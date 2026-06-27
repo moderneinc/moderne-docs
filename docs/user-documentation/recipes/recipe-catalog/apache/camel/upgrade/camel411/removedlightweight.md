@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Removed deprecated property camel.main.lightweight"}
-  description={"Removed deprecated configuration properties (camel.main.lightweight)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel411.removedLightweight"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel411/removedlightweight.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Delete property by key","href":"properties/deleteproperty"}]}>
+<RecipeHeader.Title>Removed deprecated property camel.main.lightweight</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removed deprecated configuration properties (camel.main.lightweight).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Delete property by key","href":"/user-documentation/recipes/recipe-catalog/properties/deleteproperty/"}]}>
 
 ## Definition
 

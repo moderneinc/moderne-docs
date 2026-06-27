@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJLongRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `long`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJLongRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJLongRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjlongrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJLongRules.AbstractLongAssertIsEqualTo`","href":"picnic/errorprone/refasterrules/assertjlongrulesrecipes$abstractlongassertisequaltorecipe"},{"name":"Refaster template `AssertJLongRules.AbstractLongAssertIsNotEqualTo`","href":"picnic/errorprone/refasterrules/assertjlongrulesrecipes$abstractlongassertisnotequaltorecipe"},{"name":"Refaster template `AssertJLongRules.AbstractLongAssertIsZero`","href":"picnic/errorprone/refasterrules/assertjlongrulesrecipes$abstractlongassertiszerorecipe"},{"name":"Refaster template `AssertJLongRules.AbstractLongAssertIsNotZero`","href":"picnic/errorprone/refasterrules/assertjlongrulesrecipes$abstractlongassertisnotzerorecipe"},{"name":"Refaster template `AssertJLongRules.AbstractLongAssertIsOne`","href":"picnic/errorprone/refasterrules/assertjlongrulesrecipes$abstractlongassertisonerecipe"}]}>
+<RecipeHeader.Title>`AssertJLongRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `long`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJLongRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJLongRules.AbstractLongAssertIsEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjlongrulesrecipes$abstractlongassertisequaltorecipe/"},{"name":"Refaster template `AssertJLongRules.AbstractLongAssertIsNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjlongrulesrecipes$abstractlongassertisnotequaltorecipe/"},{"name":"Refaster template `AssertJLongRules.AbstractLongAssertIsZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjlongrulesrecipes$abstractlongassertiszerorecipe/"},{"name":"Refaster template `AssertJLongRules.AbstractLongAssertIsNotZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjlongrulesrecipes$abstractlongassertisnotzerorecipe/"},{"name":"Refaster template `AssertJLongRules.AbstractLongAssertIsOne`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjlongrulesrecipes$abstractlongassertisonerecipe/"}]}>
 
 ## Definition
 

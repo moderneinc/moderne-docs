@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add <extensions>true</extensions> to quarkus-maven-plugin"}
-  description={"Add <extensions>true</extensions> to the quarkus-maven-plugin configuration if not already present."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus331.AddExtensionsTrueToQuarkusMavenPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus331/addextensionstruetoquarkusmavenplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Add &lt;extensions>true&lt;/extensions> to quarkus-maven-plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add &lt;extensions>true&lt;/extensions> to the quarkus-maven-plugin configuration if not already present.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.quarkus.updates.core.quarkus331.AddExtensionsTrueToQuarkusMavenPlugin","displayName":"Add <extensions>true</extensions> to quarkus-maven-plugin","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find endpoint security"}
-  description={"Per-endpoint security requirements (roles, scopes, raw expressions) extracted from @PreAuthorize/@Secured/@RolesAllowed/@PermitAll annotations at method or class level. Joins to service-endpoints.csv via endpointId."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindEndpointSecurity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findendpointsecurity.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find endpoint security</RecipeHeader.Title>
+
+<RecipeHeader.Description>Per-endpoint security requirements (roles, scopes, raw expressions) extracted from @PreAuthorize/@Secured/@RolesAllowed/@PermitAll annotations at method or class level. Joins to service-endpoints.csv via endpointId.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.springframework.web.bind.annotation.*;\nimport jakarta.annotation.security.PermitAll;\n\n@RestController\npublic class C {\n    @GetMapping(\"/p\")\n    @PermitAll\n    public String p() { return \"\"; }\n}\n"},"variants":[]}]}>
 

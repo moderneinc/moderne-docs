@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `fun f(): Boolean = true|false` literal-returning functions"}
-  description={"A function whose body is literally `true` or `false` is rarely the right shape — either the predicate was a stub left in by mistake, or the value is genuinely constant and should be a `const val`. Either way, surface the call site for human review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindBooleanLiteralReturnType$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbooleanliteralreturntype$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `fun f(): Boolean = true|false` literal-returning functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>A function whose body is literally `true` or `false` is rarely the right shape — either the predicate was a stub left in by mistake, or the value is genuinely constant and should be a `const val`. Either way, surface the call site for human review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindBooleanLiteralReturnType$KtRecipe","displayName":"Find `fun f(): Boolean = true|false` literal-returning functions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit `assertEquals` to AssertJ"}
-  description={"Convert JUnit-style `assertEquals()` to AssertJ's `assertThat().isEqualTo()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.JUnitAssertEqualsToAssertThat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/junitassertequalstoassertthat.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit `assertEquals` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert JUnit-style `assertEquals()` to AssertJ's `assertThat().isEqualTo()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\npublic class MyTest {\n    @Test\n    public void test() {\n        assertEquals(1, notification());\n    }\n    private Integer notification() {\n        return 1;\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\npublic class MyTest {\n    @Test\n    public void test() {\n        assertThat(notification()).isEqualTo(1);\n    }\n    private Integer notification() {\n        return 1;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport org.junit.jupiter.api.Test;\n\n-import static org.junit.jupiter.api.Assertions.assertEquals;\n+import static org.assertj.core.api.Assertions.assertThat;\n\n@@ -8,1 +8,1 @@\n    @Test\n    public void test() {\n-       assertEquals(1, notification());\n+       assertThat(notification()).isEqualTo(1);\n    }\n","newFile":false}]}]}>
 

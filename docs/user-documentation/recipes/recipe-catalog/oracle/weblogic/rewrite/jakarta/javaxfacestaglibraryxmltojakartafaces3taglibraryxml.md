@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate xmlns entries in `*taglib*.xml` files for Jakarta Server Faces 3"}
-  description={"Java EE has been rebranded to Jakarta EE, necessitating an XML namespace relocation."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["taglib","faces","jsf","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.JavaxFacesTagLibraryXmlToJakartaFaces3TagLibraryXml"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/javaxfacestaglibraryxmltojakartafaces3taglibraryxml.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Find and replace","href":"text/findandreplace"}]} preconditions={[{"name":"Find files","href":"core/findsourcefiles"}]}>
+<RecipeHeader.Title>Migrate xmlns entries in `*taglib*.xml` files for Jakarta Server Faces 3</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java EE has been rebranded to Jakarta EE, necessitating an XML namespace relocation.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"}]} preconditions={[{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"}]}>
 
 ## Definition
 

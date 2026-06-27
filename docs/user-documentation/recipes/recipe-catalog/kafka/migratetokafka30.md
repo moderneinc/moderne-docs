@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Kafka 3.0"}
-  description={"Migrate applications to the latest Kafka 3.0 release."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kafka"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.MigrateToKafka30"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/migratetokafka30.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Kafka 2.8","href":"kafka/migratetokafka28"},{"name":"Migrate TaskMetadata and ThreadMetadata","href":"kafka/streams/migratetaskandthreadmetadata"},{"name":"Migrate `exactly_once` and `exactly_once_beta` to `exactly_once_v2`","href":"kafka/streams/processingguaranteeexactlyoncetov2"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"}]}>
+<RecipeHeader.Title>Migrate to Kafka 3.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Kafka 3.0 release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Kafka 2.8","href":"/user-documentation/recipes/recipe-catalog/kafka/migratetokafka28/"},{"name":"Migrate TaskMetadata and ThreadMetadata","href":"/user-documentation/recipes/recipe-catalog/kafka/streams/migratetaskandthreadmetadata/"},{"name":"Migrate `exactly_once` and `exactly_once_beta` to `exactly_once_v2`","href":"/user-documentation/recipes/recipe-catalog/kafka/streams/processingguaranteeexactlyoncetov2/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]}>
 
 ## Definition
 

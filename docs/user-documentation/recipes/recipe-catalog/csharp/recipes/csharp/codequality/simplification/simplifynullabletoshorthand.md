@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify Nullable<T> to T?"}
-  description={"Use T? shorthand instead of Nullable<T>."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyNullableToShorthand"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifynullabletoshorthand.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify Nullable&lt;T> to T?</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use T? shorthand instead of Nullable&lt;T>.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyNullableToShorthand","displayName":"Simplify Nullable<T> to T?","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

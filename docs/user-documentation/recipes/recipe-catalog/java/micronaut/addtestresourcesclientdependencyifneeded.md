@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `micronaut-test-resources-client` if needed"}
-  description={"Add the `micronaut-test-resources-client` dependency to pom.xml if `test.resources.client.enabled property=true`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.AddTestResourcesClientDependencyIfNeeded"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/addtestresourcesclientdependencyifneeded.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `micronaut-test-resources-client` if needed</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add the `micronaut-test-resources-client` dependency to pom.xml if `test.resources.client.enabled property=true`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.micronaut.AddTestResourcesClientDependencyIfNeeded","displayName":"Add `micronaut-test-resources-client` if needed","groupId":"org.openrewrite.recipe","artifactId":"rewrite-micronaut","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT","requiresConfiguration":false}}>
 

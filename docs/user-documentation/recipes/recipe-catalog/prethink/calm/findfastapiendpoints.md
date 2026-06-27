@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find FastAPI endpoints"}
-  description={"Identify REST/HTTP endpoints in FastAPI applications. Detects @app.get(), @router.post(), and similar route decorator patterns."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindFastAPIEndpoints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findfastapiendpoints.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find FastAPI endpoints</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify REST/HTTP endpoints in FastAPI applications. Detects @app.get(), @router.post(), and similar route decorator patterns.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"pyproject","code":"[project]\nname = \"test-app\"\nversion = \"0.1.0\"\ndependencies = [\"fastapi>=0.100\"]\n"},"variants":[]}]}>
 

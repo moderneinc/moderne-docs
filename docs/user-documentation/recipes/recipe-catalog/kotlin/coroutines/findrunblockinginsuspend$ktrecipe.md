@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `runBlocking` calls inside `suspend` functions"}
-  description={"`runBlocking` inside a `suspend` function blocks the calling thread until the inner block finishes, defeating cooperative cancellation and pinning a thread that the dispatcher could otherwise reuse. From a suspend context, the block can be inlined or wrapped in `withContext(...)` instead."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindRunBlockingInSuspend$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findrunblockinginsuspend$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `runBlocking` calls inside `suspend` functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>`runBlocking` inside a `suspend` function blocks the calling thread until the inner block finishes, defeating cooperative cancellation and pinning a thread that the dispatcher could otherwise reuse. From a suspend context, the block can be inlined or wrapped in `withContext(...)` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindRunBlockingInSuspend$KtRecipe","displayName":"Find `runBlocking` calls inside `suspend` functions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to testcontainers-java 2.x"}
-  description={"Change dependencies and types to migrate to testcontainers-java 2.x."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testcontainers.Testcontainers2Migration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2migration.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Adopt `@Container` and add `@Testcontainers`","href":"java/testing/testcontainers/addtestcontainersannotations"},{"name":"Explicit container images and versions","href":"java/testing/testcontainers/explicitcontainerimages"},{"name":"Replace `ContainerState.getContainerIpAddress()` with `getHost()`","href":"java/testing/testcontainers/gethostmigration"},{"name":"Change type","href":"java/changetype"},{"name":"Rename Testcontainers dependencies","href":"java/testing/testcontainers/testcontainers2dependencies"},{"name":"Migrate removed `LocalStackContainer` members to Testcontainers 2.x","href":"java/testing/testcontainers/testcontainers2localstack"},{"name":"Testcontainers 2 container classes","href":"java/testing/testcontainers/testcontainers2containerclasses"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to testcontainers-java 2.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change dependencies and types to migrate to testcontainers-java 2.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Adopt `@Container` and add `@Testcontainers`","href":"/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/addtestcontainersannotations/"},{"name":"Explicit container images and versions","href":"/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/explicitcontainerimages/"},{"name":"Replace `ContainerState.getContainerIpAddress()` with `getHost()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/gethostmigration/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Rename Testcontainers dependencies","href":"/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2dependencies/"},{"name":"Migrate removed `LocalStackContainer` members to Testcontainers 2.x","href":"/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2localstack/"},{"name":"Testcontainers 2 container classes","href":"/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2containerclasses/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

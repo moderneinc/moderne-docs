@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET HTTP clients"}
-  description={"Detect outbound HTTP client usage via HttpClient, IHttpClientFactory.CreateClient, Refit interfaces, RestSharp, and Flurl."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDotnetHttpClients"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnethttpclients.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET HTTP clients</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect outbound HTTP client usage via HttpClient, IHttpClientFactory.CreateClient, Refit interfaces, RestSharp, and Flurl.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindDotnetHttpClients","displayName":"Find .NET HTTP clients","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

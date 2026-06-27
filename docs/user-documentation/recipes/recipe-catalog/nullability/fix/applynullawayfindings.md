@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply sound fixes for NullAway findings"}
-  description={"Applies behavior-preserving fixes for the findings in a NullAway WARN-level compile report, driven by the exact `file:line` locations NullAway reported. Dereferences of a `@Nullable` value, `@Nullable` values that are unboxed, `@Nullable` arguments passed where a `@NonNull` parameter is required, and `@Nullable` `switch` selectors are all wrapped in `requireNonNull(...)` (statically imported from `java.util.Objects`, which throws exactly when the original code already would). Uninitialized `@NonNull` fields (instance or `static`) are annotated `@MonotonicNonNull`, methods that return a `@Nullable` value get a JSpecify `@Nullable` return type, fields assigned a `@Nullable` value get a JSpecify `@Nullable` (which takes precedence over `@MonotonicNonNull`), and a parameter that an override declares `@NonNull` while its supertype declares it `@Nullable` gets a JSpecify `@Nullable`. No warnings are suppressed and runtime behavior is unchanged. The recipe is idempotent and conservative: for an `@Override` it resolves the overridden supertype method's return nullability from the type model and acts covariantly (widen to `@Nullable` only when the overridden return is `@Nullable`; otherwise assert `@NonNull` with `requireNonNull`, or leave it alone when the contract is unknown), and it never emits invalid Java — on qualified/nested types it places the annotation in the type-use position (`Outer.@MonotonicNonNull Inner`). Only Java sources are modified."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.fix.ApplyNullAwayFindings"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/fix/applynullawayfindings.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Apply sound fixes for NullAway findings</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies behavior-preserving fixes for the findings in a NullAway WARN-level compile report, driven by the exact `file:line` locations NullAway reported. Dereferences of a `@Nullable` value, `@Nullable` values that are unboxed, `@Nullable` arguments passed where a `@NonNull` parameter is required, and `@Nullable` `switch` selectors are all wrapped in `requireNonNull(...)` (statically imported from `java.util.Objects`, which throws exactly when the original code already would). Uninitialized `@NonNull` fields (instance or `static`) are annotated `@MonotonicNonNull`, methods that return a `@Nullable` value get a JSpecify `@Nullable` return type, fields assigned a `@Nullable` value get a JSpecify `@Nullable` (which takes precedence over `@MonotonicNonNull`), and a parameter that an override declares `@NonNull` while its supertype declares it `@Nullable` gets a JSpecify `@Nullable`. No warnings are suppressed and runtime behavior is unchanged. The recipe is idempotent and conservative: for an `@Override` it resolves the overridden supertype method's return nullability from the type model and acts covariantly (widen to `@Nullable` only when the overridden return is `@Nullable`; otherwise assert `@NonNull` with `requireNonNull`, or leave it alone when the contract is unknown), and it never emits invalid Java — on qualified/nested types it places the annotation in the type-use position (`Outer.@MonotonicNonNull Inner`). Only Java sources are modified.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"reportPath","required":true,"description":"Absolute path to a file containing the raw NullAway WARN-level compile output. Every line mentioning `[NullAway]` is parsed as a finding (`/abs/path/Foo.java:123: warning: [NullAway] ...`); all other lines are ignored.","example":"/tmp/nullaway-report.txt"}]}>
 

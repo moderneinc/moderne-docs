@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Boot 3.5 deprecated classes and methods"}
-  description={"Migrate deprecated classes and methods that have been marked for removal in Spring Boot 3.5."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.SpringBoot35Deprecations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot35deprecations.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace deprecated `KafkaConnectionDetails` bootstrap server methods","href":"java/spring/boot3/replacedeprecatedkafkaconnectiondetailsbootstrapservergetters"},{"name":"Replace deprecated ThreadPoolTaskSchedulerBuilder 5-argument constructor","href":"java/spring/boot3/replacedeprecatedthreadpooltaskschedulerconstructor"},{"name":"Remove Spring Boot 3.5 deprecated conditions","href":"java/spring/boot3/removedeprecatedconditions"},{"name":"Remove `TestRestTemplate.HttpClientOption.ENABLE_REDIRECTS` option","href":"java/spring/boot3/removetestresttemplateenableredirectsoptionrecipe"},{"name":"Replace ConditionOutcome.inverse() with constructor","href":"java/spring/boot3/replaceconditionaloutcomeinverse"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Update OpenTelemetry resource attributes","href":"java/spring/boot3/updateopentelemetryresourceattributes"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate Spring Boot 3.5 deprecated classes and methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate deprecated classes and methods that have been marked for removal in Spring Boot 3.5.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace deprecated `KafkaConnectionDetails` bootstrap server methods","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacedeprecatedkafkaconnectiondetailsbootstrapservergetters/"},{"name":"Replace deprecated ThreadPoolTaskSchedulerBuilder 5-argument constructor","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacedeprecatedthreadpooltaskschedulerconstructor/"},{"name":"Remove Spring Boot 3.5 deprecated conditions","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/removedeprecatedconditions/"},{"name":"Remove `TestRestTemplate.HttpClientOption.ENABLE_REDIRECTS` option","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/removetestresttemplateenableredirectsoptionrecipe/"},{"name":"Replace ConditionOutcome.inverse() with constructor","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/replaceconditionaloutcomeinverse/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Update OpenTelemetry resource attributes","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/updateopentelemetryresourceattributes/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

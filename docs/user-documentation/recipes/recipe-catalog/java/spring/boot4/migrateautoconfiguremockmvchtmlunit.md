@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `@AutoConfigureMockMvc` HtmlUnit attributes to nested `@HtmlUnit`"}
-  description={"Spring Boot 4 moved `webClientEnabled` and `webDriverEnabled` on `@AutoConfigureMockMvc` under a nested `@HtmlUnit` annotation as `webClient` and `webDriver`, and relocated the annotation to `org.springframework.boot.webmvc.test.autoconfigure`. This recipe rewrites the attribute syntax and relocates the annotation in one step, so it must run before any package-relocation recipe touches `@AutoConfigureMockMvc`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.MigrateAutoConfigureMockMvcHtmlUnit"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/migrateautoconfiguremockmvchtmlunit.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `@AutoConfigureMockMvc` HtmlUnit attributes to nested `@HtmlUnit`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot 4 moved `webClientEnabled` and `webDriverEnabled` on `@AutoConfigureMockMvc` under a nested `@HtmlUnit` annotation as `webClient` and `webDriver`, and relocated the annotation to `org.springframework.boot.webmvc.test.autoconfigure`. This recipe rewrites the attribute syntax and relocates the annotation in one step, so it must run before any package-relocation recipe touches `@AutoConfigureMockMvc`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;\n\n@AutoConfigureMockMvc(webClientEnabled = false, webDriverEnabled = false)\nclass MyTest {\n}\n","after":"import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;\nimport org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc.HtmlUnit;\n\n@AutoConfigureMockMvc(htmlUnit = @HtmlUnit(webClient = false, webDriver = false))\nclass MyTest {\n}\n","diff":"@@ -1,1 +1,2 @@\n-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;\n+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;\n+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc.HtmlUnit;\n\n@@ -3,1 +4,1 @@\nimport org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;\n\n-@AutoConfigureMockMvc(webClientEnabled = false, webDriverEnabled = false)\n+@AutoConfigureMockMvc(htmlUnit = @HtmlUnit(webClient = false, webDriver = false))\nclass MyTest {\n","newFile":false}]}]}>
 

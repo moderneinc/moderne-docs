@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"io.quarkus.updates.core.quarkus310.FlywayDerby"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus310.FlywayDerby"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus310/flywayderby.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Maven dependency","href":"maven/adddependency"}]} preconditions={[{"name":"Find Maven dependency","href":"maven/search/finddependency"},{"name":"Find Maven dependency","href":"maven/search/finddependency"}]}>
+<RecipeHeader.Title>io.quarkus.updates.core.quarkus310.FlywayDerby</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/adddependency/"}]} preconditions={[{"name":"Find Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/finddependency/"},{"name":"Find Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/finddependency/"}]}>
 
 ## Definition
 

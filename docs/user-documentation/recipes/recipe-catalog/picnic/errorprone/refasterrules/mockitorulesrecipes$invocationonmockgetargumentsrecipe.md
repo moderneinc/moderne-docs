@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `MockitoRules.InvocationOnMockGetArguments`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class InvocationOnMockGetArguments {\n    \n    @BeforeTemplate\n    Object before(InvocationOnMock invocation, int i) {\n        return invocation.getArguments()[i];\n    }\n    \n    @AfterTemplate\n    Object after(InvocationOnMock invocation, int i) {\n        return invocation.getArgument(i);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.MockitoRulesRecipes$InvocationOnMockGetArgumentsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mockitorulesrecipes$invocationonmockgetargumentsrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `MockitoRules.InvocationOnMockGetArguments`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class InvocationOnMockGetArguments {
+    
+    @BeforeTemplate
+    Object before(InvocationOnMock invocation, int i) {
+        return invocation.getArguments()[i];
+    }
+    
+    @AfterTemplate
+    Object after(InvocationOnMock invocation, int i) {
+        return invocation.getArgument(i);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.MockitoRulesRecipes$InvocationOnMockGetArgumentsRecipe","displayName":"Refaster template `MockitoRules.InvocationOnMockGetArguments`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

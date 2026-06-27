@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJDurationRules.AssertThatHasNanos`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasNanos {\n    \n    @BeforeTemplate\n    AbstractLongAssert<?> before(Duration duration, long nanos) {\n        return assertThat(duration.toNanos()).isEqualTo(nanos);\n    }\n    \n    @AfterTemplate\n    AbstractDurationAssert<?> after(Duration duration, long nanos) {\n        return assertThat(duration).hasNanos(nanos);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatHasNanosRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathasnanosrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJDurationRules.AssertThatHasNanos`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatHasNanos {
+    
+    @BeforeTemplate
+    AbstractLongAssert<?> before(Duration duration, long nanos) {
+        return assertThat(duration.toNanos()).isEqualTo(nanos);
+    }
+    
+    @AfterTemplate
+    AbstractDurationAssert<?> after(Duration duration, long nanos) {
+        return assertThat(duration).hasNanos(nanos);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatHasNanosRecipe","displayName":"Refaster template `AssertJDurationRules.AssertThatHasNanos`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

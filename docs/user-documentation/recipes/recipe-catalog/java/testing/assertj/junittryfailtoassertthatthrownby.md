@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert try-catch-fail blocks to AssertJ's assertThatThrownBy"}
-  description={"Replace try-catch blocks where the try block ends with a `fail()` statement and the catch block optionally contains assertions, with AssertJ's `assertThatThrownBy()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.JUnitTryFailToAssertThatThrownBy"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/junittryfailtoassertthatthrownby.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert try-catch-fail blocks to AssertJ's assertThatThrownBy</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace try-catch blocks where the try block ends with a `fail()` statement and the catch block optionally contains assertions, with AssertJ's `assertThatThrownBy()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport static org.junit.jupiter.api.Assertions.fail;\n\nclass MyTest {\n    @Test\n    void testExceptionIsThrown() {\n        try {\n            someMethodThatShouldThrow();\n            fail(\"Expected IllegalArgumentException to be thrown\");\n        } catch (IllegalArgumentException e) {\n            // Expected exception\n        }\n    }\n\n    void someMethodThatShouldThrow() {\n        throw new IllegalArgumentException(\"Invalid argument\");\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\n\nimport static org.assertj.core.api.Assertions.assertThatThrownBy;\n\nclass MyTest {\n    @Test\n    void testExceptionIsThrown() {\n        assertThatThrownBy(() -> someMethodThatShouldThrow()).isInstanceOf(IllegalArgumentException.class);\n    }\n\n    void someMethodThatShouldThrow() {\n        throw new IllegalArgumentException(\"Invalid argument\");\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport org.junit.jupiter.api.Test;\n-import static org.junit.jupiter.api.Assertions.fail;\n\n@@ -4,0 +3,2 @@\nimport static org.junit.jupiter.api.Assertions.fail;\n\n+import static org.assertj.core.api.Assertions.assertThatThrownBy;\n+\nclass MyTest {\n@@ -7,6 +8,1 @@\n    @Test\n    void testExceptionIsThrown() {\n-       try {\n-           someMethodThatShouldThrow();\n-           fail(\"Expected IllegalArgumentException to be thrown\");\n-       } catch (IllegalArgumentException e) {\n-           // Expected exception\n-       }\n+       assertThatThrownBy(() -> someMethodThatShouldThrow()).isInstanceOf(IllegalArgumentException.class);\n    }\n","newFile":false}]}]}>
 

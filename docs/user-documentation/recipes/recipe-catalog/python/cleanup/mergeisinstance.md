@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Merge `isinstance()` calls"}
-  description={"Merge `isinstance(x, A) or isinstance(x, B)` into `isinstance(x, (A, B))` for cleaner type checking."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.MergeIsinstance"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/mergeisinstance.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Merge `isinstance()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Merge `isinstance(x, A) or isinstance(x, B)` into `isinstance(x, (A, B))` for cleaner type checking.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.MergeIsinstance","displayName":"Merge `isinstance()` calls","pipPackage":"openrewrite-static-analysis"}}>
 

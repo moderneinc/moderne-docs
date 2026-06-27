@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StreamRules.StreamMaxNaturalOrder`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamMaxNaturalOrder<T extends Comparable<? super T>> {\n    \n    @BeforeTemplate\n    Optional<T> before(Stream<T> stream) {\n        return Refaster.anyOf(stream.min(reverseOrder()), Streams.findLast(stream.sorted()));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    Optional<T> after(Stream<T> stream) {\n        return stream.max(naturalOrder());\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMaxNaturalOrderRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/streamrulesrecipes$streammaxnaturalorderrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StreamRules.StreamMaxNaturalOrder`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class StreamMaxNaturalOrder<T extends Comparable<? super T>> {
+    
+    @BeforeTemplate
+    Optional<T> before(Stream<T> stream) {
+        return Refaster.anyOf(stream.min(reverseOrder()), Streams.findLast(stream.sorted()));
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    Optional<T> after(Stream<T> stream) {
+        return stream.max(naturalOrder());
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMaxNaturalOrderRecipe","displayName":"Refaster template `StreamRules.StreamMaxNaturalOrder`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

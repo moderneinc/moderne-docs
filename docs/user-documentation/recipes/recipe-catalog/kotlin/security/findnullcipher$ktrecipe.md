@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `NullCipher()` allocations"}
-  description={"`javax.crypto.NullCipher` is a no-op cipher — its `doFinal` returns the plaintext unchanged. Useful only for testing; if it ships in production code, the data is effectively unencrypted."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindNullCipher$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findnullcipher$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `NullCipher()` allocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`javax.crypto.NullCipher` is a no-op cipher — its `doFinal` returns the plaintext unchanged. Useful only for testing; if it ships in production code, the data is effectively unencrypted.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindNullCipher$KtRecipe","displayName":"Find `NullCipher()` allocations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

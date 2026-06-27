@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change dependabot schedule interval"}
-  description={"Change the schedule interval for a given package-ecosystem in a `dependabot.yml` configuration file. [The available configuration options for dependabot are listed on GitHub](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["github","dependabot","dependencies"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.ChangeDependabotScheduleInterval"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/changedependabotscheduleinterval.md"}
-/>
+>
+
+<RecipeHeader.Title>Change dependabot schedule interval</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the schedule interval for a given package-ecosystem in a `dependabot.yml` configuration file. [The available configuration options for dependabot are listed on GitHub](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageEcosystem","required":true,"description":"The package-ecosystem to make updates on.","example":"maven"},{"type":"String","name":"interval","required":true,"description":"The schedule interval value the package-ecosystem should use.","example":"weekly"}]}>
 

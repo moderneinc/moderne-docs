@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade WireMock to 3.x"}
-  description={"Migrate WireMock dependencies from the old `com.github.tomakehurst` coordinates to the new `org.wiremock` coordinates. WireMock 3.x changed its Maven coordinates and requires Java 11 or higher. Old 2.x versions contain CVE-2023-44487."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security","testing","wiremock"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.wiremock.UpgradeWiremockDependencyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/wiremock/upgradewiremockdependencyversion.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Upgrade WireMock to 3.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate WireMock dependencies from the old `com.github.tomakehurst` coordinates to the new `org.wiremock` coordinates. WireMock 3.x changed its Maven coordinates and requires Java 11 or higher. Old 2.x versions contain CVE-2023-44487.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

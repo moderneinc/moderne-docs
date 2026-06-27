@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adds a TimeUnit argument to the matched method invocations"}
-  description={"In Apache Http Client 5.x migration, an extra TimeUnit argument is required in the timeout and duration methods. Previously in 4.x, all these methods were implicitly having the timeout or duration expressed in milliseconds, but in 5.x the unit of the timeout or duration is required. So, by default this recipe adds `TimeUnit.MILLISECONDS`, it is possible to specify this as a parameter. Since all affected methods of the Apache Http Client 5.x migration only have one integer/long argument, the recipe applies with matched method invocations of exactly one parameter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.AddTimeUnitArgument"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/addtimeunitargument.md"}
-/>
+>
+
+<RecipeHeader.Title>Adds a TimeUnit argument to the matched method invocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Apache Http Client 5.x migration, an extra TimeUnit argument is required in the timeout and duration methods. Previously in 4.x, all these methods were implicitly having the timeout or duration expressed in milliseconds, but in 5.x the unit of the timeout or duration is required. So, by default this recipe adds `TimeUnit.MILLISECONDS`, it is possible to specify this as a parameter. Since all affected methods of the Apache Http Client 5.x migration only have one integer/long argument, the recipe applies with matched method invocations of exactly one parameter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern that is used to find matching method invocations.","example":"org.apache.http.client.config.RequestConfig.Builder setConnectionRequestTimeout(int)"},{"type":"TimeUnit","name":"timeUnit","required":false,"description":"The TimeUnit enum value we want to add to the method invocation. Defaults to `MILLISECONDS`.","example":"MILLISECONDS"}]}>
 

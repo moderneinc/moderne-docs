@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Avoid chain of assignments"}
-  description={"Flag chained assignment expressions like a = b = c = value."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.AvoidChainOfAssignments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/avoidchainofassignments.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Avoid chain of assignments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flag chained assignment expressions like a = b = c = value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.AvoidChainOfAssignments","displayName":"Avoid chain of assignments","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

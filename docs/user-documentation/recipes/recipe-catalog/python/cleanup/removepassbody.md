@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Drop ``pass``-only ``if`` body by inverting the guard"}
-  description={"When an ``if`` body contains only ``pass`` and is followed by an ``else``, flip the condition and use the else body directly."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemovePassBody"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removepassbody.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Drop ``pass``-only ``if`` body by inverting the guard</RecipeHeader.Title>
+
+<RecipeHeader.Description>When an ``if`` body contains only ``pass`` and is followed by an ``else``, flip the condition and use the else body directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemovePassBody","displayName":"Drop ``pass``-only ``if`` body by inverting the guard","pipPackage":"openrewrite-static-analysis"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert anonymous method to lambda"}
-  description={"Convert anonymous method delegate syntax to lambda expression."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.ConvertAnonymousMethodToLambda"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/convertanonymousmethodtolambda.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert anonymous method to lambda</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert anonymous method delegate syntax to lambda expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.ConvertAnonymousMethodToLambda","displayName":"Convert anonymous method to lambda","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

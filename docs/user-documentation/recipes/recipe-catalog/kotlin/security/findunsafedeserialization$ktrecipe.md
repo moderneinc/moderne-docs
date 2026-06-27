@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unsafe Java deserialization"}
-  description={"Java native deserialization is the source of the Apache Commons gadget-chain RCE family. Each `ObjectInputStream` allocation needs an explicit `ObjectInputFilter` (Java 9+) or a replacement encoding."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindUnsafeDeserialization$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findunsafedeserialization$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `ObjectInputStream(...)` constructions","href":"kotlin/security/findobjectinputstream$ktrecipe"}]}>
+<RecipeHeader.Title>Find unsafe Java deserialization</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java native deserialization is the source of the Apache Commons gadget-chain RCE family. Each `ObjectInputStream` allocation needs an explicit `ObjectInputFilter` (Java 9+) or a replacement encoding.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `ObjectInputStream(...)` constructions","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findobjectinputstream$ktrecipe/"}]}>
 
 ## Definition
 

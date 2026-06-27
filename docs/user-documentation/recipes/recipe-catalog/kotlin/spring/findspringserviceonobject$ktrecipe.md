@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Service object Foo` declarations"}
-  description={"A Spring `@Service` / `@Component` declared as `object` is a singleton at the language level — Spring will still register it as a bean, but autowiring into the object's properties is fragile (`object` initialization runs at class-load time, before the Spring context exists). Use a regular class so the container controls the lifecycle."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringServiceOnObject$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringserviceonobject$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Service object Foo` declarations</RecipeHeader.Title>
+
+<RecipeHeader.Description>A Spring `@Service` / `@Component` declared as `object` is a singleton at the language level — Spring will still register it as a bean, but autowiring into the object's properties is fragile (`object` initialization runs at class-load time, before the Spring context exists). Use a regular class so the container controls the lifecycle.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindSpringServiceOnObject$KtRecipe","displayName":"Find `@Service object Foo` declarations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

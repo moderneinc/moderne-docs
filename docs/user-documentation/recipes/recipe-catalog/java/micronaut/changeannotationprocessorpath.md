@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Maven annotation processor path"}
-  description={"Change the groupId, artifactId, and version of a Maven annotation processor path."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.ChangeAnnotationProcessorPath"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/changeannotationprocessorpath.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Maven annotation processor path</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the groupId, artifactId, and version of a Maven annotation processor path.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldGroupId","required":true,"description":"The old groupId to replace. The groupId is the first part of a plugin coordinate 'com.google.guava:guava:VERSION'. Supports glob expressions.","example":"org.openrewrite.recipe"},{"type":"String","name":"oldArtifactId","required":true,"description":"The old artifactId to replace. The artifactId is the second part of a plugin coordinate 'com.google.guava:guava:VERSION'. Supports glob expressions.","example":"my-deprecated-annotation-processor"},{"type":"String","name":"newGroupId","required":false,"description":"The new groupId to use. Defaults to the existing group id.","example":"corp.internal.openrewrite.recipe"},{"type":"String","name":"newArtifactId","required":false,"description":"The new artifactId to use. Defaults to the existing artifact id.","example":"my-new-annotation-processor"},{"type":"String","name":"newVersion","required":false,"description":"An version string for the annotation processor path. Version strings that start with 'micronaut.' will be treated specially. ","example":"micronaut.validation"},{"type":"List","name":"exclusions","required":false,"description":"A list of exclusions to apply to the annotation processor path in the format groupId:artifactId","example":"io.micronaut:micronaut-inject"}]}>
 

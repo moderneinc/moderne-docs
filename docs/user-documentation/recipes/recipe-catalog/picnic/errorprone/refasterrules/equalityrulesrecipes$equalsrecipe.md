@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `EqualityRules.Equals`"}
-  description={"Avoid contrived ways of handling `null` values during equality testing."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.EqualityRulesRecipes$EqualsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/equalityrulesrecipes$equalsrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `EqualityRules.Equals`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Avoid contrived ways of handling `null` values during equality testing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.EqualityRulesRecipes$EqualsRecipe","displayName":"Refaster template `EqualityRules.Equals`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

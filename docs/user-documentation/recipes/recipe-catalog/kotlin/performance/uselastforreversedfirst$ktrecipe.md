@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `last()` instead of `reversed().first()`"}
-  description={"`reversed()` allocates an intermediate reversed copy. `last()` walks to the same element directly."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseLastForReversedFirst$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/uselastforreversedfirst$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `last()` instead of `reversed().first()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`reversed()` allocates an intermediate reversed copy. `last()` walks to the same element directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseLastForReversedFirst$KtRecipe","displayName":"Use `last()` instead of `reversed().first()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

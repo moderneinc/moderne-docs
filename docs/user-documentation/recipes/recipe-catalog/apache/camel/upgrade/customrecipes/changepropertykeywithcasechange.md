@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change prefix of property with Camel case"}
-  description={"Change prefix of property with Camel case"}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.customRecipes.ChangePropertyKeyWithCaseChange"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/changepropertykeywithcasechange.md"}
-/>
+>
+
+<RecipeHeader.Title>Change prefix of property with Camel case</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change prefix of property with Camel case</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to rename.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"newPrefix","required":true,"description":"The prefix to be replaced with.","example":"TODO Provide a usage example for the docs"},{"type":"List","name":"exclusions","required":true,"description":"Regexp for exclusions","example":"camel.springboot.main-run-controller"}]}>
 

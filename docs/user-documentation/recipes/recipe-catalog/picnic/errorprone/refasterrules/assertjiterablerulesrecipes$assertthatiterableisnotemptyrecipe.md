@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJIterableRules.AssertThatIterableIsNotEmpty`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIterableIsNotEmpty<E> {\n    \n    @BeforeTemplate\n    AbstractAssert<?, ?> before(Iterable<E> iterable) {\n        return assertThat(iterable.iterator()).hasNext();\n    }\n    \n    @BeforeTemplate\n    AbstractAssert<?, ?> before(Collection<E> iterable) {\n        return assertThat(iterable.isEmpty()).isFalse();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    IterableAssert<E> after(Iterable<E> iterable) {\n        return assertThat(iterable).isNotEmpty();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,38 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes$AssertThatIterableIsNotEmptyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterableisnotemptyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJIterableRules.AssertThatIterableIsNotEmpty`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIterableIsNotEmpty<E> {
+    
+    @BeforeTemplate
+    AbstractAssert<?, ?> before(Iterable<E> iterable) {
+        return assertThat(iterable.iterator()).hasNext();
+    }
+    
+    @BeforeTemplate
+    AbstractAssert<?, ?> before(Collection<E> iterable) {
+        return assertThat(iterable.isEmpty()).isFalse();
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    IterableAssert<E> after(Iterable<E> iterable) {
+        return assertThat(iterable).isNotEmpty();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes$AssertThatIterableIsNotEmptyRecipe","displayName":"Refaster template `AssertJIterableRules.AssertThatIterableIsNotEmpty`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

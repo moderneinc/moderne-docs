@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `throw RuntimeException(\"…\")` calls"}
-  description={"Same family as `throw Exception(\"...\")` — flag for replacement with `IllegalArgumentException`/`IllegalStateException`/domain-specific subclass."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindBareRuntimeExceptionThrow$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbareruntimeexceptionthrow$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `throw RuntimeException("…")` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Same family as `throw Exception("...")` — flag for replacement with `IllegalArgumentException`/`IllegalStateException`/domain-specific subclass.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindBareRuntimeExceptionThrow$KtRecipe","displayName":"Find `throw RuntimeException(\"…\")` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

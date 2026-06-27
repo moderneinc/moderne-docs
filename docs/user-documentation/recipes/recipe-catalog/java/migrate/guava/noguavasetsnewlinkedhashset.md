@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `new LinkedHashSet<>()`"}
-  description={"Prefer the Java standard library over third-party usage of Guava in simple cases like this."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaSetsNewLinkedHashSet"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavasetsnewlinkedhashset.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `new LinkedHashSet<>()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Java standard library over third-party usage of Guava in simple cases like this.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.Set;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = Sets.newLinkedHashSet();\n}\n","after":"import java.util.LinkedHashSet;\nimport java.util.Set;\n\nclass Test {\n    Set<Integer> cardinalsWorldSeries = new LinkedHashSet<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.LinkedHashSet;\nimport java.util.Set;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   Set<Integer> cardinalsWorldSeries = Sets.newLinkedHashSet();\n+   Set<Integer> cardinalsWorldSeries = new LinkedHashSet<>();\n}\n","newFile":false}]}]}>
 

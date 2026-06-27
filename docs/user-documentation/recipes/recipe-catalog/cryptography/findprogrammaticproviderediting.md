@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find programmatic security provider editing"}
-  description={"Detects programmatic modifications to the Java Security Provider list through Security.addProvider(), insertProviderAt(), or removeProvider() calls. Modifying providers at runtime makes the security configuration unpredictable and prevents crypto-agility by hardcoding provider dependencies."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindProgrammaticProviderEditing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findprogrammaticproviderediting.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find programmatic security provider editing</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects programmatic modifications to the Java Security Provider list through Security.addProvider(), insertProviderAt(), or removeProvider() calls. Modifying providers at runtime makes the security configuration unpredictable and prevents crypto-agility by hardcoding provider dependencies.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.security.Security;\nimport java.security.Provider;\n\npublic class AddProviderExample {\n    public void addCustomProvider() {\n        Provider myProvider = new Provider(\"MyProvider\", 1.0, \"Custom Provider\") {};\n        Security.addProvider(myProvider);\n    }\n}\n","after":"import java.security.Security;\nimport java.security.Provider;\n\npublic class AddProviderExample {\n    public void addCustomProvider() {\n        Provider myProvider = new Provider(\"MyProvider\", 1.0, \"Custom Provider\") {};\n        /*~~(PROVIDER use)~~>*/Security.addProvider(myProvider);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    public void addCustomProvider() {\n        Provider myProvider = new Provider(\"MyProvider\", 1.0, \"Custom Provider\") {};\n-       Security.addProvider(myProvider);\n+       /*~~(PROVIDER use)~~>*/Security.addProvider(myProvider);\n    }\n","newFile":false}]}]}>
 

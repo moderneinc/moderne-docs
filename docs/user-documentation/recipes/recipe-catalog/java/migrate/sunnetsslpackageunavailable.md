@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `com.sun.net.ssl` package"}
-  description={"The internal API `com.sun.net.ssl` is removed. The package was intended for internal use only and replacement APIs can be found in the `javax.net.ssl` package."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java17"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.SunNetSslPackageUnavailable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/sunnetsslpackageunavailable.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename package name","href":"java/changepackage"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Replace `com.sun.net.ssl` package</RecipeHeader.Title>
+
+<RecipeHeader.Description>The internal API `com.sun.net.ssl` is removed. The package was intended for internal use only and replacement APIs can be found in the `javax.net.ssl` package.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

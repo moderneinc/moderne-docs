@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Reduce parameter count (max 5 parameters)"}
-  description={"Finds `def` methods with more than 5 parameters. Long parameter lists hurt readability; consider using a case class."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.ReduceParameterCount"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/reduceparametercount.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Reduce parameter count (max 5 parameters)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `def` methods with more than 5 parameters. Long parameter lists hurt readability; consider using a case class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    def tooMany(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int): Unit = ()\n}\n","after":"class Example {\n    /*~~(Method has too many parameters; consider using a case class)~~>*/def tooMany(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int): Unit = ()\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Example {\n-   def tooMany(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int): Unit = ()\n+   /*~~(Method has too many parameters; consider using a case class)~~>*/def tooMany(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int): Unit = ()\n}\n","newFile":false}]}]}>
 

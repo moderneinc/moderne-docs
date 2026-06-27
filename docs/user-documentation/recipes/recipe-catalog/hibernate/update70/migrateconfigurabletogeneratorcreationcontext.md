@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `Configurable.configure()` to use `GeneratorCreationContext`"}
-  description={"In Hibernate 7.0, `Configurable.configure()` now takes a `GeneratorCreationContext` parameter instead of `ServiceRegistry`. This recipe migrates method signatures and call sites."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.MigrateConfigurableToGeneratorCreationContext"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/migrateconfigurabletogeneratorcreationcontext.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `Configurable.configure()` to use `GeneratorCreationContext`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Hibernate 7.0, `Configurable.configure()` now takes a `GeneratorCreationContext` parameter instead of `ServiceRegistry`. This recipe migrates method signatures and call sites.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.id.Configurable;\nimport org.hibernate.service.Service;\nimport org.hibernate.service.ServiceRegistry;\n\nclass ServiceUsingGenerator implements Configurable {\n    @Override\n    public void configure(ServiceRegistry serviceRegistry) {\n        SomeService service = serviceRegistry.getService(SomeService.class);\n    }\n\n    private static class SomeService implements Service {}\n}\n","after":"import org.hibernate.generator.GeneratorCreationContext;\nimport org.hibernate.id.Configurable;\nimport org.hibernate.service.Service;\nimport org.hibernate.service.ServiceRegistry;\n\nclass ServiceUsingGenerator implements Configurable {\n    @Override\n    public void configure(GeneratorCreationContext creationContext) {\n        ServiceRegistry serviceRegistry = creationContext.getServiceRegistry();\n        SomeService service = serviceRegistry.getService(SomeService.class);\n    }\n\n    private static class SomeService implements Service {}\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.hibernate.generator.GeneratorCreationContext;\nimport org.hibernate.id.Configurable;\n@@ -7,1 +8,2 @@\nclass ServiceUsingGenerator implements Configurable {\n    @Override\n-   public void configure(ServiceRegistry serviceRegistry) {\n+   public void configure(GeneratorCreationContext creationContext) {\n+       ServiceRegistry serviceRegistry = creationContext.getServiceRegistry();\n        SomeService service = serviceRegistry.getService(SomeService.class);\n","newFile":false}]}]}>
 

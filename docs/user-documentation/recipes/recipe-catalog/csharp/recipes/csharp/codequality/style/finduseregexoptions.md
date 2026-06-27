@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Regex without ExplicitCapture option"}
-  description={"Detect `new Regex()` or `Regex.IsMatch()` without `RegexOptions.ExplicitCapture`. Using this option avoids unnecessary unnamed captures."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseRegexOptions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finduseregexoptions.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Regex without ExplicitCapture option</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `new Regex()` or `Regex.IsMatch()` without `RegexOptions.ExplicitCapture`. Using this option avoids unnecessary unnamed captures.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseRegexOptions","displayName":"Find Regex without ExplicitCapture option","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

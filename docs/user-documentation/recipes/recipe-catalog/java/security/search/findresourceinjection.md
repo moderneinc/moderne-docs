@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find resource injection vectors"}
-  description={"Detects resource injection vulnerabilities where user-controlled input flows to resource access operations — file paths, JNDI lookups, class loading, and native library loading. Uses taint analysis from rewrite-program-analysis for source-to-sink tracking with sanitizer support, plus structural detection as fallback."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security","CWE-99"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindResourceInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findresourceinjection.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find path traversal vulnerabilities","href":"analysis/java/security/findpathtraversal"},{"name":"Find JNDI injection vulnerabilities","href":"analysis/java/security/findjndiinjection"},{"name":"Find unsafe reflection vulnerabilities","href":"analysis/java/security/findunsafereflectioninjection"},{"name":"Find process control vulnerabilities","href":"analysis/java/security/findprocesscontrolinjection"},{"name":"Find unsafe reflection vectors","href":"java/security/search/findunsafereflection"},{"name":"Find process control vectors","href":"java/security/search/findprocesscontrol"}]}>
+<RecipeHeader.Title>Find resource injection vectors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects resource injection vulnerabilities where user-controlled input flows to resource access operations — file paths, JNDI lookups, class loading, and native library loading. Uses taint analysis from rewrite-program-analysis for source-to-sink tracking with sanitizer support, plus structural detection as fallback.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find path traversal vulnerabilities","href":"/user-documentation/recipes/recipe-catalog/analysis/java/security/findpathtraversal/"},{"name":"Find JNDI injection vulnerabilities","href":"/user-documentation/recipes/recipe-catalog/analysis/java/security/findjndiinjection/"},{"name":"Find unsafe reflection vulnerabilities","href":"/user-documentation/recipes/recipe-catalog/analysis/java/security/findunsafereflectioninjection/"},{"name":"Find process control vulnerabilities","href":"/user-documentation/recipes/recipe-catalog/analysis/java/security/findprocesscontrolinjection/"},{"name":"Find unsafe reflection vectors","href":"/user-documentation/recipes/recipe-catalog/java/security/search/findunsafereflection/"},{"name":"Find process control vectors","href":"/user-documentation/recipes/recipe-catalog/java/security/search/findprocesscontrol/"}]}>
 
 ## Definition
 

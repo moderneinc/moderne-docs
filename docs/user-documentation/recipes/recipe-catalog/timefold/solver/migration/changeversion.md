@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change the Timefold version"}
-  description={"Replaces the version of Timefold"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/ai.timefold.solver.migration.ChangeVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/timefold/solver/migration/changeversion.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Maven project property value","href":"maven/changepropertyvalue"},{"name":"Change Maven project property value","href":"maven/changepropertyvalue"},{"name":"Change Maven project property value","href":"maven/changepropertyvalue"},{"name":"Change Maven project property value","href":"maven/changepropertyvalue"},{"name":"Change Maven project property value","href":"maven/changepropertyvalue"}]}>
+<RecipeHeader.Title>Change the Timefold version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces the version of Timefold</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Maven project property value","href":"/user-documentation/recipes/recipe-catalog/maven/changepropertyvalue/"},{"name":"Change Maven project property value","href":"/user-documentation/recipes/recipe-catalog/maven/changepropertyvalue/"},{"name":"Change Maven project property value","href":"/user-documentation/recipes/recipe-catalog/maven/changepropertyvalue/"},{"name":"Change Maven project property value","href":"/user-documentation/recipes/recipe-catalog/maven/changepropertyvalue/"},{"name":"Change Maven project property value","href":"/user-documentation/recipes/recipe-catalog/maven/changepropertyvalue/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`assertTrue(x instanceof y)` to `assertInstanceOf(y.class, x)`"}
-  description={"Migration of JUnit4 (or potentially JUnit5) test case in form of assertTrue(x instanceof y) to assertInstanceOf(y.class, x)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.AssertTrueInstanceofToAssertInstanceOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/asserttrueinstanceoftoassertinstanceof.md"}
-/>
+>
+
+<RecipeHeader.Title>`assertTrue(x instanceof y)` to `assertInstanceOf(y.class, x)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migration of JUnit4 (or potentially JUnit5) test case in form of assertTrue(x instanceof y) to assertInstanceOf(y.class, x).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport java.util.ArrayList;\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass ATest {\n    @Test\n    void testJUnit5() {\n        List<String> list = new ArrayList<>();\n        assertTrue(list instanceof List);\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport java.util.ArrayList;\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertInstanceOf;\n\nclass ATest {\n    @Test\n    void testJUnit5() {\n        List<String> list = new ArrayList<>();\n        assertInstanceOf(List.class, list);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nimport java.util.List;\n\n-import static org.junit.jupiter.api.Assertions.assertTrue;\n+import static org.junit.jupiter.api.Assertions.assertInstanceOf;\n\n@@ -11,1 +11,1 @@\n    void testJUnit5() {\n        List<String> list = new ArrayList<>();\n-       assertTrue(list instanceof List);\n+       assertInstanceOf(List.class, list);\n    }\n","newFile":false}]}]}>
 

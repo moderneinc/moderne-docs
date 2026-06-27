@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` invocations"}
-  description={"Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` invocations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.UserTypeNullSafeGetSharedSessionContractImplementorRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/usertypenullsafegetsharedsessioncontractimplementorrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` invocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` invocations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.engine.spi.SharedSessionContractImplementor;\nimport org.hibernate.usertype.BaseUserTypeSupport;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\n\nclass UserTypeNullSafeTest {\n    void testUserTypeNullSafe(BaseUserTypeSupport<String> type, ResultSet rs, int index, SharedSessionContractImplementor session) throws SQLException {\n        type.nullSafeGet(rs, index, session, null);\n        type.nullSafeGet(rs, index, session, new Object());\n    }\n}\n","after":"import org.hibernate.engine.spi.SharedSessionContractImplementor;\nimport org.hibernate.usertype.BaseUserTypeSupport;\nimport java.sql.ResultSet;\nimport java.sql.SQLException;\n\nclass UserTypeNullSafeTest {\n    void testUserTypeNullSafe(BaseUserTypeSupport<String> type, ResultSet rs, int index, SharedSessionContractImplementor session) throws SQLException {\n        type.nullSafeGet(rs, index, session);\n        type.nullSafeGet(rs, index, session);\n    }\n}\n","diff":"@@ -8,2 +8,2 @@\nclass UserTypeNullSafeTest {\n    void testUserTypeNullSafe(BaseUserTypeSupport<String> type, ResultSet rs, int index, SharedSessionContractImplementor session) throws SQLException {\n-       type.nullSafeGet(rs, index, session, null);\n-       type.nullSafeGet(rs, index, session, new Object());\n+       type.nullSafeGet(rs, index, session);\n+       type.nullSafeGet(rs, index, session);\n    }\n","newFile":false}]}]}>
 

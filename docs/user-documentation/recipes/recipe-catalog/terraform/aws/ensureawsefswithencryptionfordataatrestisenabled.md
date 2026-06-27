@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure AWS EFS with encryption for data at rest is enabled"}
-  description={"Ensure AWS EFS with encryption for data at rest is enabled."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["CKV_AWS_42","terraform","AWS"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.aws.EnsureAWSEFSWithEncryptionForDataAtRestIsEnabled"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/aws/ensureawsefswithencryptionfordataatrestisenabled.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Ensure AWS EFS with encryption for data at rest is enabled</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure AWS EFS with encryption for data at rest is enabled.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

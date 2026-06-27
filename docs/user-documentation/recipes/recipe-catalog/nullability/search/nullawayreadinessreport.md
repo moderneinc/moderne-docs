@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"NullAway readiness scorecard"}
-  description={"Produces a per-class readiness scorecard for a NullAway rollout as a data table, without modifying any source. For every Java class (top-level and nested) it counts the methods, fields, and parameters that already carry a `@Nullable` annotation, the instance fields that are non-null but uninitialized (the residual field-initialization risk NullAway flags once a scope is marked), and whether the class or its enclosing `package-info` is already `@NullMarked`. A consumer can use these numbers to compute annotation coverage and weigh it against field-init risk, then prioritize which packages or modules to mark `@NullMarked` first. This is a triage report, not a transformation: the recipe emits no source changes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.search.NullAwayReadinessReport"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/search/nullawayreadinessreport.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>NullAway readiness scorecard</RecipeHeader.Title>
+
+<RecipeHeader.Description>Produces a per-class readiness scorecard for a NullAway rollout as a data table, without modifying any source. For every Java class (top-level and nested) it counts the methods, fields, and parameters that already carry a `@Nullable` annotation, the instance fields that are non-null but uninitialized (the residual field-initialization risk NullAway flags once a scope is marked), and whether the class or its enclosing `package-info` is already `@NullMarked`. A consumer can use these numbers to compute annotation coverage and weigh it against field-init risk, then prioritize which packages or modules to mark `@NullMarked` first. This is a triage report, not a transformation: the recipe emits no source changes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.nullability.search.NullAwayReadinessReport","displayName":"NullAway readiness scorecard","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 

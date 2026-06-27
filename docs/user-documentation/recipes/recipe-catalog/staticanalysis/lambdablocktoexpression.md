@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify lambda blocks to expressions"}
-  description={"Single-line statement lambdas returning a value can be replaced with expression lambdas. Expression-form lambdas are more concise and consistent with a functional programming style, making the code easier to scan."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1602"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.LambdaBlockToExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/lambdablocktoexpression.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify lambda blocks to expressions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Single-line statement lambdas returning a value can be replaced with expression lambdas. Expression-form lambdas are more concise and consistent with a functional programming style, making the code easier to scan.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.function.Function;\nclass Test {\n    Function<Integer, Integer> f = n -> {\n        return n+1;\n    };\n}\n","after":"import java.util.function.Function;\nclass Test {\n    Function<Integer, Integer> f = n -> n+1;\n}\n","diff":"@@ -3,3 +3,1 @@\nimport java.util.function.Function;\nclass Test {\n-   Function<Integer, Integer> f = n -> {\n-       return n+1;\n-   };\n+   Function<Integer, Integer> f = n -> n+1;\n}\n","newFile":false}]}]}>
 

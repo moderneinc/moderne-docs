@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Gradle project dependencies to version catalog"}
-  description={"Migrates Gradle project dependencies to use the [version catalog](https://docs.gradle.org/current/userguide/platforms.html) feature. Supports migrating dependency declarations of various forms:\n * `String` notation: `\"group:artifact:version\"`\n * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`\n * Property references: `\"group:artifact:$version\"` or `\"group:artifact:${version}\"`\n\nThe recipe will:\n * Create a `gradle/libs.versions.toml` file with version declarations\n * Replace dependency declarations with catalog references (e.g., `libs.springCore`)\n * Migrate version properties from `gradle.properties` to the version catalog\n * Preserve project dependencies unchanged\n\n**Note:** If a version catalog already exists, the recipe will not modify it."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,28 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.MigrateDependenciesToVersionCatalog"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/migratedependenciestoversioncatalog.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Gradle project dependencies to version catalog</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Migrates Gradle project dependencies to use the [version catalog](https://docs.gradle.org/current/userguide/platforms.html) feature. Supports migrating dependency declarations of various forms:
+ * `String` notation: `"group:artifact:version"`
+ * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`
+ * Property references: `"group:artifact:$version"` or `"group:artifact:${version}"`
+
+The recipe will:
+ * Create a `gradle/libs.versions.toml` file with version declarations
+ * Replace dependency declarations with catalog references (e.g., `libs.springCore`)
+ * Migrate version properties from `gradle.properties` to the version catalog
+ * Preserve project dependencies unchanged
+
+**Note:** If a version catalog already exists, the recipe will not modify it.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins {\n    id 'java'\n}\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    implementation 'org.springframework:spring-core:5.3.0'\n    testImplementation 'junit:junit:4.13.2'\n    runtimeOnly 'com.h2database:h2:1.4.200'\n}\n","after":"plugins {\n    id 'java'\n}\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    implementation libs.springCore\n    testImplementation libs.junit\n    runtimeOnly libs.h2\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -10,3 +10,3 @@\n\ndependencies {\n-   implementation 'org.springframework:spring-core:5.3.0'\n-   testImplementation 'junit:junit:4.13.2'\n-   runtimeOnly 'com.h2database:h2:1.4.200'\n+   implementation libs.springCore\n+   testImplementation libs.junit\n+   runtimeOnly libs.h2\n}\n","newFile":false},{"language":"toml","before":"","after":"[versions]\nspring-core = \"5.3.0\"\njunit = \"4.13.2\"\nh2 = \"1.4.200\"\n\n[libraries]\nspring-core = { group = \"org.springframework\", name = \"spring-core\", version.ref = \"spring-core\" }\njunit = { group = \"junit\", name = \"junit\", version.ref = \"junit\" }\nh2 = { group = \"com.h2database\", name = \"h2\", version.ref = \"h2\" }\n","newFile":true}]},{"variants":[{"language":"buildGradleKts","before":"plugins {\n    id(\"java\")\n}\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    implementation(\"org.springframework:spring-core:5.3.0\")\n    testImplementation(\"junit:junit:4.13.2\")\n    runtimeOnly(\"com.h2database:h2:1.4.200\")\n}\n","after":"plugins {\n    id(\"java\")\n}\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    implementation(libs.springCore)\n    testImplementation(libs.junit)\n    runtimeOnly(libs.h2)\n}\n","diff":"--- build.gradle.kts\n+++ build.gradle.kts\n@@ -10,3 +10,3 @@\n\ndependencies {\n-   implementation(\"org.springframework:spring-core:5.3.0\")\n-   testImplementation(\"junit:junit:4.13.2\")\n-   runtimeOnly(\"com.h2database:h2:1.4.200\")\n+   implementation(libs.springCore)\n+   testImplementation(libs.junit)\n+   runtimeOnly(libs.h2)\n}\n","newFile":false},{"language":"toml","before":"","after":"[versions]\nspring-core = \"5.3.0\"\njunit = \"4.13.2\"\nh2 = \"1.4.200\"\n\n[libraries]\nspring-core = { group = \"org.springframework\", name = \"spring-core\", version.ref = \"spring-core\" }\njunit = { group = \"junit\", name = \"junit\", version.ref = \"junit\" }\nh2 = { group = \"com.h2database\", name = \"h2\", version.ref = \"h2\" }\n","newFile":true}]}]}>
 

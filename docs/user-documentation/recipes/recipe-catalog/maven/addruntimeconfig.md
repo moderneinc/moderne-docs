@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add a configuration option for the Maven runtime"}
-  description={"Add a new configuration option for the Maven runtime if not already present."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.AddRuntimeConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/addruntimeconfig.md"}
-/>
+>
+
+<RecipeHeader.Title>Add a configuration option for the Maven runtime</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a new configuration option for the Maven runtime if not already present.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"relativeConfigFileName","required":true,"description":"The file name for setting the runtime configuration.","example":"maven.config"},{"type":"String","name":"flag","required":true,"description":"The runtime flag name to be set.","example":"-T"},{"type":"String","name":"argument","required":false,"description":"The argument to set for the runtime flag. Some flags do not need to provide a value.","example":"3"},{"type":"Separator","name":"separator","required":true,"description":"The separator to use if flag and argument have been provided.","example":"="}]}>
 

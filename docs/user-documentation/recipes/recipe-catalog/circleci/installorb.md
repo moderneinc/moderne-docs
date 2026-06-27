@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Install an orb"}
-  description={"Install a CircleCI [orb](https://circleci.com/docs/2.0/orb-intro/) if it is not already installed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.circleci.InstallOrb"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/circleci/installorb.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Install an orb</RecipeHeader.Title>
+
+<RecipeHeader.Description>Install a CircleCI [orb](https://circleci.com/docs/2.0/orb-intro/) if it is not already installed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"orbKey","required":true,"description":"The orb key to be followed by an orb slug identifying a specific orb version.","example":"kube"},{"type":"String","name":"slug","required":true,"description":"A specific orb to install, in the form `<namespace>/<orb-name>@1.2.3`.","example":"circleci/kubernetes@0.11.0"}]}>
 

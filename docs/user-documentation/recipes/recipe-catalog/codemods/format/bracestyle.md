@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce consistent brace style for blocks"}
-  description={"Enforce consistent brace style for blocks\n\nSee [rule details](https://eslint.style/rules/default/brace-style)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["eslint","stylistic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.format.BraceStyle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/format/bracestyle.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce consistent brace style for blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce consistent brace style for blocks  See [rule details](https://eslint.style/rules/default/brace-style).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

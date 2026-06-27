@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create Tomcat context XML"}
-  description={"Creates a `context.xml` file for projects containing JBoss descriptor files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.tomcat.CreateTomcatContextXml"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/createtomcatcontextxml.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Create Tomcat context XML</RecipeHeader.Title>
+
+<RecipeHeader.Description>Creates a `context.xml` file for projects containing JBoss descriptor files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"xml","code":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<jboss-web>\n    <context-root>/myapp</context-root>\n</jboss-web>\n"},"variants":[{"language":"xml","before":"","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Context>\n</Context>\n","newFile":true}]}]}>
 

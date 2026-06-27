@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJRules.AssertThatSetsAreEqual`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatSetsAreEqual<S, T extends S> {\n    \n    @BeforeTemplate\n    AbstractCollectionAssert<?, ?, S, ?> before(Set<S> set1, Iterable<T> set2) {\n        return Refaster.anyOf(assertThat(set1).isEqualTo(set2), assertThat(set1).containsExactlyInAnyOrderElementsOf(set2));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractCollectionAssert<?, ?, S, ?> after(Set<S> set1, Iterable<T> set2) {\n        return assertThat(set1).hasSameElementsAs(set2);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatSetsAreEqualRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatsetsareequalrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJRules.AssertThatSetsAreEqual`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatSetsAreEqual<S, T extends S> {
+    
+    @BeforeTemplate
+    AbstractCollectionAssert<?, ?, S, ?> before(Set<S> set1, Iterable<T> set2) {
+        return Refaster.anyOf(assertThat(set1).isEqualTo(set2), assertThat(set1).containsExactlyInAnyOrderElementsOf(set2));
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractCollectionAssert<?, ?, S, ?> after(Set<S> set1, Iterable<T> set2) {
+        return assertThat(set1).hasSameElementsAs(set2);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatSetsAreEqualRecipe","displayName":"Refaster template `AssertJRules.AssertThatSetsAreEqual`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

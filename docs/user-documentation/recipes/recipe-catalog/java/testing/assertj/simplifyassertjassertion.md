@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify AssertJ assertions with literal arguments"}
-  description={"Simplify AssertJ assertions by replacing them with more expressive dedicated assertions."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.SimplifyAssertJAssertion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjassertion.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify AssertJ assertions with literal arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify AssertJ assertions by replacing them with more expressive dedicated assertions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"assertToReplace","required":false,"description":"The assertion method that should be replaced.","example":"hasSize"},{"type":"String","name":"literalArgument","required":true,"description":"The literal argument passed into the assertion to replace; use \"null\" for `null`.","example":"0"},{"type":"String","name":"dedicatedAssertion","required":true,"description":"The zero argument assertion to adopt instead.","example":"isEmpty"},{"type":"String","name":"requiredType","required":true,"description":"The type of the actual assertion argument.","example":"java.lang.String"}]}>
 

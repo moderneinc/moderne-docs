@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`SuggestedFixRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `SuggestedFix`es.\n[Source](https://error-prone.picnic.tech/refasterrules/SuggestedFixRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.SuggestedFixRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/suggestedfixrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `SuggestedFixRules.SuggestedFixToBuilder`","href":"picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixtobuilderrecipe"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixDelete`","href":"picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixdeleterecipe"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixReplaceTree`","href":"picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixreplacetreerecipe"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixReplaceStartEnd`","href":"picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixreplacestartendrecipe"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixReplaceTreeStartEnd`","href":"picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixreplacetreestartendrecipe"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixSwap`","href":"picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixswaprecipe"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixPrefixWith`","href":"picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixprefixwithrecipe"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixPostfixWith`","href":"picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixpostfixwithrecipe"}]}>
+<RecipeHeader.Title>`SuggestedFixRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `SuggestedFix`es. [Source](https://error-prone.picnic.tech/refasterrules/SuggestedFixRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `SuggestedFixRules.SuggestedFixToBuilder`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixtobuilderrecipe/"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixDelete`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixdeleterecipe/"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixReplaceTree`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixreplacetreerecipe/"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixReplaceStartEnd`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixreplacestartendrecipe/"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixReplaceTreeStartEnd`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixreplacetreestartendrecipe/"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixSwap`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixswaprecipe/"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixPrefixWith`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixprefixwithrecipe/"},{"name":"Refaster template `SuggestedFixRules.SuggestedFixPostfixWith`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/suggestedfixrulesrecipes$suggestedfixpostfixwithrecipe/"}]}>
 
 ## Definition
 

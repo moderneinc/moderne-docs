@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce or ban the use of inline type-only markers for named imports"}
-  description={"Enforce or ban the use of inline type-only markers for named imports\nSee rule details for [import/consistent-type-specifier-style](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/consistent-type-specifier-style.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.javascript.ConsistentTypeSpecifierStyle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/consistenttypespecifierstyle.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce or ban the use of inline type-only markers for named imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce or ban the use of inline type-only markers for named imports See rule details for [import/consistent-type-specifier-style](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/consistent-type-specifier-style.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

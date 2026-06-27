@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUL `Logger.isLoggable(Level.ALL)` with SLF4J's `Logger.isTraceEnabled`"}
-  description={"Replace calls to `java.util.logging.Logger.isLoggable(Level.ALL)` with `org.slf4j.Logger.isTraceEnabled()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.JulIsLoggableToIsEnabledRecipes$LoggerIsLoggableLevelAllRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelallrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace JUL `Logger.isLoggable(Level.ALL)` with SLF4J's `Logger.isTraceEnabled`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace calls to `java.util.logging.Logger.isLoggable(Level.ALL)` with `org.slf4j.Logger.isTraceEnabled()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.logging.slf4j.JulIsLoggableToIsEnabledRecipes$LoggerIsLoggableLevelAllRecipe","displayName":"Replace JUL `Logger.isLoggable(Level.ALL)` with SLF4J's `Logger.isTraceEnabled`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 

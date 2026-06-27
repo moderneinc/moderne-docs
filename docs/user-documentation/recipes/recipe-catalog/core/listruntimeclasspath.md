@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"List runtime classpath"}
-  description={"A diagnostic utility which emits the runtime classpath to a data table."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.ListRuntimeClasspath"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/listruntimeclasspath.md"}
-/>
+>
+
+<RecipeHeader.Title>List runtime classpath</RecipeHeader.Title>
+
+<RecipeHeader.Description>A diagnostic utility which emits the runtime classpath to a data table.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.ListRuntimeClasspath","displayName":"List runtime classpath","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `DequeRules.DequeRemoveFirstOccurrence`"}
-  description={"Prefer `Deque#removeFirstOccurrence(Object)` over less clear alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.DequeRulesRecipes$DequeRemoveFirstOccurrenceRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/dequerulesrecipes$dequeremovefirstoccurrencerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `DequeRules.DequeRemoveFirstOccurrence`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Deque#removeFirstOccurrence(Object)` over less clear alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.DequeRulesRecipes$DequeRemoveFirstOccurrenceRecipe","displayName":"Refaster template `DequeRules.DequeRemoveFirstOccurrence`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

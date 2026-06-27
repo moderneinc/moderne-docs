@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply Kotlin standard-library idioms"}
-  description={"Opinionated bundle of every Kotlin stdlib-shorthand recipe in this module: round-trip elimination, empty-factory preference, and string `isBlank`/`take`/`drop` folds. Complementary to `Performance` (which focuses on chain collapses) and `BestPractices` (which focuses on flagging smells)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.Stdlib$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/stdlib$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Apply Kotlin collection shorthands","href":"kotlin/stdlib/collectionshorthands$ktrecipe"},{"name":"Prefer `emptyList()` / `emptySet()` / `emptyMap()` over zero-arg builders","href":"kotlin/stdlib/emptyconstructorshorthands$ktrecipe"},{"name":"Apply Kotlin string shorthands","href":"kotlin/stdlib/stringshorthands$ktrecipe"}]}>
+<RecipeHeader.Title>Apply Kotlin standard-library idioms</RecipeHeader.Title>
+
+<RecipeHeader.Description>Opinionated bundle of every Kotlin stdlib-shorthand recipe in this module: round-trip elimination, empty-factory preference, and string `isBlank`/`take`/`drop` folds. Complementary to `Performance` (which focuses on chain collapses) and `BestPractices` (which focuses on flagging smells).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Apply Kotlin collection shorthands","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/collectionshorthands$ktrecipe/"},{"name":"Prefer `emptyList()` / `emptySet()` / `emptyMap()` over zero-arg builders","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/emptyconstructorshorthands$ktrecipe/"},{"name":"Apply Kotlin string shorthands","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/stringshorthands$ktrecipe/"}]}>
 
 ## Definition
 

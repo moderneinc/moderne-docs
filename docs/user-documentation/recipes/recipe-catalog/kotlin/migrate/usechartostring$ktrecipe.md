@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Char.toString()` instead of `Character.toString(c)`"}
-  description={"`java.lang.Character.toString(c)` is JVM-only; `c.toString()` is the multiplatform receiver call and produces the same one-character `String`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseCharToString$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechartostring$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Char.toString()` instead of `Character.toString(c)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.lang.Character.toString(c)` is JVM-only; `c.toString()` is the multiplatform receiver call and produces the same one-character `String`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseCharToString$KtRecipe","displayName":"Use `Char.toString()` instead of `Character.toString(c)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unconditionally adds `@DependsOnDatabaseInitialization` to Spring Beans and Components depending on `javax.sql.DataSource`"}
-  description={"Beans of certain well-known types, such as `JdbcTemplate`, will be ordered so that they are initialized after the database has been initialized. If you have a bean that works with the `DataSource` directly, annotate its class or `@Bean` method with `@DependsOnDatabaseInitialization` to ensure that it too is initialized after the database has been initialized. See the [release notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes#initialization-ordering) for more. This recipe will not check if the `@DependsOnDatabaseInitialization` annotation is on the classpath. This recipe is best combined with a precondition, as seen in `DatabaseComponentAndBeanInitializationOrdering`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.DatabaseComponentAndBeanInitializationOrderingUnconditionally"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/databasecomponentandbeaninitializationorderingunconditionally.md"}
-/>
+>
+
+<RecipeHeader.Title>Unconditionally adds `@DependsOnDatabaseInitialization` to Spring Beans and Components depending on `javax.sql.DataSource`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Beans of certain well-known types, such as `JdbcTemplate`, will be ordered so that they are initialized after the database has been initialized. If you have a bean that works with the `DataSource` directly, annotate its class or `@Bean` method with `@DependsOnDatabaseInitialization` to ensure that it too is initialized after the database has been initialized. See the [release notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes#initialization-ordering) for more. This recipe will not check if the `@DependsOnDatabaseInitialization` annotation is on the classpath. This recipe is best combined with a precondition, as seen in `DatabaseComponentAndBeanInitializationOrdering`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.DatabaseComponentAndBeanInitializationOrderingUnconditionally","displayName":"Unconditionally adds `@DependsOnDatabaseInitialization` to Spring Beans and Components depending on `javax.sql.DataSource`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

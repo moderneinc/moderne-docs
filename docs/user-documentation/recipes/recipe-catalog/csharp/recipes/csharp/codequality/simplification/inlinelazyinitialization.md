@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Inline lazy initialization"}
-  description={"Use null-coalescing assignment (??=) for lazy initialization."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.InlineLazyInitialization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/inlinelazyinitialization.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Inline lazy initialization</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use null-coalescing assignment (??=) for lazy initialization.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.InlineLazyInitialization","displayName":"Inline lazy initialization","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

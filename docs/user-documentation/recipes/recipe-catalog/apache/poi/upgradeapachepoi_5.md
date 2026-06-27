@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates to Apache POI 5.x"}
-  description={"Migrates to the latest Apache POI 5.x release. This recipe modifies build files to account for artifact renames and upgrades dependency versions. It also chains the 4.1 recipe to handle all prior API migrations."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","poi"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.poi.UpgradeApachePoi_5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_5.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrates to Apache POI 4.1.2","href":"apache/poi/upgradeapachepoi_4_1"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Migrates to Apache POI 5.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates to the latest Apache POI 5.x release. This recipe modifies build files to account for artifact renames and upgrades dependency versions. It also chains the 4.1 recipe to handle all prior API migrations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrates to Apache POI 4.1.2","href":"/user-documentation/recipes/recipe-catalog/apache/poi/upgradeapachepoi_4_1/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]}>
 
 ## Definition
 

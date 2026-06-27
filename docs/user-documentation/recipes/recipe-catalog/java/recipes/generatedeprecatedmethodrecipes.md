@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Generate `InlineMethodCalls` recipes for deprecated delegating methods"}
-  description={"Finds `@Deprecated` method declarations whose body is a single delegation call to another method in the same class, and generates a declarative YAML recipe file containing `InlineMethodCalls` entries for each."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.GenerateDeprecatedMethodRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/generatedeprecatedmethodrecipes.md"}
-/>
+>
+
+<RecipeHeader.Title>Generate `InlineMethodCalls` recipes for deprecated delegating methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `@Deprecated` method declarations whose body is a single delegation call to another method in the same class, and generates a declarative YAML recipe file containing `InlineMethodCalls` entries for each.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\npublic class Foo {\n    private final String a;\n    private final String b;\n\n    public Foo(String a, String b) {\n        this.a = a;\n        this.b = b;\n    }\n\n    @Deprecated\n    public Foo(String a) {\n        this(a, null);\n    }\n}\n"},"variants":[{"language":"yaml","before":"","after":"type: specs.openrewrite.org/v1beta/recipe\nname: org.openrewrite.recipes.InlineDeprecatedMethods\ndisplayName: Inline deprecated delegating methods\ndescription: Automatically generated recipes to inline deprecated method calls that delegate to other methods in the same class.\nrecipeList:\n  - org.openrewrite.java.InlineMethodCalls:\n      methodPattern: 'com.example.Foo <constructor>(java.lang.String)'\n      replacement: 'this(a, null)'\n","newFile":true}]}]}>
 

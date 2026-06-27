@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer JDK methods for Maps and Sets of an expected size"}
-  description={"Prefer Java 19+ methods to create Maps and Sets of an expected size instead of using Guava methods."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoMapsAndSetsWithExpectedSize"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/nomapsandsetswithexpectedsize.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer JDK methods for Maps and Sets of an expected size</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer Java 19+ methods to create Maps and Sets of an expected size instead of using Guava methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.Maps;\nimport com.google.common.collect.Sets;\nimport java.util.Map;\nimport java.util.Set;\n\nclass A {\n    void method() {\n        Map<String, String> a = Maps.newHashMapWithExpectedSize(1);\n        Map<String, String> b = Maps.newLinkedHashMapWithExpectedSize(1);\n        Set<String> c = Sets.newHashSetWithExpectedSize(1);\n        Set<String> d = Sets.newLinkedHashSetWithExpectedSize(1);\n    }\n}\n","after":"import java.util.*;\n\nclass A {\n    void method() {\n        Map<String, String> a = new HashMap<>(1);\n        Map<String, String> b = new LinkedHashMap<>(1);\n        Set<String> c = new HashSet<>(1);\n        Set<String> d = new LinkedHashSet<>(1);\n    }\n}\n","diff":"@@ -1,4 +1,1 @@\n-import com.google.common.collect.Maps;\n-import com.google.common.collect.Sets;\n-import java.util.Map;\n-import java.util.Set;\n+import java.util.*;\n\n@@ -8,4 +5,4 @@\nclass A {\n    void method() {\n-       Map<String, String> a = Maps.newHashMapWithExpectedSize(1);\n-       Map<String, String> b = Maps.newLinkedHashMapWithExpectedSize(1);\n-       Set<String> c = Sets.newHashSetWithExpectedSize(1);\n-       Set<String> d = Sets.newLinkedHashSetWithExpectedSize(1);\n+       Map<String, String> a = new HashMap<>(1);\n+       Map<String, String> b = new LinkedHashMap<>(1);\n+       Set<String> c = new HashSet<>(1);\n+       Set<String> d = new LinkedHashSet<>(1);\n    }\n","newFile":false}]}]}>
 

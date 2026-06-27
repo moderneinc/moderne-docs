@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure Azure SQL server audit log retention is greater than 90 days"}
-  description={"Ensure Azure SQL server audit log retention is greater than 90 days."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["Azure","terraform","CKV_AZURE_24"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.azure.EnsureAzureSQLServerAuditLogRetentionIsGreaterThan90Days"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/azure/ensureazuresqlserverauditlogretentionisgreaterthan90days.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"},{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Ensure Azure SQL server audit log retention is greater than 90 days</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure Azure SQL server audit log retention is greater than 90 days.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"},{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Recipe classes should be public"}
-  description={"Ensures that classes extending Recipe are declared as public for proper visibility and accessibility."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.RecipeClassesShouldBePublic"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/recipeclassesshouldbepublic.md"}
-/>
+>
+
+<RecipeHeader.Title>Recipe classes should be public</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensures that classes extending Recipe are declared as public for proper visibility and accessibility.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.ExecutionContext;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.TreeVisitor;\n\nclass MyRecipe extends Recipe {\n    @Override\n    public String getDisplayName() {\n        return \"My Recipe\";\n    }\n\n    @Override\n    public String getDescription() {\n        return \"My description\";\n    }\n}\n","after":"import org.openrewrite.ExecutionContext;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.TreeVisitor;\n\npublic class MyRecipe extends Recipe {\n    @Override\n    public String getDisplayName() {\n        return \"My Recipe\";\n    }\n\n    @Override\n    public String getDescription() {\n        return \"My description\";\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nimport org.openrewrite.TreeVisitor;\n\n-class MyRecipe extends Recipe {\n+public class MyRecipe extends Recipe {\n    @Override\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce a newline after import statements"}
-  description={"Enforce a newline after import statements\nSee rule details for [import/newline-after-import](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/newline-after-import.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.javascript.NewlineAfterImport"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/newlineafterimport.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce a newline after import statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce a newline after import statements See rule details for [import/newline-after-import](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/newline-after-import.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

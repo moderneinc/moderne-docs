@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Long.floorDiv` instead of `java.lang.Math.floorDiv`"}
-  description={"`Math.floorDiv(a, b)` becomes `a.floorDiv(b)` — the multiplatform Kotlin extension on `Long`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseLongFloorDiv$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongfloordiv$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Long.floorDiv` instead of `java.lang.Math.floorDiv`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Math.floorDiv(a, b)` becomes `a.floorDiv(b)` — the multiplatform Kotlin extension on `Long`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseLongFloorDiv$KtRecipe","displayName":"Use `Long.floorDiv` instead of `java.lang.Math.floorDiv`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

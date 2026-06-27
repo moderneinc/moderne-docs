@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Format XML"}
-  description={"Indents XML using the most common indentation size and tabs or space choice in use in the file."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.format.AutoFormat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/format/autoformat.md"}
-/>
+>
+
+<RecipeHeader.Title>Format XML</RecipeHeader.Title>
+
+<RecipeHeader.Description>Indents XML using the most common indentation size and tabs or space choice in use in the file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n  <dependencies>\n    <dependency>\n      <groupId>org.springframework.boot</groupId>\n      <artifactId>spring-boot-starter-test</artifactId>\n      <scope>test</scope>\n      <exclusions>\n        <exclusion>\n  <groupId>org.junit.vintage</groupId>\n  <artifactId>junit-vintage-engine</artifactId>\n</exclusion>\n      </exclusions>\n    </dependency>\n  </dependencies>\n</project>\n","after":"<project>\n  <dependencies>\n    <dependency>\n      <groupId>org.springframework.boot</groupId>\n      <artifactId>spring-boot-starter-test</artifactId>\n      <scope>test</scope>\n      <exclusions>\n        <exclusion>\n          <groupId>org.junit.vintage</groupId>\n          <artifactId>junit-vintage-engine</artifactId>\n        </exclusion>\n      </exclusions>\n    </dependency>\n  </dependencies>\n</project>\n","diff":"@@ -9,3 +9,3 @@\n      <exclusions>\n        <exclusion>\n- <groupId>org.junit.vintage</groupId>\n- <artifactId>junit-vintage-engine</artifactId>\n-</exclusion>\n+         <groupId>org.junit.vintage</groupId>\n+         <artifactId>junit-vintage-engine</artifactId>\n+       </exclusion>\n      </exclusions>\n","newFile":false}]}]}>
 

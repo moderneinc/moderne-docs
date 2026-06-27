@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to JavaEE6"}
-  description={"These recipes help with the Migration to Java EE 6, flagging and updating deprecated methods."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["javaee6","deprecated"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javaee6"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javaee6.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use HttpServletRequest `logout` method for programmatic security logout in Servlet 3.0","href":"java/migrate/javax/httpsessioninvalidate"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to JavaEE6</RecipeHeader.Title>
+
+<RecipeHeader.Description>These recipes help with the Migration to Java EE 6, flagging and updating deprecated methods.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use HttpServletRequest `logout` method for programmatic security logout in Servlet 3.0","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/httpsessioninvalidate/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

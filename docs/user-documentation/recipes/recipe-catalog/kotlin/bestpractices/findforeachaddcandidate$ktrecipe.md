@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `xs.forEach { ys.add(it) }` patterns"}
-  description={"`xs.forEach { ys.add(it) }` is the loop-form of `ys.addAll(xs)`. The bulk operation is a single method call and uses the most efficient copy strategy the receiver supports."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindForEachAddCandidate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findforeachaddcandidate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `xs.forEach { ys.add(it) }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`xs.forEach { ys.add(it) }` is the loop-form of `ys.addAll(xs)`. The bulk operation is a single method call and uses the most efficient copy strategy the receiver supports.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindForEachAddCandidate$KtRecipe","displayName":"Find `xs.forEach { ys.add(it) }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

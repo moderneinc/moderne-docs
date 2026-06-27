@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `@RequestMapping` on `FeignClient` to `@FeignClient` path attribute"}
-  description={"Support for `@RequestMapping` over a `FeignClient` interface was removed in Spring Cloud OpenFeign 2.2.10.RELEASE."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.cloud2022.MigrateRequestMappingOnFeignClient"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/migraterequestmappingonfeignclient.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `@RequestMapping` on `FeignClient` to `@FeignClient` path attribute</RecipeHeader.Title>
+
+<RecipeHeader.Description>Support for `@RequestMapping` over a `FeignClient` interface was removed in Spring Cloud OpenFeign 2.2.10.RELEASE.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.cloud.openfeign.FeignClient;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RequestMethod;\nimport org.springframework.web.bind.annotation.PathVariable;\nimport org.springframework.web.bind.annotation.GetMapping;\n\n@FeignClient(name = \"myService\", url = \"http://localhost:8080\")\n@RequestMapping(path = \"/posts\")\npublic interface MyServiceClient {\n\n    @GetMapping(value = \"/{postId}\", produces = \"application/json\")\n    String getPostById(@PathVariable(\"postId\") Long postId);\n}\n","after":"import org.springframework.cloud.openfeign.FeignClient;\nimport org.springframework.web.bind.annotation.RequestMethod;\nimport org.springframework.web.bind.annotation.PathVariable;\nimport org.springframework.web.bind.annotation.GetMapping;\n\n@FeignClient(path = \"/posts\", name = \"myService\", url = \"http://localhost:8080\")\npublic interface MyServiceClient {\n\n    @GetMapping(value = \"/{postId}\", produces = \"application/json\")\n    String getPostById(@PathVariable(\"postId\") Long postId);\n}\n","diff":"@@ -2,1 +2,0 @@\nimport org.springframework.cloud.openfeign.FeignClient;\n-import org.springframework.web.bind.annotation.RequestMapping;\nimport org.springframework.web.bind.annotation.RequestMethod;\n@@ -7,2 +6,1 @@\nimport org.springframework.web.bind.annotation.GetMapping;\n\n-@FeignClient(name = \"myService\", url = \"http://localhost:8080\")\n-@RequestMapping(path = \"/posts\")\n+@FeignClient(path = \"/posts\", name = \"myService\", url = \"http://localhost:8080\")\npublic interface MyServiceClient {\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `RestTemplateBuilder#basicAuthentication`"}
-  description={"`RestTemplateBuilder#basicAuthorization` was deprecated in 2.1."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateRestTemplateBuilderBasicAuthorization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateresttemplatebuilderbasicauthorization.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use `RestTemplateBuilder#basicAuthentication`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`RestTemplateBuilder#basicAuthorization` was deprecated in 2.1.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

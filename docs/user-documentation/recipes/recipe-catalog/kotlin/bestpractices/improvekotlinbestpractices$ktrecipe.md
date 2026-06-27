@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply Kotlin best-practice rewrites"}
-  description={"Autofix-only best-practice bundle: collection / string round-trip collapses and stdlib accessor swaps. Excludes the search-only `Find*` recipes so the run output is just diffs, not a flood of search results."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.ImproveKotlinBestPractices$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/improvekotlinbestpractices$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Collapse redundant collection / string conversions","href":"kotlin/bestpractices/collapseredundantconversions$ktrecipe"},{"name":"Use stdlib accessors for size / first","href":"kotlin/bestpractices/usestdlibaccessors$ktrecipe"}]}>
+<RecipeHeader.Title>Apply Kotlin best-practice rewrites</RecipeHeader.Title>
+
+<RecipeHeader.Description>Autofix-only best-practice bundle: collection / string round-trip collapses and stdlib accessor swaps. Excludes the search-only `Find*` recipes so the run output is just diffs, not a flood of search results.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Collapse redundant collection / string conversions","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/collapseredundantconversions$ktrecipe/"},{"name":"Use stdlib accessors for size / first","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usestdlibaccessors$ktrecipe/"}]}>
 
 ## Definition
 

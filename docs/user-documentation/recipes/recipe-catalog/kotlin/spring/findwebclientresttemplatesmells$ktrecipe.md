@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find WebClient / RestTemplate / ResponseEntity smells"}
-  description={"HTTP-client and response-shape patterns: `RestTemplate` allocations (maintenance mode — use `WebClient` / `RestClient`), `WebClient.create()` without the builder (use `WebClient.builder().baseUrl(...)`), and `ResponseEntity(body, HttpStatus.OK)` (use the `ok(body)` factory)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindWebClientRestTemplateSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebclientresttemplatesmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `RestTemplate` allocations","href":"kotlin/spring/findresttemplateusage$ktrecipe"},{"name":"Find `WebClient.create()` / `WebClient.create(url)` calls","href":"kotlin/spring/findwebclientcreatewithoutbuilder$ktrecipe"},{"name":"Find `ResponseEntity(body, HttpStatus.OK)` constructor calls","href":"kotlin/spring/findresponseentitywithoutstatus$ktrecipe"}]}>
+<RecipeHeader.Title>Find WebClient / RestTemplate / ResponseEntity smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>HTTP-client and response-shape patterns: `RestTemplate` allocations (maintenance mode — use `WebClient` / `RestClient`), `WebClient.create()` without the builder (use `WebClient.builder().baseUrl(...)`), and `ResponseEntity(body, HttpStatus.OK)` (use the `ok(body)` factory).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `RestTemplate` allocations","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findresttemplateusage$ktrecipe/"},{"name":"Find `WebClient.create()` / `WebClient.create(url)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebclientcreatewithoutbuilder$ktrecipe/"},{"name":"Find `ResponseEntity(body, HttpStatus.OK)` constructor calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findresponseentitywithoutstatus$ktrecipe/"}]}>
 
 ## Definition
 

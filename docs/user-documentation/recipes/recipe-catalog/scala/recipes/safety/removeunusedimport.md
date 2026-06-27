@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove potentially unused imports (heuristic)"}
-  description={"Removes imports where the imported simple name does not appear in the rest of the file. This is an approximate heuristic and may produce false positives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.safety.RemoveUnusedImport"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/safety/removeunusedimport.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove potentially unused imports (heuristic)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes imports where the imported simple name does not appear in the rest of the file. This is an approximate heuristic and may produce false positives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import scala.collection.mutable.ListBuffer\nimport scala.util.Try\n\nclass Example {\n    val buf = new ListBuffer[Int]()\n}\n","after":"import scala.collection.mutable.ListBuffer\n\nclass Example {\n    val buf = new ListBuffer[Int]()\n}\n","diff":"@@ -2,1 +2,0 @@\nimport scala.collection.mutable.ListBuffer\n-import scala.util.Try\n\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate DenseVectorProperty.similarity from String to DenseVectorSimilarity enum"}
-  description={"In Elasticsearch 9, `DenseVectorProperty.similarity()` returns `DenseVectorSimilarity` enum instead of `String`, and the builder method `similarity(String)` now accepts the enum type. This recipe handles both builder calls and getter calls."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["elasticsearch","migration"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.elastic.elastic9.MigrateDenseVectorSimilarity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/elastic/elastic9/migratedensevectorsimilarity.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate DenseVectorProperty.similarity from String to DenseVectorSimilarity enum</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Elasticsearch 9, `DenseVectorProperty.similarity()` returns `DenseVectorSimilarity` enum instead of `String`, and the builder method `similarity(String)` now accepts the enum type. This recipe handles both builder calls and getter calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import co.elastic.clients.elasticsearch._types.mapping.DenseVectorProperty;\n\nclass Test {\n    void test() {\n        DenseVectorProperty property = DenseVectorProperty.of(b -> b\n            .dims(768)\n            .similarity(\"cosine\")\n            .index(true)\n        );\n    }\n}\n","after":"import co.elastic.clients.elasticsearch._types.mapping.DenseVectorProperty;\nimport co.elastic.clients.elasticsearch._types.mapping.DenseVectorSimilarity;\n\nclass Test {\n    void test() {\n        DenseVectorProperty property = DenseVectorProperty.of(b -> b\n            .dims(768)\n            .similarity(DenseVectorSimilarity.Cosine)\n            .index(true)\n        );\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport co.elastic.clients.elasticsearch._types.mapping.DenseVectorProperty;\n+import co.elastic.clients.elasticsearch._types.mapping.DenseVectorSimilarity;\n\n@@ -7,1 +8,1 @@\n        DenseVectorProperty property = DenseVectorProperty.of(b -> b\n            .dims(768)\n-           .similarity(\"cosine\")\n+           .similarity(DenseVectorSimilarity.Cosine)\n            .index(true)\n","newFile":false}]}]}>
 

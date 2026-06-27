@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Boot 3.4 deprecated classes and methods"}
-  description={"Migrate deprecated classes and methods that have been marked for removal in Spring Boot 4.0. This includes constructor changes for `EntityManagerFactoryBuilder`, `HikariCheckpointRestoreLifecycle`, and various actuator endpoint discovery classes."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.SpringBoot34Deprecations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot34deprecations.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate `EntityManagerFactoryBuilder` deprecated constructor","href":"java/spring/boot3/migrateentitymanagerfactorybuilderconstructor"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Migrate `AbstractExposableEndpoint` deprecated constructor","href":"java/spring/boot3/migrateabstractexposableendpointconstructor"},{"name":"Migrate `AbstractDiscoveredEndpoint` deprecated constructor","href":"java/spring/boot3/migrateabstractdiscoveredendpointconstructor"},{"name":"Migrate `EndpointDiscoverer` deprecated constructor","href":"java/spring/boot3/migrateendpointdiscovererconstructor"},{"name":"Migrate `JmxEndpointDiscoverer` deprecated constructor","href":"java/spring/boot3/migratejmxendpointdiscovererconstructor"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate Spring Boot 3.4 deprecated classes and methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate deprecated classes and methods that have been marked for removal in Spring Boot 4.0. This includes constructor changes for `EntityManagerFactoryBuilder`, `HikariCheckpointRestoreLifecycle`, and various actuator endpoint discovery classes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate `EntityManagerFactoryBuilder` deprecated constructor","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateentitymanagerfactorybuilderconstructor/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Migrate `AbstractExposableEndpoint` deprecated constructor","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateabstractexposableendpointconstructor/"},{"name":"Migrate `AbstractDiscoveredEndpoint` deprecated constructor","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateabstractdiscoveredendpointconstructor/"},{"name":"Migrate `EndpointDiscoverer` deprecated constructor","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateendpointdiscovererconstructor/"},{"name":"Migrate `JmxEndpointDiscoverer` deprecated constructor","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratejmxendpointdiscovererconstructor/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `SolrAutoConfiguration`"}
-  description={"`SolrAutoConfiguration` was removed in Spring Boot 3; remove references to it from exclusions on annotations."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.RemoveSolrAutoConfigurationExclude"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/removesolrautoconfigurationexclude.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `SolrAutoConfiguration`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`SolrAutoConfiguration` was removed in Spring Boot 3; remove references to it from exclusions on annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;\nimport org.springframework.boot.autoconfigure.solr.SolrAutoConfiguration;\n\n@SpringBootApplication(exclude = { SecurityAutoConfiguration.class, SolrAutoConfiguration.class })\npublic class Application {\n}\n","after":"import org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;\n\n@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})\npublic class Application {\n}\n","diff":"@@ -3,1 +3,0 @@\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;\n-import org.springframework.boot.autoconfigure.solr.SolrAutoConfiguration;\n\n@@ -5,1 +4,1 @@\nimport org.springframework.boot.autoconfigure.solr.SolrAutoConfiguration;\n\n-@SpringBootApplication(exclude = { SecurityAutoConfiguration.class, SolrAutoConfiguration.class })\n+@SpringBootApplication(exclude = {SecurityAutoConfiguration.class})\npublic class Application {\n","newFile":false}]}]}>
 

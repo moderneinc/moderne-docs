@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Combine semantically equal catch blocks"}
-  description={"Combine catches in a try that contain semantically equivalent blocks. No change will be made when a caught exception exists if combining catches may change application behavior or type attribution is missing. Merging duplicate catch bodies into multi-catch blocks reduces repetition and makes the exception handling strategy easier to follow."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2147"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CombineSemanticallyEqualCatchBlocks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/combinesemanticallyequalcatchblocks.md"}
-/>
+>
+
+<RecipeHeader.Title>Combine semantically equal catch blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Combine catches in a try that contain semantically equivalent blocks. No change will be made when a caught exception exists if combining catches may change application behavior or type attribution is missing. Merging duplicate catch bodies into multi-catch blocks reduces repetition and makes the exception handling strategy easier to follow.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"class A extends RuntimeException {}"},"variants":[{"language":"java","before":"class Test {\n    void method() {\n        try {\n        } catch (A ex) {\n            // Same\n        } catch (B ex) {\n            // Same\n        }\n    }\n}\n","after":"class Test {\n    void method() {\n        try {\n        } catch (A | B ex) {\n            // Same\n        }\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\n    void method() {\n        try {\n-       } catch (A ex) {\n+       } catch (A | B ex) {\n            // Same\n@@ -6,2 +6,0 @@\n        } catch (A ex) {\n            // Same\n-       } catch (B ex) {\n-           // Same\n        }\n","newFile":false}]}]}>
 

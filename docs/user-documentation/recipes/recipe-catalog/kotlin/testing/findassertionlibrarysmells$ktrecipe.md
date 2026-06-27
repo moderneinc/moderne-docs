@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find assertion-library smells"}
-  description={"Search-only bundle for assertion-library specifics: Hamcrest's `assertThat(actual, is(expected))` form, and AssertJ's reflective `.extracting(\"name\")` followed by `.contains(...)`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindAssertionLibrarySmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertionlibrarysmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `MatcherAssert.assertThat(...)` (Hamcrest) calls","href":"kotlin/testing/findhamcrestassertthatusage$ktrecipe"},{"name":"Find AssertJ `.extracting(...).contains(...)` chains","href":"kotlin/testing/findassertjchainusingextractingthencontains$ktrecipe"}]}>
+<RecipeHeader.Title>Find assertion-library smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle for assertion-library specifics: Hamcrest's `assertThat(actual, is(expected))` form, and AssertJ's reflective `.extracting("name")` followed by `.contains(...)`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `MatcherAssert.assertThat(...)` (Hamcrest) calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findhamcrestassertthatusage$ktrecipe/"},{"name":"Find AssertJ `.extracting(...).contains(...)` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertjchainusingextractingthencontains$ktrecipe/"}]}>
 
 ## Definition
 

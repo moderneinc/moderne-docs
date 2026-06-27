@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `PrimitiveRules.GreaterThanOrEqualTo`"}
-  description={"Avoid contrived ways of expressing the \"greater than or equal to\" relationship."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1940"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$GreaterThanOrEqualToRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/primitiverulesrecipes$greaterthanorequaltorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `PrimitiveRules.GreaterThanOrEqualTo`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Avoid contrived ways of expressing the "greater than or equal to" relationship.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$GreaterThanOrEqualToRecipe","displayName":"Refaster template `PrimitiveRules.GreaterThanOrEqualTo`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

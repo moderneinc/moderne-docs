@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Card { OneChild() }` patterns"}
-  description={"A `Card { OneChild() }` allocates a layout node and an elevation surface for exactly one composable. If the child already styles itself (`Modifier.background`/`Modifier.shadow`), the `Card` is decorative duplication — pull the styling into the child's `Modifier` chain."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindCardWithSingleChild$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcardwithsinglechild$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Card { OneChild() }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `Card { OneChild() }` allocates a layout node and an elevation surface for exactly one composable. If the child already styles itself (`Modifier.background`/`Modifier.shadow`), the `Card` is decorative duplication — pull the styling into the child's `Modifier` chain.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindCardWithSingleChild$KtRecipe","displayName":"Find `Card { OneChild() }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Set Maven project packaging"}
-  description={"Sets the packaging type of Maven projects. Either adds the packaging tag if it is missing or changes its context if present."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ChangePackaging"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/changepackaging.md"}
-/>
+>
+
+<RecipeHeader.Title>Set Maven project packaging</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sets the packaging type of Maven projects. Either adds the packaging tag if it is missing or changes its context if present.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The groupId of the project whose packaging should be changed. Accepts glob patterns.","example":"org.openrewrite.*"},{"type":"String","name":"artifactId","required":true,"description":"The artifactId of the project whose packaging should be changed. Accepts glob patterns.","example":"rewrite-*"},{"type":"String","name":"packaging","required":true,"description":"The type of packaging to set. If `null` specified the packaging tag will be removed","example":"jar"},{"type":"String","name":"oldPackaging","required":false,"description":"The old packaging type. If provided, will only change if the current packaging matches","example":"jar"}]}>
 

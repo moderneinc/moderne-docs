@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@RequiresOptIn` annotation declarations"}
-  description={"`@RequiresOptIn` marks an annotation as a feature opt-in marker — every caller of an annotated declaration must acknowledge the experimental status via `@OptIn(...)`. The marker itself is a stability contract worth surfacing for review whenever a new Kotlin-defined API claims experimental status."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindRequiresOptInOnExperimentalApi$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findrequiresoptinonexperimentalapi$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@RequiresOptIn` annotation declarations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@RequiresOptIn` marks an annotation as a feature opt-in marker — every caller of an annotated declaration must acknowledge the experimental status via `@OptIn(...)`. The marker itself is a stability contract worth surfacing for review whenever a new Kotlin-defined API claims experimental status.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindRequiresOptInOnExperimentalApi$KtRecipe","displayName":"Find `@RequiresOptIn` annotation declarations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

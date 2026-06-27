@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Dropwizard metrics"}
-  description={"Find uses of Dropwizard metrics that could be converted to a more modern metrics instrumentation library."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micrometer"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.micrometer.dropwizard.FindDropwizardMetrics"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/micrometer/dropwizard/finddropwizardmetrics.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Dropwizard metrics</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find uses of Dropwizard metrics that could be converted to a more modern metrics instrumentation library.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.codahale.metrics.MetricRegistry;\n\nclass Test {\n   void instrument(MetricRegistry registry) {\n       registry.counter(\"my.counter\");\n       registry.gauge(\"my.gauge\");\n   }\n}\n","after":"import com.codahale.metrics.MetricRegistry;\n\nclass Test {\n   void instrument(MetricRegistry registry) {\n       /*~~(Counter)~~>*/registry.counter(\"my.counter\");\n       /*~~(Gauge)~~>*/registry.gauge(\"my.gauge\");\n   }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass Test {\n   void instrument(MetricRegistry registry) {\n-      registry.counter(\"my.counter\");\n-      registry.gauge(\"my.gauge\");\n+      /*~~(Counter)~~>*/registry.counter(\"my.counter\");\n+      /*~~(Gauge)~~>*/registry.gauge(\"my.gauge\");\n   }\n","newFile":false}]}]}>
 

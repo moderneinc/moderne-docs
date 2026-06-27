@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `.getOrElse(null)` with `.orNull`"}
-  description={"Replaces `.getOrElse(null)` on `Option` values with `.orNull` for a cleaner, idiomatic alternative."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.UseOrNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/useornull.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `.getOrElse(null)` with `.orNull`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `.getOrElse(null)` on `Option` values with `.orNull` for a cleaner, idiomatic alternative.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val opt: Option[String] = Some(\"hello\")\n    val value = opt.getOrElse(null)\n}\n","after":"class Example {\n    val opt: Option[String] = Some(\"hello\")\n    val value = opt.orNull\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    val opt: Option[String] = Some(\"hello\")\n-   val value = opt.getOrElse(null)\n+   val value = opt.orNull\n}\n","newFile":false}]}]}>
 

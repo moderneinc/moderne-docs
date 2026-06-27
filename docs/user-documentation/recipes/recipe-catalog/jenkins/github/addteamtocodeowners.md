@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add plugin developer team to CODEOWNERS"}
-  description={"Adds the `{artifactId}-plugin-developers` team to all files in `.github/CODEOWNERS` if absent."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.github.AddTeamToCodeowners"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/github/addteamtocodeowners.md"}
-/>
+>
+
+<RecipeHeader.Title>Add plugin developer team to CODEOWNERS</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the `{artifactId}-plugin-developers` team to all files in `.github/CODEOWNERS` if absent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.jenkins.github.AddTeamToCodeowners","displayName":"Add plugin developer team to CODEOWNERS","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jenkins","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JENKINS","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure IAM password policy requires at least one number"}
-  description={"Ensure IAM password policy requires at least one number."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["CKV_AWS_12","terraform","AWS"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.aws.EnsureIAMPasswordPolicyRequiresAtLeastOneNumber"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/aws/ensureiampasswordpolicyrequiresatleastonenumber.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Ensure IAM password policy requires at least one number</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure IAM password policy requires at least one number.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

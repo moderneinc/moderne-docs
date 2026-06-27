@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Class cohesion DevCenter"}
-  description={"A DevCenter that finds class quality metrics for repositories\nand buckets the average LCOM4 (Lack of Cohesion of Methods, version 4)\ninto HIGH / MEDIUM / LOW cohesion categories.\n"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.ClassCohesionDevCenter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/classcohesiondevcenter.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find class quality metrics","href":"prethink/quality/findclassmetrics"},{"name":"Find test coverage gaps","href":"prethink/testing/coverage/findtestgaps"},{"name":"DevCenter card from a data table column","href":"devcenter/bucketedmetriccard"},{"name":"DevCenter card from a data table column","href":"devcenter/bucketedmetriccard"},{"name":"DevCenter card from a data table column","href":"devcenter/bucketedmetriccard"}]}>
+<RecipeHeader.Title>Class cohesion DevCenter</RecipeHeader.Title>
+
+<RecipeHeader.Description>A DevCenter that finds class quality metrics for repositories and buckets the average LCOM4 (Lack of Cohesion of Methods, version 4) into HIGH / MEDIUM / LOW cohesion categories.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find class quality metrics","href":"/user-documentation/recipes/recipe-catalog/prethink/quality/findclassmetrics/"},{"name":"Find test coverage gaps","href":"/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestgaps/"},{"name":"DevCenter card from a data table column","href":"/user-documentation/recipes/recipe-catalog/devcenter/bucketedmetriccard/"},{"name":"DevCenter card from a data table column","href":"/user-documentation/recipes/recipe-catalog/devcenter/bucketedmetriccard/"},{"name":"DevCenter card from a data table column","href":"/user-documentation/recipes/recipe-catalog/devcenter/bucketedmetriccard/"}]}>
 
 ## Definition
 

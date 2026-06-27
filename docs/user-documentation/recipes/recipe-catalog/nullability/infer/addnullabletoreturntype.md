@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@Nullable` to methods that can return null"}
-  description={"Adds the JSpecify `@Nullable` annotation to the return type of Java methods whose body returns a provably-nullable value: an explicit `return null` (directly, through a cast or parentheses, or via either branch of a ternary), or a call to a method whose return is itself nullable. Nullability propagates from callee to caller across the whole project. This prepares the code for NullAway. Conservative by design: it skips primitive and `void` returns, methods that already carry a nullability annotation, and `@Override` methods (where annotating the return could violate the supertype contract). Kotlin and Groovy express return nullability in the type system (`T?`), which the compiler already enforces, so those sources are generally left unchanged."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.infer.AddNullableToReturnType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/infer/addnullabletoreturntype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@Nullable` to methods that can return null</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the JSpecify `@Nullable` annotation to the return type of Java methods whose body returns a provably-nullable value: an explicit `return null` (directly, through a cast or parentheses, or via either branch of a ternary), or a call to a method whose return is itself nullable. Nullability propagates from callee to caller across the whole project. This prepares the code for NullAway. Conservative by design: it skips primitive and `void` returns, methods that already carry a nullability annotation, and `@Override` methods (where annotating the return could violate the supertype contract). Kotlin and Groovy express return nullability in the type system (`T?`), which the compiler already enforces, so those sources are generally left unchanged.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    String find() {\n        return null;\n    }\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nclass Test {\n    @Nullable\n    String find() {\n        return null;\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.jspecify.annotations.Nullable;\n+\nclass Test {\n@@ -2,0 +4,1 @@\nclass Test {\n+   @Nullable\n    String find() {\n","newFile":false}]}]}>
 

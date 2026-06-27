@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Hibernate to 6.6"}
-  description={"This recipe upgrades Hibernate to version 6.6, which is compatible with Jakarta EE 10 and JPA 3.1. It also upgrades a few of the commonly used Hibernate add-ons."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["persistence","hibernate"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.hibernate.UpgradeHibernateTo66"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/hibernate/upgradehibernateto66.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Hibernate 6.6.x","href":"hibernate/migratetohibernate66-community-edition"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Upgrade Hibernate to 6.6</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe upgrades Hibernate to version 6.6, which is compatible with Jakarta EE 10 and JPA 3.1. It also upgrades a few of the commonly used Hibernate add-ons.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Hibernate 6.6.x","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate66-community-edition/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]}>
 
 ## Definition
 

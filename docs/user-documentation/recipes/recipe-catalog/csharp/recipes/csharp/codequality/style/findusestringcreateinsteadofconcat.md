@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find FormattableString usage"}
-  description={"Detect `FormattableString` usage. Consider using `String.Create` on .NET 6+ for better performance."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseStringCreateInsteadOfConcat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findusestringcreateinsteadofconcat.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find FormattableString usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `FormattableString` usage. Consider using `String.Create` on .NET 6+ for better performance.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseStringCreateInsteadOfConcat","displayName":"Find FormattableString usage","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

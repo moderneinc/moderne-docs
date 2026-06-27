@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Resource can be disposed asynchronously"}
-  description={"Use `await using` instead of `using` when the resource implements IAsyncDisposable."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.ResourceCanBeDisposedAsynchronously"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/resourcecanbedisposedasynchronously.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Resource can be disposed asynchronously</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `await using` instead of `using` when the resource implements IAsyncDisposable.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.ResourceCanBeDisposedAsynchronously","displayName":"Resource can be disposed asynchronously","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

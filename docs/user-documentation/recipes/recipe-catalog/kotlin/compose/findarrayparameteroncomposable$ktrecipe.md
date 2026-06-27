@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Array<T>` parameters on `@Composable` functions"}
-  description={"JVM arrays are mutable references — Compose's stability inferrer marks an `Array<T>` parameter unstable, forcing the composable to recompose every time the parent recomposes. Prefer `ImmutableList<T>` or a `@Stable` wrapper."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindArrayParameterOnComposable$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findarrayparameteroncomposable$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Array<T>` parameters on `@Composable` functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>JVM arrays are mutable references — Compose's stability inferrer marks an `Array<T>` parameter unstable, forcing the composable to recompose every time the parent recomposes. Prefer `ImmutableList<T>` or a `@Stable` wrapper.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindArrayParameterOnComposable$KtRecipe","displayName":"Find `Array<T>` parameters on `@Composable` functions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

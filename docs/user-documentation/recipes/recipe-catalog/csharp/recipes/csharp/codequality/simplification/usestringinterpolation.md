@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use string interpolation instead of string.Format"}
-  description={"Replace simple `string.Format(\"{0}\", x)` calls with `$\"{x}\"`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringInterpolation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usestringinterpolation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use string interpolation instead of string.Format</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace simple `string.Format("{0}", x)` calls with `$"{x}"`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringInterpolation","displayName":"Use string interpolation instead of string.Format","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

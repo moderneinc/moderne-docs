@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJStreamRules.AssertThatNoneMatch`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatNoneMatch<T> {\n    \n    @BeforeTemplate\n    void before(Stream<T> stream, Predicate<? super T> predicate) {\n        assertThat(stream).filteredOn(predicate).isEmpty();\n    }\n    \n    @BeforeTemplate\n    void before2(Stream<T> stream, Predicate<? super T> predicate) {\n        Refaster.anyOf(assertThat(stream.anyMatch(predicate)).isFalse(), assertThat(stream.noneMatch(predicate)).isTrue());\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Stream<T> stream, Predicate<? super T> predicate) {\n        assertThat(stream).noneMatch(predicate);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,38 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatNoneMatchRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatnonematchrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJStreamRules.AssertThatNoneMatch`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatNoneMatch<T> {
+    
+    @BeforeTemplate
+    void before(Stream<T> stream, Predicate<? super T> predicate) {
+        assertThat(stream).filteredOn(predicate).isEmpty();
+    }
+    
+    @BeforeTemplate
+    void before2(Stream<T> stream, Predicate<? super T> predicate) {
+        Refaster.anyOf(assertThat(stream.anyMatch(predicate)).isFalse(), assertThat(stream.noneMatch(predicate)).isTrue());
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(Stream<T> stream, Predicate<? super T> predicate) {
+        assertThat(stream).noneMatch(predicate);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatNoneMatchRecipe","displayName":"Refaster template `AssertJStreamRules.AssertThatNoneMatch`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find SSH secrets"}
-  description={"Locates SSH secrets stored in plain text in code."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.secrets.FindSshSecrets"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/secrets/findsshsecrets.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find secrets with regular expressions","href":"java/security/secrets/findsecretsbypattern"},{"name":"Find secrets with regular expressions","href":"java/security/secrets/findsecretsbypattern"}]}>
+<RecipeHeader.Title>Find SSH secrets</RecipeHeader.Title>
+
+<RecipeHeader.Description>Locates SSH secrets stored in plain text in code.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"},{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"}]}>
 
 ## Definition
 

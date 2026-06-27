@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `remember { mutableListOf<T>() }` patterns"}
-  description={"`remember { mutableListOf<T>() }` survives recomposition but mutations to the list are invisible to Compose — adding an item won't trigger a re-render of any consumer that reads the list. Use `remember { mutableStateListOf<T>() }` (or hoist to `mutableStateListOf<T>()` at file scope) so writes register as snapshot writes."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindRememberMutableListOfWithoutMutableState$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findremembermutablelistofwithoutmutablestate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `remember { mutableListOf<T>() }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`remember { mutableListOf<T>() }` survives recomposition but mutations to the list are invisible to Compose — adding an item won't trigger a re-render of any consumer that reads the list. Use `remember { mutableStateListOf<T>() }` (or hoist to `mutableStateListOf<T>()` at file scope) so writes register as snapshot writes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindRememberMutableListOfWithoutMutableState$KtRecipe","displayName":"Find `remember { mutableListOf<T>() }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

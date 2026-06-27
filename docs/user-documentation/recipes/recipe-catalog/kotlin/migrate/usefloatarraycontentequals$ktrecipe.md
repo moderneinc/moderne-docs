@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `FloatArray.contentEquals()` instead of `Arrays.equals(a, b)`"}
-  description={"`java.util.Arrays.equals(a: float[], b: float[])` is JVM-only; `a.contentEquals(b)` is the multiplatform Kotlin extension. Like `Arrays.equals`, NaN compares equal to NaN."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseFloatArrayContentEquals$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usefloatarraycontentequals$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `FloatArray.contentEquals()` instead of `Arrays.equals(a, b)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Arrays.equals(a: float[], b: float[])` is JVM-only; `a.contentEquals(b)` is the multiplatform Kotlin extension. Like `Arrays.equals`, NaN compares equal to NaN.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseFloatArrayContentEquals$KtRecipe","displayName":"Use `FloatArray.contentEquals()` instead of `Arrays.equals(a, b)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

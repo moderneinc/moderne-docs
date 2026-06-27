@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.15` application to `camel 4.16`"}
-  description={"Migrates `camel 4.15` application to `camel 4.16`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel416.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel416/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Milo: The monitored item data value listener API has changed","href":"apache/camel/upgrade/camel416/camel416milolambdarecipe"},{"name":"Different java type for ServerCertificateValidator in camel-milo","href":"apache/camel/upgrade/camel416/camelmilocertificate"}]}>
+<RecipeHeader.Title>Migrates `camel 4.15` application to `camel 4.16`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.15` application to `camel 4.16`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Milo: The monitored item data value listener API has changed","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel416/camel416milolambdarecipe/"},{"name":"Different java type for ServerCertificateValidator in camel-milo","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel416/camelmilocertificate/"}]}>
 
 ## Definition
 

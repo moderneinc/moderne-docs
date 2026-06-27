@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer functional error handling over `throw` expressions"}
-  description={"Finds `throw` expressions inside method bodies that should use functional error handling. Throwing exceptions breaks referential transparency; prefer returning `Try`, `Either`, or `Option`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.errorhandling.PreferFunctionalErrorHandling"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/errorhandling/preferfunctionalerrorhandling.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer functional error handling over `throw` expressions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `throw` expressions inside method bodies that should use functional error handling. Throwing exceptions breaks referential transparency; prefer returning `Try`, `Either`, or `Option`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    def validate(x: Int): Int = {\n        if (x < 0) throw new IllegalArgumentException(\"negative\")\n        x\n    }\n}\n","after":"class Example {\n    /*~~(Consider returning Try, Either, or Option instead of throwing exceptions)~~>*/def validate(x: Int): Int = {\n        if (x < 0) throw new IllegalArgumentException(\"negative\")\n        x\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Example {\n-   def validate(x: Int): Int = {\n+   /*~~(Consider returning Try, Either, or Option instead of throwing exceptions)~~>*/def validate(x: Int): Int = {\n        if (x < 0) throw new IllegalArgumentException(\"negative\")\n","newFile":false}]}]}>
 

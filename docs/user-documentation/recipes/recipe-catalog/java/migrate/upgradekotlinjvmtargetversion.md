@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Kotlin `jvmTarget` to match the Java version"}
-  description={"Align the Kotlin `jvmTarget` with the project's Java version so the Kotlin compiler emits bytecode at the same level as `javac`. Covers `kotlin-maven-plugin` `<jvmTarget>` configuration and the Gradle `kotlinOptions { jvmTarget = ... }` / `compilerOptions { jvmTarget = ... }` blocks (Groovy and Kotlin DSL). Will not downgrade if the existing Kotlin target is higher than the requested version."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeKotlinJvmTargetVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/upgradekotlinjvmtargetversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade Kotlin `jvmTarget` to match the Java version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Align the Kotlin `jvmTarget` with the project's Java version so the Kotlin compiler emits bytecode at the same level as `javac`. Covers `kotlin-maven-plugin` `<jvmTarget>` configuration and the Gradle `kotlinOptions { jvmTarget = ... }` / `compilerOptions { jvmTarget = ... }` blocks (Groovy and Kotlin DSL). Will not downgrade if the existing Kotlin target is higher than the requested version.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Integer","name":"version","required":true,"description":"The Java version to align Kotlin's `jvmTarget` with.","example":"21"}]}>
 

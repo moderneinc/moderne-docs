@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find instances of type `Quark`"}
-  description={"`Quark` source files are pointers to the existence of a file without capturing any of the contents of the file."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.FindQuarks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/findquarks.md"}
-/>
+>
+
+<RecipeHeader.Title>Find instances of type `Quark`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Quark` source files are pointers to the existence of a file without capturing any of the contents of the file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.FindQuarks","displayName":"Find instances of type `Quark`","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":false}}>
 

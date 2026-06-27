@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove elements annotated with `@ToBeRemoved` past their date"}
-  description={"Removes class, method and variable declarations annotated with `org.openrewrite.internal.ToBeRemoved` whose `after` date has passed. This does not remove invocations or references to such methods or variables. Those must be handled separately, e.g. with `org.openrewrite.java.InlineMethodCalls`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.RemoveToBeRemoved"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/removetoberemoved.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove elements annotated with `@ToBeRemoved` past their date</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes class, method and variable declarations annotated with `org.openrewrite.internal.ToBeRemoved` whose `after` date has passed. This does not remove invocations or references to such methods or variables. Those must be handled separately, e.g. with `org.openrewrite.java.InlineMethodCalls`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.internal.ToBeRemoved;\n\nclass A {\n    void keep() {}\n\n    @ToBeRemoved(after = \"2020-01-01\")\n    void remove() {}\n}\n","after":"class A {\n    void keep() {}\n}\n","diff":"@@ -1,2 +1,0 @@\n-import org.openrewrite.internal.ToBeRemoved;\n-\nclass A {\n@@ -5,3 +3,0 @@\nclass A {\n    void keep() {}\n-\n-   @ToBeRemoved(after = \"2020-01-01\")\n-   void remove() {}\n}\n","newFile":false}]}]}>
 

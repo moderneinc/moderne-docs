@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find scheduled tasks"}
-  description={"Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quarkus @Scheduled, Quartz Job, Jakarta/Javax EJB Timer, and JobRunr @Recurring annotations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindScheduledTasks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findscheduledtasks.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find scheduled tasks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quarkus @Scheduled, Quartz Job, Jakarta/Javax EJB Timer, and JobRunr @Recurring annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.springframework.scheduling.annotation.Scheduled;\n\npublic class CronJob {\n\n    @Scheduled(cron = \"0 0 * * *\")\n    public void run() {\n        System.out.println(\"running\");\n    }\n}\n"},"variants":[]}]}>
 

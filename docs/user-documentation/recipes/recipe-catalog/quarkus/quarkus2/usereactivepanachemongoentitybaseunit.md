@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Uni<T extends ReactivePanacheMongoEntityBase>`"}
-  description={"The `persist()`, `update()`, and `persistOrUpdate()` methods now return a `Uni<T extends ReactivePanacheMongoEntityBase>` instead of a `Uni<Void>` to allow chaining the methods."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.quarkus2.UseReactivePanacheMongoEntityBaseUniT"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/usereactivepanachemongoentitybaseunit.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Uni<T extends ReactivePanacheMongoEntityBase>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `persist()`, `update()`, and `persistOrUpdate()` methods now return a `Uni<T extends ReactivePanacheMongoEntityBase>` instead of a `Uni<Void>` to allow chaining the methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.example;\n\nimport io.quarkus.mongodb.panache.reactive.ReactivePanacheMongoEntityBase;\nimport io.smallrye.mutiny.Uni;\n\nclass Test {\n    public static <T extends ReactivePanacheMongoEntityBase> void method(T example) {\n        example.persist().await().indefinitely();\n        Uni<Void> e0 = example.persist();\n        Uni<Void> e1 = example.update();\n        Uni<Void> e2 = example.persistOrUpdate();\n    }\n}\n","after":"package org.openrewrite.example;\n\nimport io.quarkus.mongodb.panache.reactive.ReactivePanacheMongoEntityBase;\nimport io.smallrye.mutiny.Uni;\n\nclass Test {\n    public static <T extends ReactivePanacheMongoEntityBase> void method(T example) {\n        example.persist().replaceWithVoid().await().indefinitely();\n        Uni<Void> e0 = example.persist().replaceWithVoid();\n        Uni<Void> e1 = example.update().replaceWithVoid();\n        Uni<Void> e2 = example.persistOrUpdate().replaceWithVoid();\n    }\n}\n","diff":"@@ -8,4 +8,4 @@\nclass Test {\n    public static <T extends ReactivePanacheMongoEntityBase> void method(T example) {\n-       example.persist().await().indefinitely();\n-       Uni<Void> e0 = example.persist();\n-       Uni<Void> e1 = example.update();\n-       Uni<Void> e2 = example.persistOrUpdate();\n+       example.persist().replaceWithVoid().await().indefinitely();\n+       Uni<Void> e0 = example.persist().replaceWithVoid();\n+       Uni<Void> e1 = example.update().replaceWithVoid();\n+       Uni<Void> e2 = example.persistOrUpdate().replaceWithVoid();\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move a leading `@Nullable` to the type-use position"}
-  description={"Relocates a leading (declaration-position) JSpecify `@Nullable` to immediately before the type when modifiers separate them, turning `@Nullable private final String f` into `private final @Nullable String f` (and the same for method returns). JSpecify `@Nullable` is a `TYPE_USE` annotation, so the type-use position is the precise, conventional placement; the leading form compiles and means the same but reads less clearly. Only the `Nullable` simple name is moved (declaration-only flavors like `@CheckForNull` are left alone), the existing annotation is reused, and it only acts when a modifier precedes the type."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.cleanup.MoveNullableToTypeUsePosition"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/cleanup/movenullabletotypeuseposition.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Move a leading `@Nullable` to the type-use position</RecipeHeader.Title>
+
+<RecipeHeader.Description>Relocates a leading (declaration-position) JSpecify `@Nullable` to immediately before the type when modifiers separate them, turning `@Nullable private final String f` into `private final @Nullable String f` (and the same for method returns). JSpecify `@Nullable` is a `TYPE_USE` annotation, so the type-use position is the precise, conventional placement; the leading form compiles and means the same but reads less clearly. Only the `Nullable` simple name is moved (declaration-only flavors like `@CheckForNull` are left alone), the existing annotation is reused, and it only acts when a modifier precedes the type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.nullability.cleanup.MoveNullableToTypeUsePosition","displayName":"Move a leading `@Nullable` to the type-use position","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 

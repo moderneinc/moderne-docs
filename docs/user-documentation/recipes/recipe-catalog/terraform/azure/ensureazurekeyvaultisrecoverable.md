@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure Azure key vault is recoverable"}
-  description={"Ensure Azure key vault is recoverable."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["Azure","CKV_AZURE_42","terraform"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.azure.EnsureAzureKeyVaultIsRecoverable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/azure/ensureazurekeyvaultisrecoverable.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"},{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Ensure Azure key vault is recoverable</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure Azure key vault is recoverable.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"},{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

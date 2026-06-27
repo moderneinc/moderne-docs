@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate NaturalIdMultiLoadAccess method calls"}
-  description={"Migrates NaturalIdMultiLoadAccess#compoundValue(Object...) to Map.of(...) variants for Hibernate 7.0."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.MigrateNaturalIdMultiLoadAccess"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/migratenaturalidmultiloadaccess.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate NaturalIdMultiLoadAccess method calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates NaturalIdMultiLoadAccess#compoundValue(Object...) to Map.of(...) variants for Hibernate 7.0.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.Session;\nimport org.hibernate.NaturalIdMultiLoadAccess;\nimport java.util.List;\n\nclass Test {\n    void test(Session session) {\n        List<Object> object = session.byMultipleNaturalId(Object.class)\n              .multiLoad(\n                NaturalIdMultiLoadAccess.compoundValue(\"key1\", \"value1\", \"key2\", \"value2\"),\n                NaturalIdMultiLoadAccess.compoundValue(\"key3\", \"value3\", \"key4\", \"value4\")\n              );\n    }\n}\n","after":"import org.hibernate.Session;\nimport java.util.List;\nimport java.util.Map;\n\nclass Test {\n    void test(Session session) {\n        List<Object> object = session.byMultipleNaturalId(Object.class)\n              .multiLoad(\n                Map.of(\"key1\", \"value1\", \"key2\", \"value2\"),\n                Map.of(\"key3\", \"value3\", \"key4\", \"value4\")\n              );\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport org.hibernate.Session;\n-import org.hibernate.NaturalIdMultiLoadAccess;\nimport java.util.List;\n@@ -4,0 +3,1 @@\nimport org.hibernate.NaturalIdMultiLoadAccess;\nimport java.util.List;\n+import java.util.Map;\n\n@@ -9,2 +9,2 @@\n        List<Object> object = session.byMultipleNaturalId(Object.class)\n              .multiLoad(\n-               NaturalIdMultiLoadAccess.compoundValue(\"key1\", \"value1\", \"key2\", \"value2\"),\n-               NaturalIdMultiLoadAccess.compoundValue(\"key3\", \"value3\", \"key4\", \"value4\")\n+               Map.of(\"key1\", \"value1\", \"key2\", \"value2\"),\n+               Map.of(\"key3\", \"value3\", \"key4\", \"value4\")\n              );\n","newFile":false}]}]}>
 

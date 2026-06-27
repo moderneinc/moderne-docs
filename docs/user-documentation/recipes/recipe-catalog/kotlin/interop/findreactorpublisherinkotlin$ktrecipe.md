@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Reactor `Mono`/`Flux` returns in Kotlin"}
-  description={"Project Reactor's `Mono<T>`/`Flux<T>` are the Spring-WebFlux reactive types. Inside Kotlin code the canonical shape is `suspend fun` (for `Mono`) and `Flow<T>` (for `Flux`); `kotlinx-coroutines-reactor` provides the boundary adapters for downstream Reactor APIs."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindReactorPublisherInKotlin$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findreactorpublisherinkotlin$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Reactor `Mono`/`Flux` returns in Kotlin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Project Reactor's `Mono<T>`/`Flux<T>` are the Spring-WebFlux reactive types. Inside Kotlin code the canonical shape is `suspend fun` (for `Mono`) and `Flow<T>` (for `Flux`); `kotlinx-coroutines-reactor` provides the boundary adapters for downstream Reactor APIs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindReactorPublisherInKotlin$KtRecipe","displayName":"Find Reactor `Mono`/`Flux` returns in Kotlin","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

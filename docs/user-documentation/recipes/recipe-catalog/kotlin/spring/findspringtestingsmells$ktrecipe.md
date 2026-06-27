@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring testing smells"}
-  description={"`@MockBean` / `@SpyBean` lateinit-var fields (often a plain unit test would do), `MockMvcBuilders.standaloneSetup` (consider `@AutoConfigureMockMvc`), and `WebTestClient` tests that don't drain the publisher with `StepVerifier`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringTestingSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringtestingsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `@MockBean` on `lateinit var` fields","href":"kotlin/spring/findmockbeanonfield$ktrecipe"},{"name":"Find `@SpyBean` on `lateinit var` fields","href":"kotlin/spring/findspybeanonfield$ktrecipe"},{"name":"Find `MockMvcBuilders.standaloneSetup(...)` calls","href":"kotlin/spring/findmockmvcstandalone$ktrecipe"},{"name":"Find `WebTestClient` test classes that don't use `StepVerifier`","href":"kotlin/spring/findreactivetestwithoutstepverifier$ktrecipe"}]}>
+<RecipeHeader.Title>Find Spring testing smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@MockBean` / `@SpyBean` lateinit-var fields (often a plain unit test would do), `MockMvcBuilders.standaloneSetup` (consider `@AutoConfigureMockMvc`), and `WebTestClient` tests that don't drain the publisher with `StepVerifier`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `@MockBean` on `lateinit var` fields","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findmockbeanonfield$ktrecipe/"},{"name":"Find `@SpyBean` on `lateinit var` fields","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findspybeanonfield$ktrecipe/"},{"name":"Find `MockMvcBuilders.standaloneSetup(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findmockmvcstandalone$ktrecipe/"},{"name":"Find `WebTestClient` test classes that don't use `StepVerifier`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findreactivetestwithoutstepverifier$ktrecipe/"}]}>
 
 ## Definition
 

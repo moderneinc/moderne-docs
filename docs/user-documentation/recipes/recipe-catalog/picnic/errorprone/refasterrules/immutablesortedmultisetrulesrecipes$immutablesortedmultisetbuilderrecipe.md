@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ImmutableSortedMultisetRules.ImmutableSortedMultisetBuilder`"}
-  description={"Prefer `ImmutableSortedMultiset#orderedBy(Comparator)` over the associated constructor."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableSortedMultisetRulesRecipes$ImmutableSortedMultisetBuilderRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$immutablesortedmultisetbuilderrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ImmutableSortedMultisetRules.ImmutableSortedMultisetBuilder`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `ImmutableSortedMultiset#orderedBy(Comparator)` over the associated constructor.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableSortedMultisetRulesRecipes$ImmutableSortedMultisetBuilderRecipe","displayName":"Refaster template `ImmutableSortedMultisetRules.ImmutableSortedMultisetBuilder`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

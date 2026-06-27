@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Optional.orElse(...)` calls"}
-  description={"`opt.orElse(default)` is the Optional version of `value ?: default`. Once the producer returns `T?` directly, the elvis operator reads more naturally and produces tighter bytecode."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindOptionalOrElse$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalorelse$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Optional.orElse(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`opt.orElse(default)` is the Optional version of `value ?: default`. Once the producer returns `T?` directly, the elvis operator reads more naturally and produces tighter bytecode.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindOptionalOrElse$KtRecipe","displayName":"Find `Optional.orElse(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

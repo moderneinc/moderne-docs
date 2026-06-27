@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Chain calls to builder methods"}
-  description={"Chain calls to builder methods that are on separate lines into one chain of builder calls."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UseAsBuilder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/useasbuilder.md"}
-/>
+>
+
+<RecipeHeader.Title>Chain calls to builder methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Chain calls to builder methods that are on separate lines into one chain of builder calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"builderType","required":true,"description":"Fully qualified name of the Builder","example":"org.example.Buildable.Builder"},{"type":"Boolean","name":"immutable","required":false,"description":"The builder is immutable if you must assign the result of calls to intermediate variables or use directly. Defaults to true as many purpose-built builders will be immutable."},{"type":"String","name":"builderCreator","required":false,"description":"The method that creates the builder instance, which may not be a method of the builder itself.","example":"org.example.Buildable builder()"}]}>
 

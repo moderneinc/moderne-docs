@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Finalize method arguments"}
-  description={"Adds the `final` modifier keyword to method parameters."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.FinalizeMethodArguments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/finalizemethodarguments.md"}
-/>
+>
+
+<RecipeHeader.Title>Finalize method arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the `final` modifier keyword to method parameters.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class TestClass {\n    private void getAccaCouponData(String responsiveRequestConfig, String card) {\n    }\n}\n","after":"class TestClass {\n    private void getAccaCouponData(final String responsiveRequestConfig, final String card) {\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass TestClass {\n-   private void getAccaCouponData(String responsiveRequestConfig, String card) {\n+   private void getAccaCouponData(final String responsiveRequestConfig, final String card) {\n    }\n","newFile":false}]}]}>
 

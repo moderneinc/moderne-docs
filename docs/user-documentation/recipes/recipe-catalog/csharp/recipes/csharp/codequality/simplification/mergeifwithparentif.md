@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Merge if with parent if"}
-  description={"Merge `if (a) { if (b) { ... } }` into `if (a && b) { ... }` when the outer if body contains only a single nested if without else."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.MergeIfWithParentIf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/mergeifwithparentif.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Merge if with parent if</RecipeHeader.Title>
+
+<RecipeHeader.Description>Merge `if (a) { if (b) { ... } }` into `if (a && b) { ... }` when the outer if body contains only a single nested if without else.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.MergeIfWithParentIf","displayName":"Merge if with parent if","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

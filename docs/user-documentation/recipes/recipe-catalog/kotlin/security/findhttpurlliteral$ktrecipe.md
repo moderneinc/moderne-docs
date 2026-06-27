@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `URL(\"http://...\")` literal constructions"}
-  description={"Constructing a `java.net.URL` from an `http://` literal opts out of TLS. If the host genuinely is HTTP-only, document the exception; otherwise switch the literal to `https://`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindHttpUrlLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findhttpurlliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `URL("http://...")` literal constructions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Constructing a `java.net.URL` from an `http://` literal opts out of TLS. If the host genuinely is HTTP-only, document the exception; otherwise switch the literal to `https://`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindHttpUrlLiteral$KtRecipe","displayName":"Find `URL(\"http://...\")` literal constructions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

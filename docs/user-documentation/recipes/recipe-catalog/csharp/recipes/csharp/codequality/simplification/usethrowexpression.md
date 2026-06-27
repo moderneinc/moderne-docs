@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use throw expression"}
-  description={"Convert null-check-then-throw patterns to throw expressions."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseThrowExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usethrowexpression.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use throw expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert null-check-then-throw patterns to throw expressions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseThrowExpression","displayName":"Use throw expression","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring API endpoints"}
-  description={"Find all HTTP API endpoints exposed by Spring applications. More specifically, this marks method declarations annotated with `@RequestMapping`, `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` as search results."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.search.FindApiEndpoints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/search/findapiendpoints.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Spring API endpoints</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find all HTTP API endpoints exposed by Spring applications. More specifically, this marks method declarations annotated with `@RequestMapping`, `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, and `@PatchMapping` as search results.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.stereotype.Controller;\nimport org.springframework.web.bind.annotation.*;\n\n@Controller\nclass PersonController {\n    @GetMapping(\"/count\")\n    int count() {\n      return 42;\n    }\n}\n","after":"import org.springframework.stereotype.Controller;\nimport org.springframework.web.bind.annotation.*;\n\n@Controller\nclass PersonController {\n    /*~~(GET /count)~~>*/@GetMapping(\"/count\")\n    int count() {\n      return 42;\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n@Controller\nclass PersonController {\n-   @GetMapping(\"/count\")\n+   /*~~(GET /count)~~>*/@GetMapping(\"/count\")\n    int count() {\n","newFile":false}]}]}>
 

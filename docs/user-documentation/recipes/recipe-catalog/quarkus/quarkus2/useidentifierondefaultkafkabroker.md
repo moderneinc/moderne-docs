@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `@Identifier(\"default-kafka-broker\")`"}
-  description={"Use `@io.smallrye.common.annotation.Identifier` on default kafka broker configuration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.quarkus2.UseIdentifierOnDefaultKafkaBroker"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/useidentifierondefaultkafkabroker.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `@Identifier("default-kafka-broker")`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `@io.smallrye.common.annotation.Identifier` on default kafka broker configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.example;\n\nimport javax.inject.Inject;\nimport javax.inject.Named;\nimport java.util.Map;\n\nclass KafkaProviders {\n    @Inject\n    @Named(\"default-kafka-broker\")\n    Map<String, Object> config;\n}\n","after":"package org.openrewrite.example;\n\nimport io.smallrye.common.annotation.Identifier;\n\nimport javax.inject.Inject;\nimport java.util.Map;\n\nclass KafkaProviders {\n    @Inject\n    @Identifier(\"default-kafka-broker\")\n    Map<String, Object> config;\n}\n","diff":"@@ -3,0 +3,2 @@\npackage org.openrewrite.example;\n\n+import io.smallrye.common.annotation.Identifier;\n+\nimport javax.inject.Inject;\n@@ -4,1 +6,0 @@\n\nimport javax.inject.Inject;\n-import javax.inject.Named;\nimport java.util.Map;\n@@ -9,1 +10,1 @@\nclass KafkaProviders {\n    @Inject\n-   @Named(\"default-kafka-broker\")\n+   @Identifier(\"default-kafka-broker\")\n    Map<String, Object> config;\n","newFile":false}]}]}>
 

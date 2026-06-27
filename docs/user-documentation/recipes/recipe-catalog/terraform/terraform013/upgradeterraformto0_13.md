@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Terraform to 0.13"}
-  description={"Migrate Terraform configuration from 0.12 to 0.13 syntax. Upgrades `required_providers` entries from shorthand version strings to the object syntax with explicit `source` and `version` attributes."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["terraform"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.terraform013.UpgradeTerraformTo0_13"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/terraform013/upgradeterraformto0_13.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Terraform to 0.12","href":"terraform/terraform012/upgradeterraformto0_12"},{"name":"Upgrade `required_providers` to object syntax","href":"terraform/terraform013/upgraderequiredproviderssyntax"}]}>
+<RecipeHeader.Title>Upgrade Terraform to 0.13</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Terraform configuration from 0.12 to 0.13 syntax. Upgrades `required_providers` entries from shorthand version strings to the object syntax with explicit `source` and `version` attributes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Terraform to 0.12","href":"/user-documentation/recipes/recipe-catalog/terraform/terraform012/upgradeterraformto0_12/"},{"name":"Upgrade `required_providers` to object syntax","href":"/user-documentation/recipes/recipe-catalog/terraform/terraform013/upgraderequiredproviderssyntax/"}]}>
 
 ## Definition
 

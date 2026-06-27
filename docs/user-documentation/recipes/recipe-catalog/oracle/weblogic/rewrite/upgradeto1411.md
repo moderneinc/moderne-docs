@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to WebLogic 14.1.1"}
-  description={"This recipe will apply changes required for migrating to WebLogic 14.1.1"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["java","weblogic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.UpgradeTo1411"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradeto1411.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Java 11","href":"java/migrate/java8tojava11"},{"name":"Change Maven project property value","href":"maven/changepropertyvalue"},{"name":"Upgrade Maven parent project version","href":"maven/upgradeparentversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"}]}>
+<RecipeHeader.Title>Migrate to WebLogic 14.1.1</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes required for migrating to WebLogic 14.1.1</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Java 11","href":"/user-documentation/recipes/recipe-catalog/java/migrate/java8tojava11/"},{"name":"Change Maven project property value","href":"/user-documentation/recipes/recipe-catalog/maven/changepropertyvalue/"},{"name":"Upgrade Maven parent project version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradeparentversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"}]}>
 
 ## Definition
 

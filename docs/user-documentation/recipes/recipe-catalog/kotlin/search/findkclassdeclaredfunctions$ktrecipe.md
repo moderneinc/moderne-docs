@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `KClass.declaredFunctions` / `declaredMemberFunctions` access"}
-  description={"Access to `KClass.declaredFunctions` (and its variants) walks every declared function of a Kotlin class via reflection. Each call is a reflection seed — opaque to static analysis and requires `kotlin-reflect.jar` at runtime."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindKClassDeclaredFunctions$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findkclassdeclaredfunctions$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `KClass.declaredFunctions` / `declaredMemberFunctions` access</RecipeHeader.Title>
+
+<RecipeHeader.Description>Access to `KClass.declaredFunctions` (and its variants) walks every declared function of a Kotlin class via reflection. Each call is a reflection seed — opaque to static analysis and requires `kotlin-reflect.jar` at runtime.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindKClassDeclaredFunctions$KtRecipe","displayName":"Find `KClass.declaredFunctions` / `declaredMemberFunctions` access","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

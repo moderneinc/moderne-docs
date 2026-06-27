@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove the `@Temporal` annotation for some `java.sql` attributes"}
-  description={"OpenJPA persists the fields of attributes of type `java.sql.Date`, `java.sql.Time`, or `java.sql.Timestamp` that have a `javax.persistence.Temporal` annotation, whereas EclipseLink throws an exception. Remove the `@Temporal` annotation so the behavior in EclipseLink will match the behavior in OpenJPA."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.RemoveTemporalAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/removetemporalannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove the `@Temporal` annotation for some `java.sql` attributes</RecipeHeader.Title>
+
+<RecipeHeader.Description>OpenJPA persists the fields of attributes of type `java.sql.Date`, `java.sql.Time`, or `java.sql.Timestamp` that have a `javax.persistence.Temporal` annotation, whereas EclipseLink throws an exception. Remove the `@Temporal` annotation so the behavior in EclipseLink will match the behavior in OpenJPA.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.persistence.Temporal;\nimport javax.persistence.TemporalType;\nimport java.sql.Date;\nimport java.sql.Time;\nimport java.sql.Timestamp;\n\npublic class TemporalDates {\n    @Temporal(TemporalType.DATE)\n    private Date dateDate;\n\n    @Temporal(TemporalType.TIME)\n    private Date dateTime;\n\n    @Temporal(TemporalType.DATE)\n    private Time timeDate;\n\n    @Temporal(TemporalType.TIME)\n    private java.sql.Time timeTime;\n\n    @Temporal(TemporalType.TIMESTAMP)\n    private java.sql.Time timeTimestamp;\n\n    @Temporal(TemporalType.TIMESTAMP)\n    private java.sql.Timestamp timestampTimestamp;\n}\n","after":"import javax.persistence.Temporal;\nimport javax.persistence.TemporalType;\nimport java.sql.Date;\nimport java.sql.Time;\nimport java.sql.Timestamp;\n\npublic class TemporalDates {\n    private Date dateDate;\n\n    private Date dateTime;\n\n    private Time timeDate;\n\n    private java.sql.Time timeTime;\n\n    private java.sql.Time timeTimestamp;\n\n    private java.sql.Timestamp timestampTimestamp;\n}\n","diff":"@@ -8,1 +8,0 @@\n\npublic class TemporalDates {\n-   @Temporal(TemporalType.DATE)\n    private Date dateDate;\n@@ -11,1 +10,0 @@\n    private Date dateDate;\n\n-   @Temporal(TemporalType.TIME)\n    private Date dateTime;\n@@ -14,1 +12,0 @@\n    private Date dateTime;\n\n-   @Temporal(TemporalType.DATE)\n    private Time timeDate;\n@@ -17,1 +14,0 @@\n    private Time timeDate;\n\n-   @Temporal(TemporalType.TIME)\n    private java.sql.Time timeTime;\n@@ -20,1 +16,0 @@\n    private java.sql.Time timeTime;\n\n-   @Temporal(TemporalType.TIMESTAMP)\n    private java.sql.Time timeTimestamp;\n@@ -23,1 +18,0 @@\n    private java.sql.Time timeTimestamp;\n\n-   @Temporal(TemporalType.TIMESTAMP)\n    private java.sql.Timestamp timestampTimestamp;\n","newFile":false}]}]}>
 

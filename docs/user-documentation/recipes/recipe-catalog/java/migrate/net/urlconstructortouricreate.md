@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `new URL(String)` to `URI.create(String).toURL()`"}
-  description={"Converts `new URL(String)` constructor to `URI.create(String).toURL()`. The URL constructor has been deprecated due to security vulnerabilities when handling malformed URLs. Using `URI.create(String)` provides stronger validation and safer URL handling in modern Java applications."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.net.URLConstructorToURICreate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/net/urlconstructortouricreate.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `new URL(String)` to `URI.create(String).toURL()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `new URL(String)` constructor to `URI.create(String).toURL()`. The URL constructor has been deprecated due to security vulnerabilities when handling malformed URLs. Using `URI.create(String)` provides stronger validation and safer URL handling in modern Java applications.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"import java.net.URL;\n\nclass Test {\n    void urlConstructor(String spec) throws Exception {\n        URL url1 = new URL(spec);\n    }\n}\n"},"variants":[]}]}>
 

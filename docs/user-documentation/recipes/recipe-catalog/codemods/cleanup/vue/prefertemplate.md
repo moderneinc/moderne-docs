@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Require template literals instead of string concatenation in `<template>`"}
-  description={"Require template literals instead of string concatenation in `<template>`\nSee rule details for [vue/prefer-template](https://eslint.vuejs.org/rules/prefer-template.html)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ESLint","vue","eslint-plugin-vue"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.vue.PreferTemplate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/prefertemplate.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Require template literals instead of string concatenation in `<template>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Require template literals instead of string concatenation in `<template>` See rule details for [vue/prefer-template](https://eslint.vuejs.org/rules/prefer-template.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unneeded assertions"}
-  description={"Remove unneeded assertions like `assert true`, `assertTrue(true)`, or `assertFalse(false)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveUnneededAssertion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeunneededassertion.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unneeded assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unneeded assertions like `assert true`, `assertTrue(true)`, or `assertFalse(false)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n    public void m() {\n        System.out.println(\"Hello\");\n        assert true;\n        System.out.println(\"World\");\n    }\n}\n","after":"public class A {\n    public void m() {\n        System.out.println(\"Hello\");\n        System.out.println(\"World\");\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\n    public void m() {\n        System.out.println(\"Hello\");\n-       assert true;\n        System.out.println(\"World\");\n","newFile":false}]}]}>
 

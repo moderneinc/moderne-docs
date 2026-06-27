@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Control flow statement indentation"}
-  description={"Program flow control statements like `if`, `while`, and `for` can omit curly braces when they apply to only a single statement. This recipe ensures that any statements which follow that statement are correctly indented to show they are not part of the flow control statement. Misleading indentation can give the false impression that a line executes conditionally when it actually runs unconditionally, which is a common source of logic errors."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2681"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ControlFlowIndentation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/controlflowindentation.md"}
-/>
+>
+
+<RecipeHeader.Title>Control flow statement indentation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Program flow control statements like `if`, `while`, and `for` can omit curly braces when they apply to only a single statement. This recipe ensures that any statements which follow that statement are correctly indented to show they are not part of the flow control statement. Misleading indentation can give the false impression that a line executes conditionally when it actually runs unconditionally, which is a common source of logic errors.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void test() {\n        if(true) {\n            foo();\n        } else\n            foo();\n            foo();\n    }\n\n    static void foo(){}\n}\n","after":"class A {\n    void test() {\n        if(true) {\n            foo();\n        } else\n            foo();\n        foo();\n    }\n\n    static void foo(){}\n}\n","diff":"@@ -7,1 +7,1 @@\n        } else\n            foo();\n-           foo();\n+       foo();\n    }\n","newFile":false}]}]}>
 

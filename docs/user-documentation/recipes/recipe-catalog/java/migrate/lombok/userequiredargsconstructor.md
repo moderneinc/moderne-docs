@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `@RequiredArgsConstructor` where applicable"}
-  description={"Prefer the Lombok `@RequiredArgsConstructor` annotation over explicitly written out constructors that only assign final fields."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lombok.UseRequiredArgsConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/userequiredargsconstructor.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `@RequiredArgsConstructor` where applicable</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Lombok `@RequiredArgsConstructor` annotation over explicitly written out constructors that only assign final fields.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    private final int foo;\n\n    public A(int foo) {\n        this.foo = foo;\n    }\n}\n","after":"import lombok.RequiredArgsConstructor;\n\n@RequiredArgsConstructor\nclass A {\n    private final int foo;\n}\n","diff":"@@ -1,0 +1,3 @@\n+import lombok.RequiredArgsConstructor;\n+\n+@RequiredArgsConstructor\nclass A {\n@@ -3,4 +6,0 @@\nclass A {\n    private final int foo;\n-\n-   public A(int foo) {\n-       this.foo = foo;\n-   }\n}\n","newFile":false}]}]}>
 

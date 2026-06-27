@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Mask credit card numbers"}
-  description={"When encountering string literals which appear to be credit card numbers, mask the last eight digits with the letter 'X'."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.MaskCreditCardNumbers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/maskcreditcardnumbers.md"}
-/>
+>
+
+<RecipeHeader.Title>Mask credit card numbers</RecipeHeader.Title>
+
+<RecipeHeader.Description>When encountering string literals which appear to be credit card numbers, mask the last eight digits with the letter 'X'.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    String cc = \"1234567890123456\";\n}\n","after":"class A {\n    String cc = \"12345678XXXXXXXX\";\n}\n","diff":"@@ -2,1 +2,1 @@\nclass A {\n-   String cc = \"1234567890123456\";\n+   String cc = \"12345678XXXXXXXX\";\n}\n","newFile":false}]}]}>
 

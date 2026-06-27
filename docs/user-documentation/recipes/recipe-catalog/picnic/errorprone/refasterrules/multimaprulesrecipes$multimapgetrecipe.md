@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Multimap#get(Object)` over more contrived alternatives"}
-  description={"<strong>Warning:</strong> this rewrite rule is not completely behavior preserving: the\n original code will yield `null` for unknown keys, while the replacement code will return\n an empty collection for unknown keys."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.MultimapRulesRecipes$MultimapGetRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapgetrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Multimap#get(Object)` over more contrived alternatives</RecipeHeader.Title>
+
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rewrite rule is not completely behavior preserving: the  original code will yield `null` for unknown keys, while the replacement code will return  an empty collection for unknown keys.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.MultimapRulesRecipes$MultimapGetRecipe","displayName":"Prefer `Multimap#get(Object)` over more contrived alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

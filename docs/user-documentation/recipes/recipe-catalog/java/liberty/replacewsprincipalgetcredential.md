@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `WSPrincipal.getCredential()` with `WSSubject` lookup"}
-  description={"Replaces `WSCredential credential = WSPrincipal.getCredential();` with a `null` initializer + `try/catch` lookup."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-liberty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.liberty.ReplaceWSPrincipalGetCredential"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/liberty/replacewsprincipalgetcredential.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `WSPrincipal.getCredential()` with `WSSubject` lookup</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `WSCredential credential = WSPrincipal.getCredential();` with a `null` initializer + `try/catch` lookup.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.acme;\n\nimport com.ibm.websphere.security.auth.WSPrincipal;\nimport com.ibm.websphere.security.cred.WSCredential;\n\nclass A {\n    void fetchCredential() {\n        WSCredential credential = WSPrincipal.getCredential();\n    }\n}\n","after":"package com.acme;\n\nimport com.ibm.websphere.security.auth.WSSubject;\nimport com.ibm.websphere.security.cred.WSCredential;\n\nimport javax.security.auth.Subject;\n\nclass A {\n    void fetchCredential() {\n        WSCredential credential = null;\n        try {\n            Subject subject = WSSubject.getCallerSubject();\n            if (subject != null) {\n                credential = subject.getPublicCredentials(WSCredential.class)\n                        .iterator().next();\n            }\n        } catch (Exception e) {\n            e.printStackTrace();\n        }\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\npackage com.acme;\n\n-import com.ibm.websphere.security.auth.WSPrincipal;\n+import com.ibm.websphere.security.auth.WSSubject;\nimport com.ibm.websphere.security.cred.WSCredential;\n@@ -6,0 +6,2 @@\nimport com.ibm.websphere.security.cred.WSCredential;\n\n+import javax.security.auth.Subject;\n+\nclass A {\n@@ -8,1 +10,10 @@\nclass A {\n    void fetchCredential() {\n-       WSCredential credential = WSPrincipal.getCredential();\n+       WSCredential credential = null;\n+       try {\n+           Subject subject = WSSubject.getCallerSubject();\n+           if (subject != null) {\n+               credential = subject.getPublicCredentials(WSCredential.class)\n+                       .iterator().next();\n+           }\n+       } catch (Exception e) {\n+           e.printStackTrace();\n+       }\n    }\n","newFile":false}]}]}>
 

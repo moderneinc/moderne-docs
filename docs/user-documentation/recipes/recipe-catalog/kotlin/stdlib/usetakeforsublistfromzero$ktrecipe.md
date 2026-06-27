@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `take(n)` instead of `subList(0, n)`"}
-  description={"`take(n)` returns the first `n` elements as a stable copy. `subList(0, n)` returns a live view backed by the original list — surprising aliasing if the source is mutated."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.UseTakeForSubListFromZero$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usetakeforsublistfromzero$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `take(n)` instead of `subList(0, n)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`take(n)` returns the first `n` elements as a stable copy. `subList(0, n)` returns a live view backed by the original list — surprising aliasing if the source is mutated.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.stdlib.UseTakeForSubListFromZero$KtRecipe","displayName":"Use `take(n)` instead of `subList(0, n)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

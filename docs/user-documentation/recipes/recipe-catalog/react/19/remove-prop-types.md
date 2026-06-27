@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `propTypes` assignments"}
-  description={"Removes `Component.propTypes = {...}` assignments. PropTypes are silently ignored in React 19."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.remove-prop-types"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/remove-prop-types.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `propTypes` assignments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `Component.propTypes = {...}` assignments. PropTypes are silently ignored in React 19.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.19.remove-prop-types","displayName":"Remove `propTypes` assignments","npmPackage":"@openrewrite/recipes-react"}}>
 

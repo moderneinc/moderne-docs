@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Avoid using the deprecated empty `finalize()` method in `java.desktop`"}
-  description={"The java.desktop module had a few implementations of finalize() that did nothing and have been removed. This recipe will remove these methods."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java21"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.DeleteDeprecatedFinalize"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/deletedeprecatedfinalize.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove method invocations","href":"java/removemethodinvocations"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Avoid using the deprecated empty `finalize()` method in `java.desktop`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The java.desktop module had a few implementations of finalize() that did nothing and have been removed. This recipe will remove these methods.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

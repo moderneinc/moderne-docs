@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `@Query` annotation by `@NativeQuery` when possible"}
-  description={"Replace `@Query` annotation by `@NativeQuery` when `nativeQuery = true`. `@NativeQuery` was introduced in Spring Data JPA 3.4."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.data.MigrateQueryToNativeQuery"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/data/migratequerytonativequery.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `@Query` annotation by `@NativeQuery` when possible</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `@Query` annotation by `@NativeQuery` when `nativeQuery = true`. `@NativeQuery` was introduced in Spring Data JPA 3.4.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.data.jpa.repository.Query;\n\ninterface Test {\n\n    @Query(value = \"select * from foo\", nativeQuery = true)\n    void customQuery();\n}\n","after":"import org.springframework.data.jpa.repository.NativeQuery;\n\ninterface Test {\n\n    @NativeQuery(\"select * from foo\")\n    void customQuery();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.data.jpa.repository.Query;\n+import org.springframework.data.jpa.repository.NativeQuery;\n\n@@ -5,1 +5,1 @@\ninterface Test {\n\n-   @Query(value = \"select * from foo\", nativeQuery = true)\n+   @NativeQuery(\"select * from foo\")\n    void customQuery();\n","newFile":false}]}]}>
 

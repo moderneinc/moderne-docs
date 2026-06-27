@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@AutoConfigureWebTestClient` if necessary"}
-  description={"Adds `@AutoConfigureWebTestClient` to test classes annotated with `@SpringBootTest` that use `WebTestClient` since this bean is no longer auto-configured as described in the [Spring Boot 4 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide#using-webclient-or-testresttemplate-and-springboottest)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot4.AddAutoConfigureWebTestClient"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/addautoconfigurewebtestclient.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `@AutoConfigureWebTestClient` if necessary</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `@AutoConfigureWebTestClient` to test classes annotated with `@SpringBootTest` that use `WebTestClient` since this bean is no longer auto-configured as described in the [Spring Boot 4 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide#using-webclient-or-testresttemplate-and-springboottest).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.test.context.SpringBootTest;\nimport org.springframework.test.web.reactive.server.WebTestClient;\n\n@SpringBootTest\nclass ExampleTest {\n    WebTestClient webTestClient;\n}\n","after":"import org.springframework.boot.test.context.SpringBootTest;\nimport org.springframework.boot.webtestclient.autoconfigure.AutoConfigureWebTestClient;\nimport org.springframework.test.web.reactive.server.WebTestClient;\n\n@AutoConfigureWebTestClient\n@SpringBootTest\nclass ExampleTest {\n    WebTestClient webTestClient;\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.springframework.boot.test.context.SpringBootTest;\n+import org.springframework.boot.webtestclient.autoconfigure.AutoConfigureWebTestClient;\nimport org.springframework.test.web.reactive.server.WebTestClient;\n@@ -4,0 +5,1 @@\nimport org.springframework.test.web.reactive.server.WebTestClient;\n\n+@AutoConfigureWebTestClient\n@SpringBootTest\n","newFile":false}]}]}>
 

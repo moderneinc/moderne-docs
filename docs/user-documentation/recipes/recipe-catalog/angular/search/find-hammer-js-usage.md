@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find HammerJS usage"}
-  description={"Finds `HammerModule` imports and HammerJS references. Angular has deprecated HammerJS support and it will be removed in Angular 21."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-hammer-js-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-hammer-js-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find HammerJS usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `HammerModule` imports and HammerJS references. Angular has deprecated HammerJS support and it will be removed in Angular 21.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-hammer-js-usage","displayName":"Find HammerJS usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

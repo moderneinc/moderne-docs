@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"TestNG `assertEqualsDeep`/`assertNotEqualsDeep` to AssertJ"}
-  description={"Convert TestNG-style `assertEqualsDeep()` and `assertNotEqualsDeep()` to AssertJ's `assertThat().usingRecursiveComparison().isEqualTo()` / `.isNotEqualTo()`, which performs a deep, recursive comparison of the `Map`/`Set` contents."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testng.TestNgAssertEqualsDeepToAssertThat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertequalsdeeptoassertthat.md"}
-/>
+>
+
+<RecipeHeader.Title>TestNG `assertEqualsDeep`/`assertNotEqualsDeep` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert TestNG-style `assertEqualsDeep()` and `assertNotEqualsDeep()` to AssertJ's `assertThat().usingRecursiveComparison().isEqualTo()` / `.isNotEqualTo()`, which performs a deep, recursive comparison of the `Map`/`Set` contents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.testng.TestNgAssertEqualsDeepToAssertThat","displayName":"TestNG `assertEqualsDeep`/`assertNotEqualsDeep` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

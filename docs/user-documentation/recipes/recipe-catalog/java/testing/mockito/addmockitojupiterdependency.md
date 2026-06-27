@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add mockito-junit-jupiter dependency"}
-  description={"Adds `org.mockito:mockito-junit-jupiter` dependency if `@ExtendWith(MockitoExtension.class)` will be added to any test class, i.e. when Mockito annotations are used in JUnit 5 tests without the extension already present."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.AddMockitoJupiterDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/addmockitojupiterdependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Add mockito-junit-jupiter dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `org.mockito:mockito-junit-jupiter` dependency if `@ExtendWith(MockitoExtension.class)` will be added to any test class, i.e. when Mockito annotations are used in JUnit 5 tests without the extension already present.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.AddMockitoJupiterDependency","displayName":"Add mockito-junit-jupiter dependency","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

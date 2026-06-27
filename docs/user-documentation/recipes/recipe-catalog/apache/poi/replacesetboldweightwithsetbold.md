@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `Font.setBoldweight(short)` with `Font.setBold(boolean)`"}
-  description={"Replace `Font.setBoldweight(short)` or equivalent with `Font.setBold(boolean)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.poi.ReplaceSetBoldweightWithSetBold"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/poi/replacesetboldweightwithsetbold.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `Font.setBoldweight(short)` with `Font.setBold(boolean)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `Font.setBoldweight(short)` or equivalent with `Font.setBold(boolean)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.poi.ss.usermodel.Font;\n\nclass Test {\n    void method(Font font) {\n        font.setBoldweight((short) 700);\n        font.setBoldweight(font.BOLDWEIGHT_BOLD);\n        font.setBoldweight(Font.BOLDWEIGHT_BOLD);\n\n        font.setBoldweight((short) 400);\n        font.setBoldweight(font.BOLDWEIGHT_NORMAL);\n        font.setBoldweight(Font.BOLDWEIGHT_NORMAL);\n    }\n}\n","after":"import org.apache.poi.ss.usermodel.Font;\n\nclass Test {\n    void method(Font font) {\n        font.setBold(true);\n        font.setBold(true);\n        font.setBold(true);\n\n        font.setBold(false);\n        font.setBold(false);\n        font.setBold(false);\n    }\n}\n","diff":"@@ -5,3 +5,3 @@\nclass Test {\n    void method(Font font) {\n-       font.setBoldweight((short) 700);\n-       font.setBoldweight(font.BOLDWEIGHT_BOLD);\n-       font.setBoldweight(Font.BOLDWEIGHT_BOLD);\n+       font.setBold(true);\n+       font.setBold(true);\n+       font.setBold(true);\n\n@@ -9,3 +9,3 @@\n        font.setBoldweight(Font.BOLDWEIGHT_BOLD);\n\n-       font.setBoldweight((short) 400);\n-       font.setBoldweight(font.BOLDWEIGHT_NORMAL);\n-       font.setBoldweight(Font.BOLDWEIGHT_NORMAL);\n+       font.setBold(false);\n+       font.setBold(false);\n+       font.setBold(false);\n    }\n","newFile":false}]}]}>
 

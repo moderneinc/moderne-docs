@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace constant with another constant"}
-  description={"Replace a constant with another constant, adding/removing import on class if needed."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.ReplaceConstantWithAnotherConstant"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace constant with another constant</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace a constant with another constant, adding/removing import on class if needed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"existingFullyQualifiedConstantName","required":true,"description":"","example":"org.springframework.http.MediaType.APPLICATION_JSON_VALUE"},{"type":"String","name":"fullyQualifiedConstantName","required":true,"description":"","example":"org.springframework.http.MediaType.APPLICATION_JSON_VALUE"}]}>
 

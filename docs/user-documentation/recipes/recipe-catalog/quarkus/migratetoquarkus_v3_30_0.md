@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Quarkus Updates Aggregate 3.30.0"}
-  description={"Quarkus update recipes to upgrade your application to 3.30.0."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.MigrateToQuarkus_v3_30_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_30_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.29.0","href":"quarkus/migratetoquarkus_v3_29_0"},{"name":"io.quarkus.updates.core.quarkus330.RenameEnableMetrics","href":"quarkus/updates/core/quarkus330/renameenablemetrics"},{"name":"Migrates `camel 4.15` application to `camel 4.16`","href":"quarkus/updates/camel/camel416/camelquarkusmigrationrecipe"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
+<RecipeHeader.Title>Quarkus Updates Aggregate 3.30.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Quarkus update recipes to upgrade your application to 3.30.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.29.0","href":"/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_29_0/"},{"name":"io.quarkus.updates.core.quarkus330.RenameEnableMetrics","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus330/renameenablemetrics/"},{"name":"Migrates `camel 4.15` application to `camel 4.16`","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel416/camelquarkusmigrationrecipe/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

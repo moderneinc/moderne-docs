@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`@Type` annotation type parameter migration"}
-  description={"Hibernate 6.x has 'type' parameter of type String replaced with 'value' of type class."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-hibernate"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hibernate.TypeAnnotationParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/typeannotationparameter.md"}
-/>
+>
+
+<RecipeHeader.Title>`@Type` annotation type parameter migration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Hibernate 6.x has 'type' parameter of type String replaced with 'value' of type class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.annotations.Type;\n\nclass TestApplication {\n    @Type(type = \"java.util.concurrent.atomic.AtomicBoolean\")\n    Object a;\n}\n","after":"import org.hibernate.annotations.Type;\n\nimport java.util.concurrent.atomic.AtomicBoolean;\n\nclass TestApplication {\n    @Type(AtomicBoolean.class)\n    Object a;\n}\n","diff":"@@ -3,0 +3,2 @@\nimport org.hibernate.annotations.Type;\n\n+import java.util.concurrent.atomic.AtomicBoolean;\n+\nclass TestApplication {\n@@ -4,1 +6,1 @@\n\nclass TestApplication {\n-   @Type(type = \"java.util.concurrent.atomic.AtomicBoolean\")\n+   @Type(AtomicBoolean.class)\n    Object a;\n","newFile":false}]}]}>
 

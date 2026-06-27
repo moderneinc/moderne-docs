@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Library upgrade"}
-  description={"Determine the current state of a repository relative to a desired library upgrade."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.LibraryUpgrade"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/libraryupgrade.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Library upgrade</RecipeHeader.Title>
+
+<RecipeHeader.Description>Determine the current state of a repository relative to a desired library upgrade.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"cardName","required":true,"description":"The display name of the DevCenter card.","example":"Move to Spring Boot 4.0"},{"type":"String","name":"groupIdPattern","required":true,"description":"Group glob pattern used to match dependencies.","example":"com.fasterxml.jackson.module"},{"type":"String","name":"artifactIdPattern","required":true,"description":"Artifact glob pattern used to match dependencies.","example":"jackson-module-*"},{"type":"String","name":"version","required":true,"description":"The target version of the upgrade. Specify the version out to the desired patch version.","example":"3.4.1"},{"type":"String","name":"upgradeRecipe","required":false,"description":"The recipe to use to upgrade.","example":"io.moderne.java.spring.boot3.UpgradeSpringBoot_3_5"}]}>
 

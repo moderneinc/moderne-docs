@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Disallow unnecessary mustache interpolations"}
-  description={"Disallow unnecessary mustache interpolations\nSee rule details for [vue/no-useless-mustaches](https://eslint.vuejs.org/rules/no-useless-mustaches.html)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ESLint","vue","eslint-plugin-vue"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.vue.NoUselessMustaches"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/nouselessmustaches.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Disallow unnecessary mustache interpolations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Disallow unnecessary mustache interpolations See rule details for [vue/no-useless-mustaches](https://eslint.vuejs.org/rules/no-useless-mustaches.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

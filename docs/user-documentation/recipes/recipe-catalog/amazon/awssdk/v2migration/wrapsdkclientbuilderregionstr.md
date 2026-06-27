@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Wrap the region string provided on the SDK client builder with Region.of"}
-  description={"Wrap the region string provided on the SDK client builder with Region.of."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/software.amazon.awssdk.v2migration.WrapSdkClientBuilderRegionStr"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/wrapsdkclientbuilderregionstr.md"}
-/>
+>
+
+<RecipeHeader.Title>Wrap the region string provided on the SDK client builder with Region.of</RecipeHeader.Title>
+
+<RecipeHeader.Description>Wrap the region string provided on the SDK client builder with Region.of.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"software.amazon.awssdk.v2migration.WrapSdkClientBuilderRegionStr","displayName":"Wrap the region string provided on the SDK client builder with Region.of","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

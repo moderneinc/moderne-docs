@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use logger instead of `System.err` print statements"}
-  description={"Replace `System.err` print statements with a logger."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.SystemErrToLogging"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/systemerrtologging.md"}
-/>
+>
+
+<RecipeHeader.Title>Use logger instead of `System.err` print statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `System.err` print statements with a logger.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"addLogger","required":false,"description":"Add a logger field to the class if it isn't already present."},{"type":"String","name":"loggerName","required":false,"description":"The name of the logger to use when generating a field.","example":"log"},{"type":"String","name":"loggingFramework","required":false,"description":"The logging framework to use."}]}>
 

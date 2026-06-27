@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Is likely a Spring Boot project"}
-  description={"Marks the project if it's likely a Spring Boot project."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot.IsLikelySpringBoot"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot/islikelyspringboot.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Is likely a Spring Boot project</RecipeHeader.Title>
+
+<RecipeHeader.Description>Marks the project if it's likely a Spring Boot project.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"java","before":"package org.example;\n\nclass Main {}\n","after":"/*~~>*/package org.example;\n\nclass Main {}\n","diff":"@@ -1,1 +1,1 @@\n-package org.example;\n+/*~~>*/package org.example;\n\n","newFile":false},{"language":"xml","before":"<project>\n    <groupId>com.example</groupId>\n    <artifactId>fooservice</artifactId>\n    <version>1.0-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot-starter-web</artifactId>\n            <version>3.5.0</version>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<!--~~>--><project>\n    <groupId>com.example</groupId>\n    <artifactId>fooservice</artifactId>\n    <version>1.0-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot-starter-web</artifactId>\n            <version>3.5.0</version>\n        </dependency>\n    </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -1,1 +1,1 @@\n-<project>\n+<!--~~>--><project>\n    <groupId>com.example</groupId>\n","newFile":false}]}]}>
 

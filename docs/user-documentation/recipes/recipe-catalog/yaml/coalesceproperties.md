@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Coalesce YAML properties"}
-  description={"Simplify nested map hierarchies into their simplest dot separated property form, similar to how Spring Boot interprets `application.yml` files."}
   type={"Single recipe"}
   languages={["YAML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-yaml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.yaml.CoalesceProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/yaml/coalesceproperties.md"}
-/>
+>
+
+<RecipeHeader.Title>Coalesce YAML properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify nested map hierarchies into their simplest dot separated property form, similar to how Spring Boot interprets `application.yml` files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"exclusions","required":false,"description":"An optional list of [JsonPath](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expressions to specify keys that should not be unfolded.","example":"$..[org.springframework.security]"},{"type":"List","name":"applyTo","required":false,"description":"An optional list of [JsonPath](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expressions that specify which keys the recipe should target only. Only the properties matching these expressions will be unfolded.","example":"$..[org.springframework.security]"}]}>
 

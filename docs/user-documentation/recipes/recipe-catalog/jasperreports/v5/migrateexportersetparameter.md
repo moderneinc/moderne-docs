@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JasperReports exporter setParameter to new API"}
-  description={"Migrates deprecated `setParameter` calls on JasperReports exporters to the new API using `setExporterInput` and `setExporterOutput`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.jasperreports.v5.MigrateExporterSetParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jasperreports/v5/migrateexportersetparameter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate JasperReports exporter setParameter to new API</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates deprecated `setParameter` calls on JasperReports exporters to the new API using `setExporterInput` and `setExporterOutput`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import net.sf.jasperreports.engine.JRExporter;\nimport net.sf.jasperreports.engine.JRExporterParameter;\nimport net.sf.jasperreports.engine.JasperPrint;\nimport net.sf.jasperreports.engine.export.JRPdfExporter;\n\nclass ReportExporter {\n    void export(JasperPrint jasperPrint) {\n        JRExporter exporter = new JRPdfExporter();\n        exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);\n        exporter.exportReport();\n    }\n}\n","after":"import net.sf.jasperreports.engine.JRExporter;\nimport net.sf.jasperreports.engine.JasperPrint;\nimport net.sf.jasperreports.engine.export.JRPdfExporter;\nimport net.sf.jasperreports.export.SimpleExporterInput;\n\nclass ReportExporter {\n    void export(JasperPrint jasperPrint) {\n        JRExporter exporter = new JRPdfExporter();\n        exporter.setExporterInput(new SimpleExporterInput(jasperPrint));\n        exporter.exportReport();\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport net.sf.jasperreports.engine.JRExporter;\n-import net.sf.jasperreports.engine.JRExporterParameter;\nimport net.sf.jasperreports.engine.JasperPrint;\n@@ -5,0 +4,1 @@\nimport net.sf.jasperreports.engine.JasperPrint;\nimport net.sf.jasperreports.engine.export.JRPdfExporter;\n+import net.sf.jasperreports.export.SimpleExporterInput;\n\n@@ -9,1 +9,1 @@\n    void export(JasperPrint jasperPrint) {\n        JRExporter exporter = new JRPdfExporter();\n-       exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);\n+       exporter.setExporterInput(new SimpleExporterInput(jasperPrint));\n        exporter.exportReport();\n","newFile":false}]}]}>
 

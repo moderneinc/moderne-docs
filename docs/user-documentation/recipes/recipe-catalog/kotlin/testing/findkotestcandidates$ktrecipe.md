@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Kotest migration candidates"}
-  description={"Search-only bundle for assertion call sites that have direct Kotest equivalents: `assertEquals` (`shouldBe`), `assertTrue`/`assertFalse` (`shouldBeTrue`/`shouldBeFalse`), `assertNull`/`assertNotNull` (`shouldBeNull`/`shouldNotBeNull` with smart-cast), `assertThrows` (`shouldThrow`), plus snake_case test names that Kotlin's backtick syntax can replace with sentence-style names."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindKotestCandidates$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findkotestcandidates$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `assertEquals(...)` calls — Kotest migration candidate","href":"kotlin/testing/findassertequalscandidateforkotest$ktrecipe"},{"name":"Find `assertTrue(...)` calls — Kotest migration candidate","href":"kotlin/testing/findasserttruecandidateforkotest$ktrecipe"},{"name":"Find `assertFalse(...)` calls — Kotest migration candidate","href":"kotlin/testing/findassertfalsecandidateforkotest$ktrecipe"},{"name":"Find `assertNull(...)` calls — Kotest migration candidate","href":"kotlin/testing/findassertnullcandidateforkotest$ktrecipe"},{"name":"Find `assertNotNull(...)` calls — Kotest migration candidate","href":"kotlin/testing/findassertnotnullcandidateforkotest$ktrecipe"},{"name":"Find `assertThrows<X> { ... }` calls — Kotest migration candidate","href":"kotlin/testing/findassertthrowscandidateforkotest$ktrecipe"},{"name":"Find test functions named with snake_case","href":"kotlin/testing/findfunctiontestnamedwithunderscores$ktrecipe"}]}>
+<RecipeHeader.Title>Find Kotest migration candidates</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle for assertion call sites that have direct Kotest equivalents: `assertEquals` (`shouldBe`), `assertTrue`/`assertFalse` (`shouldBeTrue`/`shouldBeFalse`), `assertNull`/`assertNotNull` (`shouldBeNull`/`shouldNotBeNull` with smart-cast), `assertThrows` (`shouldThrow`), plus snake_case test names that Kotlin's backtick syntax can replace with sentence-style names.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `assertEquals(...)` calls — Kotest migration candidate","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertequalscandidateforkotest$ktrecipe/"},{"name":"Find `assertTrue(...)` calls — Kotest migration candidate","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findasserttruecandidateforkotest$ktrecipe/"},{"name":"Find `assertFalse(...)` calls — Kotest migration candidate","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertfalsecandidateforkotest$ktrecipe/"},{"name":"Find `assertNull(...)` calls — Kotest migration candidate","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertnullcandidateforkotest$ktrecipe/"},{"name":"Find `assertNotNull(...)` calls — Kotest migration candidate","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertnotnullcandidateforkotest$ktrecipe/"},{"name":"Find `assertThrows<X> { ... }` calls — Kotest migration candidate","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertthrowscandidateforkotest$ktrecipe/"},{"name":"Find test functions named with snake_case","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findfunctiontestnamedwithunderscores$ktrecipe/"}]}>
 
 ## Definition
 

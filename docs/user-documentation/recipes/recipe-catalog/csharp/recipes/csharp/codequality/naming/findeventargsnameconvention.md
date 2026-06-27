@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"EventArgs name should end with 'EventArgs'"}
-  description={"Classes that inherit from `System.EventArgs` should have names ending with 'EventArgs' by convention."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","naming","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Naming.FindEventArgsNameConvention"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/naming/findeventargsnameconvention.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>EventArgs name should end with 'EventArgs'</RecipeHeader.Title>
+
+<RecipeHeader.Description>Classes that inherit from `System.EventArgs` should have names ending with 'EventArgs' by convention.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Naming.FindEventArgsNameConvention","displayName":"EventArgs name should end with 'EventArgs'","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

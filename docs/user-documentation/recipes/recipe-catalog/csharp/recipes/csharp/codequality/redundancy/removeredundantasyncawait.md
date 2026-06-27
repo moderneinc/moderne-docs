@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant async/await"}
-  description={"Remove redundant async/await when a Task can be returned directly."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantAsyncAwait"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeredundantasyncawait.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant async/await</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove redundant async/await when a Task can be returned directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantAsyncAwait","displayName":"Remove redundant async/await","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

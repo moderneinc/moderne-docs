@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use read-only auto property"}
-  description={"Use read-only auto property when the setter is never used."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseReadOnlyAutoProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/usereadonlyautoproperty.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use read-only auto property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use read-only auto property when the setter is never used.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseReadOnlyAutoProperty","displayName":"Use read-only auto property","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

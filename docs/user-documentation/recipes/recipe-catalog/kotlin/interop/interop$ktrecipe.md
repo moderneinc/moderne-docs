@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Improve Java↔Kotlin interop ergonomics"}
-  description={"Opinionated bundle of every interop recipe in this module: the `Optional.of(x).get()` collapse plus search-only flags for Java idioms that have first-class Kotlin replacements (Optional, CompletableFuture, Stream, Collections factories, `@Jvm*`-annotation gaps, Java-style call shapes, reactive return types, non-injected clocks). For diff-only output, use `ImproveKotlinInterop`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.Interop$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/interop$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `x` instead of `Optional.of(x).get()`","href":"kotlin/interop/usevalueforoptionalofget$ktrecipe"},{"name":"Find Java↔Kotlin interop friction points","href":"kotlin/interop/findinteropfriction$ktrecipe"}]}>
+<RecipeHeader.Title>Improve Java↔Kotlin interop ergonomics</RecipeHeader.Title>
+
+<RecipeHeader.Description>Opinionated bundle of every interop recipe in this module: the `Optional.of(x).get()` collapse plus search-only flags for Java idioms that have first-class Kotlin replacements (Optional, CompletableFuture, Stream, Collections factories, `@Jvm*`-annotation gaps, Java-style call shapes, reactive return types, non-injected clocks). For diff-only output, use `ImproveKotlinInterop`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `x` instead of `Optional.of(x).get()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/usevalueforoptionalofget$ktrecipe/"},{"name":"Find Java↔Kotlin interop friction points","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findinteropfriction$ktrecipe/"}]}>
 
 ## Definition
 

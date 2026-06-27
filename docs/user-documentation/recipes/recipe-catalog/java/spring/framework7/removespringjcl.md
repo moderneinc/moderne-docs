@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove spring-jcl dependency"}
-  description={"The `spring-jcl` module has been removed in Spring Framework 7.0 in favor of Apache Commons Logging 1.3.0. This recipe removes any explicit dependency on `org.springframework:spring-jcl`. The change should be transparent for most applications, as spring-jcl was typically a transitive dependency and the logging API calls (`org.apache.commons.logging.*`) remain unchanged."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","framework","logging"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.RemoveSpringJcl"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/removespringjcl.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove spring-jcl dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `spring-jcl` module has been removed in Spring Framework 7.0 in favor of Apache Commons Logging 1.3.0. This recipe removes any explicit dependency on `org.springframework:spring-jcl`. The change should be transparent for most applications, as spring-jcl was typically a transitive dependency and the logging API calls (`org.apache.commons.logging.*`) remain unchanged.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

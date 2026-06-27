@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deserialization errors"}
-  description={"Produces a data table collecting all deserialization errors of serialized LSTs."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.FindDeserializationErrors"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/finddeserializationerrors.md"}
-/>
+>
+
+<RecipeHeader.Title>Find deserialization errors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Produces a data table collecting all deserialization errors of serialized LSTs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.FindDeserializationErrors","displayName":"Find deserialization errors","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":false}}>
 

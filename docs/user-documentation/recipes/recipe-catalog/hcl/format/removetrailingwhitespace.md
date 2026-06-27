@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove trailing whitespace"}
-  description={"Remove any extra trailing whitespace from the end of each line."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-hcl"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hcl.format.RemoveTrailingWhitespace"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hcl/format/removetrailingwhitespace.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove trailing whitespace</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove any extra trailing whitespace from the end of each line.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.hcl.format.RemoveTrailingWhitespace","displayName":"Remove trailing whitespace","groupId":"org.openrewrite","artifactId":"rewrite-hcl","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_HCL","requiresConfiguration":false}}>
 

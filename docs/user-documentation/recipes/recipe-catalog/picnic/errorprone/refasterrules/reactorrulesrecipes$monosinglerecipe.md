@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ReactorRules.MonoSingle`"}
-  description={"Don't unnecessarily transform a `Mono` to a `Flux` to expect exactly one item."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoSingleRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes$monosinglerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ReactorRules.MonoSingle`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Don't unnecessarily transform a `Mono` to a `Flux` to expect exactly one item.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoSingleRecipe","displayName":"Refaster template `ReactorRules.MonoSingle`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

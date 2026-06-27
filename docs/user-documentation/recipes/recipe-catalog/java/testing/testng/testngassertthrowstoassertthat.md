@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"TestNG `assertThrows`/`expectThrows` to AssertJ"}
-  description={"Convert TestNG-style `assertThrows()` and `expectThrows()` to AssertJ's `assertThatExceptionOfType().isThrownBy()` (or `assertThatThrownBy()` when no exception type is given) to allow for chained assertions on the thrown exception."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testng.TestNgAssertThrowsToAssertThat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertthrowstoassertthat.md"}
-/>
+>
+
+<RecipeHeader.Title>TestNG `assertThrows`/`expectThrows` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert TestNG-style `assertThrows()` and `expectThrows()` to AssertJ's `assertThatExceptionOfType().isThrownBy()` (or `assertThatThrownBy()` when no exception type is given) to allow for chained assertions on the thrown exception.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.testng.TestNgAssertThrowsToAssertThat","displayName":"TestNG `assertThrows`/`expectThrows` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find non-cryptographic random sources (`Math.random`, `kotlin.random.Random`, `java.util.Random`)"}
-  description={"Non-cryptographic randomness is fine for jitter, simulation, sampling — but each call is a position to verify that no security-relevant value (session token, password reset link, nonce) flows from it. Use `SecureRandom` instead in those positions."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindInsecureRandomSources$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findinsecurerandomsources$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find non-cryptographic random sources (`Math.random`, `kotlin.random.Random`, `java.util.Random`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Non-cryptographic randomness is fine for jitter, simulation, sampling — but each call is a position to verify that no security-relevant value (session token, password reset link, nonce) flows from it. Use `SecureRandom` instead in those positions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindInsecureRandomSources$KtRecipe","displayName":"Find non-cryptographic random sources (`Math.random`, `kotlin.random.Random`, `java.util.Random`)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

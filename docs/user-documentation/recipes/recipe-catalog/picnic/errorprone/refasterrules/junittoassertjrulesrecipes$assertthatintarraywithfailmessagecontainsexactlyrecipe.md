@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `JUnitToAssertJRules.AssertThatIntArrayWithFailMessageContainsExactly`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIntArrayWithFailMessageContainsExactly {\n    \n    @BeforeTemplate\n    void before(int[] actual, String message, int[] expected) {\n        assertArrayEquals(expected, actual, message);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(int[] actual, String message, int[] expected) {\n        assertThat(actual).withFailMessage(message).containsExactly(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatIntArrayWithFailMessageContainsExactlyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatintarraywithfailmessagecontainsexactlyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatIntArrayWithFailMessageContainsExactly`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIntArrayWithFailMessageContainsExactly {
+    
+    @BeforeTemplate
+    void before(int[] actual, String message, int[] expected) {
+        assertArrayEquals(expected, actual, message);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(int[] actual, String message, int[] expected) {
+        assertThat(actual).withFailMessage(message).containsExactly(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatIntArrayWithFailMessageContainsExactlyRecipe","displayName":"Refaster template `JUnitToAssertJRules.AssertThatIntArrayWithFailMessageContainsExactly`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

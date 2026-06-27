@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.11` application to `camel 4.12`"}
-  description={"Migrates `camel 4.11` application to `camel 4.12`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel412.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel412/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"The package scan classes has moved from camel-base-engine to camel-support - java","href":"apache/camel/upgrade/camel412/scanclassesmoved"},{"name":"The package scan classes has moved from camel-base-engine to camel-support - maven","href":"apache/camel/upgrade/camel412/scanclassesmovedmaven"},{"name":"Camel Java DSL change for camel 4.12","href":"apache/camel/upgrade/camel412/java412recipes"},{"name":"XML DSL bearer from rest/securityDefinitions is renamed to bearerToken","href":"apache/camel/upgrade/camel412/xmldslbearer"},{"name":"Yaml DSL bearer from rest/securityDefinitions is renamed to bearerToken","href":"apache/camel/upgrade/camel412/yamldslbearer"}]}>
+<RecipeHeader.Title>Migrates `camel 4.11` application to `camel 4.12`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.11` application to `camel 4.12`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"The package scan classes has moved from camel-base-engine to camel-support - java","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel412/scanclassesmoved/"},{"name":"The package scan classes has moved from camel-base-engine to camel-support - maven","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel412/scanclassesmovedmaven/"},{"name":"Camel Java DSL change for camel 4.12","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel412/java412recipes/"},{"name":"XML DSL bearer from rest/securityDefinitions is renamed to bearerToken","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel412/xmldslbearer/"},{"name":"Yaml DSL bearer from rest/securityDefinitions is renamed to bearerToken","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel412/yamldslbearer/"}]}>
 
 ## Definition
 

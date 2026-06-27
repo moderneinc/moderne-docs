@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert Tapestry 4 `@Bean` to `@Property`"}
-  description={"Converts Tapestry 4's `@Bean` annotation to `@Property` fields. Bean initialization with 'initializer' attribute requires manual migration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.tapestry.ConvertBeanAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/tapestry/convertbeanannotation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert Tapestry 4 `@Bean` to `@Property`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts Tapestry 4's `@Bean` annotation to `@Property` fields. Bean initialization with 'initializer' attribute requires manual migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.tapestry.annotations.Bean;\n\npublic abstract class MyPage {\n    @Bean\n    public abstract Integer getRowClass();\n}\n","after":"import org.apache.tapestry5.annotations.Property;\n\npublic abstract class MyPage {\n    @Property\n    private Integer rowClass;\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.apache.tapestry.annotations.Bean;\n+import org.apache.tapestry5.annotations.Property;\n\n@@ -4,2 +4,2 @@\n\npublic abstract class MyPage {\n-   @Bean\n-   public abstract Integer getRowClass();\n+   @Property\n+   private Integer rowClass;\n}\n","newFile":false}]}]}>
 

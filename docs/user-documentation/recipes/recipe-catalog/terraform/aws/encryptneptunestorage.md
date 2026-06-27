@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Encrypt Neptune storage"}
-  description={"Encryption of Neptune storage protects data and metadata against unauthorized access."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["CKV_AWS_44","terraform","AWS"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.aws.EncryptNeptuneStorage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/aws/encryptneptunestorage.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Encrypt Neptune storage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Encryption of Neptune storage protects data and metadata against unauthorized access.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

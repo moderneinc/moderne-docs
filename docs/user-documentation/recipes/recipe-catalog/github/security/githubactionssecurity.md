@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"GitHub Actions security insights"}
-  description={"Finds potential security issues in GitHub Actions workflows, based on [Zizmor](https://docs.zizmor.sh) security analysis rules."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["supply-chain","github","security"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.GitHubActionsSecurity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/githubactionssecurity.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find credential persistence through GitHub Actions artifacts","href":"github/security/artifactsecurity"},{"name":"Find spoofable bot actor checks","href":"github/security/botconditions"},{"name":"Find cache poisoning vulnerabilities","href":"github/security/cachepoisoning"},{"name":"Find dangerous workflow triggers","href":"github/security/dangeroustriggers"},{"name":"Find excessive permissions","href":"github/security/excessivepermissions"},{"name":"Find forbidden action usage","href":"github/security/forbiddenuses"},{"name":"Find dangerous GITHUB_ENV usage","href":"github/security/githubenv"},{"name":"Find hardcoded container credentials","href":"github/security/hardcodedcredentials"},{"name":"Find insecure commands configuration","href":"github/security/insecurecommands"},{"name":"Find obfuscated GitHub Actions features","href":"github/security/obfuscation"},{"name":"Find commit SHAs with potentially mismatched version comments","href":"github/security/refversionmismatch"},{"name":"Find unconditional secrets inheritance","href":"github/security/secretsinherit"},{"name":"Find usage of self-hosted runners","href":"github/security/selfhostedrunner"},{"name":"Find template injection vulnerabilities","href":"github/security/templateinjection"},{"name":"Find manual credentials instead of trusted publishing","href":"github/security/trustedpublishing"},{"name":"Document permissions usage","href":"github/security/undocumentedpermissions"},{"name":"Pin GitHub Actions to specific commits","href":"github/security/unpinnedactions"},{"name":"Pin Docker images to digests","href":"github/security/unpinneddockerimages"}]}>
+<RecipeHeader.Title>GitHub Actions security insights</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds potential security issues in GitHub Actions workflows, based on [Zizmor](https://docs.zizmor.sh) security analysis rules.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find credential persistence through GitHub Actions artifacts","href":"/user-documentation/recipes/recipe-catalog/github/security/artifactsecurity/"},{"name":"Find spoofable bot actor checks","href":"/user-documentation/recipes/recipe-catalog/github/security/botconditions/"},{"name":"Find cache poisoning vulnerabilities","href":"/user-documentation/recipes/recipe-catalog/github/security/cachepoisoning/"},{"name":"Find dangerous workflow triggers","href":"/user-documentation/recipes/recipe-catalog/github/security/dangeroustriggers/"},{"name":"Find excessive permissions","href":"/user-documentation/recipes/recipe-catalog/github/security/excessivepermissions/"},{"name":"Find forbidden action usage","href":"/user-documentation/recipes/recipe-catalog/github/security/forbiddenuses/"},{"name":"Find dangerous GITHUB_ENV usage","href":"/user-documentation/recipes/recipe-catalog/github/security/githubenv/"},{"name":"Find hardcoded container credentials","href":"/user-documentation/recipes/recipe-catalog/github/security/hardcodedcredentials/"},{"name":"Find insecure commands configuration","href":"/user-documentation/recipes/recipe-catalog/github/security/insecurecommands/"},{"name":"Find obfuscated GitHub Actions features","href":"/user-documentation/recipes/recipe-catalog/github/security/obfuscation/"},{"name":"Find commit SHAs with potentially mismatched version comments","href":"/user-documentation/recipes/recipe-catalog/github/security/refversionmismatch/"},{"name":"Find unconditional secrets inheritance","href":"/user-documentation/recipes/recipe-catalog/github/security/secretsinherit/"},{"name":"Find usage of self-hosted runners","href":"/user-documentation/recipes/recipe-catalog/github/security/selfhostedrunner/"},{"name":"Find template injection vulnerabilities","href":"/user-documentation/recipes/recipe-catalog/github/security/templateinjection/"},{"name":"Find manual credentials instead of trusted publishing","href":"/user-documentation/recipes/recipe-catalog/github/security/trustedpublishing/"},{"name":"Document permissions usage","href":"/user-documentation/recipes/recipe-catalog/github/security/undocumentedpermissions/"},{"name":"Pin GitHub Actions to specific commits","href":"/user-documentation/recipes/recipe-catalog/github/security/unpinnedactions/"},{"name":"Pin Docker images to digests","href":"/user-documentation/recipes/recipe-catalog/github/security/unpinneddockerimages/"}]}>
 
 ## Definition
 

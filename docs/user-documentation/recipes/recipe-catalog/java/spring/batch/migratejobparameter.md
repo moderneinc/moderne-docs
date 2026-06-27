@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add class argument to `JobParameters`"}
-  description={"Migration Job Parameter, parameterized type is essential in Spring Batch 5."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.MigrateJobParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/migratejobparameter.md"}
-/>
+>
+
+<RecipeHeader.Title>Add class argument to `JobParameters`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migration Job Parameter, parameterized type is essential in Spring Batch 5.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.batch.core.JobParameter;\nimport org.springframework.batch.core.JobParameters;\nimport java.util.Date;\nimport java.util.Map;\n\npublic class Foo {\n\n    public void foo1() throws Exception {\n        JobParameters jobParameters = new JobParameters(Map.of(\n                \"inputFile\", new JobParameter(\"TEST_INPUT_FILE\"),\n                \"emailId\", new JobParameter(new Date()),\n                \"pgpKey\", new JobParameter(new Integer[]{1})\n        ));\n    }\n\n}\n","after":"import org.springframework.batch.core.JobParameter;\nimport org.springframework.batch.core.JobParameters;\nimport java.util.Date;\nimport java.util.Map;\n\npublic class Foo {\n\n    public void foo1() throws Exception {\n        JobParameters jobParameters = new JobParameters(Map.of(\n                \"inputFile\", new JobParameter<>(\"TEST_INPUT_FILE\", String.class),\n                \"emailId\", new JobParameter<>(new Date(), Date.class),\n                \"pgpKey\", new JobParameter<>(new Integer[]{1}, java.lang.Integer[].class)\n        ));\n    }\n\n}\n","diff":"@@ -10,3 +10,3 @@\n    public void foo1() throws Exception {\n        JobParameters jobParameters = new JobParameters(Map.of(\n-               \"inputFile\", new JobParameter(\"TEST_INPUT_FILE\"),\n-               \"emailId\", new JobParameter(new Date()),\n-               \"pgpKey\", new JobParameter(new Integer[]{1})\n+               \"inputFile\", new JobParameter<>(\"TEST_INPUT_FILE\", String.class),\n+               \"emailId\", new JobParameter<>(new Date(), Date.class),\n+               \"pgpKey\", new JobParameter<>(new Integer[]{1}, java.lang.Integer[].class)\n        ));\n","newFile":false}]}]}>
 

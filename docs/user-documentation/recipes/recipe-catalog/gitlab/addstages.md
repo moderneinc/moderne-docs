@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add GitLab stages"}
-  description={"Add or Update the set of stages defined in `.gitlab-ci.yml`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.AddStages"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/addstages.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Merge YAML snippet","href":"yaml/mergeyaml"}]}>
+<RecipeHeader.Title>Add GitLab stages</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add or Update the set of stages defined in `.gitlab-ci.yml`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Merge YAML snippet","href":"/user-documentation/recipes/recipe-catalog/yaml/mergeyaml/"}]}>
 
 ## Definition
 

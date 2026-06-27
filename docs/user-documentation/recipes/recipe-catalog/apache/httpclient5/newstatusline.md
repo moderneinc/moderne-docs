@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replaces deprecated `HttpResponse::getStatusLine()`"}
-  description={"`HttpResponse::getStatusLine()` was deprecated in 4.x, so we replace it for `new StatusLine(HttpResponse)`. Ideally we will try to simplify method chains for `getStatusCode`, `getProtocolVersion` and `getReasonPhrase`, but there are some scenarios where the `StatusLine` object is assigned or used directly, and we need to instantiate the object."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.NewStatusLine"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/newstatusline.md"}
-/>
+>
+
+<RecipeHeader.Title>Replaces deprecated `HttpResponse::getStatusLine()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`HttpResponse::getStatusLine()` was deprecated in 4.x, so we replace it for `new StatusLine(HttpResponse)`. Ideally we will try to simplify method chains for `getStatusCode`, `getProtocolVersion` and `getReasonPhrase`, but there are some scenarios where the `StatusLine` object is assigned or used directly, and we need to instantiate the object.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.apache.httpclient5.NewStatusLine","displayName":"Replaces deprecated `HttpResponse::getStatusLine()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 

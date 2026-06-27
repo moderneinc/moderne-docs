@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `WebView.settings.mixedContentMode = MIXED_CONTENT_ALWAYS_ALLOW` settings"}
-  description={"`MIXED_CONTENT_ALWAYS_ALLOW` lets an HTTPS page pull HTTP subresources — the moment a single subresource loads over HTTP, the page's integrity is compromised. Use `MIXED_CONTENT_NEVER_ALLOW`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindWebViewSetMixedContentAlwaysAllow$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewsetmixedcontentalwaysallow$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `WebView.settings.mixedContentMode = MIXED_CONTENT_ALWAYS_ALLOW` settings</RecipeHeader.Title>
+
+<RecipeHeader.Description>`MIXED_CONTENT_ALWAYS_ALLOW` lets an HTTPS page pull HTTP subresources — the moment a single subresource loads over HTTP, the page's integrity is compromised. Use `MIXED_CONTENT_NEVER_ALLOW`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindWebViewSetMixedContentAlwaysAllow$KtRecipe","displayName":"Find `WebView.settings.mixedContentMode = MIXED_CONTENT_ALWAYS_ALLOW` settings","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

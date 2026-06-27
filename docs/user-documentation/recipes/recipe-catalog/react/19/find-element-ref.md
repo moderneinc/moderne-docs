@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `element.ref` access"}
-  description={"Finds direct access of `element.ref` on React elements. In React 19, `element.ref` is deprecated; use `element.props.ref` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.find-element-ref"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/find-element-ref.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `element.ref` access</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds direct access of `element.ref` on React elements. In React 19, `element.ref` is deprecated; use `element.props.ref` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.19.find-element-ref","displayName":"Find `element.ref` access","npmPackage":"@openrewrite/recipes-react"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `new crypto.Hash()` and `new crypto.Hmac()` with factory methods"}
-  description={"Replace deprecated `new crypto.Hash(algorithm)` constructor calls with `crypto.createHash(algorithm)` and `new crypto.Hmac(algorithm, key)` with `crypto.createHmac(algorithm, key)` factory methods."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0179","DEP0181"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.crypto.replace-hash-constructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-hash-constructor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated `new crypto.Hash()` and `new crypto.Hmac()` with factory methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated `new crypto.Hash(algorithm)` constructor calls with `crypto.createHash(algorithm)` and `new crypto.Hmac(algorithm, key)` with `crypto.createHmac(algorithm, key)` factory methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.crypto.replace-hash-constructor","displayName":"Replace deprecated `new crypto.Hash()` and `new crypto.Hmac()` with factory methods","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

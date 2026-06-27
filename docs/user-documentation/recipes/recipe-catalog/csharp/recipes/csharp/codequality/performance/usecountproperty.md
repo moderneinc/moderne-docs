@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Count/Length property instead of Count()"}
-  description={"Replace collection.Count() with collection.Count when available."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UseCountProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/usecountproperty.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use Count/Length property instead of Count()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace collection.Count() with collection.Count when available.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UseCountProperty","displayName":"Use Count/Length property instead of Count()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

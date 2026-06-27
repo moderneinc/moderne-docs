@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find matching words in JCL source code"}
-  description={"Search for JCL words based on a search term."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-cobol"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jcl.search.FindWord"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jcl/search/findword.md"}
-/>
+>
+
+<RecipeHeader.Title>Find matching words in JCL source code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search for JCL words based on a search term.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"searchTerm","required":true,"description":"A word or regex pattern to find. By default the search term is case insensitive.","example":"SYSOUT or sys.*"},{"type":"Boolean","name":"exactMatch","required":true,"description":"Search for a word based on an exact match of the search term.","example":"true"}]}>
 

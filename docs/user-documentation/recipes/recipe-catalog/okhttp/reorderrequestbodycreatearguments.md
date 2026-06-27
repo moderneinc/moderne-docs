@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Reorder the arguments of `RequestBody.create()`"}
-  description={"Reorder the arguments of `RequestBody.create()` to put the `MediaType` argument after the `String` body."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-okhttp"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.okhttp.ReorderRequestBodyCreateArguments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/okhttp/reorderrequestbodycreatearguments.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Reorder method arguments","href":"java/reordermethodarguments"}]}>
+<RecipeHeader.Title>Reorder the arguments of `RequestBody.create()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reorder the arguments of `RequestBody.create()` to put the `MediaType` argument after the `String` body.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Reorder method arguments","href":"/user-documentation/recipes/recipe-catalog/java/reordermethodarguments/"}]}>
 
 ## Definition
 

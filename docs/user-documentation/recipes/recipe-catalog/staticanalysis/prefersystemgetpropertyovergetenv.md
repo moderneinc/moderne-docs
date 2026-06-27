@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `System.getProperty(\"user.home\")` over `System.getenv(\"HOME\")`"}
-  description={"Replaces `System.getenv(\"HOME\")` with `System.getProperty(\"user.home\")` for better portability."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.PreferSystemGetPropertyOverGetenv"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/prefersystemgetpropertyovergetenv.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `System.getProperty("user.home")` over `System.getenv("HOME")`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `System.getenv("HOME")` with `System.getProperty("user.home")` for better portability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void test() {\n        String user = System.getenv(\"USER\");\n        String username = System.getenv(\"USERNAME\");\n        String home = System.getenv(\"HOME\");\n        String profile = System.getenv(\"USERPROFILE\");\n        String temp = System.getenv(\"TEMP\");\n        String tmpdir = System.getenv(\"TMPDIR\");\n        String tmp = System.getenv(\"TMP\");\n    }\n}\n","after":"class A {\n    void test() {\n        String user = System.getProperty(\"user.name\");\n        String username = System.getProperty(\"user.name\");\n        String home = System.getProperty(\"user.home\");\n        String profile = System.getProperty(\"user.home\");\n        String temp = System.getProperty(\"java.io.tmpdir\");\n        String tmpdir = System.getProperty(\"java.io.tmpdir\");\n        String tmp = System.getProperty(\"java.io.tmpdir\");\n    }\n}\n","diff":"@@ -3,7 +3,7 @@\nclass A {\n    void test() {\n-       String user = System.getenv(\"USER\");\n-       String username = System.getenv(\"USERNAME\");\n-       String home = System.getenv(\"HOME\");\n-       String profile = System.getenv(\"USERPROFILE\");\n-       String temp = System.getenv(\"TEMP\");\n-       String tmpdir = System.getenv(\"TMPDIR\");\n-       String tmp = System.getenv(\"TMP\");\n+       String user = System.getProperty(\"user.name\");\n+       String username = System.getProperty(\"user.name\");\n+       String home = System.getProperty(\"user.home\");\n+       String profile = System.getProperty(\"user.home\");\n+       String temp = System.getProperty(\"java.io.tmpdir\");\n+       String tmpdir = System.getProperty(\"java.io.tmpdir\");\n+       String tmp = System.getProperty(\"java.io.tmpdir\");\n    }\n","newFile":false}]}]}>
 

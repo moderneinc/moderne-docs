@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Composable` calls inside non-`@Composable` lambda parameters"}
-  description={"A `@Composable` function called from inside a non-Composable lambda (e.g., a `forEach { }`) won't enter the composition tree correctly — the function executes but its emitted nodes don't get tracked for invalidation. Either move the call out of the lambda, or use a Compose-aware iterator (`items(list) { … }`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposableCallInNonComposableLambda$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposablecallinnoncomposablelambda$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Composable` calls inside non-`@Composable` lambda parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `@Composable` function called from inside a non-Composable lambda (e.g., a `forEach { }`) won't enter the composition tree correctly — the function executes but its emitted nodes don't get tracked for invalidation. Either move the call out of the lambda, or use a Compose-aware iterator (`items(list) { … }`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindComposableCallInNonComposableLambda$KtRecipe","displayName":"Find `@Composable` calls inside non-`@Composable` lambda parameters","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

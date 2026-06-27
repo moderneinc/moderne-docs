@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Dispatch to sttp or http4s-client"}
-  description={"Removes imports starting with `dispatch.`. Dispatch is an unmaintained HTTP client library; consider using sttp, http4s-client, or requests-scala."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.http.MigrateDispatch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/http/migratedispatch.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Dispatch to sttp or http4s-client</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes imports starting with `dispatch.`. Dispatch is an unmaintained HTTP client library; consider using sttp, http4s-client, or requests-scala.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import dispatch.Http\n\nclass Client {\n    val name = \"client\"\n}\n","after":"\n\n\nclass Client {\n    val name = \"client\"\n}\n","diff":"@@ -1,1 +1,0 @@\n-import dispatch.Http\n\n@@ -3,0 +2,2 @@\nimport dispatch.Http\n\n+\n+\nclass Client {\n","newFile":false}]}]}>
 

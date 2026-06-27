@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TimeRules.LocalDatePlusWeeks`"}
-  description={"Prefer `LocalDate#plusWeeks(long)` over more contrived alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TimeRulesRecipes$LocalDatePlusWeeksRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/timerulesrecipes$localdateplusweeksrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TimeRules.LocalDatePlusWeeks`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `LocalDate#plusWeeks(long)` over more contrived alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$LocalDatePlusWeeksRecipe","displayName":"Refaster template `TimeRules.LocalDatePlusWeeks`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

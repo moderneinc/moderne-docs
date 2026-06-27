@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Logger#getGlobal()`"}
-  description={"The preferred way to get the global logger object is via the call `Logger#getGlobal()` over direct field access to `java.util.logging.Logger.global`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.logging.MigrateLoggerGlobalToGetGlobal"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/logging/migrateloggerglobaltogetglobal.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Logger#getGlobal()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The preferred way to get the global logger object is via the call `Logger#getGlobal()` over direct field access to `java.util.logging.Logger.global`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.example;\n\nimport java.util.logging.Logger;\n\npublic class Test {\n    public static void method() {\n        Logger logger = Logger.global;\n    }\n}\n","after":"package org.openrewrite.example;\n\nimport java.util.logging.Logger;\n\npublic class Test {\n    public static void method() {\n        Logger logger = Logger.getGlobal();\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\npublic class Test {\n    public static void method() {\n-       Logger logger = Logger.global;\n+       Logger logger = Logger.getGlobal();\n    }\n","newFile":false}]}]}>
 

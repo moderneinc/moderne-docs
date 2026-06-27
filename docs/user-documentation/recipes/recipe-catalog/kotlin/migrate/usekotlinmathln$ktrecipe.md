@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `kotlin.math.ln` instead of `java.lang.Math.log`"}
-  description={"`Math.log` is natural log; the multiplatform `kotlin.math` package spells it `ln` to disambiguate from `log(b, x)` (log base b)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseKotlinMathLn$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathln$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `kotlin.math.ln` instead of `java.lang.Math.log`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Math.log` is natural log; the multiplatform `kotlin.math` package spells it `ln` to disambiguate from `log(b, x)` (log base b).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseKotlinMathLn$KtRecipe","displayName":"Use `kotlin.math.ln` instead of `java.lang.Math.log`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

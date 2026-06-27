@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enable VPC flow logs and intranode visibility"}
-  description={"Enable VPC flow logs and intranode visibility."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["GCP","terraform","CKV_GCP_61"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.gcp.EnableVPCFlowLogsAndIntranodeVisibility"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/gcp/enablevpcflowlogsandintranodevisibility.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Enable VPC flow logs and intranode visibility</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enable VPC flow logs and intranode visibility.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

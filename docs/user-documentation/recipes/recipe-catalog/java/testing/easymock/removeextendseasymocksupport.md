@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Test classes that extend `org.easymock.EasyMockSupport` to use Mockito"}
-  description={"Modify test classes by removing extends EasyMockSupport and replacing EasyMock methods with Mockito equivalents."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.easymock.RemoveExtendsEasyMockSupport"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/easymock/removeextendseasymocksupport.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Test classes that extend `org.easymock.EasyMockSupport` to use Mockito</RecipeHeader.Title>
+
+<RecipeHeader.Description>Modify test classes by removing extends EasyMockSupport and replacing EasyMock methods with Mockito equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.easymock.EasyMockSupport;\n\npublic class Test extends EasyMockSupport {\n}\n","after":"public class Test {\n}\n","diff":"@@ -1,3 +1,1 @@\n-import org.easymock.EasyMockSupport;\n-\n-public class Test extends EasyMockSupport {\n+public class Test {\n}\n","newFile":false}]}]}>
 

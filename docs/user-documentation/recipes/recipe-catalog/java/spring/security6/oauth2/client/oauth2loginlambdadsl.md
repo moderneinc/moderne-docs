@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `OAuth2LoginConfigurer` chained calls into Lambda DSL"}
-  description={"Converts `OAuth2LoginConfigurer` chained call from Spring Security pre 5.2.x into new lambda DSL style calls and removes `and()` methods."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security6.oauth2.client.OAuth2LoginLambdaDsl"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/oauth2/client/oauth2loginlambdadsl.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `OAuth2LoginConfigurer` chained calls into Lambda DSL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `OAuth2LoginConfigurer` chained call from Spring Security pre 5.2.x into new lambda DSL style calls and removes `and()` methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\n\n@EnableWebSecurity\npublic class ConventionalSecurityConfig extends WebSecurityConfigurerAdapter {\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n                .oauth2Login(login -> login\n                        .tokenEndpoint()\n                                .accessTokenResponseClient(authorizationGrantRequest -> null)\n                                .and()\n                        .userInfoEndpoint()\n                                .userAuthoritiesMapper(authorities -> null));\n    }\n}\n","after":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\n\n@EnableWebSecurity\npublic class ConventionalSecurityConfig extends WebSecurityConfigurerAdapter {\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n                .oauth2Login(login -> login\n                        .tokenEndpoint(endpoint -> endpoint\n                                .accessTokenResponseClient(authorizationGrantRequest -> null))\n                        .userInfoEndpoint(endpoint -> endpoint\n                                .userAuthoritiesMapper(authorities -> null)));\n    }\n}\n","diff":"@@ -11,5 +11,4 @@\n        http\n                .oauth2Login(login -> login\n-                       .tokenEndpoint()\n-                               .accessTokenResponseClient(authorizationGrantRequest -> null)\n-                               .and()\n-                       .userInfoEndpoint()\n-                               .userAuthoritiesMapper(authorities -> null));\n+                       .tokenEndpoint(endpoint -> endpoint\n+                               .accessTokenResponseClient(authorizationGrantRequest -> null))\n+                       .userInfoEndpoint(endpoint -> endpoint\n+                               .userAuthoritiesMapper(authorities -> null)));\n    }\n","newFile":false}]}]}>
 

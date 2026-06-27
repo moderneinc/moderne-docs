@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Make method an extension method"}
-  description={"Convert a static method to an extension method where appropriate."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.MakeMethodExtensionMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/makemethodextensionmethod.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Make method an extension method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert a static method to an extension method where appropriate.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.MakeMethodExtensionMethod","displayName":"Make method an extension method","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ImmutableListMultimapRules.ImmutableListMultimapBuilderPut`"}
-  description={"Prefer `ImmutableListMultimap.Builder#put(Object, Object)` over more contrived or less efficient alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableListMultimapRulesRecipes$ImmutableListMultimapBuilderPutRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$immutablelistmultimapbuilderputrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ImmutableListMultimapRules.ImmutableListMultimapBuilderPut`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `ImmutableListMultimap.Builder#put(Object, Object)` over more contrived or less efficient alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableListMultimapRulesRecipes$ImmutableListMultimapBuilderPutRecipe","displayName":"Refaster template `ImmutableListMultimapRules.ImmutableListMultimapBuilderPut`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

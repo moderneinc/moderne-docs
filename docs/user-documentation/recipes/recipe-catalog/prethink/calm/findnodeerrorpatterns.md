@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Node.js error patterns"}
-  description={"Identify error handling patterns in Node.js applications. Detects try/catch blocks and identifies logging frameworks used."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindNodeErrorPatterns"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findnodeerrorpatterns.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Node.js error patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify error handling patterns in Node.js applications. Detects try/catch blocks and identifies logging frameworks used.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindNodeErrorPatterns","displayName":"Find Node.js error patterns","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

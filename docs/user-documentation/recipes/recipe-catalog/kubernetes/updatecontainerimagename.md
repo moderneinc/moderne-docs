@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update image name"}
-  description={"Search for image names that match patterns and replace the components of the name with new values."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.UpdateContainerImageName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/updatecontainerimagename.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Update image name</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search for image names that match patterns and replace the components of the name with new values.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"repoToFind","required":false,"description":"The repository part of the image name to search for in containers and initContainers.","example":"gcr.io"},{"type":"String","name":"imageToFind","required":true,"description":"The image name to search for in containers and initContainers.","example":"nginx"},{"type":"String","name":"tagToFind","required":false,"description":"The tag part of the image name to search for in containers and initContainers.","example":"v1.2.3"},{"type":"String","name":"digestToFind","required":false,"description":"The digest part of the image name to search for in containers and initContainers.","example":"sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229"},{"type":"String","name":"repoToUpdate","required":false,"description":"The repository part of the image name to update to in containers and initContainers.","example":"gcr.io/account/bucket"},{"type":"String","name":"imageToUpdate","required":false,"description":"The image name to update to in containers and initContainers.","example":"nginx"},{"type":"String","name":"tagToUpdate","required":false,"description":"The tag part of the image name to update to in containers and initContainers.","example":"v1.2.3"},{"type":"String","name":"digestToUpdate","required":false,"description":"The digest part of the image name to update to in containers and initContainers.","example":"sha256:cb5c1bddd1b5665e1867a7fa1b5fa843a47ee433bbb75d4293888b71def53229"},{"type":"boolean","name":"includeInitContainers","required":false,"description":"Boolean to indicate whether or not to treat initContainers/image identically to containers/image.","example":"false"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

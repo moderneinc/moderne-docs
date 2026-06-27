@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Cipher.getInstance(\"AES/CBC/...\")` calls — verify integrity"}
-  description={"AES/CBC is unauthenticated — without a separate MAC, the ciphertext is vulnerable to padding-oracle attacks (BEAST, POODLE family). Prefer `AES/GCM/NoPadding` for AEAD in one step, or pair CBC with an HMAC under encrypt-then-MAC."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindCipherCbcWithoutMac$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findciphercbcwithoutmac$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Cipher.getInstance("AES/CBC/...")` calls — verify integrity</RecipeHeader.Title>
+
+<RecipeHeader.Description>AES/CBC is unauthenticated — without a separate MAC, the ciphertext is vulnerable to padding-oracle attacks (BEAST, POODLE family). Prefer `AES/GCM/NoPadding` for AEAD in one step, or pair CBC with an HMAC under encrypt-then-MAC.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindCipherCbcWithoutMac$KtRecipe","displayName":"Find `Cipher.getInstance(\"AES/CBC/...\")` calls — verify integrity","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

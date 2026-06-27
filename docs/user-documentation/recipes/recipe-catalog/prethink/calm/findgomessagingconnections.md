@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Go messaging connections"}
-  description={"Detect Kafka, NATS, RabbitMQ/AMQP client usage in Go source."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindGoMessagingConnections"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findgomessagingconnections.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Go messaging connections</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect Kafka, NATS, RabbitMQ/AMQP client usage in Go source.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindGoMessagingConnections","displayName":"Find Go messaging connections","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `AtomicReference`/`AtomicInteger`/`AtomicLong`/`AtomicBoolean` allocations"}
-  description={"Atomic primitives indicate concurrent state — each one is a place where a reviewer or LLM agent should look for happens-before reasoning. In coroutine-only code, `MutableStateFlow` or `Mutex`-guarded state is usually a clearer alternative."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindAtomicAllocations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findatomicallocations$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `AtomicReference`/`AtomicInteger`/`AtomicLong`/`AtomicBoolean` allocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Atomic primitives indicate concurrent state — each one is a place where a reviewer or LLM agent should look for happens-before reasoning. In coroutine-only code, `MutableStateFlow` or `Mutex`-guarded state is usually a clearer alternative.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindAtomicAllocations$KtRecipe","displayName":"Find `AtomicReference`/`AtomicInteger`/`AtomicLong`/`AtomicBoolean` allocations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

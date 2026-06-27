@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert @ConfigurationProperties class to @ConfigMapping interface"}
-  description={"Converts Spring Boot @ConfigurationProperties classes to Quarkus @ConfigMapping interfaces. Changes the class to an interface, converts getter methods to interface method declarations, and removes fields, setters, and constructors."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.ConfigurationPropertiesToConfigMapping"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/configurationpropertiestoconfigmapping.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert @ConfigurationProperties class to @ConfigMapping interface</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts Spring Boot @ConfigurationProperties classes to Quarkus @ConfigMapping interfaces. Changes the class to an interface, converts getter methods to interface method declarations, and removes fields, setters, and constructors.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.context.properties.ConfigurationProperties;\n\n@ConfigurationProperties(prefix = \"app\")\npublic class AppProperties {\n    private String name;\n    private int timeout;\n\n    public String getName() {\n        return name;\n    }\n\n    public void setName(String name) {\n        this.name = name;\n    }\n\n    public int getTimeout() {\n        return timeout;\n    }\n\n    public void setTimeout(int timeout) {\n        this.timeout = timeout;\n    }\n}\n","after":"import io.smallrye.config.ConfigMapping;\n\n@ConfigMapping(prefix = \"app\")\npublic interface AppProperties {\n    String name();\n\n    int timeout();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.boot.context.properties.ConfigurationProperties;\n+import io.smallrye.config.ConfigMapping;\n\n@@ -3,4 +3,3 @@\nimport org.springframework.boot.context.properties.ConfigurationProperties;\n\n-@ConfigurationProperties(prefix = \"app\")\n-public class AppProperties {\n-   private String name;\n-   private int timeout;\n+@ConfigMapping(prefix = \"app\")\n+public interface AppProperties {\n+   String name();\n\n@@ -8,15 +7,1 @@\n    private int timeout;\n\n-   public String getName() {\n-       return name;\n-   }\n-\n-   public void setName(String name) {\n-       this.name = name;\n-   }\n-\n-   public int getTimeout() {\n-       return timeout;\n-   }\n-\n-   public void setTimeout(int timeout) {\n-       this.timeout = timeout;\n-   }\n+   int timeout();\n}\n","newFile":false}]}]}>
 

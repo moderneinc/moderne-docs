@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from JMockit to Mockito"}
-  description={"This recipe will apply changes commonly needed when migrating from JMockit to Mockito."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jmockit","testing"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.jmockit.JMockitToMockito"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/jmockit/jmockittomockito.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Rewrite JMockit Expectations, NonStrictExpectations, Verifications, VerificationsInOrder, FullVerifications","href":"java/testing/jmockit/jmockitblocktomockito"},{"name":"Rewrite JMockit MockUp to Mockito statements","href":"java/testing/jmockit/jmockitmockuptomockito"},{"name":"Convert JMockit `@Mocked` and `@Injectable` annotated arguments","href":"java/testing/jmockit/jmockitannotatedargumenttomockito"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Adds Mockito extensions to Mockito tests","href":"java/testing/mockito/addmockitoextensionifannotationsused"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Exclude Maven dependency","href":"maven/excludedependency"},{"name":"Mockito best practices","href":"java/testing/mockito/mockitobestpractices"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate from JMockit to Mockito</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when migrating from JMockit to Mockito.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rewrite JMockit Expectations, NonStrictExpectations, Verifications, VerificationsInOrder, FullVerifications","href":"/user-documentation/recipes/recipe-catalog/java/testing/jmockit/jmockitblocktomockito/"},{"name":"Rewrite JMockit MockUp to Mockito statements","href":"/user-documentation/recipes/recipe-catalog/java/testing/jmockit/jmockitmockuptomockito/"},{"name":"Convert JMockit `@Mocked` and `@Injectable` annotated arguments","href":"/user-documentation/recipes/recipe-catalog/java/testing/jmockit/jmockitannotatedargumenttomockito/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Adds Mockito extensions to Mockito tests","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/addmockitoextensionifannotationsused/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Exclude Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/excludedependency/"},{"name":"Mockito best practices","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitobestpractices/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

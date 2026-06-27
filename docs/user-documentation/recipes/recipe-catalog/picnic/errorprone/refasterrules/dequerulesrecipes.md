@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`DequeRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `Deque` instances.\n[Source](https://error-prone.picnic.tech/refasterrules/DequeRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.DequeRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/dequerulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `DequeRules.DequeAddFirst`","href":"picnic/errorprone/refasterrules/dequerulesrecipes$dequeaddfirstrecipe"},{"name":"Refaster template `DequeRules.DequeRemoveFirst`","href":"picnic/errorprone/refasterrules/dequerulesrecipes$dequeremovefirstrecipe"},{"name":"Refaster template `DequeRules.DequeOfferLast`","href":"picnic/errorprone/refasterrules/dequerulesrecipes$dequeofferlastrecipe"},{"name":"Refaster template `DequeRules.DequePollFirst`","href":"picnic/errorprone/refasterrules/dequerulesrecipes$dequepollfirstrecipe"},{"name":"Refaster template `DequeRules.DequeGetFirst`","href":"picnic/errorprone/refasterrules/dequerulesrecipes$dequegetfirstrecipe"},{"name":"Refaster template `DequeRules.DequePeekFirst`","href":"picnic/errorprone/refasterrules/dequerulesrecipes$dequepeekfirstrecipe"},{"name":"Refaster template `DequeRules.DequeRemoveFirstOccurrence`","href":"picnic/errorprone/refasterrules/dequerulesrecipes$dequeremovefirstoccurrencerecipe"},{"name":"Refaster template `DequeRules.DequeIterator`","href":"picnic/errorprone/refasterrules/dequerulesrecipes$dequeiteratorrecipe"},{"name":"Refaster template `DequeRules.DequeDescendingIterator`","href":"picnic/errorprone/refasterrules/dequerulesrecipes$dequedescendingiteratorrecipe"}]}>
+<RecipeHeader.Title>`DequeRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `Deque` instances. [Source](https://error-prone.picnic.tech/refasterrules/DequeRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `DequeRules.DequeAddFirst`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/dequerulesrecipes$dequeaddfirstrecipe/"},{"name":"Refaster template `DequeRules.DequeRemoveFirst`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/dequerulesrecipes$dequeremovefirstrecipe/"},{"name":"Refaster template `DequeRules.DequeOfferLast`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/dequerulesrecipes$dequeofferlastrecipe/"},{"name":"Refaster template `DequeRules.DequePollFirst`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/dequerulesrecipes$dequepollfirstrecipe/"},{"name":"Refaster template `DequeRules.DequeGetFirst`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/dequerulesrecipes$dequegetfirstrecipe/"},{"name":"Refaster template `DequeRules.DequePeekFirst`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/dequerulesrecipes$dequepeekfirstrecipe/"},{"name":"Refaster template `DequeRules.DequeRemoveFirstOccurrence`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/dequerulesrecipes$dequeremovefirstoccurrencerecipe/"},{"name":"Refaster template `DequeRules.DequeIterator`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/dequerulesrecipes$dequeiteratorrecipe/"},{"name":"Refaster template `DequeRules.DequeDescendingIterator`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/dequerulesrecipes$dequedescendingiteratorrecipe/"}]}>
 
 ## Definition
 

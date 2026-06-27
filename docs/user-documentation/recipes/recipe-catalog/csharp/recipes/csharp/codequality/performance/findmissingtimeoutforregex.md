@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add timeout to Regex"}
-  description={"Regex without a timeout can be vulnerable to ReDoS attacks. Specify a `TimeSpan` timeout or use `RegexOptions.NonBacktracking`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindMissingTimeoutForRegex"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findmissingtimeoutforregex.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add timeout to Regex</RecipeHeader.Title>
+
+<RecipeHeader.Description>Regex without a timeout can be vulnerable to ReDoS attacks. Specify a `TimeSpan` timeout or use `RegexOptions.NonBacktracking`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindMissingTimeoutForRegex","displayName":"Add timeout to Regex","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `single { predicate }` instead of `filter { predicate }.single()`"}
-  description={"Folding the predicate into `single` avoids materializing the intermediate filtered list and preserves the same throwing semantics on the no-match and multi-match cases."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseSingleWithPredicate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/usesinglewithpredicate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `single { predicate }` instead of `filter { predicate }.single()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Folding the predicate into `single` avoids materializing the intermediate filtered list and preserves the same throwing semantics on the no-match and multi-match cases.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseSingleWithPredicate$KtRecipe","displayName":"Use `single { predicate }` instead of `filter { predicate }.single()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

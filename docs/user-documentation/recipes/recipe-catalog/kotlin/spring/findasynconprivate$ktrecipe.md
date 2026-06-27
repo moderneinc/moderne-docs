@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Async` on `private` functions"}
-  description={"Like `@Transactional`, `@Async` is implemented by a Spring proxy that intercepts calls through the bean's public interface. `private` methods bypass the proxy and run synchronously on the caller's thread — the annotation has no effect."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindAsyncOnPrivate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findasynconprivate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Async` on `private` functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Like `@Transactional`, `@Async` is implemented by a Spring proxy that intercepts calls through the bean's public interface. `private` methods bypass the proxy and run synchronously on the caller's thread — the annotation has no effect.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindAsyncOnPrivate$KtRecipe","displayName":"Find `@Async` on `private` functions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

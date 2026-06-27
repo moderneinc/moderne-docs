@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `ImageResponse` imports"}
-  description={"This codemod moves transforms imports from `next/server` to `next/og` for usage of Dynamic OG Image Generation."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["nextjs","codemods"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.migrate.nextjs.v14_0.NextOgImport"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v14_0/nextogimport.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"codemods/applycodemod"}]}>
+<RecipeHeader.Title>Migrate `ImageResponse` imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>This codemod moves transforms imports from `next/server` to `next/og` for usage of Dynamic OG Image Generation.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"/user-documentation/recipes/recipe-catalog/codemods/applycodemod/"}]}>
 
 ## Definition
 

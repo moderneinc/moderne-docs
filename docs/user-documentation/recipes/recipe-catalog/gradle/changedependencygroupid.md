@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Gradle dependency group"}
-  description={"Change the group of a specified Gradle dependency."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.ChangeDependencyGroupId"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/changedependencygroupid.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Gradle dependency group</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the group of a specified Gradle dependency.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"com.fasterxml.jackson*"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"jackson-module*"},{"type":"String","name":"newGroupId","required":true,"description":"The new groupId to use.","example":"corp.internal.jackson"},{"type":"String","name":"configuration","required":false,"description":"The dependency configuration to search for dependencies in.","example":"api"}]}>
 

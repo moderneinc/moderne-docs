@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `@OutputCaptureRule` to `@ExtendWith(OutputCaptureExtension.class)`"}
-  description={"Use the JUnit Jupiter extension instead of JUnit 4 rule."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.OutputCaptureExtension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/outputcaptureextension.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `@OutputCaptureRule` to `@ExtendWith(OutputCaptureExtension.class)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use the JUnit Jupiter extension instead of JUnit 4 rule.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.OutputCaptureExtension","displayName":"Migrate `@OutputCaptureRule` to `@ExtendWith(OutputCaptureExtension.class)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

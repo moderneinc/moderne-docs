@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce consistent spacing after the <!-- and before the --> in a HTML comment"}
-  description={"Enforce consistent spacing after the <!-- and before the --> in a HTML comment\nSee rule details for [svelte/spaced-html-comment](https://sveltejs.github.io/eslint-plugin-svelte/rules/spaced-html-comment/)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["svelte","ESLint","eslint-plugin-svelte"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.svelte.SpacedHtmlComment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/spacedhtmlcomment.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce consistent spacing after the &lt;!-- and before the --> in a HTML comment</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce consistent spacing after the &lt;!-- and before the --> in a HTML comment See rule details for [svelte/spaced-html-comment](https://sveltejs.github.io/eslint-plugin-svelte/rules/spaced-html-comment/).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

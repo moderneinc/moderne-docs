@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `IntStreamRules.IntStreamAnyMatch`"}
-  description={"Prefer `IntStream#anyMatch(IntPredicate)` over more contrived alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4034"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.IntStreamRulesRecipes$IntStreamAnyMatchRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamanymatchrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `IntStreamRules.IntStreamAnyMatch`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `IntStream#anyMatch(IntPredicate)` over more contrived alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.IntStreamRulesRecipes$IntStreamAnyMatchRecipe","displayName":"Refaster template `IntStreamRules.IntStreamAnyMatch`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

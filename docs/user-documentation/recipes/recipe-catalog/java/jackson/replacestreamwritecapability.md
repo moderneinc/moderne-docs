@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace removed `JsonGenerator` capability methods with `StreamWriteCapability`"}
-  description={"In Jackson 3, `JsonGenerator.canWriteBinaryNatively()` and `canWriteFormattedNumbers()` were removed and replaced with the `StreamWriteCapability` enum. This recipe updates these method calls to use `getWriteCapabilities().isEnabled(StreamWriteCapability.*)` instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.ReplaceStreamWriteCapability"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/replacestreamwritecapability.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace removed `JsonGenerator` capability methods with `StreamWriteCapability`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Jackson 3, `JsonGenerator.canWriteBinaryNatively()` and `canWriteFormattedNumbers()` were removed and replaced with the `StreamWriteCapability` enum. This recipe updates these method calls to use `getWriteCapabilities().isEnabled(StreamWriteCapability.*)` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.core.JsonGenerator;\n\nclass Test {\n    boolean checkCapability(JsonGenerator generator) {\n        return generator.canWriteBinaryNatively();\n    }\n}\n","after":"import com.fasterxml.jackson.core.JsonGenerator;\nimport com.fasterxml.jackson.core.StreamWriteCapability;\n\nclass Test {\n    boolean checkCapability(JsonGenerator generator) {\n        return generator.getWriteCapabilities().isEnabled(StreamWriteCapability.CAN_WRITE_BINARY_NATIVELY);\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport com.fasterxml.jackson.core.JsonGenerator;\n+import com.fasterxml.jackson.core.StreamWriteCapability;\n\n@@ -5,1 +6,1 @@\nclass Test {\n    boolean checkCapability(JsonGenerator generator) {\n-       return generator.canWriteBinaryNatively();\n+       return generator.getWriteCapabilities().isEnabled(StreamWriteCapability.CAN_WRITE_BINARY_NATIVELY);\n    }\n","newFile":false}]}]}>
 

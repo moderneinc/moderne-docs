@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `@SpringBootApplication` with Quarkus equivalent"}
-  description={"Replace `@SpringBootApplication` annotation with `@QuarkusMain`, `SpringApplication.run()` calls."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.ReplaceSpringBootApplication"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/replacespringbootapplication.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Replace `SpringApplication.run()` with `Quarkus.run()`","href":"quarkus/spring/springapplicationruntoquarkusrun"}]} preconditions={[{"name":"Find types","href":"java/search/findtypes"}]}>
+<RecipeHeader.Title>Replace `@SpringBootApplication` with Quarkus equivalent</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `@SpringBootApplication` annotation with `@QuarkusMain`, `SpringApplication.run()` calls.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Replace `SpringApplication.run()` with `Quarkus.run()`","href":"/user-documentation/recipes/recipe-catalog/quarkus/spring/springapplicationruntoquarkusrun/"}]} preconditions={[{"name":"Find types","href":"/user-documentation/recipes/recipe-catalog/java/search/findtypes/"}]}>
 
 ## Definition
 

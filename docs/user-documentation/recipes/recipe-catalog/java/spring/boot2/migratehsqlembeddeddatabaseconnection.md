@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated Spring-Boot `EmbeddedDatabaseConnection.HSQL`"}
-  description={"Spring-Boot `EmbeddedDatabaseConnection.HSQL` was deprecated in favor of `EmbeddedDatabaseConnection.HSQLDB` in 2.4."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateHsqlEmbeddedDatabaseConnection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratehsqlembeddeddatabaseconnection.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate deprecated Spring-Boot `EmbeddedDatabaseConnection.HSQL`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring-Boot `EmbeddedDatabaseConnection.HSQL` was deprecated in favor of `EmbeddedDatabaseConnection.HSQLDB` in 2.4.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;\n\nclass A {\n    void method() {\n        EmbeddedDatabaseConnection edbc = EmbeddedDatabaseConnection.HSQL;\n    }\n}\n","after":"import org.springframework.boot.jdbc.EmbeddedDatabaseConnection;\n\nclass A {\n    void method() {\n        EmbeddedDatabaseConnection edbc = EmbeddedDatabaseConnection.HSQLDB;\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass A {\n    void method() {\n-       EmbeddedDatabaseConnection edbc = EmbeddedDatabaseConnection.HSQL;\n+       EmbeddedDatabaseConnection edbc = EmbeddedDatabaseConnection.HSQLDB;\n    }\n","newFile":false}]}]}>
 

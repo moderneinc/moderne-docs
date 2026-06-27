@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Files#createTempDirectory()`"}
-  description={"Replaces Guava `Files#createTempDir()` with Java `Files#createTempDirectory(..)`. Transformations are limited to scopes throwing or catching `java.io.IOException`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S4738","guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaCreateTempDir"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavacreatetempdir.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Files#createTempDirectory()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces Guava `Files#createTempDir()` with Java `Files#createTempDirectory(..)`. Transformations are limited to scopes throwing or catching `java.io.IOException`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.File;\nimport java.io.IOException;\nimport com.google.common.io.Files;\n\nclass A {\n    void doSomething() throws IOException {\n        File dir = Files.createTempDir();\n        dir.createNewFile();\n    }\n    void doSomethingElse() throws Exception {\n        File dir = Files.createTempDir();\n        dir.createNewFile();\n    }\n}\n","after":"import java.io.File;\nimport java.io.IOException;\nimport java.nio.file.Files;\n\nclass A {\n    void doSomething() throws IOException {\n        File dir = Files.createTempDirectory(null).toFile();\n        dir.createNewFile();\n    }\n    void doSomethingElse() throws Exception {\n        File dir = Files.createTempDirectory(null).toFile();\n        dir.createNewFile();\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport java.io.File;\nimport java.io.IOException;\n-import com.google.common.io.Files;\n+import java.nio.file.Files;\n\n@@ -7,1 +7,1 @@\nclass A {\n    void doSomething() throws IOException {\n-       File dir = Files.createTempDir();\n+       File dir = Files.createTempDirectory(null).toFile();\n        dir.createNewFile();\n@@ -11,1 +11,1 @@\n    }\n    void doSomethingElse() throws Exception {\n-       File dir = Files.createTempDir();\n+       File dir = Files.createTempDirectory(null).toFile();\n        dir.createNewFile();\n","newFile":false}]}]}>
 

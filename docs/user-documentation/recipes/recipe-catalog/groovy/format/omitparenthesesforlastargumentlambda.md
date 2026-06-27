@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move a closure which is the last argument of a method invocation out of parentheses"}
-  description={"Groovy allows a shorthand syntax that allows a closure to be placed outside of parentheses."}
   type={"Single recipe"}
   languages={["Groovy"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-groovy"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.groovy.format.OmitParenthesesForLastArgumentLambda"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/groovy/format/omitparenthesesforlastargumentlambda.md"}
-/>
+>
+
+<RecipeHeader.Title>Move a closure which is the last argument of a method invocation out of parentheses</RecipeHeader.Title>
+
+<RecipeHeader.Description>Groovy allows a shorthand syntax that allows a closure to be placed outside of parentheses.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.groovy.format.OmitParenthesesForLastArgumentLambda","displayName":"Move a closure which is the last argument of a method invocation out of parentheses","groupId":"org.openrewrite","artifactId":"rewrite-groovy","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GROOVY","requiresConfiguration":false}}>
 

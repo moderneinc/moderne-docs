@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `RequestConfig` to httpclient5"}
-  description={"Migrate `RequestConfig` to httpclient5."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.MigrateRequestConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/migraterequestconfig.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `RequestConfig` to httpclient5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate `RequestConfig` to httpclient5.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.apache.httpclient5.MigrateRequestConfig","displayName":"Migrate `RequestConfig` to httpclient5","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 

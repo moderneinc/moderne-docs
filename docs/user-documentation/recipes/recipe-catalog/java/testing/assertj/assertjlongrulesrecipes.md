@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adopt AssertJ Long Assertions"}
-  description={"Adopt AssertJ Long Assertions. Favor semantically explicit methods (e.g. `myLong.isZero()` over `myLong.isEqualTo(0)`)."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.AssertJLongRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjlongrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `isCloseTo` with `isEqualTo`","href":"java/testing/assertj/assertjlongrulesrecipes$abstractlongassertisequaltorecipe"},{"name":"Replace `isNotCloseTo` with `isNotEqualTo`","href":"java/testing/assertj/assertjlongrulesrecipes$abstractlongassertisnotequaltorecipe"},{"name":"Replace `isEqualTo(0)` with `isZero()`","href":"java/testing/assertj/assertjlongrulesrecipes$abstractlongassertiszerorecipe"},{"name":"Replace `isNotEqualTo(0)` with `isNotZero()`","href":"java/testing/assertj/assertjlongrulesrecipes$abstractlongassertisnotzerorecipe"},{"name":"Replace `isEqualTo(1)` with `isOne()`","href":"java/testing/assertj/assertjlongrulesrecipes$abstractlongassertisonerecipe"}]}>
+<RecipeHeader.Title>Adopt AssertJ Long Assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adopt AssertJ Long Assertions. Favor semantically explicit methods (e.g. `myLong.isZero()` over `myLong.isEqualTo(0)`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `isCloseTo` with `isEqualTo`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjlongrulesrecipes$abstractlongassertisequaltorecipe/"},{"name":"Replace `isNotCloseTo` with `isNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjlongrulesrecipes$abstractlongassertisnotequaltorecipe/"},{"name":"Replace `isEqualTo(0)` with `isZero()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjlongrulesrecipes$abstractlongassertiszerorecipe/"},{"name":"Replace `isNotEqualTo(0)` with `isNotZero()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjlongrulesrecipes$abstractlongassertisnotzerorecipe/"},{"name":"Replace `isEqualTo(1)` with `isOne()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjlongrulesrecipes$abstractlongassertisonerecipe/"}]}>
 
 ## Definition
 

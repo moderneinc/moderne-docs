@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use method chaining"}
-  description={"Chain consecutive method calls on the same receiver into a fluent chain."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseMethodChaining"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/usemethodchaining.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use method chaining</RecipeHeader.Title>
+
+<RecipeHeader.Description>Chain consecutive method calls on the same receiver into a fluent chain.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseMethodChaining","displayName":"Use method chaining","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

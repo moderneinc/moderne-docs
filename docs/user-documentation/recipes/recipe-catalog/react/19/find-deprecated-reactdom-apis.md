@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated ReactDOM APIs"}
-  description={"Finds usage of deprecated or removed ReactDOM APIs (`findDOMNode`, `unmountComponentAtNode`, `createFactory`, `renderToNodeStream`) that were removed in React 19."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.find-deprecated-reactdom-apis"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/find-deprecated-reactdom-apis.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated ReactDOM APIs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usage of deprecated or removed ReactDOM APIs (`findDOMNode`, `unmountComponentAtNode`, `createFactory`, `renderToNodeStream`) that were removed in React 19.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.19.find-deprecated-reactdom-apis","displayName":"Find deprecated ReactDOM APIs","npmPackage":"@openrewrite/recipes-react"}}>
 

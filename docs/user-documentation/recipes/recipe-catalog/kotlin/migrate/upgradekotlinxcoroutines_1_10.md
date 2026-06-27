@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to `kotlinx-coroutines` 1.10"}
-  description={"Upgrade kotlinx-coroutines to 1.10.x and replace deprecated method calls."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UpgradeKotlinxCoroutines_1_10"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxcoroutines_1_10.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace deprecated `kotlinx-coroutines-core` methods","href":"jetbrains/kotlinx/replacedeprecatedkotlinxcoroutinescore1methods"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Upgrade to `kotlinx-coroutines` 1.10</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade kotlinx-coroutines to 1.10.x and replace deprecated method calls.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace deprecated `kotlinx-coroutines-core` methods","href":"/user-documentation/recipes/recipe-catalog/jetbrains/kotlinx/replacedeprecatedkotlinxcoroutinescore1methods/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]}>
 
 ## Definition
 

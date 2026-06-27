@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Encrypt ElastiCache Redis in transit"}
-  description={"ElastiCache for Redis offers optional encryption in transit. In-transit encryption provides an additional layer of data protection when transferring data over standard HTTPS protocol."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["CKV_AWS_30","terraform","AWS"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.aws.EncryptElastiCacheRedisInTransit"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/aws/encryptelasticacheredisintransit.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Encrypt ElastiCache Redis in transit</RecipeHeader.Title>
+
+<RecipeHeader.Description>ElastiCache for Redis offers optional encryption in transit. In-transit encryption provides an additional layer of data protection when transferring data over standard HTTPS protocol.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

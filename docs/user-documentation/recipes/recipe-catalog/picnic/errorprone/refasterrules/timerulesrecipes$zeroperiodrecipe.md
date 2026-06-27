@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TimeRules.ZeroPeriod`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class ZeroPeriod {\n    \n    @BeforeTemplate\n    Period before() {\n        return Refaster.anyOf(Period.ofDays(0), Period.ofWeeks(0), Period.ofMonths(0), Period.ofYears(0), Period.of(0, 0, 0));\n    }\n    \n    @AfterTemplate\n    Period after() {\n        return Period.ZERO;\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TimeRulesRecipes$ZeroPeriodRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/timerulesrecipes$zeroperiodrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TimeRules.ZeroPeriod`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class ZeroPeriod {
+    
+    @BeforeTemplate
+    Period before() {
+        return Refaster.anyOf(Period.ofDays(0), Period.ofWeeks(0), Period.ofMonths(0), Period.ofYears(0), Period.of(0, 0, 0));
+    }
+    
+    @AfterTemplate
+    Period after() {
+        return Period.ZERO;
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$ZeroPeriodRecipe","displayName":"Refaster template `TimeRules.ZeroPeriod`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

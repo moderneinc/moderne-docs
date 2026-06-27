@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `apply { }` blocks that perform no mutation"}
-  description={"`apply { }` is for configuring the receiver and returning it. If the block has no assignments or property writes, `also { }` (which exposes the receiver as `it` and runs for side effects) or just inlining the call expresses the intent more clearly."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindApplyWithoutMutation$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findapplywithoutmutation$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `apply { }` blocks that perform no mutation</RecipeHeader.Title>
+
+<RecipeHeader.Description>`apply { }` is for configuring the receiver and returning it. If the block has no assignments or property writes, `also { }` (which exposes the receiver as `it` and runs for side effects) or just inlining the call expresses the intent more clearly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindApplyWithoutMutation$KtRecipe","displayName":"Find `apply { }` blocks that perform no mutation","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

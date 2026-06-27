@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `visit` with parent cursor when calling from another visitor"}
-  description={"When calling another visitor from within a visitor, use the generic `visit(tree, ctx, getCursor().getParentTreeCursor())` method instead of a specific `visit*` method like `visitMethodInvocation`. The specific visit methods bypass the visitor lifecycle, including cursor setup, pre/post visit hooks, and observer notifications."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.UseVisitWithParentCursor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/usevisitwithparentcursor.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `visit` with parent cursor when calling from another visitor</RecipeHeader.Title>
+
+<RecipeHeader.Description>When calling another visitor from within a visitor, use the generic `visit(tree, ctx, getCursor().getParentTreeCursor())` method instead of a specific `visit*` method like `visitMethodInvocation`. The specific visit methods bypass the visitor lifecycle, including cursor setup, pre/post visit hooks, and observer notifications.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.ExecutionContext;\nimport org.openrewrite.java.JavaVisitor;\nimport org.openrewrite.java.tree.J;\n\nclass OtherJavaVisitor extends JavaVisitor<ExecutionContext> {\n}\n\nclass SomeJavaVisitor extends JavaVisitor<ExecutionContext> {\n    @Override\n    public J visitMethodInvocation(J.MethodInvocation method, ExecutionContext ctx) {\n        J m = super.visitMethodInvocation(method, ctx);\n        m = new OtherJavaVisitor().visitMethodInvocation(method, ctx);\n        return m;\n    }\n}\n","after":"import org.openrewrite.ExecutionContext;\nimport org.openrewrite.java.JavaVisitor;\nimport org.openrewrite.java.tree.J;\n\nclass OtherJavaVisitor extends JavaVisitor<ExecutionContext> {\n}\n\nclass SomeJavaVisitor extends JavaVisitor<ExecutionContext> {\n    @Override\n    public J visitMethodInvocation(J.MethodInvocation method, ExecutionContext ctx) {\n        J m = super.visitMethodInvocation(method, ctx);\n        m = new OtherJavaVisitor().visit(method, ctx, getCursor().getParentTreeCursor());\n        return m;\n    }\n}\n","diff":"@@ -12,1 +12,1 @@\n    public J visitMethodInvocation(J.MethodInvocation method, ExecutionContext ctx) {\n        J m = super.visitMethodInvocation(method, ctx);\n-       m = new OtherJavaVisitor().visitMethodInvocation(method, ctx);\n+       m = new OtherJavaVisitor().visit(method, ctx, getCursor().getParentTreeCursor());\n        return m;\n","newFile":false}]}]}>
 

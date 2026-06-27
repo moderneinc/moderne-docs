@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `suspendCoroutine` calls"}
-  description={"`suspendCoroutine` lacks cancellation hooks — if the surrounding coroutine is cancelled before the continuation resumes, the underlying callback work runs to completion uselessly. Switch to `suspendCancellableCoroutine` so the continuation block can register an `invokeOnCancellation` callback."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindSuspendCoroutineWithoutCancellation$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findsuspendcoroutinewithoutcancellation$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `suspendCoroutine` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`suspendCoroutine` lacks cancellation hooks — if the surrounding coroutine is cancelled before the continuation resumes, the underlying callback work runs to completion uselessly. Switch to `suspendCancellableCoroutine` so the continuation block can register an `invokeOnCancellation` callback.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindSuspendCoroutineWithoutCancellation$KtRecipe","displayName":"Find `suspendCoroutine` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

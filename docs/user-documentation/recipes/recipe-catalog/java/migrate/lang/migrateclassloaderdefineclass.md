@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `ClassLoader#defineClass(String, byte[], int, int)`"}
-  description={"Use `ClassLoader#defineClass(String, byte[], int, int)` instead of the deprecated `ClassLoader#defineClass(byte[], int, int)` in Java 1.1 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["deprecated"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.MigrateClassLoaderDefineClass"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/migrateclassloaderdefineclass.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `ClassLoader#defineClass(String, byte[], int, int)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `ClassLoader#defineClass(String, byte[], int, int)` instead of the deprecated `ClassLoader#defineClass(byte[], int, int)` in Java 1.1 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite;\n\nclass Test extends ClassLoader {\n    public void method() {\n        byte[] b = new byte[]{};\n        super.defineClass(b, 10, 10);\n    }\n}\n","after":"package org.openrewrite;\n\nclass Test extends ClassLoader {\n    public void method() {\n        byte[] b = new byte[]{};\n        super.defineClass(null, b, 10, 10);\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n    public void method() {\n        byte[] b = new byte[]{};\n-       super.defineClass(b, 10, 10);\n+       super.defineClass(null, b, 10, 10);\n    }\n","newFile":false}]}]}>
 

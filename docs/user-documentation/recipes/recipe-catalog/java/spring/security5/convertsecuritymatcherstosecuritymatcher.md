@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `requestMatchers` chain to `securityMatcher`"}
-  description={"Converts `HttpSecurity.requestMatchers().antMatchers(...)` and similar patterns to `HttpSecurity.securityMatcher(...)`. The no-arg `requestMatchers()` method returns a `RequestMatcherConfigurer` that is not a configurer in the lambda DSL sense, so it should be replaced with the `securityMatcher()` method introduced in Spring Security 5.8."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security5.ConvertSecurityMatchersToSecurityMatcher"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security5/convertsecuritymatcherstosecuritymatcher.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `requestMatchers` chain to `securityMatcher`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `HttpSecurity.requestMatchers().antMatchers(...)` and similar patterns to `HttpSecurity.securityMatcher(...)`. The no-arg `requestMatchers()` method returns a `RequestMatcherConfigurer` that is not a configurer in the lambda DSL sense, so it should be replaced with the `securityMatcher()` method introduced in Spring Security 5.8.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\n\n@Configuration\n@EnableWebSecurity\nclass SecurityConfig {\n    @Bean\n    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {\n        http.requestMatchers().antMatchers(\"/oidc/*\", \"/events/syncs**\");\n        return http.build();\n    }\n}\n","after":"import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\n\n@Configuration\n@EnableWebSecurity\nclass SecurityConfig {\n    @Bean\n    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {\n        http.securityMatcher(\"/oidc/*\", \"/events/syncs**\");\n        return http.build();\n    }\n}\n","diff":"@@ -12,1 +12,1 @@\n    @Bean\n    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {\n-       http.requestMatchers().antMatchers(\"/oidc/*\", \"/events/syncs**\");\n+       http.securityMatcher(\"/oidc/*\", \"/events/syncs**\");\n        return http.build();\n","newFile":false}]}]}>
 

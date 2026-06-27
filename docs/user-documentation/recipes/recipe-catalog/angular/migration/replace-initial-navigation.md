@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `initialNavigation` option values"}
-  description={"Replaces deprecated `initialNavigation` router option values: `'legacy_enabled'` and `true` become `'enabledBlocking'`, `'legacy_disabled'` and `false` become `'disabled'`, and `'enabled'` becomes `'enabledNonBlocking'`. The legacy values were removed in Angular 11; `'enabled'` was renamed in Angular 14."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.replace-initial-navigation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/replace-initial-navigation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `initialNavigation` option values</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces deprecated `initialNavigation` router option values: `'legacy_enabled'` and `true` become `'enabledBlocking'`, `'legacy_disabled'` and `false` become `'disabled'`, and `'enabled'` becomes `'enabledNonBlocking'`. The legacy values were removed in Angular 11; `'enabled'` was renamed in Angular 14.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.replace-initial-navigation","displayName":"Replace `initialNavigation` option values","npmPackage":"@openrewrite/recipes-angular"}}>
 

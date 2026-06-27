@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"io.quarkus.updates.core.quarkus323.HibernateORMSchemaManagementProperties"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus323.HibernateORMSchemaManagementProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus323/hibernateormschemamanagementproperties.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Quarkus configuration property key","href":"quarkus/changequarkuspropertykey"},{"name":"Change Quarkus configuration property key","href":"quarkus/changequarkuspropertykey"},{"name":"Change Quarkus configuration property key","href":"quarkus/changequarkuspropertykey"},{"name":"Change Quarkus configuration property key","href":"quarkus/changequarkuspropertykey"},{"name":"Change Quarkus configuration property key","href":"quarkus/changequarkuspropertykey"},{"name":"Change Quarkus configuration property key","href":"quarkus/changequarkuspropertykey"}]}>
+<RecipeHeader.Title>io.quarkus.updates.core.quarkus323.HibernateORMSchemaManagementProperties</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Quarkus configuration property key","href":"/user-documentation/recipes/recipe-catalog/quarkus/changequarkuspropertykey/"},{"name":"Change Quarkus configuration property key","href":"/user-documentation/recipes/recipe-catalog/quarkus/changequarkuspropertykey/"},{"name":"Change Quarkus configuration property key","href":"/user-documentation/recipes/recipe-catalog/quarkus/changequarkuspropertykey/"},{"name":"Change Quarkus configuration property key","href":"/user-documentation/recipes/recipe-catalog/quarkus/changequarkuspropertykey/"},{"name":"Change Quarkus configuration property key","href":"/user-documentation/recipes/recipe-catalog/quarkus/changequarkuspropertykey/"},{"name":"Change Quarkus configuration property key","href":"/user-documentation/recipes/recipe-catalog/quarkus/changequarkuspropertykey/"}]}>
 
 ## Definition
 

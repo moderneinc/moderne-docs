@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use modernized `javax.xml.stream` APIs"}
-  description={"Certain `javax.xml.stream` APIs have become deprecated and their usages changed, necessitating usage changes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.JavaxXmlStreamAPIs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/javaxxmlstreamapis.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `javax.xml.stream.XMLEventFactory#newFactory(String, ClassLoader)`","href":"java/migrate/javax/migratexmleventfactorynewinstancetonewfactory"},{"name":"Use `javax.xml.stream.XMLInputFactory#newFactory(String, ClassLoader)`","href":"java/migrate/javax/migratexmlinputfactorynewinstancetonewfactory"},{"name":"Use `javax.xml.stream.XMLOutputFactory#newFactory(String, ClassLoader)`","href":"java/migrate/javax/migratexmloutputfactorynewinstancetonewfactory"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use modernized `javax.xml.stream` APIs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Certain `javax.xml.stream` APIs have become deprecated and their usages changed, necessitating usage changes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `javax.xml.stream.XMLEventFactory#newFactory(String, ClassLoader)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratexmleventfactorynewinstancetonewfactory/"},{"name":"Use `javax.xml.stream.XMLInputFactory#newFactory(String, ClassLoader)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratexmlinputfactorynewinstancetonewfactory/"},{"name":"Use `javax.xml.stream.XMLOutputFactory#newFactory(String, ClassLoader)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratexmloutputfactorynewinstancetonewfactory/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

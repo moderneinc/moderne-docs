@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `@MockBean` and `@SpyBean`"}
-  description={"Replaces `@MockBean` and `@SpyBean` annotations with `@MockitoBean` and `@MockitoSpyBean`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot4.ReplaceMockBeanAndSpyBean"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacemockbeanandspybean.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Unwrap `@MockBeans` and `@SpyBeans` container annotations","href":"java/spring/boot4/unwrapmockandspybeancontainers"},{"name":"Change annotation attribute name","href":"java/changeannotationattributename"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Change type","href":"java/changetype"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Replace `@MockBean` and `@SpyBean`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `@MockBean` and `@SpyBean` annotations with `@MockitoBean` and `@MockitoSpyBean`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Unwrap `@MockBeans` and `@SpyBeans` container annotations","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/unwrapmockandspybeancontainers/"},{"name":"Change annotation attribute name","href":"/user-documentation/recipes/recipe-catalog/java/changeannotationattributename/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

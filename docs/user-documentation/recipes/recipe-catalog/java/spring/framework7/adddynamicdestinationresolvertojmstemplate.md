@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Explicitly set DynamicDestinationResolver on JmsTemplate"}
-  description={"Spring Framework 7.0 changed the default `DestinationResolver` for `JmsTemplate` from `DynamicDestinationResolver` to `SimpleDestinationResolver`, which caches Session-resolved Queue and Topic instances. This recipe adds an explicit call to `setDestinationResolver(new DynamicDestinationResolver())` to preserve the previous behavior. The caching behavior of `SimpleDestinationResolver` should be fine for most JMS brokers, so this explicit configuration can be removed once compatibility with the new default is verified."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.AddDynamicDestinationResolverToJmsTemplate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/adddynamicdestinationresolvertojmstemplate.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Explicitly set DynamicDestinationResolver on JmsTemplate</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Framework 7.0 changed the default `DestinationResolver` for `JmsTemplate` from `DynamicDestinationResolver` to `SimpleDestinationResolver`, which caches Session-resolved Queue and Topic instances. This recipe adds an explicit call to `setDestinationResolver(new DynamicDestinationResolver())` to preserve the previous behavior. The caching behavior of `SimpleDestinationResolver` should be fine for most JMS brokers, so this explicit configuration can be removed once compatibility with the new default is verified.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.jms.core.JmsTemplate;\nimport jakarta.jms.ConnectionFactory;\n\n@Configuration\nclass JmsConfig {\n    @Bean\n    JmsTemplate jmsTemplate(ConnectionFactory connectionFactory) {\n        JmsTemplate template = new JmsTemplate(connectionFactory);\n        template.setDefaultDestinationName(\"myQueue\");\n        return template;\n    }\n}\n","after":"import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.jms.core.JmsTemplate;\nimport org.springframework.jms.support.destination.DynamicDestinationResolver;\nimport jakarta.jms.ConnectionFactory;\n\n@Configuration\nclass JmsConfig {\n    @Bean\n    JmsTemplate jmsTemplate(ConnectionFactory connectionFactory) {\n        JmsTemplate template = new JmsTemplate(connectionFactory);\n        template.setDefaultDestinationName(\"myQueue\");\n        template.setDestinationResolver(new DynamicDestinationResolver());\n        return template;\n    }\n}\n","diff":"@@ -4,0 +4,1 @@\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.jms.core.JmsTemplate;\n+import org.springframework.jms.support.destination.DynamicDestinationResolver;\nimport jakarta.jms.ConnectionFactory;\n@@ -12,0 +13,1 @@\n        JmsTemplate template = new JmsTemplate(connectionFactory);\n        template.setDefaultDestinationName(\"myQueue\");\n+       template.setDestinationResolver(new DynamicDestinationResolver());\n        return template;\n","newFile":false}]}]}>
 

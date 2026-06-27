@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Codehaus Jackson annotations if doubly annotated"}
-  description={"Remove Codehaus Jackson annotations if they are doubly annotated with Jackson annotations from the `com.fasterxml.jackson` package."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.codehaus.RemoveDoublyAnnotatedCodehausAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/removedoublyannotatedcodehausannotations.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove Codehaus Jackson annotations if doubly annotated</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove Codehaus Jackson annotations if they are doubly annotated with Jackson annotations from the `com.fasterxml.jackson` package.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.codehaus.jackson.map.annotate.JsonSerialize;\nimport org.codehaus.jackson.map.JsonSerializer.None;\nimport static org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion.NON_NULL;\n\n@JsonSerialize(include = NON_NULL, using = None.class)\n@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.databind.JsonSerializer.None.class)\nclass Test {\n}\n","after":"import com.fasterxml.jackson.databind.JsonSerializer;\nimport com.fasterxml.jackson.databind.annotation.JsonSerialize;\n\n@JsonSerialize(using = JsonSerializer.None.class)\nclass Test {\n}\n","diff":"@@ -1,3 +1,2 @@\n-import org.codehaus.jackson.map.annotate.JsonSerialize;\n-import org.codehaus.jackson.map.JsonSerializer.None;\n-import static org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion.NON_NULL;\n+import com.fasterxml.jackson.databind.JsonSerializer;\n+import com.fasterxml.jackson.databind.annotation.JsonSerialize;\n\n@@ -5,2 +4,1 @@\nimport static org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion.NON_NULL;\n\n-@JsonSerialize(include = NON_NULL, using = None.class)\n-@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.fasterxml.jackson.databind.JsonSerializer.None.class)\n+@JsonSerialize(using = JsonSerializer.None.class)\nclass Test {\n","newFile":false}]}]}>
 

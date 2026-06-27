@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert annotated abstract method to field"}
-  description={"Converts abstract getter methods annotated with `sourceAnnotation` to private fields annotated with `targetAnnotation`. Also removes corresponding abstract setter methods."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.tapestry.ConvertAnnotatedMethodToField"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/tapestry/convertannotatedmethodtofield.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert annotated abstract method to field</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts abstract getter methods annotated with `sourceAnnotation` to private fields annotated with `targetAnnotation`. Also removes corresponding abstract setter methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"sourceAnnotation","required":true,"description":"The fully qualified name of the annotation to find on abstract getter methods.","example":"org.apache.tapestry.annotations.InjectObject"},{"type":"String","name":"targetAnnotation","required":true,"description":"The fully qualified name of the annotation to add to the generated field.","example":"org.apache.tapestry5.ioc.annotations.Inject"},{"type":"Boolean","name":"preserveAnnotationArguments","required":false,"description":"When true, copies the source annotation's arguments to the target annotation. Use this when the annotation arguments carry semantic meaning in the target framework (e.g., @Persist(\"session\"), @Parameter(required=true)).","example":"true"}]}>
 

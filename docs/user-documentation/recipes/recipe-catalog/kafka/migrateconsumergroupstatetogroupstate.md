@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `ConsumerGroupState` to `GroupState`"}
-  description={"Migrates from the deprecated `ConsumerGroupState` to `GroupState` for Kafka 4.0 compatibility. `ConsumerGroupState` was deprecated in favor of `GroupState` which supports both consumer groups and share groups."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.MigrateConsumerGroupStateToGroupState"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/migrateconsumergroupstatetogroupstate.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method invocation return type","href":"java/migrate/changemethodinvocationreturntype"}]}>
+<RecipeHeader.Title>Migrate `ConsumerGroupState` to `GroupState`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates from the deprecated `ConsumerGroupState` to `GroupState` for Kafka 4.0 compatibility. `ConsumerGroupState` was deprecated in favor of `GroupState` which supports both consumer groups and share groups.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method invocation return type","href":"/user-documentation/recipes/recipe-catalog/java/migrate/changemethodinvocationreturntype/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find single-child wrapper composables (Material 3)"}
-  description={"Material 3 wrapper composables that add a layout node and a styling pass for exactly one child: `Surface { OneChild() }` and `Card { OneChild() }`. Audit for redundancy — the same styling can usually be expressed by passing `Modifier.background`/`Modifier.shadow` to the child."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindUnnecessaryComposeWrappers$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findunnecessarycomposewrappers$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Surface { OneChild() }` patterns","href":"kotlin/compose/findsurfacewithsinglechild$ktrecipe"},{"name":"Find `Card { OneChild() }` patterns","href":"kotlin/compose/findcardwithsinglechild$ktrecipe"}]}>
+<RecipeHeader.Title>Find single-child wrapper composables (Material 3)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Material 3 wrapper composables that add a layout node and a styling pass for exactly one child: `Surface { OneChild() }` and `Card { OneChild() }`. Audit for redundancy — the same styling can usually be expressed by passing `Modifier.background`/`Modifier.shadow` to the child.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Surface { OneChild() }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findsurfacewithsinglechild$ktrecipe/"},{"name":"Find `Card { OneChild() }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findcardwithsinglechild$ktrecipe/"}]}>
 
 ## Definition
 

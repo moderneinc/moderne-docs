@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `new StringEntity(String, String)` with `new StringEntity(String, Charset)`"}
-  description={"Replace `new StringEntity(String, String)` with `new StringEntity(String, Charset)` to eliminate literal usage for charset parameters."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.MigrateStringEntityStringCharsetConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/migratestringentitystringcharsetconstructor.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `new StringEntity(String, String)` with `new StringEntity(String, Charset)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `new StringEntity(String, String)` with `new StringEntity(String, Charset)` to eliminate literal usage for charset parameters.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.http.entity.StringEntity;\n\nclass A {\n    void method() {\n        StringEntity utf8Entity = new StringEntity(\"a\", \"utf-8\");\n        StringEntity utf16Entity = new StringEntity(\"b\", \"utf-16\");\n        StringEntity anotherEntity = new StringEntity(\"utf-8\", \"utf-8\");\n    }\n}\n","after":"import org.apache.http.entity.StringEntity;\n\nimport java.nio.charset.StandardCharsets;\n\nclass A {\n    void method() {\n        StringEntity utf8Entity = new StringEntity(\"a\", StandardCharsets.UTF_8);\n        StringEntity utf16Entity = new StringEntity(\"b\", StandardCharsets.UTF_16);\n        StringEntity anotherEntity = new StringEntity(\"utf-8\", StandardCharsets.UTF_8);\n    }\n}\n","diff":"@@ -3,0 +3,2 @@\nimport org.apache.http.entity.StringEntity;\n\n+import java.nio.charset.StandardCharsets;\n+\nclass A {\n@@ -5,3 +7,3 @@\nclass A {\n    void method() {\n-       StringEntity utf8Entity = new StringEntity(\"a\", \"utf-8\");\n-       StringEntity utf16Entity = new StringEntity(\"b\", \"utf-16\");\n-       StringEntity anotherEntity = new StringEntity(\"utf-8\", \"utf-8\");\n+       StringEntity utf8Entity = new StringEntity(\"a\", StandardCharsets.UTF_8);\n+       StringEntity utf16Entity = new StringEntity(\"b\", StandardCharsets.UTF_16);\n+       StringEntity anotherEntity = new StringEntity(\"utf-8\", StandardCharsets.UTF_8);\n    }\n","newFile":false}]}]}>
 

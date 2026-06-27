@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Canvas { … }` blocks inside a `@Composable`"}
-  description={"`Canvas { drawXxx(...) }` re-runs the draw lambda on every recomposition; allocating `Paint`, `Path`, or `Brush` instances inside the lambda creates GC pressure that shows up as jank. Review for hoistable allocations (`remember { Paint().apply { … } }`) and for `drawWithCache { … }` opportunities."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindCanvasInComposable$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcanvasincomposable$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Canvas { … }` blocks inside a `@Composable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Canvas { drawXxx(...) }` re-runs the draw lambda on every recomposition; allocating `Paint`, `Path`, or `Brush` instances inside the lambda creates GC pressure that shows up as jank. Review for hoistable allocations (`remember { Paint().apply { … } }`) and for `drawWithCache { … }` opportunities.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindCanvasInComposable$KtRecipe","displayName":"Find `Canvas { … }` blocks inside a `@Composable`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

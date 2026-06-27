@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove empty path match configuration methods"}
-  description={"Removes empty `configurePathMatch` (WebMvc) and `configurePathMatching` (WebFlux) method overrides. These methods may become empty after deprecated path matching options are removed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.RemoveEmptyPathMatchConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/removeemptypathmatchconfiguration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove empty path match configuration methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes empty `configurePathMatch` (WebMvc) and `configurePathMatching` (WebFlux) method overrides. These methods may become empty after deprecated path matching options are removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Configuration;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n    @Override\n    public void configurePathMatch(PathMatchConfigurer configurer) {\n    }\n}\n","after":"import org.springframework.context.annotation.Configuration;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n}\n","diff":"@@ -7,3 +7,0 @@\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n-   @Override\n-   public void configurePathMatch(PathMatchConfigurer configurer) {\n-   }\n}\n","newFile":false}]}]}>
 

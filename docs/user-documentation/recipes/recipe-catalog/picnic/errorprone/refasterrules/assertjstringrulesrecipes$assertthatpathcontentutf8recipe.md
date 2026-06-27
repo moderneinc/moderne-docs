@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJStringRules.AssertThatPathContentUtf8`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatPathContentUtf8 {\n    \n    @BeforeTemplate\n    AbstractStringAssert<?> before(Path path) throws IOException {\n        return assertThat(Files.readString(path));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractStringAssert<?> after(Path path) {\n        return assertThat(path).content(UTF_8);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatPathContentUtf8Recipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatpathcontentutf8recipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJStringRules.AssertThatPathContentUtf8`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatPathContentUtf8 {
+    
+    @BeforeTemplate
+    AbstractStringAssert<?> before(Path path) throws IOException {
+        return assertThat(Files.readString(path));
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractStringAssert<?> after(Path path) {
+        return assertThat(path).content(UTF_8);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatPathContentUtf8Recipe","displayName":"Refaster template `AssertJStringRules.AssertThatPathContentUtf8`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

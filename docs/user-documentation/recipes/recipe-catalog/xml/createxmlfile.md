@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create XML file"}
-  description={"Create a new XML file."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.CreateXmlFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/createxmlfile.md"}
-/>
+>
+
+<RecipeHeader.Title>Create XML file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Create a new XML file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"relativeFileName","required":true,"description":"File path of new file.","example":"foo/bar/baz.xml"},{"type":"String","name":"fileContents","required":false,"description":"Multiline text content for the file.","example":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<root>\n    <child>1</child></root>"},{"type":"Boolean","name":"overwriteExisting","required":false,"description":"If there is an existing file, should it be overwritten."}]}>
 

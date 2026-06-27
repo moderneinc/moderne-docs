@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find classes with multiple overloaded secondary constructors"}
-  description={"Two or more secondary constructors with different arities almost always collapse into a single primary constructor with default arguments. The default-arg form composes with named arguments and `@JvmOverloads` for cross-language interop."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindMultipleSecondaryConstructors$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findmultiplesecondaryconstructors$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find classes with multiple overloaded secondary constructors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Two or more secondary constructors with different arities almost always collapse into a single primary constructor with default arguments. The default-arg form composes with named arguments and `@JvmOverloads` for cross-language interop.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindMultipleSecondaryConstructors$KtRecipe","displayName":"Find classes with multiple overloaded secondary constructors","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

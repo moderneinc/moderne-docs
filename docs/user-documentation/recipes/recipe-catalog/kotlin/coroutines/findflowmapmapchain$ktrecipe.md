@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Flow.map { } .map { }` chains"}
-  description={"Two adjacent `Flow.map { }` operators emit through two `transform` stages where one would do. Fold them into a single `map`, or use `map { (a, b) -> … }` destructuring."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindFlowMapMapChain$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowmapmapchain$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Flow.map { } .map { }` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>Two adjacent `Flow.map { }` operators emit through two `transform` stages where one would do. Fold them into a single `map`, or use `map { (a, b) -> … }` destructuring.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindFlowMapMapChain$KtRecipe","displayName":"Find `Flow.map { } .map { }` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

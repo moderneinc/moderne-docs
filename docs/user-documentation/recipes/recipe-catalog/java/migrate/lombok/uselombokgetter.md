@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert getter methods to annotations"}
-  description={"Convert trivial getter methods to `@Getter` annotations on their respective fields."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["lombok"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lombok.UseLombokGetter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/uselombokgetter.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert getter methods to annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert trivial getter methods to `@Getter` annotations on their respective fields.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n\n    int foo = 9;\n\n    public int getFoo() {\n        return foo;\n    }\n}\n","after":"import lombok.Getter;\n\nclass A {\n\n    @Getter\n    int foo = 9;\n}\n","diff":"@@ -1,0 +1,2 @@\n+import lombok.Getter;\n+\nclass A {\n@@ -3,0 +5,1 @@\nclass A {\n\n+   @Getter\n    int foo = 9;\n@@ -4,4 +7,0 @@\n\n    int foo = 9;\n-\n-   public int getFoo() {\n-       return foo;\n-   }\n}\n","newFile":false}]}]}>
 

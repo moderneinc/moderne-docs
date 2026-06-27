@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `com.ibm.net.ssl.www2.protocol` instead of `com.sun.net.ssl.internal.www.protocol`"}
-  description={"Do not use the `com.sun.net.ssl.internal.www.protocol` package."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java11"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.JREDoNotUseSunNetSslInternalWwwProtocol"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jredonotusesunnetsslinternalwwwprotocol.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `String` literal","href":"java/replacestringliteralvalue"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use `com.ibm.net.ssl.www2.protocol` instead of `com.sun.net.ssl.internal.www.protocol`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Do not use the `com.sun.net.ssl.internal.www.protocol` package.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `String` literal","href":"/user-documentation/recipes/recipe-catalog/java/replacestringliteralvalue/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

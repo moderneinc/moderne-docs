@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find JWT literals (`eyJ…`-prefixed three-segment tokens)"}
-  description={"A literal JWT in source is a long-lived signed token sitting in git history. Even if it's expired, it documents the claims structure and signing context. Replace with a fixture-generated token in tests; remove entirely from production code."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindJwtLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findjwtliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find JWT literals (`eyJ…`-prefixed three-segment tokens)</RecipeHeader.Title>
+
+<RecipeHeader.Description>A literal JWT in source is a long-lived signed token sitting in git history. Even if it's expired, it documents the claims structure and signing context. Replace with a fixture-generated token in tests; remove entirely from production code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindJwtLiteral$KtRecipe","displayName":"Find JWT literals (`eyJ…`-prefixed three-segment tokens)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

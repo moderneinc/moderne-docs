@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalStateException`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatThrownByIllegalStateException {\n    \n    @BeforeTemplate\n    AbstractObjectAssert<?, ?> before(ThrowingCallable throwingCallable) {\n        return assertThatIllegalStateException().isThrownBy(throwingCallable);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractObjectAssert<?, ?> after(ThrowingCallable throwingCallable) {\n        return assertThatThrownBy(throwingCallable).isInstanceOf(IllegalStateException.class);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIllegalStateExceptionRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyillegalstateexceptionrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalStateException`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatThrownByIllegalStateException {
+    
+    @BeforeTemplate
+    AbstractObjectAssert<?, ?> before(ThrowingCallable throwingCallable) {
+        return assertThatIllegalStateException().isThrownBy(throwingCallable);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractObjectAssert<?, ?> after(ThrowingCallable throwingCallable) {
+        return assertThatThrownBy(throwingCallable).isInstanceOf(IllegalStateException.class);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIllegalStateExceptionRecipe","displayName":"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalStateException`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

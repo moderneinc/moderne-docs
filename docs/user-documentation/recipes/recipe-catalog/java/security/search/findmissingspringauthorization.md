@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring MVC handlers missing authorization"}
-  description={"Flags Spring MVC (and WebFlux) controller methods reachable to anonymous users — either matched by `permitAll()` in a `SecurityFilterChain` / `SecurityWebFilterChain` bean (or in a legacy `WebSecurityConfigurerAdapter.configure(HttpSecurity)` override) or with no matching rule at all — and which do not carry an explicit authorization annotation (`@PreAuthorize`, `@PostAuthorize`, `@Secured`, `@RolesAllowed`, `@PermitAll`, `@DenyAll`), including annotations inherited from a superclass or overridden parent method. Security rules are read from both the Java fluent API (`requestMatchers(...).permitAll()`) and the Kotlin DSL (`authorize(\"/path\", permitAll)`). Detector only; does not modify code."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-862","security","RSPEC-S4502"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindMissingSpringAuthorization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findmissingspringauthorization.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Spring MVC handlers missing authorization</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flags Spring MVC (and WebFlux) controller methods reachable to anonymous users — either matched by `permitAll()` in a `SecurityFilterChain` / `SecurityWebFilterChain` bean (or in a legacy `WebSecurityConfigurerAdapter.configure(HttpSecurity)` override) or with no matching rule at all — and which do not carry an explicit authorization annotation (`@PreAuthorize`, `@PostAuthorize`, `@Secured`, `@RolesAllowed`, `@PermitAll`, `@DenyAll`), including annotations inherited from a superclass or overridden parent method. Security rules are read from both the Java fluent API (`requestMatchers(...).permitAll()`) and the Kotlin DSL (`authorize("/path", permitAll)`). Detector only; does not modify code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.stereotype.Controller;\nimport org.springframework.web.bind.annotation.GetMapping;\n\n@Controller\nclass AccountController {\n    @GetMapping(\"/account/{id}\")\n    public String show() {\n        return \"account\";\n    }\n}\n","after":"import org.springframework.stereotype.Controller;\nimport org.springframework.web.bind.annotation.GetMapping;\n\n@Controller\nclass AccountController {\n    @GetMapping(\"/account/{id}\")\n    public String /*~~(No authorization annotation and no matching SecurityFilterChain rule for `/account/{id}`)~~>*/show() {\n        return \"account\";\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass AccountController {\n    @GetMapping(\"/account/{id}\")\n-   public String show() {\n+   public String /*~~(No authorization annotation and no matching SecurityFilterChain rule for `/account/{id}`)~~>*/show() {\n        return \"account\";\n","newFile":false}]}]}>
 

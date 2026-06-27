@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `ResourceHttpMessageWriter.addHeaders`"}
-  description={"`org.springframework.http.codec.ResourceHttpMessageWriter.addHeaders` was deprecated, in favor of `addDefaultHeaders` method."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateResourceHttpMessageWriterAddHeadersMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateresourcehttpmessagewriteraddheadersmethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `ResourceHttpMessageWriter.addHeaders`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`org.springframework.http.codec.ResourceHttpMessageWriter.addHeaders` was deprecated, in favor of `addDefaultHeaders` method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.web.reactive.HandlerResult;\nimport org.springframework.http.ReactiveHttpOutputMessage;\nimport org.springframework.core.io.Resource;\nimport org.springframework.http.MediaType;\nimport java.util.Map;\nimport org.springframework.http.codec.ResourceHttpMessageWriter;\n\nclass A {\n    void writeResourceWithHeaders(ReactiveHttpOutputMessage message, Resource resource, MediaType contentType, Map<String, Object> hints) {\n        ResourceHttpMessageWriter writer = new ResourceHttpMessageWriter();\n        writer.addHeaders(message, resource, contentType, hints);\n    }\n}\n","after":"import org.springframework.web.reactive.HandlerResult;\nimport org.springframework.http.ReactiveHttpOutputMessage;\nimport org.springframework.core.io.Resource;\nimport org.springframework.http.MediaType;\nimport java.util.Map;\nimport org.springframework.http.codec.ResourceHttpMessageWriter;\n\nclass A {\n    void writeResourceWithHeaders(ReactiveHttpOutputMessage message, Resource resource, MediaType contentType, Map<String, Object> hints) {\n        ResourceHttpMessageWriter writer = new ResourceHttpMessageWriter();\n        writer.addDefaultHeaders(message, resource, contentType, hints).block();\n    }\n}\n","diff":"@@ -11,1 +11,1 @@\n    void writeResourceWithHeaders(ReactiveHttpOutputMessage message, Resource resource, MediaType contentType, Map<String, Object> hints) {\n        ResourceHttpMessageWriter writer = new ResourceHttpMessageWriter();\n-       writer.addHeaders(message, resource, contentType, hints);\n+       writer.addDefaultHeaders(message, resource, contentType, hints).block();\n    }\n","newFile":false}]}]}>
 

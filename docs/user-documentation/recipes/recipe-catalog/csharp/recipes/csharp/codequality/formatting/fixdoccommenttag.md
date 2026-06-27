@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Fix documentation comment tag"}
-  description={"Replace inline <code> elements with <c> elements in XML documentation comments."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.FixDocCommentTag"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/formatting/fixdoccommenttag.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Fix documentation comment tag</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace inline &lt;code> elements with &lt;c> elements in XML documentation comments.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.FixDocCommentTag","displayName":"Fix documentation comment tag","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

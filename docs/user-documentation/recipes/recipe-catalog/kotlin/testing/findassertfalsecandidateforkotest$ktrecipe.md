@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `assertFalse(...)` calls — Kotest migration candidate"}
-  description={"Same shape as `assertTrue`: the predicate is collapsed to a boolean and the failure message loses fidelity. Kotest's `actual.shouldBeFalse()` (or specialized matchers like `actual.shouldNotContain(...)`) records the original expression."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindAssertFalseCandidateForKotest$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertfalsecandidateforkotest$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `assertFalse(...)` calls — Kotest migration candidate</RecipeHeader.Title>
+
+<RecipeHeader.Description>Same shape as `assertTrue`: the predicate is collapsed to a boolean and the failure message loses fidelity. Kotest's `actual.shouldBeFalse()` (or specialized matchers like `actual.shouldNotContain(...)`) records the original expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindAssertFalseCandidateForKotest$KtRecipe","displayName":"Find `assertFalse(...)` calls — Kotest migration candidate","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

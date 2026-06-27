@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `TestRestTemplate.HttpClientOption.ENABLE_REDIRECTS` option"}
-  description={"The `TestRestTemplate` now uses the same follow redirects settings as the regular RestTemplate. The `HttpOption.ENABLE_REDIRECTS` option has also been deprecated. This recipe removes the option from the `TestRestTemplate` constructor arguments."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.RemoveTestRestTemplateEnableRedirectsOptionRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/removetestresttemplateenableredirectsoptionrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `TestRestTemplate.HttpClientOption.ENABLE_REDIRECTS` option</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `TestRestTemplate` now uses the same follow redirects settings as the regular RestTemplate. The `HttpOption.ENABLE_REDIRECTS` option has also been deprecated. This recipe removes the option from the `TestRestTemplate` constructor arguments.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.test.web.client.TestRestTemplate;\n\nclass Test {\n    void test() {\n        new TestRestTemplate(\"user\", \"pass\", TestRestTemplate.HttpClientOption.ENABLE_REDIRECTS, TestRestTemplate.HttpClientOption.ENABLE_COOKIES);\n    }\n}\n","after":"import org.springframework.boot.test.web.client.TestRestTemplate;\n\nclass Test {\n    void test() {\n        new TestRestTemplate(\"user\", \"pass\", TestRestTemplate.HttpClientOption.ENABLE_COOKIES);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    void test() {\n-       new TestRestTemplate(\"user\", \"pass\", TestRestTemplate.HttpClientOption.ENABLE_REDIRECTS, TestRestTemplate.HttpClientOption.ENABLE_COOKIES);\n+       new TestRestTemplate(\"user\", \"pass\", TestRestTemplate.HttpClientOption.ENABLE_COOKIES);\n    }\n","newFile":false}]}]}>
 

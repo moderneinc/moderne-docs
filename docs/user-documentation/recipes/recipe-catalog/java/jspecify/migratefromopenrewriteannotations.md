@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from OpenRewrite annotations to JSpecify"}
-  description={"Migrate from OpenRewrite's JSR-305 meta-annotations to JSpecify."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jspecify.MigrateFromOpenRewriteAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromopenrewriteannotations.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Move annotation to type instead of field","href":"staticanalysis/java/movefieldannotationtotype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]}>
+<RecipeHeader.Title>Migrate from OpenRewrite annotations to JSpecify</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from OpenRewrite's JSR-305 meta-annotations to JSpecify.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Move annotation to type instead of field","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/java/movefieldannotationtotype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]}>
 
 ## Definition
 

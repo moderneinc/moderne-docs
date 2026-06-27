@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Post quantum cryptography"}
-  description={"This recipe searches for instances in code that may be impacted by post quantum cryptography. Applications may need to support larger key sizes, different algorithms, or use crypto agility to handle the migration. The recipe includes detection of hardcoded values that affect behavior in a post-quantum world, programmatic configuration that may prevent algorithm changes, and general cryptographic usage patterns that should be reviewed."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.PostQuantumCryptography"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/postquantumcryptography.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find hardcoded algorithm choices","href":"cryptography/findhardcodedalgorithmchoice"},{"name":"Find hardcoded certificates","href":"cryptography/findhardcodedcertificate"},{"name":"Find hardcoded cipher suite choices","href":"cryptography/findhardcodedciphersuitechoice"},{"name":"Find hardcoded cryptographic key lengths","href":"cryptography/findhardcodedkeylength"},{"name":"Find hardcoded private keys","href":"cryptography/findhardcodedprivatekey"},{"name":"Find hardcoded SSL/TLS protocol choices","href":"cryptography/findhardcodedprotocolchoice"},{"name":"Find hardcoded cryptographic provider names","href":"cryptography/findhardcodedprovidername"},{"name":"Find programmatic security provider editing","href":"cryptography/findprogrammaticproviderediting"},{"name":"Find SSLContext.setDefault() usage","href":"cryptography/findsslcontextsetdefault"},{"name":"Find direct SSL configuration editing","href":"cryptography/finddirectsslconfigurationediting"},{"name":"Find `Security.setProperty(..)` calls for certain properties","href":"cryptography/findsecuritysetproperties"},{"name":"Report as security issues","href":"devcenter/reportassecurityissues"}]}>
+<RecipeHeader.Title>Post quantum cryptography</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe searches for instances in code that may be impacted by post quantum cryptography. Applications may need to support larger key sizes, different algorithms, or use crypto agility to handle the migration. The recipe includes detection of hardcoded values that affect behavior in a post-quantum world, programmatic configuration that may prevent algorithm changes, and general cryptographic usage patterns that should be reviewed.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find hardcoded algorithm choices","href":"/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedalgorithmchoice/"},{"name":"Find hardcoded certificates","href":"/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedcertificate/"},{"name":"Find hardcoded cipher suite choices","href":"/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedciphersuitechoice/"},{"name":"Find hardcoded cryptographic key lengths","href":"/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedkeylength/"},{"name":"Find hardcoded private keys","href":"/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprivatekey/"},{"name":"Find hardcoded SSL/TLS protocol choices","href":"/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprotocolchoice/"},{"name":"Find hardcoded cryptographic provider names","href":"/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprovidername/"},{"name":"Find programmatic security provider editing","href":"/user-documentation/recipes/recipe-catalog/cryptography/findprogrammaticproviderediting/"},{"name":"Find SSLContext.setDefault() usage","href":"/user-documentation/recipes/recipe-catalog/cryptography/findsslcontextsetdefault/"},{"name":"Find direct SSL configuration editing","href":"/user-documentation/recipes/recipe-catalog/cryptography/finddirectsslconfigurationediting/"},{"name":"Find `Security.setProperty(..)` calls for certain properties","href":"/user-documentation/recipes/recipe-catalog/cryptography/findsecuritysetproperties/"},{"name":"Report as security issues","href":"/user-documentation/recipes/recipe-catalog/devcenter/reportassecurityissues/"}]}>
 
 ## Definition
 

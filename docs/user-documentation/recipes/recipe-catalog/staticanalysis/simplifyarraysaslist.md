@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify `Arrays.asList(..)` with varargs"}
-  description={"Simplifies `Arrays.asList()` method calls that use explicit array creation to use varargs instead. For example, `Arrays.asList(new String[]{\"a\", \"b\", \"c\"})` becomes `Arrays.asList(\"a\", \"b\", \"c\")`. Explicitly constructing an array to pass to a varargs parameter adds visual clutter without changing behavior, since the compiler generates the array automatically."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S3878"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SimplifyArraysAsList"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyarraysaslist.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify `Arrays.asList(..)` with varargs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplifies `Arrays.asList()` method calls that use explicit array creation to use varargs instead. For example, `Arrays.asList(new String[]{"a", "b", "c"})` becomes `Arrays.asList("a", "b", "c")`. Explicitly constructing an array to pass to a varargs parameter adds visual clutter without changing behavior, since the compiler generates the array automatically.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Arrays;\nimport java.util.List;\n\nclass Test {\n    void method() {\n        List<String> list = Arrays.asList(new String[]{\"w\", \"k\", \"s\"});\n    }\n}\n","after":"import java.util.Arrays;\nimport java.util.List;\n\nclass Test {\n    void method() {\n        List<String> list = Arrays.asList(\"w\", \"k\", \"s\");\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass Test {\n    void method() {\n-       List<String> list = Arrays.asList(new String[]{\"w\", \"k\", \"s\"});\n+       List<String> list = Arrays.asList(\"w\", \"k\", \"s\");\n    }\n","newFile":false}]}]}>
 

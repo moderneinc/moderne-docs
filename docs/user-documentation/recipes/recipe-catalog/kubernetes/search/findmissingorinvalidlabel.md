@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find label"}
-  description={"Find labels that optionally match a given regex."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.search.FindMissingOrInvalidLabel"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/search/findmissingorinvalidlabel.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find label</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find labels that optionally match a given regex.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"labelName","required":true,"description":"The name of the label to search for the existence of.","example":"mylabel"},{"type":"String","name":"value","required":false,"description":"An optional regex that will validate values that match.","example":"value(.*)"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

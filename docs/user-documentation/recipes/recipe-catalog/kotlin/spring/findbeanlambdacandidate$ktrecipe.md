@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Bean fun foo(): X = X()` candidates for the `beans { }` DSL"}
-  description={"Single-expression `@Bean` declarations that just construct a bean are one of the cases the Spring Kotlin `beans { }` DSL was designed for — the DSL form drops the annotation overhead and reads as plain Kotlin. Each match here is a candidate for the migration."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindBeanLambdaCandidate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findbeanlambdacandidate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Bean fun foo(): X = X()` candidates for the `beans { }` DSL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Single-expression `@Bean` declarations that just construct a bean are one of the cases the Spring Kotlin `beans { }` DSL was designed for — the DSL form drops the annotation overhead and reads as plain Kotlin. Each match here is a candidate for the migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindBeanLambdaCandidate$KtRecipe","displayName":"Find `@Bean fun foo(): X = X()` candidates for the `beans { }` DSL","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

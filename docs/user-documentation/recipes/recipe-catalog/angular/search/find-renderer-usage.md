@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `Renderer` usage"}
-  description={"Finds imports of the deprecated `Renderer` from `@angular/core`. `Renderer` was deprecated in Angular 4 and removed in Angular 9. Users should use `Renderer2` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-renderer-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-renderer-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated `Renderer` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of the deprecated `Renderer` from `@angular/core`. `Renderer` was deprecated in Angular 4 and removed in Angular 9. Users should use `Renderer2` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-renderer-usage","displayName":"Find deprecated `Renderer` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

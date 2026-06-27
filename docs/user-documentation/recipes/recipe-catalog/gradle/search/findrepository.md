@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Gradle repository"}
-  description={"Find a Gradle repository by url."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.search.FindRepository"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/search/findrepository.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Gradle repository</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find a Gradle repository by url.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"type","required":false,"description":"The type of the artifact repository","example":"maven"},{"type":"String","name":"url","required":false,"description":"The url of the artifact repository","example":"https://repo.spring.io"},{"type":"Purpose","name":"purpose","required":false,"description":"The purpose of this repository in terms of resolving project or plugin dependencies"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `HttpURLConnection` references"}
-  description={"`HttpURLConnection` is the JVM's built-in HTTP client — each reference is a position where external HTTP traffic is configured (timeouts, redirects, request method). Flag as an outbound-network seed."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindHttpURLConnection$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findhttpurlconnection$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `HttpURLConnection` references</RecipeHeader.Title>
+
+<RecipeHeader.Description>`HttpURLConnection` is the JVM's built-in HTTP client — each reference is a position where external HTTP traffic is configured (timeouts, redirects, request method). Flag as an outbound-network seed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindHttpURLConnection$KtRecipe","displayName":"Find `HttpURLConnection` references","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove duplicate Maven dependencies"}
-  description={"Removes duplicated dependencies in the `<dependencies>` and `<dependencyManagement>` sections of the `pom.xml`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.RemoveDuplicateDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/removeduplicatedependencies.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove duplicate Maven dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes duplicated dependencies in the `<dependencies>` and `<dependencyManagement>` sections of the `pom.xml`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n  <modelVersion>4.0.0</modelVersion>\n\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n\n  <dependencies>\n    <dependency>\n      <groupId>com.google.guava</groupId>\n      <artifactId>guava</artifactId>\n      <version>29.0-jre</version>\n    </dependency>\n    <dependency>\n      <groupId>junit</groupId>\n      <artifactId>junit</artifactId>\n      <version>4.13.1</version>\n      <scope>test</scope>\n    </dependency>\n    <dependency>\n      <groupId>com.google.guava</groupId>\n      <artifactId>guava</artifactId>\n      <version>29.0-jre</version>\n    </dependency>\n  </dependencies>\n</project>\n","after":"<project>\n  <modelVersion>4.0.0</modelVersion>\n\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n\n  <dependencies>\n    <dependency>\n      <groupId>com.google.guava</groupId>\n      <artifactId>guava</artifactId>\n      <version>29.0-jre</version>\n    </dependency>\n    <dependency>\n      <groupId>junit</groupId>\n      <artifactId>junit</artifactId>\n      <version>4.13.1</version>\n      <scope>test</scope>\n    </dependency>\n  </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -20,5 +20,0 @@\n      <scope>test</scope>\n    </dependency>\n-   <dependency>\n-     <groupId>com.google.guava</groupId>\n-     <artifactId>guava</artifactId>\n-     <version>29.0-jre</version>\n-   </dependency>\n  </dependencies>\n","newFile":false}]}]}>
 

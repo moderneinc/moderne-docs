@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TestNGToAssertJRules.AssertEqualIterableIterationOrder`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertEqualIterableIterationOrder<S, T extends S> {\n    \n    @BeforeTemplate\n    void before(Iterable<S> actual, Iterable<T> expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Collection<S> actual, Collection<T> expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Iterable<S> actual, Iterable<T> expected) {\n        assertThat(actual).containsExactlyElementsOf(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,38 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualIterableIterationOrderRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaliterableiterationorderrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TestNGToAssertJRules.AssertEqualIterableIterationOrder`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertEqualIterableIterationOrder<S, T extends S> {
+    
+    @BeforeTemplate
+    void before(Iterable<S> actual, Iterable<T> expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Collection<S> actual, Collection<T> expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(Iterable<S> actual, Iterable<T> expected) {
+        assertThat(actual).containsExactlyElementsOf(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualIterableIterationOrderRecipe","displayName":"Refaster template `TestNGToAssertJRules.AssertEqualIterableIterationOrder`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

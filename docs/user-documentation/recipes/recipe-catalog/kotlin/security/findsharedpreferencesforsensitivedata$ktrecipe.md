@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `getSharedPreferences(_, MODE_PRIVATE)` callers"}
-  description={"`SharedPreferences` is stored as plain XML in app-private storage — on rooted or backed-up devices, that's readable. For tokens, refresh credentials, or PII use `EncryptedSharedPreferences` (androidx.security.crypto)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindSharedPreferencesForSensitiveData$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findsharedpreferencesforsensitivedata$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `getSharedPreferences(_, MODE_PRIVATE)` callers</RecipeHeader.Title>
+
+<RecipeHeader.Description>`SharedPreferences` is stored as plain XML in app-private storage — on rooted or backed-up devices, that's readable. For tokens, refresh credentials, or PII use `EncryptedSharedPreferences` (androidx.security.crypto).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindSharedPreferencesForSensitiveData$KtRecipe","displayName":"Find `getSharedPreferences(_, MODE_PRIVATE)` callers","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to LaunchDarkly 6.x"}
-  description={"This recipe will apply changes commonly needed when migrating to LaunchDarkly 6.x."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-feature-flags"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.featureflags.launchdarkly.UpgradeLaunchDarkly6"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/upgradelaunchdarkly6.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate `LDUser` to `LDContext`","href":"featureflags/launchdarkly/migrateusertocontext"}]}>
+<RecipeHeader.Title>Migrate to LaunchDarkly 6.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when migrating to LaunchDarkly 6.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Migrate `LDUser` to `LDContext`","href":"/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/migrateusertocontext/"}]}>
 
 ## Definition
 

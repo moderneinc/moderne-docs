@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adds missing JDBC interface methods"}
-  description={"Add method implementations stubs to classes that implement JDBC interfaces."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.JREJdbcInterfaceNewMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jrejdbcinterfacenewmethods.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Adds missing method implementations","href":"java/migrate/addmissingmethodimplementation"},{"name":"Adds missing method implementations","href":"java/migrate/addmissingmethodimplementation"},{"name":"Adds missing method implementations","href":"java/migrate/addmissingmethodimplementation"},{"name":"Adds missing method implementations","href":"java/migrate/addmissingmethodimplementation"},{"name":"Adds missing method implementations","href":"java/migrate/addmissingmethodimplementation"},{"name":"Adds missing method implementations","href":"java/migrate/addmissingmethodimplementation"},{"name":"Adds missing method implementations","href":"java/migrate/addmissingmethodimplementation"},{"name":"Adds missing method implementations","href":"java/migrate/addmissingmethodimplementation"},{"name":"Adds missing method implementations","href":"java/migrate/addmissingmethodimplementation"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Adds missing JDBC interface methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add method implementations stubs to classes that implement JDBC interfaces.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

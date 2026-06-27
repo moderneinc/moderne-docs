@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Char.code` instead of `Char.toInt()`"}
-  description={"`Char.toInt()` was deprecated in Kotlin 1.5; the replacement `Char.code` makes the conversion-to-codepoint intent explicit (the old name collided with `Number.toInt()`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseCharCode$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharcode$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Char.code` instead of `Char.toInt()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Char.toInt()` was deprecated in Kotlin 1.5; the replacement `Char.code` makes the conversion-to-codepoint intent explicit (the old name collided with `Number.toInt()`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseCharCode$KtRecipe","displayName":"Use `Char.code` instead of `Char.toInt()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

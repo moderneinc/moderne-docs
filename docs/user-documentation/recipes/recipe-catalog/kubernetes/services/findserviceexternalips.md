@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find uses of `externalIP`"}
-  description={"Find any `Service` whose `externalIP` list contains, or does not contain, one of a list of IPs."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.services.FindServiceExternalIPs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/services/findserviceexternalips.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find uses of `externalIP`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find any `Service` whose `externalIP` list contains, or does not contain, one of a list of IPs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Set","name":"externalIPs","required":true,"description":"The list of IP addresses of which at least one external IP should match.","example":"192.168.0.1"},{"type":"Boolean","name":"findMissing","required":false,"description":"Whether to treat this search as finding Services whose externalIPs do not contain any of the query IPs."},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apache Maven reproducible builds"}
-  description={"Configure a Maven project for [reproducible builds](https://maven.apache.org/guides/mini/guide-reproducible-builds.html): pin dependency and plugin versions, set `project.build.outputTimestamp`, set explicit UTF-8 source encoding, and upgrade core plugins to versions that honor the output timestamp."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ReproducibleBuilds"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/reproduciblebuilds.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add explicit dependency versions","href":"maven/cleanup/explicitdependencyversion"},{"name":"Add explicit plugin versions","href":"maven/cleanup/explicitpluginversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"},{"name":"Add Maven project property","href":"maven/addproperty"},{"name":"Add Maven project property","href":"maven/addproperty"},{"name":"Add `project.build.outputTimestamp` for reproducible builds","href":"maven/cleanup/addprojectbuildoutputtimestamp"}]}>
+<RecipeHeader.Title>Apache Maven reproducible builds</RecipeHeader.Title>
+
+<RecipeHeader.Description>Configure a Maven project for [reproducible builds](https://maven.apache.org/guides/mini/guide-reproducible-builds.html): pin dependency and plugin versions, set `project.build.outputTimestamp`, set explicit UTF-8 source encoding, and upgrade core plugins to versions that honor the output timestamp.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add explicit dependency versions","href":"/user-documentation/recipes/recipe-catalog/maven/cleanup/explicitdependencyversion/"},{"name":"Add explicit plugin versions","href":"/user-documentation/recipes/recipe-catalog/maven/cleanup/explicitpluginversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"},{"name":"Add Maven project property","href":"/user-documentation/recipes/recipe-catalog/maven/addproperty/"},{"name":"Add Maven project property","href":"/user-documentation/recipes/recipe-catalog/maven/addproperty/"},{"name":"Add `project.build.outputTimestamp` for reproducible builds","href":"/user-documentation/recipes/recipe-catalog/maven/cleanup/addprojectbuildoutputtimestamp/"}]}>
 
 ## Definition
 

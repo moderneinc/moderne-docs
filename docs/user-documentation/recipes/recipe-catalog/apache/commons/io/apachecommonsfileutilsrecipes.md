@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`ApacheCommonsFileUtils` Refaster recipes"}
-  description={"Refaster template recipes for `org.openrewrite.apache.commons.io.ApacheCommonsFileUtils`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.io.ApacheCommonsFileUtilsRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `FileUtils.getFile(String...)` with JDK provided API","href":"apache/commons/io/apachecommonsfileutilsrecipes$getfilerecipe"},{"name":"Replace `FileUtils.writeStringToFile(File, String)` with JDK provided API","href":"apache/commons/io/apachecommonsfileutilsrecipes$writestringtofilerecipe"},{"name":"Replace `FileUtils.readFileToString(File)` with `FileUtils.readFileToString(File, StandardCharsets.UTF_8)`","href":"apache/commons/io/apachecommonsfileutilsrecipes$readfiletostringwithcharsetrecipe"},{"name":"Replace `FileUtils.readLines(File)` with `FileUtils.readLines(File, StandardCharsets.UTF_8)`","href":"apache/commons/io/apachecommonsfileutilsrecipes$readlineswithcharsetrecipe"},{"name":"Replace `FileUtils.write(File, CharSequence)` with `FileUtils.write(File, CharSequence, StandardCharsets.UTF_8, false)`","href":"apache/commons/io/apachecommonsfileutilsrecipes$writewithcharsetrecipe"},{"name":"Replace `FileUtils.write(File, CharSequence, boolean)` with `FileUtils.write(File, CharSequence, StandardCharsets.UTF_8, boolean)`","href":"apache/commons/io/apachecommonsfileutilsrecipes$writeappendwithcharsetrecipe"},{"name":"Replace `FileUtils.writeStringToFile(File, String, boolean)` with `FileUtils.writeStringToFile(File, String, StandardCharsets.UTF_8, boolean)`","href":"apache/commons/io/apachecommonsfileutilsrecipes$writestringtofileappendwithcharsetrecipe"}]}>
+<RecipeHeader.Title>`ApacheCommonsFileUtils` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster template recipes for `org.openrewrite.apache.commons.io.ApacheCommonsFileUtils`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `FileUtils.getFile(String...)` with JDK provided API","href":"/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$getfilerecipe/"},{"name":"Replace `FileUtils.writeStringToFile(File, String)` with JDK provided API","href":"/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$writestringtofilerecipe/"},{"name":"Replace `FileUtils.readFileToString(File)` with `FileUtils.readFileToString(File, StandardCharsets.UTF_8)`","href":"/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$readfiletostringwithcharsetrecipe/"},{"name":"Replace `FileUtils.readLines(File)` with `FileUtils.readLines(File, StandardCharsets.UTF_8)`","href":"/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$readlineswithcharsetrecipe/"},{"name":"Replace `FileUtils.write(File, CharSequence)` with `FileUtils.write(File, CharSequence, StandardCharsets.UTF_8, false)`","href":"/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$writewithcharsetrecipe/"},{"name":"Replace `FileUtils.write(File, CharSequence, boolean)` with `FileUtils.write(File, CharSequence, StandardCharsets.UTF_8, boolean)`","href":"/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$writeappendwithcharsetrecipe/"},{"name":"Replace `FileUtils.writeStringToFile(File, String, boolean)` with `FileUtils.writeStringToFile(File, String, StandardCharsets.UTF_8, boolean)`","href":"/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes$writestringtofileappendwithcharsetrecipe/"}]}>
 
 ## Definition
 

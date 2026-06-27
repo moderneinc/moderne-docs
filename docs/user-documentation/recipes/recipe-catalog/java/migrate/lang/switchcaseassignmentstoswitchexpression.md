@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert assigning Switch statements to Switch expressions"}
-  description={"Switch statements for which each case is assigning a value to the same variable can be converted to a switch expression that returns the value of the variable. This recipe is only applicable for Java 21 and later."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.SwitchCaseAssignmentsToSwitchExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/switchcaseassignmentstoswitchexpression.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert assigning Switch statements to Switch expressions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Switch statements for which each case is assigning a value to the same variable can be converted to a switch expression that returns the value of the variable. This recipe is only applicable for Java 21 and later.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void doFormat(Object obj) {\n        String formatted = \"initialValue\";\n        switch (obj) {\n            case Integer i -> formatted = String.format(\"int %d\", i);\n            case Long l -> formatted = String.format(\"long %d\", l);\n            default -> formatted = \"unknown\";\n        }\n    }\n}\n","after":"class Test {\n    void doFormat(Object obj) {\n        String formatted = switch (obj) {\n            case Integer i -> String.format(\"int %d\", i);\n            case Long l -> String.format(\"long %d\", l);\n            default -> \"unknown\";\n        };\n    }\n}\n","diff":"@@ -3,6 +3,5 @@\nclass Test {\n    void doFormat(Object obj) {\n-       String formatted = \"initialValue\";\n-       switch (obj) {\n-           case Integer i -> formatted = String.format(\"int %d\", i);\n-           case Long l -> formatted = String.format(\"long %d\", l);\n-           default -> formatted = \"unknown\";\n-       }\n+       String formatted = switch (obj) {\n+           case Integer i -> String.format(\"int %d\", i);\n+           case Long l -> String.format(\"long %d\", l);\n+           default -> \"unknown\";\n+       };\n    }\n","newFile":false}]}]}>
 

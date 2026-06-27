@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from org.apache.httpcomponents to ApacheHttpClient 5.x dependencies"}
-  description={"Adopt `org.apache.httpcomponents.client5:httpclient5` from `org.apache.httpcomponents`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","httpclient"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.UpgradeApacheHttpClientDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclientdependencies.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"}]}>
+<RecipeHeader.Title>Migrate from org.apache.httpcomponents to ApacheHttpClient 5.x dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adopt `org.apache.httpcomponents.client5:httpclient5` from `org.apache.httpcomponents`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"}]}>
 
 ## Definition
 

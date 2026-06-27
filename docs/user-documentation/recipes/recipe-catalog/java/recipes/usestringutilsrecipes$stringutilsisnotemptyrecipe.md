@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `StringUtils#isNotEmpty(String)`"}
-  description={"Replace `str != null && !str.isEmpty()` with `StringUtils.isNotEmpty(str)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.UseStringUtilsRecipes$StringUtilsIsNotEmptyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/usestringutilsrecipes$stringutilsisnotemptyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `StringUtils#isNotEmpty(String)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `str != null && !str.isEmpty()` with `StringUtils.isNotEmpty(str)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.recipes.UseStringUtilsRecipes$StringUtilsIsNotEmptyRecipe","displayName":"Use `StringUtils#isNotEmpty(String)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-rewrite","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_REWRITE","requiresConfiguration":false}}>
 

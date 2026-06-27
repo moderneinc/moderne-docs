@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `@JvmInline value class` instead of `inline class`"}
-  description={"`inline class` was deprecated in Kotlin 1.5 in favor of the explicit `@JvmInline value class` pair; the new spelling separates the JVM mapping (`@JvmInline`) from the language-level semantics (`value`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseValueClass$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usevalueclass$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `@JvmInline value class` instead of `inline class`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`inline class` was deprecated in Kotlin 1.5 in favor of the explicit `@JvmInline value class` pair; the new spelling separates the JVM mapping (`@JvmInline`) from the language-level semantics (`value`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseValueClass$KtRecipe","displayName":"Use `@JvmInline value class` instead of `inline class`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

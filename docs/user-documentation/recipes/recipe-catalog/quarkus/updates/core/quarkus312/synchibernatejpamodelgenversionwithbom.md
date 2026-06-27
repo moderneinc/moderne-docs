@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"io.quarkus.updates.core.quarkus312.SyncHibernateJpaModelgenVersionWithBOM"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus312.SyncHibernateJpaModelgenVersionWithBOM"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus312/synchibernatejpamodelgenversionwithbom.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Sync Maven Compiler plugin annotation processor version with the one provided by the BOM","href":"quarkus/updates/core/quarkus37/syncmavencompilerannotationprocessorversion"}]}>
+<RecipeHeader.Title>io.quarkus.updates.core.quarkus312.SyncHibernateJpaModelgenVersionWithBOM</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Sync Maven Compiler plugin annotation processor version with the one provided by the BOM","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/syncmavencompilerannotationprocessorversion/"}]}>
 
 ## Definition
 

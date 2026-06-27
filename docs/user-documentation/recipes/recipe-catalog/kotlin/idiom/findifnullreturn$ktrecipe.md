@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (x == null) return ...` early-exit patterns"}
-  description={"An `if (x == null) return …` reads as a manual null guard where Kotlin's `x ?: return …` says the same thing inline. The elvis form keeps the expression in line with its consumer and avoids a separate control-flow statement."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindIfNullReturn$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifnullreturn$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (x == null) return ...` early-exit patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `if (x == null) return …` reads as a manual null guard where Kotlin's `x ?: return …` says the same thing inline. The elvis form keeps the expression in line with its consumer and avoids a separate control-flow statement.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindIfNullReturn$KtRecipe","displayName":"Find `if (x == null) return ...` early-exit patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

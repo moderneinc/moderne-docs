@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to 4.10.6"}
-  description={"Migrates Apache Camel application to 4.10.6."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.Camel410LTSMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel410ltsmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrates `camel 4.10.3` application to `camel 4.10.4`","href":"apache/camel/upgrade/camel410_4/camelmigrationrecipe"},{"name":"Migrates `camel 4.9` application to `camel 4.10`","href":"apache/camel/upgrade/camel410/camelmigrationrecipe"},{"name":"Migrates `camel 4.8` application to `camel 4.9`","href":"apache/camel/upgrade/camel49/camelmigrationrecipe"},{"name":"Migrates `camel 4.6` application to `camel 4.7`","href":"apache/camel/upgrade/camel47/camelmigrationrecipe"},{"name":"Migrates `camel 4.5` application to `camel 4.6`","href":"apache/camel/upgrade/camel46/camelmigrationrecipe"},{"name":"Migrates `camel 4.4` application to `camel 4.5`","href":"apache/camel/upgrade/camel45/camelmigrationrecipe"},{"name":"Migrates `camel 4.0` application to `camel 4.4`","href":"apache/camel/upgrade/camel44/camelmigrationrecipe"},{"name":"Migrate `camel3` application to `camel4.`","href":"apache/camel/upgrade/camel40/camelmigrationrecipe"},{"name":"Migrate to Java 17","href":"apache/camel/upgrade/upgradetojava17"},{"name":"Change Maven Java version property values to 17","href":"apache/camel/upgrade/javaversion17"},{"name":"Update properties and yaml configurations file","href":"apache/camel/upgrade/updatepropertiesandyamlkeys"},{"name":"Upgrade Maven dependency version","href":"maven/upgradedependencyversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"},{"name":"Upgrade Maven parent project version","href":"maven/upgradeparentversion"}]}>
+<RecipeHeader.Title>Migrate to 4.10.6</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Apache Camel application to 4.10.6.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrates `camel 4.10.3` application to `camel 4.10.4`","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel410_4/camelmigrationrecipe/"},{"name":"Migrates `camel 4.9` application to `camel 4.10`","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel410/camelmigrationrecipe/"},{"name":"Migrates `camel 4.8` application to `camel 4.9`","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel49/camelmigrationrecipe/"},{"name":"Migrates `camel 4.6` application to `camel 4.7`","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel47/camelmigrationrecipe/"},{"name":"Migrates `camel 4.5` application to `camel 4.6`","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel46/camelmigrationrecipe/"},{"name":"Migrates `camel 4.4` application to `camel 4.5`","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel45/camelmigrationrecipe/"},{"name":"Migrates `camel 4.0` application to `camel 4.4`","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel44/camelmigrationrecipe/"},{"name":"Migrate `camel3` application to `camel4.`","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/camelmigrationrecipe/"},{"name":"Migrate to Java 17","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/upgradetojava17/"},{"name":"Change Maven Java version property values to 17","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/javaversion17/"},{"name":"Update properties and yaml configurations file","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/updatepropertiesandyamlkeys/"},{"name":"Upgrade Maven dependency version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"},{"name":"Upgrade Maven parent project version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradeparentversion/"}]}>
 
 ## Definition
 

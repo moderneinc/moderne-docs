@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Maven Project Version"}
-  description={"Change the project version of a Maven pom.xml. Identifies the project to be changed by its groupId and artifactId. If the version is defined as a property, this recipe will only change the property value if the property exists within the same pom."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ChangeProjectVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/changeprojectversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Maven Project Version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the project version of a Maven pom.xml. Identifies the project to be changed by its groupId and artifactId. If the version is defined as a property, this recipe will only change the property value if the property exists within the same pom.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The group ID of the maven project to change its version. This can be a glob expression.","example":"org.openrewrite"},{"type":"String","name":"artifactId","required":true,"description":"The artifact ID of the maven project to change its version. This can be a glob expression.","example":"*"},{"type":"String","name":"newVersion","required":true,"description":"The new version to replace the maven project version.","example":"8.4.2"},{"type":"Boolean","name":"overrideParentVersion","required":false,"description":"This flag can be set to explicitly override the inherited parent version. Default `false`."}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"io.quarkus.updates.core.quarkus39.RemovePanacheAnnotationProcessor"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus39.RemovePanacheAnnotationProcessor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus39/removepanacheannotationprocessor.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove an annotation processor from the Maven Compiler plugin configuration","href":"quarkus/updates/core/quarkus39/removemavencompilerannotationprocessor"}]}>
+<RecipeHeader.Title>io.quarkus.updates.core.quarkus39.RemovePanacheAnnotationProcessor</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove an annotation processor from the Maven Compiler plugin configuration","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus39/removemavencompilerannotationprocessor/"}]}>
 
 ## Definition
 

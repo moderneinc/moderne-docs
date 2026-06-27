@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `rememberCoroutineScope()` calls inside a lambda"}
-  description={"`rememberCoroutineScope()` must be called from a composition-aware position — inside a lambda (like an `onClick`) it's a compile error. The recipe surfaces such mis-positioned calls so they migrate to the composable body proper."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindRememberCoroutineScopeInLambda$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findremembercoroutinescopeinlambda$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `rememberCoroutineScope()` calls inside a lambda</RecipeHeader.Title>
+
+<RecipeHeader.Description>`rememberCoroutineScope()` must be called from a composition-aware position — inside a lambda (like an `onClick`) it's a compile error. The recipe surfaces such mis-positioned calls so they migrate to the composable body proper.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindRememberCoroutineScopeInLambda$KtRecipe","displayName":"Find `rememberCoroutineScope()` calls inside a lambda","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

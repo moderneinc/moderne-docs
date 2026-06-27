@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Angular 20"}
-  description={"Migrates Angular 19.x applications to Angular 20. This includes running the Angular 19 migration first, then updating Angular package versions, renaming experimental APIs promoted to stable, and upgrading TypeScript to 5.8.x."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.UpgradeToAngular20"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/upgradetoangular20.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade to Angular 19","href":"angular/upgradetoangular19"},{"name":"Rename `provideExperimentalZonelessChangeDetection` to `provideZonelessChangeDetection`","href":"angular/migration/rename-zoneless-provider"},{"name":"Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`","href":"angular/migration/rename-check-no-changes"},{"name":"Rename `afterRender` to `afterEveryRender`","href":"angular/migration/rename-after-render"},{"name":"Replace `InjectFlags` with options object","href":"angular/migration/replace-inject-flags"},{"name":"Move `DOCUMENT` import to `@angular/core`","href":"angular/migration/move-document-import"},{"name":"Remove redundant `standalone: true`","href":"angular/migration/remove-standalone-true"},{"name":"Remove zone.js polyfill from angular.json","href":"angular/migration/remove-zone-js-polyfill"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Upgrade to Angular 20</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Angular 19.x applications to Angular 20. This includes running the Angular 19 migration first, then updating Angular package versions, renaming experimental APIs promoted to stable, and upgrading TypeScript to 5.8.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade to Angular 19","href":"/user-documentation/recipes/recipe-catalog/angular/upgradetoangular19/"},{"name":"Rename `provideExperimentalZonelessChangeDetection` to `provideZonelessChangeDetection`","href":"/user-documentation/recipes/recipe-catalog/angular/migration/rename-zoneless-provider/"},{"name":"Rename `provideExperimentalCheckNoChangesForDebug` to `provideCheckNoChangesForDebug`","href":"/user-documentation/recipes/recipe-catalog/angular/migration/rename-check-no-changes/"},{"name":"Rename `afterRender` to `afterEveryRender`","href":"/user-documentation/recipes/recipe-catalog/angular/migration/rename-after-render/"},{"name":"Replace `InjectFlags` with options object","href":"/user-documentation/recipes/recipe-catalog/angular/migration/replace-inject-flags/"},{"name":"Move `DOCUMENT` import to `@angular/core`","href":"/user-documentation/recipes/recipe-catalog/angular/migration/move-document-import/"},{"name":"Remove redundant `standalone: true`","href":"/user-documentation/recipes/recipe-catalog/angular/migration/remove-standalone-true/"},{"name":"Remove zone.js polyfill from angular.json","href":"/user-documentation/recipes/recipe-catalog/angular/migration/remove-zone-js-polyfill/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hardcoded authentication credentials"}
-  description={"Finds hardcoded passwords flowing into Spring Security user builders: `InMemoryUserDetailsManagerConfigurer` (`inMemoryAuthentication().withUser(...).password(...)`) and the `User.UserBuilder.password(...)` API. Uses taint analysis so credentials assigned to a variable, field, or constant before being passed to `.password(...)` are also detected."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["security","CWE-259","CWE-798"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindHardcodedAuthenticationCredentials"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findhardcodedauthenticationcredentials.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find hardcoded authentication credentials</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds hardcoded passwords flowing into Spring Security user builders: `InMemoryUserDetailsManagerConfigurer` (`inMemoryAuthentication().withUser(...).password(...)`) and the `User.UserBuilder.password(...)` API. Uses taint analysis so credentials assigned to a variable, field, or constant before being passed to `.password(...)` are also detected.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;\n\nclass SecurityConfig {\n    void configure(AuthenticationManagerBuilder auth) throws Exception {\n        auth.inMemoryAuthentication()\n            .withUser(\"admin\")\n            .password(\"{noop}s3cret\")\n            .roles(\"ADMIN\");\n    }\n}\n","after":"import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;\n\nclass SecurityConfig {\n    void configure(AuthenticationManagerBuilder auth) throws Exception {\n        /*~~(Hardcoded password supplied to Spring Security user builder (CWE-798))~~>*/auth.inMemoryAuthentication()\n            .withUser(\"admin\")\n            .password(\"{noop}s3cret\")\n            .roles(\"ADMIN\");\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass SecurityConfig {\n    void configure(AuthenticationManagerBuilder auth) throws Exception {\n-       auth.inMemoryAuthentication()\n+       /*~~(Hardcoded password supplied to Spring Security user builder (CWE-798))~~>*/auth.inMemoryAuthentication()\n            .withUser(\"admin\")\n","newFile":false}]}]}>
 

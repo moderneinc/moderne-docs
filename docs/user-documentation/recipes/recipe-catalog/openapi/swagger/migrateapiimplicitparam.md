@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `@ApiImplicitParam` to `@Parameter`"}
-  description={"Migrate `@ApiImplicitParam` to `@Parameter`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.MigrateApiImplicitParam"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiimplicitparam.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `@ApiImplicitParam` to `@Parameter`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate `@ApiImplicitParam` to `@Parameter`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.openapi.swagger.MigrateApiImplicitParam","displayName":"Migrate `@ApiImplicitParam` to `@Parameter`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-openapi","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_OPENAPI","requiresConfiguration":false}}>
 

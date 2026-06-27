@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Node.js projects"}
-  description={"Find Node.js projects and summarize data about them."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.nodejs.search.FindNodeProjects"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nodejs/search/findnodeprojects.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Node.js projects</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find Node.js projects and summarize data about them.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.nodejs.search.FindNodeProjects","displayName":"Find Node.js projects","groupId":"org.openrewrite.recipe","artifactId":"rewrite-nodejs","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_NODEJS","requiresConfiguration":false}}>
 

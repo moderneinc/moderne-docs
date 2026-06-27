@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `BigDecimalRules.BigDecimalSignumIsPositive`"}
-  description={"Prefer a `BigDecimal#signum()` comparison to 0 over more contrived or less idiomatic alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalSignumIsPositiveRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalsignumispositiverecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `BigDecimalRules.BigDecimalSignumIsPositive`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer a `BigDecimal#signum()` comparison to 0 over more contrived or less idiomatic alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalSignumIsPositiveRecipe","displayName":"Refaster template `BigDecimalRules.BigDecimalSignumIsPositive`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

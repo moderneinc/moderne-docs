@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find YAML properties"}
-  description={"Find YAML properties that match the specified `propertyKey`. Expects dot notation for nested YAML mappings, similar to how Spring Boot interprets `application.yml` files."}
   type={"Single recipe"}
   languages={["YAML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-yaml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.yaml.search.FindProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/yaml/search/findproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Find YAML properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find YAML properties that match the specified `propertyKey`. Expects dot notation for nested YAML mappings, similar to how Spring Boot interprets `application.yml` files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The key to look for. Glob is supported.","example":"management.metrics.binders.*.enabled"},{"type":"Boolean","name":"relaxedBinding","required":false,"description":"Whether to match the `propertyKey` using [relaxed binding](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) rules. Defaults to `true`. If you want to use exact matching in your search, set this to `false`."},{"type":"String","name":"propertyValue","required":false,"description":"If provided, only properties specified in propertyKey having this value will be found. Works only for scalar values","example":"false"}]}>
 

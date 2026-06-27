@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Modifier.padding(...)` shorthand opportunities"}
-  description={"Named-argument `padding(...)` calls whose values reduce to a shorter spelling: equal start/end + equal top/bottom collapses to `padding(horizontal = x, vertical = y)`; all-equal collapses to `padding(all = x)`; all-zero is a removable no-op."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindModifierShorthands$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifiershorthands$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `padding(start = x, end = x, top = y, bottom = y)` shorthand opportunities","href":"kotlin/compose/findmodifierpaddinghorizontalequaltovertical$ktrecipe"},{"name":"Find `padding(start = x, end = x, top = x, bottom = x)` shorthand opportunities","href":"kotlin/compose/findmodifierpaddingallequal$ktrecipe"},{"name":"Find zero-valued `Modifier.padding(...)` calls","href":"kotlin/compose/findmodifierpaddingzero$ktrecipe"}]}>
+<RecipeHeader.Title>Find `Modifier.padding(...)` shorthand opportunities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Named-argument `padding(...)` calls whose values reduce to a shorter spelling: equal start/end + equal top/bottom collapses to `padding(horizontal = x, vertical = y)`; all-equal collapses to `padding(all = x)`; all-zero is a removable no-op.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `padding(start = x, end = x, top = y, bottom = y)` shorthand opportunities","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierpaddinghorizontalequaltovertical$ktrecipe/"},{"name":"Find `padding(start = x, end = x, top = x, bottom = x)` shorthand opportunities","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierpaddingallequal$ktrecipe/"},{"name":"Find zero-valued `Modifier.padding(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierpaddingzero$ktrecipe/"}]}>
 
 ## Definition
 

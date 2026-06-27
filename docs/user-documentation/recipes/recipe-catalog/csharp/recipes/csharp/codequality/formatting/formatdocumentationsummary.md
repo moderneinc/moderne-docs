@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Format documentation summary"}
-  description={"Format XML documentation summary on a single line or multiple lines."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.FormatDocumentationSummary"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/formatting/formatdocumentationsummary.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Format documentation summary</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format XML documentation summary on a single line or multiple lines.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.FormatDocumentationSummary","displayName":"Format documentation summary","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

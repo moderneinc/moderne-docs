@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add default keyword"}
-  description={"Add or update a keyword in the `default` section of `.gitlab-ci.yml`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.AddDefaultKeyword"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/adddefaultkeyword.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Merge YAML snippet","href":"yaml/mergeyaml"}]}>
+<RecipeHeader.Title>Add default keyword</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add or update a keyword in the `default` section of `.gitlab-ci.yml`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Merge YAML snippet","href":"/user-documentation/recipes/recipe-catalog/yaml/mergeyaml/"}]}>
 
 ## Definition
 

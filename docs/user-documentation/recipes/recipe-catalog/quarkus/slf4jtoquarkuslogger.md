@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate SLF4J Logger injection and usage to Quarkus static `Log`"}
-  description={"Removes usage of SLF4J Logger fields, adjusts imports, and replaces logger method calls with static Quarkus Log calls, including message formatting and method renaming for parameterized logging."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.Slf4jToQuarkusLogger"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/slf4jtoquarkuslogger.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate SLF4J Logger injection and usage to Quarkus static `Log`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes usage of SLF4J Logger fields, adjusts imports, and replaces logger method calls with static Quarkus Log calls, including message formatting and method renaming for parameterized logging.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.enterprise.event.Observes;\nimport jakarta.inject.Inject;\nimport org.slf4j.Logger;\n\nclass AppInitializer {\n\n    @Inject\n    Logger logger;\n\n    public void startService(@Observes Object ev) {\n        logger.info(\"My Quarkus App - Starting\");\n    }\n\n    public void stopService(@Observes Object ev) {\n        logger.info(\"My Quarkus App - Stopping\");\n    }\n}\n","after":"import io.quarkus.logging.Log;\nimport jakarta.enterprise.event.Observes;\n\nclass AppInitializer {\n\n    public void startService(@Observes Object ev) {\n        Log.info(\"My Quarkus App - Starting\");\n    }\n\n    public void stopService(@Observes Object ev) {\n        Log.info(\"My Quarkus App - Stopping\");\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import io.quarkus.logging.Log;\nimport jakarta.enterprise.event.Observes;\n@@ -2,2 +3,0 @@\nimport jakarta.enterprise.event.Observes;\n-import jakarta.inject.Inject;\n-import org.slf4j.Logger;\n\n@@ -7,3 +6,0 @@\nclass AppInitializer {\n\n-   @Inject\n-   Logger logger;\n-\n    public void startService(@Observes Object ev) {\n@@ -11,1 +7,1 @@\n\n    public void startService(@Observes Object ev) {\n-       logger.info(\"My Quarkus App - Starting\");\n+       Log.info(\"My Quarkus App - Starting\");\n    }\n@@ -15,1 +11,1 @@\n\n    public void stopService(@Observes Object ev) {\n-       logger.info(\"My Quarkus App - Stopping\");\n+       Log.info(\"My Quarkus App - Stopping\");\n    }\n","newFile":false}]}]}>
 

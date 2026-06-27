@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate XML literals to scala-xml interpolation"}
-  description={"Finds XML literal usage in Scala code. XML literals were removed in Scala 3; use scala-xml library string interpolation instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.scala3.MigrateXmlLiterals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/scala3/migratexmlliterals.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate XML literals to scala-xml interpolation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds XML literal usage in Scala code. XML literals were removed in Scala 3; use scala-xml library string interpolation instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import scala.xml.Elem\n\nobject Test {\n  val name = \"world\"\n}\n","after":"/*~~(XML literals removed in Scala 3; use scala-xml library string interpolation)~~>*/import scala.xml.Elem\n\nobject Test {\n  val name = \"world\"\n}\n","diff":"@@ -1,1 +1,1 @@\n-import scala.xml.Elem\n+/*~~(XML literals removed in Scala 3; use scala-xml library string interpolation)~~>*/import scala.xml.Elem\n\n","newFile":false}]}]}>
 

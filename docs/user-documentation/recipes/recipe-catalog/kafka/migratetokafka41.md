@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Kafka 4.1"}
-  description={"Migrate applications to the latest Kafka 4.1 release. This includes updating dependencies to 4.1.x, migrating deprecated Admin API methods, updating Streams configuration properties, and removing deprecated broker properties."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kafka"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.MigrateToKafka41"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/migratetokafka41.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Kafka 4.0","href":"kafka/migratetokafka40"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate `Admin.listConsumerGroups()` to `listGroups()`","href":"kafka/migrateadminlistconsumergroups"},{"name":"Replace String literal with constant","href":"java/replacestringliteralwithconstant"},{"name":"Replace String literal with constant","href":"java/replacestringliteralwithconstant"},{"name":"Remove deprecated Kafka property","href":"kafka/removedeprecatedkafkaproperties"},{"name":"Delete property by key","href":"properties/deleteproperty"}]}>
+<RecipeHeader.Title>Migrate to Kafka 4.1</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Kafka 4.1 release. This includes updating dependencies to 4.1.x, migrating deprecated Admin API methods, updating Streams configuration properties, and removing deprecated broker properties.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Kafka 4.0","href":"/user-documentation/recipes/recipe-catalog/kafka/migratetokafka40/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Migrate `Admin.listConsumerGroups()` to `listGroups()`","href":"/user-documentation/recipes/recipe-catalog/kafka/migrateadminlistconsumergroups/"},{"name":"Replace String literal with constant","href":"/user-documentation/recipes/recipe-catalog/java/replacestringliteralwithconstant/"},{"name":"Replace String literal with constant","href":"/user-documentation/recipes/recipe-catalog/java/replacestringliteralwithconstant/"},{"name":"Remove deprecated Kafka property","href":"/user-documentation/recipes/recipe-catalog/kafka/removedeprecatedkafkaproperties/"},{"name":"Delete property by key","href":"/user-documentation/recipes/recipe-catalog/properties/deleteproperty/"}]}>
 
 ## Definition
 

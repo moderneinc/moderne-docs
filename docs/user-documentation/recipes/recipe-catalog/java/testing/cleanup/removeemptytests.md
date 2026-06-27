@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove empty tests without comments"}
-  description={"Removes empty methods with a `@Test` annotation if the body does not have comments."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S1186"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.RemoveEmptyTests"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/removeemptytests.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove empty tests without comments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes empty methods with a `@Test` annotation if the body does not have comments.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Test;\nclass MyTest {\n    @Test\n    public void method() {\n    }\n}\n","after":"import org.junit.Test;\nclass MyTest {\n}\n","diff":"@@ -3,3 +3,0 @@\nimport org.junit.Test;\nclass MyTest {\n-   @Test\n-   public void method() {\n-   }\n}\n","newFile":false}]}]}>
 

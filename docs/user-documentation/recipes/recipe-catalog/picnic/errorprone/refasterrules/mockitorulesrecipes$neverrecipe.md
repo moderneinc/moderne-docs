@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `MockitoRules.Never`"}
-  description={"Prefer `Mockito#never()`} over explicitly specifying that the associated invocation must happen precisely zero times."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.MockitoRulesRecipes$NeverRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mockitorulesrecipes$neverrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `MockitoRules.Never`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Mockito#never()`} over explicitly specifying that the associated invocation must happen precisely zero times.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.MockitoRulesRecipes$NeverRecipe","displayName":"Refaster template `MockitoRules.Never`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

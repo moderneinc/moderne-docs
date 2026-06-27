@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find function-declaration smells"}
-  description={"Search-only bundle: explicit `: Unit` / `: Nothing` return type, block bodies that are a single `return expr`, literal-Boolean-returning functions, `Pair`/`Triple` returns that could be data classes, default-before-required parameters, `suspend fun` declarations returning `Job`/`Deferred`, and explicit `return Unit` statements."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindFunctionDeclarationSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findfunctiondeclarationsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find functions with explicit `: Unit` return type","href":"kotlin/bestpractices/findexplicitunitreturntype$ktrecipe"},{"name":"Find functions declared with `: Nothing` return type","href":"kotlin/bestpractices/findreturntypenothing$ktrecipe"},{"name":"Find `fun foo(): T { return x }` block bodies","href":"kotlin/bestpractices/findsingleexpressionbodycandidate$ktrecipe"},{"name":"Find `fun f(): Boolean = true|false` literal-returning functions","href":"kotlin/bestpractices/findbooleanliteralreturntype$ktrecipe"},{"name":"Find functions returning `Pair<A, B>`","href":"kotlin/bestpractices/findfunctionreturningpair$ktrecipe"},{"name":"Find functions returning `Triple<A, B, C>`","href":"kotlin/bestpractices/findfunctionreturningtriple$ktrecipe"},{"name":"Find `suspend fun` declarations returning `Job` / `Deferred`","href":"kotlin/bestpractices/findsuspendfunctionreturningjob$ktrecipe"},{"name":"Find `return Unit` / `return kotlin.Unit` statements","href":"kotlin/bestpractices/findredundantreturnunit$ktrecipe"}]}>
+<RecipeHeader.Title>Find function-declaration smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle: explicit `: Unit` / `: Nothing` return type, block bodies that are a single `return expr`, literal-Boolean-returning functions, `Pair`/`Triple` returns that could be data classes, default-before-required parameters, `suspend fun` declarations returning `Job`/`Deferred`, and explicit `return Unit` statements.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find functions with explicit `: Unit` return type","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findexplicitunitreturntype$ktrecipe/"},{"name":"Find functions declared with `: Nothing` return type","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findreturntypenothing$ktrecipe/"},{"name":"Find `fun foo(): T { return x }` block bodies","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findsingleexpressionbodycandidate$ktrecipe/"},{"name":"Find `fun f(): Boolean = true|false` literal-returning functions","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbooleanliteralreturntype$ktrecipe/"},{"name":"Find functions returning `Pair<A, B>`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findfunctionreturningpair$ktrecipe/"},{"name":"Find functions returning `Triple<A, B, C>`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findfunctionreturningtriple$ktrecipe/"},{"name":"Find `suspend fun` declarations returning `Job` / `Deferred`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findsuspendfunctionreturningjob$ktrecipe/"},{"name":"Find `return Unit` / `return kotlin.Unit` statements","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findredundantreturnunit$ktrecipe/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add comment to SimpleModule method calls on modules that no longer extend SimpleModule"}
-  description={"In Jackson 3, some modules (e.g. `JodaModule`) no longer extend `SimpleModule` and instead extend `JacksonModule` directly. This means methods like `addSerializer()` and `addDeserializer()` are no longer available on these types. This recipe adds a TODO comment to flag these call sites for manual migration."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.CommentOutSimpleModuleMethodCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/commentoutsimplemodulemethodcalls.md"}
-/>
+>
+
+<RecipeHeader.Title>Add comment to SimpleModule method calls on modules that no longer extend SimpleModule</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Jackson 3, some modules (e.g. `JodaModule`) no longer extend `SimpleModule` and instead extend `JacksonModule` directly. This means methods like `addSerializer()` and `addDeserializer()` are no longer available on these types. This recipe adds a TODO comment to flag these call sites for manual migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.databind.JsonSerializer;\nimport com.fasterxml.jackson.datatype.joda.JodaModule;\n\nclass Test {\n    void configure(JsonSerializer<String> serializer) {\n        JodaModule module = new JodaModule();\n        module.addSerializer(String.class, serializer);\n    }\n}\n","after":"import com.fasterxml.jackson.databind.JsonSerializer;\nimport com.fasterxml.jackson.datatype.joda.JodaModule;\n\nclass Test {\n    void configure(JsonSerializer<String> serializer) {\n        JodaModule module = new JodaModule();\n        /* TODO this module no longer extends SimpleModule in Jackson 3,\n         * so addSerializer/addDeserializer calls are no longer available.\n         * Move this call to a new SimpleModule and register it separately:\n         *   SimpleModule customModule = new SimpleModule();\n         *   customModule.addSerializer(...);\n         *   mapper.registerModule(customModule);\n         * Note: register the custom module AFTER the original module,\n         * as the last registered serializer for a given type wins.\n         */\n        module.addSerializer(String.class, serializer);\n    }\n}\n","diff":"@@ -7,0 +7,9 @@\n    void configure(JsonSerializer<String> serializer) {\n        JodaModule module = new JodaModule();\n+       /* TODO this module no longer extends SimpleModule in Jackson 3,\n+        * so addSerializer/addDeserializer calls are no longer available.\n+        * Move this call to a new SimpleModule and register it separately:\n+        *   SimpleModule customModule = new SimpleModule();\n+        *   customModule.addSerializer(...);\n+        *   mapper.registerModule(customModule);\n+        * Note: register the custom module AFTER the original module,\n+        * as the last registered serializer for a given type wins.\n+        */\n        module.addSerializer(String.class, serializer);\n","newFile":false}]}]}>
 

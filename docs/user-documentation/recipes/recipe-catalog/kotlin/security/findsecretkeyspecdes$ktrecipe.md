@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `SecretKeySpec(_, \"DES\")` constructions"}
-  description={"A `SecretKeySpec` tagged for `\"DES\"` will only feed `Cipher.getInstance(\"DES\")` — the algorithm name flows through the JCE provider lookup. Replace with `\"AES\"` and a 256-bit key."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindSecretKeySpecDes$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findsecretkeyspecdes$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `SecretKeySpec(_, "DES")` constructions</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `SecretKeySpec` tagged for `"DES"` will only feed `Cipher.getInstance("DES")` — the algorithm name flows through the JCE provider lookup. Replace with `"AES"` and a 256-bit key.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindSecretKeySpecDes$KtRecipe","displayName":"Find `SecretKeySpec(_, \"DES\")` constructions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

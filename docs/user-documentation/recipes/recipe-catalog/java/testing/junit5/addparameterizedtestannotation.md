@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add missing `@ParameterizedTest` annotation when `@ValueSource` is used or replace `@Test` with `@ParameterizedTest`"}
-  description={"Add missing `@ParameterizedTest` annotation when `@ValueSource` is used or replace `@Test` with `@ParameterizedTest`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.AddParameterizedTestAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/addparameterizedtestannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Add missing `@ParameterizedTest` annotation when `@ValueSource` is used or replace `@Test` with `@ParameterizedTest`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add missing `@ParameterizedTest` annotation when `@ValueSource` is used or replace `@Test` with `@ParameterizedTest`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport org.junit.jupiter.params.provider.ValueSource;\nimport static org.junit.jupiter.api.Assertions.*;\n\nclass NumbersTest {\n    @Test\n    @ValueSource(ints = {1, 3, 5, -3, 15, Integer.MAX_VALUE})\n    void testIsOdd(int number) {\n        assertTrue(number % 2 != 0);\n    }\n}\n","after":"import org.junit.jupiter.params.ParameterizedTest;\nimport org.junit.jupiter.params.provider.ValueSource;\nimport static org.junit.jupiter.api.Assertions.*;\n\nclass NumbersTest {\n    @ParameterizedTest\n    @ValueSource(ints = {1, 3, 5, -3, 15, Integer.MAX_VALUE})\n    void testIsOdd(int number) {\n        assertTrue(number % 2 != 0);\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.junit.jupiter.api.Test;\n+import org.junit.jupiter.params.ParameterizedTest;\nimport org.junit.jupiter.params.provider.ValueSource;\n@@ -6,1 +6,1 @@\n\nclass NumbersTest {\n-   @Test\n+   @ParameterizedTest\n    @ValueSource(ints = {1, 3, 5, -3, 15, Integer.MAX_VALUE})\n","newFile":false},{"language":"kotlin","before":"import org.junit.jupiter.api.Test\nimport org.junit.jupiter.params.provider.ValueSource\nimport org.junit.jupiter.api.Assertions.assertTrue\n\nclass NumbersTest {\n    @Test\n    @ValueSource(ints = [1, 3, 5, -3, 15, Int.MAX_VALUE])\n    fun testIsOdd(number: Int) {\n        assertTrue(number % 2 != 0)\n    }\n}\n","after":"import org.junit.jupiter.params.ParameterizedTest\nimport org.junit.jupiter.params.provider.ValueSource\nimport org.junit.jupiter.api.Assertions.assertTrue\n\nclass NumbersTest {\n    @ParameterizedTest\n    @ValueSource(ints = [1, 3, 5, -3, 15, Int.MAX_VALUE])\n    fun testIsOdd(number: Int) {\n        assertTrue(number % 2 != 0)\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.junit.jupiter.api.Test\n+import org.junit.jupiter.params.ParameterizedTest\nimport org.junit.jupiter.params.provider.ValueSource\n@@ -6,1 +6,1 @@\n\nclass NumbersTest {\n-   @Test\n+   @ParameterizedTest\n    @ValueSource(ints = [1, 3, 5, -3, 15, Int.MAX_VALUE])\n","newFile":false}]}]}>
 

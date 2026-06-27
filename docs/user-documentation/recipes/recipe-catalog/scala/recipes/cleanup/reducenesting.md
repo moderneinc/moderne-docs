@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Reduce deep nesting by extracting methods"}
-  description={"Finds `def` methods with deeply nested code (5+ indentation levels). Deeply nested code is hard to follow; consider extracting methods."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.ReduceNesting"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/reducenesting.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Reduce deep nesting by extracting methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `def` methods with deeply nested code (5+ indentation levels). Deeply nested code is hard to follow; consider extracting methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    def nested(): Unit = {\n        if (true) {\n            if (true) {\n                if (true) {\n                    if (true) {\n                        if (true) {\n                            val x = 1\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n","after":"class Example {\n    /*~~(Deeply nested code; consider extracting methods)~~>*/def nested(): Unit = {\n        if (true) {\n            if (true) {\n                if (true) {\n                    if (true) {\n                        if (true) {\n                            val x = 1\n                        }\n                    }\n                }\n            }\n        }\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Example {\n-   def nested(): Unit = {\n+   /*~~(Deeply nested code; consider extracting methods)~~>*/def nested(): Unit = {\n        if (true) {\n","newFile":false}]}]}>
 

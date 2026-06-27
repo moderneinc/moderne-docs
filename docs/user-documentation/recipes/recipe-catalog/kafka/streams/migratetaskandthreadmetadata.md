@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate TaskMetadata and ThreadMetadata"}
-  description={"Migrates TaskMetadata and ThreadMetadata from org.apache.kafka.streams.processor package to org.apache.kafka.streams package, and updates TaskMetadata.taskId() calls to include .toString() for String compatibility."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kafka"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.streams.MigrateTaskAndThreadMetadata"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/streams/migratetaskandthreadmetadata.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Migrate `TaskMetadata.taskId()` to return `TaskId`","href":"kafka/streams/migratetaskmetadatataskid"}]}>
+<RecipeHeader.Title>Migrate TaskMetadata and ThreadMetadata</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates TaskMetadata and ThreadMetadata from org.apache.kafka.streams.processor package to org.apache.kafka.streams package, and updates TaskMetadata.taskId() calls to include .toString() for String compatibility.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Migrate `TaskMetadata.taskId()` to return `TaskId`","href":"/user-documentation/recipes/recipe-catalog/kafka/streams/migratetaskmetadatataskid/"}]}>
 
 ## Definition
 

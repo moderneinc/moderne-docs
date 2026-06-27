@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find files in a source set"}
-  description={"Source sets are a way to organize your source code into logical groups. For example, Java projects commonly have a `main` source set for application code and a `test` source set for test code. This recipe will find all files in a given source set."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.HasSourceSet"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/hassourceset.md"}
-/>
+>
+
+<RecipeHeader.Title>Find files in a source set</RecipeHeader.Title>
+
+<RecipeHeader.Description>Source sets are a way to organize your source code into logical groups. For example, Java projects commonly have a `main` source set for application code and a `test` source set for test code. This recipe will find all files in a given source set.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"sourceSet","required":true,"description":"The source set to search for.","example":"main"}]}>
 

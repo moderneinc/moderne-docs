@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"ArgumentException should specify argument name"}
-  description={"When throwing `ArgumentException` or derived types, specify the parameter name using `nameof()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindArgumentExceptionParameterName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findargumentexceptionparametername.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>ArgumentException should specify argument name</RecipeHeader.Title>
+
+<RecipeHeader.Description>When throwing `ArgumentException` or derived types, specify the parameter name using `nameof()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindArgumentExceptionParameterName","displayName":"ArgumentException should specify argument name","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

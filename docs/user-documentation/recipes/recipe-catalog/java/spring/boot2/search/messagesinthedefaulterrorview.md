@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find projects affected by changes to the default error view message attribute"}
-  description={"As of Spring Boot 2.5 the `message` attribute in the default error view was removed rather than blanked when it is not shown.\n`spring-webmvc` or `spring-webflux` projects that parse the error response JSON may need to deal with the missing item\n([release notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes#messages-in-the-default-error-view)).\nYou can still use the `server.error.include-message` property if you want messages to be included."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","boot"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.search.MessagesInTheDefaultErrorView"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/messagesinthedefaulterrorview.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find Maven dependency","href":"maven/search/finddependency"},{"name":"Find Maven dependency","href":"maven/search/finddependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Find projects affected by changes to the default error view message attribute</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of Spring Boot 2.5 the `message` attribute in the default error view was removed rather than blanked when it is not shown. `spring-webmvc` or `spring-webflux` projects that parse the error response JSON may need to deal with the missing item ([release notes](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.5-Release-Notes#messages-in-the-default-error-view)). You can still use the `server.error.include-message` property if you want messages to be included.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/finddependency/"},{"name":"Find Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/finddependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

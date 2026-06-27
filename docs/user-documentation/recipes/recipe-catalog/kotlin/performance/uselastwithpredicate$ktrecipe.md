@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `last { predicate }` instead of `filter { predicate }.last()`"}
-  description={"Folding the predicate into `last` avoids materializing the intermediate filtered list."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseLastWithPredicate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/uselastwithpredicate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `last { predicate }` instead of `filter { predicate }.last()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Folding the predicate into `last` avoids materializing the intermediate filtered list.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseLastWithPredicate$KtRecipe","displayName":"Use `last { predicate }` instead of `filter { predicate }.last()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

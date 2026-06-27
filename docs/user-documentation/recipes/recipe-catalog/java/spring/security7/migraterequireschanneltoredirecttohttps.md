@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `requiresChannel()` to `redirectToHttps()`"}
-  description={"In Spring Security 7.0, `HttpSecurity.requiresChannel()` is deprecated in favor of `HttpSecurity.redirectToHttps()`. This recipe renames the method call and simplifies `anyRequest().requiresSecure()` to `Customizer.withDefaults()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.security7.MigrateRequiresChannelToRedirectToHttps"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security7/migraterequireschanneltoredirecttohttps.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `requiresChannel()` to `redirectToHttps()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Security 7.0, `HttpSecurity.requiresChannel()` is deprecated in favor of `HttpSecurity.redirectToHttps()`. This recipe renames the method call and simplifies `anyRequest().requiresSecure()` to `Customizer.withDefaults()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\n\nclass SecurityConfig {\n    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {\n        http\n            .requiresChannel(channel -> channel.anyRequest().requiresSecure())\n            .authorizeHttpRequests(auth -> auth.anyRequest().authenticated());\n        return http.build();\n    }\n}\n","after":"import org.springframework.security.config.Customizer;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\n\nclass SecurityConfig {\n    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {\n        http\n            .redirectToHttps(Customizer.withDefaults())\n            .authorizeHttpRequests(auth -> auth.anyRequest().authenticated());\n        return http.build();\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.springframework.security.config.Customizer;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\n@@ -7,1 +8,1 @@\n    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {\n        http\n-           .requiresChannel(channel -> channel.anyRequest().requiresSecure())\n+           .redirectToHttps(Customizer.withDefaults())\n            .authorizeHttpRequests(auth -> auth.anyRequest().authenticated());\n","newFile":false}]}]}>
 

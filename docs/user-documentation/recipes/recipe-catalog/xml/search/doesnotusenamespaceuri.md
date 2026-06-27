@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find files without Namespace URI"}
-  description={"Find XML root elements that do not have a specific Namespace URI, optionally restricting the search by an XPath expression."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.search.DoesNotUseNamespaceUri"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/search/doesnotusenamespaceuri.md"}
-/>
+>
+
+<RecipeHeader.Title>Find files without Namespace URI</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find XML root elements that do not have a specific Namespace URI, optionally restricting the search by an XPath expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"namespaceUri","required":true,"description":"The Namespace URI to check.","example":"http://www.w3.org/2001/XMLSchema-instance"}]}>
 

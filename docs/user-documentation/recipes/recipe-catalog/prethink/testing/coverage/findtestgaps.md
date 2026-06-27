@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find test coverage gaps"}
-  description={"Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.coverage.FindTestGaps"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestgaps.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find test coverage gaps</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify public non-trivial methods that lack test coverage. Reports gaps with cyclomatic complexity and risk scores to help prioritize where to add tests.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.junit.jupiter.api.Test;\n\npublic class ServiceTest {\n    @Test\n    void placeholder() {\n    }\n}\n"},"variants":[]}]}>
 

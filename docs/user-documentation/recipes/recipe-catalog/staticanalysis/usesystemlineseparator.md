@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `System.lineSeparator()`"}
-  description={"Replace calls to `System.getProperty(\"line.separator\")` with `System.lineSeparator()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UseSystemLineSeparator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/usesystemlineseparator.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `System.lineSeparator()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace calls to `System.getProperty("line.separator")` with `System.lineSeparator()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.UseSystemLineSeparator","displayName":"Use `System.lineSeparator()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `React.forwardRef` wrapper"}
-  description={"`React.forwardRef` is deprecated for Function Components in React 19. This recipe removes the `forwardRef` wrapper and converts ref to a regular prop."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.remove-forward-ref"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/remove-forward-ref.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `React.forwardRef` wrapper</RecipeHeader.Title>
+
+<RecipeHeader.Description>`React.forwardRef` is deprecated for Function Components in React 19. This recipe removes the `forwardRef` wrapper and converts ref to a regular prop.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.19.remove-forward-ref","displayName":"Remove `React.forwardRef` wrapper","npmPackage":"@openrewrite/recipes-react"}}>
 

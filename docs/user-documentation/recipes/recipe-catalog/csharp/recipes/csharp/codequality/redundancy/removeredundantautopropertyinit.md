@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant constructor"}
-  description={"Remove empty parameterless constructors that duplicate the implicit default."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantAutoPropertyInit"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeredundantautopropertyinit.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove empty parameterless constructors that duplicate the implicit default.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantAutoPropertyInit","displayName":"Remove redundant constructor","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

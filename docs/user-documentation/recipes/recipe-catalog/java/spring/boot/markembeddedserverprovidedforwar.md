@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Mark embedded server as provided for WAR projects"}
-  description={"For WAR-packaged projects migrating to Spring Boot, add the embedded Tomcat starter with provided scope to prevent conflicts with the external servlet container."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot.MarkEmbeddedServerProvidedForWar"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot/markembeddedserverprovidedforwar.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Mark embedded server as provided for WAR projects</RecipeHeader.Title>
+
+<RecipeHeader.Description>For WAR-packaged projects migrating to Spring Boot, add the embedded Tomcat starter with provided scope to prevent conflicts with the external servlet container.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"xml","before":"<project>\n    <groupId>com.example</groupId>\n    <artifactId>fooservice</artifactId>\n    <version>1.0-SNAPSHOT</version>\n    <packaging>war</packaging>\n    <dependencyManagement>\n        <dependencies>\n            <dependency>\n                <groupId>org.springframework.boot</groupId>\n                <artifactId>spring-boot-dependencies</artifactId>\n                <version>2.7.18</version>\n                <type>pom</type>\n                <scope>import</scope>\n            </dependency>\n        </dependencies>\n    </dependencyManagement>\n    <dependencies>\n        <dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot-starter-web</artifactId>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <groupId>com.example</groupId>\n    <artifactId>fooservice</artifactId>\n    <version>1.0-SNAPSHOT</version>\n    <packaging>war</packaging>\n    <dependencyManagement>\n        <dependencies>\n            <dependency>\n                <groupId>org.springframework.boot</groupId>\n                <artifactId>spring-boot-dependencies</artifactId>\n                <version>2.7.18</version>\n                <type>pom</type>\n                <scope>import</scope>\n            </dependency>\n        </dependencies>\n    </dependencyManagement>\n    <dependencies>\n        <dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot-starter-web</artifactId>\n        </dependency>\n        <dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot-starter-tomcat</artifactId>\n            <scope>provided</scope>\n        </dependency>\n    </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -22,0 +22,5 @@\n            <artifactId>spring-boot-starter-web</artifactId>\n        </dependency>\n+       <dependency>\n+           <groupId>org.springframework.boot</groupId>\n+           <artifactId>spring-boot-starter-tomcat</artifactId>\n+           <scope>provided</scope>\n+       </dependency>\n    </dependencies>\n","newFile":false}]}]}>
 

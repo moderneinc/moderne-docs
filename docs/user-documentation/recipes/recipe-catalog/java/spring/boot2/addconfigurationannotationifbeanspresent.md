@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add missing `@Configuration` annotation"}
-  description={"Class having `@Bean` annotation over any methods but missing `@Configuration` annotation over the declaring class would have `@Configuration` annotation added. Classes referenced as scoped configuration via `.class` (e.g. `@FeignClient(configuration = X.class)`) are skipped to preserve their intended per-client scope."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.AddConfigurationAnnotationIfBeansPresent"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/addconfigurationannotationifbeanspresent.md"}
-/>
+>
+
+<RecipeHeader.Title>Add missing `@Configuration` annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Class having `@Bean` annotation over any methods but missing `@Configuration` annotation over the declaring class would have `@Configuration` annotation added. Classes referenced as scoped configuration via `.class` (e.g. `@FeignClient(configuration = X.class)`) are skipped to preserve their intended per-client scope.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Bean;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\n\n@EnableWebSecurity\nclass A {\n  @Bean String hello() { return \"hello\"; }\n}\n","after":"import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\n\n@Configuration\n@EnableWebSecurity\nclass A {\n  @Bean String hello() { return \"hello\"; }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.springframework.context.annotation.Bean;\n+import org.springframework.context.annotation.Configuration;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\n@@ -4,0 +5,1 @@\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\n\n+@Configuration\n@EnableWebSecurity\n","newFile":false}]}]}>
 

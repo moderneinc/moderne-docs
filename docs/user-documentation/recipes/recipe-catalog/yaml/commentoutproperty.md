@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Comment out property"}
-  description={"Comment out a YAML property and add a comment in front."}
   type={"Single recipe"}
   languages={["YAML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-yaml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.yaml.CommentOutProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/yaml/commentoutproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Comment out property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Comment out a YAML property and add a comment in front.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The key to be commented out.","example":"applicability.singleSource"},{"type":"String","name":"commentText","required":true,"description":"The comment text to be added before the specified key.","example":"The `foo` property is deprecated, please migrate"},{"type":"Boolean","name":"commentOutProperty","required":false,"description":"If false, property wouldn't be commented out, only comment will be added. By default, set to true","example":"true"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use JUnit5's `assertSame` or `assertNotSame` instead of `assertTrue(... == ...)`"}
-  description={"Prefers the usage of `assertSame` or `assertNotSame` methods instead of using of vanilla `assertTrue` or `assertFalse` with a boolean comparison. Only applies when both operands are reference types — primitive operands are handled by `AssertTrueComparisonToAssertEquals`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.UseAssertSame"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/useassertsame.md"}
-/>
+>
+
+<RecipeHeader.Title>Use JUnit5's `assertSame` or `assertNotSame` instead of `assertTrue(... == ...)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefers the usage of `assertSame` or `assertNotSame` methods instead of using of vanilla `assertTrue` or `assertFalse` with a boolean comparison. Only applies when both operands are reference types — primitive operands are handled by `AssertTrueComparisonToAssertEquals`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass MyTest {\n\n    @Test\n    public void test() {\n        String number = \"thirty-six\";\n        String otherNumber = number;\n        assertTrue(number == otherNumber);\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\nclass MyTest {\n\n    @Test\n    public void test() {\n        String number = \"thirty-six\";\n        String otherNumber = number;\n        assertSame(number, otherNumber);\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport org.junit.jupiter.api.Test;\n\n-import static org.junit.jupiter.api.Assertions.assertTrue;\n+import static org.junit.jupiter.api.Assertions.assertSame;\n\n@@ -11,1 +11,1 @@\n        String number = \"thirty-six\";\n        String otherNumber = number;\n-       assertTrue(number == otherNumber);\n+       assertSame(number, otherNumber);\n    }\n","newFile":false}]}]}>
 

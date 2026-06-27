@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find exception-handling smells"}
-  description={"`Throwable.printStackTrace()` (bypasses the logger), bare `throw Exception(\"…\")` / `throw RuntimeException(\"…\")` allocations (lose type information), and `try { } catch (e: Exception) { null }` patterns (collapsible to `runCatching { }.getOrNull()`)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindExceptionHandlingSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findexceptionhandlingsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Throwable.printStackTrace()` calls","href":"kotlin/bestpractices/findthrowableprintstacktrace$ktrecipe"},{"name":"Find `throw Exception(\"…\")` calls","href":"kotlin/bestpractices/findbareexceptionthrow$ktrecipe"},{"name":"Find `throw RuntimeException(\"…\")` calls","href":"kotlin/bestpractices/findbareruntimeexceptionthrow$ktrecipe"},{"name":"Find `try { … } catch (e: Exception) { null }` patterns","href":"kotlin/bestpractices/findcatchreturningnull$ktrecipe"}]}>
+<RecipeHeader.Title>Find exception-handling smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Throwable.printStackTrace()` (bypasses the logger), bare `throw Exception("…")` / `throw RuntimeException("…")` allocations (lose type information), and `try { } catch (e: Exception) { null }` patterns (collapsible to `runCatching { }.getOrNull()`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Throwable.printStackTrace()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findthrowableprintstacktrace$ktrecipe/"},{"name":"Find `throw Exception(\"…\")` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbareexceptionthrow$ktrecipe/"},{"name":"Find `throw RuntimeException(\"…\")` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbareruntimeexceptionthrow$ktrecipe/"},{"name":"Find `try { … } catch (e: Exception) { null }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findcatchreturningnull$ktrecipe/"}]}>
 
 ## Definition
 

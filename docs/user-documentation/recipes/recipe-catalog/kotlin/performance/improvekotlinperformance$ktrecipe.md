@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Improve performance of Kotlin code"}
-  description={"Autofix-only performance bundle: collapses allocating call chains (filter/map/sort/reverse), promotes Compose primitive state holders, and rewrites `StringBuilder.length` to `size`. Excludes the search-only `Find*` recipes so the run output is just diffs, not a flood of search results."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.ImproveKotlinPerformance$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/improvekotlinperformance$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Collapse `filter { p }.<terminal>()` chains","href":"kotlin/performance/collapsefilterterminals$ktrecipe"},{"name":"Collapse `sorted().first/last()` and `reversed().first/last()` chains","href":"kotlin/performance/collapsesortandreverse$ktrecipe"},{"name":"Use primitive `mutable<Int|Long|Float|Double>StateOf` in Compose","href":"kotlin/performance/usecomposeprimitivestateof$ktrecipe"},{"name":"Use `sb.length` instead of `sb.toString().length`","href":"kotlin/performance/uselengthforstringbuildersize$ktrecipe"}]}>
+<RecipeHeader.Title>Improve performance of Kotlin code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Autofix-only performance bundle: collapses allocating call chains (filter/map/sort/reverse), promotes Compose primitive state holders, and rewrites `StringBuilder.length` to `size`. Excludes the search-only `Find*` recipes so the run output is just diffs, not a flood of search results.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Collapse `filter { p }.<terminal>()` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/collapsefilterterminals$ktrecipe/"},{"name":"Collapse `sorted().first/last()` and `reversed().first/last()` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/collapsesortandreverse$ktrecipe/"},{"name":"Use primitive `mutable<Int|Long|Float|Double>StateOf` in Compose","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/usecomposeprimitivestateof$ktrecipe/"},{"name":"Use `sb.length` instead of `sb.toString().length`","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/uselengthforstringbuildersize$ktrecipe/"}]}>
 
 ## Definition
 

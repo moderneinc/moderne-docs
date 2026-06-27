@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `datetime.now()` instead of `datetime.today()`"}
-  description={"Replace `datetime.today()` with `datetime.now()`. Both are equivalent, but `now()` is more explicit and supports timezone arguments."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.UseDatetimeNowNotToday"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/usedatetimenownottoday.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `datetime.now()` instead of `datetime.today()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `datetime.today()` with `datetime.now()`. Both are equivalent, but `now()` is more explicit and supports timezone arguments.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.UseDatetimeNowNotToday","displayName":"Use `datetime.now()` instead of `datetime.today()`","pipPackage":"openrewrite-static-analysis"}}>
 

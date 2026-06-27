@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply Gradle best practices"}
-  description={"Apply a set of [Gradle best practices](https://docs.gradle.org/current/userguide/best_practices_general.html) to the build files, for more efficient and idiomatic builds."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.GradleBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/gradlebestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Gradle 9 from Gradle 8","href":"gradle/migratetogradle9"},{"name":"Enable Gradle build cache","href":"gradle/enablegradlebuildcache"},{"name":"Enable Gradle parallel execution","href":"gradle/enablegradleparallelexecution"},{"name":"Change Gradle task eager creation to lazy registration","href":"gradle/changetasktotasksregister"},{"name":"Remove redundant explicit dependencies and versions","href":"gradle/removeredundantdependencyversions"},{"name":"Remove redundant security resolution rules","href":"gradle/removeredundantsecurityresolutionrules"},{"name":"Sort Gradle dependencies","href":"gradle/sortdependencies"},{"name":"Use HTTPS for repositories","href":"gradle/security/usehttpsforrepositories"}]}>
+<RecipeHeader.Title>Apply Gradle best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply a set of [Gradle best practices](https://docs.gradle.org/current/userguide/best_practices_general.html) to the build files, for more efficient and idiomatic builds.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Gradle 9 from Gradle 8","href":"/user-documentation/recipes/recipe-catalog/gradle/migratetogradle9/"},{"name":"Enable Gradle build cache","href":"/user-documentation/recipes/recipe-catalog/gradle/enablegradlebuildcache/"},{"name":"Enable Gradle parallel execution","href":"/user-documentation/recipes/recipe-catalog/gradle/enablegradleparallelexecution/"},{"name":"Change Gradle task eager creation to lazy registration","href":"/user-documentation/recipes/recipe-catalog/gradle/changetasktotasksregister/"},{"name":"Remove redundant explicit dependencies and versions","href":"/user-documentation/recipes/recipe-catalog/gradle/removeredundantdependencyversions/"},{"name":"Remove redundant security resolution rules","href":"/user-documentation/recipes/recipe-catalog/gradle/removeredundantsecurityresolutionrules/"},{"name":"Sort Gradle dependencies","href":"/user-documentation/recipes/recipe-catalog/gradle/sortdependencies/"},{"name":"Use HTTPS for repositories","href":"/user-documentation/recipes/recipe-catalog/gradle/security/usehttpsforrepositories/"}]}>
 
 ## Definition
 

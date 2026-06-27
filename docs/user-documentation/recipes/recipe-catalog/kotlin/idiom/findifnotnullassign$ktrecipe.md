@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (x != null) y = x.foo()` patterns"}
-  description={"`if (x != null) y = x.foo()` followed by a default elsewhere reads as a hand-rolled `y = x?.foo() ?: default`. The elvis form keeps the value derivation in one expression."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindIfNotNullAssign$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifnotnullassign$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (x != null) y = x.foo()` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`if (x != null) y = x.foo()` followed by a default elsewhere reads as a hand-rolled `y = x?.foo() ?: default`. The elvis form keeps the value derivation in one expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindIfNotNullAssign$KtRecipe","displayName":"Find `if (x != null) y = x.foo()` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

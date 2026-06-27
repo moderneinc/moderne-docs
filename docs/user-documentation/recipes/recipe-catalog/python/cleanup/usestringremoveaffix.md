@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace string slicing with `removeprefix`/`removesuffix`"}
-  description={"Replace `if text.startswith(s): text = text[N:]` with `text = text.removeprefix(s)` and the equivalent `endswith` pattern with `removesuffix` (Python 3.9+)."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.UseStringRemoveAffix"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/usestringremoveaffix.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace string slicing with `removeprefix`/`removesuffix`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `if text.startswith(s): text = text[N:]` with `text = text.removeprefix(s)` and the equivalent `endswith` pattern with `removesuffix` (Python 3.9+).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.UseStringRemoveAffix","displayName":"Replace string slicing with `removeprefix`/`removesuffix`","pipPackage":"openrewrite-static-analysis"}}>
 

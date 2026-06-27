@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce valid titles"}
-  description={"Enforce valid titles\nSee rule details for [jest/valid-title](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/valid-title.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ESLint","eslint-plugin-jest","Jest"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.jest.ValidTitle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/validtitle.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce valid titles</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce valid titles See rule details for [jest/valid-title](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/valid-title.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

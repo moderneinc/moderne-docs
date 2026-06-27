@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update Jackson package names from 2.x to 3.x"}
-  description={"Update Jackson package imports from `com.fasterxml.jackson` to `tools.jackson`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.UpgradeJackson_2_3_PackageChanges"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_packagechanges.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename package name","href":"java/changepackage"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Rename package name","href":"java/changepackage"}]}>
+<RecipeHeader.Title>Update Jackson package names from 2.x to 3.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update Jackson package imports from `com.fasterxml.jackson` to `tools.jackson`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]}>
 
 ## Definition
 

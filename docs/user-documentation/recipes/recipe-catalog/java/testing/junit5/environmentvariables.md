@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JUnit 4 environmentVariables rule to JUnit 5 system stubs extension"}
-  description={"Replaces usage of the JUnit 4 `@Rule EnvironmentVariables` with the JUnit 5-compatible `SystemStubsExtension` and `@SystemStub EnvironmentVariables` from the System Stubs library."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.EnvironmentVariables"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/environmentvariables.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate JUnit 4 environmentVariables rule to JUnit 5 system stubs extension</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces usage of the JUnit 4 `@Rule EnvironmentVariables` with the JUnit 5-compatible `SystemStubsExtension` and `@SystemStub EnvironmentVariables` from the System Stubs library.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.BeforeEach;\nimport org.junit.contrib.java.lang.system.EnvironmentVariables;\nimport org.junit.Rule;\nimport org.junit.jupiter.api.Test;\n\npublic class RuleTest {\n    @Rule\n    public EnvironmentVariables environmentVariables = new EnvironmentVariables()\n            .set(\"testSetInline\", \"valueSetInline\").clear(\"testClearInline\");\n\n    @BeforeEach\n    public void setUp() {\n        System.out.println(\"Setting up...\");\n    }\n\n    @Test\n    public void test() {\n        environmentVariables.clear();\n        environmentVariables.set(\"testSet\", \"valueSet\").clear(\"testClear\");\n        environmentVariables.clear(\"clear1\", \"clear2\").clear();\n    }\n}\n","after":"import org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport uk.org.webcompere.systemstubs.environment.EnvironmentVariables;\nimport uk.org.webcompere.systemstubs.jupiter.SystemStub;\nimport uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;\n\n@ExtendWith(SystemStubsExtension.class)\npublic class RuleTest {\n    @SystemStub\n    public EnvironmentVariables environmentVariables = new EnvironmentVariables()\n            .set(\"testSetInline\", \"valueSetInline\").remove(\"testClearInline\");\n\n    @BeforeEach\n    public void setUp() {\n        System.out.println(\"Setting up...\");\n    }\n\n    @Test\n    public void test() {\n        environmentVariables.set(\"testSet\", \"valueSet\").remove(\"testClear\");\n        environmentVariables.remove(\"clear1\").remove(\"clear2\");\n    }\n}\n","diff":"@@ -2,2 +2,0 @@\nimport org.junit.jupiter.api.BeforeEach;\n-import org.junit.contrib.java.lang.system.EnvironmentVariables;\n-import org.junit.Rule;\nimport org.junit.jupiter.api.Test;\n@@ -5,0 +3,4 @@\nimport org.junit.Rule;\nimport org.junit.jupiter.api.Test;\n+import org.junit.jupiter.api.extension.ExtendWith;\n+import uk.org.webcompere.systemstubs.environment.EnvironmentVariables;\n+import uk.org.webcompere.systemstubs.jupiter.SystemStub;\n+import uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;\n\n@@ -6,0 +8,1 @@\nimport org.junit.jupiter.api.Test;\n\n+@ExtendWith(SystemStubsExtension.class)\npublic class RuleTest {\n@@ -7,1 +10,1 @@\n\npublic class RuleTest {\n-   @Rule\n+   @SystemStub\n    public EnvironmentVariables environmentVariables = new EnvironmentVariables()\n@@ -9,1 +12,1 @@\n    @Rule\n    public EnvironmentVariables environmentVariables = new EnvironmentVariables()\n-           .set(\"testSetInline\", \"valueSetInline\").clear(\"testClearInline\");\n+           .set(\"testSetInline\", \"valueSetInline\").remove(\"testClearInline\");\n\n@@ -18,3 +21,2 @@\n    @Test\n    public void test() {\n-       environmentVariables.clear();\n-       environmentVariables.set(\"testSet\", \"valueSet\").clear(\"testClear\");\n-       environmentVariables.clear(\"clear1\", \"clear2\").clear();\n+       environmentVariables.set(\"testSet\", \"valueSet\").remove(\"testClear\");\n+       environmentVariables.remove(\"clear1\").remove(\"clear2\");\n    }\n","newFile":false}]}]}>
 

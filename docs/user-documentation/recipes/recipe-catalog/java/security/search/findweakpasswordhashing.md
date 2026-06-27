@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find weak password hashing"}
-  description={"Finds uses of `MessageDigest.getInstance()` with algorithms unsuitable for password hashing (MD5, SHA-1, SHA-256, SHA-384, SHA-512). Passwords should be hashed with a purpose-built password hashing function such as bcrypt, scrypt, Argon2, or PBKDF2 that includes a salt and a tunable work factor."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-759","CWE-916"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindWeakPasswordHashing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findweakpasswordhashing.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find weak password hashing</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds uses of `MessageDigest.getInstance()` with algorithms unsuitable for password hashing (MD5, SHA-1, SHA-256, SHA-384, SHA-512). Passwords should be hashed with a purpose-built password hashing function such as bcrypt, scrypt, Argon2, or PBKDF2 that includes a salt and a tunable work factor.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.security.MessageDigest;\nimport java.security.NoSuchAlgorithmException;\n\nclass UserService {\n    byte[] hashPassword(String password) throws NoSuchAlgorithmException {\n        MessageDigest md = MessageDigest.getInstance(\"MD5\");\n        return md.digest(password.getBytes());\n    }\n}\n","after":"import java.security.MessageDigest;\nimport java.security.NoSuchAlgorithmException;\n\nclass UserService {\n    byte[] hashPassword(String password) throws NoSuchAlgorithmException {\n        MessageDigest md = /*~~(Weak password hashing: MD5 lacks salt and work factor. Use bcrypt, scrypt, Argon2, or PBKDF2 instead.)~~>*/MessageDigest.getInstance(\"MD5\");\n        return md.digest(password.getBytes());\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass UserService {\n    byte[] hashPassword(String password) throws NoSuchAlgorithmException {\n-       MessageDigest md = MessageDigest.getInstance(\"MD5\");\n+       MessageDigest md = /*~~(Weak password hashing: MD5 lacks salt and work factor. Use bcrypt, scrypt, Argon2, or PBKDF2 instead.)~~>*/MessageDigest.getInstance(\"MD5\");\n        return md.digest(password.getBytes());\n","newFile":false}]}]}>
 

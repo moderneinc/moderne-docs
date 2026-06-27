@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Test` methods with many assertions"}
-  description={"A test with more than ~7 assertions is usually testing several behaviors at once — when one fails the others go unreported, and the failure message rarely points at the right cause. Split into focused tests, or move to `@ParameterizedTest` if the assertions are repeating with different inputs."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindTooManyAssertions$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findtoomanyassertions$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Test` methods with many assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>A test with more than ~7 assertions is usually testing several behaviors at once — when one fails the others go unreported, and the failure message rarely points at the right cause. Split into focused tests, or move to `@ParameterizedTest` if the assertions are repeating with different inputs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindTooManyAssertions$KtRecipe","displayName":"Find `@Test` methods with many assertions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find NPM secrets"}
-  description={"Locates NPM secrets stored in plain text in code."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.secrets.FindNpmSecrets"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/secrets/findnpmsecrets.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find secrets with regular expressions","href":"java/security/secrets/findsecretsbypattern"}]}>
+<RecipeHeader.Title>Find NPM secrets</RecipeHeader.Title>
+
+<RecipeHeader.Description>Locates NPM secrets stored in plain text in code.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"}]}>
 
 ## Definition
 

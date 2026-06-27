@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Spaces"}
-  description={"Format whitespace in HCL code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-hcl"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hcl.format.Spaces"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hcl/format/spaces.md"}
-/>
+>
+
+<RecipeHeader.Title>Spaces</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format whitespace in HCL code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"hcl","before":"resource \"aws_ebs_volume\" {\n  size =1\n  encrypted =true\n}\n","after":"resource \"aws_ebs_volume\" {\n  size      = 1\n  encrypted = true\n}\n","diff":"@@ -2,2 +2,2 @@\nresource \"aws_ebs_volume\" {\n- size =1\n- encrypted =true\n+ size      = 1\n+ encrypted = true\n}\n","newFile":false}]}]}>
 

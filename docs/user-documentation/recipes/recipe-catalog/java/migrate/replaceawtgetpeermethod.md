@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace AWT `getPeer()` method"}
-  description={"This recipe replaces the use of `getPeer()` method in `java.awt.*` classes. `component.getPeer() != null` is replaced with `component.isDisplayable()` and `component.getPeer() instanceof LightweightPeer` is replaced with `component.isLightweight()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.ReplaceAWTGetPeerMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/replaceawtgetpeermethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace AWT `getPeer()` method</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe replaces the use of `getPeer()` method in `java.awt.*` classes. `component.getPeer() != null` is replaced with `component.isDisplayable()` and `component.getPeer() instanceof LightweightPeer` is replaced with `component.isLightweight()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"getPeerMethodPattern","required":false,"description":"The method pattern to match and replace.","example":"java.awt.* getPeer()"},{"type":"String","name":"lightweightPeerFQCN","required":false,"description":"The fully qualified class name of the LightweightPeer interface to replace in `instanceof`.","example":"java.awt.peer.LightweightPeer"}]}>
 

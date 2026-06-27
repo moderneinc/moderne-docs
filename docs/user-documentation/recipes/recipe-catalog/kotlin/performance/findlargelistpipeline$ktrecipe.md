@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find long `List` pipelines that should use `Sequence`"}
-  description={"A pipeline with three or more chained collection operations (`map`/`filter`/`flatMap`/etc.) on a `List` materializes an intermediate collection per stage. Long pipelines on large inputs typically run faster (and allocate less) as `xs.asSequence().…toList()`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindLargeListPipeline$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findlargelistpipeline$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find long `List` pipelines that should use `Sequence`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A pipeline with three or more chained collection operations (`map`/`filter`/`flatMap`/etc.) on a `List` materializes an intermediate collection per stage. Long pipelines on large inputs typically run faster (and allocate less) as `xs.asSequence().…toList()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindLargeListPipeline$KtRecipe","displayName":"Find long `List` pipelines that should use `Sequence`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

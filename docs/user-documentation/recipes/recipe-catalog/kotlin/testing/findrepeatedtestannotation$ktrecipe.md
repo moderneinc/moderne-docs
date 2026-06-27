@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@RepeatedTest(N)` annotations"}
-  description={"`@RepeatedTest(N)` runs the same test body N times — useful for flaky-test reproduction, suspicious for asserting on randomized inputs (use `@ParameterizedTest` + `@MethodSource` for that). Each match is worth a glance at N and at what the repetition is meant to prove."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindRepeatedTestAnnotation$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findrepeatedtestannotation$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@RepeatedTest(N)` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@RepeatedTest(N)` runs the same test body N times — useful for flaky-test reproduction, suspicious for asserting on randomized inputs (use `@ParameterizedTest` + `@MethodSource` for that). Each match is worth a glance at N and at what the repetition is meant to prove.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindRepeatedTestAnnotation$KtRecipe","displayName":"Find `@RepeatedTest(N)` annotations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

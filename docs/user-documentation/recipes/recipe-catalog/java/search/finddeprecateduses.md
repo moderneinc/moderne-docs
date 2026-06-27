@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find uses of deprecated classes, methods, and fields"}
-  description={"Find deprecated uses of methods, fields, and types. Optionally ignore those classes that are inside deprecated scopes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindDeprecatedUses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/finddeprecateduses.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find uses of deprecated methods","href":"java/search/finddeprecatedmethods"},{"name":"Find uses of deprecated classes","href":"java/search/finddeprecatedclasses"},{"name":"Find uses of deprecated fields","href":"java/search/finddeprecatedfields"}]}>
+<RecipeHeader.Title>Find uses of deprecated classes, methods, and fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find deprecated uses of methods, fields, and types. Optionally ignore those classes that are inside deprecated scopes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find uses of deprecated methods","href":"/user-documentation/recipes/recipe-catalog/java/search/finddeprecatedmethods/"},{"name":"Find uses of deprecated classes","href":"/user-documentation/recipes/recipe-catalog/java/search/finddeprecatedclasses/"},{"name":"Find uses of deprecated fields","href":"/user-documentation/recipes/recipe-catalog/java/search/finddeprecatedfields/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure log profile is configured to capture all activities"}
-  description={"Ensure log profile is configured to capture all activities."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["Azure","terraform","CKV_AZURE_38"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.azure.EnsureLogProfileIsConfiguredToCaptureAllActivities"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/azure/ensurelogprofileisconfiguredtocaptureallactivities.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Ensure log profile is configured to capture all activities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure log profile is configured to capture all activities.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

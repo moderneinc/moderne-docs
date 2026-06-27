@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Environment.getProperty(...)` calls"}
-  description={"`environment.getProperty(\"foo\")` is the lowest-level Spring config API — string-typed, untyped default, no IDE completion. Promote frequently-used properties to a `@ConfigurationProperties data class` so the property name and type are encoded once."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindEnvironmentGetProperty$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findenvironmentgetproperty$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Environment.getProperty(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`environment.getProperty("foo")` is the lowest-level Spring config API — string-typed, untyped default, no IDE completion. Promote frequently-used properties to a `@ConfigurationProperties data class` so the property name and type are encoded once.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindEnvironmentGetProperty$KtRecipe","displayName":"Find `Environment.getProperty(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

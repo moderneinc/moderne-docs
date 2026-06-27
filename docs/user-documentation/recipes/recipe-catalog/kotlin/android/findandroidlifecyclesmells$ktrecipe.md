@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Android lifecycle / LiveData smells"}
-  description={"Lifecycle and observable-state patterns that leak across configuration changes or expose internal mutability: `LiveData.observe(this, ...)` inside fragments, `MutableLiveData.postValue` from main-thread contexts, public `MutableLiveData` properties, and raw `MutableLiveData` allocations."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindAndroidLifecycleSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidlifecyclesmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `LiveData.observe(this, observer)` calls inside `Fragment`","href":"kotlin/android/findlifecycleobservelivedata$ktrecipe"},{"name":"Find `MutableLiveData.postValue(...)` calls inside coroutine main-thread contexts","href":"kotlin/android/findlivedatapostvaluefrommain$ktrecipe"},{"name":"Find public `MutableLiveData` properties","href":"kotlin/android/findpublicmutablelivedataproperty$ktrecipe"},{"name":"Find `MutableLiveData` allocations","href":"kotlin/android/findmutablelivedataallocation$ktrecipe"}]}>
+<RecipeHeader.Title>Find Android lifecycle / LiveData smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Lifecycle and observable-state patterns that leak across configuration changes or expose internal mutability: `LiveData.observe(this, ...)` inside fragments, `MutableLiveData.postValue` from main-thread contexts, public `MutableLiveData` properties, and raw `MutableLiveData` allocations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `LiveData.observe(this, observer)` calls inside `Fragment`","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findlifecycleobservelivedata$ktrecipe/"},{"name":"Find `MutableLiveData.postValue(...)` calls inside coroutine main-thread contexts","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findlivedatapostvaluefrommain$ktrecipe/"},{"name":"Find public `MutableLiveData` properties","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findpublicmutablelivedataproperty$ktrecipe/"},{"name":"Find `MutableLiveData` allocations","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findmutablelivedataallocation$ktrecipe/"}]}>
 
 ## Definition
 

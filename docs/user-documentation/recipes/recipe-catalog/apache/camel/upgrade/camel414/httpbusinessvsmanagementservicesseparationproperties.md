@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update properties and yaml configurations file because of Http management vs business separation"}
-  description={"The HTTP server for standalone camel-main applications has separated management services and business services. This means that part of configurations in application.properties should be changed from camel.server.xxx to camel.management.xxx."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel414.httpBusinessVsManagementServicesSeparationProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel414/httpbusinessvsmanagementservicesseparationproperties.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Update Apache Camel configurations keys","href":"apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate"},{"name":"Update Apache Camel configurations keys","href":"apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate"},{"name":"Update Apache Camel configurations keys","href":"apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate"},{"name":"Update Apache Camel configurations keys","href":"apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate"},{"name":"Update Apache Camel configurations keys","href":"apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate"},{"name":"Update Apache Camel configurations keys","href":"apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate"},{"name":"Update Apache Camel configurations keys","href":"apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate"},{"name":"Update Apache Camel configurations keys","href":"apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate"},{"name":"Update Apache Camel configurations keys","href":"apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate"},{"name":"Update Apache Camel configurations keys","href":"apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate"}]}>
+<RecipeHeader.Title>Update properties and yaml configurations file because of Http management vs business separation</RecipeHeader.Title>
+
+<RecipeHeader.Description>The HTTP server for standalone camel-main applications has separated management services and business services. This means that part of configurations in application.properties should be changed from camel.server.xxx to camel.management.xxx.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Update Apache Camel configurations keys","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate/"},{"name":"Update Apache Camel configurations keys","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate/"},{"name":"Update Apache Camel configurations keys","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate/"},{"name":"Update Apache Camel configurations keys","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate/"},{"name":"Update Apache Camel configurations keys","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate/"},{"name":"Update Apache Camel configurations keys","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate/"},{"name":"Update Apache Camel configurations keys","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate/"},{"name":"Update Apache Camel configurations keys","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate/"},{"name":"Update Apache Camel configurations keys","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate/"},{"name":"Update Apache Camel configurations keys","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate/"}]}>
 
 ## Definition
 

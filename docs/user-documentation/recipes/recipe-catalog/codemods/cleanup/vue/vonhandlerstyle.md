@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce writing style for handlers in v-on directives"}
-  description={"Enforce writing style for handlers in v-on directives\nSee rule details for [vue/v-on-handler-style](https://eslint.vuejs.org/rules/v-on-handler-style.html)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ESLint","vue","eslint-plugin-vue"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.vue.VOnHandlerStyle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/vonhandlerstyle.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce writing style for handlers in v-on directives</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce writing style for handlers in v-on directives See rule details for [vue/v-on-handler-style](https://eslint.vuejs.org/rules/v-on-handler-style.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

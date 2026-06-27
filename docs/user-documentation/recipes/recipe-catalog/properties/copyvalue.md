@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Copy property value"}
-  description={"Copies a property value from one key to another. The existing key/value pair remains unaffected by this change. If the destination key already exists, its value will be replaced. By default, creates the destination key if it does not exist."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-properties"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.properties.CopyValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/properties/copyvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Copy property value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Copies a property value from one key to another. The existing key/value pair remains unaffected by this change. If the destination key already exists, its value will be replaced. By default, creates the destination key if it does not exist.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to copy the value from. Supports glob patterns.","example":"app.source.property"},{"type":"String","name":"oldFilePath","required":false,"description":"The file path to the properties file to copy the value from. If `null` then the value will be copied from any properties file it appears within.","example":"src/main/resources/application.properties"},{"type":"String","name":"newPropertyKey","required":true,"description":"The property key to copy the value to.","example":"app.destination.property"},{"type":"String","name":"newFilePath","required":false,"description":"The file path to the properties file to copy the value to. If `null` then the value will be copied only into the same file it was found in.","example":"src/main/resources/application.properties"},{"type":"Boolean","name":"createNewKeys","required":false,"description":"When the destination key does _not_ already exist, create it. Default is `true`."},{"type":"Boolean","name":"relaxedBinding","required":false,"description":"Whether to match the `oldPropertyKey` using [relaxed binding](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) rules. Default is `true`. Set to `false` to use exact matching."}]}>
 

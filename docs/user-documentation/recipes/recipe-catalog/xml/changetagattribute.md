@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change XML attribute"}
-  description={"Alters XML attribute value on a specified element."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.ChangeTagAttribute"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/changetagattribute.md"}
-/>
+>
+
+<RecipeHeader.Title>Change XML attribute</RecipeHeader.Title>
+
+<RecipeHeader.Description>Alters XML attribute value on a specified element.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"elementName","required":true,"description":"The name of the element whose attribute's value is to be changed. Interpreted as an XPath expression.","example":"property"},{"type":"String","name":"attributeName","required":true,"description":"The name of the attribute whose value is to be changed.","example":"name"},{"type":"String","name":"newValue","required":true,"description":"The new value to be used for key specified by `attributeName`, Set to null if you want to remove the attribute.","example":"newfoo.bar.attribute.value.string"},{"type":"String","name":"oldValue","required":false,"description":"Only change the property value if it matches the configured `oldValue`.","example":"foo.bar.attribute.value.string"},{"type":"Boolean","name":"regex","required":false,"description":"Default false. If true, `oldValue` will be interpreted as a Regular Expression, and capture group contents will be available in `newValue`."}]}>
 

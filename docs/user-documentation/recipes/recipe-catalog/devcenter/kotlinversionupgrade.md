@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move to a later Kotlin version"}
-  description={"Determine the current state of a repository relative to a desired Kotlin version upgrade."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.KotlinVersionUpgrade"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/kotlinversionupgrade.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Move to a later Kotlin version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Determine the current state of a repository relative to a desired Kotlin version upgrade.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"version","required":true,"description":"The target Kotlin version to upgrade to, in major.minor format.","example":"2.1"},{"type":"String","name":"upgradeRecipe","required":false,"description":"The recipe to use to upgrade.","example":"org.openrewrite.kotlin.migrate.UpgradeToKotlin2"}]}>
 

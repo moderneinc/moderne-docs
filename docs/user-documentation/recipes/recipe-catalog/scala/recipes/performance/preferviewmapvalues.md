@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `.view.mapValues` for Scala 2.13+"}
-  description={"Finds calls to `.mapValues` which is deprecated in Scala 2.13+ and returns a lazy view instead of a strict Map. Use `.view.mapValues(...).toMap` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.performance.PreferViewMapValues"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/performance/preferviewmapvalues.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer `.view.mapValues` for Scala 2.13+</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds calls to `.mapValues` which is deprecated in Scala 2.13+ and returns a lazy view instead of a strict Map. Use `.view.mapValues(...).toMap` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val m = Map(\"a\" -> 1, \"b\" -> 2)\n    val doubled = m.mapValues(_ * 2)\n}\n","after":"class Example {\n    val m = Map(\"a\" -> 1, \"b\" -> 2)\n    val doubled = /*~~(mapValues returns a view in Scala 2.13+; use .view.mapValues(...).toMap)~~>*/m.mapValues(_ * 2)\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    val m = Map(\"a\" -> 1, \"b\" -> 2)\n-   val doubled = m.mapValues(_ * 2)\n+   val doubled = /*~~(mapValues returns a view in Scala 2.13+; use .view.mapValues(...).toMap)~~>*/m.mapValues(_ * 2)\n}\n","newFile":false}]}]}>
 

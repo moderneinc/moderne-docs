@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate OpenSymphony classes to Struts 6.0"}
-  description={"Migrate classes from `com.opensymphony.xwork2` to their replacements in `org.apache.struts2`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate6.MigrateOpenSymphonyClasses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migrateopensymphonyclasses.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Migrate OpenSymphony classes to Struts 6.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate classes from `com.opensymphony.xwork2` to their replacements in `org.apache.struts2`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

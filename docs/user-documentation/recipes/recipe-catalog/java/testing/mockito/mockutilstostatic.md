@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use static form of Mockito `MockUtil`"}
-  description={"Best-effort attempt to remove Mockito `MockUtil` instances."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.MockUtilsToStatic"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockutilstostatic.md"}
-/>
+>
+
+<RecipeHeader.Title>Use static form of Mockito `MockUtil`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Best-effort attempt to remove Mockito `MockUtil` instances.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package mockito.example;\n\nimport org.mockito.internal.util.MockUtil;\n\npublic class MockitoMockUtils {\n    public void isMockExample() {\n        new MockUtil().isMock(\"I am a real String\");\n    }\n}\n","after":"package mockito.example;\n\nimport org.mockito.internal.util.MockUtil;\n\npublic class MockitoMockUtils {\n    public void isMockExample() {\n        MockUtil.isMock(\"I am a real String\");\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\npublic class MockitoMockUtils {\n    public void isMockExample() {\n-       new MockUtil().isMock(\"I am a real String\");\n+       MockUtil.isMock(\"I am a real String\");\n    }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use JUnit Jupiter `Executable`"}
-  description={"Migrates JUnit 4.x `ThrowingRunnable` to JUnit Jupiter `Executable`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["junit","testing"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.ThrowingRunnableToExecutable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/throwingrunnabletoexecutable.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use JUnit Jupiter `Executable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates JUnit 4.x `ThrowingRunnable` to JUnit Jupiter `Executable`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

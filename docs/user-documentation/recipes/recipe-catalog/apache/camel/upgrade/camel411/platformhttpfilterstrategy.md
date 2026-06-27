@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use PlatformHttpHeaderFilterStrategy instead of HttpHeaderFilterStrategy"}
-  description={"PlatformHttpHeaderFilterStrategy is removed, use HttpHeaderFilterStrategy instead."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel411.platformHttpFilterStrategy"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel411/platformhttpfilterstrategy.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Use PlatformHttpHeaderFilterStrategy instead of HttpHeaderFilterStrategy</RecipeHeader.Title>
+
+<RecipeHeader.Description>PlatformHttpHeaderFilterStrategy is removed, use HttpHeaderFilterStrategy instead.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

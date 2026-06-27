@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`finalize()` calls super"}
-  description={"Overrides of `Object#finalize()` should call super. Skipping the super call can prevent parent classes from releasing critical system resources during garbage collection."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1114"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ObjectFinalizeCallsSuper"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/objectfinalizecallssuper.md"}
-/>
+>
+
+<RecipeHeader.Title>`finalize()` calls super</RecipeHeader.Title>
+
+<RecipeHeader.Description>Overrides of `Object#finalize()` should call super. Skipping the super call can prevent parent classes from releasing critical system resources during garbage collection.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class F {\n    Object o = new Object();\n\n    @Override\n    protected void finalize() throws Throwable {\n        o = null;\n    }\n}\n","after":"class F {\n    Object o = new Object();\n\n    @Override\n    protected void finalize() throws Throwable {\n        o = null;\n        super.finalize();\n    }\n}\n","diff":"@@ -7,0 +7,1 @@\n    protected void finalize() throws Throwable {\n        o = null;\n+       super.finalize();\n    }\n","newFile":false}]}]}>
 

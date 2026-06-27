@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Mockito 5.x upgrade"}
-  description={"Upgrade Mockito from 1.x to 5.x."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["testing","mockito"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.Mockito1to5Migration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to5migration.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Mockito 4.x upgrade","href":"java/testing/mockito/mockito1to4migration"},{"name":"Mockito 4 to 5.x upgrade only","href":"java/testing/mockito/mockito4to5only"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Mockito 5.x upgrade</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade Mockito from 1.x to 5.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Mockito 4.x upgrade","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to4migration/"},{"name":"Mockito 4 to 5.x upgrade only","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito4to5only/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

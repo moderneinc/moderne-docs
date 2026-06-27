@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `startService(...)` calls"}
-  description={"On API 26+ background apps cannot call `startService(...)` — the system throws `IllegalStateException`. For services that must run while the app is backgrounded, call `ContextCompat.startForegroundService(context, intent)` and post a notification within five seconds. For one-shot work, use `WorkManager` instead."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindStartService$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findstartservice$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `startService(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>On API 26+ background apps cannot call `startService(...)` — the system throws `IllegalStateException`. For services that must run while the app is backgrounded, call `ContextCompat.startForegroundService(context, intent)` and post a notification within five seconds. For one-shot work, use `WorkManager` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindStartService$KtRecipe","displayName":"Find `startService(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

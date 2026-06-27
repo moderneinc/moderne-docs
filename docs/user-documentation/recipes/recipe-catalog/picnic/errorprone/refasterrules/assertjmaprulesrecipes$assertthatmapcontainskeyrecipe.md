@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJMapRules.AssertThatMapContainsKey`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatMapContainsKey<K, V> {\n    \n    @BeforeTemplate\n    AbstractAssert<?, ?> before(Map<K, V> map, K key) {\n        return Refaster.anyOf(assertThat(map.containsKey(key)).isTrue(), assertThat(map.keySet()).contains(key));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    MapAssert<K, V> after(Map<K, V> map, K key) {\n        return assertThat(map).containsKey(key);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AssertThatMapContainsKeyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapcontainskeyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJMapRules.AssertThatMapContainsKey`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatMapContainsKey<K, V> {
+    
+    @BeforeTemplate
+    AbstractAssert<?, ?> before(Map<K, V> map, K key) {
+        return Refaster.anyOf(assertThat(map.containsKey(key)).isTrue(), assertThat(map.keySet()).contains(key));
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    MapAssert<K, V> after(Map<K, V> map, K key) {
+        return assertThat(map).containsKey(key);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AssertThatMapContainsKeyRecipe","displayName":"Refaster template `AssertJMapRules.AssertThatMapContainsKey`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

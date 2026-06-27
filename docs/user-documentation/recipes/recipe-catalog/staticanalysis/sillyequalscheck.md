@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Silly equality checks should not be made"}
-  description={"Detects `.equals()` calls that compare incompatible types and will always return `false`. Replaces `.equals(null)` with `== null` and array `.equals()` with `Arrays.equals()`. Flags comparisons between unrelated types or between arrays and non-arrays."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2159"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SillyEqualsCheck"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/sillyequalscheck.md"}
-/>
+>
+
+<RecipeHeader.Title>Silly equality checks should not be made</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects `.equals()` calls that compare incompatible types and will always return `false`. Replaces `.equals(null)` with `== null` and array `.equals()` with `Arrays.equals()`. Flags comparisons between unrelated types or between arrays and non-arrays.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    boolean foo(String s) {\n        return s.equals(null);\n    }\n}\n","after":"class A {\n    boolean foo(String s) {\n        return s == null;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n    boolean foo(String s) {\n-       return s.equals(null);\n+       return s == null;\n    }\n","newFile":false}]}]}>
 

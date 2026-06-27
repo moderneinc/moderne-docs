@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Drop ``exists()`` check before ``is_dir()``/``is_file()``"}
-  description={"Drop ``path.exists()`` when it is ``and``-ed with ``is_dir()`` or ``is_file()``, which inherently return ``False`` for missing paths."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveRedundantPathExists"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantpathexists.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Drop ``exists()`` check before ``is_dir()``/``is_file()``</RecipeHeader.Title>
+
+<RecipeHeader.Description>Drop ``path.exists()`` when it is ``and``-ed with ``is_dir()`` or ``is_file()``, which inherently return ``False`` for missing paths.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveRedundantPathExists","displayName":"Drop ``exists()`` check before ``is_dir()``/``is_file()``","pipPackage":"openrewrite-static-analysis"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Control flow visualization"}
-  description={"Visualize the control flow of a Java program."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.meta:rewrite-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.controlflow.ControlFlowVisualization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/controlflow/controlflowvisualization.md"}
-/>
+>
+
+<RecipeHeader.Title>Control flow visualization</RecipeHeader.Title>
+
+<RecipeHeader.Description>Visualize the control flow of a Java program.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"boolean","name":"includeDotfile","required":true,"description":"Also output with a Dotfile which can be then later visualized by Graphviz."}]}>
 

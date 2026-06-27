@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Kotest spec classes"}
-  description={"A class extending a Kotest spec (`FunSpec`, `BehaviorSpec`, etc.) is a test entrypoint. Listing them helps a reviewer or LLM agent map a module's test surface without crawling annotations."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindKotestSpecs$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findkotestspecs$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Kotest spec classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>A class extending a Kotest spec (`FunSpec`, `BehaviorSpec`, etc.) is a test entrypoint. Listing them helps a reviewer or LLM agent map a module's test surface without crawling annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindKotestSpecs$KtRecipe","displayName":"Find Kotest spec classes","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

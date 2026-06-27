@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use stdlib accessors for size / first"}
-  description={"Replaces walk-based accessors with their O(1) property/method equivalents — `count()`/`length`/`size` and `get(0)`/`first()`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.UseStdlibAccessors$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usestdlibaccessors$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `length` instead of `String.count()`","href":"kotlin/bestpractices/uselengthforcountnopredicate$ktrecipe"},{"name":"Use `size` instead of `Collection.count()`","href":"kotlin/bestpractices/usesizeforcountnopredicate$ktrecipe"},{"name":"Use `first()` instead of `get(0)`","href":"kotlin/bestpractices/usefirstforgetzero$ktrecipe"}]}>
+<RecipeHeader.Title>Use stdlib accessors for size / first</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces walk-based accessors with their O(1) property/method equivalents — `count()`/`length`/`size` and `get(0)`/`first()`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `length` instead of `String.count()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/uselengthforcountnopredicate$ktrecipe/"},{"name":"Use `size` instead of `Collection.count()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usesizeforcountnopredicate$ktrecipe/"},{"name":"Use `first()` instead of `get(0)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usefirstforgetzero$ktrecipe/"}]}>
 
 ## Definition
 

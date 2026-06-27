@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove empty while body"}
-  description={"Remove `while (cond) { }` loops with empty bodies as they serve no purpose."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEmptyWhileBody"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeemptywhilebody.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove empty while body</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `while (cond) { }` loops with empty bodies as they serve no purpose.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEmptyWhileBody","displayName":"Remove empty while body","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

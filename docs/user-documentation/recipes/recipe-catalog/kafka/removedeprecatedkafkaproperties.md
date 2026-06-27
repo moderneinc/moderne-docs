@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove deprecated Kafka property"}
-  description={"Removes a specific Kafka property that is no longer supported in Kafka 4.0."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.RemoveDeprecatedKafkaProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/removedeprecatedkafkaproperties.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove deprecated Kafka property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes a specific Kafka property that is no longer supported in Kafka 4.0.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The Kafka property key to remove","example":"log.message.format.version"}]}>
 

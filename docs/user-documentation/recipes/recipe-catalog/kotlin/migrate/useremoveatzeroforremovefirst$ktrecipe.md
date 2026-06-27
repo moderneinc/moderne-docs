@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `removeAt(0)` instead of `removeFirst()`"}
-  description={"`MutableList.removeFirst()` was deprecated in Kotlin 2.0 because Java 21's `SequencedCollection.removeFirst()` introduced a conflicting signature with different return-on-empty semantics. Prefer `removeAt(0)` to keep the throwing behavior unambiguous."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseRemoveAtZeroForRemoveFirst$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useremoveatzeroforremovefirst$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `removeAt(0)` instead of `removeFirst()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`MutableList.removeFirst()` was deprecated in Kotlin 2.0 because Java 21's `SequencedCollection.removeFirst()` introduced a conflicting signature with different return-on-empty semantics. Prefer `removeAt(0)` to keep the throwing behavior unambiguous.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseRemoveAtZeroForRemoveFirst$KtRecipe","displayName":"Use `removeAt(0)` instead of `removeFirst()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

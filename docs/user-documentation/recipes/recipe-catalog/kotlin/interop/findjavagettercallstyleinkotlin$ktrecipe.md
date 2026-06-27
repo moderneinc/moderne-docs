@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Java-style `getX()` calls in Kotlin source"}
-  description={"Kotlin synthesizes property syntax for any Java getter that follows the `getX()`/`isX()` no-arg convention: `obj.x` reads the same value as `obj.getX()`. Writing the JVM-style call in Kotlin source obscures that — flag the call sites for migration to property access."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindJavaGetterCallStyleInKotlin$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavagettercallstyleinkotlin$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Java-style `getX()` calls in Kotlin source</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotlin synthesizes property syntax for any Java getter that follows the `getX()`/`isX()` no-arg convention: `obj.x` reads the same value as `obj.getX()`. Writing the JVM-style call in Kotlin source obscures that — flag the call sites for migration to property access.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindJavaGetterCallStyleInKotlin$KtRecipe","displayName":"Find Java-style `getX()` calls in Kotlin source","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

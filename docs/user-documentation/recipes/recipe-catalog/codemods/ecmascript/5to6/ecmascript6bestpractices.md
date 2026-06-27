@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade ECMAScript 5 to ECMAScript 6"}
-  description={"A collection of common ECMAScript 5 to ECMAScript 6 updates."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["codemods","5to6"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.ecmascript.5to6.ECMAScript6BestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/ecmascript/5to6/ecmascript6bestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace all function expressions with only `return` statement with simple arrow","href":"codemods/ecmascript/5to6/simplearrow"},{"name":"Convert `var` to `let`","href":"codemods/ecmascript/5to6/vartolet"},{"name":"Generate named exports from CommonJS modules","href":"codemods/ecmascript/5to6/namedexportgeneration"},{"name":"Remove \"use strict\" directives","href":"codemods/ecmascript/5to6/nostrict"},{"name":"Transform AMD style `define()` calls to ES6 `import` statements","href":"codemods/ecmascript/5to6/amdtoesm"},{"name":"Transform CommonJS style `require()` calls to ES6 `import` statements","href":"codemods/ecmascript/5to6/cjstoesm"}]}>
+<RecipeHeader.Title>Upgrade ECMAScript 5 to ECMAScript 6</RecipeHeader.Title>
+
+<RecipeHeader.Description>A collection of common ECMAScript 5 to ECMAScript 6 updates.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace all function expressions with only `return` statement with simple arrow","href":"/user-documentation/recipes/recipe-catalog/codemods/ecmascript/5to6/simplearrow/"},{"name":"Convert `var` to `let`","href":"/user-documentation/recipes/recipe-catalog/codemods/ecmascript/5to6/vartolet/"},{"name":"Generate named exports from CommonJS modules","href":"/user-documentation/recipes/recipe-catalog/codemods/ecmascript/5to6/namedexportgeneration/"},{"name":"Remove \"use strict\" directives","href":"/user-documentation/recipes/recipe-catalog/codemods/ecmascript/5to6/nostrict/"},{"name":"Transform AMD style `define()` calls to ES6 `import` statements","href":"/user-documentation/recipes/recipe-catalog/codemods/ecmascript/5to6/amdtoesm/"},{"name":"Transform CommonJS style `require()` calls to ES6 `import` statements","href":"/user-documentation/recipes/recipe-catalog/codemods/ecmascript/5to6/cjstoesm/"}]}>
 
 ## Definition
 

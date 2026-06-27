@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"io.quarkus.updates.minio.minio38.UpdateAll"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.minio.minio38.UpdateAll"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/minio/minio38/updateall.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"io.quarkus.updates.minio.minio38.UpdateProperties","href":"quarkus/updates/minio/minio38/updateproperties"},{"name":"Adust quarkus.minio.url property key","href":"quarkus/updates/quarkiverse/minio/minio38/adjusturlpropertyvalue"}]}>
+<RecipeHeader.Title>io.quarkus.updates.minio.minio38.UpdateAll</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"io.quarkus.updates.minio.minio38.UpdateProperties","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/minio/minio38/updateproperties/"},{"name":"Adust quarkus.minio.url property key","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/quarkiverse/minio/minio38/adjusturlpropertyvalue/"}]}>
 
 ## Definition
 

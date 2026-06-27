@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove trailing whitespace"}
-  description={"Remove any extra trailing whitespace from the end of each line."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.format.RemoveTrailingWhitespace"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/format/removetrailingwhitespace.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove trailing whitespace</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove any extra trailing whitespace from the end of each line.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n\n    public void method(Test t) {  \n    }  \n}  \n","after":"class Test {\n\n    public void method(Test t) {\n    }\n}\n","diff":"@@ -3,3 +3,3 @@\nclass Test {\n\n-   public void method(Test t) {  \n-   }  \n-}  \n+   public void method(Test t) {\n+   }\n+}\n\n","newFile":false}]}]}>
 

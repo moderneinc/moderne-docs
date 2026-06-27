@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Format Groovy code"}
-  description={"Format Groovy code using a standard comprehensive set of Groovy formatting recipes."}
   type={"Single recipe"}
   languages={["Groovy"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-groovy"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.groovy.format.AutoFormat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/groovy/format/autoformat.md"}
-/>
+>
+
+<RecipeHeader.Title>Format Groovy code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format Groovy code using a standard comprehensive set of Groovy formatting recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"/*\n * This is a sample file.\n */\n\n\n\n\npackage com.intellij.samples\n\nclass Test {\n}\n","after":"/*\n * This is a sample file.\n */\n\n\npackage com.intellij.samples\n\nclass Test {\n}\n","diff":"@@ -6,2 +6,0 @@\n\n\n-\n-\npackage com.intellij.samples\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update Maven wrapper"}
-  description={"Update the version of Maven used in an existing Maven wrapper."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.UpdateMavenWrapper"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/updatemavenwrapper.md"}
-/>
+>
+
+<RecipeHeader.Title>Update Maven wrapper</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update the version of Maven used in an existing Maven wrapper.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"wrapperVersion","required":false,"description":"An exact version number or node-style semver selector used to select the wrapper version number.","example":"3.x"},{"type":"String","name":"wrapperDistribution","required":false,"description":"The distribution of the Maven wrapper to use.\n\n* \"bin\" uses a `maven-wrapper.jar` compiled binary.\n* \"only-script\" uses a lite version of `mvnw`/`mvnw.cmd` using wget/curl or powershell. (required wrapper 3.2.0 or newer)\n* \"script\" downloads `maven-wrapper.jar` or `MavenWrapperDownloader.java` to then download a full distribution.\n* \"source\" uses `MavenWrapperDownloader.java` source file.\n\nDefaults to \"bin\"."},{"type":"String","name":"distributionVersion","required":false,"description":"An exact version number or node-style semver selector used to select the Maven version number.","example":"3.x"},{"type":"String","name":"repositoryUrl","required":false,"description":"The URL of the repository to download the Maven wrapper and distribution from. Supports repositories with a Maven layout. Defaults to `https://repo.maven.apache.org/maven2`.","example":"https://repo.maven.apache.org/maven2"},{"type":"Boolean","name":"addIfMissing","required":false,"description":"Add a Maven wrapper, if it's missing. Defaults to `true`."},{"type":"Boolean","name":"enforceWrapperChecksumVerification","required":false,"description":"Enforce checksum verification for the maven-wrapper.jar. Enabling this feature may sporadically result in build failures, such as [MWRAPPER-103](https://issues.apache.org/jira/browse/MWRAPPER-103). Defaults to `false`."}]}>
 

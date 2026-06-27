@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `DropwizardAppExtension.getApplication()` with `@Autowired` application field"}
-  description={"Replaces calls to `DropwizardAppExtension.getApplication()` with a reference to a new `@Autowired <AppType> application` field on the enclosing class. The application type is extracted from the constructor's first argument (`new DropwizardAppExtension<>(TestApp.class, ...)`); skips the rewrite if not resolvable. The application class must be a top-level class."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.test.ReplaceDropwizardApplicationWithAutowired"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/replacedropwizardapplicationwithautowired.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `DropwizardAppExtension.getApplication()` with `@Autowired` application field</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces calls to `DropwizardAppExtension.getApplication()` with a reference to a new `@Autowired <AppType> application` field on the enclosing class. The application type is extracted from the constructor's first argument (`new DropwizardAppExtension<>(TestApp.class, ...)`); skips the rewrite if not resolvable. The application class must be a top-level class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\nimport io.dropwizard.core.Application;\nimport io.dropwizard.core.Configuration;\nimport io.dropwizard.core.setup.Environment;\npublic class TestApp extends Application<Configuration> {\n    @Override public void run(Configuration c, Environment e) {}\n}\n"},"variants":[{"language":"java","before":"package com.example;\nimport io.dropwizard.core.Configuration;\nimport io.dropwizard.testing.junit5.DropwizardAppExtension;\n\nabstract class AbstractComponentTest {\n    static final DropwizardAppExtension<Configuration> DROPWIZARD =\n        new DropwizardAppExtension<>(TestApp.class, \"server.yml\");\n\n    void someTest() {\n        Object app = DROPWIZARD.getApplication();\n    }\n}\n","after":"package com.example;\nimport io.dropwizard.core.Configuration;\nimport io.dropwizard.testing.junit5.DropwizardAppExtension;\nimport org.springframework.beans.factory.annotation.Autowired;\n\nabstract class AbstractComponentTest {\n    @Autowired\n    TestApp application;\n    static final DropwizardAppExtension<Configuration> DROPWIZARD =\n        new DropwizardAppExtension<>(TestApp.class, \"server.yml\");\n\n    void someTest() {\n        Object app = application;\n    }\n}\n","diff":"@@ -4,0 +4,1 @@\nimport io.dropwizard.core.Configuration;\nimport io.dropwizard.testing.junit5.DropwizardAppExtension;\n+import org.springframework.beans.factory.annotation.Autowired;\n\n@@ -6,0 +7,2 @@\n\nabstract class AbstractComponentTest {\n+   @Autowired\n+   TestApp application;\n    static final DropwizardAppExtension<Configuration> DROPWIZARD =\n@@ -10,1 +13,1 @@\n\n    void someTest() {\n-       Object app = DROPWIZARD.getApplication();\n+       Object app = application;\n    }\n","newFile":false}]}]}>
 

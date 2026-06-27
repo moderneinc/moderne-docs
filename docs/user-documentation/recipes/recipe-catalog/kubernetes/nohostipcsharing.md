@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"No host IPC sharing"}
-  description={"Preventing sharing of host PID/IPC namespace, networking, and ports ensures proper isolation between Docker containers and the underlying host."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kubernetes"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.NoHostIPCSharing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/nohostipcsharing.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"kubernetes/addconfiguration"}]}>
+<RecipeHeader.Title>No host IPC sharing</RecipeHeader.Title>
+
+<RecipeHeader.Description>Preventing sharing of host PID/IPC namespace, networking, and ports ensures proper isolation between Docker containers and the underlying host.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/addconfiguration/"}]}>
 
 ## Definition
 

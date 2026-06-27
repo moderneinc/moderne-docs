@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Struts 7.0"}
-  description={"Migrate Struts 6.x to Struts 7.x."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate7.MigrateStruts7"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate7/migratestruts7.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Maven dependency version","href":"maven/upgradedependencyversion"},{"name":"Rename OpenSymphony / XWork classes to Struts 7 packages","href":"java/struts/migrate7/renameopensymphonytostruts2"},{"name":"Align Struts XML constants for Struts 7","href":"java/struts/migrate7/updatestruts7constants"},{"name":"Migrate to Java 17","href":"java/migrate/upgradetojava17"},{"name":"Migrate to Jakarta EE 10","href":"java/migrate/jakarta/jakartaee10"}]}>
+<RecipeHeader.Title>Migrate to Struts 7.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Struts 6.x to Struts 7.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Maven dependency version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion/"},{"name":"Rename OpenSymphony / XWork classes to Struts 7 packages","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate7/renameopensymphonytostruts2/"},{"name":"Align Struts XML constants for Struts 7","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate7/updatestruts7constants/"},{"name":"Migrate to Java 17","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava17/"},{"name":"Migrate to Jakarta EE 10","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee10/"}]}>
 
 ## Definition
 

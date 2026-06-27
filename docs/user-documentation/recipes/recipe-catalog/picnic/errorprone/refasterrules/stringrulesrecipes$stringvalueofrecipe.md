@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StringRules.StringValueOf`"}
-  description={"Prefer direct invocation of `String#valueOf(Object)` over the indirection introduced by `Objects#toString(Object)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringValueOfRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/stringrulesrecipes$stringvalueofrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StringRules.StringValueOf`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer direct invocation of `String#valueOf(Object)` over the indirection introduced by `Objects#toString(Object)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringValueOfRecipe","displayName":"Refaster template `StringRules.StringValueOf`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find exception handlers"}
-  description={"Capture @ControllerAdvice and controller-local @ExceptionHandler methods so that OpenAPI 3.0.3 specs include non-2xx response branches. Emits one row per (scope, exception type, status) triple."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindExceptionHandlers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findexceptionhandlers.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find exception handlers</RecipeHeader.Title>
+
+<RecipeHeader.Description>Capture @ControllerAdvice and controller-local @ExceptionHandler methods so that OpenAPI 3.0.3 specs include non-2xx response branches. Emits one row per (scope, exception type, status) triple.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindExceptionHandlers","displayName":"Find exception handlers","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from `@ApiModelProperty` to `@Schema`"}
-  description={"Converts the `@ApiModelProperty` annotation to `@Schema` and converts the \"value\" attribute to \"description\"."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["openapi","swagger"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.MigrateApiModelPropertyToSchema"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapimodelpropertytoschema.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change annotation attribute name","href":"java/changeannotationattributename"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Change annotation attribute name","href":"java/changeannotationattributename"},{"name":"Change annotation attribute name","href":"java/changeannotationattributename"}]}>
+<RecipeHeader.Title>Migrate from `@ApiModelProperty` to `@Schema`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts the `@ApiModelProperty` annotation to `@Schema` and converts the "value" attribute to "description".</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change annotation attribute name","href":"/user-documentation/recipes/recipe-catalog/java/changeannotationattributename/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Change annotation attribute name","href":"/user-documentation/recipes/recipe-catalog/java/changeannotationattributename/"},{"name":"Change annotation attribute name","href":"/user-documentation/recipes/recipe-catalog/java/changeannotationattributename/"}]}>
 
 ## Definition
 

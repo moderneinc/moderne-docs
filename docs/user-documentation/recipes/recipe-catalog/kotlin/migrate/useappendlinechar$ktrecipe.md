@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `appendLine(char)` instead of `appendln(char)`"}
-  description={"`Appendable.appendln(value: Char)` was deprecated in Kotlin 1.4 in favor of `appendLine(value: Char)`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseAppendLineChar$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useappendlinechar$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `appendLine(char)` instead of `appendln(char)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Appendable.appendln(value: Char)` was deprecated in Kotlin 1.4 in favor of `appendLine(value: Char)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseAppendLineChar$KtRecipe","displayName":"Use `appendLine(char)` instead of `appendln(char)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

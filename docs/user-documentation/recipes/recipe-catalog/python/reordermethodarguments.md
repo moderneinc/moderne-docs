@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Reorder method arguments"}
-  description={"Reorder arguments in method invocations matching a pattern."}
   type={"Composite recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.ReorderMethodArguments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/reordermethodarguments.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"org.openrewrite.java.ReorderMethodArguments","href":"java/reordermethodarguments"}]}>
+<RecipeHeader.Title>Reorder method arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reorder arguments in method invocations matching a pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"org.openrewrite.java.ReorderMethodArguments","href":"/user-documentation/recipes/recipe-catalog/java/reordermethodarguments/"}]}>
 
 ## Definition
 

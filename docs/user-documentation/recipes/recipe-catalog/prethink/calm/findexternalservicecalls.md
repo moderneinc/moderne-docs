@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find external service calls"}
-  description={"Identify outbound HTTP calls to external services. Detects RestTemplate, WebClient, Feign clients, MicroProfile REST Client, Apache HttpClient, OkHttp, and JAX-RS clients."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindExternalServiceCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findexternalservicecalls.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find external service calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify outbound HTTP calls to external services. Detects RestTemplate, WebClient, Feign clients, MicroProfile REST Client, Apache HttpClient, OkHttp, and JAX-RS clients.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindExternalServiceCalls","displayName":"Find external service calls","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

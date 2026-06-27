@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use new `SCryptPasswordEncoder` factory methods"}
-  description={"In Spring Security 5.8 some `SCryptPasswordEncoder` constructors have been deprecated in favor of factory methods. Refer to the [ Spring Security migration docs](https://docs.spring.io/spring-security/reference/5.8/migration/index.html#_update_scryptpasswordencoder) for more information."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security5.UpdateSCryptPasswordEncoder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security5/updatescryptpasswordencoder.md"}
-/>
+>
+
+<RecipeHeader.Title>Use new `SCryptPasswordEncoder` factory methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Security 5.8 some `SCryptPasswordEncoder` constructors have been deprecated in favor of factory methods. Refer to the [ Spring Security migration docs](https://docs.spring.io/spring-security/reference/5.8/migration/index.html#_update_scryptpasswordencoder) for more information.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;\n\nclass T {\n    void encoderWithDefaults() {\n        SCryptPasswordEncoder encoder = new SCryptPasswordEncoder();\n    }\n}\n","after":"import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;\n\nclass T {\n    void encoderWithDefaults() {\n        SCryptPasswordEncoder encoder = SCryptPasswordEncoder.defaultsForSpringSecurity_v4_1();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass T {\n    void encoderWithDefaults() {\n-       SCryptPasswordEncoder encoder = new SCryptPasswordEncoder();\n+       SCryptPasswordEncoder encoder = SCryptPasswordEncoder.defaultsForSpringSecurity_v4_1();\n    }\n","newFile":false}]}]}>
 

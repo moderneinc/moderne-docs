@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find obfuscated GitHub Actions features"}
-  description={"Find workflows that use obfuscated action references or expressions that may be attempting to hide malicious behavior. This includes action paths with `'.'`, `'..'`, empty components, or expressions that use quote manipulation to hide their true intent. Based on [zizmor's `obfuscation` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/obfuscation.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.Obfuscation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/obfuscation.md"}
-/>
+>
+
+<RecipeHeader.Title>Find obfuscated GitHub Actions features</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find workflows that use obfuscated action references or expressions that may be attempting to hide malicious behavior. This includes action paths with `'.'`, `'..'`, empty components, or expressions that use quote manipulation to hide their true intent. Based on [zizmor's `obfuscation` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/obfuscation.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Test Workflow\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout/./action@v4\n","after":"name: Test Workflow\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - ~~(Action reference contains obfuscated path components that may hide the actual action being used.)~~>uses: actions/checkout/./action@v4\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -7,1 +7,1 @@\n    runs-on: ubuntu-latest\n    steps:\n-     - uses: actions/checkout/./action@v4\n+     - ~~(Action reference contains obfuscated path components that may hide the actual action being used.)~~>uses: actions/checkout/./action@v4\n\n","newFile":false}]}]}>
 

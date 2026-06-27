@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary `filterSecurityInterceptorOncePerRequest(false)` when upgrading to Spring Security 6"}
-  description={"In Spring Security 6.0, `<http>` defaults `authorizeRequests#filterSecurityInterceptorOncePerRequest` to false. So, to complete migration, any defaults values can be removed."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security6.RemoveFilterSecurityInterceptorOncePerRequest"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/removefiltersecurityinterceptoronceperrequest.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary `filterSecurityInterceptorOncePerRequest(false)` when upgrading to Spring Security 6</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Security 6.0, `<http>` defaults `authorizeRequests#filterSecurityInterceptorOncePerRequest` to false. So, to complete migration, any defaults values can be removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.http.HttpMethod;\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\n\n@Configuration\n@EnableWebSecurity\npublic class SecurityConfig {\n    @Bean\n    SecurityFilterChain web(HttpSecurity http) throws Exception {\n        http\n            .authorizeRequests((authorize) -> authorize\n                .filterSecurityInterceptorOncePerRequest(false)\n                .requestMatchers(HttpMethod.GET, \"/static/**\")\n                .permitAll()\n            );\n        return http.build();\n    }\n}\n","after":"import org.springframework.http.HttpMethod;\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\n\n@Configuration\n@EnableWebSecurity\npublic class SecurityConfig {\n    @Bean\n    SecurityFilterChain web(HttpSecurity http) throws Exception {\n        http\n            .authorizeRequests((authorize) -> authorize\n                .requestMatchers(HttpMethod.GET, \"/static/**\")\n                .permitAll()\n            );\n        return http.build();\n    }\n}\n","diff":"@@ -15,1 +15,0 @@\n        http\n            .authorizeRequests((authorize) -> authorize\n-               .filterSecurityInterceptorOncePerRequest(false)\n                .requestMatchers(HttpMethod.GET, \"/static/**\")\n","newFile":false}]}]}>
 

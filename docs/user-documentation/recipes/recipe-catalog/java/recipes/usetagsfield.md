@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `getTags()` method with field"}
-  description={"Recipe classes that return a simple expression from `getTags()` can use a Lombok annotated field instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.UseTagsField"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/usetagsfield.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `getTags()` method with field</RecipeHeader.Title>
+
+<RecipeHeader.Description>Recipe classes that return a simple expression from `getTags()` can use a Lombok annotated field instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import lombok.Value;\nimport org.openrewrite.ExecutionContext;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.TreeVisitor;\n\nimport java.util.Set;\n\n@Value\npublic class MyRecipe extends Recipe {\n    @Override\n    public String getDisplayName() {\n        return \"My Recipe\";\n    }\n\n    @Override\n    public String getDescription() {\n        return \"My description.\";\n    }\n\n    @Override\n    public Set<String> getTags() {\n        return Set.of(\"tag1\", \"tag2\");\n    }\n\n    @Override\n    public TreeVisitor<?, ExecutionContext> getVisitor() {\n        return TreeVisitor.noop();\n    }\n}\n","after":"import lombok.Value;\nimport org.openrewrite.ExecutionContext;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.TreeVisitor;\n\nimport java.util.Set;\n\n@Value\npublic class MyRecipe extends Recipe {\n    @Override\n    public String getDisplayName() {\n        return \"My Recipe\";\n    }\n\n    @Override\n    public String getDescription() {\n        return \"My description.\";\n    }\n\n    Set<String> tags = Set.of(\"tag1\", \"tag2\");\n\n    @Override\n    public TreeVisitor<?, ExecutionContext> getVisitor() {\n        return TreeVisitor.noop();\n    }\n}\n","diff":"@@ -20,4 +20,1 @@\n    }\n\n-   @Override\n-   public Set<String> getTags() {\n-       return Set.of(\"tag1\", \"tag2\");\n-   }\n+   Set<String> tags = Set.of(\"tag1\", \"tag2\");\n\n","newFile":false}]}]}>
 

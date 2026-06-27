@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Hide utility class constructor"}
-  description={"Ensures utility classes (classes containing only static methods or fields in their API) do not have a public constructor. Instantiating a utility class is almost certainly a mistake, and a private constructor makes that intent clear while preventing misuse."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1118"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.HideUtilityClassConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/hideutilityclassconstructor.md"}
-/>
+>
+
+<RecipeHeader.Title>Hide utility class constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensures utility classes (classes containing only static methods or fields in their API) do not have a public constructor. Instantiating a utility class is almost certainly a mistake, and a private constructor makes that intent clear while preventing misuse.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n    public A() {\n    }\n\n    public static void utility() {\n    }\n}\n","after":"public class A {\n    private A() {\n    }\n\n    public static void utility() {\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\npublic class A {\n-   public A() {\n+   private A() {\n    }\n","newFile":false}]}]}>
 

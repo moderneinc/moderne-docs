@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Effective dependencies"}
-  description={"Emit the data of binary dependency relationships."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.search.EffectiveDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/search/effectivedependencies.md"}
-/>
+>
+
+<RecipeHeader.Title>Effective dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Emit the data of binary dependency relationships.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"scope","required":true,"description":"Match dependencies with the specified scope","example":"compile"}]}>
 

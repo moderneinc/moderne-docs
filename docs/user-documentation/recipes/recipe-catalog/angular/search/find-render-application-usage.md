@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `renderApplication` usage"}
-  description={"Finds usages of `renderApplication` from `@angular/platform-server`. In Angular 16 the signature changed: it no longer accepts a root component as the first argument. Use a bootstrapping function that returns `Promise<ApplicationRef>` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-render-application-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-render-application-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `renderApplication` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of `renderApplication` from `@angular/platform-server`. In Angular 16 the signature changed: it no longer accepts a root component as the first argument. Use a bootstrapping function that returns `Promise<ApplicationRef>` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-render-application-usage","displayName":"Find `renderApplication` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

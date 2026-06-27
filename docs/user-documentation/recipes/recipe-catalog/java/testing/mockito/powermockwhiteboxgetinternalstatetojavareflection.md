@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace PowerMock `Whitebox.getInternalState()` with Java reflection"}
-  description={"Replace `Whitebox.getInternalState(Object, String)` with `java.lang.reflect.Field` access, casting to the declared result type where needed. The field lookup uses `getDeclaredField` on the target object's class, which differs from PowerMock's class-hierarchy traversal for fields inherited from a superclass."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.PowerMockWhiteboxGetInternalStateToJavaReflection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxgetinternalstatetojavareflection.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace PowerMock `Whitebox.getInternalState()` with Java reflection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `Whitebox.getInternalState(Object, String)` with `java.lang.reflect.Field` access, casting to the declared result type where needed. The field lookup uses `getDeclaredField` on the target object's class, which differs from PowerMock's class-hierarchy traversal for fields inherited from a superclass.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.PowerMockWhiteboxGetInternalStateToJavaReflection","displayName":"Replace PowerMock `Whitebox.getInternalState()` with Java reflection","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

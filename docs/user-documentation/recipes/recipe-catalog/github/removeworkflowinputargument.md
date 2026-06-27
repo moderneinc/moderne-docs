@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove workflow input argument"}
-  description={"Remove a specific input argument from calls to a reusable workflow."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.RemoveWorkflowInputArgument"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/removeworkflowinputargument.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove workflow input argument</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove a specific input argument from calls to a reusable workflow.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"workflowReference","required":true,"description":"The workflow reference to match (e.g., `org/repo/.github/workflows/myWorkflow.yml`).","example":"org/repo/.github/workflows/myWorkflow.yml"},{"type":"String","name":"version","required":true,"description":"The version of the workflow to match (e.g., `v1.2.3`).","example":"v1.2.3"},{"type":"String","name":"inputArgumentName","required":true,"description":"The name of the input argument to remove.","example":"myInputToRemove"}]}>
 

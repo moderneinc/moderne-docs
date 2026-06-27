@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `SpringTestRules.BodyContentSpecJsonStrict`"}
-  description={"Prefer `BodyContentSpec#json(String, JsonCompareMode)` over the deprecated alternative."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.SpringTestRulesRecipes$BodyContentSpecJsonStrictRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/springtestrulesrecipes$bodycontentspecjsonstrictrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `SpringTestRules.BodyContentSpecJsonStrict`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `BodyContentSpec#json(String, JsonCompareMode)` over the deprecated alternative.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.SpringTestRulesRecipes$BodyContentSpecJsonStrictRecipe","displayName":"Refaster template `SpringTestRules.BodyContentSpecJsonStrict`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

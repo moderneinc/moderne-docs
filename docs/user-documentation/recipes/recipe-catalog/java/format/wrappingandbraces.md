@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Wrapping and braces"}
-  description={"Format line wraps and braces in Java code."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S121","RSPEC-S2681","RSPEC-S3972","RSPEC-S3973"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.format.WrappingAndBraces"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/format/wrappingandbraces.md"}
-/>
+>
+
+<RecipeHeader.Title>Wrapping and braces</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format line wraps and braces in Java code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.format.WrappingAndBraces","displayName":"Wrapping and braces","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":false}}>
 

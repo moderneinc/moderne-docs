@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify boolean return"}
-  description={"Simplifies Boolean expressions by removing redundancies. For example, `a && true` simplifies to `a`. Wrapping a boolean expression in an if-then-else just to return `true` or `false` adds unnecessary control flow that obscures the straightforward intent of the expression."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1126"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SimplifyBooleanReturn"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/simplifybooleanreturn.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify boolean return</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplifies Boolean expressions by removing redundancies. For example, `a && true` simplifies to `a`. Wrapping a boolean expression in an if-then-else just to return `true` or `false` adds unnecessary control flow that obscures the straightforward intent of the expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n    boolean ifNoElse() {\n        if (isOddMillis()) {\n            return true;\n        }\n        return false;\n    }\n\n    static boolean isOddMillis() {\n        boolean even = System.currentTimeMillis() % 2 == 0;\n        if (even == true) {\n            return false;\n        }\n        else {\n            return true;\n        }\n    }\n}\n","after":"public class A {\n    boolean ifNoElse() {\n        return isOddMillis();\n    }\n\n    static boolean isOddMillis() {\n        boolean even = System.currentTimeMillis() % 2 == 0;\n        return !(even == true);\n    }\n}\n","diff":"@@ -3,4 +3,1 @@\npublic class A {\n    boolean ifNoElse() {\n-       if (isOddMillis()) {\n-           return true;\n-       }\n-       return false;\n+       return isOddMillis();\n    }\n@@ -11,6 +8,1 @@\n    static boolean isOddMillis() {\n        boolean even = System.currentTimeMillis() % 2 == 0;\n-       if (even == true) {\n-           return false;\n-       }\n-       else {\n-           return true;\n-       }\n+       return !(even == true);\n    }\n","newFile":false}]}]}>
 

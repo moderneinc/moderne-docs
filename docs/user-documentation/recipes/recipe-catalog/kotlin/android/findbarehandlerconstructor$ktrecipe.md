@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Handler()` constructor calls without an explicit `Looper`"}
-  description={"The zero-arg `Handler` constructor was deprecated in API 30 because it implicitly captures the current thread's looper — a footgun when called from a background thread. Always pass an explicit `Looper`, e.g. `Handler(Looper.getMainLooper())`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindBareHandlerConstructor$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findbarehandlerconstructor$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Handler()` constructor calls without an explicit `Looper`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The zero-arg `Handler` constructor was deprecated in API 30 because it implicitly captures the current thread's looper — a footgun when called from a background thread. Always pass an explicit `Looper`, e.g. `Handler(Looper.getMainLooper())`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindBareHandlerConstructor$KtRecipe","displayName":"Find `Handler()` constructor calls without an explicit `Looper`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

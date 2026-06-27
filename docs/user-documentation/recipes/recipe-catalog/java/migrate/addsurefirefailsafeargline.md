@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `argLine` to surefire and failsafe plugins"}
-  description={"Adds the specified arguments to the `argLine` configuration of the Maven Surefire and Failsafe plugins, merging with any existing argLine value without duplicating arguments. The `@{argLine}` [late property reference](https://maven.apache.org/surefire/maven-surefire-plugin/faq.html) is prepended so that an agent injected by another plugin during the build, such as the JaCoCo coverage agent from `jacoco-maven-plugin:prepare-agent`, is preserved rather than overwritten. It is not added when the existing `argLine` already references the `argLine` property."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.AddSurefireFailsafeArgLine"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/addsurefirefailsafeargline.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `argLine` to surefire and failsafe plugins</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the specified arguments to the `argLine` configuration of the Maven Surefire and Failsafe plugins, merging with any existing argLine value without duplicating arguments. The `@{argLine}` [late property reference](https://maven.apache.org/surefire/maven-surefire-plugin/faq.html) is prepended so that an agent injected by another plugin during the build, such as the JaCoCo coverage agent from `jacoco-maven-plugin:prepare-agent`, is preserved rather than overwritten. It is not added when the existing `argLine` already references the `argLine` property.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"argLine","required":true,"description":"The arguments to add to the surefire and failsafe plugin `argLine` configuration. Individual arguments are space-separated. Arguments already present in the existing argLine are not duplicated.","example":"--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `setUseSuffixPatternMatch(true)` for pre-Spring Framework 5.3 projects"}
-  description={"Only adds `setUseSuffixPatternMatch(true)` when the project is on Spring Framework < 5.3, where suffix pattern matching was enabled by default. Projects already on 5.3+ have been running with the new default (false) and should not get this configuration added."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.AddSetUseSuffixPatternMatchIfPreSpring53"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/addsetusesuffixpatternmatchifprespring53.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add `setUseSuffixPatternMatch(true)` in Spring MVC configuration","href":"java/spring/framework/addsetusesuffixpatternmatch"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
+<RecipeHeader.Title>Add `setUseSuffixPatternMatch(true)` for pre-Spring Framework 5.3 projects</RecipeHeader.Title>
+
+<RecipeHeader.Description>Only adds `setUseSuffixPatternMatch(true)` when the project is on Spring Framework &lt; 5.3, where suffix pattern matching was enabled by default. Projects already on 5.3+ have been running with the new default (false) and should not get this configuration added.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add `setUseSuffixPatternMatch(true)` in Spring MVC configuration","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/addsetusesuffixpatternmatch/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

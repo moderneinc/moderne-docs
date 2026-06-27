@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJMapRules.AssertThatMapDoesNotContainValue`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatMapDoesNotContainValue<K, V> {\n    \n    @BeforeTemplate\n    AbstractAssert<?, ?> before(Map<K, V> map, V value) {\n        return Refaster.anyOf(assertThat(map.containsValue(value)).isFalse(), assertThat(map.values()).doesNotContain(value));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    MapAssert<K, V> after(Map<K, V> map, V value) {\n        return assertThat(map).doesNotContainValue(value);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AssertThatMapDoesNotContainValueRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapdoesnotcontainvaluerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJMapRules.AssertThatMapDoesNotContainValue`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatMapDoesNotContainValue<K, V> {
+    
+    @BeforeTemplate
+    AbstractAssert<?, ?> before(Map<K, V> map, V value) {
+        return Refaster.anyOf(assertThat(map.containsValue(value)).isFalse(), assertThat(map.values()).doesNotContain(value));
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    MapAssert<K, V> after(Map<K, V> map, V value) {
+        return assertThat(map).doesNotContainValue(value);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AssertThatMapDoesNotContainValueRecipe","displayName":"Refaster template `AssertJMapRules.AssertThatMapDoesNotContainValue`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

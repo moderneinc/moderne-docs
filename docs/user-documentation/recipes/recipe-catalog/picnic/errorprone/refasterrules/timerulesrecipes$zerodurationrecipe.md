@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TimeRules.ZeroDuration`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class ZeroDuration {\n    \n    @BeforeTemplate\n    Duration before(TemporalUnit temporalUnit) {\n        return Refaster.anyOf(Duration.ofNanos(0), Duration.ofMillis(0), Duration.ofSeconds(0), Duration.ofSeconds(0, 0), Duration.ofMinutes(0), Duration.ofHours(0), Duration.ofDays(0), Duration.of(0, temporalUnit));\n    }\n    \n    @AfterTemplate\n    Duration after() {\n        return Duration.ZERO;\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TimeRulesRecipes$ZeroDurationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/timerulesrecipes$zerodurationrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TimeRules.ZeroDuration`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class ZeroDuration {
+    
+    @BeforeTemplate
+    Duration before(TemporalUnit temporalUnit) {
+        return Refaster.anyOf(Duration.ofNanos(0), Duration.ofMillis(0), Duration.ofSeconds(0), Duration.ofSeconds(0, 0), Duration.ofMinutes(0), Duration.ofHours(0), Duration.ofDays(0), Duration.of(0, temporalUnit));
+    }
+    
+    @AfterTemplate
+    Duration after() {
+        return Duration.ZERO;
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$ZeroDurationRecipe","displayName":"Refaster template `TimeRules.ZeroDuration`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

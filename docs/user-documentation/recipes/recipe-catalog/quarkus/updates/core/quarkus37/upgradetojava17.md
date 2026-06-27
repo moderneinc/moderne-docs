@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Java 17"}
-  description={"This recipe will apply changes commonly needed when migrating to Java 17. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 17 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 17.\n"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["java17"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus37.UpgradeToJava17"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/upgradetojava17.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade `actions/setup-java` `java-version`","href":"quarkus/updates/core/quarkus37/setupjavaupgradejavaversion"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"}]}>
+<RecipeHeader.Title>Migrate to Java 17</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when migrating to Java 17. Specifically, for those applications that are built on Java 8, this recipe will update and add dependencies on J2EE libraries that are no longer directly bundled with the JDK. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy. Build files will also be updated to use Java 17 as the target/source and plugins will be also be upgraded to versions that are compatible with Java 17.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade `actions/setup-java` `java-version`","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/setupjavaupgradejavaversion/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"}]}>
 
 ## Definition
 

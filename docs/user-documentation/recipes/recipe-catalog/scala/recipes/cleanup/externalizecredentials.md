@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Externalize hardcoded credentials"}
-  description={"Finds variable declarations whose name contains credential-related keywords (password, secret, token, apikey, api_key) with a non-empty string literal initializer. Hardcoded credentials are a security risk."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.ExternalizeCredentials"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/externalizecredentials.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Externalize hardcoded credentials</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds variable declarations whose name contains credential-related keywords (password, secret, token, apikey, api_key) with a non-empty string literal initializer. Hardcoded credentials are a security risk.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Config {\n  val password = \"s3cret\"\n}\n","after":"object Config {\n  /*~~(Hardcoded credential found; use environment variables or secret management)~~>*/val password = \"s3cret\"\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Config {\n- val password = \"s3cret\"\n+ /*~~(Hardcoded credential found; use environment variables or secret management)~~>*/val password = \"s3cret\"\n}\n","newFile":false}]}]}>
 

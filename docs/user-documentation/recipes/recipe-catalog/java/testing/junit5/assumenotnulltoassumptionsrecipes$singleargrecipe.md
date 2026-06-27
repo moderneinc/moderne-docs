@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Transform singlar `assumeNotNull(object)` to `assumeFalse(object == null)`"}
-  description={"Transform singlar `Assume.assumeNotNull(object)` to `Assumptions.assumeFalse(object == null)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.AssumeNotNullToAssumptionsRecipes$SingleArgRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/assumenotnulltoassumptionsrecipes$singleargrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Transform singlar `assumeNotNull(object)` to `assumeFalse(object == null)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transform singlar `Assume.assumeNotNull(object)` to `Assumptions.assumeFalse(object == null)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.AssumeNotNullToAssumptionsRecipes$SingleArgRecipe","displayName":"Transform singlar `assumeNotNull(object)` to `assumeFalse(object == null)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

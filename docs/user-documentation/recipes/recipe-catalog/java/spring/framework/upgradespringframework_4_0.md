@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Framework 4.0"}
-  description={"Migrate applications to the latest Spring Framework 4.0 release. This composite focuses on dependency upgrades and the mechanical package moves that accompanied the 3.x to 4.0 transition. Removed APIs that do not have a 1:1 replacement (for example `JpaTemplate`, the `AbstractCommandController` family, Hibernate 3 support classes) still require code changes that this recipe does not perform."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.UpgradeSpringFramework_4_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_4_0.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Framework 3.x","href":"java/spring/framework/upgradespringframework_3_0"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Framework 4.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Framework 4.0 release. This composite focuses on dependency upgrades and the mechanical package moves that accompanied the 3.x to 4.0 transition. Removed APIs that do not have a 1:1 replacement (for example `JpaTemplate`, the `AbstractCommandController` family, Hibernate 3 support classes) still require code changes that this recipe does not perform.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Framework 3.x","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_3_0/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

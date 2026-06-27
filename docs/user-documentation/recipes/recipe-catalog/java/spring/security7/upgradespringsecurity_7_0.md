@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Security 7.0"}
-  description={"Migrate applications to the latest Spring Security 7.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","security"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security7.UpgradeSpringSecurity_7_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security7/upgradespringsecurity_7_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Remove throws exception in `SecurityConfigurer` methods `init` and `configure`","href":"java/spring/security7/securityconfigurerremovethrowsexception"},{"name":"Change method name","href":"java/changemethodname"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Security 7.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Security 7.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Remove throws exception in `SecurityConfigurer` methods `init` and `configure`","href":"/user-documentation/recipes/recipe-catalog/java/spring/security7/securityconfigurerremovethrowsexception/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

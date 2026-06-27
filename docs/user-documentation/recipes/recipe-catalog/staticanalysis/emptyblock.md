@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove empty blocks"}
-  description={"Remove empty blocks that effectively do nothing. Empty blocks are ambiguous -- they may indicate incomplete implementation or accidentally deleted code -- and removing them makes the intent of the surrounding code explicit."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S108"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.EmptyBlock"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/emptyblock.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove empty blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove empty blocks that effectively do nothing. Empty blocks are ambiguous -- they may indicate incomplete implementation or accidentally deleted code -- and removing them makes the intent of the surrounding code explicit.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n    {\n        int i = 0;\n        switch(i) {\n        }\n    }\n}\n","after":"public class A {\n    {\n        int i = 0;\n    }\n}\n","diff":"@@ -4,2 +4,0 @@\n    {\n        int i = 0;\n-       switch(i) {\n-       }\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `object Utils { fun foo() = ... }` static-utility holders"}
-  description={"An `object Utils` whose members are all functions (no state) is the Kotlin spelling of a Java static-utility class. Promote the functions to top-level — they're indexable, importable directly, and don't carry the synthetic singleton-load overhead Java callers see."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindStaticUtilObject$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findstaticutilobject$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `object Utils { fun foo() = ... }` static-utility holders</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `object Utils` whose members are all functions (no state) is the Kotlin spelling of a Java static-utility class. Promote the functions to top-level — they're indexable, importable directly, and don't carry the synthetic singleton-load overhead Java callers see.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindStaticUtilObject$KtRecipe","displayName":"Find `object Utils { fun foo() = ... }` static-utility holders","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `Thread.resume()`, `Thread.stop()`, and `Thread.suspend()` with `throw new UnsupportedOperationException()`"}
-  description={"`Thread.resume()`, `Thread.stop()`, and `Thread.suspend()` always throws a `new UnsupportedOperationException` in Java 21+. This recipe makes that explicit, as the migration is more complicated. See https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/doc-files/threadPrimitiveDeprecation.html ."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.ThreadStopUnsupported"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/threadstopunsupported.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `Thread.resume()`, `Thread.stop()`, and `Thread.suspend()` with `throw new UnsupportedOperationException()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Thread.resume()`, `Thread.stop()`, and `Thread.suspend()` always throws a `new UnsupportedOperationException` in Java 21+. This recipe makes that explicit, as the migration is more complicated. See https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/doc-files/threadPrimitiveDeprecation.html .</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Foo {\n    void bar() {\n        Thread.currentThread().stop();\n    }\n}\n","after":"class Foo {\n    void bar() {\n        /*\n         * `Thread.stop()` always throws a `new UnsupportedOperationException()` in Java 21+.\n         * For detailed migration instructions see the migration guide available at\n         * https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/doc-files/threadPrimitiveDeprecation.html\n         */\n        Thread.currentThread().stop();\n    }\n}\n","diff":"@@ -3,0 +3,5 @@\nclass Foo {\n    void bar() {\n+       /*\n+        * `Thread.stop()` always throws a `new UnsupportedOperationException()` in Java 21+.\n+        * For detailed migration instructions see the migration guide available at\n+        * https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/doc-files/threadPrimitiveDeprecation.html\n+        */\n        Thread.currentThread().stop();\n","newFile":false}]}]}>
 

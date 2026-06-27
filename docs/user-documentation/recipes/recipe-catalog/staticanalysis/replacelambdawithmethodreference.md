@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use method references in lambda"}
-  description={"Replaces the single statement lambdas `o -> o instanceOf X`, `o -> (A) o`, `o -> System.out.println(o)`, `o -> o != null`, `o -> o == null` with the equivalent method reference. Method references are often more concise and readable than their lambda equivalents, making the code's intent clearer at a glance."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1612"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceLambdaWithMethodReference"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replacelambdawithmethodreference.md"}
-/>
+>
+
+<RecipeHeader.Title>Use method references in lambda</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces the single statement lambdas `o -> o instanceOf X`, `o -> (A) o`, `o -> System.out.println(o)`, `o -> o != null`, `o -> o == null` with the equivalent method reference. Method references are often more concise and readable than their lambda equivalents, making the code's intent clearer at a glance.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.function.Function;\nclass Test {\n\n    ChangeListener listener = (o, oldVal, newVal) -> {\n        onChange(o, oldVal, newVal);\n    };\n\n    protected void onChange(ObservableValue<?> o, Object oldVal, Object newVal) {\n        String strVal = newVal.toString();\n        System.out.println(strVal);\n    }\n\n    interface ObservableValue<T> {\n    }\n\n    @FunctionalInterface\n    interface ChangeListener<T> {\n        void changed(ObservableValue<? extends T> observable, T oldValue, T newValue);\n    }\n}\n","after":"import java.util.function.Function;\nclass Test {\n\n    ChangeListener listener = this::onChange;\n\n    protected void onChange(ObservableValue<?> o, Object oldVal, Object newVal) {\n        String strVal = newVal.toString();\n        System.out.println(strVal);\n    }\n\n    interface ObservableValue<T> {\n    }\n\n    @FunctionalInterface\n    interface ChangeListener<T> {\n        void changed(ObservableValue<? extends T> observable, T oldValue, T newValue);\n    }\n}\n","diff":"@@ -4,3 +4,1 @@\nclass Test {\n\n-   ChangeListener listener = (o, oldVal, newVal) -> {\n-       onChange(o, oldVal, newVal);\n-   };\n+   ChangeListener listener = this::onChange;\n\n","newFile":false}]},{"unchanged":{"language":"kotlin","code":"interface Pet {\n    fun move() {\n    }\n}\n\nclass Cat : Pet {\n    override fun move() {\n        println(\"Cat is moving\")\n    }\n}\n\nclass Dog : Pet {\n    override fun move() {\n        println(\"Dog is moving\")\n    }\n}\n"},"variants":[{"language":"kotlin","before":"fun main() {\n    val pets = listOf(Cat(), Dog())\n    pets.forEach { it.move() }\n}\n","after":"fun main() {\n    val pets = listOf(Cat(), Dog())\n    pets.forEach ( Pet::move )\n}\n","diff":"@@ -3,1 +3,1 @@\nfun main() {\n    val pets = listOf(Cat(), Dog())\n-   pets.forEach { it.move() }\n+   pets.forEach ( Pet::move )\n}\n","newFile":false}]}]}>
 

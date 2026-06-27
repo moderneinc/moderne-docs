@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify unnecessary `MediaType.parseMediaType()` and `MediaType.valueOf()` calls"}
-  description={"Replaces `MediaType.parseMediaType(\"application/json\")` and `MediaType.valueOf(\"application/json\")` with `MediaType.APPLICATION_JSON`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.http.SimplifyMediaTypeParseCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/http/simplifymediatypeparsecalls.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify unnecessary `MediaType.parseMediaType()` and `MediaType.valueOf()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `MediaType.parseMediaType("application/json")` and `MediaType.valueOf("application/json")` with `MediaType.APPLICATION_JSON`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.http.SimplifyMediaTypeParseCalls","displayName":"Simplify unnecessary `MediaType.parseMediaType()` and `MediaType.valueOf()` calls","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use switch cases refinement when possible"}
-  description={"Use guarded switch case labels and guards if all the statements in the switch block do if/else if/else on the guarded label."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.RefineSwitchCases"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/refineswitchcases.md"}
-/>
+>
+
+<RecipeHeader.Title>Use switch cases refinement when possible</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use guarded switch case labels and guards if all the statements in the switch block do if/else if/else on the guarded label.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    static void score(Object obj) {\n        switch (obj) {\n            case null -> System.out.println(\"You did not enter the test yet\");\n            case Integer i -> {\n                if (i >= 5 && i <= 10)\n                    System.out.println(\"You got it\");\n                else if (i >= 0 && i < 5)\n                    System.out.println(\"Shame\");\n                else\n                    System.out.println(\"Sorry?\");\n            }\n            case String s -> {\n                if (s.equalsIgnoreCase(\"YES\"))\n                    System.out.println(\"You got it\");\n                else if (\"NO\".equalsIgnoreCase(s))\n                    System.out.println(\"Shame\");\n                else\n                    System.out.println(\"Sorry?\");\n            }\n            default -> {\n                // Comment retained\n            }\n        }\n    }\n}\n","after":"class Test {\n    static void score(Object obj) {\n        switch (obj) {\n            case null -> System.out.println(\"You did not enter the test yet\");\n            case Integer i when i >= 5 && i <= 10 ->\n                System.out.println(\"You got it\");\n            case Integer i when i >= 0 && i < 5 ->\n                System.out.println(\"Shame\");\n            case Integer i ->\n                System.out.println(\"Sorry?\");\n            case String s when s.equalsIgnoreCase(\"YES\") ->\n                System.out.println(\"You got it\");\n            case String s when \"NO\".equalsIgnoreCase(s) ->\n                System.out.println(\"Shame\");\n            case String s ->\n                System.out.println(\"Sorry?\");\n            default -> {\n                // Comment retained\n            }\n        }\n    }\n}\n","diff":"@@ -5,16 +5,12 @@\n        switch (obj) {\n            case null -> System.out.println(\"You did not enter the test yet\");\n-           case Integer i -> {\n-               if (i >= 5 && i <= 10)\n-                   System.out.println(\"You got it\");\n-               else if (i >= 0 && i < 5)\n-                   System.out.println(\"Shame\");\n-               else\n-                   System.out.println(\"Sorry?\");\n-           }\n-           case String s -> {\n-               if (s.equalsIgnoreCase(\"YES\"))\n-                   System.out.println(\"You got it\");\n-               else if (\"NO\".equalsIgnoreCase(s))\n-                   System.out.println(\"Shame\");\n-               else\n-                   System.out.println(\"Sorry?\");\n-           }\n+           case Integer i when i >= 5 && i <= 10 ->\n+               System.out.println(\"You got it\");\n+           case Integer i when i >= 0 && i < 5 ->\n+               System.out.println(\"Shame\");\n+           case Integer i ->\n+               System.out.println(\"Sorry?\");\n+           case String s when s.equalsIgnoreCase(\"YES\") ->\n+               System.out.println(\"You got it\");\n+           case String s when \"NO\".equalsIgnoreCase(s) ->\n+               System.out.println(\"Shame\");\n+           case String s ->\n+               System.out.println(\"Sorry?\");\n            default -> {\n","newFile":false}]}]}>
 

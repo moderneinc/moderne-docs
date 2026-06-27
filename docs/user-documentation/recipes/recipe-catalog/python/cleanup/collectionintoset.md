@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer set literals in `in` membership tests"}
-  description={"When a list or tuple of literals appears on the right side of an `in` test, convert it to a set literal for constant-time lookup."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.CollectionIntoSet"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/collectionintoset.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer set literals in `in` membership tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>When a list or tuple of literals appears on the right side of an `in` test, convert it to a set literal for constant-time lookup.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.CollectionIntoSet","displayName":"Prefer set literals in `in` membership tests","pipPackage":"openrewrite-static-analysis"}}>
 

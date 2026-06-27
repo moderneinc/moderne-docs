@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Declare each type in separate file"}
-  description={"Flag files containing multiple top-level type declarations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.DeclareEachTypeSeparately"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/declareeachtypeseparately.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Declare each type in separate file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flag files containing multiple top-level type declarations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.DeclareEachTypeSeparately","displayName":"Declare each type in separate file","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

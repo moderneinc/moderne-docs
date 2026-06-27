@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `filter` then `size` with `count`"}
-  description={"Replaces `.filter(f).size` or `.filter(f).length` chains with `.count(f)` to avoid creating an unnecessary intermediate collection."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.performance.UseCount"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/performance/usecount.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `filter` then `size` with `count`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `.filter(f).size` or `.filter(f).length` chains with `.count(f)` to avoid creating an unnecessary intermediate collection.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val list = List(\"a\", \"bb\", \"ccc\")\n    val count = list.filter(s => s.length > 1).size\n}\n","after":"class Example {\n    val list = List(\"a\", \"bb\", \"ccc\")\n    val count = list.count(s => s.length > 1)\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    val list = List(\"a\", \"bb\", \"ccc\")\n-   val count = list.filter(s => s.length > 1).size\n+   val count = list.count(s => s.length > 1)\n}\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove JavaEE dependencies"}
-  description={"Remove JavaEE dependencies from the project."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.migrate.javaee.RemoveJavaEEDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/removejavaeedependencies.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"}]}>
+<RecipeHeader.Title>Remove JavaEE dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove JavaEE dependencies from the project.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"}]}>
 
 ## Definition
 

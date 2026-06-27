@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `getDisplayName()` and `getDescription()` methods with fields"}
-  description={"Recipe classes that return a simple string literal (or concatenation of string literals) from `getDisplayName()` or `getDescription()` can use Lombok annotated fields instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.UseDisplayNameAndDescriptionFields"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/usedisplaynameanddescriptionfields.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `getDisplayName()` and `getDescription()` methods with fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>Recipe classes that return a simple string literal (or concatenation of string literals) from `getDisplayName()` or `getDescription()` can use Lombok annotated fields instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import lombok.Value;\nimport org.openrewrite.ExecutionContext;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.TreeVisitor;\n\n@Value\npublic class MyRecipe extends Recipe {\n    @Override\n    public String getDisplayName() {\n        return \"My Recipe\";\n    }\n\n    @Override\n    public String getDescription() {\n        return \"My description.\";\n    }\n\n    @Override\n    public TreeVisitor<?, ExecutionContext> getVisitor() {\n        return TreeVisitor.noop();\n    }\n}\n","after":"import lombok.Value;\nimport org.openrewrite.ExecutionContext;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.TreeVisitor;\n\n@Value\npublic class MyRecipe extends Recipe {\n    String displayName = \"My Recipe\";\n\n    String description = \"My description.\";\n\n    @Override\n    public TreeVisitor<?, ExecutionContext> getVisitor() {\n        return TreeVisitor.noop();\n    }\n}\n","diff":"@@ -8,4 +8,1 @@\n@Value\npublic class MyRecipe extends Recipe {\n-   @Override\n-   public String getDisplayName() {\n-       return \"My Recipe\";\n-   }\n+   String displayName = \"My Recipe\";\n\n@@ -13,4 +10,1 @@\n    }\n\n-   @Override\n-   public String getDescription() {\n-       return \"My description.\";\n-   }\n+   String description = \"My description.\";\n\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Suggest using toBe() for primitive literals"}
-  description={"Suggest using toBe() for primitive literals\nSee rule details for [jest/prefer-to-be](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-to-be.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ESLint","eslint-plugin-jest","Jest"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.jest.PreferToBe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/prefertobe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Suggest using toBe() for primitive literals</RecipeHeader.Title>
+
+<RecipeHeader.Description>Suggest using toBe() for primitive literals See rule details for [jest/prefer-to-be](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-to-be.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

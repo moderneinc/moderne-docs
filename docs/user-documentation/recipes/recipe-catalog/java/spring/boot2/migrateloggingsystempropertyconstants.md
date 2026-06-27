@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to recommended constants in `LogbackLoggingSystemProperties` from deprecated values in `LoggingSystemProperties`"}
-  description={"Replaces field and static access of deprecated fields in `LoggingSystemProperties` with the recommendations from `LogbackLoggingSystemProperties`. Deprecated in 2.4.x and removed in 2.6.0."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateLoggingSystemPropertyConstants"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateloggingsystempropertyconstants.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate to recommended constants in `LogbackLoggingSystemProperties` from deprecated values in `LoggingSystemProperties`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces field and static access of deprecated fields in `LoggingSystemProperties` with the recommendations from `LogbackLoggingSystemProperties`. Deprecated in 2.4.x and removed in 2.6.0.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.test;\n\nimport org.springframework.boot.logging.LoggingSystemProperties;\n\nclass Test {\n    void method() {\n        String valueA = LoggingSystemProperties.FILE_CLEAN_HISTORY_ON_START;\n        String valueB = LoggingSystemProperties.FILE_MAX_HISTORY;\n        String valueC = LoggingSystemProperties.FILE_MAX_SIZE;\n        String valueD = LoggingSystemProperties.FILE_TOTAL_SIZE_CAP;\n        String valueE = LoggingSystemProperties.ROLLING_FILE_NAME_PATTERN;\n    }\n}\n","after":"package org.test;\n\nimport org.springframework.boot.logging.logback.LogbackLoggingSystemProperties;\n\nclass Test {\n    void method() {\n        String valueA = LogbackLoggingSystemProperties.ROLLINGPOLICY_CLEAN_HISTORY_ON_START;\n        String valueB = LogbackLoggingSystemProperties.ROLLINGPOLICY_MAX_HISTORY;\n        String valueC = LogbackLoggingSystemProperties.ROLLINGPOLICY_MAX_FILE_SIZE;\n        String valueD = LogbackLoggingSystemProperties.ROLLINGPOLICY_TOTAL_SIZE_CAP;\n        String valueE = LogbackLoggingSystemProperties.ROLLINGPOLICY_FILE_NAME_PATTERN;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\npackage org.test;\n\n-import org.springframework.boot.logging.LoggingSystemProperties;\n+import org.springframework.boot.logging.logback.LogbackLoggingSystemProperties;\n\n@@ -7,5 +7,5 @@\nclass Test {\n    void method() {\n-       String valueA = LoggingSystemProperties.FILE_CLEAN_HISTORY_ON_START;\n-       String valueB = LoggingSystemProperties.FILE_MAX_HISTORY;\n-       String valueC = LoggingSystemProperties.FILE_MAX_SIZE;\n-       String valueD = LoggingSystemProperties.FILE_TOTAL_SIZE_CAP;\n-       String valueE = LoggingSystemProperties.ROLLING_FILE_NAME_PATTERN;\n+       String valueA = LogbackLoggingSystemProperties.ROLLINGPOLICY_CLEAN_HISTORY_ON_START;\n+       String valueB = LogbackLoggingSystemProperties.ROLLINGPOLICY_MAX_HISTORY;\n+       String valueC = LogbackLoggingSystemProperties.ROLLINGPOLICY_MAX_FILE_SIZE;\n+       String valueD = LogbackLoggingSystemProperties.ROLLINGPOLICY_TOTAL_SIZE_CAP;\n+       String valueE = LogbackLoggingSystemProperties.ROLLINGPOLICY_FILE_NAME_PATTERN;\n    }\n","newFile":false}]}]}>
 

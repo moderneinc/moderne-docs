@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Renamed streamCaching to streamCache on the route"}
-  description={"Renamed streamCaching to streamCache on the route."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel46.yamStreamCaching"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel46/yamstreamcaching.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change property key","href":"yaml/changepropertykey"}]}>
+<RecipeHeader.Title>Renamed streamCaching to streamCache on the route</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renamed streamCaching to streamCache on the route.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/yaml/changepropertykey/"}]}>
 
 ## Definition
 

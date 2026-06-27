@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (x == null) throw IllegalArgumentException(...)` patterns"}
-  description={"Kotlin's `requireNotNull(x) { \"…\" }` is the idiomatic precondition check: it throws `IllegalArgumentException` when `x` is null, smart-casts `x` to its non-nullable type after the call, and reads as the assertion it is. The `if/throw` form does the same thing without the smart-cast."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindUseRequireForPrecondition$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/finduserequireforprecondition$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (x == null) throw IllegalArgumentException(...)` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotlin's `requireNotNull(x) { "…" }` is the idiomatic precondition check: it throws `IllegalArgumentException` when `x` is null, smart-casts `x` to its non-nullable type after the call, and reads as the assertion it is. The `if/throw` form does the same thing without the smart-cast.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindUseRequireForPrecondition$KtRecipe","displayName":"Find `if (x == null) throw IllegalArgumentException(...)` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

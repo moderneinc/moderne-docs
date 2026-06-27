@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upper case literal suffixes"}
-  description={"Using upper case literal suffixes for declaring literals is less ambiguous, e.g., `1l` versus `1L`. A lowercase `l` is easily mistaken for the digit `1` in many fonts, which can lead to incorrect assumptions about the value."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S818"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UpperCaseLiteralSuffixes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/uppercaseliteralsuffixes.md"}
-/>
+>
+
+<RecipeHeader.Title>Upper case literal suffixes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using upper case literal suffixes for declaring literals is less ambiguous, e.g., `1l` versus `1L`. A lowercase `l` is easily mistaken for the digit `1` in many fonts, which can lead to incorrect assumptions about the value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    long lp = 1l;\n    Long l = 100l;\n    Double d = 100.0d;\n    Float f = 100f;\n    Integer i = 0;\n    Long l2 = 0x100000000l;\n    String s = \"hello\";\n}\n","after":"class Test {\n    long lp = 1L;\n    Long l = 100L;\n    Double d = 100.0D;\n    Float f = 100F;\n    Integer i = 0;\n    Long l2 = 0x100000000L;\n    String s = \"hello\";\n}\n","diff":"@@ -2,4 +2,4 @@\nclass Test {\n-   long lp = 1l;\n-   Long l = 100l;\n-   Double d = 100.0d;\n-   Float f = 100f;\n+   long lp = 1L;\n+   Long l = 100L;\n+   Double d = 100.0D;\n+   Float f = 100F;\n    Integer i = 0;\n@@ -7,1 +7,1 @@\n    Float f = 100f;\n    Integer i = 0;\n-   Long l2 = 0x100000000l;\n+   Long l2 = 0x100000000L;\n    String s = \"hello\";\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `InputStreamRules.InputStreamReadNBytes`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class InputStreamReadNBytes {\n    \n    @BeforeTemplate\n    byte[] before(InputStream in, int n) throws IOException {\n        return ByteStreams.limit(in, n).readAllBytes();\n    }\n    \n    @AfterTemplate\n    byte[] after(InputStream in, int n) throws IOException {\n        return in.readNBytes(n);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.InputStreamRulesRecipes$InputStreamReadNBytesRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/inputstreamrulesrecipes$inputstreamreadnbytesrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `InputStreamRules.InputStreamReadNBytes`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class InputStreamReadNBytes {
+    
+    @BeforeTemplate
+    byte[] before(InputStream in, int n) throws IOException {
+        return ByteStreams.limit(in, n).readAllBytes();
+    }
+    
+    @AfterTemplate
+    byte[] after(InputStream in, int n) throws IOException {
+        return in.readNBytes(n);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.InputStreamRulesRecipes$InputStreamReadNBytesRecipe","displayName":"Refaster template `InputStreamRules.InputStreamReadNBytes`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

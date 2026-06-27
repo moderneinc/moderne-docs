@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add explicit JAXB API dependencies and remove runtimes"}
-  description={"This recipe will add explicit API dependencies without runtime dependencies for Jakarta EE 8 when a Java 8 application is using JAXB. Any existing API dependencies will be upgraded to the latest version of Jakarta EE 8. The artifacts are moved to Jakarta EE 8 version 2.x which allows for the continued use of the `javax.xml.bind` namespace. All JAXB runtime implementation dependencies are removed."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jaxb","javax","java11","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.AddJaxbDependenciesWithoutRuntime"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbdependencieswithoutruntime.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add explicit JAXB API dependencies","href":"java/migrate/javax/addjaxbapidependencies"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove Maven managed dependency","href":"maven/removemanageddependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove Maven managed dependency","href":"maven/removemanageddependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Add explicit JAXB API dependencies and remove runtimes</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will add explicit API dependencies without runtime dependencies for Jakarta EE 8 when a Java 8 application is using JAXB. Any existing API dependencies will be upgraded to the latest version of Jakarta EE 8. The artifacts are moved to Jakarta EE 8 version 2.x which allows for the continued use of the `javax.xml.bind` namespace. All JAXB runtime implementation dependencies are removed.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add explicit JAXB API dependencies","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbapidependencies/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove Maven managed dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removemanageddependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove Maven managed dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removemanageddependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

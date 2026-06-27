@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Reorder method arguments"}
-  description={"Reorder method arguments into the specified order."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.ReorderMethodArguments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/reordermethodarguments.md"}
-/>
+>
+
+<RecipeHeader.Title>Reorder method arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reorder method arguments into the specified order.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A [method pattern](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results.","example":"com.yourorg.A foo(String, Integer, Integer)"},{"type":"String[]","name":"newParameterNames","required":true,"description":"An array of parameter names that indicates the new order in which those arguments should be arranged.","example":"[foo, bar, baz]"},{"type":"String[]","name":"oldParameterNames","required":false,"description":"If the original method signature is not type-attributed, this is an optional list that indicates the original order in which the arguments were arranged.","example":"[baz, bar, foo]"},{"type":"Boolean","name":"ignoreDefinition","required":false,"description":"When set to `true` the definition of the old type will be left untouched. This is useful when you're replacing usage of a class but don't want to rename it."},{"type":"Boolean","name":"matchOverrides","required":false,"description":"When enabled, find methods that are overrides of the method pattern."}]}>
 

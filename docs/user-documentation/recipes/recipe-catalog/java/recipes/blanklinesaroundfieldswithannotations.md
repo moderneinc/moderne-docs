@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add a blank line around fields with annotations"}
-  description={"Fields with annotations should have a blank line before them to clearly separate them from the field above. If another field follows, it should also have a blank line after so that the field with the annotation has space on either side of it, visually distinguishing it from its neighbors."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.BlankLinesAroundFieldsWithAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/blanklinesaroundfieldswithannotations.md"}
-/>
+>
+
+<RecipeHeader.Title>Add a blank line around fields with annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Fields with annotations should have a blank line before them to clearly separate them from the field above. If another field follows, it should also have a blank line after so that the field with the annotation has space on either side of it, visually distinguishing it from its neighbors.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    @Deprecated\n    int a;\n    int b;\n    @Deprecated\n    int c;\n    int d;\n}\n","after":"class Test {\n    @Deprecated\n    int a;\n\n    int b;\n\n    @Deprecated\n    int c;\n\n    int d;\n}\n","diff":"@@ -4,0 +4,1 @@\n    @Deprecated\n    int a;\n+\n    int b;\n@@ -5,0 +6,1 @@\n    int a;\n    int b;\n+\n    @Deprecated\n@@ -7,0 +9,1 @@\n    @Deprecated\n    int c;\n+\n    int d;\n","newFile":false}]}]}>
 

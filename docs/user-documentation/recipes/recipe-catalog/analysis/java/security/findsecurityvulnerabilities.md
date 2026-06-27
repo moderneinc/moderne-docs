@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find security vulnerabilities using taint analysis"}
-  description={"Identifies potential security vulnerabilities where untrusted data from sources flows to sensitive sinks without proper sanitization."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.security.FindSecurityVulnerabilities"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/security/findsecurityvulnerabilities.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find SQL injection vulnerabilities","href":"analysis/java/security/findsqlinjection"},{"name":"Find XSS vulnerabilities","href":"analysis/java/security/findxssvulnerability"},{"name":"Find path traversal vulnerabilities","href":"analysis/java/security/findpathtraversal"},{"name":"Find XXE vulnerabilities","href":"analysis/java/security/findxxevulnerability"},{"name":"Find LDAP injection vulnerabilities","href":"analysis/java/security/findldapinjection"},{"name":"Find unencrypted PII storage","href":"analysis/java/security/findunencryptedpiistorage"},{"name":"Find log injection vulnerabilities","href":"analysis/java/security/findloginjection"}]}>
+<RecipeHeader.Title>Find security vulnerabilities using taint analysis</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identifies potential security vulnerabilities where untrusted data from sources flows to sensitive sinks without proper sanitization.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find SQL injection vulnerabilities","href":"/user-documentation/recipes/recipe-catalog/analysis/java/security/findsqlinjection/"},{"name":"Find XSS vulnerabilities","href":"/user-documentation/recipes/recipe-catalog/analysis/java/security/findxssvulnerability/"},{"name":"Find path traversal vulnerabilities","href":"/user-documentation/recipes/recipe-catalog/analysis/java/security/findpathtraversal/"},{"name":"Find XXE vulnerabilities","href":"/user-documentation/recipes/recipe-catalog/analysis/java/security/findxxevulnerability/"},{"name":"Find LDAP injection vulnerabilities","href":"/user-documentation/recipes/recipe-catalog/analysis/java/security/findldapinjection/"},{"name":"Find unencrypted PII storage","href":"/user-documentation/recipes/recipe-catalog/analysis/java/security/findunencryptedpiistorage/"},{"name":"Find log injection vulnerabilities","href":"/user-documentation/recipes/recipe-catalog/analysis/java/security/findloginjection/"}]}>
 
 ## Definition
 

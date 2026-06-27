@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Python dependency insight"}
-  description={"Find direct and transitive Python dependencies matching a package name pattern. Results include dependencies that either directly match or transitively include a matching dependency."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.search.DependencyInsight"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/search/dependencyinsight.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Python dependency insight</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find direct and transitive Python dependencies matching a package name pattern. Results include dependencies that either directly match or transitively include a matching dependency.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageNamePattern","required":true,"description":"A glob pattern to match Python package names (PEP 503 normalized). Use `*` as a wildcard.","example":"requests*"},{"type":"String","name":"scope","required":false,"description":"Match dependencies in the specified scope. All scopes are searched by default.","example":"project.dependencies"},{"type":"Boolean","name":"onlyDirect","required":false,"description":"If enabled, transitive dependencies will not be considered. All dependencies are searched by default.","example":"true"}]}>
 

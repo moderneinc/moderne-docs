@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`IntStreamRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `IntStream`s.\n[Source](https://error-prone.picnic.tech/refasterrules/IntStreamRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.IntStreamRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `IntStreamRules.IntStreamClosedOpenRange`","href":"picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamclosedopenrangerecipe"},{"name":"Refaster template `IntStreamRules.ConcatOneIntStream`","href":"picnic/errorprone/refasterrules/intstreamrulesrecipes$concatoneintstreamrecipe"},{"name":"Refaster template `IntStreamRules.ConcatTwoIntStreams`","href":"picnic/errorprone/refasterrules/intstreamrulesrecipes$concattwointstreamsrecipe"},{"name":"Refaster template `IntStreamRules.IntStreamFilterSorted`","href":"picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamfiltersortedrecipe"},{"name":"Refaster template `IntStreamRules.IntStreamIsEmpty`","href":"picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamisemptyrecipe"},{"name":"Refaster template `IntStreamRules.IntStreamIsNotEmpty`","href":"picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamisnotemptyrecipe"},{"name":"Refaster template `IntStreamRules.IntStreamMin`","href":"picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamminrecipe"},{"name":"Refaster template `IntStreamRules.IntStreamNoneMatch`","href":"picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamnonematchrecipe"},{"name":"Refaster template `IntStreamRules.IntStreamAnyMatch`","href":"picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamanymatchrecipe"},{"name":"Refaster template `IntStreamRules.IntStreamAllMatch`","href":"picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamallmatchrecipe"},{"name":"Refaster template `IntStreamRules.IntStreamTakeWhile`","href":"picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamtakewhilerecipe"}]}>
+<RecipeHeader.Title>`IntStreamRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `IntStream`s. [Source](https://error-prone.picnic.tech/refasterrules/IntStreamRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `IntStreamRules.IntStreamClosedOpenRange`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamclosedopenrangerecipe/"},{"name":"Refaster template `IntStreamRules.ConcatOneIntStream`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes$concatoneintstreamrecipe/"},{"name":"Refaster template `IntStreamRules.ConcatTwoIntStreams`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes$concattwointstreamsrecipe/"},{"name":"Refaster template `IntStreamRules.IntStreamFilterSorted`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamfiltersortedrecipe/"},{"name":"Refaster template `IntStreamRules.IntStreamIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamisemptyrecipe/"},{"name":"Refaster template `IntStreamRules.IntStreamIsNotEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamisnotemptyrecipe/"},{"name":"Refaster template `IntStreamRules.IntStreamMin`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamminrecipe/"},{"name":"Refaster template `IntStreamRules.IntStreamNoneMatch`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamnonematchrecipe/"},{"name":"Refaster template `IntStreamRules.IntStreamAnyMatch`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamanymatchrecipe/"},{"name":"Refaster template `IntStreamRules.IntStreamAllMatch`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamallmatchrecipe/"},{"name":"Refaster template `IntStreamRules.IntStreamTakeWhile`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamtakewhilerecipe/"}]}>
 
 ## Definition
 

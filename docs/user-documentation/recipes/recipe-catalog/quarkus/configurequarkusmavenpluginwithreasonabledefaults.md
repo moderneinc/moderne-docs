@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Configure `quarkus-maven-plugin` with reasonable defaults"}
-  description={"Configures the `quarkus-maven-plugin` with reasonable defaults, such as default activated `goals` and `<extensions>` configuration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.ConfigureQuarkusMavenPluginWithReasonableDefaults"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/configurequarkusmavenpluginwithreasonabledefaults.md"}
-/>
+>
+
+<RecipeHeader.Title>Configure `quarkus-maven-plugin` with reasonable defaults</RecipeHeader.Title>
+
+<RecipeHeader.Description>Configures the `quarkus-maven-plugin` with reasonable defaults, such as default activated `goals` and `<extensions>` configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>org.openrewrite.example</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <build>\n    <plugins>\n      <plugin>\n        <groupId>io.quarkus</groupId>\n        <artifactId>quarkus-maven-plugin</artifactId>\n        <version>1.13.5.Final</version>\n        <executions>\n          <execution>\n            <goals>\n              <goal>build</goal>\n            </goals>\n          </execution>\n        </executions>\n      </plugin>\n    </plugins>\n  </build>\n</project>\n","after":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>org.openrewrite.example</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <build>\n    <plugins>\n      <plugin>\n        <groupId>io.quarkus</groupId>\n        <artifactId>quarkus-maven-plugin</artifactId>\n        <version>1.13.5.Final</version>\n        <executions>\n          <execution>\n            <goals>\n              <goal>build</goal>\n              <goal>generate-code</goal>\n              <goal>generate-code-tests</goal>\n            </goals>\n          </execution>\n        </executions>\n        <extensions>true</extensions>\n      </plugin>\n    </plugins>\n  </build>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -16,0 +16,2 @@\n            <goals>\n              <goal>build</goal>\n+             <goal>generate-code</goal>\n+             <goal>generate-code-tests</goal>\n            </goals>\n@@ -19,0 +21,1 @@\n          </execution>\n        </executions>\n+       <extensions>true</extensions>\n      </plugin>\n","newFile":false}]}]}>
 

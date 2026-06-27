@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert Oracle functions to PostgreSQL"}
-  description={"Replaces Oracle-specific functions with PostgreSQL equivalents."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["oracle","postgresql","sql"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.sql.ConvertOracleFunctionsToPostgres"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/sql/convertoraclefunctionstopostgres.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"}]}>
+<RecipeHeader.Title>Convert Oracle functions to PostgreSQL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces Oracle-specific functions with PostgreSQL equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"}]}>
 
 ## Definition
 

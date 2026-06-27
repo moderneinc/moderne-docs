@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `first { predicate }` instead of `filter { predicate }.first()`"}
-  description={"Folding the predicate into `first` avoids materializing the intermediate filtered list and short-circuits on the first match."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseFirstWithPredicate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/usefirstwithpredicate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `first { predicate }` instead of `filter { predicate }.first()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Folding the predicate into `first` avoids materializing the intermediate filtered list and short-circuits on the first match.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseFirstWithPredicate$KtRecipe","displayName":"Use `first { predicate }` instead of `filter { predicate }.first()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

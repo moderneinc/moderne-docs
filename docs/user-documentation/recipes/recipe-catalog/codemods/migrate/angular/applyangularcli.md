@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Angular versions"}
-  description={"Run `ng update` to upgrade Angular CLI and Angular Core to the specified version."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.migrate.angular.ApplyAngularCLI"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/applyangularcli.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Upgrade Angular versions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Run `ng update` to upgrade Angular CLI and Angular Core to the specified version.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"version","required":true,"description":"Which version of Angular to upgrade","example":"17"}]}>
 

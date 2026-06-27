@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"URL Equals and Hash Code"}
-  description={"Uses of `equals()` and `hashCode()` cause `java.net.URL` to make blocking internet connections. Instead, use `java.net.URI`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-2112"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"URL Equals","href":"staticanalysis/urlequalshashcoderecipes$urlequalsrecipe"},{"name":"URL Hash Code","href":"staticanalysis/urlequalshashcoderecipes$urlhashcoderecipe"}]}>
+<RecipeHeader.Title>URL Equals and Hash Code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Uses of `equals()` and `hashCode()` cause `java.net.URL` to make blocking internet connections. Instead, use `java.net.URI`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"URL Equals","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes$urlequalsrecipe/"},{"name":"URL Hash Code","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes$urlhashcoderecipe/"}]}>
 
 ## Definition
 

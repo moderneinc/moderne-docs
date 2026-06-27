@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `InjectFlags` with options object"}
-  description={"Replaces deprecated `InjectFlags` enum usage in `inject()` calls with the corresponding options object. For example, `inject(MyService, InjectFlags.Optional)` becomes `inject(MyService, { optional: true })`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.replace-inject-flags"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/replace-inject-flags.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `InjectFlags` with options object</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces deprecated `InjectFlags` enum usage in `inject()` calls with the corresponding options object. For example, `inject(MyService, InjectFlags.Optional)` becomes `inject(MyService, { optional: true })`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.replace-inject-flags","displayName":"Replace `InjectFlags` with options object","npmPackage":"@openrewrite/recipes-angular"}}>
 

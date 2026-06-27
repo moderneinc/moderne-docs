@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `TestCoroutineDispatcher` allocations"}
-  description={"`TestCoroutineDispatcher` was deprecated alongside `runBlockingTest`. The replacements are `StandardTestDispatcher` (queues all coroutines to a scheduler) and `UnconfinedTestDispatcher` (runs them eagerly on the current thread) — pick based on whether the test wants explicit advancement of virtual time."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindTestCoroutineDispatcherUsage$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findtestcoroutinedispatcherusage$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `TestCoroutineDispatcher` allocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`TestCoroutineDispatcher` was deprecated alongside `runBlockingTest`. The replacements are `StandardTestDispatcher` (queues all coroutines to a scheduler) and `UnconfinedTestDispatcher` (runs them eagerly on the current thread) — pick based on whether the test wants explicit advancement of virtual time.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindTestCoroutineDispatcherUsage$KtRecipe","displayName":"Find `TestCoroutineDispatcher` allocations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

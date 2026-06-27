@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove debug mode from Spring Security"}
-  description={"Removes the debug attribute from @EnableWebSecurity annotations to prevent sensitive security information from being logged in production."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["CWE-489","security"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.spring.RemoveEnableWebSecurityDebug"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/spring/removeenablewebsecuritydebug.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove annotation attribute","href":"java/removeannotationattribute"}]}>
+<RecipeHeader.Title>Remove debug mode from Spring Security</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the debug attribute from @EnableWebSecurity annotations to prevent sensitive security information from being logged in production.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"}]}>
 
 ## Definition
 

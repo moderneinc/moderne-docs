@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `mutableListOf<T>()` allocations inside loops"}
-  description={"A `mutableListOf<T>()` allocated per iteration produces garbage proportional to the loop count. If the list is filled and consumed each pass, consider `clear()`-and-reuse on a single hoisted list."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindMutableListOfInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findmutablelistofinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `mutableListOf<T>()` allocations inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `mutableListOf<T>()` allocated per iteration produces garbage proportional to the loop count. If the list is filled and consumed each pass, consider `clear()`-and-reuse on a single hoisted list.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindMutableListOfInLoops$KtRecipe","displayName":"Find `mutableListOf<T>()` allocations inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

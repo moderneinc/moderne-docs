@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Android-specific performance smells"}
-  description={"Patterns that drop UI-thread frames or allocate at draw time: `findViewById` inside `onDraw`/`onMeasure`/`onLayout`, unbounded `BitmapFactory.decode*` (no `inSampleSize`), hand-rolled `Thread.start()` from UI components, `Handler.postDelayed` (no lifecycle), and pre-coroutine `runOnUiThread` / `View.post` dispatch."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindAndroidPerformanceSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidperformancesmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `findViewById` inside `onDraw` / `onMeasure` / `onLayout`","href":"kotlin/android/findfindviewbyidinhotpath$ktrecipe"},{"name":"Find `BitmapFactory.decode*` calls","href":"kotlin/android/findbitmapfactorydecode$ktrecipe"},{"name":"Find `Thread { }.start()` calls inside `Activity` / `Fragment`","href":"kotlin/android/findmanualthreadinginactivity$ktrecipe"},{"name":"Find `Handler.postDelayed(...)` calls","href":"kotlin/android/findhandlerpostdelayed$ktrecipe"},{"name":"Find `Activity.runOnUiThread { }` / `View.post { }` calls","href":"kotlin/android/findrunonuithread$ktrecipe"}]}>
+<RecipeHeader.Title>Find Android-specific performance smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Patterns that drop UI-thread frames or allocate at draw time: `findViewById` inside `onDraw`/`onMeasure`/`onLayout`, unbounded `BitmapFactory.decode*` (no `inSampleSize`), hand-rolled `Thread.start()` from UI components, `Handler.postDelayed` (no lifecycle), and pre-coroutine `runOnUiThread` / `View.post` dispatch.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `findViewById` inside `onDraw` / `onMeasure` / `onLayout`","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findfindviewbyidinhotpath$ktrecipe/"},{"name":"Find `BitmapFactory.decode*` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findbitmapfactorydecode$ktrecipe/"},{"name":"Find `Thread { }.start()` calls inside `Activity` / `Fragment`","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findmanualthreadinginactivity$ktrecipe/"},{"name":"Find `Handler.postDelayed(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findhandlerpostdelayed$ktrecipe/"},{"name":"Find `Activity.runOnUiThread { }` / `View.post { }` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findrunonuithread$ktrecipe/"}]}>
 
 ## Definition
 

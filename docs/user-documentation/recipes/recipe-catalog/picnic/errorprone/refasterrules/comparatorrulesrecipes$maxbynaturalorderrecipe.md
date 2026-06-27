@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ComparatorRules.MaxByNaturalOrder`"}
-  description={"Prefer `Comparator#naturalOrder()` over `Comparator#reverseOrder()` where possible."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MaxByNaturalOrderRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/comparatorrulesrecipes$maxbynaturalorderrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ComparatorRules.MaxByNaturalOrder`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Comparator#naturalOrder()` over `Comparator#reverseOrder()` where possible.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MaxByNaturalOrderRecipe","displayName":"Refaster template `ComparatorRules.MaxByNaturalOrder`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

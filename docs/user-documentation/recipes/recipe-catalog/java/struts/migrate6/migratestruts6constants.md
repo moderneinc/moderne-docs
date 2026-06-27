@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Struts 6.0 constants"}
-  description={"All Xwork constants had been already deprecated, with this version all of them have been removed and Struts constants have been used instead."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate6.MigrateStruts6Constants"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6constants.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"}]} preconditions={[{"name":"Find XML tags","href":"xml/search/findtags"}]}>
+<RecipeHeader.Title>Migrate to Struts 6.0 constants</RecipeHeader.Title>
+
+<RecipeHeader.Description>All Xwork constants had been already deprecated, with this version all of them have been removed and Struts constants have been used instead.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"}]} preconditions={[{"name":"Find XML tags","href":"/user-documentation/recipes/recipe-catalog/xml/search/findtags/"}]}>
 
 ## Definition
 

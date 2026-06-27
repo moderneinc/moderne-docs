@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Maven parent insight"}
-  description={"Find Maven parents matching a `groupId` and `artifactId`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.search.ParentPomInsight"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/search/parentpominsight.md"}
-/>
+>
+
+<RecipeHeader.Title>Maven parent insight</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find Maven parents matching a `groupId` and `artifactId`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupIdPattern","required":true,"description":"Group glob pattern used to match dependencies.","example":"org.springframework.boot"},{"type":"String","name":"artifactIdPattern","required":true,"description":"Artifact glob pattern used to match dependencies.","example":"spring-boot-starter-*"},{"type":"String","name":"version","required":false,"description":"Match only dependencies with the specified version. Node-style [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors) may be used.All versions are searched by default.","example":"1.x"},{"type":"Boolean","name":"recursive","required":false,"description":"Whether to search recursively through the parents. True by default."}]}>
 

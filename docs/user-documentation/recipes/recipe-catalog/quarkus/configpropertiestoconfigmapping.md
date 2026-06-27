@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `@ConfigMapping`"}
-  description={"Migrate Quarkus configuration classes annotated with `@ConfigProperties` to the equivalent Smallrye `@ConfigMapping`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.ConfigPropertiesToConfigMapping"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/configpropertiestoconfigmapping.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `@ConfigMapping`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Quarkus configuration classes annotated with `@ConfigProperties` to the equivalent Smallrye `@ConfigMapping`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import io.quarkus.arc.config.ConfigProperties;\n\n@ConfigProperties(prefix = \"greeting\")\ninterface MyConfiguration {\n    String message();\n\n    String name();\n}\n","after":"import io.smallrye.config.ConfigMapping;\n\n@ConfigMapping(prefix = \"greeting\")\ninterface MyConfiguration {\n    String message();\n\n    String name();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import io.quarkus.arc.config.ConfigProperties;\n+import io.smallrye.config.ConfigMapping;\n\n@@ -3,1 +3,1 @@\nimport io.quarkus.arc.config.ConfigProperties;\n\n-@ConfigProperties(prefix = \"greeting\")\n+@ConfigMapping(prefix = \"greeting\")\ninterface MyConfiguration {\n","newFile":false}]}]}>
 

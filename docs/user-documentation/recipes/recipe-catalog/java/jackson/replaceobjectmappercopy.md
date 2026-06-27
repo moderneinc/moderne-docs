@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `ObjectMapper.copy()` with `rebuild().build()`"}
-  description={"In Jackson 3, `ObjectMapper.copy()` was removed. Use `mapper.rebuild().build()` instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.ReplaceObjectMapperCopy"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/replaceobjectmappercopy.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `ObjectMapper.copy()` with `rebuild().build()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Jackson 3, `ObjectMapper.copy()` was removed. Use `mapper.rebuild().build()` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.databind.ObjectMapper;\n\nclass Test {\n    ObjectMapper copy(ObjectMapper mapper) {\n        return mapper.copy();\n    }\n}\n","after":"import com.fasterxml.jackson.databind.ObjectMapper;\n\nclass Test {\n    ObjectMapper copy(ObjectMapper mapper) {\n        return mapper.rebuild().build();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    ObjectMapper copy(ObjectMapper mapper) {\n-       return mapper.copy();\n+       return mapper.rebuild().build();\n    }\n","newFile":false}]}]}>
 

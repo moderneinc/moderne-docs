@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use negative index instead of `len()` offset"}
-  description={"Rewrite ``seq[len(seq) - k]`` as ``seq[-k]``, using Python's native negative-indexing support."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifyNegativeIndex"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifynegativeindex.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use negative index instead of `len()` offset</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rewrite ``seq[len(seq) - k]`` as ``seq[-k]``, using Python's native negative-indexing support.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyNegativeIndex","displayName":"Use negative index instead of `len()` offset","pipPackage":"openrewrite-static-analysis"}}>
 

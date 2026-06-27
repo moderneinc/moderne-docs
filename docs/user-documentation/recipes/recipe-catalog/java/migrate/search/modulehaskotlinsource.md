@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Module has Kotlin source files"}
-  description={"Marks all files in modules that contain at least one Kotlin source file (`.kt`). Intended as a precondition to scope recipes to projects that actually compile Kotlin, as opposed to projects that merely pick up `kotlin-stdlib` transitively."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.search.ModuleHasKotlinSource"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/search/modulehaskotlinsource.md"}
-/>
+>
+
+<RecipeHeader.Title>Module has Kotlin source files</RecipeHeader.Title>
+
+<RecipeHeader.Description>Marks all files in modules that contain at least one Kotlin source file (`.kt`). Intended as a precondition to scope recipes to projects that actually compile Kotlin, as opposed to projects that merely pick up `kotlin-stdlib` transitively.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"invertMarking","required":false,"description":"If `true`, marks files in modules that do *not* contain Kotlin sources. Defaults to `false`."}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find nullability idiom opportunities"}
-  description={"Search-only bundle for nullable-handling `if/else` shapes that map to Kotlin idioms: `if (x != null) x else default` (use `?:`), `if (x != null) f(x) else null` (use `x?.let { f(it) }`), `if (x == null) throw IllegalArgumentException` (use `requireNotNull`), `if (x == null) throw IllegalStateException` (use `checkNotNull`), and `if (p(x)) x else null` (use `x.takeIf { p(it) }`)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindNullabilityErgonomics$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findnullabilityergonomics$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `if (x != null) x else default` patterns","href":"kotlin/functional/finduseelvisfornullabledefault$ktrecipe"},{"name":"Find `if (x != null) f(x) else null` patterns","href":"kotlin/functional/finduseletfornullablemap$ktrecipe"},{"name":"Find `if (x == null) throw IllegalArgumentException(...)` patterns","href":"kotlin/functional/finduserequireforprecondition$ktrecipe"},{"name":"Find `if (x == null) throw IllegalStateException(...)` patterns","href":"kotlin/functional/findusecheckforstate$ktrecipe"},{"name":"Find `if (predicate(x)) x else null` patterns","href":"kotlin/functional/findusetakeifforfilter$ktrecipe"}]}>
+<RecipeHeader.Title>Find nullability idiom opportunities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle for nullable-handling `if/else` shapes that map to Kotlin idioms: `if (x != null) x else default` (use `?:`), `if (x != null) f(x) else null` (use `x?.let { f(it) }`), `if (x == null) throw IllegalArgumentException` (use `requireNotNull`), `if (x == null) throw IllegalStateException` (use `checkNotNull`), and `if (p(x)) x else null` (use `x.takeIf { p(it) }`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `if (x != null) x else default` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/finduseelvisfornullabledefault$ktrecipe/"},{"name":"Find `if (x != null) f(x) else null` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/finduseletfornullablemap$ktrecipe/"},{"name":"Find `if (x == null) throw IllegalArgumentException(...)` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/finduserequireforprecondition$ktrecipe/"},{"name":"Find `if (x == null) throw IllegalStateException(...)` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findusecheckforstate$ktrecipe/"},{"name":"Find `if (predicate(x)) x else null` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findusetakeifforfilter$ktrecipe/"}]}>
 
 ## Definition
 

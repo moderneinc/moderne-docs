@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Flow.collectAsState()` calls — prefer `collectAsStateWithLifecycle()`"}
-  description={"`collectAsState()` keeps collecting whenever the composition is alive, including while the host activity is stopped. `collectAsStateWithLifecycle()` (from `androidx.lifecycle:lifecycle-runtime-compose`) ties collection to the lifecycle owner, dropping subscription while in the background and freeing the upstream `Flow` from doing work nothing will display."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindFlowCollectAsState$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findflowcollectasstate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Flow.collectAsState()` calls — prefer `collectAsStateWithLifecycle()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`collectAsState()` keeps collecting whenever the composition is alive, including while the host activity is stopped. `collectAsStateWithLifecycle()` (from `androidx.lifecycle:lifecycle-runtime-compose`) ties collection to the lifecycle owner, dropping subscription while in the background and freeing the upstream `Flow` from doing work nothing will display.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindFlowCollectAsState$KtRecipe","displayName":"Find `Flow.collectAsState()` calls — prefer `collectAsStateWithLifecycle()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

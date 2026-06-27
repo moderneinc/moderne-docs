@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move HTTP settings from the ClientOverrideConfiguration to ApacheHttpClient for sync and NettyNioAsyncHttpClient for async"}
-  description={"Move HTTP settings from the ClientOverrideConfiguration to ApacheHttpClient for sync SDK client and NettyNioAsyncHttpClient for async SDK client."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/software.amazon.awssdk.v2migration.HttpSettingsToHttpClient"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/httpsettingstohttpclient.md"}
-/>
+>
+
+<RecipeHeader.Title>Move HTTP settings from the ClientOverrideConfiguration to ApacheHttpClient for sync and NettyNioAsyncHttpClient for async</RecipeHeader.Title>
+
+<RecipeHeader.Description>Move HTTP settings from the ClientOverrideConfiguration to ApacheHttpClient for sync SDK client and NettyNioAsyncHttpClient for async SDK client.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"software.amazon.awssdk.v2migration.HttpSettingsToHttpClient","displayName":"Move HTTP settings from the ClientOverrideConfiguration to ApacheHttpClient for sync and NettyNioAsyncHttpClient for async","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

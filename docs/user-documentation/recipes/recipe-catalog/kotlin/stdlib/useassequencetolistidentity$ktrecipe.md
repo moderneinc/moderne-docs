@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `toList()` instead of `asSequence().toList()`"}
-  description={"`asSequence()` wraps the iterable in a `Sequence` only to immediately tear it back into a `List`. The intermediate `Sequence` allocation does no work."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.UseAsSequenceToListIdentity$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/useassequencetolistidentity$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `toList()` instead of `asSequence().toList()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`asSequence()` wraps the iterable in a `Sequence` only to immediately tear it back into a `List`. The intermediate `Sequence` allocation does no work.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.stdlib.UseAsSequenceToListIdentity$KtRecipe","displayName":"Use `toList()` instead of `asSequence().toList()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

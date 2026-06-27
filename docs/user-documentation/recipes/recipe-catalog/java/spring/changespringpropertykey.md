@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change the key of a Spring application property"}
-  description={"Change Spring application property keys existing in either Properties or YAML files, and in `@Value`, `@ConditionalOnProperty` or `@SpringBootTest` annotations."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.ChangeSpringPropertyKey"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/changespringpropertykey.md"}
-/>
+>
+
+<RecipeHeader.Title>Change the key of a Spring application property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change Spring application property keys existing in either Properties or YAML files, and in `@Value`, `@ConditionalOnProperty` or `@SpringBootTest` annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to rename.","example":"management.metrics.binders.*.enabled"},{"type":"String","name":"newPropertyKey","required":true,"description":"The new name for the property key.","example":"management.metrics.enable.process.files"},{"type":"List","name":"except","required":false,"description":"Regex. If any of these property keys exist as direct children of `oldPropertyKey`, then they will not be moved to `newPropertyKey`.","example":"jvm"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Framework 3.x"}
-  description={"Migrate applications to the latest Spring Framework 3 release, pulling in additional proprietary Moderne recipes."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.UpgradeSpringFramework_3_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_3_0.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Spring Framework modular dependencies","href":"java/spring/framework/modularspringframeworkdependencies"},{"name":"Migrate Bean XML properties deprecated in Spring Framework 3.0","href":"java/spring/framework/migratedeprecatedbeanxmlproperties"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Framework 3.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Framework 3 release, pulling in additional proprietary Moderne recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Spring Framework modular dependencies","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/modularspringframeworkdependencies/"},{"name":"Migrate Bean XML properties deprecated in Spring Framework 3.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/migratedeprecatedbeanxmlproperties/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

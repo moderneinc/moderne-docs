@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find non-virtual `ExecutorService` creation"}
-  description={"Find all places where static `java.util.concurrent.Executors` method creates a non-virtual `java.util.concurrent.ExecutorService`. This recipe can be used to search fro `ExecutorService` that can be replaced by Virtual Thread executor."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java21","virtual_threads"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.FindNonVirtualExecutors"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/findnonvirtualexecutors.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Find non-virtual `ExecutorService` creation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find all places where static `java.util.concurrent.Executors` method creates a non-virtual `java.util.concurrent.ExecutorService`. This recipe can be used to search fro `ExecutorService` that can be replaced by Virtual Thread executor.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

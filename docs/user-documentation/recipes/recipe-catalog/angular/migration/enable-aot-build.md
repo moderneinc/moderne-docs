@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enable AOT compilation in `angular.json`"}
-  description={"Adds `\"aot\": true` to build options in `angular.json`. Angular 9 made AOT compilation the default, and projects upgrading from Angular 8 should enable it explicitly."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.enable-aot-build"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/enable-aot-build.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Enable AOT compilation in `angular.json`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `"aot": true` to build options in `angular.json`. Angular 9 made AOT compilation the default, and projects upgrading from Angular 8 should enable it explicitly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.enable-aot-build","displayName":"Enable AOT compilation in `angular.json`","npmPackage":"@openrewrite/recipes-angular"}}>
 

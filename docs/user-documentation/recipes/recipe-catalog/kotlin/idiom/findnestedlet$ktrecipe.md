@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find nested `let { }` chains"}
-  description={"`a?.let { b?.let { … } }` ladders for combining nullable values are clearer as a single `if (a != null && b != null) …` or a sealed pair. Two-level nesting is a code smell; three or more is almost always a refactor opportunity."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindNestedLet$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnestedlet$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find nested `let { }` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>`a?.let { b?.let { … } }` ladders for combining nullable values are clearer as a single `if (a != null && b != null) …` or a sealed pair. Two-level nesting is a code smell; three or more is almost always a refactor opportunity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindNestedLet$KtRecipe","displayName":"Find nested `let { }` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

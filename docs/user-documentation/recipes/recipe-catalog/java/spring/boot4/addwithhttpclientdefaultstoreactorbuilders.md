@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Preserve system-proxy defaults on Reactor HTTP client builders"}
-  description={"Spring Boot 4.1 no longer applies `proxyWithSystemProperties()` by default on `ReactorClientHttpRequestFactoryBuilder` and `ReactorClientHttpConnectorBuilder`. This recipe appends `.withHttpClientDefaults()` to chains starting at `ClientHttpRequestFactoryBuilder.reactor()` or `ClientHttpConnectorBuilder.reactor()` to restore the previous behavior. Chains that already call `withHttpClientDefaults(..)` or `proxyWithSystemProperties(..)` are left untouched."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.AddWithHttpClientDefaultsToReactorBuilders"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/addwithhttpclientdefaultstoreactorbuilders.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Preserve system-proxy defaults on Reactor HTTP client builders</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot 4.1 no longer applies `proxyWithSystemProperties()` by default on `ReactorClientHttpRequestFactoryBuilder` and `ReactorClientHttpConnectorBuilder`. This recipe appends `.withHttpClientDefaults()` to chains starting at `ClientHttpRequestFactoryBuilder.reactor()` or `ClientHttpConnectorBuilder.reactor()` to restore the previous behavior. Chains that already call `withHttpClientDefaults(..)` or `proxyWithSystemProperties(..)` are left untouched.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.http.client.reactive.ClientHttpConnectorBuilder;\nimport org.springframework.boot.http.client.reactive.ReactorClientHttpConnectorBuilder;\n\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n        return ClientHttpConnectorBuilder.reactor();\n    }\n}\n","after":"import org.springframework.boot.http.client.reactive.ClientHttpConnectorBuilder;\nimport org.springframework.boot.http.client.reactive.ReactorClientHttpConnectorBuilder;\n\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n        return ClientHttpConnectorBuilder.reactor().withHttpClientDefaults();\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass Config {\n    ReactorClientHttpConnectorBuilder builder() {\n-       return ClientHttpConnectorBuilder.reactor();\n+       return ClientHttpConnectorBuilder.reactor().withHttpClientDefaults();\n    }\n","newFile":false}]}]}>
 

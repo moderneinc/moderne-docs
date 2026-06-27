@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"DataNucleus 5.0 type changes"}
-  description={"Rename types that were changed in DataNucleus 5.0."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.datanucleus.DataNucleusTypeChanges_5_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleustypechanges_5_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>DataNucleus 5.0 type changes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rename types that were changed in DataNucleus 5.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

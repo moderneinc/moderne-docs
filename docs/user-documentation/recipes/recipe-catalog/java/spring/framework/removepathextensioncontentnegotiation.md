@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove path extension content negotiation methods"}
-  description={"Remove calls to `favorPathExtension()` and `ignoreUnknownPathExtensions()` on `ContentNegotiationConfigurer`. These methods and the underlying `PathExtensionContentNegotiationStrategy` were removed in Spring Framework 7.0. Path extension content negotiation was deprecated due to URI handling issues. Use query parameter-based negotiation with `favorParameter(true)` as an alternative."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","framework"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.RemovePathExtensionContentNegotiation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/removepathextensioncontentnegotiation.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove method invocations","href":"java/removemethodinvocations"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove path extension content negotiation methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove calls to `favorPathExtension()` and `ignoreUnknownPathExtensions()` on `ContentNegotiationConfigurer`. These methods and the underlying `PathExtensionContentNegotiationStrategy` were removed in Spring Framework 7.0. Path extension content negotiation was deprecated due to URI handling issues. Use query parameter-based negotiation with `favorParameter(true)` as an alternative.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

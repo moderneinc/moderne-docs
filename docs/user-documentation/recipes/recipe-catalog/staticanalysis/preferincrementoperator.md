@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer increment/decrement and compound assignment operators"}
-  description={"Prefer the use of increment and decrement operators (`++`, `--`, `+=`, `-=`) over their more verbose equivalents."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.PreferIncrementOperator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/preferincrementoperator.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer increment/decrement and compound assignment operators</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the use of increment and decrement operators (`++`, `--`, `+=`, `-=`) over their more verbose equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test(int i) {\n        i = i + 1;\n    }\n}\n","after":"class Test {\n    void test(int i) {\n        i++;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    void test(int i) {\n-       i = i + 1;\n+       i++;\n    }\n","newFile":false}]}]}>
 

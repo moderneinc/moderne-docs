@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `GlobalSettings` to dependency injection (Play 2.6+)"}
-  description={"Finds classes extending `GlobalSettings` and imports of `play.api.GlobalSettings`. GlobalSettings is deprecated in Play 2.6+; use dependency injection instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.play.MigratePlayGlobalSettings"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/play/migrateplayglobalsettings.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `GlobalSettings` to dependency injection (Play 2.6+)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds classes extending `GlobalSettings` and imports of `play.api.GlobalSettings`. GlobalSettings is deprecated in Play 2.6+; use dependency injection instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class MyGlobal extends GlobalSettings {\n    val name: String = \"app\"\n}\n","after":"/*~~(GlobalSettings is deprecated in Play 2.6+; use dependency injection)~~>*/class MyGlobal extends GlobalSettings {\n    val name: String = \"app\"\n}\n","diff":"@@ -1,1 +1,1 @@\n-class MyGlobal extends GlobalSettings {\n+/*~~(GlobalSettings is deprecated in Play 2.6+; use dependency injection)~~>*/class MyGlobal extends GlobalSettings {\n    val name: String = \"app\"\n","newFile":false}]}]}>
 

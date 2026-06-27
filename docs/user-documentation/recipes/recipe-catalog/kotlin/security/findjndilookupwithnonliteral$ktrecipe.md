@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `InitialContext.lookup(input)` calls with non-literal arguments"}
-  description={"Dynamic JNDI lookups are the Log4Shell (CVE-2021-44228) pattern — a controlled URL can fetch a remote class file and execute it. Pin lookup names to a literal allowlist; disable remote codebase loading."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindJndiLookupWithNonLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findjndilookupwithnonliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `InitialContext.lookup(input)` calls with non-literal arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Dynamic JNDI lookups are the Log4Shell (CVE-2021-44228) pattern — a controlled URL can fetch a remote class file and execute it. Pin lookup names to a literal allowlist; disable remote codebase loading.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindJndiLookupWithNonLiteral$KtRecipe","displayName":"Find `InitialContext.lookup(input)` calls with non-literal arguments","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

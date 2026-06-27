@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Format HCL code"}
-  description={"Format HCL code using a standard comprehensive set of HCL formatting recipes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-hcl"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hcl.format.AutoFormat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hcl/format/autoformat.md"}
-/>
+>
+
+<RecipeHeader.Title>Format HCL code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format HCL code using a standard comprehensive set of HCL formatting recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"hcl","before":"locals {\n  object = {\n         string_attr = \"value1\"\n         int_attr    = 2\n  }\n}\n","after":"locals {\n  object = {\n    string_attr = \"value1\"\n    int_attr    = 2\n  }\n}\n","diff":"@@ -3,2 +3,2 @@\nlocals {\n  object = {\n-        string_attr = \"value1\"\n-        int_attr    = 2\n+   string_attr = \"value1\"\n+   int_attr    = 2\n  }\n","newFile":false}]},{"variants":[{"language":"hcl","before":"resource \"aws_ebs_volume\"    {    size      = 1\nencrypted = true   }\n","after":"resource \"aws_ebs_volume\" {\n  size      = 1\n  encrypted = true\n}\n","diff":"@@ -1,2 +1,4 @@\n-resource \"aws_ebs_volume\"    {    size      = 1\n-encrypted = true   }\n+resource \"aws_ebs_volume\" {\n+ size      = 1\n+ encrypted = true\n+}\n\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Renames `collapsedHeight` prop to `transitionCollapsedHeight`"}
-  description={"See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#collapse-rename-collapsedheight)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["mui","codemods","material-ui"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.migrate.mui.CollapseRenameCollapsedheight"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/collapserenamecollapsedheight.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"codemods/applycodemod"}]}>
+<RecipeHeader.Title>Renames `collapsedHeight` prop to `transitionCollapsedHeight`</RecipeHeader.Title>
+
+<RecipeHeader.Description>See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#collapse-rename-collapsedheight).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"/user-documentation/recipes/recipe-catalog/codemods/applycodemod/"}]}>
 
 ## Definition
 

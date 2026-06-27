@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Restore interrupted state in catch blocks"}
-  description={"When `InterruptedException` is caught, `Thread.currentThread().interrupt()` should be called to restore the thread's interrupted state. Failing to do so can suppress the interruption signal and prevent proper thread cancellation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2142"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.InterruptedExceptionHandling"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/interruptedexceptionhandling.md"}
-/>
+>
+
+<RecipeHeader.Title>Restore interrupted state in catch blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>When `InterruptedException` is caught, `Thread.currentThread().interrupt()` should be called to restore the thread's interrupted state. Failing to do so can suppress the interruption signal and prevent proper thread cancellation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void foo() {\n        try {\n            Thread.sleep(1000);\n        } catch (InterruptedException e) {\n        }\n    }\n}\n","after":"class Test {\n    void foo() {\n        try {\n            Thread.sleep(1000);\n        } catch (InterruptedException e) {\n            Thread.currentThread().interrupt();\n        }\n    }\n}\n","diff":"@@ -6,0 +6,1 @@\n            Thread.sleep(1000);\n        } catch (InterruptedException e) {\n+           Thread.currentThread().interrupt();\n        }\n","newFile":false}]}]}>
 

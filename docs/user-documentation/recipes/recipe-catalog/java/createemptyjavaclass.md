@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create Java class"}
-  description={"Create a new, empty Java class."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.CreateEmptyJavaClass"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/createemptyjavaclass.md"}
-/>
+>
+
+<RecipeHeader.Title>Create Java class</RecipeHeader.Title>
+
+<RecipeHeader.Description>Create a new, empty Java class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"sourceRoot","required":true,"description":"The source root of the new class file.","example":"src/main/java"},{"type":"String","name":"packageName","required":true,"description":"The package of the new class.","example":"org.openrewrite.example"},{"type":"String","name":"modifier","required":true,"description":"The class modifier.","example":"public"},{"type":"String","name":"className","required":true,"description":"File path of new file.","example":"ExampleClass"},{"type":"Boolean","name":"overwriteExisting","required":false,"description":"If there is an existing file, should it be overwritten."},{"type":"String","name":"relativePath","required":false,"description":"Directory path of new class.","example":"foo/bar"}]}>
 

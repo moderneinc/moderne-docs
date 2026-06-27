@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Avoid empty catch blocks"}
-  description={"Finds catch blocks that contain no statements, which silently swallow exceptions."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.AvoidEmptyCatchBlock"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/avoidemptycatchblock.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Avoid empty catch blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds catch blocks that contain no statements, which silently swallow exceptions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.scala.recipes.cleanup.AvoidEmptyCatchBlock","displayName":"Avoid empty catch blocks","groupId":"io.moderne.recipe","artifactId":"recipes-scala","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_SCALA","requiresConfiguration":false}}>
 

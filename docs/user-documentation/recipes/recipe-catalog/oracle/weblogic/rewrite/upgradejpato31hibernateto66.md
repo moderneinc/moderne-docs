@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Jakarta JPA to 3.1 and Hibernate 6.6"}
-  description={"This recipe upgrades Jakarta JPA to 3.1 and Hibernate to 6.6 (compatible with Jakarta EE 10)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["persistence","jpa","hibernate","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.UpgradeJPATo31HibernateTo66"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradejpato31hibernateto66.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Update Jakarta Persistence to 3.1","href":"oracle/weblogic/rewrite/jakarta/updatejakartapersistenceto31"},{"name":"Upgrade Hibernate to 6.6","href":"oracle/weblogic/rewrite/hibernate/upgradehibernateto66"}]}>
+<RecipeHeader.Title>Upgrade Jakarta JPA to 3.1 and Hibernate 6.6</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe upgrades Jakarta JPA to 3.1 and Hibernate to 6.6 (compatible with Jakarta EE 10).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Update Jakarta Persistence to 3.1","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/updatejakartapersistenceto31/"},{"name":"Upgrade Hibernate to 6.6","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/hibernate/upgradehibernateto66/"}]}>
 
 ## Definition
 

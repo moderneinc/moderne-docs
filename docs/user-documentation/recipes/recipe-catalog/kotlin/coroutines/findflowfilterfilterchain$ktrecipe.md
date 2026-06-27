@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Flow.filter { } .filter { }` chains"}
-  description={"Adjacent `Flow.filter { }` calls do twice the work a combined predicate would do. Fold them into one `filter { p1(it) && p2(it) }`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindFlowFilterFilterChain$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowfilterfilterchain$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Flow.filter { } .filter { }` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adjacent `Flow.filter { }` calls do twice the work a combined predicate would do. Fold them into one `filter { p1(it) && p2(it) }`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindFlowFilterFilterChain$KtRecipe","displayName":"Find `Flow.filter { } .filter { }` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

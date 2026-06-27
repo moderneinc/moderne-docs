@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Maven project property"}
-  description={"Add a new property to the Maven project property. Prefers to add the property to the parent if the project has multiple modules."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.AddProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/addproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Add Maven project property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a new property to the Maven project property. Prefers to add the property to the parent if the project has multiple modules.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"key","required":true,"description":"The name of the property key to be added.","example":"junit.version"},{"type":"String","name":"value","required":true,"description":"The value of property to be added.","example":"4.13"},{"type":"Boolean","name":"preserveExistingValue","required":false,"description":"Preserve previous value if the property already exists in the pom file."},{"type":"Boolean","name":"trustParent","required":false,"description":"If the parent defines a property with the same key, trust it even if the value isn't the same. Useful when you want to wait for the parent to have its value changed first. The parent is not trusted by default."}]}>
 

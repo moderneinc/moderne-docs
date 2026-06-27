@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce the consistent use of either backticks, double, or single quotes"}
-  description={"Enforce the consistent use of either backticks, double, or single quotes\n\nSee [rule details](https://eslint.style/rules/default/quotes)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["eslint","stylistic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.format.Quotes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/format/quotes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce the consistent use of either backticks, double, or single quotes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce the consistent use of either backticks, double, or single quotes  See [rule details](https://eslint.style/rules/default/quotes).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

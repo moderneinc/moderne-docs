@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `kotlin.math.PI` instead of `java.lang.Math.PI`"}
-  description={"Prefer the multiplatform-friendly `kotlin.math.PI` over the JVM-only `Math.PI`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseKotlinMathPi$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathpi$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `kotlin.math.PI` instead of `java.lang.Math.PI`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the multiplatform-friendly `kotlin.math.PI` over the JVM-only `Math.PI`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseKotlinMathPi$KtRecipe","displayName":"Use `kotlin.math.PI` instead of `java.lang.Math.PI`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

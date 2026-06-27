@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `JUnitToAssertJRules.AssertThatDoubleArrayContainsExactlyWithOffset`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatDoubleArrayContainsExactlyWithOffset {\n    \n    @BeforeTemplate\n    void before(double[] actual, double[] expected, double delta) {\n        assertArrayEquals(expected, actual, delta);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(double[] actual, double[] expected, double delta) {\n        assertThat(actual).containsExactly(expected, offset(delta));\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatDoubleArrayContainsExactlyWithOffsetRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatdoublearraycontainsexactlywithoffsetrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatDoubleArrayContainsExactlyWithOffset`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatDoubleArrayContainsExactlyWithOffset {
+    
+    @BeforeTemplate
+    void before(double[] actual, double[] expected, double delta) {
+        assertArrayEquals(expected, actual, delta);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(double[] actual, double[] expected, double delta) {
+        assertThat(actual).containsExactly(expected, offset(delta));
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatDoubleArrayContainsExactlyWithOffsetRecipe","displayName":"Refaster template `JUnitToAssertJRules.AssertThatDoubleArrayContainsExactlyWithOffset`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

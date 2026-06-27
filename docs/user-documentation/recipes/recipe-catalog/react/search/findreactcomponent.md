@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find React component"}
-  description={"Locates usages of React components across the codebase including JSX elements and other references. If `componentName` is `null`, finds all React components."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.search.FindReactComponent"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/search/findreactcomponent.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find React component</RecipeHeader.Title>
+
+<RecipeHeader.Description>Locates usages of React components across the codebase including JSX elements and other references. If `componentName` is `null`, finds all React components.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"componentName","required":false,"description":"The name of the React component to find. If `null`, finds all React components.","example":"Button"}]}>
 

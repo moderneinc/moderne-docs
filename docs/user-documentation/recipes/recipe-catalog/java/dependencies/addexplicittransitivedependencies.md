@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add explicit transitive dependencies"}
-  description={"Detects when Java source code or configuration files reference types from transitive Maven dependencies and promotes those transitive dependencies to explicit direct dependencies in the pom.xml. This ensures the build is resilient against changes in transitive dependency trees of upstream libraries."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.AddExplicitTransitiveDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/addexplicittransitivedependencies.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add explicit transitive dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects when Java source code or configuration files reference types from transitive Maven dependencies and promotes those transitive dependencies to explicit direct dependencies in the pom.xml. This ensures the build is resilient against changes in transitive dependency trees of upstream libraries.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"ignoredDependencies","required":false,"description":"A list of `groupId:artifactId` glob patterns for dependencies that should not be promoted, even if they appear to be used transitively. For example, `com.google.*:*` would ignore all Google dependencies, and `*:lombok` would ignore Lombok regardless of group ID.","example":"org.projectlombok:lombok,com.google.*:*"}]}>
 

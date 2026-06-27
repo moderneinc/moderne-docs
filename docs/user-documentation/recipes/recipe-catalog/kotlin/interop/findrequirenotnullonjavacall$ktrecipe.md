@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `requireNotNull(javaCall())` patterns"}
-  description={"`requireNotNull(javaApi.something())` is the safe-conversion idiom when a Java API returns an unannotated reference (platform type `T!`). Once the underlying API is annotated `@Nullable`/`@NotNull` (or migrated to Kotlin), the wrapper either becomes `javaApi.something()!!` or disappears entirely."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindRequireNotNullOnJavaCall$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findrequirenotnullonjavacall$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `requireNotNull(javaCall())` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`requireNotNull(javaApi.something())` is the safe-conversion idiom when a Java API returns an unannotated reference (platform type `T!`). Once the underlying API is annotated `@Nullable`/`@NotNull` (or migrated to Kotlin), the wrapper either becomes `javaApi.something()!!` or disappears entirely.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindRequireNotNullOnJavaCall$KtRecipe","displayName":"Find `requireNotNull(javaCall())` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

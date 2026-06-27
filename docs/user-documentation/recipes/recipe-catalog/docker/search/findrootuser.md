@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find containers running as root"}
-  description={"Finds containers that run as root user (CIS Docker Benchmark 4.1). This includes explicit `USER root` or `USER 0` instructions, and optionally containers with no `USER` instruction in the final stage (which default to root)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.search.FindRootUser"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/search/findrootuser.md"}
-/>
+>
+
+<RecipeHeader.Title>Find containers running as root</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds containers that run as root user (CIS Docker Benchmark 4.1). This includes explicit `USER root` or `USER 0` instructions, and optionally containers with no `USER` instruction in the final stage (which default to root).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"includeMissingUser","required":false,"description":"When true, also marks the final stage if no USER instruction is present (defaults to root). When false, only marks explicit `USER root/0` instructions."}]}>
 

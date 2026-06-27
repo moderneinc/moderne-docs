@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.10` application to `camel 4.11`"}
-  description={"Migrates `camel 4.10` application to `camel 4.11`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel411.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel411/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use PlatformHttpHeaderFilterStrategy instead of HttpHeaderFilterStrategy","href":"apache/camel/upgrade/camel411/platformhttpfilterstrategy"},{"name":"Removed deprecated components","href":"apache/camel/upgrade/camel411/removeddependencies"},{"name":"Removed deprecated property camel.main.lightweight","href":"apache/camel/upgrade/camel411/removedlightweight"}]}>
+<RecipeHeader.Title>Migrates `camel 4.10` application to `camel 4.11`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.10` application to `camel 4.11`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use PlatformHttpHeaderFilterStrategy instead of HttpHeaderFilterStrategy","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel411/platformhttpfilterstrategy/"},{"name":"Removed deprecated components","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel411/removeddependencies/"},{"name":"Removed deprecated property camel.main.lightweight","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel411/removedlightweight/"}]}>
 
 ## Definition
 

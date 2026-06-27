@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Dependency report"}
-  description={"Emits a data table detailing all Gradle and Maven dependencies. This recipe makes no changes to any source file."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-java-dependencies"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyList"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/dependencylist.md"}
-/>
+>
+
+<RecipeHeader.Title>Dependency report</RecipeHeader.Title>
+
+<RecipeHeader.Description>Emits a data table detailing all Gradle and Maven dependencies. This recipe makes no changes to any source file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Scope","name":"scope","required":false,"description":"The scope of the dependencies to include in the report.Defaults to \"Compile\"","example":"Compile"},{"type":"boolean","name":"includeTransitive","required":false,"description":"Whether or not to include transitive dependencies in the report. Defaults to including only direct dependencies.Defaults to false.","example":"true"},{"type":"boolean","name":"validateResolvable","required":false,"description":"When enabled the recipe will attempt to download every dependency it encounters, reporting on any failures. This can be useful for identifying dependencies that have become unavailable since an LST was produced.Defaults to false.","example":"true"}]}>
 

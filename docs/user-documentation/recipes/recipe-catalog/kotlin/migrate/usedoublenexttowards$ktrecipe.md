@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Double.nextTowards()` instead of `java.lang.Math.nextAfter`"}
-  description={"`Math.nextAfter(x, y)` becomes `x.nextTowards(y)` — multiplatform Kotlin extension on `Double`. Only the `(Double, Double)` overload is rewritten; the `(Float, Double)` overload's mixed types don't line up with Kotlin's `Float.nextTowards(Float)`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseDoubleNextTowards$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublenexttowards$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Double.nextTowards()` instead of `java.lang.Math.nextAfter`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Math.nextAfter(x, y)` becomes `x.nextTowards(y)` — multiplatform Kotlin extension on `Double`. Only the `(Double, Double)` overload is rewritten; the `(Float, Double)` overload's mixed types don't line up with Kotlin's `Float.nextTowards(Float)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseDoubleNextTowards$KtRecipe","displayName":"Use `Double.nextTowards()` instead of `java.lang.Math.nextAfter`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

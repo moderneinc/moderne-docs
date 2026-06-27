@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `java.util.Set#removeAll(java.util.Collection)` with `java.util.Collection#forEach(Set::remove)`"}
-  description={"Using `java.util.Collection#forEach(Set::remove)` rather than `java.util.Set#removeAll(java.util.Collection)` may improve performance due to a possible O(n^2) complexity."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UseForEachRemoveInsteadOfSetRemoveAll"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/useforeachremoveinsteadofsetremoveall.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `java.util.Set#removeAll(java.util.Collection)` with `java.util.Collection#forEach(Set::remove)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using `java.util.Collection#forEach(Set::remove)` rather than `java.util.Set#removeAll(java.util.Collection)` may improve performance due to a possible O(n^2) complexity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Collection;\nimport java.util.Collections;\nimport java.util.HashSet;\nimport java.util.List;\nimport java.util.Set;\n\nclass T {\n    static {\n        Set<String> s = new HashSet<>();\n        List<String> l = Collections.singletonList(\"a\");\n        s.removeAll(l);\n    }\n\n    Set<String> removeFromSet(Set<String> s, Collection<String> c) {\n        s.removeAll(c);\n        return s;\n    }\n}\n","after":"import java.util.Collection;\nimport java.util.Collections;\nimport java.util.HashSet;\nimport java.util.List;\nimport java.util.Set;\n\nclass T {\n    static {\n        Set<String> s = new HashSet<>();\n        List<String> l = Collections.singletonList(\"a\");\n        l.forEach(s::remove);\n    }\n\n    Set<String> removeFromSet(Set<String> s, Collection<String> c) {\n        c.forEach(s::remove);\n        return s;\n    }\n}\n","diff":"@@ -11,1 +11,1 @@\n        Set<String> s = new HashSet<>();\n        List<String> l = Collections.singletonList(\"a\");\n-       s.removeAll(l);\n+       l.forEach(s::remove);\n    }\n@@ -15,1 +15,1 @@\n\n    Set<String> removeFromSet(Set<String> s, Collection<String> c) {\n-       s.removeAll(c);\n+       c.forEach(s::remove);\n        return s;\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find source files with imports"}
-  description={"Locates source files that have imports matching the given type pattern, regardless of whether that import is used in the code."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindImports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/findimports.md"}
-/>
+>
+
+<RecipeHeader.Title>Find source files with imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Locates source files that have imports matching the given type pattern, regardless of whether that import is used in the code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"typePattern","required":false,"description":"A type pattern that is used to find matching field uses.","example":"org.springframework..*"},{"type":"Boolean","name":"matchInherited","required":false,"description":"When enabled, find types that inherit from a deprecated type."}]}>
 

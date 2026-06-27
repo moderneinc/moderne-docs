@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"XML style Auto-detection debug"}
-  description={"Runs XML Autodetect and records the results in data tables and search markers. A debugging tool for figuring out why XML documents get styled the way they do."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.style.AutodetectDebug"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/style/autodetectdebug.md"}
-/>
+>
+
+<RecipeHeader.Title>XML style Auto-detection debug</RecipeHeader.Title>
+
+<RecipeHeader.Description>Runs XML Autodetect and records the results in data tables and search markers. A debugging tool for figuring out why XML documents get styled the way they do.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.xml.style.AutodetectDebug","displayName":"XML style Auto-detection debug","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":false}}>
 

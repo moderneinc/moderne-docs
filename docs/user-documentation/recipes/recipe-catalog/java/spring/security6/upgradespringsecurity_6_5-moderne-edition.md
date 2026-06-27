@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Security 6.5"}
-  description={"Migrate applications to the latest Spring Security 6.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","security"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.security6.UpgradeSpringSecurity_6_5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-moderne-edition.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Security 6.5","href":"java/spring/security6/upgradespringsecurity_6_5-community-edition"},{"name":"Migrate antPathRequestMatcher to pathPatternRequestMatcher","href":"java/spring/security6/migrateantpathrequestmatcher"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Security 6.5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Security 6.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Security 6.5","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-community-edition/"},{"name":"Migrate antPathRequestMatcher to pathPatternRequestMatcher","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/migrateantpathrequestmatcher/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

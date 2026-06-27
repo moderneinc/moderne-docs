@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforces consistent spacing inside TypeScript type generics"}
-  description={"Enforces consistent spacing inside TypeScript type generics\n\nSee [rule details](https://eslint.style/rules/default/type-generic-spacing)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["eslint","stylistic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.format.TypeGenericSpacing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/format/typegenericspacing.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforces consistent spacing inside TypeScript type generics</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforces consistent spacing inside TypeScript type generics  See [rule details](https://eslint.style/rules/default/type-generic-spacing).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

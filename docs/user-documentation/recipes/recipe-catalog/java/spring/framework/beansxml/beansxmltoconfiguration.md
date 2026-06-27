@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `beans.xml` to Spring Framework configuration class"}
-  description={"Converts Java/Jakarta EE `beans.xml` configuration files to Spring Framework `@Configuration` classes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.beansxml.BeansXmlToConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/beansxml/beansxmltoconfiguration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `beans.xml` to Spring Framework configuration class</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts Java/Jakarta EE `beans.xml` configuration files to Spring Framework `@Configuration` classes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\npublic class UserService { }\n"},"variants":[{"language":"java","before":"","after":"package com.example;\n\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\n\n@Configuration\nclass BeansConfiguration {\n    @Bean\n    UserService userService() {\n        return new UserService();\n    }\n}\n","newFile":true}]}]}>
 

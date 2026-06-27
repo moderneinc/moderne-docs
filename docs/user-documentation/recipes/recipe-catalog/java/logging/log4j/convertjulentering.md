@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rewrites JUL's Logger#entering method to Log4j API"}
-  description={"Replaces JUL's Logger#entering method calls to Log4j API Logger#traceEntry calls."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.log4j.ConvertJulEntering"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/log4j/convertjulentering.md"}
-/>
+>
+
+<RecipeHeader.Title>Rewrites JUL's Logger#entering method to Log4j API</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces JUL's Logger#entering method calls to Log4j API Logger#traceEntry calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.logging.Logger; // ChangeType will handle import\n\nclass Test {\n    void method(Logger logger) {\n      logger.entering(\"Test\", \"method\");\n      logger.entering(\"Test\", \"method\", \"param\");\n      logger.entering(\"Test\", \"method\", new Object[]{\"param1\", \"param2\"});\n    }\n}\n","after":"import java.util.logging.Logger; // ChangeType will handle import\n\nclass Test {\n    void method(Logger logger) {\n      logger.traceEntry();\n      logger.traceEntry(null, \"param\");\n      logger.traceEntry(null, new Object[]{\"param1\", \"param2\"});\n    }\n}\n","diff":"@@ -5,3 +5,3 @@\nclass Test {\n    void method(Logger logger) {\n-     logger.entering(\"Test\", \"method\");\n-     logger.entering(\"Test\", \"method\", \"param\");\n-     logger.entering(\"Test\", \"method\", new Object[]{\"param1\", \"param2\"});\n+     logger.traceEntry();\n+     logger.traceEntry(null, \"param\");\n+     logger.traceEntry(null, new Object[]{\"param1\", \"param2\"});\n    }\n","newFile":false}]}]}>
 

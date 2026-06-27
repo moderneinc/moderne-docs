@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add annotation if target supertype exists"}
-  description={"Adds an annotation to a class if it extends or implements a specified target type."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.annotation.AddClassAnnotationIfSuperTypeExists"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/annotation/addclassannotationifsupertypeexists.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add annotation if target supertype exists</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds an annotation to a class if it extends or implements a specified target type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"annotationToAdd","required":true,"description":"The annotation that should be added.","example":"org.springframework.stereotype.Component"},{"type":"String","name":"targetSupertypeName","required":true,"description":"The supertype that should be looked for.","example":"javax.ws.rs.Path"},{"type":"Boolean","name":"annotateInnerClasses","required":false,"description":"Whether to also annotate inner classes of the matched class"}]}>
 

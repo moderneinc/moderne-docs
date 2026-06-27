@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByRootCauseHasMessage`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatThrownByRootCauseHasMessage {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatThrownByAsInstanceOfThrowable\")\n    AbstractObjectAssert<?, ?> before(ThrowingCallable throwingCallable, Class<? extends Throwable> exceptionType, String message) {\n        return assertThatExceptionOfType(exceptionType).isThrownBy(throwingCallable).havingRootCause().withMessage(message);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractObjectAssert<?, ?> after(ThrowingCallable throwingCallable, Class<? extends Throwable> exceptionType, String message) {\n        return assertThatThrownBy(throwingCallable).isInstanceOf(exceptionType).rootCause().hasMessage(message);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,34 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByRootCauseHasMessageRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyrootcausehasmessagerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AssertThatThrownByRootCauseHasMessage`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatThrownByRootCauseHasMessage {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "AssertThatThrownByAsInstanceOfThrowable")
+    AbstractObjectAssert<?, ?> before(ThrowingCallable throwingCallable, Class<? extends Throwable> exceptionType, String message) {
+        return assertThatExceptionOfType(exceptionType).isThrownBy(throwingCallable).havingRootCause().withMessage(message);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractObjectAssert<?, ?> after(ThrowingCallable throwingCallable, Class<? extends Throwable> exceptionType, String message) {
+        return assertThatThrownBy(throwingCallable).isInstanceOf(exceptionType).rootCause().hasMessage(message);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByRootCauseHasMessageRecipe","displayName":"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByRootCauseHasMessage`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

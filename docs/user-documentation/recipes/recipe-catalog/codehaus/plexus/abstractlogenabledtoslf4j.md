@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from Plexus `AbstractLogEnabled` to SLF4J"}
-  description={"Introduce a SLF4J `Logger` field and replace calls to `getLogger()` with calls to the field."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codehaus.plexus.AbstractLogEnabledToSlf4j"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codehaus/plexus/abstractlogenabledtoslf4j.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate from Plexus `AbstractLogEnabled` to SLF4J</RecipeHeader.Title>
+
+<RecipeHeader.Description>Introduce a SLF4J `Logger` field and replace calls to `getLogger()` with calls to the field.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.codehaus.plexus.logging.AbstractLogEnabled;\nimport org.codehaus.plexus.logging.Logger;\n\nclass A extends AbstractLogEnabled {\n    void method() {\n        getLogger().info(\"Hello\");\n    }\n    void method2() {\n        Logger log = getLogger();\n        log.info(\"Hello\");\n    }\n}\n","after":"import org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\nclass A {\n    private static final Logger LOGGER = LoggerFactory.getLogger(A.class);\n\n    void method() {\n        LOGGER.info(\"Hello\");\n    }\n    void method2() {\n        Logger log = LOGGER;\n        log.info(\"Hello\");\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.codehaus.plexus.logging.AbstractLogEnabled;\n-import org.codehaus.plexus.logging.Logger;\n+import org.slf4j.Logger;\n+import org.slf4j.LoggerFactory;\n\n@@ -4,1 +4,3 @@\nimport org.codehaus.plexus.logging.Logger;\n\n-class A extends AbstractLogEnabled {\n+class A {\n+   private static final Logger LOGGER = LoggerFactory.getLogger(A.class);\n+\n    void method() {\n@@ -6,1 +8,1 @@\nclass A extends AbstractLogEnabled {\n    void method() {\n-       getLogger().info(\"Hello\");\n+       LOGGER.info(\"Hello\");\n    }\n@@ -9,1 +11,1 @@\n    }\n    void method2() {\n-       Logger log = getLogger();\n+       Logger log = LOGGER;\n        log.info(\"Hello\");\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find XML tags"}
-  description={"Find XML tags by XPath expression."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.search.FindTags"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/search/findtags.md"}
-/>
+>
+
+<RecipeHeader.Title>Find XML tags</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find XML tags by XPath expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"xPath","required":true,"description":"An XPath expression used to find matching tags.","example":"//dependencies/dependency"}]}>
 

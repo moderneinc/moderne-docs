@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`MultimapRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `Multimap`s.\n[Source](https://error-prone.picnic.tech/refasterrules/MultimapRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.MultimapRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/multimaprulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `MultimapRules.MultimapKeySet`","href":"picnic/errorprone/refasterrules/multimaprulesrecipes$multimapkeysetrecipe"},{"name":"Refaster template `MultimapRules.MultimapIsEmpty`","href":"picnic/errorprone/refasterrules/multimaprulesrecipes$multimapisemptyrecipe"},{"name":"Refaster template `MultimapRules.MultimapSize`","href":"picnic/errorprone/refasterrules/multimaprulesrecipes$multimapsizerecipe"},{"name":"Refaster template `MultimapRules.MultimapContainsKey`","href":"picnic/errorprone/refasterrules/multimaprulesrecipes$multimapcontainskeyrecipe"},{"name":"Refaster template `MultimapRules.MultimapContainsValue`","href":"picnic/errorprone/refasterrules/multimaprulesrecipes$multimapcontainsvaluerecipe"},{"name":"Prefer `Multimap#get(Object)` over more contrived alternatives","href":"picnic/errorprone/refasterrules/multimaprulesrecipes$multimapgetrecipe"},{"name":"Refaster template `MultimapRules.MultimapKeysStream`","href":"picnic/errorprone/refasterrules/multimaprulesrecipes$multimapkeysstreamrecipe"},{"name":"Refaster template `MultimapRules.MultimapValuesStream`","href":"picnic/errorprone/refasterrules/multimaprulesrecipes$multimapvaluesstreamrecipe"}]}>
+<RecipeHeader.Title>`MultimapRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `Multimap`s. [Source](https://error-prone.picnic.tech/refasterrules/MultimapRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `MultimapRules.MultimapKeySet`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapkeysetrecipe/"},{"name":"Refaster template `MultimapRules.MultimapIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapisemptyrecipe/"},{"name":"Refaster template `MultimapRules.MultimapSize`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapsizerecipe/"},{"name":"Refaster template `MultimapRules.MultimapContainsKey`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapcontainskeyrecipe/"},{"name":"Refaster template `MultimapRules.MultimapContainsValue`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapcontainsvaluerecipe/"},{"name":"Prefer `Multimap#get(Object)` over more contrived alternatives","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapgetrecipe/"},{"name":"Refaster template `MultimapRules.MultimapKeysStream`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapkeysstreamrecipe/"},{"name":"Refaster template `MultimapRules.MultimapValuesStream`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapvaluesstreamrecipe/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Optimize LINQ Where().LongCount()"}
-  description={"Replace `.Where(predicate).LongCount()` with `.LongCount(predicate)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereCountLong"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/optimizelinqwherecountlong.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Optimize LINQ Where().LongCount()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `.Where(predicate).LongCount()` with `.LongCount(predicate)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereCountLong","displayName":"Optimize LINQ Where().LongCount()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

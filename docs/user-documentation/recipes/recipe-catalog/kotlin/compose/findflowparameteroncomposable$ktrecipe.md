@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Flow<T>` / `StateFlow<T>` parameters on `@Composable` functions"}
-  description={"Passing a `Flow<T>` into a `@Composable` shifts collection from a `LaunchedEffect` to the consumer — but if the caller re-creates the `Flow` per recomposition, collection restarts every time. Prefer collecting at the call site and passing the resulting `State<T>` (or `T` directly)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindFlowParameterOnComposable$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findflowparameteroncomposable$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Flow<T>` / `StateFlow<T>` parameters on `@Composable` functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Passing a `Flow<T>` into a `@Composable` shifts collection from a `LaunchedEffect` to the consumer — but if the caller re-creates the `Flow` per recomposition, collection restarts every time. Prefer collecting at the call site and passing the resulting `State<T>` (or `T` directly).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindFlowParameterOnComposable$KtRecipe","displayName":"Find `Flow<T>` / `StateFlow<T>` parameters on `@Composable` functions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

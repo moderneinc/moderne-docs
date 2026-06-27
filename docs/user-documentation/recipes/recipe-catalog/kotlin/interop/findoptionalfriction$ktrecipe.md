@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `java.util.Optional` friction inside Kotlin"}
-  description={"Bundle every `Optional`-related search: declarations that return or accept `Optional<T>`, `Optional.ofNullable(...)` constructions, and `.isPresent`/`.get()`/`.orElse(...)` consumption sites. Once an upstream switches `Optional<T>` to `T?`, each flagged call site collapses to a `?:` / `?.let { … }` / `!!` expression."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindOptionalFriction$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalfriction$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `java.util.Optional` usage in Kotlin","href":"kotlin/interop/findoptionalusage$ktrecipe"},{"name":"Find functions returning `Optional<T>`","href":"kotlin/interop/findoptionalreturn$ktrecipe"},{"name":"Find function parameters typed `Optional<T>`","href":"kotlin/interop/findoptionalparam$ktrecipe"},{"name":"Find `Optional.ofNullable(...)` calls","href":"kotlin/interop/findoptionalofnullable$ktrecipe"},{"name":"Find `Optional.isPresent` / `isEmpty` checks","href":"kotlin/interop/findoptionalispresent$ktrecipe"},{"name":"Find `Optional.get()` / `orElseThrow()` calls","href":"kotlin/interop/findoptionalget$ktrecipe"},{"name":"Find `Optional.orElse(...)` calls","href":"kotlin/interop/findoptionalorelse$ktrecipe"}]}>
+<RecipeHeader.Title>Find `java.util.Optional` friction inside Kotlin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Bundle every `Optional`-related search: declarations that return or accept `Optional<T>`, `Optional.ofNullable(...)` constructions, and `.isPresent`/`.get()`/`.orElse(...)` consumption sites. Once an upstream switches `Optional<T>` to `T?`, each flagged call site collapses to a `?:` / `?.let { … }` / `!!` expression.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `java.util.Optional` usage in Kotlin","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalusage$ktrecipe/"},{"name":"Find functions returning `Optional<T>`","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalreturn$ktrecipe/"},{"name":"Find function parameters typed `Optional<T>`","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalparam$ktrecipe/"},{"name":"Find `Optional.ofNullable(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalofnullable$ktrecipe/"},{"name":"Find `Optional.isPresent` / `isEmpty` checks","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalispresent$ktrecipe/"},{"name":"Find `Optional.get()` / `orElseThrow()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalget$ktrecipe/"},{"name":"Find `Optional.orElse(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalorelse$ktrecipe/"}]}>
 
 ## Definition
 

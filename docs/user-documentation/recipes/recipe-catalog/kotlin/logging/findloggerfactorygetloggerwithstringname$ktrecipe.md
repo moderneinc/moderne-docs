@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LoggerFactory.getLogger(\"some-name\")` calls"}
-  description={"A string logger name is fine for named/structured loggers but is a smell when the string happens to spell out a class FQN — that should be `getLogger(Foo::class.java)` (or `KotlinLogging.logger { }`) so renames track. Flag for human review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindLoggerFactoryGetLoggerWithStringName$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfactorygetloggerwithstringname$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LoggerFactory.getLogger("some-name")` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>A string logger name is fine for named/structured loggers but is a smell when the string happens to spell out a class FQN — that should be `getLogger(Foo::class.java)` (or `KotlinLogging.logger { }`) so renames track. Flag for human review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindLoggerFactoryGetLoggerWithStringName$KtRecipe","displayName":"Find `LoggerFactory.getLogger(\"some-name\")` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

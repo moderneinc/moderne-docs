@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use AttributeUsageAttribute"}
-  description={"Add AttributeUsage to custom attribute classes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseAttributeUsageAttribute"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/useattributeusageattribute.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use AttributeUsageAttribute</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add AttributeUsage to custom attribute classes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseAttributeUsageAttribute","displayName":"Use AttributeUsageAttribute","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

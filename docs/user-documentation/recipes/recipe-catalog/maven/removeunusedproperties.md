@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unused properties"}
-  description={"Detect and remove Maven property declarations which do not have any usage within the project."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.RemoveUnusedProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/removeunusedproperties.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unused properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect and remove Maven property declarations which do not have any usage within the project.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyPattern","required":false,"description":"A pattern to filter properties to remove. Defaults to `.+?` to match anything","example":".+\\.version"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Tabs and indents"}
-  description={"Format tabs and indents in HCL code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-hcl"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hcl.format.TabsAndIndents"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hcl/format/tabsandindents.md"}
-/>
+>
+
+<RecipeHeader.Title>Tabs and indents</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format tabs and indents in HCL code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.hcl.format.TabsAndIndents","displayName":"Tabs and indents","groupId":"org.openrewrite","artifactId":"rewrite-hcl","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_HCL","requiresConfiguration":false}}>
 

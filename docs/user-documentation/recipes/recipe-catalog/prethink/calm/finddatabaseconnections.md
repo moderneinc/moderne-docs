@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find database connections"}
-  description={"Identify database connections and data access patterns in the application. Detects JPA entities, Spring Data repositories, JDBC templates, MyBatis mappers, and Quarkus Panache."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDatabaseConnections"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddatabaseconnections.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find database connections</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify database connections and data access patterns in the application. Detects JPA entities, Spring Data repositories, JDBC templates, MyBatis mappers, and Quarkus Panache.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport io.quarkus.hibernate.orm.panache.PanacheEntity;\nimport jakarta.persistence.Entity;\n\n@Entity\npublic class Product extends PanacheEntity {\n    public String name;\n    public double price;\n}\n"},"variants":[]}]}>
 

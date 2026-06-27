@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace PowerMock dependencies with Mockito equivalents"}
-  description={"Replaces PowerMock API dependencies with `mockito-inline` when `mockStatic()`, `whenNew()`, or `@PrepareForTest` usage is detected, or `mockito-core` otherwise. PowerMock features like static mocking, constructor mocking, and final class mocking require the inline mock maker which is bundled in `mockito-inline` for Mockito 3.x/4.x."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.ReplacePowerMockDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacepowermockdependencies.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace PowerMock dependencies with Mockito equivalents</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces PowerMock API dependencies with `mockito-inline` when `mockStatic()`, `whenNew()`, or `@PrepareForTest` usage is detected, or `mockito-core` otherwise. PowerMock features like static mocking, constructor mocking, and final class mocking require the inline mock maker which is bundled in `mockito-inline` for Mockito 3.x/4.x.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.ReplacePowerMockDependencies","displayName":"Replace PowerMock dependencies with Mockito equivalents","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

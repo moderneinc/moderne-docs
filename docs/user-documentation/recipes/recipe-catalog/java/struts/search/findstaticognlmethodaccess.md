@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find static OGNL method access"}
-  description={"Find OGNL expressions that use static method access (e.g., `@com.app.Util@makeCode()`), which is disabled by default in Struts 6 for security reasons. These expressions need to be migrated to use action instance methods instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.search.FindStaticOgnlMethodAccess"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/search/findstaticognlmethodaccess.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find static OGNL method access</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find OGNL expressions that use static method access (e.g., `@com.app.Util@makeCode()`), which is disabled by default in Struts 6 for security reasons. These expressions need to be migrated to use action instance methods instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<html>\n    <body>\n        <s:property value=\"@com.app.Util@makeCode()\" />\n    </body>\n</html>\n","after":"<html>\n    <body>\n        <s:property <!--~~>-->value=\"@com.app.Util@makeCode()\" />\n    </body>\n</html>\n","diff":"--- index.jsp\n+++ index.jsp\n@@ -3,1 +3,1 @@\n<html>\n    <body>\n-       <s:property value=\"@com.app.Util@makeCode()\" />\n+       <s:property <!--~~>-->value=\"@com.app.Util@makeCode()\" />\n    </body>\n","newFile":false}]}]}>
 

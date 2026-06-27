@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated `javax.xml.ws` packages to `jakarta.xml.ws`"}
-  description={"Java EE has been rebranded to Jakarta EE, necessitating a package relocation."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["javax","jaxws","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.JavaxXmlWsMigrationToJakartaXmlWs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmlwsmigrationtojakartaxmlws.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Change Maven dependency scope","href":"maven/changedependencyscope"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Change Maven dependency scope","href":"maven/changedependencyscope"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Rename package name","href":"java/changepackage"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate deprecated `javax.xml.ws` packages to `jakarta.xml.ws`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java EE has been rebranded to Jakarta EE, necessitating a package relocation.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Change Maven dependency scope","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencyscope/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Change Maven dependency scope","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencyscope/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

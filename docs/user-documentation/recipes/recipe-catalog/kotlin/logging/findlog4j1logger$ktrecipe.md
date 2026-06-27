@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `org.apache.log4j.Logger` references"}
-  description={"Log4j 1.x reached end-of-life in 2015 and has known unfixed vulnerabilities. Migrate to log4j 2.x (`org.apache.logging.log4j.Logger`) or SLF4J. The migration is mechanical for the basic getLogger / log methods, but custom appenders and layouts need a manual rewrite."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindLog4j1Logger$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findlog4j1logger$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `org.apache.log4j.Logger` references</RecipeHeader.Title>
+
+<RecipeHeader.Description>Log4j 1.x reached end-of-life in 2015 and has known unfixed vulnerabilities. Migrate to log4j 2.x (`org.apache.logging.log4j.Logger`) or SLF4J. The migration is mechanical for the basic getLogger / log methods, but custom appenders and layouts need a manual rewrite.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindLog4j1Logger$KtRecipe","displayName":"Find `org.apache.log4j.Logger` references","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ReactorRules.StepVerifierVerifyDuration`"}
-  description={"Prefer `StepVerifier#verify(Duration)` over a dangling `StepVerifier#verifyThenAssertThat(Duration)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$StepVerifierVerifyDurationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes$stepverifierverifydurationrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ReactorRules.StepVerifierVerifyDuration`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `StepVerifier#verify(Duration)` over a dangling `StepVerifier#verifyThenAssertThat(Duration)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$StepVerifierVerifyDurationRecipe","displayName":"Refaster template `ReactorRules.StepVerifierVerifyDuration`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

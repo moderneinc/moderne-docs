@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apache Maven best practices"}
-  description={"Applies best practices to Maven POMs."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.BestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/bestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add explicit dependency versions","href":"maven/cleanup/explicitdependencyversion"},{"name":"Add explicit `groupId` to Maven plugins","href":"maven/cleanup/explicitplugingroupid"},{"name":"Add explicit plugin versions","href":"maven/cleanup/explicitpluginversion"},{"name":"Dependencies should not have `system` scope","href":"maven/cleanup/nosystemscopedependencies"},{"name":"Drop prefixless expressions in POM","href":"maven/cleanup/prefixlessexpressions"},{"name":"Order POM elements","href":"maven/orderpomelements"},{"name":"Remove duplicate Maven dependencies","href":"maven/removeduplicatedependencies"},{"name":"Remove redundant explicit dependency and plugin versions","href":"maven/removeredundantdependencyversions"},{"name":"Remove redundant properties","href":"maven/removeredundantproperties"},{"name":"Dependency management dependencies should have a version","href":"maven/cleanup/dependencymanagementdependencyrequiresversion"},{"name":"Modernize obsolete Maven poms","href":"maven/modernizeobsoletepoms"},{"name":"Migrate to `maven-dependency-plugin` goal `resolve-sources`","href":"maven/plugin/dependencyplugingoalresolvesources"},{"name":"Sort dependencies","href":"maven/sortdependencies"},{"name":"Update SCM with Git origin","href":"maven/updatescmfromgitorigin"}]}>
+<RecipeHeader.Title>Apache Maven best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies best practices to Maven POMs.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add explicit dependency versions","href":"/user-documentation/recipes/recipe-catalog/maven/cleanup/explicitdependencyversion/"},{"name":"Add explicit `groupId` to Maven plugins","href":"/user-documentation/recipes/recipe-catalog/maven/cleanup/explicitplugingroupid/"},{"name":"Add explicit plugin versions","href":"/user-documentation/recipes/recipe-catalog/maven/cleanup/explicitpluginversion/"},{"name":"Dependencies should not have `system` scope","href":"/user-documentation/recipes/recipe-catalog/maven/cleanup/nosystemscopedependencies/"},{"name":"Drop prefixless expressions in POM","href":"/user-documentation/recipes/recipe-catalog/maven/cleanup/prefixlessexpressions/"},{"name":"Order POM elements","href":"/user-documentation/recipes/recipe-catalog/maven/orderpomelements/"},{"name":"Remove duplicate Maven dependencies","href":"/user-documentation/recipes/recipe-catalog/maven/removeduplicatedependencies/"},{"name":"Remove redundant explicit dependency and plugin versions","href":"/user-documentation/recipes/recipe-catalog/maven/removeredundantdependencyversions/"},{"name":"Remove redundant properties","href":"/user-documentation/recipes/recipe-catalog/maven/removeredundantproperties/"},{"name":"Dependency management dependencies should have a version","href":"/user-documentation/recipes/recipe-catalog/maven/cleanup/dependencymanagementdependencyrequiresversion/"},{"name":"Modernize obsolete Maven poms","href":"/user-documentation/recipes/recipe-catalog/maven/modernizeobsoletepoms/"},{"name":"Migrate to `maven-dependency-plugin` goal `resolve-sources`","href":"/user-documentation/recipes/recipe-catalog/maven/plugin/dependencyplugingoalresolvesources/"},{"name":"Sort dependencies","href":"/user-documentation/recipes/recipe-catalog/maven/sortdependencies/"},{"name":"Update SCM with Git origin","href":"/user-documentation/recipes/recipe-catalog/maven/updatescmfromgitorigin/"}]}>
 
 ## Definition
 

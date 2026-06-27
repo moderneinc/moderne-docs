@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Require a specific member delimiter style for interfaces and type literals"}
-  description={"Require a specific member delimiter style for interfaces and type literals\n\nSee [rule details](https://eslint.style/rules/default/member-delimiter-style)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["eslint","stylistic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.format.MemberDelimiterStyle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/format/memberdelimiterstyle.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Require a specific member delimiter style for interfaces and type literals</RecipeHeader.Title>
+
+<RecipeHeader.Description>Require a specific member delimiter style for interfaces and type literals  See [rule details](https://eslint.style/rules/default/member-delimiter-style).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unused Stream.Read return value"}
-  description={"Detect calls to `Stream.Read` or `Stream.ReadAsync` where the return value is discarded. The return value indicates how many bytes were actually read."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindStreamReadResultNotUsed"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findstreamreadresultnotused.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find unused Stream.Read return value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect calls to `Stream.Read` or `Stream.ReadAsync` where the return value is discarded. The return value indicates how many bytes were actually read.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindStreamReadResultNotUsed","displayName":"Find unused Stream.Read return value","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

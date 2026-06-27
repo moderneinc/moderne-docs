@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated `sendOffsetsToTransaction` to use `ConsumerGroupMetadata`"}
-  description={"Migrates from the deprecated `KafkaProducer.sendOffsetsToTransaction(Map, String)` to `sendOffsetsToTransaction(Map, ConsumerGroupMetadata)` for Kafka 4.0 compatibility. This recipe uses a conservative approach with `new ConsumerGroupMetadata(groupId)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.MigrateSendOffsetsToTransaction"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/migratesendoffsetstotransaction.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate deprecated `sendOffsetsToTransaction` to use `ConsumerGroupMetadata`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates from the deprecated `KafkaProducer.sendOffsetsToTransaction(Map, String)` to `sendOffsetsToTransaction(Map, ConsumerGroupMetadata)` for Kafka 4.0 compatibility. This recipe uses a conservative approach with `new ConsumerGroupMetadata(groupId)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.kafka.clients.producer.KafkaProducer;\nimport org.apache.kafka.common.TopicPartition;\nimport org.apache.kafka.clients.consumer.OffsetAndMetadata;\nimport java.util.Map;\nimport java.util.HashMap;\n\nclass TransactionalProducer {\n    void commitTransaction(KafkaProducer<?, ?> producer, Map<TopicPartition, OffsetAndMetadata> offsets) {\n        producer.sendOffsetsToTransaction(offsets, \"my-consumer-group\");\n    }\n}\n","after":"import org.apache.kafka.clients.producer.KafkaProducer;\nimport org.apache.kafka.common.TopicPartition;\nimport org.apache.kafka.clients.consumer.ConsumerGroupMetadata;\nimport org.apache.kafka.clients.consumer.OffsetAndMetadata;\nimport java.util.Map;\nimport java.util.HashMap;\n\nclass TransactionalProducer {\n    void commitTransaction(KafkaProducer<?, ?> producer, Map<TopicPartition, OffsetAndMetadata> offsets) {\n        producer.sendOffsetsToTransaction(offsets, new ConsumerGroupMetadata(\"my-consumer-group\"));\n    }\n}\n","diff":"@@ -3,0 +3,1 @@\nimport org.apache.kafka.clients.producer.KafkaProducer;\nimport org.apache.kafka.common.TopicPartition;\n+import org.apache.kafka.clients.consumer.ConsumerGroupMetadata;\nimport org.apache.kafka.clients.consumer.OffsetAndMetadata;\n@@ -9,1 +10,1 @@\nclass TransactionalProducer {\n    void commitTransaction(KafkaProducer<?, ?> producer, Map<TopicPartition, OffsetAndMetadata> offsets) {\n-       producer.sendOffsetsToTransaction(offsets, \"my-consumer-group\");\n+       producer.sendOffsetsToTransaction(offsets, new ConsumerGroupMetadata(\"my-consumer-group\"));\n    }\n","newFile":false}]}]}>
 

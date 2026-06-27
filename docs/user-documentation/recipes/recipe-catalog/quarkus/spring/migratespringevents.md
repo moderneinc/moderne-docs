@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Events to CDI Events"}
-  description={"Migrates Spring's event mechanism to CDI events. Converts ApplicationEventPublisher to CDI Event and @EventListener to @Observes."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","quarkus","migration","cdi","events"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.MigrateSpringEvents"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringevents.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Convert Spring @EventListener to CDI @Observes","href":"quarkus/spring/springeventlistenertoobserves"}]}>
+<RecipeHeader.Title>Migrate Spring Events to CDI Events</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Spring's event mechanism to CDI events. Converts ApplicationEventPublisher to CDI Event and @EventListener to @Observes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Convert Spring @EventListener to CDI @Observes","href":"/user-documentation/recipes/recipe-catalog/quarkus/spring/springeventlistenertoobserves/"}]}>
 
 ## Definition
 

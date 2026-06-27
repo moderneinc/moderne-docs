@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `CollectionRules.CollectionToArray`"}
-  description={"Prefer calling `Collection#toArray()` over more contrived alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionToArrayRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/collectionrulesrecipes$collectiontoarrayrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `CollectionRules.CollectionToArray`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer calling `Collection#toArray()` over more contrived alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionToArrayRecipe","displayName":"Refaster template `CollectionRules.CollectionToArray`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

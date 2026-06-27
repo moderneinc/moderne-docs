@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Drop `SummaryPrinter`"}
-  description={"Replace `SummaryPrinter` with `Plugin`, if not already present."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-cucumber-jvm"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.DropSummaryPrinter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cucumber/jvm/dropsummaryprinter.md"}
-/>
+>
+
+<RecipeHeader.Title>Drop `SummaryPrinter`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `SummaryPrinter` with `Plugin`, if not already present.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.app;\n\nimport io.cucumber.plugin.SummaryPrinter;\n\npublic class CucumberJava8Definitions implements SummaryPrinter {\n}","after":"package com.example.app;\n\nimport io.cucumber.plugin.Plugin;\n\npublic class CucumberJava8Definitions implements Plugin {\n}\n","diff":"@@ -3,1 +3,1 @@\npackage com.example.app;\n\n-import io.cucumber.plugin.SummaryPrinter;\n+import io.cucumber.plugin.Plugin;\n\n@@ -5,1 +5,1 @@\nimport io.cucumber.plugin.SummaryPrinter;\n\n-public class CucumberJava8Definitions implements SummaryPrinter {\n+public class CucumberJava8Definitions implements Plugin {\n}\n@@ -7,0 +7,1 @@\npublic class CucumberJava8Definitions implements SummaryPrinter {\n}\n+\n","newFile":false}]}]}>
 

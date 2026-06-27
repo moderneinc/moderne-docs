@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `java.nio.charset.StandardCharsets`"}
-  description={"Prefer the Java standard library's `java.nio.charset.StandardCharsets` over `org.apache.commons.lang3.CharEncoding`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","commons"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.lang3.UseStandardCharsets"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/lang3/usestandardcharsets.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change static field access to static method access","href":"java/changestaticfieldtomethod"},{"name":"Change static field access to static method access","href":"java/changestaticfieldtomethod"},{"name":"Change static field access to static method access","href":"java/changestaticfieldtomethod"},{"name":"Change static field access to static method access","href":"java/changestaticfieldtomethod"},{"name":"Change static field access to static method access","href":"java/changestaticfieldtomethod"},{"name":"Change static field access to static method access","href":"java/changestaticfieldtomethod"}]}>
+<RecipeHeader.Title>Prefer `java.nio.charset.StandardCharsets`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Java standard library's `java.nio.charset.StandardCharsets` over `org.apache.commons.lang3.CharEncoding`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change static field access to static method access","href":"/user-documentation/recipes/recipe-catalog/java/changestaticfieldtomethod/"},{"name":"Change static field access to static method access","href":"/user-documentation/recipes/recipe-catalog/java/changestaticfieldtomethod/"},{"name":"Change static field access to static method access","href":"/user-documentation/recipes/recipe-catalog/java/changestaticfieldtomethod/"},{"name":"Change static field access to static method access","href":"/user-documentation/recipes/recipe-catalog/java/changestaticfieldtomethod/"},{"name":"Change static field access to static method access","href":"/user-documentation/recipes/recipe-catalog/java/changestaticfieldtomethod/"},{"name":"Change static field access to static method access","href":"/user-documentation/recipes/recipe-catalog/java/changestaticfieldtomethod/"}]}>
 
 ## Definition
 

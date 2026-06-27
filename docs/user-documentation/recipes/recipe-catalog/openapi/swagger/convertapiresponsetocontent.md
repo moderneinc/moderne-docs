@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert API response to content annotation"}
-  description={"Add `content = @Content(mediaType = ...)` and `schema` to `@ApiResponse`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.ConvertApiResponseToContent"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/convertapiresponsetocontent.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert API response to content annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add `content = @Content(mediaType = ...)` and `schema` to `@ApiResponse`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.openapi.swagger.ConvertApiResponseToContent","displayName":"Convert API response to content annotation","groupId":"org.openrewrite.recipe","artifactId":"rewrite-openapi","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_OPENAPI","requiresConfiguration":false}}>
 

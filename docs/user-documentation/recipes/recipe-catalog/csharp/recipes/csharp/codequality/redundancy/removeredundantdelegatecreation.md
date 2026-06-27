@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant delegate creation"}
-  description={"Remove unnecessary `new EventHandler(M)` when `M` can be used directly."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantDelegateCreation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeredundantdelegatecreation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant delegate creation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unnecessary `new EventHandler(M)` when `M` can be used directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantDelegateCreation","displayName":"Remove redundant delegate creation","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

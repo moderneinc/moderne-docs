@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Extract dependency usage patterns"}
-  description={"Analyze the codebase to extract dependency usage patterns by examining which types from external libraries are actually used in the code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.ExtractDependencyUsage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/extractdependencyusage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Extract dependency usage patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Analyze the codebase to extract dependency usage patterns by examining which types from external libraries are actually used in the code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.ExtractDependencyUsage","displayName":"Extract dependency usage patterns","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Node.js 24"}
-  description={"Migrate deprecated APIs for Node.js 24 compatibility. Includes all migrations from Node.js 22, plus Node 23 and Node 24 deprecations."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.upgrade-node-24"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-24.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Increase Node.js engine version","href":"node/migrate/increase-node-engine-version"},{"name":"Increase Node.js version in GitHub Actions","href":"node/migrate/increase-node-engine-version-in-github-actions"},{"name":"Upgrade to Node.js 22","href":"node/migrate/upgrade-node-22"},{"name":"Replace deprecated `util.log()` with `console.log()`","href":"node/migrate/util/replace-util-log"},{"name":"Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`","href":"node/migrate/zlib/replace-bytes-read"},{"name":"Find deprecated `process.assert()` usage","href":"node/migrate/find-process-assert"},{"name":"Replace `OutgoingMessage._headers` and `._headerNames` with public methods","href":"node/migrate/http/replace-outgoing-message-headers"},{"name":"Replace `fs.truncate()` with file descriptor to `fs.ftruncate()`","href":"node/migrate/fs/replace-fs-truncate-fd"},{"name":"Replace `dirent.path` with `dirent.parentPath`","href":"node/migrate/fs/replace-dirent-path"},{"name":"Find deprecated `tls.SecurePair` and `tls.createSecurePair()` usage","href":"node/migrate/tls/find-tls-secure-pair"},{"name":"Find deprecated `timers.active()` and `timers._unrefActive()` usage","href":"node/migrate/timers/find-timers-active"},{"name":"Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`","href":"node/migrate/crypto/replace-crypto-fips"}]}>
+<RecipeHeader.Title>Upgrade to Node.js 24</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate deprecated APIs for Node.js 24 compatibility. Includes all migrations from Node.js 22, plus Node 23 and Node 24 deprecations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Increase Node.js engine version","href":"/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version/"},{"name":"Increase Node.js version in GitHub Actions","href":"/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version-in-github-actions/"},{"name":"Upgrade to Node.js 22","href":"/user-documentation/recipes/recipe-catalog/node/migrate/upgrade-node-22/"},{"name":"Replace deprecated `util.log()` with `console.log()`","href":"/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-log/"},{"name":"Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`","href":"/user-documentation/recipes/recipe-catalog/node/migrate/zlib/replace-bytes-read/"},{"name":"Find deprecated `process.assert()` usage","href":"/user-documentation/recipes/recipe-catalog/node/migrate/find-process-assert/"},{"name":"Replace `OutgoingMessage._headers` and `._headerNames` with public methods","href":"/user-documentation/recipes/recipe-catalog/node/migrate/http/replace-outgoing-message-headers/"},{"name":"Replace `fs.truncate()` with file descriptor to `fs.ftruncate()`","href":"/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-fs-truncate-fd/"},{"name":"Replace `dirent.path` with `dirent.parentPath`","href":"/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-dirent-path/"},{"name":"Find deprecated `tls.SecurePair` and `tls.createSecurePair()` usage","href":"/user-documentation/recipes/recipe-catalog/node/migrate/tls/find-tls-secure-pair/"},{"name":"Find deprecated `timers.active()` and `timers._unrefActive()` usage","href":"/user-documentation/recipes/recipe-catalog/node/migrate/timers/find-timers-active/"},{"name":"Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`","href":"/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-crypto-fips/"}]}>
 
 ## Definition
 

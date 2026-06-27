@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated path mapping options"}
-  description={"Migrates deprecated path mapping configuration options that have been removed in Spring Framework 7.0. For trailing slash matching, this recipe adds explicit dual routes to controller methods before removing the deprecated configuration. For suffix pattern matching, this recipe flags usages for manual review since there is no automatic migration path. Path extension content negotiation options are removed as they should be replaced with query parameter-based negotiation."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","framework"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.RemoveDeprecatedPathMappingOptions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/removedeprecatedpathmappingoptions.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate trailing slash matching to explicit routes","href":"java/spring/framework/migratetrailingslashmatch"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Flag deprecated suffix pattern matching usage for manual review","href":"java/spring/framework/flagsuffixpatternmatchusage"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove empty path match configuration methods","href":"java/spring/framework/removeemptypathmatchconfiguration"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate deprecated path mapping options</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates deprecated path mapping configuration options that have been removed in Spring Framework 7.0. For trailing slash matching, this recipe adds explicit dual routes to controller methods before removing the deprecated configuration. For suffix pattern matching, this recipe flags usages for manual review since there is no automatic migration path. Path extension content negotiation options are removed as they should be replaced with query parameter-based negotiation.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate trailing slash matching to explicit routes","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/migratetrailingslashmatch/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Flag deprecated suffix pattern matching usage for manual review","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/flagsuffixpatternmatchusage/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Remove empty path match configuration methods","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/removeemptypathmatchconfiguration/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

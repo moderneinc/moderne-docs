@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify `java.time.Duration` units"}
-  description={"Simplifies `java.time.Duration` units to be more human-readable."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SimplifyDurationCreationUnits"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/simplifydurationcreationunits.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify `java.time.Duration` units</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplifies `java.time.Duration` units to be more human-readable.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.time.Duration;\n\npublic class Test {\n    static Duration duration = Duration.ofMillis(5000);\n}\n","after":"import java.time.Duration;\n\npublic class Test {\n    static Duration duration = Duration.ofSeconds(5);\n}\n","diff":"@@ -4,1 +4,1 @@\n\npublic class Test {\n-   static Duration duration = Duration.ofMillis(5000);\n+   static Duration duration = Duration.ofSeconds(5);\n}\n","newFile":false}]}]}>
 

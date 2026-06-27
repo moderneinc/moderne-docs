@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ReactorRules.FluxTimeoutFluxEmpty`"}
-  description={"Prefer `Flux#timeout(Duration, Publisher)` over more contrived or less performant alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxTimeoutFluxEmptyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxtimeoutfluxemptyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ReactorRules.FluxTimeoutFluxEmpty`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Flux#timeout(Duration, Publisher)` over more contrived or less performant alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxTimeoutFluxEmptyRecipe","displayName":"Refaster template `ReactorRules.FluxTimeoutFluxEmpty`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

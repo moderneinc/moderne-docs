@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`ImmutableListMultimapRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `ImmutableListMultimap`s.\n[Source](https://error-prone.picnic.tech/refasterrules/ImmutableListMultimapRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableListMultimapRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `ImmutableListMultimapRules.ImmutableListMultimapBuilder`","href":"picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$immutablelistmultimapbuilderrecipe"},{"name":"Refaster template `ImmutableListMultimapRules.EmptyImmutableListMultimap`","href":"picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$emptyimmutablelistmultimaprecipe"},{"name":"Refaster template `ImmutableListMultimapRules.PairToImmutableListMultimap`","href":"picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$pairtoimmutablelistmultimaprecipe"},{"name":"Refaster template `ImmutableListMultimapRules.EntryToImmutableListMultimap`","href":"picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$entrytoimmutablelistmultimaprecipe"},{"name":"Refaster template `ImmutableListMultimapRules.IterableToImmutableListMultimap`","href":"picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$iterabletoimmutablelistmultimaprecipe"},{"name":"Refaster template `ImmutableListMultimapRules.TransformMultimapValuesToImmutableListMultimap2`","href":"picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$transformmultimapvaluestoimmutablelistmultimap2recipe"},{"name":"Refaster template `ImmutableListMultimapRules.ImmutableListMultimapBuilderPut`","href":"picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$immutablelistmultimapbuilderputrecipe"}]}>
+<RecipeHeader.Title>`ImmutableListMultimapRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `ImmutableListMultimap`s. [Source](https://error-prone.picnic.tech/refasterrules/ImmutableListMultimapRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `ImmutableListMultimapRules.ImmutableListMultimapBuilder`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$immutablelistmultimapbuilderrecipe/"},{"name":"Refaster template `ImmutableListMultimapRules.EmptyImmutableListMultimap`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$emptyimmutablelistmultimaprecipe/"},{"name":"Refaster template `ImmutableListMultimapRules.PairToImmutableListMultimap`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$pairtoimmutablelistmultimaprecipe/"},{"name":"Refaster template `ImmutableListMultimapRules.EntryToImmutableListMultimap`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$entrytoimmutablelistmultimaprecipe/"},{"name":"Refaster template `ImmutableListMultimapRules.IterableToImmutableListMultimap`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$iterabletoimmutablelistmultimaprecipe/"},{"name":"Refaster template `ImmutableListMultimapRules.TransformMultimapValuesToImmutableListMultimap2`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$transformmultimapvaluestoimmutablelistmultimap2recipe/"},{"name":"Refaster template `ImmutableListMultimapRules.ImmutableListMultimapBuilderPut`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$immutablelistmultimapbuilderputrecipe/"}]}>
 
 ## Definition
 

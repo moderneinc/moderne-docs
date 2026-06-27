@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJRules.AssertThatStreamContainsExactlyVarargs`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatStreamContainsExactlyVarargs<S, T extends S, U extends T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatStreamContainsExactly\")\n    ListAssert<T> before(Stream<S> stream, @Repeated\n    U elements, Collector<S, ?, ? extends List<T>> collector) {\n        return assertThat(stream.collect(collector)).containsExactly(Refaster.asVarargs(elements));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ListAssert<S> after(Stream<S> stream, @Repeated\n    U elements) {\n        return assertThat(stream).containsExactly(elements);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,36 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsExactlyVarargsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsexactlyvarargsrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJRules.AssertThatStreamContainsExactlyVarargs`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatStreamContainsExactlyVarargs<S, T extends S, U extends T> {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "AssertThatStreamContainsExactly")
+    ListAssert<T> before(Stream<S> stream, @Repeated
+    U elements, Collector<S, ?, ? extends List<T>> collector) {
+        return assertThat(stream.collect(collector)).containsExactly(Refaster.asVarargs(elements));
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    ListAssert<S> after(Stream<S> stream, @Repeated
+    U elements) {
+        return assertThat(stream).containsExactly(elements);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsExactlyVarargsRecipe","displayName":"Refaster template `AssertJRules.AssertThatStreamContainsExactlyVarargs`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Zip slip"}
-  description={"Zip slip is an arbitrary file overwrite critical vulnerability, which typically results in remote command execution. A fuller description of this vulnerability is available in the [Snyk documentation](https://snyk.io/research/zip-slip-vulnerability) on it."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-22"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.ZipSlip"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/zipslip.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Zip slip</RecipeHeader.Title>
+
+<RecipeHeader.Description>Zip slip is an arbitrary file overwrite critical vulnerability, which typically results in remote command execution. A fuller description of this vulnerability is available in the [Snyk documentation](https://snyk.io/research/zip-slip-vulnerability) on it.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.File;\nimport java.io.FileOutputStream;\nimport java.io.RandomAccessFile;\nimport java.io.FileWriter;\nimport java.util.zip.ZipEntry;\n\npublic class ZipTest {\n    public void m1(ZipEntry entry, File dir) throws Exception {\n        String name = entry.getName();\n        File file = new File(dir, name);\n        FileOutputStream os = new FileOutputStream(file); // ZipSlip\n        RandomAccessFile raf = new RandomAccessFile(file, \"rw\"); // ZipSlip\n        FileWriter fw = new FileWriter(file); // ZipSlip\n    }\n}\n","after":"import java.io.*;\nimport java.util.zip.ZipEntry;\n\npublic class ZipTest {\n    public void m1(ZipEntry entry, File dir) throws Exception {\n        String name = entry.getName();\n        File file = new File(dir, name);\n        if (!file.toPath().normalize().startsWith(dir.toPath().normalize())) {\n            throw new IOException(\"Bad zip entry\");\n        }\n        FileOutputStream os = new FileOutputStream(file); // ZipSlip\n        RandomAccessFile raf = new RandomAccessFile(file, \"rw\"); // ZipSlip\n        FileWriter fw = new FileWriter(file); // ZipSlip\n    }\n}\n","diff":"@@ -1,4 +1,1 @@\n-import java.io.File;\n-import java.io.FileOutputStream;\n-import java.io.RandomAccessFile;\n-import java.io.FileWriter;\n+import java.io.*;\nimport java.util.zip.ZipEntry;\n@@ -11,0 +8,3 @@\n        String name = entry.getName();\n        File file = new File(dir, name);\n+       if (!file.toPath().normalize().startsWith(dir.toPath().normalize())) {\n+           throw new IOException(\"Bad zip entry\");\n+       }\n        FileOutputStream os = new FileOutputStream(file); // ZipSlip\n","newFile":false}]}]}>
 

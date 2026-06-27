@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `SpringApplication.run()` with `Quarkus.run()`"}
-  description={"Replace Spring Boot's `SpringApplication.run()` method calls with Quarkus's `Quarkus.run()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.SpringApplicationRunToQuarkusRun"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/springapplicationruntoquarkusrun.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `SpringApplication.run()` with `Quarkus.run()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace Spring Boot's `SpringApplication.run()` method calls with Quarkus's `Quarkus.run()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example;\n\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBootApplication\npublic class DemoApplication {\n    public static void main(String[] args) {\n        SpringApplication.run(DemoApplication.class, args);\n    }\n}\n","after":"package com.example;\n\nimport io.quarkus.runtime.Quarkus;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBootApplication\npublic class DemoApplication {\n    public static void main(String[] args) {\n        Quarkus.run(args);\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\npackage com.example;\n\n-import org.springframework.boot.SpringApplication;\n+import io.quarkus.runtime.Quarkus;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n@@ -9,1 +9,1 @@\npublic class DemoApplication {\n    public static void main(String[] args) {\n-       SpringApplication.run(DemoApplication.class, args);\n+       Quarkus.run(args);\n    }\n","newFile":false}]}]}>
 

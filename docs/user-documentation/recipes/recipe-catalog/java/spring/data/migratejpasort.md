@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `JpaSort.of(..)`"}
-  description={"Equivalent constructors in `JpaSort` were deprecated in Spring Data 2.3."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.data.MigrateJpaSort"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/data/migratejpasort.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `JpaSort.of(..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Equivalent constructors in `JpaSort` were deprecated in Spring Data 2.3.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.data.jpa.domain.JpaSort;\nimport javax.persistence.metamodel.Attribute;\n\nclass Test {\n    Attribute<?, ?> attr;\n    void test() {\n        JpaSort onlyAttr = new JpaSort(attr);\n    }\n}\n","after":"import org.springframework.data.jpa.domain.JpaSort;\nimport javax.persistence.metamodel.Attribute;\n\nclass Test {\n    Attribute<?, ?> attr;\n    void test() {\n        JpaSort onlyAttr = JpaSort.of(attr);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    Attribute<?, ?> attr;\n    void test() {\n-       JpaSort onlyAttr = new JpaSort(attr);\n+       JpaSort onlyAttr = JpaSort.of(attr);\n    }\n","newFile":false}]}]}>
 

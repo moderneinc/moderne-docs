@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use ScalaTest matchers instead of `assert(x == y)`"}
-  description={"Finds `assert(x == y)` patterns and `assertEquals` calls. Consider using ScalaTest matchers: `x shouldBe y`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.testing.UseScalaTestMatchers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/testing/usescalatestmatchers.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use ScalaTest matchers instead of `assert(x == y)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `assert(x == y)` patterns and `assertEquals` calls. Consider using ScalaTest matchers: `x shouldBe y`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class MyTest {\n    def testAddition(): Unit = {\n        val result = 1 + 1\n        assert(result == 2)\n    }\n}\n","after":"class MyTest {\n    /*~~(Consider using ScalaTest matchers: x shouldBe y)~~>*/def testAddition(): Unit = {\n        val result = 1 + 1\n        assert(result == 2)\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass MyTest {\n-   def testAddition(): Unit = {\n+   /*~~(Consider using ScalaTest matchers: x shouldBe y)~~>*/def testAddition(): Unit = {\n        val result = 1 + 1\n","newFile":false}]}]}>
 

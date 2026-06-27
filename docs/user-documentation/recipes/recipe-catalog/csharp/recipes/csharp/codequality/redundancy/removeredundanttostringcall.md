@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant ToString() call"}
-  description={"Remove `ToString()` calls on expressions that are already strings."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantToStringCall"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeredundanttostringcall.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant ToString() call</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `ToString()` calls on expressions that are already strings.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantToStringCall","displayName":"Remove redundant ToString() call","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

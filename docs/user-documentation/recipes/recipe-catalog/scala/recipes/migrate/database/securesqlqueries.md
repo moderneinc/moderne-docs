@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure parameterized SQL queries"}
-  description={"Finds raw SQL string patterns such as `sql\"...\"`, `SQL(...)`, or `s\"SELECT...\"`. Ensure parameterized queries are used to prevent SQL injection."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.database.SecureSqlQueries"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/database/securesqlqueries.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Ensure parameterized SQL queries</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds raw SQL string patterns such as `sql"..."`, `SQL(...)`, or `s"SELECT..."`. Ensure parameterized queries are used to prevent SQL injection.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Dao {\n    val q = sql\"SELECT * FROM users\"\n}\n","after":"object Dao {\n    val q = /*~~(SQL string found; ensure parameterized queries are used to prevent injection)~~>*/sql\"SELECT * FROM users\"\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Dao {\n-   val q = sql\"SELECT * FROM users\"\n+   val q = /*~~(SQL string found; ensure parameterized queries are used to prevent injection)~~>*/sql\"SELECT * FROM users\"\n}\n","newFile":false}]}]}>
 

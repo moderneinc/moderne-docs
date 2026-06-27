@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update git resource `source.uri` references"}
-  description={"Update git resource `source.uri` URI values to point to a new URI value."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.concourse.UpdateGitResourceUri"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/concourse/updategitresourceuri.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Concourse value","href":"concourse/changevalue"}]}>
+<RecipeHeader.Title>Update git resource `source.uri` references</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update git resource `source.uri` URI values to point to a new URI value.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Concourse value","href":"/user-documentation/recipes/recipe-catalog/concourse/changevalue/"}]}>
 
 ## Definition
 

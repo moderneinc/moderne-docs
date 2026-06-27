@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change TOML key"}
-  description={"Change a TOML key, while leaving the value intact."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-toml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.toml.ChangeKey"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/toml/changekey.md"}
-/>
+>
+
+<RecipeHeader.Title>Change TOML key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change a TOML key, while leaving the value intact.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldKeyPath","required":true,"description":"A TOML path expression to locate a key.","example":"package.name"},{"type":"String","name":"newKey","required":true,"description":"The new name for the key.","example":"project-name"}]}>
 

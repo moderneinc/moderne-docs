@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find IEquatable<T> without Equals(object) override"}
-  description={"Detect classes that implement `IEquatable<T>` but do not override `Equals(object)`, which can lead to inconsistent equality behavior."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindIEquatableWithoutEquals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findiequatablewithoutequals.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find IEquatable&lt;T> without Equals(object) override</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect classes that implement `IEquatable<T>` but do not override `Equals(object)`, which can lead to inconsistent equality behavior.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindIEquatableWithoutEquals","displayName":"Find IEquatable<T> without Equals(object) override","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

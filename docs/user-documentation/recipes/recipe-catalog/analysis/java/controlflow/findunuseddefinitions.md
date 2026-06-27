@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unused variable definitions"}
-  description={"Identifies variable assignments whose values are never used before being overwritten."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.controlflow.FindUnusedDefinitions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/controlflow/findunuseddefinitions.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find unused variable definitions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identifies variable assignments whose values are never used before being overwritten.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.analysis.java.controlflow.FindUnusedDefinitions","displayName":"Find unused variable definitions","groupId":"io.moderne.recipe","artifactId":"rewrite-program-analysis","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PROGRAM_ANALYSIS","requiresConfiguration":false}}>
 

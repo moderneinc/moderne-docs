@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use pattern matching for inequality comparison"}
-  description={"Replace `x != constant` with `x is not constant` for improved readability using C# pattern matching."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UsePatternMatchingForInequality"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usepatternmatchingforinequality.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use pattern matching for inequality comparison</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `x != constant` with `x is not constant` for improved readability using C# pattern matching.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UsePatternMatchingForInequality","displayName":"Use pattern matching for inequality comparison","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

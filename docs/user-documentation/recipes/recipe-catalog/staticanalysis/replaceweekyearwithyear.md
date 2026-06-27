@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Week Year (YYYY) should not be used for date formatting"}
-  description={"For most dates Week Year (YYYY) and Year (yyyy) yield the same results. However, on the last week of December and the first week of January, Week Year could produce unexpected results. This is a common source of off-by-one-year bugs that typically only manifest around New Year's Eve, making them difficult to catch during development and testing."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S3986"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceWeekYearWithYear"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replaceweekyearwithyear.md"}
-/>
+>
+
+<RecipeHeader.Title>Week Year (YYYY) should not be used for date formatting</RecipeHeader.Title>
+
+<RecipeHeader.Description>For most dates Week Year (YYYY) and Year (yyyy) yield the same results. However, on the last week of December and the first week of January, Week Year could produce unexpected results. This is a common source of off-by-one-year bugs that typically only manifest around New Year's Eve, making them difficult to catch during development and testing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.text.SimpleDateFormat;\nimport java.util.Date;\n\nclass Test {\n  public void formatDate() {\n    Date date = new SimpleDateFormat(\"yyyy/MM/dd\").parse(\"2015/12/31\");\n    String result = new SimpleDateFormat(\"YYYY/MM/dd\").format(date);\n  }\n}\n","after":"import java.text.SimpleDateFormat;\nimport java.util.Date;\n\nclass Test {\n  public void formatDate() {\n    Date date = new SimpleDateFormat(\"yyyy/MM/dd\").parse(\"2015/12/31\");\n    String result = new SimpleDateFormat(\"yyyy/MM/dd\").format(date);\n  }\n}\n","diff":"@@ -7,1 +7,1 @@\n  public void formatDate() {\n    Date date = new SimpleDateFormat(\"yyyy/MM/dd\").parse(\"2015/12/31\");\n-   String result = new SimpleDateFormat(\"YYYY/MM/dd\").format(date);\n+   String result = new SimpleDateFormat(\"yyyy/MM/dd\").format(date);\n  }\n","newFile":false}]}]}>
 

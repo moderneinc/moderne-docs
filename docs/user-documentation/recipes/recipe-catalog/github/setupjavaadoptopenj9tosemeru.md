@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `actions/setup-java` IBM `semeru` distribution"}
-  description={"Adopt OpenJDK got moved to Eclipse Temurin and won't be updated anymore. It is highly recommended to migrate workflows from adopt-openj9 to IBM semeru to keep receiving software and security updates. See more details in the [Good-bye AdoptOpenJDK post](https://blog.adoptopenjdk.net/2021/08/goodbye-adoptopenjdk-hello-adoptium/)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["security"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.SetupJavaAdoptOpenj9ToSemeru"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/setupjavaadoptopenj9tosemeru.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `actions/setup-java` IBM `semeru` distribution</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adopt OpenJDK got moved to Eclipse Temurin and won't be updated anymore. It is highly recommended to migrate workflows from adopt-openj9 to IBM semeru to keep receiving software and security updates. See more details in the [Good-bye AdoptOpenJDK post](https://blog.adoptopenjdk.net/2021/08/goodbye-adoptopenjdk-hello-adoptium/).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"jobs:\n  build:\n    steps:\n      - uses: actions/checkout@v2\n        with:\n          fetch-depth: 0\n      - name: set-up-jdk-0\n        uses: actions/setup-java@v2.3.0\n        with:\n          distribution: \"adopt\"\n          java-version: \"11\"\n      - name: set-up-jdk-1\n        uses: actions/setup-java@v2.3.0\n        with:\n          distribution: \"adopt-hotspot\"\n          java-version: \"11\"\n      - name: set-up-jdk-2\n        uses: actions/setup-java@v2.3.0\n        with:\n          distribution: \"adopt-openj9\"\n          java-version: \"11\"\n      - name: build\n        run: ./gradlew build test\n","after":"jobs:\n  build:\n    steps:\n      - uses: actions/checkout@v2\n        with:\n          fetch-depth: 0\n      - name: set-up-jdk-0\n        uses: actions/setup-java@v2.3.0\n        with:\n          distribution: \"adopt\"\n          java-version: \"11\"\n      - name: set-up-jdk-1\n        uses: actions/setup-java@v2.3.0\n        with:\n          distribution: \"adopt-hotspot\"\n          java-version: \"11\"\n      - name: set-up-jdk-2\n        uses: actions/setup-java@v2.3.0\n        with:\n          distribution: \"semeru\"\n          java-version: \"11\"\n      - name: build\n        run: ./gradlew build test\n","diff":"--- .github/workflows/ci.yml\n+++ .github/workflows/ci.yml\n@@ -20,1 +20,1 @@\n        uses: actions/setup-java@v2.3.0\n        with:\n-         distribution: \"adopt-openj9\"\n+         distribution: \"semeru\"\n          java-version: \"11\"\n","newFile":false}]}]}>
 

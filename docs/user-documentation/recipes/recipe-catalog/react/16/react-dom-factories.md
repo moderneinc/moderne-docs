@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `React.DOM` factories with `createElement`"}
-  description={"Converts deprecated `React.DOM.xxx()` factory calls to `React.createElement('xxx', ...)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.16.react-dom-factories"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/16/react-dom-factories.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `React.DOM` factories with `createElement`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts deprecated `React.DOM.xxx()` factory calls to `React.createElement('xxx', ...)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.16.react-dom-factories","displayName":"Replace `React.DOM` factories with `createElement`","npmPackage":"@openrewrite/recipes-react"}}>
 

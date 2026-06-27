@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find AI models in use"}
-  description={"Scans codebases to identify usage of Large Language Models (LLMs). Detects model references and configuration patterns across Java classes, properties files, YAML configs... Useful for identifying model usage."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.ai.FindModelsInUse"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/ai/findmodelsinuse.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find YAML properties","href":"yaml/search/findproperty"},{"name":"Find property","href":"properties/search/findproperties"},{"name":"Find YAML properties","href":"yaml/search/findproperty"},{"name":"Find property","href":"properties/search/findproperties"},{"name":"Find YAML properties","href":"yaml/search/findproperty"},{"name":"Find property","href":"properties/search/findproperties"},{"name":"Find YAML properties","href":"yaml/search/findproperty"},{"name":"Find property","href":"properties/search/findproperties"},{"name":"Find YAML properties","href":"yaml/search/findproperty"},{"name":"Find property","href":"properties/search/findproperties"},{"name":"Find text","href":"text/find"},{"name":"Find text","href":"text/find"},{"name":"Find text","href":"text/find"},{"name":"Find text","href":"text/find"},{"name":"Find text","href":"text/find"},{"name":"Find text","href":"text/find"},{"name":"Find text","href":"text/find"}]}>
+<RecipeHeader.Title>Find AI models in use</RecipeHeader.Title>
+
+<RecipeHeader.Description>Scans codebases to identify usage of Large Language Models (LLMs). Detects model references and configuration patterns across Java classes, properties files, YAML configs... Useful for identifying model usage.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find YAML properties","href":"/user-documentation/recipes/recipe-catalog/yaml/search/findproperty/"},{"name":"Find property","href":"/user-documentation/recipes/recipe-catalog/properties/search/findproperties/"},{"name":"Find YAML properties","href":"/user-documentation/recipes/recipe-catalog/yaml/search/findproperty/"},{"name":"Find property","href":"/user-documentation/recipes/recipe-catalog/properties/search/findproperties/"},{"name":"Find YAML properties","href":"/user-documentation/recipes/recipe-catalog/yaml/search/findproperty/"},{"name":"Find property","href":"/user-documentation/recipes/recipe-catalog/properties/search/findproperties/"},{"name":"Find YAML properties","href":"/user-documentation/recipes/recipe-catalog/yaml/search/findproperty/"},{"name":"Find property","href":"/user-documentation/recipes/recipe-catalog/properties/search/findproperties/"},{"name":"Find YAML properties","href":"/user-documentation/recipes/recipe-catalog/yaml/search/findproperty/"},{"name":"Find property","href":"/user-documentation/recipes/recipe-catalog/properties/search/findproperties/"},{"name":"Find text","href":"/user-documentation/recipes/recipe-catalog/text/find/"},{"name":"Find text","href":"/user-documentation/recipes/recipe-catalog/text/find/"},{"name":"Find text","href":"/user-documentation/recipes/recipe-catalog/text/find/"},{"name":"Find text","href":"/user-documentation/recipes/recipe-catalog/text/find/"},{"name":"Find text","href":"/user-documentation/recipes/recipe-catalog/text/find/"},{"name":"Find text","href":"/user-documentation/recipes/recipe-catalog/text/find/"},{"name":"Find text","href":"/user-documentation/recipes/recipe-catalog/text/find/"}]}>
 
 ## Definition
 

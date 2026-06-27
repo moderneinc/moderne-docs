@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Encrypt Azure VM data disk with ADE/CMK"}
-  description={"Ensure Azure VM data disk is encrypted with ADE/CMK."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["Azure","CKV_AZURE_2","terraform"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.azure.EncryptAzureVMDataDiskWithADECMK"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/azure/encryptazurevmdatadiskwithadecmk.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Encrypt Azure VM data disk with ADE/CMK</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure Azure VM data disk is encrypted with ADE/CMK.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

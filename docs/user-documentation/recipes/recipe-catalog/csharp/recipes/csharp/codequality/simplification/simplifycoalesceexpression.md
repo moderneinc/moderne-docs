@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify coalesce expression"}
-  description={"Simplify x ?? x to x."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyCoalesceExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifycoalesceexpression.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify coalesce expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify x ?? x to x.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyCoalesceExpression","displayName":"Simplify coalesce expression","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

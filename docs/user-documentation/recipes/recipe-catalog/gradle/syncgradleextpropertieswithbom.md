@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Sync Gradle ext properties with BOM"}
-  description={"Downloads a BOM and compares its properties against Gradle ext properties. When the BOM defines a higher version for a property, the ext property is updated to match (or removed if `removeRedundantOverrides` is enabled)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.SyncGradleExtPropertiesWithBom"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/syncgradleextpropertieswithbom.md"}
-/>
+>
+
+<RecipeHeader.Title>Sync Gradle ext properties with BOM</RecipeHeader.Title>
+
+<RecipeHeader.Description>Downloads a BOM and compares its properties against Gradle ext properties. When the BOM defines a higher version for a property, the ext property is updated to match (or removed if `removeRedundantOverrides` is enabled).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The groupId of the BOM to sync with.","example":"org.springframework.boot"},{"type":"String","name":"artifactId","required":true,"description":"The artifactId of the BOM to sync with.","example":"spring-boot-dependencies"},{"type":"String","name":"version","required":true,"description":"The version of the BOM to sync with.","example":"3.4.0"},{"type":"Boolean","name":"removeRedundantOverrides","required":false,"description":"When enabled, ext properties whose value is lower than or equal to the BOM version will be removed entirely instead of updated, since the BOM default is now sufficient."}]}>
 

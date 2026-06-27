@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `KClass.constructors` access"}
-  description={"Reflective access to `KClass.constructors` reveals every constructor of a Kotlin class at runtime. Each match is a seed where reflective allocation is plausible — opaque to static analysis."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindKClassConstructors$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findkclassconstructors$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `KClass.constructors` access</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reflective access to `KClass.constructors` reveals every constructor of a Kotlin class at runtime. Each match is a seed where reflective allocation is plausible — opaque to static analysis.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindKClassConstructors$KtRecipe","displayName":"Find `KClass.constructors` access","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

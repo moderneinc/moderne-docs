@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find outbound-network sinks (`URL.openConnection`, `OkHttpClient.newCall`, etc.)"}
-  description={"Outbound network calls are SSRF candidates whenever the URL or request body flows from a request parameter. Each match is a seed for tracing where the program reaches into the outside world."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindNetworkSinks$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findnetworksinks$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find outbound-network sinks (`URL.openConnection`, `OkHttpClient.newCall`, etc.)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Outbound network calls are SSRF candidates whenever the URL or request body flows from a request parameter. Each match is a seed for tracing where the program reaches into the outside world.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindNetworkSinks$KtRecipe","displayName":"Find outbound-network sinks (`URL.openConnection`, `OkHttpClient.newCall`, etc.)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

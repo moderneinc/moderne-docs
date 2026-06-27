@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate SAP cloud foundry logging support to Spring Boot 3.x"}
-  description={"Migrate SAP cloud foundry logging support from `cf-java-logging-support-servlet` to `cf-java-logging-support-servlet-jakarta`, to use Jakarta with Spring Boot 3."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","sap","cloudfoundry","logging","boot"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.MigrateSapCfJavaLoggingSupport"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratesapcfjavaloggingsupport.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate SAP cloud foundry logging support to Spring Boot 3.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate SAP cloud foundry logging support from `cf-java-logging-support-servlet` to `cf-java-logging-support-servlet-jakarta`, to use Jakarta with Spring Boot 3.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

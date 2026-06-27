@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace context.getExtension(ExtendedCamelContext.class).get* with PluginHelper.get*(context)"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel40.UsePluginHelperForContextGetters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/usepluginhelperforcontextgetters.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Move getter from context to PluginHelper.","href":"apache/camel/upgrade/customrecipes/movegettertopluginhelper"},{"name":"Move getter from context to PluginHelper.","href":"apache/camel/upgrade/customrecipes/movegettertopluginhelper"},{"name":"Move getter from context to PluginHelper.","href":"apache/camel/upgrade/customrecipes/movegettertopluginhelper"},{"name":"Move getter from context to PluginHelper.","href":"apache/camel/upgrade/customrecipes/movegettertopluginhelper"}]}>
+<RecipeHeader.Title>Replace context.getExtension(ExtendedCamelContext.class).get* with PluginHelper.get*(context)</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Move getter from context to PluginHelper.","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/movegettertopluginhelper/"},{"name":"Move getter from context to PluginHelper.","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/movegettertopluginhelper/"},{"name":"Move getter from context to PluginHelper.","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/movegettertopluginhelper/"},{"name":"Move getter from context to PluginHelper.","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/movegettertopluginhelper/"}]}>
 
 ## Definition
 

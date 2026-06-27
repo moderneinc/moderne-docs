@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Mitigate Unaffected Non-EE Jakarta 9 Packages"}
-  description={"Mitigate Unaffected Non-EE Jakarta 9 Packages. Reference: [https://github.com/jakartaee/platform/blob/main/namespace/unaffected-packages.adoc](https://github.com/jakartaee/platform/blob/main/namespace/unaffected-packages.adoc)\n"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["non-eejakarta","jakarta","unaffected"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.MitigateUnaffectedNonEEJakarta9Packages"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/mitigateunaffectednoneejakarta9packages.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename package name","href":"java/changepackage"},{"name":"Rename package name","href":"java/changepackage"}]}>
+<RecipeHeader.Title>Mitigate Unaffected Non-EE Jakarta 9 Packages</RecipeHeader.Title>
+
+<RecipeHeader.Description>Mitigate Unaffected Non-EE Jakarta 9 Packages. Reference: [https://github.com/jakartaee/platform/blob/main/namespace/unaffected-packages.adoc](https://github.com/jakartaee/platform/blob/main/namespace/unaffected-packages.adoc)</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Parameterize Log4j 2.x logging statements"}
-  description={"Use Log4j 2.x parameterized logging, which can significantly boost performance for messages that otherwise would be assembled with String concatenation. Particularly impactful when the log level is not enabled, as no work is done to assemble the message."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["logging","log4j"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.log4j.ParameterizedLogging"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/log4j/parameterizedlogging.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"},{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"},{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"},{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"},{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"},{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"},{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"},{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"},{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"},{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"},{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"},{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"},{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"},{"name":"Parameterize logging statements","href":"java/logging/parameterizedlogging"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Parameterize Log4j 2.x logging statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use Log4j 2.x parameterized logging, which can significantly boost performance for messages that otherwise would be assembled with String concatenation. Particularly impactful when the log level is not enabled, as no work is done to assemble the message.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"},{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"},{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"},{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"},{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"},{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"},{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"},{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"},{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"},{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"},{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"},{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"},{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"},{"name":"Parameterize logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

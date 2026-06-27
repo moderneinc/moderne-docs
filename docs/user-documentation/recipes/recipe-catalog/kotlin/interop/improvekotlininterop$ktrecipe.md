@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply Java↔Kotlin interop rewrites"}
-  description={"Autofix-only interop bundle: collapses `Optional.of(x).get()` round-trips that have a direct value equivalent. Excludes the search-only `Find*` recipes (Optional / CompletableFuture / Stream / Collections factories, Jvm-annotation gaps, Java-style call shapes, reactive return types) — for diff-only output, use this recipe instead."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.ImproveKotlinInterop$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/improvekotlininterop$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `x` instead of `Optional.of(x).get()`","href":"kotlin/interop/usevalueforoptionalofget$ktrecipe"}]}>
+<RecipeHeader.Title>Apply Java↔Kotlin interop rewrites</RecipeHeader.Title>
+
+<RecipeHeader.Description>Autofix-only interop bundle: collapses `Optional.of(x).get()` round-trips that have a direct value equivalent. Excludes the search-only `Find*` recipes (Optional / CompletableFuture / Stream / Collections factories, Jvm-annotation gaps, Java-style call shapes, reactive return types) — for diff-only output, use this recipe instead.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `x` instead of `Optional.of(x).get()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/usevalueforoptionalofget$ktrecipe/"}]}>
 
 ## Definition
 

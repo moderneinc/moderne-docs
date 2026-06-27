@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@SpringBootApplication` class"}
-  description={"Adds a `@SpringBootApplication` class containing a main method to bootify your Spring Framework application."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot.AddSpringBootApplication"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot/addspringbootapplication.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@SpringBootApplication` class</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds a `@SpringBootApplication` class containing a main method to bootify your Spring Framework application.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"applicationFolder","required":false,"description":"When your source code repo contains multiple java projects/modules, it's impossible to decide in which one to add the the Application class in a guaranteed way.\nBy setting this property, you can filter out sourcepaths (supporting glob) to make 1 module/project applicable as Applications module.","example":"**/*-web/"}]}>
 

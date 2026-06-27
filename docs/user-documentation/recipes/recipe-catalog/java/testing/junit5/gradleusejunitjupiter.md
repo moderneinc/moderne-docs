@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Gradle `Test` use JUnit Jupiter"}
-  description={"By default Gradle's `Test` tasks use JUnit 4. Gradle `Test` tasks must be configured with `useJUnitPlatform()` to run JUnit Jupiter tests. This recipe adds the `useJUnitPlatform()` method call to the `Test` task configuration."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.GradleUseJunitJupiter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/gradleusejunitjupiter.md"}
-/>
+>
+
+<RecipeHeader.Title>Gradle `Test` use JUnit Jupiter</RecipeHeader.Title>
+
+<RecipeHeader.Description>By default Gradle's `Test` tasks use JUnit 4. Gradle `Test` tasks must be configured with `useJUnitPlatform()` to run JUnit Jupiter tests. This recipe adds the `useJUnitPlatform()` method call to the `Test` task configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins {\n    id 'java-library'\n}\ntasks.named('classes') { }\ntasks.withType(JavaCompile) { }\ntasks.withType(JavaCompile).configureEach { }\n","after":"plugins {\n    id 'java-library'\n}\ntasks.named('classes') { }\ntasks.withType(JavaCompile) { }\ntasks.withType(JavaCompile).configureEach { }\ntasks.withType(Test).configureEach {\n    useJUnitPlatform()\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -7,0 +7,3 @@\ntasks.withType(JavaCompile) { }\ntasks.withType(JavaCompile).configureEach { }\n+tasks.withType(Test).configureEach {\n+   useJUnitPlatform()\n+}\n\n","newFile":false}]}]}>
 

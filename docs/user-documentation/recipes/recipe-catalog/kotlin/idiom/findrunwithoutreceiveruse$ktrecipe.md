@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `x.run { ... }` that doesn't use the receiver"}
-  description={"`run { }` is meaningful when the lambda references `this`; otherwise `x.let { … }` (binding via `it`) or even no scope function at all is clearer. The runtime cost is identical — the value is purely readability."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindRunWithoutReceiverUse$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findrunwithoutreceiveruse$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `x.run { ... }` that doesn't use the receiver</RecipeHeader.Title>
+
+<RecipeHeader.Description>`run { }` is meaningful when the lambda references `this`; otherwise `x.let { … }` (binding via `it`) or even no scope function at all is clearer. The runtime cost is identical — the value is purely readability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindRunWithoutReceiverUse$KtRecipe","displayName":"Find `x.run { ... }` that doesn't use the receiver","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

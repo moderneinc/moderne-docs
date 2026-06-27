@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJStringRules.AssertThatStringContains`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatStringContains {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(String string, CharSequence substring) {\n        return assertThat(string.contains(substring)).isTrue();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractStringAssert<?> after(String string, CharSequence substring) {\n        return assertThat(string).contains(substring);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatStringContainsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatstringcontainsrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJStringRules.AssertThatStringContains`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatStringContains {
+    
+    @BeforeTemplate
+    AbstractBooleanAssert<?> before(String string, CharSequence substring) {
+        return assertThat(string.contains(substring)).isTrue();
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractStringAssert<?> after(String string, CharSequence substring) {
+        return assertThat(string).contains(substring);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatStringContainsRecipe","displayName":"Refaster template `AssertJStringRules.AssertThatStringContains`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

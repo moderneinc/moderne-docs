@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit 5 inner test classes should be annotated with `@Nested`"}
-  description={"Adds `@Nested` to inner classes that contain JUnit 5 tests."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S5790"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.AddMissingNested"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/addmissingnested.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit 5 inner test classes should be annotated with `@Nested`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `@Nested` to inner classes that contain JUnit 5 tests.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\n\npublic class RootTest {\n    public class InnerTest {\n        @Test\n        public void test() {\n        }\n    }\n}\n","after":"import org.junit.jupiter.api.Nested;\nimport org.junit.jupiter.api.Test;\n\npublic class RootTest {\n    @Nested\n    public class InnerTest {\n        @Test\n        public void test() {\n        }\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.junit.jupiter.api.Nested;\nimport org.junit.jupiter.api.Test;\n@@ -4,0 +5,1 @@\n\npublic class RootTest {\n+   @Nested\n    public class InnerTest {\n","newFile":false}]}]}>
 

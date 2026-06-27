@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Mockito.mock(...)` / `mock<X>()` calls"}
-  description={"Mockito's `mock(X::class.java)` (or mockito-kotlin's `mock<X>()`) builds a relaxed proxy that returns sensible defaults for unstubbed calls. The mockk equivalent is `mockk<X>()` — strict by default (unstubbed calls throw) with `mockk<X>(relaxed = true)` for the Mockito-style default behavior."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindMockitoMockCall$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitomockcall$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Mockito.mock(...)` / `mock<X>()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Mockito's `mock(X::class.java)` (or mockito-kotlin's `mock<X>()`) builds a relaxed proxy that returns sensible defaults for unstubbed calls. The mockk equivalent is `mockk<X>()` — strict by default (unstubbed calls throw) with `mockk<X>(relaxed = true)` for the Mockito-style default behavior.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindMockitoMockCall$KtRecipe","displayName":"Find `Mockito.mock(...)` / `mock<X>()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

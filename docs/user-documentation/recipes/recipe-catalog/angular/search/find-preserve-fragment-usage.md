@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `preserveFragment` usage"}
-  description={"Finds usages of the deprecated `preserveFragment` navigation option. `preserveFragment` was deprecated in Angular 4 and removed in Angular 11. Fragments are now preserved by default."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-preserve-fragment-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-preserve-fragment-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated `preserveFragment` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of the deprecated `preserveFragment` navigation option. `preserveFragment` was deprecated in Angular 4 and removed in Angular 11. Fragments are now preserved by default.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-preserve-fragment-usage","displayName":"Find deprecated `preserveFragment` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

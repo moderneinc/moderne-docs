@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `DoubleStreamRules.DoubleStreamTakeWhile`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class DoubleStreamTakeWhile {\n    \n    @BeforeTemplate\n    DoubleStream before(DoubleStream stream, DoublePredicate predicate) {\n        return stream.takeWhile(predicate).filter(predicate);\n    }\n    \n    @AfterTemplate\n    DoubleStream after(DoubleStream stream, DoublePredicate predicate) {\n        return stream.takeWhile(predicate);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.DoubleStreamRulesRecipes$DoubleStreamTakeWhileRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/doublestreamrulesrecipes$doublestreamtakewhilerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `DoubleStreamRules.DoubleStreamTakeWhile`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class DoubleStreamTakeWhile {
+    
+    @BeforeTemplate
+    DoubleStream before(DoubleStream stream, DoublePredicate predicate) {
+        return stream.takeWhile(predicate).filter(predicate);
+    }
+    
+    @AfterTemplate
+    DoubleStream after(DoubleStream stream, DoublePredicate predicate) {
+        return stream.takeWhile(predicate);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.DoubleStreamRulesRecipes$DoubleStreamTakeWhileRecipe","displayName":"Refaster template `DoubleStreamRules.DoubleStreamTakeWhile`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

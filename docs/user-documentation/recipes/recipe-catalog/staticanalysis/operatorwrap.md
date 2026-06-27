@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Operator wrapping"}
-  description={"Fixes line wrapping policies on operators."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.OperatorWrap"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/operatorwrap.md"}
-/>
+>
+
+<RecipeHeader.Title>Operator wrapping</RecipeHeader.Title>
+
+<RecipeHeader.Description>Fixes line wrapping policies on operators.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"WrapOption","name":"wrapOption","required":false,"description":"The operator wrapping style to enforce, which may differ from the configured or detected style.","example":"NL"}]}>
 

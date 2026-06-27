@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJRules.AssertThatMapContainsEntry`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatMapContainsEntry<K, V> {\n    \n    @BeforeTemplate\n    ObjectAssert<V> before(Map<K, V> map, K key, V value) {\n        return assertThat(map.get(key)).isEqualTo(value);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    MapAssert<K, V> after(Map<K, V> map, K key, V value) {\n        return assertThat(map).containsEntry(key, value);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatMapContainsEntryRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatmapcontainsentryrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJRules.AssertThatMapContainsEntry`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatMapContainsEntry<K, V> {
+    
+    @BeforeTemplate
+    ObjectAssert<V> before(Map<K, V> map, K key, V value) {
+        return assertThat(map.get(key)).isEqualTo(value);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    MapAssert<K, V> after(Map<K, V> map, K key, V value) {
+        return assertThat(map).containsEntry(key, value);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatMapContainsEntryRecipe","displayName":"Refaster template `AssertJRules.AssertThatMapContainsEntry`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Class#getDeclaredConstructor().newInstance()`"}
-  description={"Use `Class#getDeclaredConstructor().newInstance()` instead of the deprecated `Class#newInstance()` in Java 9 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["deprecated"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.MigrateClassNewInstanceToGetDeclaredConstructorNewInstance"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/migrateclassnewinstancetogetdeclaredconstructornewinstance.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Class#getDeclaredConstructor().newInstance()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `Class#getDeclaredConstructor().newInstance()` instead of the deprecated `Class#newInstance()` in Java 9 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.abc;\n\nclass A {\n   public void test() throws Throwable {\n       Class<?> class_ = Class.forName(\"org.openrewrite.Test\");\n       class_.newInstance();\n   }\n}\n","after":"package com.abc;\n\nclass A {\n   public void test() throws Throwable {\n       Class<?> class_ = Class.forName(\"org.openrewrite.Test\");\n       class_.getDeclaredConstructor().newInstance();\n   }\n}\n","diff":"@@ -6,1 +6,1 @@\n   public void test() throws Throwable {\n       Class<?> class_ = Class.forName(\"org.openrewrite.Test\");\n-      class_.newInstance();\n+      class_.getDeclaredConstructor().newInstance();\n   }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant pass statements"}
-  description={"Remove redundant `pass` statements from Python code when there are other executable statements in the block."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.RemovePass"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/removepass.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant pass statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove redundant `pass` statements from Python code when there are other executable statements in the block.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.RemovePass","displayName":"Remove redundant pass statements","pipPackage":"openrewrite"}}>
 

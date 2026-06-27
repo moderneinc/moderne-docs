@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Wrap `GenericMessage` map argument in `MessageHeaders`"}
-  description={"Wraps the `Map` argument in `GenericMessage` constructors in Kotlin sources with `MessageHeaders(map)` to explicitly use the `MessageHeaders` overload. This resolves Kotlin overload resolution ambiguity between the `Map` and `MessageHeaders` constructor overloads."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.WrapGenericMessageMapInMessageHeaders"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/wrapgenericmessagemapinmessageheaders.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Wrap `GenericMessage` map argument in `MessageHeaders`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Wraps the `Map` argument in `GenericMessage` constructors in Kotlin sources with `MessageHeaders(map)` to explicitly use the `MessageHeaders` overload. This resolves Kotlin overload resolution ambiguity between the `Map` and `MessageHeaders` constructor overloads.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"import org.springframework.messaging.support.GenericMessage\nimport java.util.HashMap\n\nclass Test {\n    fun test() {\n        val headers = HashMap<String, Any>()\n        headers[\"key\"] = \"value\"\n        val msg = GenericMessage(\"payload\", headers)\n    }\n}\n","after":"import org.springframework.messaging.MessageHeaders\nimport org.springframework.messaging.support.GenericMessage\nimport java.util.HashMap\n\nclass Test {\n    fun test() {\n        val headers = HashMap<String, Any>()\n        headers[\"key\"] = \"value\"\n        val msg = GenericMessage(\"payload\", MessageHeaders(headers))\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.springframework.messaging.MessageHeaders\nimport org.springframework.messaging.support.GenericMessage\n@@ -8,1 +9,1 @@\n        val headers = HashMap<String, Any>()\n        headers[\"key\"] = \"value\"\n-       val msg = GenericMessage(\"payload\", headers)\n+       val msg = GenericMessage(\"payload\", MessageHeaders(headers))\n    }\n","newFile":false}]}]}>
 

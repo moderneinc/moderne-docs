@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Disallow unsupported Vue.js syntax on the specified version"}
-  description={"Disallow unsupported Vue.js syntax on the specified version\nSee rule details for [vue/no-unsupported-features](https://eslint.vuejs.org/rules/no-unsupported-features.html)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ESLint","vue","eslint-plugin-vue"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.vue.NoUnsupportedFeatures"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/nounsupportedfeatures.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Disallow unsupported Vue.js syntax on the specified version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Disallow unsupported Vue.js syntax on the specified version See rule details for [vue/no-unsupported-features](https://eslint.vuejs.org/rules/no-unsupported-features.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

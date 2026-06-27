@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ComparatorRules.ThenComparingLong`"}
-  description={"Don't explicitly create `Comparator`s unnecessarily."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ThenComparingLongRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/comparatorrulesrecipes$thencomparinglongrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ComparatorRules.ThenComparingLong`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Don't explicitly create `Comparator`s unnecessarily.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ThenComparingLongRecipe","displayName":"Refaster template `ComparatorRules.ThenComparingLong`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

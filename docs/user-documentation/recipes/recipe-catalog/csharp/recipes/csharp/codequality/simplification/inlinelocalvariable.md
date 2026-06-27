@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Inline local variable"}
-  description={"Inline local variable that is assigned once and used once immediately."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.InlineLocalVariable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/inlinelocalvariable.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Inline local variable</RecipeHeader.Title>
+
+<RecipeHeader.Description>Inline local variable that is assigned once and used once immediately.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.InlineLocalVariable","displayName":"Inline local variable","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

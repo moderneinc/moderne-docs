@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `String.toByteArray()` calls without an explicit charset"}
-  description={"`String.toByteArray()` uses the platform default charset, which differs across operating systems and produces non-portable bytes when hashed or signed. Pass `Charsets.UTF_8` (or another explicit charset) so the resulting bytes are stable."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindStringToByteArrayDefaultCharset$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findstringtobytearraydefaultcharset$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `String.toByteArray()` calls without an explicit charset</RecipeHeader.Title>
+
+<RecipeHeader.Description>`String.toByteArray()` uses the platform default charset, which differs across operating systems and produces non-portable bytes when hashed or signed. Pass `Charsets.UTF_8` (or another explicit charset) so the resulting bytes are stable.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindStringToByteArrayDefaultCharset$KtRecipe","displayName":"Find `String.toByteArray()` calls without an explicit charset","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

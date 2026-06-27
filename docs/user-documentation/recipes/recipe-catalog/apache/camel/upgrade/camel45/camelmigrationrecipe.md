@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.4` application to `camel 4.5`"}
-  description={"Migrates `camel 4.4` application to `camel 4.5`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel45.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel45/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `context.${method}(*)` with `context.getCamelContextExtension().${method}(*)`","href":"apache/camel/upgrade/camel45/useextendedcamelcontextgetters"},{"name":"Replace 'camel.main.backlogTracing' with `camel.trace.enabled'","href":"apache/camel/upgrade/camel45/traceproperties"},{"name":"Renamed classes for elasticsearch,opensearch and spring regis","href":"apache/camel/upgrade/camel45/renamedclasses"}]}>
+<RecipeHeader.Title>Migrates `camel 4.4` application to `camel 4.5`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.4` application to `camel 4.5`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `context.${method}(*)` with `context.getCamelContextExtension().${method}(*)`","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel45/useextendedcamelcontextgetters/"},{"name":"Replace 'camel.main.backlogTracing' with `camel.trace.enabled'","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel45/traceproperties/"},{"name":"Renamed classes for elasticsearch,opensearch and spring regis","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel45/renamedclasses/"}]}>
 
 ## Definition
 

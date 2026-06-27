@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find long or disabled HTTP session timeout"}
-  description={"Finds calls to `HttpSession.setMaxInactiveInterval(int)` whose integer-literal argument exceeds 30 minutes or is zero/negative (which disables session expiration). Long-lived or non-expiring sessions increase the window for session hijacking and replay (CWE-613)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["security","CWE-613"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindLongSessionTimeout"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findlongsessiontimeout.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find long or disabled HTTP session timeout</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds calls to `HttpSession.setMaxInactiveInterval(int)` whose integer-literal argument exceeds 30 minutes or is zero/negative (which disables session expiration). Long-lived or non-expiring sessions increase the window for session hijacking and replay (CWE-613).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.http.HttpServletRequest;\n\nclass LoginController {\n    void login(HttpServletRequest request) {\n        request.getSession().setMaxInactiveInterval(7200);\n    }\n}\n","after":"import javax.servlet.http.HttpServletRequest;\n\nclass LoginController {\n    void login(HttpServletRequest request) {\n        /*~~(HttpSession.setMaxInactiveInterval(7200s) exceeds the recommended 30-minute idle timeout (CWE-613))~~>*/request.getSession().setMaxInactiveInterval(7200);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass LoginController {\n    void login(HttpServletRequest request) {\n-       request.getSession().setMaxInactiveInterval(7200);\n+       /*~~(HttpSession.setMaxInactiveInterval(7200s) exceeds the recommended 30-minute idle timeout (CWE-613))~~>*/request.getSession().setMaxInactiveInterval(7200);\n    }\n","newFile":false}]}]}>
 

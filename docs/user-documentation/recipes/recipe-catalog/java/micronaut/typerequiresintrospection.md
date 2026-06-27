@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@Introspected` to classes requiring a map representation"}
-  description={"In Micronaut 2.x a reflection-based strategy was used to retrieve that information if the class was not annotated with `@Introspected`. As of Micronaut 3.x it is required to annotate classes with `@Introspected` that are used in this way."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.TypeRequiresIntrospection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/typerequiresintrospection.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `@Introspected` to classes requiring a map representation</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Micronaut 2.x a reflection-based strategy was used to retrieve that information if the class was not annotated with `@Introspected`. As of Micronaut 3.x it is required to annotate classes with `@Introspected` that are used in this way.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package a.b;\n\npublic class C {\n    String name;\n    String getName() { return name;}\n    void setName(String name) {this.name = name;}\n}\n","after":"package a.b;\n\nimport io.micronaut.core.annotation.Introspected;\n\n@Introspected\npublic class C {\n    String name;\n    String getName() { return name;}\n    void setName(String name) {this.name = name;}\n}\n","diff":"@@ -3,0 +3,3 @@\npackage a.b;\n\n+import io.micronaut.core.annotation.Introspected;\n+\n+@Introspected\npublic class C {\n","newFile":false}]}]}>
 

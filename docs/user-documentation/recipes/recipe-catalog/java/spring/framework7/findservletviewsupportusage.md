@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find removed Spring servlet view classes"}
-  description={"Spring Framework 7.0 removes the `org.springframework.web.servlet.view.document` and `org.springframework.web.servlet.view.feed` packages. This recipe adds TODO comments to imports of `AbstractPdfView`, `AbstractXlsView`, `AbstractXlsxView`, `AbstractXlsxStreamingView`, `AbstractPdfStampView`, `AbstractFeedView`, `AbstractAtomFeedView`, and `AbstractRssFeedView` that need to be replaced with direct usage of the underlying libraries (Apache POI, OpenPDF/iText, ROME) in web handlers."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.FindServletViewSupportUsage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/findservletviewsupportusage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find removed Spring servlet view classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Framework 7.0 removes the `org.springframework.web.servlet.view.document` and `org.springframework.web.servlet.view.feed` packages. This recipe adds TODO comments to imports of `AbstractPdfView`, `AbstractXlsView`, `AbstractXlsxView`, `AbstractXlsxStreamingView`, `AbstractPdfStampView`, `AbstractFeedView`, `AbstractAtomFeedView`, and `AbstractRssFeedView` that need to be replaced with direct usage of the underlying libraries (Apache POI, OpenPDF/iText, ROME) in web handlers.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.web.servlet.view.document.AbstractPdfView;\n\npublic abstract class MyPdfView extends AbstractPdfView {\n}\n","after":"// TODO: Servlet view support was removed in Spring Framework 7.0. Use the underlying libraries (Apache POI, OpenPDF/iText, ROME) directly in web handlers.\nimport org.springframework.web.servlet.view.document.AbstractPdfView;\n\npublic abstract class MyPdfView extends AbstractPdfView {\n}\n","diff":"@@ -1,0 +1,1 @@\n+// TODO: Servlet view support was removed in Spring Framework 7.0. Use the underlying libraries (Apache POI, OpenPDF/iText, ROME) directly in web handlers.\nimport org.springframework.web.servlet.view.document.AbstractPdfView;\n","newFile":false}]}]}>
 

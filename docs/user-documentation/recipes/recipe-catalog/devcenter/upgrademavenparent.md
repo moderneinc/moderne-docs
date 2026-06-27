@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Apache Maven Parent"}
-  description={"Upgrades the Apache Maven parent POM to the latest version."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.UpgradeMavenParent"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/upgrademavenparent.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Maven parent project version","href":"maven/upgradeparentversion"}]}>
+<RecipeHeader.Title>Upgrade Apache Maven Parent</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrades the Apache Maven parent POM to the latest version.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Maven parent project version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradeparentversion/"}]}>
 
 ## Definition
 

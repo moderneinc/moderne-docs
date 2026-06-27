@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJFileRules.AssertThatIsDirectory`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsDirectory {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(File actual) {\n        return assertThat(actual.isDirectory()).isTrue();\n    }\n    \n    @AfterTemplate\n    AbstractFileAssert<?> after(File actual) {\n        return assertThat(actual).isDirectory();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes$AssertThatIsDirectoryRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjfilerulesrecipes$assertthatisdirectoryrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJFileRules.AssertThatIsDirectory`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIsDirectory {
+    
+    @BeforeTemplate
+    AbstractBooleanAssert<?> before(File actual) {
+        return assertThat(actual.isDirectory()).isTrue();
+    }
+    
+    @AfterTemplate
+    AbstractFileAssert<?> after(File actual) {
+        return assertThat(actual).isDirectory();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes$AssertThatIsDirectoryRecipe","displayName":"Refaster template `AssertJFileRules.AssertThatIsDirectory`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

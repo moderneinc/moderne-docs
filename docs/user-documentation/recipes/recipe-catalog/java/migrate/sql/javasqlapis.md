@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use modernized `java.sql` APIs"}
-  description={"Certain Java sql APIs have become deprecated and their usages changed, necessitating usage changes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.sql.JavaSqlAPIs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/sql/javasqlapis.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `DriverManager#setLogWriter(java.io.PrintWriter)`","href":"java/migrate/sql/migratedrivermanagersetlogstream"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use modernized `java.sql` APIs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Certain Java sql APIs have become deprecated and their usages changed, necessitating usage changes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `DriverManager#setLogWriter(java.io.PrintWriter)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/sql/migratedrivermanagersetlogstream/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

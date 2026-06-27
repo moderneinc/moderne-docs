@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` implementations"}
-  description={"Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` implementations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.UserTypeSharedSessionContractImplementor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/usertypesharedsessioncontractimplementor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` implementations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove leaking of SharedSessionContractImplementor from `org.hibernate.usertype.UserType` implementations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.sql.PreparedStatement;\nimport java.sql.ResultSet;\n\nimport org.hibernate.engine.spi.SharedSessionContractImplementor;\nimport org.hibernate.usertype.UserType;\n\nclass UserTypeString implements UserType<String> {\n\n    @Override\n    default String nullSafeGet(ResultSet rs, int position, SharedSessionContractImplementor session, @Deprecated Object owner) {\n      return null;\n    }\n\n    @Override\n    default void nullSafeSet(PreparedStatement st, String value, int position, SharedSessionContractImplementor session) {\n    }\n}\n","after":"import java.sql.PreparedStatement;\nimport java.sql.ResultSet;\n\nimport org.hibernate.type.descriptor.WrapperOptions;\nimport org.hibernate.usertype.UserType;\n\nclass UserTypeString implements UserType<String> {\n\n    @Override\n    default String nullSafeGet(ResultSet rs, int position, WrapperOptions session) {\n      return null;\n    }\n\n    @Override\n    default void nullSafeSet(PreparedStatement st, String value, int position, WrapperOptions session) {\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\nimport java.sql.ResultSet;\n\n-import org.hibernate.engine.spi.SharedSessionContractImplementor;\n+import org.hibernate.type.descriptor.WrapperOptions;\nimport org.hibernate.usertype.UserType;\n@@ -10,1 +10,1 @@\n\n    @Override\n-   default String nullSafeGet(ResultSet rs, int position, SharedSessionContractImplementor session, @Deprecated Object owner) {\n+   default String nullSafeGet(ResultSet rs, int position, WrapperOptions session) {\n      return null;\n@@ -15,1 +15,1 @@\n\n    @Override\n-   default void nullSafeSet(PreparedStatement st, String value, int position, SharedSessionContractImplementor session) {\n+   default void nullSafeSet(PreparedStatement st, String value, int position, WrapperOptions session) {\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET endpoint contracts"}
-  description={"Extract request body, response body (unwrapping ActionResult<T>/Task<T>), and per-parameter binding source ([FromBody/Query/Route/Header/Form]) for ASP.NET Core controller endpoints."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDotnetEndpointContracts"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetendpointcontracts.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET endpoint contracts</RecipeHeader.Title>
+
+<RecipeHeader.Description>Extract request body, response body (unwrapping ActionResult&lt;T>/Task&lt;T>), and per-parameter binding source ([FromBody/Query/Route/Header/Form]) for ASP.NET Core controller endpoints.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindDotnetEndpointContracts","displayName":"Find .NET endpoint contracts","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

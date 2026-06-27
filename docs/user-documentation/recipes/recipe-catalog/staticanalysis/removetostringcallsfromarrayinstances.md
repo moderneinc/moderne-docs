@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `toString()` calls on arrays"}
-  description={"The result from `toString()` calls on arrays is largely useless. The output does not actually reflect the contents of the array. `Arrays.toString(array)` should be used instead as it gives the contents of the array. Since arrays do not override `toString()` from `Object`, calling it produces only the type name and memory address, which is rarely what was intended."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2116"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveToStringCallsFromArrayInstances"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removetostringcallsfromarrayinstances.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `toString()` calls on arrays</RecipeHeader.Title>
+
+<RecipeHeader.Description>The result from `toString()` calls on arrays is largely useless. The output does not actually reflect the contents of the array. `Arrays.toString(array)` should be used instead as it gives the contents of the array. Since arrays do not override `toString()` from `Object`, calling it produces only the type name and memory address, which is rarely what was intended.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class SomeClass {\n  public static void main(String[] args) {\n    String argStr = args.toString();\n  }\n}\n","after":"import java.util.Arrays;\n\nclass SomeClass {\n  public static void main(String[] args) {\n    String argStr = Arrays.toString(args);\n  }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import java.util.Arrays;\n+\nclass SomeClass {\n@@ -3,1 +5,1 @@\nclass SomeClass {\n  public static void main(String[] args) {\n-   String argStr = args.toString();\n+   String argStr = Arrays.toString(args);\n  }\n","newFile":false}]}]}>
 

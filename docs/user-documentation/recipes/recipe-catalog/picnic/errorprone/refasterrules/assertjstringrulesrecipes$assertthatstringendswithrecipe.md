@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJStringRules.AssertThatStringEndsWith`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatStringEndsWith {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(String string, String prefix) {\n        return assertThat(string.endsWith(prefix)).isTrue();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractStringAssert<?> after(String string, String prefix) {\n        return assertThat(string).endsWith(prefix);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatStringEndsWithRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatstringendswithrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJStringRules.AssertThatStringEndsWith`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatStringEndsWith {
+    
+    @BeforeTemplate
+    AbstractBooleanAssert<?> before(String string, String prefix) {
+        return assertThat(string.endsWith(prefix)).isTrue();
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractStringAssert<?> after(String string, String prefix) {
+        return assertThat(string).endsWith(prefix);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatStringEndsWithRecipe","displayName":"Refaster template `AssertJStringRules.AssertThatStringEndsWith`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

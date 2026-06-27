@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find functions with more than 5 parameters"}
-  description={"A long parameter list usually signals a missing aggregate (data class, builder, parameter object). For a reviewer or LLM agent, the parameter signature is the contract — when it's too wide, the call sites become hard to read and refactor in lockstep."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindManyParameters$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findmanyparameters$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find functions with more than 5 parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>A long parameter list usually signals a missing aggregate (data class, builder, parameter object). For a reviewer or LLM agent, the parameter signature is the contract — when it's too wide, the call sites become hard to read and refactor in lockstep.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindManyParameters$KtRecipe","displayName":"Find functions with more than 5 parameters","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

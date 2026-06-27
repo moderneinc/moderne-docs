@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find test coverage mapping"}
-  description={"Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.coverage.FindTestCoverage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestcoverage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find test coverage mapping</RecipeHeader.Title>
+
+<RecipeHeader.Description>Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"provider","required":false,"description":"LLM provider for generating test summaries: openai, gemini, or poolside.","example":"poolside"},{"type":"String","name":"apiKey","required":false,"description":"API key for the LLM provider.","example":"sk-..."},{"type":"String","name":"model","required":false,"description":"Model name to use for generating test summaries.","example":"malibu"},{"type":"String","name":"baseUrl","required":false,"description":"Custom base URL for the LLM provider.","example":"https://divers.poolsi.de/openai/v1/"},{"type":"Integer","name":"requestsPerMinute","required":false,"description":"Rate limit for LLM requests.","example":"60"}]}>
 

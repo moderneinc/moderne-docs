@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Hoist a guarded `@Nullable` field read into a local variable"}
-  description={"NullAway cannot refine a `@Nullable` field across a dereference, because the field could be mutated between the null check and the use, so `if (this.f != null) { this.f.foo(); }` is rejected. This recipe reads the field into a local once — `String f = this.f; if (f != null) { f.foo(); }` — which NullAway can refine. It matches an `if` whose condition is `<field> != null` (or `null != <field>`) for an instance field declared with a nullability annotation, and whose then-block dereferences the field, then introduces a local of the field's type before the `if` and replaces the field reads in the condition and then-block with that local. The else-block is left untouched (the field is still nullable there). Conservative by design: it skips locals (which NullAway already refines), non-`@Nullable` fields, fields reassigned inside the then-block, and cases where the chosen local name would collide with an in-scope name. Only Java sources are modified."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.cleanup.HoistNullableFieldReadIntoLocal"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/cleanup/hoistnullablefieldreadintolocal.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Hoist a guarded `@Nullable` field read into a local variable</RecipeHeader.Title>
+
+<RecipeHeader.Description>NullAway cannot refine a `@Nullable` field across a dereference, because the field could be mutated between the null check and the use, so `if (this.f != null) { this.f.foo(); }` is rejected. This recipe reads the field into a local once — `String f = this.f; if (f != null) { f.foo(); }` — which NullAway can refine. It matches an `if` whose condition is `<field> != null` (or `null != <field>`) for an instance field declared with a nullability annotation, and whose then-block dereferences the field, then introduces a local of the field's type before the `if` and replaces the field reads in the condition and then-block with that local. The else-block is left untouched (the field is still nullable there). Conservative by design: it skips locals (which NullAway already refines), non-`@Nullable` fields, fields reassigned inside the then-block, and cases where the chosen local name would collide with an in-scope name. Only Java sources are modified.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.jspecify.annotations.Nullable;\n\nclass Test {\n    @Nullable String f;\n\n    void m() {\n        if (this.f != null) {\n            System.out.println(this.f.length());\n        }\n    }\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nclass Test {\n    @Nullable String f;\n\n    void m() {\n        String f = this.f;\n        if (f != null) {\n            System.out.println(f.length());\n        }\n    }\n}\n","diff":"@@ -7,2 +7,3 @@\n\n    void m() {\n-       if (this.f != null) {\n-           System.out.println(this.f.length());\n+       String f = this.f;\n+       if (f != null) {\n+           System.out.println(f.length());\n        }\n","newFile":false}]}]}>
 

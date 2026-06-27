@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `RestTemplateBuilder`"}
-  description={"Migrate `RestTemplateBuilder#requestFactory` calls to use a `Supplier`. See the [migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide#resttemplatebuilder) for more."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.RestTemplateBuilderRequestFactory"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/resttemplatebuilderrequestfactory.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `RestTemplateBuilder`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate `RestTemplateBuilder#requestFactory` calls to use a `Supplier`. See the [migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-2.0-Migration-Guide#resttemplatebuilder) for more.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.web.client.RestTemplateBuilder;\nimport org.springframework.http.client.SimpleClientHttpRequestFactory;\n\npublic class A {\n    static {\n        RestTemplateBuilder builder = new RestTemplateBuilder()\n                .requestFactory(new SimpleClientHttpRequestFactory());\n    }\n}\n","after":"import org.springframework.boot.web.client.RestTemplateBuilder;\nimport org.springframework.http.client.SimpleClientHttpRequestFactory;\n\npublic class A {\n    static {\n        RestTemplateBuilder builder = new RestTemplateBuilder()\n                .requestFactory(() -> new SimpleClientHttpRequestFactory());\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    static {\n        RestTemplateBuilder builder = new RestTemplateBuilder()\n-               .requestFactory(new SimpleClientHttpRequestFactory());\n+               .requestFactory(() -> new SimpleClientHttpRequestFactory());\n    }\n","newFile":false}]}]}>
 

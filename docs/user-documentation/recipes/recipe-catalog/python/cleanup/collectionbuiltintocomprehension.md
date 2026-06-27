@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use comprehension syntax instead of `list()`/`set()` around generators"}
-  description={"Wrapping a generator in `list()` or `set()` is less idiomatic than the equivalent bracket/brace comprehension syntax."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.CollectionBuiltinToComprehension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/collectionbuiltintocomprehension.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use comprehension syntax instead of `list()`/`set()` around generators</RecipeHeader.Title>
+
+<RecipeHeader.Description>Wrapping a generator in `list()` or `set()` is less idiomatic than the equivalent bracket/brace comprehension syntax.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.CollectionBuiltinToComprehension","displayName":"Use comprehension syntax instead of `list()`/`set()` around generators","pipPackage":"openrewrite-static-analysis"}}>
 

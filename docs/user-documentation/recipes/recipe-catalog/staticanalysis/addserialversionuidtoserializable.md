@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `serialVersionUID` to a `Serializable` class when missing"}
-  description={"A `serialVersionUID` field is strongly recommended in all `Serializable` classes. If this is not defined on a `Serializable` class, the compiler will generate this value. If a change is later made to the class, the generated value will change and attempts to deserialize the class will fail. Explicitly declaring this field gives you control over binary compatibility across versions."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2057"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.AddSerialVersionUidToSerializable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/addserialversionuidtoserializable.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `serialVersionUID` to a `Serializable` class when missing</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `serialVersionUID` field is strongly recommended in all `Serializable` classes. If this is not defined on a `Serializable` class, the compiler will generate this value. If a change is later made to the class, the generated value will change and attempts to deserialize the class will fail. Explicitly declaring this field gives you control over binary compatibility across versions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"uid","required":false,"description":"Value of the added serial version UID.","example":"42L"}]}>
 

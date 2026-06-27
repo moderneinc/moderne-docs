@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `stream.collect(Collectors.toList())` calls"}
-  description={"The `collect(Collectors.toList())` terminal materializes a `Stream` into a `List`. In Kotlin source, the natural shape is `iterable.toList()` (eager) or `sequence.toList()` (lazy) — both avoid the `Collector` machinery and read at a glance."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindStreamCollectorsToList$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findstreamcollectorstolist$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `stream.collect(Collectors.toList())` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `collect(Collectors.toList())` terminal materializes a `Stream` into a `List`. In Kotlin source, the natural shape is `iterable.toList()` (eager) or `sequence.toList()` (lazy) — both avoid the `Collector` machinery and read at a glance.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindStreamCollectorsToList$KtRecipe","displayName":"Find `stream.collect(Collectors.toList())` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

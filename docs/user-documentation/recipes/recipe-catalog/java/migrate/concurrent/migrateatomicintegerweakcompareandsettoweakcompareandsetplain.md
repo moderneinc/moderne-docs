@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `AtomicInteger#weakCompareAndSetPlain(int, int)`"}
-  description={"Use `AtomicInteger#weakCompareAndSetPlain(int, int)` instead of the deprecated `AtomicInteger#weakCompareAndSet(int, int)` in Java 9 or higher."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.concurrent.MigrateAtomicIntegerWeakCompareAndSetToWeakCompareAndSetPlain"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicintegerweakcompareandsettoweakcompareandsetplain.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use `AtomicInteger#weakCompareAndSetPlain(int, int)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `AtomicInteger#weakCompareAndSetPlain(int, int)` instead of the deprecated `AtomicInteger#weakCompareAndSet(int, int)` in Java 9 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

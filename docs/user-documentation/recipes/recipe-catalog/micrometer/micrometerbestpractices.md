@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Micrometer best practices"}
-  description={"This recipe will apply a set of best practice refactorings for Micrometer, like adopting `Observations` instead of `Timers`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micrometer"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.micrometer.MicrometerBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/micrometer/micrometerbestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Micrometer 1.13","href":"micrometer/upgrademicrometer_1_13"},{"name":"Convert Micrometer `Timer` to `Observations`","href":"micrometer/timertoobservation"}]}>
+<RecipeHeader.Title>Micrometer best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply a set of best practice refactorings for Micrometer, like adopting `Observations` instead of `Timers`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Micrometer 1.13","href":"/user-documentation/recipes/recipe-catalog/micrometer/upgrademicrometer_1_13/"},{"name":"Convert Micrometer `Timer` to `Observations`","href":"/user-documentation/recipes/recipe-catalog/micrometer/timertoobservation/"}]}>
 
 ## Definition
 

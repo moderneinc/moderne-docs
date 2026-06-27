@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove an integer feature flag for feature key"}
-  description={"Replace method invocations for feature key with value, and simplify constant if branch execution."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-feature-flags"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.featureflags.RemoveIntegerFlag"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/featureflags/removeintegerflag.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove an integer feature flag for feature key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace method invocations for feature key with value, and simplify constant if branch execution.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern to match against. The first argument must be the feature key as `String`.","example":"dev.openfeature.sdk.Client getIntegerValue(String, Integer)"},{"type":"String","name":"featureKey","required":true,"description":"The key of the feature flag to remove.","example":"flag-key-123abc"},{"type":"Integer","name":"replacementValue","required":true,"description":"The value to replace the feature flag check with.","example":"42"}]}>
 

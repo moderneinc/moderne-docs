@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find named `companion object Constants` patterns"}
-  description={"A `companion object Constants { const val X = ... }` adds a named singleton to hold what are essentially file-level constants. Promote the constants to top-level `const val`s — they read the same and avoid the synthetic holder class."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindNamedCompanionObjectOfConstants$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findnamedcompanionobjectofconstants$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find named `companion object Constants` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `companion object Constants { const val X = ... }` adds a named singleton to hold what are essentially file-level constants. Promote the constants to top-level `const val`s — they read the same and avoid the synthetic holder class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindNamedCompanionObjectOfConstants$KtRecipe","displayName":"Find named `companion object Constants` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

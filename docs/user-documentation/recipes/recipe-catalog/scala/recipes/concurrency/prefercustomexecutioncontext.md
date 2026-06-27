@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer custom `ExecutionContext` over global"}
-  description={"Finds imports of `scala.concurrent.ExecutionContext.Implicits.global`. The global ExecutionContext may not be appropriate for blocking I/O operations; prefer a custom ExecutionContext backed by a dedicated thread pool."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.concurrency.PreferCustomExecutionContext"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/concurrency/prefercustomexecutioncontext.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer custom `ExecutionContext` over global</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of `scala.concurrent.ExecutionContext.Implicits.global`. The global ExecutionContext may not be appropriate for blocking I/O operations; prefer a custom ExecutionContext backed by a dedicated thread pool.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import scala.concurrent.ExecutionContext.Implicits.global\n\nobject Service {\n  val x = 1\n}\n","after":"/*~~(Global ExecutionContext found; prefer a custom ExecutionContext for blocking I/O)~~>*/import scala.concurrent.ExecutionContext.Implicits.global\n\nobject Service {\n  val x = 1\n}\n","diff":"@@ -1,1 +1,1 @@\n-import scala.concurrent.ExecutionContext.Implicits.global\n+/*~~(Global ExecutionContext found; prefer a custom ExecutionContext for blocking I/O)~~>*/import scala.concurrent.ExecutionContext.Implicits.global\n\n","newFile":false}]}]}>
 

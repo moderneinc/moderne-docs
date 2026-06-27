@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify `throws` statements of tests"}
-  description={"Replace all thrown exception classes of test method signatures by `Exception`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.SimplifyTestThrows"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/simplifytestthrows.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify `throws` statements of tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace all thrown exception classes of test method signatures by `Exception`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.IOException;\nimport org.junit.jupiter.api.Test;\n\nclass ATest {\n    @Test\n    void throwsMultiple() throws IOException, ArrayIndexOutOfBoundsException, ClassCastException {\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\n\nclass ATest {\n    @Test\n    void throwsMultiple() throws Exception {\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import java.io.IOException;\nimport org.junit.jupiter.api.Test;\n@@ -6,1 +5,1 @@\nclass ATest {\n    @Test\n-   void throwsMultiple() throws IOException, ArrayIndexOutOfBoundsException, ClassCastException {\n+   void throwsMultiple() throws Exception {\n    }\n","newFile":false}]}]}>
 

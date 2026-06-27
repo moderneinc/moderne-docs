@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Flask endpoints"}
-  description={"Identify REST/HTTP endpoints in Flask applications. Detects @app.route(), @blueprint.route(), and Flask 2.0+ shortcut decorators like @app.get() and @app.post()."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindFlaskEndpoints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findflaskendpoints.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Flask endpoints</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify REST/HTTP endpoints in Flask applications. Detects @app.route(), @blueprint.route(), and Flask 2.0+ shortcut decorators like @app.get() and @app.post().</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"pyproject","code":"[project]\nname = \"test-app\"\nversion = \"0.1.0\"\ndependencies = [\"flask>=3.0\"]\n"},"variants":[]}]}>
 

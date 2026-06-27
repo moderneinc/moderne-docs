@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Long.mod(Int)` instead of `java.lang.Math.floorMod`"}
-  description={"`Math.floorMod(a: Long, b: Int): Int` becomes `a.mod(b)`. Like the Java overload, `Long.mod(Int)` returns an `Int`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseLongModInt$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongmodint$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Long.mod(Int)` instead of `java.lang.Math.floorMod`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Math.floorMod(a: Long, b: Int): Int` becomes `a.mod(b)`. Like the Java overload, `Long.mod(Int)` returns an `Int`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseLongModInt$KtRecipe","displayName":"Use `Long.mod(Int)` instead of `java.lang.Math.floorMod`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

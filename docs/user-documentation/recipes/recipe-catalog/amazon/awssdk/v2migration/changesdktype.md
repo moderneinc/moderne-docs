@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change AWS SDK for Java v1 types to v2 equivalents"}
-  description={"Change AWS SDK for Java v1 types to v2 equivalents."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/software.amazon.awssdk.v2migration.ChangeSdkType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/changesdktype.md"}
-/>
+>
+
+<RecipeHeader.Title>Change AWS SDK for Java v1 types to v2 equivalents</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change AWS SDK for Java v1 types to v2 equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"software.amazon.awssdk.v2migration.ChangeSdkType","displayName":"Change AWS SDK for Java v1 types to v2 equivalents","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

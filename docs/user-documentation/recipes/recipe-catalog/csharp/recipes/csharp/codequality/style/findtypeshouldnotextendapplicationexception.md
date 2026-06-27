@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Types should not extend ApplicationException"}
-  description={"Do not create custom exceptions that inherit from `ApplicationException`. Inherit from `Exception` or a more specific exception type."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindTypeShouldNotExtendApplicationException"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findtypeshouldnotextendapplicationexception.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Types should not extend ApplicationException</RecipeHeader.Title>
+
+<RecipeHeader.Description>Do not create custom exceptions that inherit from `ApplicationException`. Inherit from `Exception` or a more specific exception type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindTypeShouldNotExtendApplicationException","displayName":"Types should not extend ApplicationException","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

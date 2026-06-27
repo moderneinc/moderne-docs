@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `System.lineSeparator()`"}
-  description={"Prefer the Java standard library's `System.lineSeparator()` over third-party usage of apache's `IOUtils.LINE_SEPARATOR`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","commons"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.io.UseSystemLineSeparator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/io/usesystemlineseparator.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change static field access to static method access","href":"java/changestaticfieldtomethod"}]}>
+<RecipeHeader.Title>Prefer `System.lineSeparator()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Java standard library's `System.lineSeparator()` over third-party usage of apache's `IOUtils.LINE_SEPARATOR`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change static field access to static method access","href":"/user-documentation/recipes/recipe-catalog/java/changestaticfieldtomethod/"}]}>
 
 ## Definition
 

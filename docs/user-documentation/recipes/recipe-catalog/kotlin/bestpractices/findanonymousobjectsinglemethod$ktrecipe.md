@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find anonymous `object : Interface { override fun … }` with a single override"}
-  description={"An anonymous object that implements one interface with a single function override is the canonical SAM-conversion target. If the interface is declared `fun interface I { … }`, the call site collapses to a lambda."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindAnonymousObjectSingleMethod$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findanonymousobjectsinglemethod$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find anonymous `object : Interface { override fun … }` with a single override</RecipeHeader.Title>
+
+<RecipeHeader.Description>An anonymous object that implements one interface with a single function override is the canonical SAM-conversion target. If the interface is declared `fun interface I { … }`, the call site collapses to a lambda.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindAnonymousObjectSingleMethod$KtRecipe","displayName":"Find anonymous `object : Interface { override fun … }` with a single override","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `SSLContext.getInstance(\"SSL\"/\"TLSv1\"/\"TLSv1.1\")` calls"}
-  description={"`SSL`, `TLSv1`, and `TLSv1.1` are RFC-deprecated and disabled by browsers — POODLE / BEAST / Lucky13 attacks all apply. Use `TLSv1.2` or `TLSv1.3` (or `\"TLS\"` to let the JDK pick the strongest mutually-supported version)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindWeakSslProtocol$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findweaksslprotocol$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `SSLContext.getInstance("SSL"/"TLSv1"/"TLSv1.1")` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`SSL`, `TLSv1`, and `TLSv1.1` are RFC-deprecated and disabled by browsers — POODLE / BEAST / Lucky13 attacks all apply. Use `TLSv1.2` or `TLSv1.3` (or `"TLS"` to let the JDK pick the strongest mutually-supported version).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindWeakSslProtocol$KtRecipe","displayName":"Find `SSLContext.getInstance(\"SSL\"/\"TLSv1\"/\"TLSv1.1\")` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

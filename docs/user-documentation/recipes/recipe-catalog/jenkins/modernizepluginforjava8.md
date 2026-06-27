@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Modernize a Jenkins plugin to the latest versions supported by Java 8"}
-  description={"This recipe is intended to break down the modernization of very old plugins into distinct steps. It allows modernizing all tooling up to the last versions that supported Java 8. This can then be followed by another recipe that makes the jump to Java 11."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.ModernizePluginForJava8"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/modernizepluginforjava8.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use HTTPS for repositories","href":"maven/security/usehttpsforrepositories"},{"name":"Disables local file resolution for parent POM","href":"jenkins/disablelocalresolutionforparentpom"},{"name":"Add or correct Jenkins plugins BOM","href":"jenkins/addpluginsbom"},{"name":"Change Maven parent","href":"maven/changeparentpom"},{"name":"Upgrade property's value to version","href":"jenkins/upgradeversionproperty"},{"name":"Remove redundant explicit dependency and plugin versions","href":"maven/removeredundantdependencyversions"},{"name":"Remove Maven project property","href":"maven/removeproperty"}]}>
+<RecipeHeader.Title>Modernize a Jenkins plugin to the latest versions supported by Java 8</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe is intended to break down the modernization of very old plugins into distinct steps. It allows modernizing all tooling up to the last versions that supported Java 8. This can then be followed by another recipe that makes the jump to Java 11.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use HTTPS for repositories","href":"/user-documentation/recipes/recipe-catalog/maven/security/usehttpsforrepositories/"},{"name":"Disables local file resolution for parent POM","href":"/user-documentation/recipes/recipe-catalog/jenkins/disablelocalresolutionforparentpom/"},{"name":"Add or correct Jenkins plugins BOM","href":"/user-documentation/recipes/recipe-catalog/jenkins/addpluginsbom/"},{"name":"Change Maven parent","href":"/user-documentation/recipes/recipe-catalog/maven/changeparentpom/"},{"name":"Upgrade property's value to version","href":"/user-documentation/recipes/recipe-catalog/jenkins/upgradeversionproperty/"},{"name":"Remove redundant explicit dependency and plugin versions","href":"/user-documentation/recipes/recipe-catalog/maven/removeredundantdependencyversions/"},{"name":"Remove Maven project property","href":"/user-documentation/recipes/recipe-catalog/maven/removeproperty/"}]}>
 
 ## Definition
 

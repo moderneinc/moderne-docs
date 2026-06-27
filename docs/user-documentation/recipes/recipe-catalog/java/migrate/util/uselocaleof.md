@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Locale.of(..)` over `new Locale(..)`"}
-  description={"Prefer `Locale.of(..)` over `new Locale(..)` in Java 19 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.UseLocaleOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/uselocaleof.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Locale.of(..)` over `new Locale(..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Locale.of(..)` over `new Locale(..)` in Java 19 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Locale;\n\nclass Test {\n    Locale locale1 = new Locale(\"english\");\n    Locale locale2 = new Locale(\"english\", \"us\");\n    Locale locale3 = new Locale(\"english\", \"us\", \"\");\n}\n","after":"import java.util.Locale;\n\nclass Test {\n    Locale locale1 = Locale.of(\"english\");\n    Locale locale2 = Locale.of(\"english\", \"us\");\n    Locale locale3 = Locale.of(\"english\", \"us\", \"\");\n}\n","diff":"@@ -4,3 +4,3 @@\n\nclass Test {\n-   Locale locale1 = new Locale(\"english\");\n-   Locale locale2 = new Locale(\"english\", \"us\");\n-   Locale locale3 = new Locale(\"english\", \"us\", \"\");\n+   Locale locale1 = Locale.of(\"english\");\n+   Locale locale2 = Locale.of(\"english\", \"us\");\n+   Locale locale3 = Locale.of(\"english\", \"us\", \"\");\n}\n","newFile":false}]}]}>
 

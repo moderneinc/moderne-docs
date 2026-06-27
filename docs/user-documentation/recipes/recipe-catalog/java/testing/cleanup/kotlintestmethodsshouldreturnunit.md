@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Kotlin test methods should have return type `Unit`"}
-  description={"Kotlin test methods annotated with `@Test`, `@ParameterizedTest`, `@RepeatedTest`, `@TestTemplate` should have `Unit` return type. Other return types can cause test discovery issues, and warnings as of JUnit 5.13+. This recipe changes the return type to `Unit` and removes `return` statements."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.KotlinTestMethodsShouldReturnUnit"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/kotlintestmethodsshouldreturnunit.md"}
-/>
+>
+
+<RecipeHeader.Title>Kotlin test methods should have return type `Unit`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotlin test methods annotated with `@Test`, `@ParameterizedTest`, `@RepeatedTest`, `@TestTemplate` should have `Unit` return type. Other return types can cause test discovery issues, and warnings as of JUnit 5.13+. This recipe changes the return type to `Unit` and removes `return` statements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"import org.junit.jupiter.api.Test\n\nclass ATest {\n    @Test\n    fun myTest() = run {\n        doSomething()\n    }\n\n    fun doSomething(): Int {\n        return 5\n    }\n}\n","after":"import org.junit.jupiter.api.Test\n\nclass ATest {\n    @Test\n    fun myTest(): Unit = run {\n        doSomething()\n    }\n\n    fun doSomething(): Int {\n        return 5\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass ATest {\n    @Test\n-   fun myTest() = run {\n+   fun myTest(): Unit = run {\n        doSomething()\n","newFile":false}]}]}>
 

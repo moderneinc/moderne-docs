@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Go error handling patterns"}
-  description={"Detect Go error-handling idioms: error returns, fmt.Errorf %w wrapping, errors.Is/As, panic/recover, and sentinel error variables."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.FindGoErrorPatterns"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/findgoerrorpatterns.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Go error handling patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect Go error-handling idioms: error returns, fmt.Errorf %w wrapping, errors.Is/As, panic/recover, and sentinel error variables.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.FindGoErrorPatterns","displayName":"Find Go error handling patterns","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

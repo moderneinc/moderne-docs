@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `GlobalScope.async` calls"}
-  description={"`GlobalScope.async { }` produces an orphan `Deferred` that has no parent in the structured-concurrency tree. Exceptions thrown from this coroutine are dropped until something `await()`s the result — and if nothing does, they vanish silently."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindGlobalScopeAsync$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findglobalscopeasync$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `GlobalScope.async` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`GlobalScope.async { }` produces an orphan `Deferred` that has no parent in the structured-concurrency tree. Exceptions thrown from this coroutine are dropped until something `await()`s the result — and if nothing does, they vanish silently.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindGlobalScopeAsync$KtRecipe","displayName":"Find `GlobalScope.async` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

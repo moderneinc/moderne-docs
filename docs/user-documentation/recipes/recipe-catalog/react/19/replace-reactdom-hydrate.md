@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `ReactDOM.hydrate` with `hydrateRoot`"}
-  description={"Migrates from the legacy `ReactDOM.hydrate()` API to the `hydrateRoot()` API from `react-dom/client`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.replace-reactdom-hydrate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/replace-reactdom-hydrate.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `ReactDOM.hydrate` with `hydrateRoot`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates from the legacy `ReactDOM.hydrate()` API to the `hydrateRoot()` API from `react-dom/client`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.19.replace-reactdom-hydrate","displayName":"Replace `ReactDOM.hydrate` with `hydrateRoot`","npmPackage":"@openrewrite/recipes-react"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Node.js flaky test patterns"}
-  description={"Detect patterns that commonly cause flaky tests in JavaScript and TypeScript code, including static waits (setTimeout, setInterval), prototype mutation, and shared mutable state (module-scope let/var declarations)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindNodeFlakyTestPatterns"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeflakytestpatterns.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Node.js flaky test patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect patterns that commonly cause flaky tests in JavaScript and TypeScript code, including static waits (setTimeout, setInterval), prototype mutation, and shared mutable state (module-scope let/var declarations).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"javascript","code":"describe('login', () => {\n  it('should wait for element', () => {\n    setTimeout(() => {\n      expect(true).toBe(true);\n    }, 1000);\n  });\n});\n"},"variants":[]}]}>
 

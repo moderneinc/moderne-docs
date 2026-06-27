@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJMapRules.AbstractMapAssertHasSameSizeAs`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractMapAssertHasSameSizeAs<K, V> {\n    \n    @BeforeTemplate\n    AbstractMapAssert<?, ?, K, V> before(AbstractMapAssert<?, ?, K, V> mapAssert, Map<?, ?> map) {\n        return mapAssert.hasSize(map.size());\n    }\n    \n    @AfterTemplate\n    AbstractMapAssert<?, ?, K, V> after(AbstractMapAssert<?, ?, K, V> mapAssert, Map<?, ?> map) {\n        return mapAssert.hasSameSizeAs(map);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AbstractMapAssertHasSameSizeAsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$abstractmapasserthassamesizeasrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJMapRules.AbstractMapAssertHasSameSizeAs`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractMapAssertHasSameSizeAs<K, V> {
+    
+    @BeforeTemplate
+    AbstractMapAssert<?, ?, K, V> before(AbstractMapAssert<?, ?, K, V> mapAssert, Map<?, ?> map) {
+        return mapAssert.hasSize(map.size());
+    }
+    
+    @AfterTemplate
+    AbstractMapAssert<?, ?, K, V> after(AbstractMapAssert<?, ?, K, V> mapAssert, Map<?, ?> map) {
+        return mapAssert.hasSameSizeAs(map);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AbstractMapAssertHasSameSizeAsRecipe","displayName":"Refaster template `AssertJMapRules.AbstractMapAssertHasSameSizeAs`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

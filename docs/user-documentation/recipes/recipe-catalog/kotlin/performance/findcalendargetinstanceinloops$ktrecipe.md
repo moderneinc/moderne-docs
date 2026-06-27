@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Calendar.getInstance()` calls inside loops"}
-  description={"`Calendar.getInstance()` resolves the default `TimeZone` and `Locale` and allocates a fresh `GregorianCalendar` on every call. Inside a loop the timezone lookup dominates — hoist the calendar or migrate to `java.time` types."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindCalendarGetInstanceInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findcalendargetinstanceinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Calendar.getInstance()` calls inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Calendar.getInstance()` resolves the default `TimeZone` and `Locale` and allocates a fresh `GregorianCalendar` on every call. Inside a loop the timezone lookup dominates — hoist the calendar or migrate to `java.time` types.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindCalendarGetInstanceInLoops$KtRecipe","displayName":"Find `Calendar.getInstance()` calls inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

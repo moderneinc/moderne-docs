@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use primitive wrapper `valueOf` method"}
-  description={"The constructor of all primitive types has been deprecated in favor of using the static factory method `valueOf` available for each of the primitive type wrappers. Using `valueOf` enables object caching for frequently used values, reducing unnecessary heap allocations. Note that this changes identity semantics: `valueOf` may return cached instances (such as `Boolean.TRUE` or `Integer` values in `[-128, 127]`), so code that compares boxed values with `==`/`!=`, relies on `System.identityHashCode`, or synchronizes on the boxed value may behave differently after this change."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2129"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.PrimitiveWrapperClassConstructorToValueOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/primitivewrapperclassconstructortovalueof.md"}
-/>
+>
+
+<RecipeHeader.Title>Use primitive wrapper `valueOf` method</RecipeHeader.Title>
+
+<RecipeHeader.Description>The constructor of all primitive types has been deprecated in favor of using the static factory method `valueOf` available for each of the primitive type wrappers. Using `valueOf` enables object caching for frequently used values, reducing unnecessary heap allocations. Note that this changes identity semantics: `valueOf` may return cached instances (such as `Boolean.TRUE` or `Integer` values in `[-128, 127]`), so code that compares boxed values with `==`/`!=`, relies on `System.identityHashCode`, or synchronizes on the boxed value may behave differently after this change.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    Boolean bool = new Boolean(true);\n    Byte b = new Byte(\"1\");\n    Character c = new Character('c');\n    Double d = new Double(1.0);\n    Float f = new Float(1.1f);\n    Long l = new Long(1);\n    Short sh = new Short(\"12\");\n    short s3 = 3;\n    Short sh3 = new Short(s3);\n    Integer i = new Integer(1);\n}\n","after":"class A {\n    Boolean bool = Boolean.valueOf(true);\n    Byte b = Byte.valueOf(\"1\");\n    Character c = Character.valueOf('c');\n    Double d = Double.valueOf(1.0);\n    Float f = Float.valueOf(1.1f);\n    Long l = Long.valueOf(1);\n    Short sh = Short.valueOf(\"12\");\n    short s3 = 3;\n    Short sh3 = Short.valueOf(s3);\n    Integer i = Integer.valueOf(1);\n}\n","diff":"@@ -2,7 +2,7 @@\nclass A {\n-   Boolean bool = new Boolean(true);\n-   Byte b = new Byte(\"1\");\n-   Character c = new Character('c');\n-   Double d = new Double(1.0);\n-   Float f = new Float(1.1f);\n-   Long l = new Long(1);\n-   Short sh = new Short(\"12\");\n+   Boolean bool = Boolean.valueOf(true);\n+   Byte b = Byte.valueOf(\"1\");\n+   Character c = Character.valueOf('c');\n+   Double d = Double.valueOf(1.0);\n+   Float f = Float.valueOf(1.1f);\n+   Long l = Long.valueOf(1);\n+   Short sh = Short.valueOf(\"12\");\n    short s3 = 3;\n@@ -10,2 +10,2 @@\n    Short sh = new Short(\"12\");\n    short s3 = 3;\n-   Short sh3 = new Short(s3);\n-   Integer i = new Integer(1);\n+   Short sh3 = Short.valueOf(s3);\n+   Integer i = Integer.valueOf(1);\n}\n","newFile":false}]}]}>
 

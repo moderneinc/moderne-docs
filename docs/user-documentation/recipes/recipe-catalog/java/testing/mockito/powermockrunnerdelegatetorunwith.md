@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace PowerMock runner with JUnit `@RunWith`"}
-  description={"Replaces `@RunWith(PowerMockRunner.class)`. If `@PowerMockRunnerDelegate(X.class)` is present, promotes the delegate runner to `@RunWith(X.class)`. Otherwise, replaces it with `@RunWith(MockitoJUnitRunner.class)` when the class uses Mockito annotations like `@Mock`, or removes the `@RunWith(PowerMockRunner.class)` annotation entirely."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.PowerMockRunnerDelegateToRunWith"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockrunnerdelegatetorunwith.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace PowerMock runner with JUnit `@RunWith`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `@RunWith(PowerMockRunner.class)`. If `@PowerMockRunnerDelegate(X.class)` is present, promotes the delegate runner to `@RunWith(X.class)`. Otherwise, replaces it with `@RunWith(MockitoJUnitRunner.class)` when the class uses Mockito annotations like `@Mock`, or removes the `@RunWith(PowerMockRunner.class)` annotation entirely.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package org.powermock.modules.junit4;\n\nimport java.lang.annotation.*;\n\n@Retention(RetentionPolicy.RUNTIME)\n@Target(ElementType.TYPE)\npublic @interface PowerMockRunnerDelegate {\n    Class<?> value();\n}\n"},"variants":[{"language":"java","before":"import org.junit.Test;\nimport org.junit.runner.RunWith;\nimport org.powermock.modules.junit4.PowerMockRunner;\nimport org.powermock.modules.junit4.PowerMockRunnerDelegate;\nimport org.springframework.test.context.junit4.SpringJUnit4ClassRunner;\n\n@RunWith(PowerMockRunner.class)\n@PowerMockRunnerDelegate(SpringJUnit4ClassRunner.class)\npublic class MyTest {\n\n    @Test\n    public void testSomething() {\n    }\n}\n","after":"import org.junit.Test;\nimport org.junit.runner.RunWith;\nimport org.springframework.test.context.junit4.SpringJUnit4ClassRunner;\n\n@RunWith(SpringJUnit4ClassRunner.class)\npublic class MyTest {\n\n    @Test\n    public void testSomething() {\n    }\n}\n","diff":"@@ -3,2 +3,0 @@\nimport org.junit.Test;\nimport org.junit.runner.RunWith;\n-import org.powermock.modules.junit4.PowerMockRunner;\n-import org.powermock.modules.junit4.PowerMockRunnerDelegate;\nimport org.springframework.test.context.junit4.SpringJUnit4ClassRunner;\n@@ -7,2 +5,1 @@\nimport org.springframework.test.context.junit4.SpringJUnit4ClassRunner;\n\n-@RunWith(PowerMockRunner.class)\n-@PowerMockRunnerDelegate(SpringJUnit4ClassRunner.class)\n+@RunWith(SpringJUnit4ClassRunner.class)\npublic class MyTest {\n","newFile":false}]}]}>
 

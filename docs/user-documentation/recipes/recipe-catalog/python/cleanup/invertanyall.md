@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Swap `not all()`/`not any()` by negating the comparison"}
-  description={"Apply De Morgan's law to replace `not all(cond ...)` with `any(negated_cond ...)` or `not any(cond ...)` with `all(negated_cond ...)`."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.InvertAnyAll"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/invertanyall.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Swap `not all()`/`not any()` by negating the comparison</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply De Morgan's law to replace `not all(cond ...)` with `any(negated_cond ...)` or `not any(cond ...)` with `all(negated_cond ...)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.InvertAnyAll","displayName":"Swap `not all()`/`not any()` by negating the comparison","pipPackage":"openrewrite-static-analysis"}}>
 

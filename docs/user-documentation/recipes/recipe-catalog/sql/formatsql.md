@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Format SQL in string text blocks"}
-  description={"Checks whether a text block may contain SQL, and if so, formats the text accordingly."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.sql.FormatSql"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/sql/formatsql.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Format SQL in string text blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Checks whether a text block may contain SQL, and if so, formats the text accordingly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"sqlDialect","required":false,"description":"Check out https://github.com/vertical-blank/sql-formatter#dialect for supported dialects.","example":"postgresql"},{"type":"String","name":"indent","required":false,"description":"Defaults to two spaces.","example":"    "},{"type":"Integer","name":"maxColumnLength","required":false,"description":"Defaults to 50.","example":"100"},{"type":"Boolean","name":"uppercase","required":false,"description":"Defaults to false (not safe to use when SQL dialect has case-sensitive identifiers).","example":"true"}]}>
 

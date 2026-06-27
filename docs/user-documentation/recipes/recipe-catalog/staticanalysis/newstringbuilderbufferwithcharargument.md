@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change `StringBuilder` and `StringBuffer` character constructor argument to `String`"}
-  description={"Instantiating a `StringBuilder` or a `StringBuffer` with a `Character` results in the `int` representation of the character being used for the initial size. This is almost never the developer's intent and silently produces a buffer with an arbitrary capacity instead of the expected initial content."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1317"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.NewStringBuilderBufferWithCharArgument"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/newstringbuilderbufferwithcharargument.md"}
-/>
+>
+
+<RecipeHeader.Title>Change `StringBuilder` and `StringBuffer` character constructor argument to `String`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Instantiating a `StringBuilder` or a `StringBuffer` with a `Character` results in the `int` representation of the character being used for the initial size. This is almost never the developer's intent and silently produces a buffer with an arbitrary capacity instead of the expected initial content.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    StringBuffer buffer = new StringBuffer('a');\n    StringBuilder builder = new StringBuilder('a');\n    char notALiteral = 'c';\n    StringBuffer buffer2 = new StringBuffer(notALiteral);\n}\n","after":"class A {\n    StringBuffer buffer = new StringBuffer(\"a\");\n    StringBuilder builder = new StringBuilder(\"a\");\n    char notALiteral = 'c';\n    StringBuffer buffer2 = new StringBuffer(String.valueOf(notALiteral));\n}\n","diff":"@@ -2,2 +2,2 @@\nclass A {\n-   StringBuffer buffer = new StringBuffer('a');\n-   StringBuilder builder = new StringBuilder('a');\n+   StringBuffer buffer = new StringBuffer(\"a\");\n+   StringBuilder builder = new StringBuilder(\"a\");\n    char notALiteral = 'c';\n@@ -5,1 +5,1 @@\n    StringBuilder builder = new StringBuilder('a');\n    char notALiteral = 'c';\n-   StringBuffer buffer2 = new StringBuffer(notALiteral);\n+   StringBuffer buffer2 = new StringBuffer(String.valueOf(notALiteral));\n}\n","newFile":false}]}]}>
 

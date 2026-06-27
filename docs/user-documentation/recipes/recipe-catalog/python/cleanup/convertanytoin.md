@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rewrite `any(v == literal ...)` as `literal in collection`"}
-  description={"An `any()` generator that tests equality against a literal value is equivalent to the `in` membership operator, which is clearer."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.ConvertAnyToIn"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/convertanytoin.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Rewrite `any(v == literal ...)` as `literal in collection`</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `any()` generator that tests equality against a literal value is equivalent to the `in` membership operator, which is clearer.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.ConvertAnyToIn","displayName":"Rewrite `any(v == literal ...)` as `literal in collection`","pipPackage":"openrewrite-static-analysis"}}>
 

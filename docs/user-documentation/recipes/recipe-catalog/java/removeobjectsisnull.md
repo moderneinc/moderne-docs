@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Transform calls to `Objects.isNull(..)` and `Objects.nonNull(..)`"}
-  description={"Replace calls to `Objects.isNull(..)` and `Objects.nonNull(..)` with a simple null check. Using these methods outside of stream predicates is not idiomatic."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.RemoveObjectsIsNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/removeobjectsisnull.md"}
-/>
+>
+
+<RecipeHeader.Title>Transform calls to `Objects.isNull(..)` and `Objects.nonNull(..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace calls to `Objects.isNull(..)` and `Objects.nonNull(..)` with a simple null check. Using these methods outside of stream predicates is not idiomatic.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.RemoveObjectsIsNull","displayName":"Transform calls to `Objects.isNull(..)` and `Objects.nonNull(..)`","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":false}}>
 

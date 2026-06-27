@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Cobertura Maven plugin"}
-  description={"This recipe will remove Cobertura, as it is not compatible with Java 11."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["cobertura","java11"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.cobertura.RemoveCoberturaMavenPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/cobertura/removecoberturamavenplugin.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove Maven plugin","href":"maven/removeplugin"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove Cobertura Maven plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will remove Cobertura, as it is not compatible with Java 11.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove Maven plugin","href":"/user-documentation/recipes/recipe-catalog/maven/removeplugin/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Cipher.getInstance(\"RC2\")` calls"}
-  description={"RC2 has known cryptanalytic weaknesses and a 40-bit export-grade variant; the JCE accepts both. Migrate to AES-GCM."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindWeakCipherRc2$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findweakcipherrc2$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Cipher.getInstance("RC2")` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>RC2 has known cryptanalytic weaknesses and a 40-bit export-grade variant; the JCE accepts both. Migrate to AES-GCM.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindWeakCipherRc2$KtRecipe","displayName":"Find `Cipher.getInstance(\"RC2\")` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Fragment.setRetainInstance(true)` calls"}
-  description={"`Fragment.setRetainInstance(true)` was deprecated in Fragment 1.3 because retained fragments break process-death restoration and tangle the lifecycle owner with the host activity. Move retained state to a `ViewModel` scoped to the navigation host."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindFragmentSetRetainInstance$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findfragmentsetretaininstance$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Fragment.setRetainInstance(true)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Fragment.setRetainInstance(true)` was deprecated in Fragment 1.3 because retained fragments break process-death restoration and tangle the lifecycle owner with the host activity. Move retained state to a `ViewModel` scoped to the navigation host.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindFragmentSetRetainInstance$KtRecipe","displayName":"Find `Fragment.setRetainInstance(true)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

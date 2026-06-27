@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Python dependency"}
-  description={"Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.RemoveDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/removedependency.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove Python dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove a dependency from a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageName","required":true,"description":"The PyPI package name to remove.","example":"requests"},{"type":"String","name":"scope","required":false,"description":"The dependency scope to remove from. All scopes are searched by default.","example":"project.dependencies"},{"type":"String","name":"groupName","required":false,"description":"The group name, required when scope is `project.optional-dependencies` or `dependency-groups`.","example":"dev"}]}>
 

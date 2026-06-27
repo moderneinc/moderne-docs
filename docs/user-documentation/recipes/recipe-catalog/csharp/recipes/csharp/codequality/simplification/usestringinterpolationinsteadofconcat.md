@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use string interpolation instead of concatenation"}
-  description={"Replace string.Concat with string interpolation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringInterpolationInsteadOfConcat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usestringinterpolationinsteadofconcat.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use string interpolation instead of concatenation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace string.Concat with string interpolation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringInterpolationInsteadOfConcat","displayName":"Use string interpolation instead of concatenation","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

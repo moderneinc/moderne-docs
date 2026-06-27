@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `JavaConverters` with `CollectionConverters`"}
-  description={"`scala.collection.JavaConverters` was deprecated in Scala 2.13 in favor of `scala.jdk.CollectionConverters`. This recipe replaces the import automatically."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.UseCollectionConverters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/usecollectionconverters.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `JavaConverters` with `CollectionConverters`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`scala.collection.JavaConverters` was deprecated in Scala 2.13 in favor of `scala.jdk.CollectionConverters`. This recipe replaces the import automatically.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import scala.collection.JavaConverters._\n\nclass Example {\n    val javaList = new java.util.ArrayList[String]()\n}\n","after":"import scala.jdk.CollectionConverters._\n\nclass Example {\n    val javaList = new java.util.ArrayList[String]()\n}\n","diff":"@@ -1,1 +1,1 @@\n-import scala.collection.JavaConverters._\n+import scala.jdk.CollectionConverters._\n\n","newFile":false}]}]}>
 

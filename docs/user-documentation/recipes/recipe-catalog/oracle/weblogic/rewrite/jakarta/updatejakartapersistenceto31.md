@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update Jakarta Persistence to 3.1"}
-  description={"Update Jakarta Persistence to 3.1."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["jakartaee","weblogic","persistence"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.UpdateJakartaPersistenceTo31"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/updatejakartapersistenceto31.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Update Jakarta Persistence to 3.1</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update Jakarta Persistence to 3.1.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]}>
 
 ## Definition
 

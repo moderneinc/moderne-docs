@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `CrudRepository` to interfaces extending `PagingAndSortingRepository`"}
-  description={"In Spring Data 3.0, `PagingAndSortingRepository` no longer extends `CrudRepository`. Interfaces that extend only `PagingAndSortingRepository` must also explicitly extend `CrudRepository` to retain CRUD methods like `save()`, `findById()`, and `delete()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.data.MigratePagingAndSortingRepository"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/data/migratepagingandsortingrepository.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `CrudRepository` to interfaces extending `PagingAndSortingRepository`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Data 3.0, `PagingAndSortingRepository` no longer extends `CrudRepository`. Interfaces that extend only `PagingAndSortingRepository` must also explicitly extend `CrudRepository` to retain CRUD methods like `save()`, `findById()`, and `delete()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"public class User {\n    private Long id;\n}\n"},"variants":[{"language":"java","before":"import org.springframework.data.repository.PagingAndSortingRepository;\n\npublic interface UserRepository extends PagingAndSortingRepository<User, Long> {\n}\n","after":"import org.springframework.data.repository.CrudRepository;\nimport org.springframework.data.repository.PagingAndSortingRepository;\n\npublic interface UserRepository extends PagingAndSortingRepository<User, Long>, CrudRepository<User, Long> {\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.springframework.data.repository.CrudRepository;\nimport org.springframework.data.repository.PagingAndSortingRepository;\n@@ -3,1 +4,1 @@\nimport org.springframework.data.repository.PagingAndSortingRepository;\n\n-public interface UserRepository extends PagingAndSortingRepository<User, Long> {\n+public interface UserRepository extends PagingAndSortingRepository<User, Long>, CrudRepository<User, Long> {\n}\n","newFile":false}]}]}>
 

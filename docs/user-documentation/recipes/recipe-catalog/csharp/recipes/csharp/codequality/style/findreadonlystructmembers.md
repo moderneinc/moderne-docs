@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find struct member that could be readonly"}
-  description={"Detect struct methods and properties that don't modify state and could be marked `readonly` to prevent defensive copies."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindReadOnlyStructMembers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findreadonlystructmembers.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find struct member that could be readonly</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect struct methods and properties that don't modify state and could be marked `readonly` to prevent defensive copies.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindReadOnlyStructMembers","displayName":"Find struct member that could be readonly","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

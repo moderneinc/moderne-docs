@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `FileRules.FilesNewBufferedReader`"}
-  description={"Prefer `Files#newBufferedReader(Path)` over more verbose or contrived alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1943","RSPEC-S2095"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewBufferedReaderRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/filerulesrecipes$filesnewbufferedreaderrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `FileRules.FilesNewBufferedReader`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Files#newBufferedReader(Path)` over more verbose or contrived alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewBufferedReaderRecipe","displayName":"Refaster template `FileRules.FilesNewBufferedReader`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

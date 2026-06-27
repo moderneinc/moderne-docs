@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Fix conflicting class type annotation Hibernate 6.6"}
-  description={"Since Hibernate 6.6 a mapped class can have *either* `@MappedSuperclass` or `@Embeddable`, or `@Entity`. This recipe removes `@Entity` from classes annotated with `@MappedSuperclass` or `@Embeddable`. For the moment die combination of `@MappedSuperclass` or `@Embeddable` is advised to migrate to [Single Table Inheritance](https://docs.jboss.org/hibernate/orm/6.6/userguide/html_single/Hibernate_User_Guide.html#entity-inheritance-single-table) but still accepted and therefore stays."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update66.FixConflictingClassTypeAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update66/fixconflictingclasstypeannotations.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Fix conflicting class type annotation Hibernate 6.6</RecipeHeader.Title>
+
+<RecipeHeader.Description>Since Hibernate 6.6 a mapped class can have *either* `@MappedSuperclass` or `@Embeddable`, or `@Entity`. This recipe removes `@Entity` from classes annotated with `@MappedSuperclass` or `@Embeddable`. For the moment die combination of `@MappedSuperclass` or `@Embeddable` is advised to migrate to [Single Table Inheritance](https://docs.jboss.org/hibernate/orm/6.6/userguide/html_single/Hibernate_User_Guide.html#entity-inheritance-single-table) but still accepted and therefore stays.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.persistence.Entity;\nimport jakarta.persistence.MappedSuperclass;\n\n@Entity\n@MappedSuperclass\nclass MyEntity {}\n","after":"import jakarta.persistence.MappedSuperclass;\n\n@MappedSuperclass\nclass MyEntity {}\n","diff":"@@ -1,1 +1,0 @@\n-import jakarta.persistence.Entity;\nimport jakarta.persistence.MappedSuperclass;\n@@ -4,1 +3,0 @@\nimport jakarta.persistence.MappedSuperclass;\n\n-@Entity\n@MappedSuperclass\n","newFile":false}]}]}>
 

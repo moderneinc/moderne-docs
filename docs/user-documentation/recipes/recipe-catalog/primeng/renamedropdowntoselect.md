@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename `Dropdown` to `Select`"}
-  description={"Renames `Dropdown` and `DropdownModule` imports from `primeng/dropdown` to `Select` and `SelectModule` from `primeng/select`, and updates all identifier usages. The old names are deprecated in PrimeNG 18."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.RenameDropdownToSelect"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/renamedropdowntoselect.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename `Dropdown` identifiers to `Select`","href":""},{"name":"Change import","href":"javascript/change-import"},{"name":"Change import","href":"javascript/change-import"}]}>
+<RecipeHeader.Title>Rename `Dropdown` to `Select`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames `Dropdown` and `DropdownModule` imports from `primeng/dropdown` to `Select` and `SelectModule` from `primeng/select`, and updates all identifier usages. The old names are deprecated in PrimeNG 18.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename `Dropdown` identifiers to `Select`","href":""},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/javascript/change-import/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/javascript/change-import/"}]}>
 
 ## Definition
 

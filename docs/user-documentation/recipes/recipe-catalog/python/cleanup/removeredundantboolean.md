@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Eliminate boolean literal from `and`/`or`"}
-  description={"Strip ``True`` or ``False`` from ``and``/``or`` expressions where the literal has no effect on the result, e.g. ``True and val`` reduces to ``val`` and ``False and val`` reduces to ``False``."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveRedundantBoolean"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantboolean.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Eliminate boolean literal from `and`/`or`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Strip ``True`` or ``False`` from ``and``/``or`` expressions where the literal has no effect on the result, e.g. ``True and val`` reduces to ``val`` and ``False and val`` reduces to ``False``.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveRedundantBoolean","displayName":"Eliminate boolean literal from `and`/`or`","pipPackage":"openrewrite-static-analysis"}}>
 

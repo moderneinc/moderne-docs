@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `isEmpty` instead of `size == 0`"}
-  description={"Replaces `collection.size == 0` with `collection.isEmpty` for clarity and potential performance benefits."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.performance.UseIsEmpty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/performance/useisempty.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `isEmpty` instead of `size == 0`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `collection.size == 0` with `collection.isEmpty` for clarity and potential performance benefits.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val list = List(1, 2, 3)\n    val empty = list.size == 0\n}\n","after":"class Example {\n    val list = List(1, 2, 3)\n    val empty = list.isEmpty\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    val list = List(1, 2, 3)\n-   val empty = list.size == 0\n+   val empty = list.isEmpty\n}\n","newFile":false}]}]}>
 

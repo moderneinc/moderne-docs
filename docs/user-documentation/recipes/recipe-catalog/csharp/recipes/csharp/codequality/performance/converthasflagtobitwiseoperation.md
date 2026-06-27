@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert HasFlag to bitwise operation"}
-  description={"Replace flags.HasFlag(value) with (flags & value) != 0."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.ConvertHasFlagToBitwiseOperation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/converthasflagtobitwiseoperation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert HasFlag to bitwise operation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace flags.HasFlag(value) with (flags & value) != 0.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.ConvertHasFlagToBitwiseOperation","displayName":"Convert HasFlag to bitwise operation","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

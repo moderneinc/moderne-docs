@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"io.quarkus.updates.core.quarkus318.RemoveFlywayCleanOnValidationError"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus318.RemoveFlywayCleanOnValidationError"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus318/removeflywaycleanonvalidationerror.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Delete Quarkus configuration property","href":"quarkus/deletequarkusproperty"}]}>
+<RecipeHeader.Title>io.quarkus.updates.core.quarkus318.RemoveFlywayCleanOnValidationError</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Delete Quarkus configuration property","href":"/user-documentation/recipes/recipe-catalog/quarkus/deletequarkusproperty/"}]}>
 
 ## Definition
 

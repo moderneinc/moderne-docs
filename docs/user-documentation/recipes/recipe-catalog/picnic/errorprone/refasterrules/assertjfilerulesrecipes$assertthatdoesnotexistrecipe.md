@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJFileRules.AssertThatDoesNotExist`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatDoesNotExist {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(File actual) {\n        return assertThat(actual.exists()).isFalse();\n    }\n    \n    @AfterTemplate\n    AbstractFileAssert<?> after(File actual) {\n        return assertThat(actual).doesNotExist();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes$AssertThatDoesNotExistRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjfilerulesrecipes$assertthatdoesnotexistrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJFileRules.AssertThatDoesNotExist`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatDoesNotExist {
+    
+    @BeforeTemplate
+    AbstractBooleanAssert<?> before(File actual) {
+        return assertThat(actual.exists()).isFalse();
+    }
+    
+    @AfterTemplate
+    AbstractFileAssert<?> after(File actual) {
+        return assertThat(actual).doesNotExist();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes$AssertThatDoesNotExistRecipe","displayName":"Refaster template `AssertJFileRules.AssertThatDoesNotExist`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

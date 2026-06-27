@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated React types"}
-  description={"Replaces deprecated React TypeScript types (`SFC`, `StatelessComponent`, `VFC`, `VoidFunctionComponent`) with their modern equivalents."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.deprecated-react-types"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/deprecated-react-types.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated React types</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces deprecated React TypeScript types (`SFC`, `StatelessComponent`, `VFC`, `VoidFunctionComponent`) with their modern equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.19.deprecated-react-types","displayName":"Replace deprecated React types","npmPackage":"@openrewrite/recipes-react"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `static: false` from view queries"}
-  description={"Removes `static: false` from `@ViewChild`, `@ContentChild`, `@ViewChildren`, and `@ContentChildren` decorators. In Angular 9 with Ivy, `static: false` became the default behavior, making the explicit option unnecessary."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-static-false"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-static-false.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `static: false` from view queries</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `static: false` from `@ViewChild`, `@ContentChild`, `@ViewChildren`, and `@ContentChildren` decorators. In Angular 9 with Ivy, `static: false` became the default behavior, making the explicit option unnecessary.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.remove-static-false","displayName":"Remove `static: false` from view queries","npmPackage":"@openrewrite/recipes-angular"}}>
 

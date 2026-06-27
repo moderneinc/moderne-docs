@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove deprecated Freemarker `?html` built-in"}
-  description={"Removes the deprecated `?html` built-in from Freemarker templates. After migrating to Struts 6 with the latest Freemarker (which enables auto-escaping by default), the `?html` built-in is no longer needed and should be removed. See the [Struts 2.5 to 6.0 migration guide](https://cwiki.apache.org/confluence/display/WW/Struts+2.5+to+6.0.0+migration#Struts2.5to6.0.0migration-Tagescapebehaviour)."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate6.RemoveFreemarkerHtmlBuiltin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate6/removefreemarkerhtmlbuiltin.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find and replace","href":"text/findandreplace"}]}>
+<RecipeHeader.Title>Remove deprecated Freemarker `?html` built-in</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the deprecated `?html` built-in from Freemarker templates. After migrating to Struts 6 with the latest Freemarker (which enables auto-escaping by default), the `?html` built-in is no longer needed and should be removed. See the [Struts 2.5 to 6.0 migration guide](https://cwiki.apache.org/confluence/display/WW/Struts+2.5+to+6.0.0+migration#Struts2.5to6.0.0migration-Tagescapebehaviour).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"}]}>
 
 ## Definition
 

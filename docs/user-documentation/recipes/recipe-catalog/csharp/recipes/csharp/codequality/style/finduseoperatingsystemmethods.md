@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use OperatingSystem methods instead of RuntimeInformation"}
-  description={"Use `OperatingSystem.IsWindows()` and similar methods instead of `RuntimeInformation.IsOSPlatform()`. The OperatingSystem methods are more concise and can be optimized by the JIT."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseOperatingSystemMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finduseoperatingsystemmethods.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use OperatingSystem methods instead of RuntimeInformation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `OperatingSystem.IsWindows()` and similar methods instead of `RuntimeInformation.IsOSPlatform()`. The OperatingSystem methods are more concise and can be optimized by the JIT.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseOperatingSystemMethods","displayName":"Use OperatingSystem methods instead of RuntimeInformation","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

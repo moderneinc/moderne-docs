@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove calls matching `AuthenticationEntryPointFailureHandler.setRethrowAuthenticationServiceException(true)`"}
-  description={"Remove any calls matching `AuthenticationEntryPointFailureHandler.setRethrowAuthenticationServiceException(true)`. See the corresponding [Sprint Security 6.0 migration step](https://docs.spring.io/spring-security/reference/6.0.0/migration/servlet/authentication.html#_propagate_authenticationserviceexceptions) for details."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security6.PropagateAuthenticationServiceExceptions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/propagateauthenticationserviceexceptions.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove calls matching `AuthenticationEntryPointFailureHandler.setRethrowAuthenticationServiceException(true)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove any calls matching `AuthenticationEntryPointFailureHandler.setRethrowAuthenticationServiceException(true)`. See the corresponding [Sprint Security 6.0 migration step](https://docs.spring.io/spring-security/reference/6.0.0/migration/servlet/authentication.html#_propagate_authenticationserviceexceptions) for details.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.web.authentication.AuthenticationEntryPointFailureHandler;\n\nclass T {\n    void m() {\n        AuthenticationEntryPointFailureHandler handler = null;\n        handler.setRethrowAuthenticationServiceException(true);\n    }\n}\n","after":"import org.springframework.security.web.authentication.AuthenticationEntryPointFailureHandler;\n\nclass T {\n    void m() {\n        AuthenticationEntryPointFailureHandler handler = null;\n    }\n}\n","diff":"@@ -6,1 +6,0 @@\n    void m() {\n        AuthenticationEntryPointFailureHandler handler = null;\n-       handler.setRethrowAuthenticationServiceException(true);\n    }\n","newFile":false}]}]}>
 

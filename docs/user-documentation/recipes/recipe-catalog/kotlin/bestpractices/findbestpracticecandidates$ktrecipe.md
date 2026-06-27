@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find best-practice candidates"}
-  description={"Search-only bundle: flags places where a more idiomatic Kotlin spelling is available. Each match shows up as a `SearchResult` for review; nothing is rewritten automatically because the migration is a judgment call."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindBestPracticeCandidates$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbestpracticecandidates$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find class-declaration smells","href":"kotlin/bestpractices/findclassstructuresmells$ktrecipe"},{"name":"Find function-declaration smells","href":"kotlin/bestpractices/findfunctiondeclarationsmells$ktrecipe"},{"name":"Find string-construction smells","href":"kotlin/bestpractices/findstringconstructionsmells$ktrecipe"},{"name":"Find Boolean-conditional smells","href":"kotlin/bestpractices/findbooleanconditionalsmells$ktrecipe"},{"name":"Find lambda / functional smells","href":"kotlin/bestpractices/findlambdasmells$ktrecipe"},{"name":"Find exception-handling smells","href":"kotlin/bestpractices/findexceptionhandlingsmells$ktrecipe"},{"name":"Find scope-function smells","href":"kotlin/bestpractices/findscopefunctionsmells$ktrecipe"},{"name":"Find `when`-statement smells","href":"kotlin/bestpractices/findwhensmells$ktrecipe"},{"name":"Find equality / comparison smells","href":"kotlin/bestpractices/findequalitysmells$ktrecipe"},{"name":"Find `lazy { }` calls without an explicit `LazyThreadSafetyMode`","href":"kotlin/bestpractices/findlazywithoutmode$ktrecipe"},{"name":"Find wildcard `import a.b.*` statements","href":"kotlin/bestpractices/findwildcardimport$ktrecipe"},{"name":"Find anonymous `object : Interface { override fun … }` with a single override","href":"kotlin/bestpractices/findanonymousobjectsinglemethod$ktrecipe"},{"name":"Find chained `!!` assertions in a single expression","href":"kotlin/bestpractices/finddoublebangchain$ktrecipe"}]}>
+<RecipeHeader.Title>Find best-practice candidates</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle: flags places where a more idiomatic Kotlin spelling is available. Each match shows up as a `SearchResult` for review; nothing is rewritten automatically because the migration is a judgment call.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find class-declaration smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findclassstructuresmells$ktrecipe/"},{"name":"Find function-declaration smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findfunctiondeclarationsmells$ktrecipe/"},{"name":"Find string-construction smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstringconstructionsmells$ktrecipe/"},{"name":"Find Boolean-conditional smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbooleanconditionalsmells$ktrecipe/"},{"name":"Find lambda / functional smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findlambdasmells$ktrecipe/"},{"name":"Find exception-handling smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findexceptionhandlingsmells$ktrecipe/"},{"name":"Find scope-function smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findscopefunctionsmells$ktrecipe/"},{"name":"Find `when`-statement smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhensmells$ktrecipe/"},{"name":"Find equality / comparison smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findequalitysmells$ktrecipe/"},{"name":"Find `lazy { }` calls without an explicit `LazyThreadSafetyMode`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findlazywithoutmode$ktrecipe/"},{"name":"Find wildcard `import a.b.*` statements","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwildcardimport$ktrecipe/"},{"name":"Find anonymous `object : Interface { override fun … }` with a single override","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findanonymousobjectsinglemethod$ktrecipe/"},{"name":"Find chained `!!` assertions in a single expression","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/finddoublebangchain$ktrecipe/"}]}>
 
 ## Definition
 

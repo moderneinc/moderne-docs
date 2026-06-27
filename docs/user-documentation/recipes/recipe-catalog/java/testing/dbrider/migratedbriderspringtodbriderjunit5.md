@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate rider-spring (JUnit4) to rider-junit5 (JUnit5)"}
-  description={"This recipe will migrate the necessary dependencies and annotations from DbRider with JUnit4 to JUnit5 in a Spring application."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","testing","dbrider"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.dbrider.MigrateDbRiderSpringToDbRiderJUnit5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/dbrider/migratedbriderspringtodbriderjunit5.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate the `DBRiderTestExecutionListener` to the `@DBRider` annotation","href":"java/testing/dbrider/executionlistenertodbriderannotation"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate rider-spring (JUnit4) to rider-junit5 (JUnit5)</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will migrate the necessary dependencies and annotations from DbRider with JUnit4 to JUnit5 in a Spring application.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate the `DBRiderTestExecutionListener` to the `@DBRider` annotation","href":"/user-documentation/recipes/recipe-catalog/java/testing/dbrider/executionlistenertodbriderannotation/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Quarkus 1.13 migration from Quarkus 1.11"}
-  description={"Migrates Quarkus 1.11 to 1.13."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.Quarkus1to1_13Migration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/quarkus1to1_13migration.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `@ConfigMapping`","href":"quarkus/configpropertiestoconfigmapping"},{"name":"Use Mutiny `multi.toHotStream()`","href":"quarkus/multitransformhotstreamtomultihotstream"},{"name":"Use `native` profile in `quarkus-maven-plugin`","href":"quarkus/migratequarkusmavenpluginnativeimagegoal"},{"name":"Configure `quarkus-maven-plugin` with reasonable defaults","href":"quarkus/configurequarkusmavenpluginwithreasonabledefaults"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"}]}>
+<RecipeHeader.Title>Quarkus 1.13 migration from Quarkus 1.11</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Quarkus 1.11 to 1.13.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `@ConfigMapping`","href":"/user-documentation/recipes/recipe-catalog/quarkus/configpropertiestoconfigmapping/"},{"name":"Use Mutiny `multi.toHotStream()`","href":"/user-documentation/recipes/recipe-catalog/quarkus/multitransformhotstreamtomultihotstream/"},{"name":"Use `native` profile in `quarkus-maven-plugin`","href":"/user-documentation/recipes/recipe-catalog/quarkus/migratequarkusmavenpluginnativeimagegoal/"},{"name":"Configure `quarkus-maven-plugin` with reasonable defaults","href":"/user-documentation/recipes/recipe-catalog/quarkus/configurequarkusmavenpluginwithreasonabledefaults/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]}>
 
 ## Definition
 

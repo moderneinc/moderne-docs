@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `ZipException` instead of `ZipError`"}
-  description={"Use `ZipException` instead of the deprecated `ZipError` in Java 9 or higher."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.MigrateZipErrorToZipException"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/migrateziperrortozipexception.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"java/search/hasjavaversion"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use `ZipException` instead of `ZipError`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `ZipException` instead of the deprecated `ZipError` in Java 9 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

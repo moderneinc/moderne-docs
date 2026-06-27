@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Autowired var` properties (not `lateinit`)"}
-  description={"A `@Autowired var x: X` property is mutable after wiring — the Spring container sets it once, but any subsequent caller can replace the dependency at runtime. Move the dependency into a primary constructor parameter (`val`) so it's `final` end-to-end."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindAutowiredOnVar$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredonvar$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Autowired var` properties (not `lateinit`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `@Autowired var x: X` property is mutable after wiring — the Spring container sets it once, but any subsequent caller can replace the dependency at runtime. Move the dependency into a primary constructor parameter (`val`) so it's `final` end-to-end.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindAutowiredOnVar$KtRecipe","displayName":"Find `@Autowired var` properties (not `lateinit`)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

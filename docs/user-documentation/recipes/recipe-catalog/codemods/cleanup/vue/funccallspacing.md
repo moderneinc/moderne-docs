@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Require or disallow spacing between function identifiers and their invocations in `<template>`"}
-  description={"Require or disallow spacing between function identifiers and their invocations in `<template>`\nSee rule details for [vue/func-call-spacing](https://eslint.vuejs.org/rules/func-call-spacing.html)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ESLint","vue","eslint-plugin-vue"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.vue.FuncCallSpacing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/funccallspacing.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Require or disallow spacing between function identifiers and their invocations in `<template>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Require or disallow spacing between function identifiers and their invocations in `<template>` See rule details for [vue/func-call-spacing](https://eslint.vuejs.org/rules/func-call-spacing.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

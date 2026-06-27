@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Cookie.setSecure(false)` calls"}
-  description={"`setSecure(false)` lets the cookie travel over plain HTTP — anyone on the path (coffee-shop wifi, ISP) can read it. For any session cookie, set `secure = true` and `httpOnly = true`, and prefer `SameSite=Strict`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindCookieSecureFalse$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findcookiesecurefalse$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Cookie.setSecure(false)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`setSecure(false)` lets the cookie travel over plain HTTP — anyone on the path (coffee-shop wifi, ISP) can read it. For any session cookie, set `secure = true` and `httpOnly = true`, and prefer `SameSite=Strict`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindCookieSecureFalse$KtRecipe","displayName":"Find `Cookie.setSecure(false)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

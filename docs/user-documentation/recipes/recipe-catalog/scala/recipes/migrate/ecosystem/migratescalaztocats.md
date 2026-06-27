@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Scalaz to Cats"}
-  description={"Removes imports of `scalaz.` packages. Scalaz is a legacy FP library; consider migrating to Cats or ZIO."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.ecosystem.MigrateScalazToCats"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/ecosystem/migratescalaztocats.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Scalaz to Cats</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes imports of `scalaz.` packages. Scalaz is a legacy FP library; consider migrating to Cats or ZIO.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import scalaz.\\/\n\nobject Main {\n  val x = 1\n}\n","after":"\n\n\nobject Main {\n  val x = 1\n}\n","diff":"@@ -1,1 +1,0 @@\n-import scalaz.\\/\n\n@@ -3,0 +2,2 @@\nimport scalaz.\\/\n\n+\n+\nobject Main {\n","newFile":false}]}]}>
 

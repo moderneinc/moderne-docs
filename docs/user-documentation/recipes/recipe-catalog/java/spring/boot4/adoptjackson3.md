@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adopt Jackson 3"}
-  description={"Adopt Jackson 3 which is supported by Spring Boot 4 and Jackson 2 support is deprecated."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.AdoptJackson3"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/adoptjackson3.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Replace `setObjectMapper` with constructor injection","href":"java/spring/framework/migrateconvertersetobjectmapper"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Module uses type","href":"java/search/moduleusestype"}]}>
+<RecipeHeader.Title>Adopt Jackson 3</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adopt Jackson 3 which is supported by Spring Boot 4 and Jackson 2 support is deprecated.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Replace `setObjectMapper` with constructor injection","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateconvertersetobjectmapper/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Module uses type","href":"/user-documentation/recipes/recipe-catalog/java/search/moduleusestype/"}]}>
 
 ## Definition
 

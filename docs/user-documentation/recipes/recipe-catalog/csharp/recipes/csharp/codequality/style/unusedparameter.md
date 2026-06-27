@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unused parameter"}
-  description={"Rename unused lambda parameters to discard (_)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UnusedParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/unusedparameter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unused parameter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rename unused lambda parameters to discard (_).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UnusedParameter","displayName":"Remove unused parameter","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

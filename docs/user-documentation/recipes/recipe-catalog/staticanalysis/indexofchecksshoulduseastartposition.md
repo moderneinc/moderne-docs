@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `indexOf(String, int)`"}
-  description={"Replaces `indexOf(String)` in binary operations if the compared value is an int and not less than 1. Using the two-argument `indexOf(String, int)` form with a start position avoids redundantly scanning the beginning of the string when you already know the match must occur after a certain index."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2912"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.IndexOfChecksShouldUseAStartPosition"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/indexofchecksshoulduseastartposition.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `indexOf(String, int)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `indexOf(String)` in binary operations if the compared value is an int and not less than 1. Using the two-argument `indexOf(String, int)` form with a start position avoids redundantly scanning the beginning of the string when you already know the match must occur after a certain index.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    boolean hasIndex(String str) {\n        return str.indexOf(\"x\") > 2;\n    }\n}\n","after":"class Test {\n    boolean hasIndex(String str) {\n        return str.indexOf(\"x\", 2) > -1;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    boolean hasIndex(String str) {\n-       return str.indexOf(\"x\") > 2;\n+       return str.indexOf(\"x\", 2) > -1;\n    }\n","newFile":false}]}]}>
 

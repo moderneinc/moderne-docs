@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Kafka 2.8"}
-  description={"Migrate applications to the latest Kafka 2.8 release."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kafka"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.MigrateToKafka28"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/migratetokafka28.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Kafka 2.7","href":"kafka/migratetokafka27"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate to StreamsUncaughtExceptionHandler API","href":"kafka/streams/migratestreamsuncaughtexceptionhandler"}]}>
+<RecipeHeader.Title>Migrate to Kafka 2.8</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Kafka 2.8 release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Kafka 2.7","href":"/user-documentation/recipes/recipe-catalog/kafka/migratetokafka27/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Migrate to StreamsUncaughtExceptionHandler API","href":"/user-documentation/recipes/recipe-catalog/kafka/streams/migratestreamsuncaughtexceptionhandler/"}]}>
 
 ## Definition
 

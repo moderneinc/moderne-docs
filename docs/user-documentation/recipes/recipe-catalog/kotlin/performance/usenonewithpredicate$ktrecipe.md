@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `none { predicate }` instead of `filter { predicate }.isEmpty()`"}
-  description={"`none { predicate }` short-circuits on the first match and avoids materializing the intermediate filtered list."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseNoneWithPredicate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/usenonewithpredicate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `none { predicate }` instead of `filter { predicate }.isEmpty()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`none { predicate }` short-circuits on the first match and avoids materializing the intermediate filtered list.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseNoneWithPredicate$KtRecipe","displayName":"Use `none { predicate }` instead of `filter { predicate }.isEmpty()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

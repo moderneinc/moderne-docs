@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert Spring @EventListener to CDI @Observes"}
-  description={"Transforms Spring's @EventListener method annotation to CDI's @Observes parameter annotation pattern."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.SpringEventListenerToObserves"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/springeventlistenertoobserves.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert Spring @EventListener to CDI @Observes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms Spring's @EventListener method annotation to CDI's @Observes parameter annotation pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"public class MyEvent {\n    private String message;\n    public String getMessage() { return message; }\n}\n"},"variants":[{"language":"java","before":"import org.springframework.context.event.EventListener;\n\npublic class MyEventListener {\n    @EventListener\n    public void handleEvent(MyEvent event) {\n        System.out.println(\"Event received: \" + event);\n    }\n}\n","after":"import jakarta.enterprise.event.Observes;\n\npublic class MyEventListener {\n    public void handleEvent(@Observes MyEvent event) {\n        System.out.println(\"Event received: \" + event);\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.context.event.EventListener;\n+import jakarta.enterprise.event.Observes;\n\n@@ -4,2 +4,1 @@\n\npublic class MyEventListener {\n-   @EventListener\n-   public void handleEvent(MyEvent event) {\n+   public void handleEvent(@Observes MyEvent event) {\n        System.out.println(\"Event received: \" + event);\n","newFile":false}]}]}>
 

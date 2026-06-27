@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add new XML attribute for an Element"}
-  description={"Add new XML attribute with value on a specified element."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.AddTagAttribute"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/addtagattribute.md"}
-/>
+>
+
+<RecipeHeader.Title>Add new XML attribute for an Element</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add new XML attribute with value on a specified element.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"elementName","required":true,"description":"The name of the element whose attribute's value is to be added. Interpreted as an XPath expression.","example":"//beans/bean"},{"type":"String","name":"attributeName","required":true,"description":"The name of the new attribute.","example":"attribute-name"},{"type":"String","name":"newValue","required":true,"description":"The new value to be used for key specified by `attributeName`.","example":"value-to-add"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Singleton"}
-  description={"Used as a precondition to ensure that a recipe attempts to make changes only once. Accidentally including multiple copies/instances of the same large composite recipes is a common mistake. If those recipes are marked with this precondition the performance penalty is limited. This recipe does nothing useful run on its own.\n\n## Usage in YAML recipes\n\nAdd `org.openrewrite.Singleton` as a precondition:\n\n```yaml\n---\ntype: specs.openrewrite.org/v1beta/recipe\nname: com.example.Append\ndisplayName: My recipe\npreconditions:\n  - org.openrewrite.Singleton\nrecipeList:\n  - org.openrewrite.text.AppendToTextFile:\n      relativeFileName: report.txt\n      content: 'Recipe executed'\n```## Usage in Java recipes\n\nWrap visitors with `Singleton.singleton(this, visitor)` to ensure only the first *equivalent* recipe instance makes changes:\n\n```java\n@Override\npublic TreeVisitor<?, ExecutionContext> getVisitor(Accumulator acc) {\n    return singleton(this, new TreeVisitor<Tree, ExecutionContext>() {\n        @Override\n        public Tree visit(@Nullable Tree tree, ExecutionContext ctx) {\n            // Your transformation logic\n            return tree;\n        }\n    });\n}\n@Override\npublic Collection<SourceFile> generate(Accumulator acc, ExecutionContext ctx) {\n    if (!isSingleton(this, ctx)) {\n        return Collections.emptyList();\n    }\n    // Generate new sources\n    return results;\n}\n\n@Override\npublic TreeVisitor<?, ExecutionContext> getVisitor(Accumulator acc) {\n    return singleton(this, new TreeVisitor<Tree, ExecutionContext>() {\n        // Visitor logic\n    });\n}\n```\n\n**Note:** Singleton status is determined by the recipe's `equals()` and `hashCode()` methods. If equivalent instances of a recipe are not considered singletons, ensure your recipe class correctly implements these methods. The easiest way is to use Lombok's `@Value` annotation on your recipe class, which automatically generates correct `equals()` and `hashCode()` implementations based on all fields."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,66 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.Singleton"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/singleton.md"}
-/>
+>
+
+<RecipeHeader.Title>Singleton</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Used as a precondition to ensure that a recipe attempts to make changes only once. Accidentally including multiple copies/instances of the same large composite recipes is a common mistake. If those recipes are marked with this precondition the performance penalty is limited. This recipe does nothing useful run on its own.
+
+## Usage in YAML recipes
+
+Add `org.openrewrite.Singleton` as a precondition:
+
+```yaml
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: com.example.Append
+displayName: My recipe
+preconditions:
+  - org.openrewrite.Singleton
+recipeList:
+  - org.openrewrite.text.AppendToTextFile:
+      relativeFileName: report.txt
+      content: 'Recipe executed'
+```## Usage in Java recipes
+
+Wrap visitors with `Singleton.singleton(this, visitor)` to ensure only the first *equivalent* recipe instance makes changes:
+
+```java
+@Override
+public TreeVisitor<?, ExecutionContext> getVisitor(Accumulator acc) {
+    return singleton(this, new TreeVisitor<Tree, ExecutionContext>() {
+        @Override
+        public Tree visit(@Nullable Tree tree, ExecutionContext ctx) {
+            // Your transformation logic
+            return tree;
+        }
+    });
+}
+@Override
+public Collection<SourceFile> generate(Accumulator acc, ExecutionContext ctx) {
+    if (!isSingleton(this, ctx)) {
+        return Collections.emptyList();
+    }
+    // Generate new sources
+    return results;
+}
+
+@Override
+public TreeVisitor<?, ExecutionContext> getVisitor(Accumulator acc) {
+    return singleton(this, new TreeVisitor<Tree, ExecutionContext>() {
+        // Visitor logic
+    });
+}
+```
+
+**Note:** Singleton status is determined by the recipe's `equals()` and `hashCode()` methods. If equivalent instances of a recipe are not considered singletons, ensure your recipe class correctly implements these methods. The easiest way is to use Lombok's `@Value` annotation on your recipe class, which automatically generates correct `equals()` and `hashCode()` implementations based on all fields.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.Singleton","displayName":"Singleton","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":false}}>
 

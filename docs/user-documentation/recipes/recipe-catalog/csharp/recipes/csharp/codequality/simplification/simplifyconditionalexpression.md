@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify conditional expression"}
-  description={"Simplify `cond ? true : false` to `cond` and `cond ? false : true` to `!cond`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyConditionalExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifyconditionalexpression.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify conditional expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify `cond ? true : false` to `cond` and `cond ? false : true` to `!cond`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyConditionalExpression","displayName":"Simplify conditional expression","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Disallow leading or trailing decimal points in numeric literals"}
-  description={"Disallow leading or trailing decimal points in numeric literals\n\nSee [rule details](https://eslint.style/rules/default/no-floating-decimal)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["eslint","stylistic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.format.NoFloatingDecimal"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/format/nofloatingdecimal.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Disallow leading or trailing decimal points in numeric literals</RecipeHeader.Title>
+
+<RecipeHeader.Description>Disallow leading or trailing decimal points in numeric literals  See [rule details](https://eslint.style/rules/default/no-floating-decimal).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

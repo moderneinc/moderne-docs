@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StreamRules.StreamMin`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamMin<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4266\")\n    Optional<T> before(Stream<T> stream, Comparator<? super T> comparator) {\n        return Refaster.anyOf(stream.max(comparator.reversed()), stream.sorted(comparator).findFirst(), stream.collect(minBy(comparator)));\n    }\n    \n    @AfterTemplate\n    Optional<T> after(Stream<T> stream, Comparator<? super T> comparator) {\n        return stream.min(comparator);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4266"]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMinRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/streamrulesrecipes$streamminrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StreamRules.StreamMin`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class StreamMin<T> {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "java:S4266")
+    Optional<T> before(Stream<T> stream, Comparator<? super T> comparator) {
+        return Refaster.anyOf(stream.max(comparator.reversed()), stream.sorted(comparator).findFirst(), stream.collect(minBy(comparator)));
+    }
+    
+    @AfterTemplate
+    Optional<T> after(Stream<T> stream, Comparator<? super T> comparator) {
+        return stream.min(comparator);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMinRecipe","displayName":"Refaster template `StreamRules.StreamMin`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

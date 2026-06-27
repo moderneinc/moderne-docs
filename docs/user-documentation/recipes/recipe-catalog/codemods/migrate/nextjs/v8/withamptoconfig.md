@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Transform AMP HOC into page config"}
-  description={"Transforms the `withAmp` HOC into Next.js 9 page configuration."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["nextjs","codemods"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.migrate.nextjs.v8.WithampToConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v8/withamptoconfig.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"codemods/applycodemod"}]}>
+<RecipeHeader.Title>Transform AMP HOC into page config</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms the `withAmp` HOC into Next.js 9 page configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"/user-documentation/recipes/recipe-catalog/codemods/applycodemod/"}]}>
 
 ## Definition
 

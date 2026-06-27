@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `isPlatformWorkerUi` and `isPlatformWorkerApp` usage"}
-  description={"Finds usages of the removed `isPlatformWorkerUi` and `isPlatformWorkerApp` APIs from `@angular/common`. These were removed in Angular 18 with no replacement, as they served no purpose since the removal of the WebWorker platform."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-platform-worker-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-platform-worker-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `isPlatformWorkerUi` and `isPlatformWorkerApp` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of the removed `isPlatformWorkerUi` and `isPlatformWorkerApp` APIs from `@angular/common`. These were removed in Angular 18 with no replacement, as they served no purpose since the removal of the WebWorker platform.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-platform-worker-usage","displayName":"Find `isPlatformWorkerUi` and `isPlatformWorkerApp` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

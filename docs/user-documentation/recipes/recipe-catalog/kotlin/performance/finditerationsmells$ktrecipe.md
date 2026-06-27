@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find iteration-shape smells"}
-  description={"Flags iteration idioms that have a clearer, allocation-equivalent Kotlin form — currently the `for (i in xs.indices) { val x = xs[i] }` shape that `forEachIndexed { i, x -> }` replaces."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindIterationSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/finditerationsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `for (i in xs.indices) { val x = xs[i] }` patterns","href":"kotlin/performance/findforeachwithindexedaccess$ktrecipe"}]}>
+<RecipeHeader.Title>Find iteration-shape smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flags iteration idioms that have a clearer, allocation-equivalent Kotlin form — currently the `for (i in xs.indices) { val x = xs[i] }` shape that `forEachIndexed { i, x -> }` replaces.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `for (i in xs.indices) { val x = xs[i] }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findforeachwithindexedaccess$ktrecipe/"}]}>
 
 ## Definition
 

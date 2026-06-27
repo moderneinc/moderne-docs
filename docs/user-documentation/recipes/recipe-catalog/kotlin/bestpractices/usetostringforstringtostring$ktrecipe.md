@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Drop redundant `String.toString()`"}
-  description={"Calling `toString()` on a value that is already a `String` is a no-op that compiles to a method call returning the same reference."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.UseToStringForStringToString$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetostringforstringtostring$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Drop redundant `String.toString()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Calling `toString()` on a value that is already a `String` is a no-op that compiles to a method call returning the same reference.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.UseToStringForStringToString$KtRecipe","displayName":"Drop redundant `String.toString()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

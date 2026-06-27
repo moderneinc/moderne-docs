@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `kotlin.math.cosh` instead of `java.lang.Math.cosh`"}
-  description={"Prefer the multiplatform-friendly `kotlin.math.cosh` over the JVM-only `Math.cosh`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseKotlinMathCosh$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathcosh$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `kotlin.math.cosh` instead of `java.lang.Math.cosh`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the multiplatform-friendly `kotlin.math.cosh` over the JVM-only `Math.cosh`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseKotlinMathCosh$KtRecipe","displayName":"Use `kotlin.math.cosh` instead of `java.lang.Math.cosh`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

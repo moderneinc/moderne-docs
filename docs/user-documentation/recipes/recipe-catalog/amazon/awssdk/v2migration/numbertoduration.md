@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert the method parameter from numeric type to duration"}
-  description={"Convert the method parameter from numeric types to duration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/software.amazon.awssdk.v2migration.NumberToDuration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/numbertoduration.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert the method parameter from numeric type to duration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert the method parameter from numeric types to duration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern that is used to find matching method invocations.","example":"com.amazonaws.ClientConfiguration setRequestTimeout(int)"},{"type":"TimeUnit","name":"timeUnit","required":false,"description":"The TimeUnit enum value to convert. Defaults to `MILLISECONDS`.","example":"MILLISECONDS"}]}>
 

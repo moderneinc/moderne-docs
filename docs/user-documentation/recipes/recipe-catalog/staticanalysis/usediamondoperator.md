@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use the diamond operator"}
-  description={"The diamond operator (`<>`) should be used. Java 7 introduced the diamond operator to reduce the verbosity of generics code. For instance, instead of having to declare a `List`'s type in both its declaration and its constructor, you can now simplify the constructor declaration with `<>`, and the compiler will infer the type. Repeating type arguments that the compiler can already deduce is unnecessary boilerplate that clutters the code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2293"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UseDiamondOperator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/usediamondoperator.md"}
-/>
+>
+
+<RecipeHeader.Title>Use the diamond operator</RecipeHeader.Title>
+
+<RecipeHeader.Description>The diamond operator (`<>`) should be used. Java 7 introduced the diamond operator to reduce the verbosity of generics code. For instance, instead of having to declare a `List`'s type in both its declaration and its constructor, you can now simplify the constructor declaration with `<>`, and the compiler will infer the type. Repeating type arguments that the compiler can already deduce is unnecessary boilerplate that clutters the code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.*;\n\nclass Test<X, Y> {\n    void test() {\n        List<String> ls = new ArrayList<String>();\n        Map<X,Y> map = new HashMap<X,Y>();\n        List<String> ls2 = new ArrayList<String>() {\n        };\n    }\n}\n","after":"import java.util.*;\n\nclass Test<X, Y> {\n    void test() {\n        List<String> ls = new ArrayList<>();\n        Map<X,Y> map = new HashMap<>();\n        List<String> ls2 = new ArrayList<String>() {\n        };\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass Test<X, Y> {\n    void test() {\n-       List<String> ls = new ArrayList<String>();\n-       Map<X,Y> map = new HashMap<X,Y>();\n+       List<String> ls = new ArrayList<>();\n+       Map<X,Y> map = new HashMap<>();\n        List<String> ls2 = new ArrayList<String>() {\n","newFile":false}]}]}>
 

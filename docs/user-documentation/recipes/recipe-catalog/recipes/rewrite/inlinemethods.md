@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Inline methods annotated with `@InlineMe`"}
-  description={"Automatically generated recipes to inline method calls based on `@InlineMe` annotations discovered in the type table."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.recipes.rewrite.InlineMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/recipes/rewrite/inlinemethods.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"}]}>
+<RecipeHeader.Title>Inline methods annotated with `@InlineMe`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Automatically generated recipes to inline method calls based on `@InlineMe` annotations discovered in the type table.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"}]}>
 
 ## Definition
 

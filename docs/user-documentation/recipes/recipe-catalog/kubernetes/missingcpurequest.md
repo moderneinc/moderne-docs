@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure CPU request is set"}
-  description={"If a container is created in a namespace that has a default CPU limit, and the container does not specify its own CPU limit, then the container is assigned the default CPU limit."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kubernetes"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.MissingCpuRequest"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/missingcpurequest.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find missing configuration","href":"kubernetes/search/findresourcemissingconfiguration"}]}>
+<RecipeHeader.Title>Ensure CPU request is set</RecipeHeader.Title>
+
+<RecipeHeader.Description>If a container is created in a namespace that has a default CPU limit, and the container does not specify its own CPU limit, then the container is assigned the default CPU limit.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find missing configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/search/findresourcemissingconfiguration/"}]}>
 
 ## Definition
 

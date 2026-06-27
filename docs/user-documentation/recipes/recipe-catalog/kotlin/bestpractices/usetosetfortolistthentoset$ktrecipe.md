@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `toSet()` instead of `toList().toSet()`"}
-  description={"`toSet()` works on any `Iterable`. The intermediate `toList()` just allocates a list that's immediately discarded."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.UseToSetForToListThenToSet$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetosetfortolistthentoset$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `toSet()` instead of `toList().toSet()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`toSet()` works on any `Iterable`. The intermediate `toList()` just allocates a list that's immediately discarded.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.UseToSetForToListThenToSet$KtRecipe","displayName":"Use `toSet()` instead of `toList().toSet()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

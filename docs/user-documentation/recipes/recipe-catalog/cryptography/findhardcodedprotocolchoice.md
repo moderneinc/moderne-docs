@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hardcoded SSL/TLS protocol choices"}
-  description={"Detects hardcoded SSL/TLS protocol choices like 'TLSv1.2', 'SSLv3' used in SSLContext.getInstance() and setProtocols() calls. Hardcoded protocols prevent easy updates when protocols become obsolete or insecure."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindHardcodedProtocolChoice"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprotocolchoice.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find hardcoded SSL/TLS protocol choices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects hardcoded SSL/TLS protocol choices like 'TLSv1.2', 'SSLv3' used in SSLContext.getInstance() and setProtocols() calls. Hardcoded protocols prevent easy updates when protocols become obsolete or insecure.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.net.ssl.SSLContext;\n\npublic class SSLContextExample {\n    public SSLContext createContext() throws Exception {\n        return SSLContext.getInstance(\"TLSv1.2\");\n    }\n}\n","after":"import javax.net.ssl.SSLContext;\n\npublic class SSLContextExample {\n    public SSLContext createContext() throws Exception {\n        return /*~~(PROTOCOL use)~~>*/SSLContext.getInstance(\"TLSv1.2\");\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\npublic class SSLContextExample {\n    public SSLContext createContext() throws Exception {\n-       return SSLContext.getInstance(\"TLSv1.2\");\n+       return /*~~(PROTOCOL use)~~>*/SSLContext.getInstance(\"TLSv1.2\");\n    }\n","newFile":false}]}]}>
 

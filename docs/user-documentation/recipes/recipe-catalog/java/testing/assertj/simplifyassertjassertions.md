@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Shorten AssertJ assertions"}
-  description={"Replace AssertJ assertions where a dedicated assertion is available for the same actual value."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["testing","assertj"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.SimplifyAssertJAssertions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjassertions.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Simplify AssertJ assertions with literal arguments","href":"java/testing/assertj/simplifyassertjassertion"},{"name":"Simplify AssertJ assertions with literal arguments","href":"java/testing/assertj/simplifyassertjassertion"},{"name":"Simplify AssertJ assertions with literal arguments","href":"java/testing/assertj/simplifyassertjassertion"},{"name":"Simplify AssertJ assertions with literal arguments","href":"java/testing/assertj/simplifyassertjassertion"},{"name":"Simplify AssertJ assertions with literal arguments","href":"java/testing/assertj/simplifyassertjassertion"},{"name":"Simplify AssertJ assertions with literal arguments","href":"java/testing/assertj/simplifyassertjassertion"},{"name":"Simplify AssertJ assertions with literal arguments","href":"java/testing/assertj/simplifyassertjassertion"},{"name":"Simplify AssertJ assertions with literal arguments","href":"java/testing/assertj/simplifyassertjassertion"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Shorten AssertJ assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace AssertJ assertions where a dedicated assertion is available for the same actual value.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Simplify AssertJ assertions with literal arguments","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjassertion/"},{"name":"Simplify AssertJ assertions with literal arguments","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjassertion/"},{"name":"Simplify AssertJ assertions with literal arguments","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjassertion/"},{"name":"Simplify AssertJ assertions with literal arguments","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjassertion/"},{"name":"Simplify AssertJ assertions with literal arguments","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjassertion/"},{"name":"Simplify AssertJ assertions with literal arguments","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjassertion/"},{"name":"Simplify AssertJ assertions with literal arguments","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjassertion/"},{"name":"Simplify AssertJ assertions with literal arguments","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjassertion/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

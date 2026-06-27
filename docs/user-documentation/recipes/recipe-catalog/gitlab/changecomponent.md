@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change GitLab Component"}
-  description={"Change a GitLab Component in use."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.ChangeComponent"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/changecomponent.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change value","href":"yaml/changevalue"}]}>
+<RecipeHeader.Title>Change GitLab Component</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change a GitLab Component in use.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change value","href":"/user-documentation/recipes/recipe-catalog/yaml/changevalue/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Parameterize logging statements"}
-  description={"Transform logging statements using concatenation for messages and variables into a parameterized format. For example, `logger.info(\"hi \" + userName)` becomes `logger.info(\"hi {}\", userName)`. This can significantly boost performance for messages that otherwise would be assembled with String concatenation. Particularly impactful when the log level is not enabled, as no work is done to assemble the message."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S2629","RSPEC-S3457"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.ParameterizedLogging"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/parameterizedlogging.md"}
-/>
+>
+
+<RecipeHeader.Title>Parameterize logging statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transform logging statements using concatenation for messages and variables into a parameterized format. For example, `logger.info("hi " + userName)` becomes `logger.info("hi {}", userName)`. This can significantly boost performance for messages that otherwise would be assembled with String concatenation. Particularly impactful when the log level is not enabled, as no work is done to assemble the message.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method used to find matching statements to parameterize.","example":"org.slf4j.Logger info(..)"},{"type":"Boolean","name":"removeToString","required":false,"description":"Optionally remove `toString(`) method invocations from Object parameters."}]}>
 

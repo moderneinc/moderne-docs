@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJStringRules.AssertThatPathContent`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatPathContent {\n    \n    @BeforeTemplate\n    AbstractStringAssert<?> before(Path path, Charset charset) throws IOException {\n        return assertThat(Files.readString(path, charset));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractStringAssert<?> after(Path path, Charset charset) {\n        return assertThat(path).content(charset);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatPathContentRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstringrulesrecipes$assertthatpathcontentrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJStringRules.AssertThatPathContent`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatPathContent {
+    
+    @BeforeTemplate
+    AbstractStringAssert<?> before(Path path, Charset charset) throws IOException {
+        return assertThat(Files.readString(path, charset));
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractStringAssert<?> after(Path path, Charset charset) {
+        return assertThat(path).content(charset);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatPathContentRecipe","displayName":"Refaster template `AssertJStringRules.AssertThatPathContent`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

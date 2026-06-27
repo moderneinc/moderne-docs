@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ReactorRules.FluxOnErrorMap`"}
-  description={"Prefer `Flux#onErrorMap(Class, Function)` over `Flux#onErrorMap(Predicate, Function)` where possible."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxOnErrorMapRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxonerrormaprecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ReactorRules.FluxOnErrorMap`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Flux#onErrorMap(Class, Function)` over `Flux#onErrorMap(Predicate, Function)` where possible.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxOnErrorMapRecipe","displayName":"Refaster template `ReactorRules.FluxOnErrorMap`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

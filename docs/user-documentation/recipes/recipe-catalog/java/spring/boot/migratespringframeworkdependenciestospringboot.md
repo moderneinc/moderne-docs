@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Framework dependencies to Spring Boot"}
-  description={"Migrate Spring Framework dependencies to Spring Boot."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot.MigrateSpringFrameworkDependenciesToSpringBoot"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot/migratespringframeworkdependenciestospringboot.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Spring Framework dependencies to Spring Boot</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Spring Framework dependencies to Spring Boot.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package org.example;\n\nclass Main {}\n"},"variants":[{"language":"xml","before":"<project>\n    <groupId>com.example</groupId>\n    <artifactId>fooservice</artifactId>\n    <version>1.0-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.springframework</groupId>\n            <artifactId>spring-core</artifactId>\n            <version>5.0.0.RELEASE</version>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <groupId>com.example</groupId>\n    <artifactId>fooservice</artifactId>\n    <version>1.0-SNAPSHOT</version>\n    <dependencyManagement>\n        <dependencies>\n            <dependency>\n                <groupId>org.springframework.boot</groupId>\n                <artifactId>spring-boot-dependencies</artifactId>\n                <version>2.0.9.RELEASE</version>\n                <type>pom</type>\n                <scope>import</scope>\n            </dependency>\n        </dependencies>\n    </dependencyManagement>\n    <dependencies>\n        <dependency>\n            <groupId>org.springframework</groupId>\n            <artifactId>spring-core</artifactId>\n            <version>5.0.0.RELEASE</version>\n        </dependency>\n    </dependencies>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.springframework.boot</groupId>\n                <artifactId>spring-boot-maven-plugin</artifactId>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -5,0 +5,11 @@\n    <artifactId>fooservice</artifactId>\n    <version>1.0-SNAPSHOT</version>\n+   <dependencyManagement>\n+       <dependencies>\n+           <dependency>\n+               <groupId>org.springframework.boot</groupId>\n+               <artifactId>spring-boot-dependencies</artifactId>\n+               <version>2.0.9.RELEASE</version>\n+               <type>pom</type>\n+               <scope>import</scope>\n+           </dependency>\n+       </dependencies>\n+   </dependencyManagement>\n    <dependencies>\n@@ -12,0 +23,8 @@\n        </dependency>\n    </dependencies>\n+   <build>\n+       <plugins>\n+           <plugin>\n+               <groupId>org.springframework.boot</groupId>\n+               <artifactId>spring-boot-maven-plugin</artifactId>\n+           </plugin>\n+       </plugins>\n+   </build>\n</project>\n","newFile":false}]}]}>
 

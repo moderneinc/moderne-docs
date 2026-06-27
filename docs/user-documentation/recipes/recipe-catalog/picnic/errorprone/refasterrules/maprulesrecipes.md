@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`MapRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `Map` instances.\n[Source](https://error-prone.picnic.tech/refasterrules/MapRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.MapRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/maprulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `MapRules.MapGetOrNull`","href":"picnic/errorprone/refasterrules/maprulesrecipes$mapgetornullrecipe"},{"name":"Refaster template `MapRules.MapGetOrDefault`","href":"picnic/errorprone/refasterrules/maprulesrecipes$mapgetordefaultrecipe"},{"name":"Refaster template `MapRules.MapIsEmpty`","href":"picnic/errorprone/refasterrules/maprulesrecipes$mapisemptyrecipe"},{"name":"Refaster template `MapRules.MapSize`","href":"picnic/errorprone/refasterrules/maprulesrecipes$mapsizerecipe"},{"name":"Refaster template `MapRules.MapContainsKey`","href":"picnic/errorprone/refasterrules/maprulesrecipes$mapcontainskeyrecipe"},{"name":"Refaster template `MapRules.MapContainsValue`","href":"picnic/errorprone/refasterrules/maprulesrecipes$mapcontainsvaluerecipe"},{"name":"Refaster template `MapRules.MapKeyStream`","href":"picnic/errorprone/refasterrules/maprulesrecipes$mapkeystreamrecipe"},{"name":"Refaster template `MapRules.MapValueStream`","href":"picnic/errorprone/refasterrules/maprulesrecipes$mapvaluestreamrecipe"}]}>
+<RecipeHeader.Title>`MapRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `Map` instances. [Source](https://error-prone.picnic.tech/refasterrules/MapRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `MapRules.MapGetOrNull`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/maprulesrecipes$mapgetornullrecipe/"},{"name":"Refaster template `MapRules.MapGetOrDefault`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/maprulesrecipes$mapgetordefaultrecipe/"},{"name":"Refaster template `MapRules.MapIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/maprulesrecipes$mapisemptyrecipe/"},{"name":"Refaster template `MapRules.MapSize`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/maprulesrecipes$mapsizerecipe/"},{"name":"Refaster template `MapRules.MapContainsKey`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/maprulesrecipes$mapcontainskeyrecipe/"},{"name":"Refaster template `MapRules.MapContainsValue`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/maprulesrecipes$mapcontainsvaluerecipe/"},{"name":"Refaster template `MapRules.MapKeyStream`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/maprulesrecipes$mapkeystreamrecipe/"},{"name":"Refaster template `MapRules.MapValueStream`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/maprulesrecipes$mapvaluestreamrecipe/"}]}>
 
 ## Definition
 

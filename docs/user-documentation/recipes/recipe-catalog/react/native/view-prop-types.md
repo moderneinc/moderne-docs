@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `View.propTypes` with `ViewPropTypes`"}
-  description={"Migrates deprecated `View.propTypes` references to `ViewPropTypes` from `deprecated-react-native-prop-types`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.native.view-prop-types"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/native/view-prop-types.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `View.propTypes` with `ViewPropTypes`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates deprecated `View.propTypes` references to `ViewPropTypes` from `deprecated-react-native-prop-types`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.native.view-prop-types","displayName":"Replace `View.propTypes` with `ViewPropTypes`","npmPackage":"@openrewrite/recipes-react"}}>
 

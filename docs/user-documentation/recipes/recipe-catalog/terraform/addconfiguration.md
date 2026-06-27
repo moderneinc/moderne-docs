@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Terraform configuration"}
-  description={"If the configuration has a different value, leave it alone. If it is missing, add it."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.AddConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/addconfiguration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add Terraform configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>If the configuration has a different value, leave it alone. If it is missing, add it.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"resourceName","required":true,"description":"A Terraform resource name, without the quotes.","example":"aws_ebs_volume"},{"type":"String","name":"content","required":true,"description":"Terraform to insert if an attribute with the same name or block with the same 'type' is not found.","example":"encrypted = true"}]}>
 

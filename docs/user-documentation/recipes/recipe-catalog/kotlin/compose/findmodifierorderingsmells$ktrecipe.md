@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose `Modifier` ordering smells"}
-  description={"Modifier chains whose order produces a subtly wrong visual or interactive shape: `clickable` painted over by a later `background`, `fillMaxWidth` followed by `padding` (inset *after* the fill), and `fillMaxSize` immediately followed by a redundant `fillMaxWidth`/`fillMaxHeight`. Also surfaces `Modifier.weight(...)` calls outside a `Row`/`Column` scope, and overly long chains that could be hoisted into a named modifier."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindModifierOrderingSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierorderingsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Modifier.clickable { }.background(...)` chains","href":"kotlin/compose/findmodifierclickablebeforebackground$ktrecipe"},{"name":"Find `Modifier.fillMaxWidth().padding(...)` chains","href":"kotlin/compose/findmodifierpaddingafterfillmaxwidth$ktrecipe"},{"name":"Find `Modifier.fillMaxSize().fillMaxWidth()` chains","href":"kotlin/compose/findmodifierfillmaxwidthafterfillmaxsize$ktrecipe"},{"name":"Find `Modifier.weight(...)` calls outside a `Row`/`Column` scope","href":"kotlin/compose/findmodifierweightoutsiderowcolumn$ktrecipe"},{"name":"Find `Modifier.xxx().yyy()...` chains longer than five operations","href":"kotlin/compose/findlongmodifierchain$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose `Modifier` ordering smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Modifier chains whose order produces a subtly wrong visual or interactive shape: `clickable` painted over by a later `background`, `fillMaxWidth` followed by `padding` (inset *after* the fill), and `fillMaxSize` immediately followed by a redundant `fillMaxWidth`/`fillMaxHeight`. Also surfaces `Modifier.weight(...)` calls outside a `Row`/`Column` scope, and overly long chains that could be hoisted into a named modifier.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Modifier.clickable { }.background(...)` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierclickablebeforebackground$ktrecipe/"},{"name":"Find `Modifier.fillMaxWidth().padding(...)` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierpaddingafterfillmaxwidth$ktrecipe/"},{"name":"Find `Modifier.fillMaxSize().fillMaxWidth()` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierfillmaxwidthafterfillmaxsize$ktrecipe/"},{"name":"Find `Modifier.weight(...)` calls outside a `Row`/`Column` scope","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierweightoutsiderowcolumn$ktrecipe/"},{"name":"Find `Modifier.xxx().yyy()...` chains longer than five operations","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlongmodifierchain$ktrecipe/"}]}>
 
 ## Definition
 

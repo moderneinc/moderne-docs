@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `cucumber-java` step definition regexes with Cucumber expressions"}
-  description={"Strip regex prefix and suffix from step annotation expressions arguments where possible."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-cucumber-jvm"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.RegexToCucumberExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cucumber/jvm/regextocucumberexpression.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `cucumber-java` step definition regexes with Cucumber expressions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Strip regex prefix and suffix from step annotation expressions arguments where possible.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.app;\n\nimport io.cucumber.java.Before;\nimport io.cucumber.java.en.Given;\nimport io.cucumber.java.en.Then;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\npublic class ExpressionDefinitions {\n\n    private int a;\n\n    @Before\n    public void before() {\n        a = 0;\n    }\n\n    @Given(\"^five cukes$\")\n    public void five_cukes() {\n        a = 5;\n    }\n\n    @Then(\"^I expect (\\\\d+)$\")\n    public void i_expect_int(Integer c) {\n        assertEquals(c, a);\n    }\n\n}\n","after":"package com.example.app;\n\nimport io.cucumber.java.Before;\nimport io.cucumber.java.en.Given;\nimport io.cucumber.java.en.Then;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\n\npublic class ExpressionDefinitions {\n\n    private int a;\n\n    @Before\n    public void before() {\n        a = 0;\n    }\n\n    @Given(\"five cukes\")\n    public void five_cukes() {\n        a = 5;\n    }\n\n    @Then(\"^I expect (\\\\d+)$\")\n    public void i_expect_int(Integer c) {\n        assertEquals(c, a);\n    }\n\n}\n","diff":"@@ -18,1 +18,1 @@\n    }\n\n-   @Given(\"^five cukes$\")\n+   @Given(\"five cukes\")\n    public void five_cukes() {\n","newFile":false}]}]}>
 

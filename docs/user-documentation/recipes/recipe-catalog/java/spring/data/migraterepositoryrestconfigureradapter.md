@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `RepositoryRestConfigurerAdapter` with `RepositoryRestConfigurer`"}
-  description={"Since 3.1, implement RepositoryRestConfigurer directly."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.data.MigrateRepositoryRestConfigurerAdapter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/data/migraterepositoryrestconfigureradapter.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `RepositoryRestConfigurerAdapter` with `RepositoryRestConfigurer`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Since 3.1, implement RepositoryRestConfigurer directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Configuration;\nimport org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;\n\n@Configuration\npublic class CatalogDbRepositoryConfiguration extends RepositoryRestConfigurerAdapter {\n\n}\n","after":"import org.springframework.context.annotation.Configuration;\nimport org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;\n\n@Configuration\npublic class CatalogDbRepositoryConfiguration implements RepositoryRestConfigurer {\n\n}\n","diff":"@@ -2,1 +2,1 @@\nimport org.springframework.context.annotation.Configuration;\n-import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;\n+import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;\n\n@@ -5,1 +5,1 @@\n\n@Configuration\n-public class CatalogDbRepositoryConfiguration extends RepositoryRestConfigurerAdapter {\n+public class CatalogDbRepositoryConfiguration implements RepositoryRestConfigurer {\n\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated retry configuration to task timeout"}
-  description={"In Kafka 2.7, `RETRIES_CONFIG` and `RETRY_BACKOFF_MS_CONFIG` were deprecated in favor of `TASK_TIMEOUT_MS_CONFIG`. This recipe migrates the old retry configuration to the new task timeout configuration, attempting to preserve the retry budget by multiplying retries × backoff time. If only one config is present, it falls back to 60000ms (1 minute)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.streams.MigrateRetryConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/streams/migrateretryconfiguration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate deprecated retry configuration to task timeout</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Kafka 2.7, `RETRIES_CONFIG` and `RETRY_BACKOFF_MS_CONFIG` were deprecated in favor of `TASK_TIMEOUT_MS_CONFIG`. This recipe migrates the old retry configuration to the new task timeout configuration, attempting to preserve the retry budget by multiplying retries × backoff time. If only one config is present, it falls back to 60000ms (1 minute).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.kafka.streams.StreamsConfig;\nimport java.util.Properties;\n\nclass KafkaConfig {\n    void configure() {\n        Properties props = new Properties();\n        props.put(StreamsConfig.RETRIES_CONFIG, 10);\n        props.put(StreamsConfig.RETRY_BACKOFF_MS_CONFIG, 100);\n    }\n}\n","after":"import org.apache.kafka.streams.StreamsConfig;\nimport java.util.Properties;\n\nclass KafkaConfig {\n    void configure() {\n        Properties props = new Properties();\n        props.put(StreamsConfig.TASK_TIMEOUT_MS_CONFIG, 1000);\n    }\n}\n","diff":"@@ -7,2 +7,1 @@\n    void configure() {\n        Properties props = new Properties();\n-       props.put(StreamsConfig.RETRIES_CONFIG, 10);\n-       props.put(StreamsConfig.RETRY_BACKOFF_MS_CONFIG, 100);\n+       props.put(StreamsConfig.TASK_TIMEOUT_MS_CONFIG, 1000);\n    }\n","newFile":false}]}]}>
 

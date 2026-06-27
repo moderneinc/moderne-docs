@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Converts components to use the v4 adapter module"}
-  description={"See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#adapter-v4)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["mui","codemods","material-ui"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.migrate.mui.AdapterV"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/adapterv.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"codemods/applycodemod"}]}>
+<RecipeHeader.Title>Converts components to use the v4 adapter module</RecipeHeader.Title>
+
+<RecipeHeader.Description>See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#adapter-v4).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"/user-documentation/recipes/recipe-catalog/codemods/applycodemod/"}]}>
 
 ## Definition
 

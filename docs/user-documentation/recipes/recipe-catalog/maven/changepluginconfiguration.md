@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Maven plugin configuration"}
-  description={"Apply the specified configuration to a Maven plugin. Will not add the plugin if it does not already exist in the pom."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ChangePluginConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/changepluginconfiguration.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Maven plugin configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply the specified configuration to a Maven plugin. Will not add the plugin if it does not already exist in the pom.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of the coordinate 'org.openrewrite.maven:rewrite-maven-plugin:VERSION' of the plugin to modify.","example":"org.openrewrite.maven"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a coordinate 'org.openrewrite.maven:rewrite-maven-plugin:VERSION' of the plugin to modify.","example":"rewrite-maven-plugin"},{"type":"String","name":"configuration","required":false,"description":"Plugin configuration provided as raw XML overriding any existing configuration. Configuration inside `<executions>` blocks will not be altered. Supplying `null` will remove any existing configuration. To include a literal `${...}` property reference in the configuration (e.g. a Maven property like `${java.version}`), escape it as `\\${...}` in your recipe YAML to prevent it from being resolved as a recipe placeholder.","example":"<foo>bar</foo>"}]}>
 

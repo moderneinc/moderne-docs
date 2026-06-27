@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace null with RewriteTest.doesNotExist()"}
-  description={"Replace the first or second `null` argument in OpenRewrite Assertions class methods with `RewriteTest.doesNotExist()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.ReplaceNullWithDoesNotExist"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/replacenullwithdoesnotexist.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace null with RewriteTest.doesNotExist()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace the first or second `null` argument in OpenRewrite Assertions class methods with `RewriteTest.doesNotExist()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.test.RewriteTest;\nimport static org.openrewrite.java.Assertions.java;\n\nclass Test implements RewriteTest {\n    void test() {\n        java(null, \"after content\");\n    }\n}\n","after":"import org.openrewrite.test.RewriteTest;\nimport static org.openrewrite.java.Assertions.java;\n\nclass Test implements RewriteTest {\n    void test() {\n        java(doesNotExist(), \"after content\");\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass Test implements RewriteTest {\n    void test() {\n-       java(null, \"after content\");\n+       java(doesNotExist(), \"after content\");\n    }\n","newFile":false}]}]}>
 

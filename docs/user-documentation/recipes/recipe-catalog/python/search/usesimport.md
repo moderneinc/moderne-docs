@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Python files that import a module"}
-  description={"Marks Python source files that import the given module, matching the as-written import path rather than type attribution. Robust to type-checker canonicalization and to removed or unresolvable symbols, which makes it usable as a precondition for import-migration recipes where `HasType` would miss the file."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.search.UsesImport"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/search/usesimport.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Python files that import a module</RecipeHeader.Title>
+
+<RecipeHeader.Description>Marks Python source files that import the given module, matching the as-written import path rather than type attribution. Robust to type-checker canonicalization and to removed or unresolvable symbols, which makes it usable as a precondition for import-migration recipes where `HasType` would miss the file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"module","required":true,"description":"The dotted module path to match against `import` statements, e.g. `datetime` or `os.path`. A file matches if it imports that module, a submodule of it, or a parent module of it. Matched against import syntax, not type attribution.","example":"datetime"}]}>
 

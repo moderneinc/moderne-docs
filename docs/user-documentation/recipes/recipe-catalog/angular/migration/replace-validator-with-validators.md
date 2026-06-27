@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `validator`/`asyncValidator` with plural forms"}
-  description={"Renames the deprecated singular `validator` and `asyncValidator` property names to `validators` and `asyncValidators` (plural). Angular 10 deprecated the singular forms in favor of `AbstractControlOptions`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.replace-validator-with-validators"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/replace-validator-with-validators.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `validator`/`asyncValidator` with plural forms</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames the deprecated singular `validator` and `asyncValidator` property names to `validators` and `asyncValidators` (plural). Angular 10 deprecated the singular forms in favor of `AbstractControlOptions`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.replace-validator-with-validators","displayName":"Replace `validator`/`asyncValidator` with plural forms","npmPackage":"@openrewrite/recipes-angular"}}>
 

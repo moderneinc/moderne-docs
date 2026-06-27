@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`NullRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with (possibly) null values.\n[Source](https://error-prone.picnic.tech/refasterrules/NullRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.NullRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/nullrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `NullRules.IsNull`","href":"picnic/errorprone/refasterrules/nullrulesrecipes$isnullrecipe"},{"name":"Refaster template `NullRules.IsNotNull`","href":"picnic/errorprone/refasterrules/nullrulesrecipes$isnotnullrecipe"},{"name":"Refaster template `NullRules.RequireNonNullElse`","href":"picnic/errorprone/refasterrules/nullrulesrecipes$requirenonnullelserecipe"},{"name":"Refaster template `NullRules.RequireNonNullElseGet`","href":"picnic/errorprone/refasterrules/nullrulesrecipes$requirenonnullelsegetrecipe"},{"name":"Refaster template `NullRules.IsNullFunction`","href":"picnic/errorprone/refasterrules/nullrulesrecipes$isnullfunctionrecipe"},{"name":"Refaster template `NullRules.NonNullFunction`","href":"picnic/errorprone/refasterrules/nullrulesrecipes$nonnullfunctionrecipe"}]}>
+<RecipeHeader.Title>`NullRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with (possibly) null values. [Source](https://error-prone.picnic.tech/refasterrules/NullRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `NullRules.IsNull`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/nullrulesrecipes$isnullrecipe/"},{"name":"Refaster template `NullRules.IsNotNull`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/nullrulesrecipes$isnotnullrecipe/"},{"name":"Refaster template `NullRules.RequireNonNullElse`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/nullrulesrecipes$requirenonnullelserecipe/"},{"name":"Refaster template `NullRules.RequireNonNullElseGet`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/nullrulesrecipes$requirenonnullelsegetrecipe/"},{"name":"Refaster template `NullRules.IsNullFunction`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/nullrulesrecipes$isnullfunctionrecipe/"},{"name":"Refaster template `NullRules.NonNullFunction`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/nullrulesrecipes$nonnullfunctionrecipe/"}]}>
 
 ## Definition
 

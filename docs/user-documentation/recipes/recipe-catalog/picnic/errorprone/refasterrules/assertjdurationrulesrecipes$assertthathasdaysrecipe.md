@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJDurationRules.AssertThatHasDays`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasDays {\n    \n    @BeforeTemplate\n    AbstractLongAssert<?> before(Duration duration, long days) {\n        return assertThat(duration.toDays()).isEqualTo(days);\n    }\n    \n    @AfterTemplate\n    AbstractDurationAssert<?> after(Duration duration, long days) {\n        return assertThat(duration).hasDays(days);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatHasDaysRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathasdaysrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJDurationRules.AssertThatHasDays`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatHasDays {
+    
+    @BeforeTemplate
+    AbstractLongAssert<?> before(Duration duration, long days) {
+        return assertThat(duration.toDays()).isEqualTo(days);
+    }
+    
+    @AfterTemplate
+    AbstractDurationAssert<?> after(Duration duration, long days) {
+        return assertThat(duration).hasDays(days);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatHasDaysRecipe","displayName":"Refaster template `AssertJDurationRules.AssertThatHasDays`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

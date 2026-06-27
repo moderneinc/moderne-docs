@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Consolidate repeated `==` with `or` into `in`"}
-  description={"Fold ``var == a or var == b`` into ``var in [a, b]``, reducing duplication and improving readability."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.MergeComparisons"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/mergecomparisons.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Consolidate repeated `==` with `or` into `in`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Fold ``var == a or var == b`` into ``var in [a, b]``, reducing duplication and improving readability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.MergeComparisons","displayName":"Consolidate repeated `==` with `or` into `in`","pipPackage":"openrewrite-static-analysis"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `BigDecimal(\"...\")` allocations inside loops"}
-  description={"Parsing a `BigDecimal` from a `String` literal inside a loop reparses the same value every iteration. Hoist the literal `BigDecimal` out of the loop or use a cached constant."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindBigDecimalFromStringInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findbigdecimalfromstringinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `BigDecimal("...")` allocations inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>Parsing a `BigDecimal` from a `String` literal inside a loop reparses the same value every iteration. Hoist the literal `BigDecimal` out of the loop or use a cached constant.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindBigDecimalFromStringInLoops$KtRecipe","displayName":"Find `BigDecimal(\"...\")` allocations inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

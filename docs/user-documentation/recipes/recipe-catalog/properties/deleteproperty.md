@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Delete property by key"}
-  description={"Deletes key/value pairs from properties files, as well as any comments that immediately precede the key/value pair. Comments separated by two or more newlines from the deleted key/value pair are preserved."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-properties"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.properties.DeleteProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/properties/deleteproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Delete property by key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Deletes key/value pairs from properties files, as well as any comments that immediately precede the key/value pair. Comments separated by two or more newlines from the deleted key/value pair are preserved.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The key(s) to be deleted. This is a glob expression.","example":"management.metrics.binders.files.enabled or management.metrics.*"},{"type":"Boolean","name":"relaxedBinding","required":false,"description":"Whether to match the `propertyKey` using [relaxed binding](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) rules. Default is `true`. Set to `false`  to use exact matching."}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find jobs without descriptive names"}
-  description={"Find jobs that lack descriptive names, making them harder to identify in workflow runs. Jobs without `name` properties default to their job ID, which may not be descriptive. Based on [zizmor's anonymous-definition audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/anonymous_definition.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.AnonymousJobs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/anonymousjobs.md"}
-/>
+>
+
+<RecipeHeader.Title>Find jobs without descriptive names</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find jobs that lack descriptive names, making them harder to identify in workflow runs. Jobs without `name` properties default to their job ID, which may not be descriptive. Based on [zizmor's anonymous-definition audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/anonymous_definition.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Test Workflow\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n  build:\n    name: Build application\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo \"building\"\n","after":"name: Test Workflow\non: push\njobs:\n  ~~(Job has no name. Add a descriptive name to make it easier to identify in workflow runs.)~~>test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n  build:\n    name: Build application\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo \"building\"\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -4,1 +4,1 @@\non: push\njobs:\n- test:\n+ ~~(Job has no name. Add a descriptive name to make it easier to identify in workflow runs.)~~>test:\n    runs-on: ubuntu-latest\n","newFile":false}]}]}>
 

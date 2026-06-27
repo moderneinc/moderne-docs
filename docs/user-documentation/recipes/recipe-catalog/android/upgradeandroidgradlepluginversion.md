@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Android Gradle Plugin (AGP) version"}
-  description={"Upgrade Android Gradle Plugin (AGP) version and update the Gradle Wrapper version. Compatible versions are published in the [AGP release notes](https://developer.android.com/build/releases/gradle-plugin)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.android.UpgradeAndroidGradlePluginVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle dependency versions","href":"gradle/upgradedependencyversion"},{"name":"Update Gradle wrapper","href":"gradle/updategradlewrapper"}]}>
+<RecipeHeader.Title>Upgrade Android Gradle Plugin (AGP) version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade Android Gradle Plugin (AGP) version and update the Gradle Wrapper version. Compatible versions are published in the [AGP release notes](https://developer.android.com/build/releases/gradle-plugin).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle dependency versions","href":"/user-documentation/recipes/recipe-catalog/gradle/upgradedependencyversion/"},{"name":"Update Gradle wrapper","href":"/user-documentation/recipes/recipe-catalog/gradle/updategradlewrapper/"}]}>
 
 ## Definition
 

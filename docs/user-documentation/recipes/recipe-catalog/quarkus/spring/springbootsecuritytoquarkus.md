@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Spring Boot Security with Quarkus Security"}
-  description={"Migrates `spring-boot-starter-security` to `quarkus-security`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","security","quarkus"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.SpringBootSecurityToQuarkus"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/springbootsecuritytoquarkus.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"java/dependencies/dependencyinsight"}]}>
+<RecipeHeader.Title>Replace Spring Boot Security with Quarkus Security</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `spring-boot-starter-security` to `quarkus-security`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyinsight/"}]}>
 
 ## Definition
 

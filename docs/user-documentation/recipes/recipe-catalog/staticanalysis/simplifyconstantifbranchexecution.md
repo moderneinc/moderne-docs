@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify constant if branch execution"}
-  description={"Checks for if expressions that are always `true` or `false` and simplifies them. Branches that can never execute are dead code that misleads readers and may mask logic errors introduced during refactoring."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S6646"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SimplifyConstantIfBranchExecution"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyconstantifbranchexecution.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify constant if branch execution</RecipeHeader.Title>
+
+<RecipeHeader.Description>Checks for if expressions that are always `true` or `false` and simplifies them. Branches that can never execute are dead code that misleads readers and may mask logic errors introduced during refactoring.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n    public void test() {\n        if (true) {\n            System.out.println(\"hello\");\n        }\n    }\n}\n","after":"public class A {\n    public void test() {\n        System.out.println(\"hello\");\n    }\n}\n","diff":"@@ -3,3 +3,1 @@\npublic class A {\n    public void test() {\n-       if (true) {\n-           System.out.println(\"hello\");\n-       }\n+       System.out.println(\"hello\");\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LoggerFactory.getLogger(this::class.java)` calls"}
-  description={"`this::class.java` resolves the runtime class — fine for non-final classes, but kotlin-logging's `KotlinLogging.logger { }` already infers the declaring class lexically and avoids the runtime reflection. Either form binds the same logger name for a final class."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindLoggerFactoryGetLoggerWithThisClass$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfactorygetloggerwiththisclass$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LoggerFactory.getLogger(this::class.java)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`this::class.java` resolves the runtime class — fine for non-final classes, but kotlin-logging's `KotlinLogging.logger { }` already infers the declaring class lexically and avoids the runtime reflection. Either form binds the same logger name for a final class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindLoggerFactoryGetLoggerWithThisClass$KtRecipe","displayName":"Find `LoggerFactory.getLogger(this::class.java)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Include an assertion in tests"}
-  description={"For tests not having any assertions, wrap the statements with JUnit Jupiter's `Assertions#assertDoesNotThrow(..)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S2699"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.TestsShouldIncludeAssertions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/testsshouldincludeassertions.md"}
-/>
+>
+
+<RecipeHeader.Title>Include an assertion in tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>For tests not having any assertions, wrap the statements with JUnit Jupiter's `Assertions#assertDoesNotThrow(..)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"additionalAsserts","required":false,"description":"A comma delimited list of packages and/or classes that will be identified as assertions. I.E. a common assertion utility `org.foo.TestUtil`.","example":"org.foo.TestUtil, org.bar"}]}>
 

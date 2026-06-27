@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Mutiny `multi.toHotStream()`"}
-  description={"Replace Mutiny API usages of `multi.transform().toHotStream()` with `multi.toHotStream()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.MultiTransformHotStreamToMultiHotStream"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/multitransformhotstreamtomultihotstream.md"}
-/>
+>
+
+<RecipeHeader.Title>Use Mutiny `multi.toHotStream()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace Mutiny API usages of `multi.transform().toHotStream()` with `multi.toHotStream()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import io.smallrye.mutiny.Multi;\nimport io.smallrye.mutiny.groups.MultiCollect;\n\nimport java.time.Duration;\n\nclass Test {\n    public static MultiCollect<Long> hotStreamGreetings(int count, String name) {\n        return Multi.createFrom().ticks().every(Duration.ofMillis(1))\n                .transform()\n                .toHotStream()\n                .collect();\n    }\n}\n","after":"import io.smallrye.mutiny.Multi;\nimport io.smallrye.mutiny.groups.MultiCollect;\n\nimport java.time.Duration;\n\nclass Test {\n    public static MultiCollect<Long> hotStreamGreetings(int count, String name) {\n        return Multi.createFrom().ticks().every(Duration.ofMillis(1))\n                .toHotStream()\n                .collect();\n    }\n}\n","diff":"@@ -9,1 +9,0 @@\n    public static MultiCollect<Long> hotStreamGreetings(int count, String name) {\n        return Multi.createFrom().ticks().every(Duration.ofMillis(1))\n-               .transform()\n                .toHotStream()\n","newFile":false}]}]}>
 

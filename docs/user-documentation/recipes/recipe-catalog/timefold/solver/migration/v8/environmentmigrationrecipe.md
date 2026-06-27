@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use non-deprecated environment constants"}
-  description={"Use non-deprecated environment constants."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/ai.timefold.solver.migration.v8.EnvironmentMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/timefold/solver/migration/v8/environmentmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"}]}>
+<RecipeHeader.Title>Use non-deprecated environment constants</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use non-deprecated environment constants.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"}]}>
 
 ## Definition
 

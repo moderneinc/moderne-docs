@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Throwable.printStackTrace()` calls"}
-  description={"`printStackTrace()` writes the throwable straight to `System.err`, bypassing whatever structured logger the application uses. Route the throwable through a logger so log levels, MDCs, and sinks apply."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindThrowablePrintStackTrace$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findthrowableprintstacktrace$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Throwable.printStackTrace()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`printStackTrace()` writes the throwable straight to `System.err`, bypassing whatever structured logger the application uses. Route the throwable through a logger so log levels, MDCs, and sinks apply.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindThrowablePrintStackTrace$KtRecipe","displayName":"Find `Throwable.printStackTrace()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

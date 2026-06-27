@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"ConstraintStreams: use asConstraint() methods to define constraints"}
-  description={"Use `penalize().asConstraint()` and `reward().asConstraint()` instead of the deprecated `penalize()` and `reward()` methods."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/ai.timefold.solver.migration.v8.AsConstraintRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/timefold/solver/migration/v8/asconstraintrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>ConstraintStreams: use asConstraint() methods to define constraints</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `penalize().asConstraint()` and `reward().asConstraint()` instead of the deprecated `penalize()` and `reward()` methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"ai.timefold.solver.migration.v8.AsConstraintRecipe","displayName":"ConstraintStreams: use asConstraint() methods to define constraints","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

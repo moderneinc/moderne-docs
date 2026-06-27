@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated RequestMatcherProvider with new API"}
-  description={"Replaces the deprecated `org.springframework.boot.autoconfigure.security.servlet.RequestMatcherProvider` with `org.springframework.boot.security.autoconfigure.actuate.web.servlet.RequestMatcherProvider`. The new interface adds an `HttpMethod` parameter to the `getRequestMatcher` method."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.ReplaceDeprecatedRequestMatcherProvider"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacedeprecatedrequestmatcherprovider.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add a `null` method argument","href":"java/addnullmethodargument"},{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"},{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Replace deprecated RequestMatcherProvider with new API</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces the deprecated `org.springframework.boot.autoconfigure.security.servlet.RequestMatcherProvider` with `org.springframework.boot.security.autoconfigure.actuate.web.servlet.RequestMatcherProvider`. The new interface adds an `HttpMethod` parameter to the `getRequestMatcher` method.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add a `null` method argument","href":"/user-documentation/recipes/recipe-catalog/java/addnullmethodargument/"},{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

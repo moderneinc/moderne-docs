@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Java security best practices"}
-  description={"Applies security best practices to Java code."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.JavaSecurityBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/javasecuritybestpractices.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"XML parser XXE vulnerability","href":"java/security/xmlparserxxevulnerability"},{"name":"Use `Files#createTempDirectory`","href":"java/security/usefilescreatetempdirectory"},{"name":"Use secure temporary file creation","href":"java/security/securetempfilecreation"},{"name":"Zip slip","href":"java/security/zipslip"},{"name":"Replace `Runtime.exec(String)` with `Runtime.exec(String[])`","href":"java/security/fixcommandinjectionliteral"},{"name":"Fix permissive `X509TrustManager` implementations","href":"java/security/fixpermissivetrustmanager"},{"name":"Fix permissive `HostnameVerifier` implementations","href":"java/security/fixpermissivehostnameverifier"},{"name":"Replace SQL string concatenation with a `PreparedStatement`","href":"java/security/fixsqlinjectionconcat"},{"name":"Restrict deserialized classes for JMS `ObjectMessage`","href":"java/security/marshalling/fixinsecurejmsdeserialization"},{"name":"Modernize `BufferedWriter` creation & prevent file descriptor leaks","href":"staticanalysis/bufferedwritercreationrecipes"},{"name":"Use comparison rather than equality checks in for conditions","href":"staticanalysis/noequalityinforcondition"}]}>
+<RecipeHeader.Title>Java security best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies security best practices to Java code.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"XML parser XXE vulnerability","href":"/user-documentation/recipes/recipe-catalog/java/security/xmlparserxxevulnerability/"},{"name":"Use `Files#createTempDirectory`","href":"/user-documentation/recipes/recipe-catalog/java/security/usefilescreatetempdirectory/"},{"name":"Use secure temporary file creation","href":"/user-documentation/recipes/recipe-catalog/java/security/securetempfilecreation/"},{"name":"Zip slip","href":"/user-documentation/recipes/recipe-catalog/java/security/zipslip/"},{"name":"Replace `Runtime.exec(String)` with `Runtime.exec(String[])`","href":"/user-documentation/recipes/recipe-catalog/java/security/fixcommandinjectionliteral/"},{"name":"Fix permissive `X509TrustManager` implementations","href":"/user-documentation/recipes/recipe-catalog/java/security/fixpermissivetrustmanager/"},{"name":"Fix permissive `HostnameVerifier` implementations","href":"/user-documentation/recipes/recipe-catalog/java/security/fixpermissivehostnameverifier/"},{"name":"Replace SQL string concatenation with a `PreparedStatement`","href":"/user-documentation/recipes/recipe-catalog/java/security/fixsqlinjectionconcat/"},{"name":"Restrict deserialized classes for JMS `ObjectMessage`","href":"/user-documentation/recipes/recipe-catalog/java/security/marshalling/fixinsecurejmsdeserialization/"},{"name":"Modernize `BufferedWriter` creation & prevent file descriptor leaks","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/bufferedwritercreationrecipes/"},{"name":"Use comparison rather than equality checks in for conditions","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/noequalityinforcondition/"}]}>
 
 ## Definition
 

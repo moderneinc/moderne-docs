@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Behavior change to bean discovery in modules with `beans.xml` file with no version specified"}
-  description={"Alters beans with missing version attribute to include this attribute as well as the bean-discovery-mode=\"all\" attribute to maintain an explicit bean archive."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.BeanDiscovery"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/beandiscovery.md"}
-/>
+>
+
+<RecipeHeader.Title>Behavior change to bean discovery in modules with `beans.xml` file with no version specified</RecipeHeader.Title>
+
+<RecipeHeader.Description>Alters beans with missing version attribute to include this attribute as well as the bean-discovery-mode="all" attribute to maintain an explicit bean archive.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<beans xmlns=\"https://jakarta.ee/xml/ns/jakartaee\"\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xsi:schemaLocation=\"https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/beans_3_0.xsd\">\n</beans>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<beans xmlns=\"https://jakarta.ee/xml/ns/jakartaee\"\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xsi:schemaLocation=\"https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/beans_3_0.xsd\" bean-discovery-mode=\"all\" version=\"3.0\">\n</beans>\n","diff":"--- beans.xml\n+++ beans.xml\n@@ -4,1 +4,1 @@\n<beans xmlns=\"https://jakarta.ee/xml/ns/jakartaee\"\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n-   xsi:schemaLocation=\"https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/beans_3_0.xsd\">\n+   xsi:schemaLocation=\"https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/beans_3_0.xsd\" bean-discovery-mode=\"all\" version=\"3.0\">\n</beans>\n","newFile":false}]}]}>
 

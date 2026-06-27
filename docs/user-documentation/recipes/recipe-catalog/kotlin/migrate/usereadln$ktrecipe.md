@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `readln()` instead of `readLine()!!`"}
-  description={"Kotlin 1.6 introduced `readln()` to replace the common `readLine()!!` idiom — the new spelling makes the EOF-throws contract explicit and drops the not-null assertion."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseReadln$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usereadln$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `readln()` instead of `readLine()!!`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotlin 1.6 introduced `readln()` to replace the common `readLine()!!` idiom — the new spelling makes the EOF-throws contract explicit and drops the not-null assertion.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseReadln$KtRecipe","displayName":"Use `readln()` instead of `readLine()!!`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

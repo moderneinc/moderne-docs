@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `takeUnless { !p }` (double-negative) patterns"}
-  description={"`takeUnless { !p }` is `takeIf { p }` written with a double negative. Inverting `takeUnless`'s predicate to positive form makes the intent immediate."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindTakeUnlessNegated$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findtakeunlessnegated$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `takeUnless { !p }` (double-negative) patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`takeUnless { !p }` is `takeIf { p }` written with a double negative. Inverting `takeUnless`'s predicate to positive form makes the intent immediate.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindTakeUnlessNegated$KtRecipe","displayName":"Find `takeUnless { !p }` (double-negative) patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

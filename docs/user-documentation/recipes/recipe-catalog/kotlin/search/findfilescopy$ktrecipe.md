@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Files.copy(...)` calls"}
-  description={"Each `Files.copy` call duplicates filesystem content — flag as a write seed where source/destination path provenance and `CopyOption`s (REPLACE_EXISTING, etc.) should be reviewed."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindFilesCopy$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findfilescopy$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Files.copy(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `Files.copy` call duplicates filesystem content — flag as a write seed where source/destination path provenance and `CopyOption`s (REPLACE_EXISTING, etc.) should be reviewed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindFilesCopy$KtRecipe","displayName":"Find `Files.copy(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

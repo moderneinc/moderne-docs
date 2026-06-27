@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade transitive npm dependency"}
-  description={"Pins or upgrades a transitive npm dependency by adding an override entry to `package.json` and regenerating the lock file. For npm and Bun, adds to the `overrides` field; for Yarn, adds to `resolutions`; for pnpm, adds to `pnpm.overrides`. The override is idempotent — if the entry already exists with the same version, no change is made. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-javascript"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.UpgradeTransitiveDependencyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/upgradetransitivedependencyversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade transitive npm dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Pins or upgrades a transitive npm dependency by adding an override entry to `package.json` and regenerating the lock file. For npm and Bun, adds to the `overrides` field; for Yarn, adds to `resolutions`; for pnpm, adds to `pnpm.overrides`. The override is idempotent — if the entry already exists with the same version, no change is made. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageName","required":true,"description":"The name of the transitive npm dependency to upgrade.","example":"lodash"},{"type":"String","name":"newVersion","required":true,"description":"The version constraint to set on the override entry.","example":"^5.0.0"},{"type":"String","name":"dependencyPath","required":false,"description":"Optional dependency path (pnpm-style `a>b>c` or yarn-style `a/b/c`) to scope the override. When omitted, applies as a global override.","example":"express>accepts"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `astral-sh/setup-uv` from v6 to v7"}
-  description={"Migrates `astral-sh/setup-uv` from v6 to v7. Updates the action version and removes the deprecated `server-url` input. See the [v7.0.0 release notes](https://github.com/astral-sh/setup-uv/releases/tag/v7.0.0) for breaking changes."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["github","actions"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.MigrateSetupUvV6ToV7"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/migratesetupuvv6tov7.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change GitHub Action version","href":"github/changeactionversion"},{"name":"Delete key","href":"yaml/deletekey"}]}>
+<RecipeHeader.Title>Migrate `astral-sh/setup-uv` from v6 to v7</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `astral-sh/setup-uv` from v6 to v7. Updates the action version and removes the deprecated `server-url` input. See the [v7.0.0 release notes](https://github.com/astral-sh/setup-uv/releases/tag/v7.0.0) for breaking changes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change GitHub Action version","href":"/user-documentation/recipes/recipe-catalog/github/changeactionversion/"},{"name":"Delete key","href":"/user-documentation/recipes/recipe-catalog/yaml/deletekey/"}]}>
 
 ## Definition
 

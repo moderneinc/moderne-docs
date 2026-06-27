@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@RequestMapping(method = [RequestMethod.GET])` candidates for `@GetMapping`"}
-  description={"`@RequestMapping` with an explicit `method = [...]` is the long-form spelling of `@GetMapping`/`@PostMapping`/etc. The shortcut annotations were introduced specifically to replace this pattern."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindRequestMappingMethodGetMapping$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findrequestmappingmethodgetmapping$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@RequestMapping(method = [RequestMethod.GET])` candidates for `@GetMapping`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@RequestMapping` with an explicit `method = [...]` is the long-form spelling of `@GetMapping`/`@PostMapping`/etc. The shortcut annotations were introduced specifically to replace this pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindRequestMappingMethodGetMapping$KtRecipe","displayName":"Find `@RequestMapping(method = [RequestMethod.GET])` candidates for `@GetMapping`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `MatcherAssert.assertThat(...)` (Hamcrest) calls"}
-  description={"Hamcrest's `assertThat(actual, is(expected))` was the inspiration for both AssertJ's fluent chains and Kotest's matcher library. On a Kotlin codebase both alternatives compose better with the language (AssertJ via type-safe builders, Kotest via infix and extension functions)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindHamcrestAssertThatUsage$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findhamcrestassertthatusage$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `MatcherAssert.assertThat(...)` (Hamcrest) calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Hamcrest's `assertThat(actual, is(expected))` was the inspiration for both AssertJ's fluent chains and Kotest's matcher library. On a Kotlin codebase both alternatives compose better with the language (AssertJ via type-safe builders, Kotest via infix and extension functions).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindHamcrestAssertThatUsage$KtRecipe","displayName":"Find `MatcherAssert.assertThat(...)` (Hamcrest) calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

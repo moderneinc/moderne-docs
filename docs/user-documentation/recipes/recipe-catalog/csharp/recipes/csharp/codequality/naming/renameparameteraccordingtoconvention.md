@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename parameter to camelCase"}
-  description={"Detect parameters not following camelCase naming convention."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Naming.RenameParameterAccordingToConvention"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/naming/renameparameteraccordingtoconvention.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Rename parameter to camelCase</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect parameters not following camelCase naming convention.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Naming.RenameParameterAccordingToConvention","displayName":"Rename parameter to camelCase","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

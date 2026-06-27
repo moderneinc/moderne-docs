@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `System.getSecurityManager()` with `null`"}
-  description={"The Security Manager API is unsupported in Java 24. This recipe will replace `System.getSecurityManager()` with `null` to make its behavior more obvious and try to simplify execution paths afterwards."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security","java25","deprecation"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.SystemGetSecurityManagerToNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/systemgetsecuritymanagertonull.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace method invocation with constant","href":"java/replacemethodinvocationwithconstant"},{"name":"Simplify constant if branch execution","href":"staticanalysis/simplifyconstantifbranchexecution"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"java/search/hasjavaversion"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Replace `System.getSecurityManager()` with `null`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The Security Manager API is unsupported in Java 24. This recipe will replace `System.getSecurityManager()` with `null` to make its behavior more obvious and try to simplify execution paths afterwards.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace method invocation with constant","href":"/user-documentation/recipes/recipe-catalog/java/replacemethodinvocationwithconstant/"},{"name":"Simplify constant if branch execution","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyconstantifbranchexecution/"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

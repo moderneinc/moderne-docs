@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create Properties file"}
-  description={"Create a new Properties file."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-properties"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.properties.CreatePropertiesFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/properties/createpropertiesfile.md"}
-/>
+>
+
+<RecipeHeader.Title>Create Properties file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Create a new Properties file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"relativeFileName","required":true,"description":"File path of new file.","example":"foo/bar/baz.properties"},{"type":"String","name":"fileContents","required":false,"description":"Multiline text content for the file.","example":"a.property=value"},{"type":"Boolean","name":"overwriteExisting","required":false,"description":"If there is an existing file, should it be overwritten."}]}>
 

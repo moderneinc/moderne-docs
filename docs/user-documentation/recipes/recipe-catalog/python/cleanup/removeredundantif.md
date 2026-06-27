@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify negated ``elif`` to ``else``"}
-  description={"When an ``elif`` condition is the exact negation of the preceding ``if``, replace it with ``else`` since the test is redundant."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveRedundantIf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantif.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify negated ``elif`` to ``else``</RecipeHeader.Title>
+
+<RecipeHeader.Description>When an ``elif`` condition is the exact negation of the preceding ``if``, replace it with ``else`` since the test is redundant.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveRedundantIf","displayName":"Simplify negated ``elif`` to ``else``","pipPackage":"openrewrite-static-analysis"}}>
 

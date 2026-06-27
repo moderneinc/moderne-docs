@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify `else` branch if it only has a single `if`"}
-  description={"Simplify `else` branch if it only has a single `if`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SimplifyElseBranch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyelsebranch.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify `else` branch if it only has a single `if`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify `else` branch if it only has a single `if`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void a(String password) {\n        if (password.length() < 6) {\n            System.out.println(\"Password is too short.\");\n        } else {\n            if (password.length() > 12) {\n                System.out.println(\"Password is too long.\");\n            }\n        }\n    }\n}\n","after":"class A {\n    void a(String password) {\n        if (password.length() < 6) {\n            System.out.println(\"Password is too short.\");\n        } else if (password.length() > 12) {\n            System.out.println(\"Password is too long.\");\n        }\n    }\n}\n","diff":"@@ -5,4 +5,2 @@\n        if (password.length() < 6) {\n            System.out.println(\"Password is too short.\");\n-       } else {\n-           if (password.length() > 12) {\n-               System.out.println(\"Password is too long.\");\n-           }\n+       } else if (password.length() > 12) {\n+           System.out.println(\"Password is too long.\");\n        }\n","newFile":false}]}]}>
 

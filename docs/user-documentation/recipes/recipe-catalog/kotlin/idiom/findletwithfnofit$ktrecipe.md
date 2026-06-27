@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `obj.let { fn(it) }` where `obj` is non-null"}
-  description={"When `obj` is non-nullable, `obj.let { fn(it) }` only adds a binding around `fn(obj)`. Save the lambda allocation and pass `obj` directly."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindLetWithFnOfIt$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletwithfnofit$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `obj.let { fn(it) }` where `obj` is non-null</RecipeHeader.Title>
+
+<RecipeHeader.Description>When `obj` is non-nullable, `obj.let { fn(it) }` only adds a binding around `fn(obj)`. Save the lambda allocation and pass `obj` directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindLetWithFnOfIt$KtRecipe","displayName":"Find `obj.let { fn(it) }` where `obj` is non-null","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

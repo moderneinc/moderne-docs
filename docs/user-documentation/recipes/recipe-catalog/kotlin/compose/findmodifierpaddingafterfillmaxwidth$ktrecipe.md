@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Modifier.fillMaxWidth().padding(...)` chains"}
-  description={"`fillMaxWidth()` followed by `padding(...)` reserves the full width and then insets — the visible content is narrower than the parent. Most authors who write that chain meant `padding(...).fillMaxWidth()` so the inset comes first and the fill happens inside the inset region. The right order is intent-specific; flag for review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindModifierPaddingAfterFillMaxWidth$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierpaddingafterfillmaxwidth$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Modifier.fillMaxWidth().padding(...)` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>`fillMaxWidth()` followed by `padding(...)` reserves the full width and then insets — the visible content is narrower than the parent. Most authors who write that chain meant `padding(...).fillMaxWidth()` so the inset comes first and the fill happens inside the inset region. The right order is intent-specific; flag for review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindModifierPaddingAfterFillMaxWidth$KtRecipe","displayName":"Find `Modifier.fillMaxWidth().padding(...)` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

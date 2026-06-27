@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `fun foo(): T { return x }` block bodies"}
-  description={"A function whose entire body is a single `return expr` is the canonical shape for Kotlin's single-expression-body syntax (`fun foo(): T = expr`). The expression form makes type inference more useful and removes one level of brace nesting."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindSingleExpressionBodyCandidate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findsingleexpressionbodycandidate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `fun foo(): T { return x }` block bodies</RecipeHeader.Title>
+
+<RecipeHeader.Description>A function whose entire body is a single `return expr` is the canonical shape for Kotlin's single-expression-body syntax (`fun foo(): T = expr`). The expression form makes type inference more useful and removes one level of brace nesting.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindSingleExpressionBodyCandidate$KtRecipe","displayName":"Find `fun foo(): T { return x }` block bodies","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

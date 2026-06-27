@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate @ConfigurationProperties to Quarkus @ConfigMapping"}
-  description={"Migrates Spring Boot @ConfigurationProperties to Quarkus @ConfigMapping. This recipe converts configuration property classes to the native Quarkus pattern."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","configuration","quarkus","migration"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.MigrateConfigurationProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/migrateconfigurationproperties.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Convert @ConfigurationProperties class to @ConfigMapping interface","href":"quarkus/spring/configurationpropertiestoconfigmapping"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Remove annotation","href":"java/removeannotation"}]}>
+<RecipeHeader.Title>Migrate @ConfigurationProperties to Quarkus @ConfigMapping</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Spring Boot @ConfigurationProperties to Quarkus @ConfigMapping. This recipe converts configuration property classes to the native Quarkus pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Convert @ConfigurationProperties class to @ConfigMapping interface","href":"/user-documentation/recipes/recipe-catalog/quarkus/spring/configurationpropertiestoconfigmapping/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"}]}>
 
 ## Definition
 

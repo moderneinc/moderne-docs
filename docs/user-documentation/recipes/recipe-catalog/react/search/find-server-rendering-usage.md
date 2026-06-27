@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find server-side rendering API usage"}
-  description={"Finds usage of React server-side rendering APIs from `react-dom/server` including `renderToString`, `renderToStaticMarkup`, `renderToNodeStream`, and `renderToStaticNodeStream` to help plan SSR migration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.search.find-server-rendering-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/search/find-server-rendering-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find server-side rendering API usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usage of React server-side rendering APIs from `react-dom/server` including `renderToString`, `renderToStaticMarkup`, `renderToNodeStream`, and `renderToStaticNodeStream` to help plan SSR migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.search.find-server-rendering-usage","displayName":"Find server-side rendering API usage","npmPackage":"@openrewrite/recipes-react"}}>
 

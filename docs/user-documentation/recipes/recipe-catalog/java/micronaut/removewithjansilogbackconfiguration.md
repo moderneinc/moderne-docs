@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove withJansi Logback configuration"}
-  description={"This recipe will remove the withJansi configuration tag from logback.xml."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.RemoveWithJansiLogbackConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/removewithjansilogbackconfiguration.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove XML tag","href":"xml/removexmltag"}]}>
+<RecipeHeader.Title>Remove withJansi Logback configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will remove the withJansi configuration tag from logback.xml.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove XML tag","href":"/user-documentation/recipes/recipe-catalog/xml/removexmltag/"}]}>
 
 ## Definition
 

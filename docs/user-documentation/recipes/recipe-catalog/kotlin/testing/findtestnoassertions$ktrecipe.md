@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Test` methods with no recognized assertion calls"}
-  description={"A test with no `assert*` / `should*` / `assertThat` calls relies on its setup to throw on failure — fine for some smoke tests, suspicious for most. Each match is a candidate for adding an explicit assertion that documents what the test is actually verifying."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindTestNoAssertions$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findtestnoassertions$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Test` methods with no recognized assertion calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>A test with no `assert*` / `should*` / `assertThat` calls relies on its setup to throw on failure — fine for some smoke tests, suspicious for most. Each match is a candidate for adding an explicit assertion that documents what the test is actually verifying.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindTestNoAssertions$KtRecipe","displayName":"Find `@Test` methods with no recognized assertion calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

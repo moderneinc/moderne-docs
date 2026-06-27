@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure GCP cloud storage bucket with uniform bucket-level access are enabled"}
-  description={"Ensure GCP cloud storage bucket with uniform bucket-level access are enabled."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["GCP","terraform","CKV_GCP_29"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.gcp.EnsureGCPCloudStorageBucketWithUniformBucketLevelAccessAreEnabled"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/gcp/ensuregcpcloudstoragebucketwithuniformbucketlevelaccessareenabled.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Ensure GCP cloud storage bucket with uniform bucket-level access are enabled</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure GCP cloud storage bucket with uniform bucket-level access are enabled.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

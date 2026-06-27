@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove a Gradle or Maven dependency"}
-  description={"For Gradle project, removes a single dependency from the dependencies section of the `build.gradle`.\nFor Maven project, removes a single dependency from the `<dependencies>` section of the pom.xml."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-java-dependencies"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.RemoveDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove a Gradle or Maven dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>For Gradle project, removes a single dependency from the dependencies section of the `build.gradle`. For Maven project, removes a single dependency from the `<dependencies>` section of the pom.xml.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"com.fasterxml.jackson*"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"jackson-module*"},{"type":"String","name":"unlessUsing","required":false,"description":"Do not remove if type is in use. Supports glob expressions.","example":"org.aspectj.lang.*"},{"type":"String","name":"configuration","required":false,"description":"The dependency configuration to remove from.","example":"api"},{"type":"String","name":"scope","required":false,"description":"Only remove dependencies if they are in this scope. If 'runtime', this willalso remove dependencies in the 'compile' scope because 'compile' dependencies are part of the runtime dependency set","example":"compile"}]}>
 

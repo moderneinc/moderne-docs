@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"OWASP top ten"}
-  description={"This recipe is a starter card to reveal common OWASP Top 10 issues in your source code. You can customize this configuration to suit your needs.\nFor more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter-beta/)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.SecurityStarter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/securitystarter.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remediate OWASP A01:2021 Broken access control","href":"java/security/owaspa01"},{"name":"Remediate OWASP A02:2021 Cryptographic failures","href":"java/security/owaspa02"},{"name":"Remediate OWASP A03:2021 Injection","href":"java/security/owaspa03"},{"name":"Remediate OWASP A08:2021 Software and data integrity failures","href":"java/security/owaspa08"},{"name":"Regular Expression Denial of Service (ReDOS)","href":"java/security/regularexpressiondenialofservice"},{"name":"Zip slip","href":"java/security/zipslip"},{"name":"Use secure temporary file creation","href":"java/security/securetempfilecreation"},{"name":"Report as security issues","href":"devcenter/reportassecurityissues"}]}>
+<RecipeHeader.Title>OWASP top ten</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe is a starter card to reveal common OWASP Top 10 issues in your source code. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter-beta/).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remediate OWASP A01:2021 Broken access control","href":"/user-documentation/recipes/recipe-catalog/java/security/owaspa01/"},{"name":"Remediate OWASP A02:2021 Cryptographic failures","href":"/user-documentation/recipes/recipe-catalog/java/security/owaspa02/"},{"name":"Remediate OWASP A03:2021 Injection","href":"/user-documentation/recipes/recipe-catalog/java/security/owaspa03/"},{"name":"Remediate OWASP A08:2021 Software and data integrity failures","href":"/user-documentation/recipes/recipe-catalog/java/security/owaspa08/"},{"name":"Regular Expression Denial of Service (ReDOS)","href":"/user-documentation/recipes/recipe-catalog/java/security/regularexpressiondenialofservice/"},{"name":"Zip slip","href":"/user-documentation/recipes/recipe-catalog/java/security/zipslip/"},{"name":"Use secure temporary file creation","href":"/user-documentation/recipes/recipe-catalog/java/security/securetempfilecreation/"},{"name":"Report as security issues","href":"/user-documentation/recipes/recipe-catalog/devcenter/reportassecurityissues/"}]}>
 
 ## Definition
 

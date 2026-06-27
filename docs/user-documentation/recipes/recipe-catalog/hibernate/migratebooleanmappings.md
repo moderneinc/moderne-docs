@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace boolean type mappings with converters"}
-  description={"Replaces type mapping of booleans with appropriate attribute converters."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-hibernate"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hibernate.MigrateBooleanMappings"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/migratebooleanmappings.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace boolean type mappings with converters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces type mapping of booleans with appropriate attribute converters.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.persistence.Column;\nimport org.hibernate.annotations.Type;\n\npublic class SomeClass {\n\n    @Column(name = \"IS_SOMETHING\")\n    @Type(type = \"true_false\")\n    private boolean isSomething;\n\n    @Column(name = \"IS_SOMETHING_ELSE\")\n    @Type(type = \"org.hibernate.type.YesNoBooleanType\")\n    private boolean isSomethingElse;\n\n}\n","after":"import jakarta.persistence.Column;\nimport jakarta.persistence.Convert;\nimport org.hibernate.type.TrueFalseConverter;\nimport org.hibernate.type.YesNoConverter;\n\npublic class SomeClass {\n\n    @Column(name = \"IS_SOMETHING\")\n    @Convert(converter = TrueFalseConverter.class)\n    private boolean isSomething;\n\n    @Column(name = \"IS_SOMETHING_ELSE\")\n    @Convert(converter = YesNoConverter.class)\n    private boolean isSomethingElse;\n\n}\n","diff":"@@ -2,1 +2,3 @@\nimport jakarta.persistence.Column;\n-import org.hibernate.annotations.Type;\n+import jakarta.persistence.Convert;\n+import org.hibernate.type.TrueFalseConverter;\n+import org.hibernate.type.YesNoConverter;\n\n@@ -7,1 +9,1 @@\n\n    @Column(name = \"IS_SOMETHING\")\n-   @Type(type = \"true_false\")\n+   @Convert(converter = TrueFalseConverter.class)\n    private boolean isSomething;\n@@ -11,1 +13,1 @@\n\n    @Column(name = \"IS_SOMETHING_ELSE\")\n-   @Type(type = \"org.hibernate.type.YesNoBooleanType\")\n+   @Convert(converter = YesNoConverter.class)\n    private boolean isSomethingElse;\n","newFile":false}]}]}>
 

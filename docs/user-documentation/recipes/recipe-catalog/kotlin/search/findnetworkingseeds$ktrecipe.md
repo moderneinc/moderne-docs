@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find outbound-networking seeds"}
-  description={"HTTP client and connection construction sites: `HttpURLConnection`, `okhttp3.OkHttpClient`, `okhttp3.Request.Builder`. Each match is a position where the program reaches out to the network."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindNetworkingSeeds$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findnetworkingseeds$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `HttpURLConnection` references","href":"kotlin/search/findhttpurlconnection$ktrecipe"},{"name":"Find `okhttp3.OkHttpClient` constructions","href":"kotlin/search/findokhttpclient$ktrecipe"},{"name":"Find `okhttp3.Request.Builder()` constructions","href":"kotlin/search/findokhttprequestbuilder$ktrecipe"}]}>
+<RecipeHeader.Title>Find outbound-networking seeds</RecipeHeader.Title>
+
+<RecipeHeader.Description>HTTP client and connection construction sites: `HttpURLConnection`, `okhttp3.OkHttpClient`, `okhttp3.Request.Builder`. Each match is a position where the program reaches out to the network.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `HttpURLConnection` references","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findhttpurlconnection$ktrecipe/"},{"name":"Find `okhttp3.OkHttpClient` constructions","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findokhttpclient$ktrecipe/"},{"name":"Find `okhttp3.Request.Builder()` constructions","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findokhttprequestbuilder$ktrecipe/"}]}>
 
 ## Definition
 

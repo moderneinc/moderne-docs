@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add license header"}
-  description={"Adds license headers to Java source files when missing. Does not override existing license headers."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.AddLicenseHeader"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/addlicenseheader.md"}
-/>
+>
+
+<RecipeHeader.Title>Add license header</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds license headers to Java source files when missing. Does not override existing license headers.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"licenseText","required":true,"description":"The license header text without the block comment. May contain ${CURRENT_YEAR} property.","example":"Copyright ${CURRENT_YEAR} the original author or authors..."}]}>
 

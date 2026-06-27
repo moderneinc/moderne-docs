@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to JasperReports 5.6.x"}
-  description={"Migrates JasperReports from 4.6.0 to 5.6.x. This recipe includes minimal breaking changes, allowing teams to test and validate the migration before proceeding to version 6."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["jasperreports"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.jasperreports.UpgradeToJasperReports5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports5.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle dependency group","href":"gradle/changedependencygroupid"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Change type","href":"java/changetype"},{"name":"Migrate JasperReports exporter setParameter to new API","href":"jasperreports/v5/migrateexportersetparameter"},{"name":"Migrate JRPrintServiceExporterParameter to SimplePrintServiceExporterConfiguration","href":"jasperreports/v5/migrateprintserviceexporterconfiguration"}]}>
+<RecipeHeader.Title>Migrate to JasperReports 5.6.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates JasperReports from 4.6.0 to 5.6.x. This recipe includes minimal breaking changes, allowing teams to test and validate the migration before proceeding to version 6.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle dependency group","href":"/user-documentation/recipes/recipe-catalog/gradle/changedependencygroupid/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Migrate JasperReports exporter setParameter to new API","href":"/user-documentation/recipes/recipe-catalog/jasperreports/v5/migrateexportersetparameter/"},{"name":"Migrate JRPrintServiceExporterParameter to SimplePrintServiceExporterConfiguration","href":"/user-documentation/recipes/recipe-catalog/jasperreports/v5/migrateprintserviceexporterconfiguration/"}]}>
 
 ## Definition
 

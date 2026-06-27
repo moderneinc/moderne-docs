@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Format TypeScript using ESLint Prettier plugin"}
-  description={"Formats all TypeScript source code using the ESLint Prettier plugin."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["codemods","eslint"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.ecmascript.ESLintTypeScriptPrettier"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/ecmascript/eslinttypescriptprettier.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Format TypeScript using ESLint Prettier plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Formats all TypeScript source code using the ESLint Prettier plugin.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

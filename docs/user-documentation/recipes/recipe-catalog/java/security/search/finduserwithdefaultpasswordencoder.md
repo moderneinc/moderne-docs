@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `User.withDefaultPasswordEncoder()` usage"}
-  description={"Flags any call to `User.withDefaultPasswordEncoder()` from Spring Security. The factory is documented as for non-production demos only: it stores credentials in memory with a fixed encoder and is unsafe for real workloads."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["security","CWE-259"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindUserWithDefaultPasswordEncoder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/finduserwithdefaultpasswordencoder.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `User.withDefaultPasswordEncoder()` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flags any call to `User.withDefaultPasswordEncoder()` from Spring Security. The factory is documented as for non-production demos only: it stores credentials in memory with a fixed encoder and is unsafe for real workloads.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.core.userdetails.User;\nimport org.springframework.security.core.userdetails.UserDetails;\n\nclass Users {\n    @SuppressWarnings(\"deprecation\")\n    UserDetails admin(String pwd) {\n        return User.withDefaultPasswordEncoder()\n            .username(\"admin\")\n            .password(pwd)\n            .roles(\"ADMIN\")\n            .build();\n    }\n}\n","after":"import org.springframework.security.core.userdetails.User;\nimport org.springframework.security.core.userdetails.UserDetails;\n\nclass Users {\n    @SuppressWarnings(\"deprecation\")\n    UserDetails admin(String pwd) {\n        return /*~~(User.withDefaultPasswordEncoder() stores credentials in memory and is for non-production use only (CWE-259))~~>*/User.withDefaultPasswordEncoder()\n            .username(\"admin\")\n            .password(pwd)\n            .roles(\"ADMIN\")\n            .build();\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    @SuppressWarnings(\"deprecation\")\n    UserDetails admin(String pwd) {\n-       return User.withDefaultPasswordEncoder()\n+       return /*~~(User.withDefaultPasswordEncoder() stores credentials in memory and is for non-production use only (CWE-259))~~>*/User.withDefaultPasswordEncoder()\n            .username(\"admin\")\n","newFile":false}]}]}>
 

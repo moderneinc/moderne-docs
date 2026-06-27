@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `android.util.Log.{d,i,v,w,e}` calls with sensitive content"}
-  description={"`android.util.Log` writes to `logcat`, which on rooted devices and via `adb logcat` is world-readable. Don't put `password`, `token`, or any PII into log messages — production builds should strip logging via R8/ProGuard rules."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindAndroidLogSensitive$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findandroidlogsensitive$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `android.util.Log.{d,i,v,w,e}` calls with sensitive content</RecipeHeader.Title>
+
+<RecipeHeader.Description>`android.util.Log` writes to `logcat`, which on rooted devices and via `adb logcat` is world-readable. Don't put `password`, `token`, or any PII into log messages — production builds should strip logging via R8/ProGuard rules.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindAndroidLogSensitive$KtRecipe","displayName":"Find `android.util.Log.{d,i,v,w,e}` calls with sensitive content","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

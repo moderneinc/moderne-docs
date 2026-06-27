@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `filter { it != null }.map { it!! }` chains"}
-  description={"`filter { it != null }.map { it!! }` is the long form of `mapNotNull { it }`. Both passes can be folded into a single `filterNotNull` (when no transform is needed) or `mapNotNull` (with a transform)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindFilterMapToMapNotNull$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findfiltermaptomapnotnull$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `filter { it != null }.map { it!! }` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>`filter { it != null }.map { it!! }` is the long form of `mapNotNull { it }`. Both passes can be folded into a single `filterNotNull` (when no transform is needed) or `mapNotNull` (with a transform).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindFilterMapToMapNotNull$KtRecipe","displayName":"Find `filter { it != null }.map { it!! }` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

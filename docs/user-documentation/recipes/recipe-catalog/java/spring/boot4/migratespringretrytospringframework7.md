@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `spring-retry` to Spring Framework resilience"}
-  description={"Migrate `spring-retry`s `@Retryable` and `@Backoff` annotation to Spring Framework 7 Resilience annotations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.MigrateSpringRetryToSpringFramework7"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretrytospringframework7.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `spring-retry` to Spring Framework resilience</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate `spring-retry`s `@Retryable` and `@Backoff` annotation to Spring Framework 7 Resilience annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.retry.annotation.Retryable;\nimport org.springframework.retry.annotation.Backoff;\nimport java.io.IOException;\n\npublic class MyService {\n    @Retryable(retryFor = IOException.class, maxAttempts = 5, backoff = @Backoff(delay = 100))\n    public void doWork() {}\n}\n","after":"import org.springframework.resilience.annotation.Retryable;\nimport java.io.IOException;\n\npublic class MyService {\n    @Retryable(includes = IOException.class, maxRetries = 4, delay = 100)\n    public void doWork() {}\n}\n","diff":"@@ -1,2 +1,1 @@\n-import org.springframework.retry.annotation.Retryable;\n-import org.springframework.retry.annotation.Backoff;\n+import org.springframework.resilience.annotation.Retryable;\nimport java.io.IOException;\n@@ -6,1 +5,1 @@\n\npublic class MyService {\n-   @Retryable(retryFor = IOException.class, maxAttempts = 5, backoff = @Backoff(delay = 100))\n+   @Retryable(includes = IOException.class, maxRetries = 4, delay = 100)\n    public void doWork() {}\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use modernized `java.util.concurrent` APIs"}
-  description={"The Java concurrent APIs were updated in Java 9 and those changes resulted in certain APIs being deprecated. This recipe update an application to replace the deprecated APIs with their modern alternatives."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.concurrent.JavaConcurrentAPIs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/javaconcurrentapis.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `AtomicBoolean#weakCompareAndSetPlain(boolean, boolean)`","href":"java/migrate/concurrent/migrateatomicbooleanweakcompareandsettoweakcompareandsetplain"},{"name":"Use `AtomicInteger#weakCompareAndSetPlain(int, int)`","href":"java/migrate/concurrent/migrateatomicintegerweakcompareandsettoweakcompareandsetplain"},{"name":"Use `AtomicIntegerArray#weakCompareAndSetPlain(int, int, int)`","href":"java/migrate/concurrent/migrateatomicintegerarrayweakcompareandsettoweakcompareandsetplain"},{"name":"Use `AtomicLong#weakCompareAndSetPlain(long, long)`","href":"java/migrate/concurrent/migrateatomiclongweakcompareandsettoweakcompareandsetplain"},{"name":"Use `AtomicLongArray#weakCompareAndSetPlain(int, long, long)`","href":"java/migrate/concurrent/migrateatomiclongarrayweakcompareandsettoweakcompareandsetplain"},{"name":"Use `AtomicReference#weakCompareAndSetPlain(T, T)`","href":"java/migrate/concurrent/migrateatomicreferenceweakcompareandsettoweakcompareandsetplain"},{"name":"Use `AtomicReferenceArray#weakCompareAndSetPlain(int, T, T)`","href":"java/migrate/concurrent/migrateatomicreferencearrayweakcompareandsettoweakcompareandsetplain"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use modernized `java.util.concurrent` APIs</RecipeHeader.Title>
+
+<RecipeHeader.Description>The Java concurrent APIs were updated in Java 9 and those changes resulted in certain APIs being deprecated. This recipe update an application to replace the deprecated APIs with their modern alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `AtomicBoolean#weakCompareAndSetPlain(boolean, boolean)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicbooleanweakcompareandsettoweakcompareandsetplain/"},{"name":"Use `AtomicInteger#weakCompareAndSetPlain(int, int)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicintegerweakcompareandsettoweakcompareandsetplain/"},{"name":"Use `AtomicIntegerArray#weakCompareAndSetPlain(int, int, int)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicintegerarrayweakcompareandsettoweakcompareandsetplain/"},{"name":"Use `AtomicLong#weakCompareAndSetPlain(long, long)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomiclongweakcompareandsettoweakcompareandsetplain/"},{"name":"Use `AtomicLongArray#weakCompareAndSetPlain(int, long, long)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomiclongarrayweakcompareandsettoweakcompareandsetplain/"},{"name":"Use `AtomicReference#weakCompareAndSetPlain(T, T)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicreferenceweakcompareandsettoweakcompareandsetplain/"},{"name":"Use `AtomicReferenceArray#weakCompareAndSetPlain(int, T, T)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicreferencearrayweakcompareandsettoweakcompareandsetplain/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

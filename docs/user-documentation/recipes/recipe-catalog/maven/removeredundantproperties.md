@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant properties"}
-  description={"Remove properties when a parent POM specifies the same property."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.RemoveRedundantProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/removeredundantproperties.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove redundant properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove properties when a parent POM specifies the same property.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"namePattern","required":false,"description":"Property name glob expression pattern used to match properties that should be checked.","example":"*.version"},{"type":"Boolean","name":"onlyIfValuesMatch","required":false,"description":"Only remove the property if its value exactly matches the property value in the parent pom. Default `false`."}]}>
 

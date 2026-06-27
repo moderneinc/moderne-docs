@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Dynamic Method Invocation to explicit action mappings"}
-  description={"Identifies Struts configurations using Dynamic Method Invocation (DMI) and marks them for migration, as DMI is disabled by default in Struts 6 for security reasons."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate6.MigrateDynamicMethodInvocation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratedynamicmethodinvocation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Dynamic Method Invocation to explicit action mappings</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identifies Struts configurations using Dynamic Method Invocation (DMI) and marks them for migration, as DMI is disabled by default in Struts 6 for security reasons.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<struts>\n    <constant name=\"struts.enable.DynamicMethodInvocation\" value=\"true\"/>\n\n    <package name=\"crud\" extends=\"struts-default\">\n        <action name=\"user\" class=\"com.example.UserAction\">\n            <result name=\"list\">/users.jsp</result>\n            <result name=\"edit\">/editUser.jsp</result>\n        </action>\n    </package>\n</struts>\n","after":"<struts>\n    <constant name=\"struts.enable.DynamicMethodInvocation\" value=\"false\"/>\n\n    <package name=\"crud\" extends=\"struts-default\">\n        <action name=\"userList\" class=\"com.example.UserAction\" method=\"list\">\n            <result name=\"list\">/users.jsp</result>\n        </action>\n        <action name=\"userEdit\" class=\"com.example.UserAction\" method=\"edit\">\n            <result name=\"edit\">/editUser.jsp</result>\n        </action>\n    </package>\n</struts>\n","diff":"@@ -2,1 +2,1 @@\n<struts>\n-   <constant name=\"struts.enable.DynamicMethodInvocation\" value=\"true\"/>\n+   <constant name=\"struts.enable.DynamicMethodInvocation\" value=\"false\"/>\n\n@@ -5,1 +5,1 @@\n\n    <package name=\"crud\" extends=\"struts-default\">\n-       <action name=\"user\" class=\"com.example.UserAction\">\n+       <action name=\"userList\" class=\"com.example.UserAction\" method=\"list\">\n            <result name=\"list\">/users.jsp</result>\n@@ -7,0 +7,2 @@\n        <action name=\"user\" class=\"com.example.UserAction\">\n            <result name=\"list\">/users.jsp</result>\n+       </action>\n+       <action name=\"userEdit\" class=\"com.example.UserAction\" method=\"edit\">\n            <result name=\"edit\">/editUser.jsp</result>\n","newFile":false}]}]}>
 

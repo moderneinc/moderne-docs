@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add a Gradle settings repository"}
-  description={"Add a Gradle settings repository to `settings.gradle(.kts)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.AddSettingsPluginRepository"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/plugins/addsettingspluginrepository.md"}
-/>
+>
+
+<RecipeHeader.Title>Add a Gradle settings repository</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a Gradle settings repository to `settings.gradle(.kts)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"type","required":true,"description":"The type of the artifact repository","example":"maven"},{"type":"String","name":"url","required":false,"description":"The url of the artifact repository","example":"https://repo.spring.io"}]}>
 

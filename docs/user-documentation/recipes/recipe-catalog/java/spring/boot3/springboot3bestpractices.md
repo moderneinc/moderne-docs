@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Spring Boot 3.5 best practices"}
-  description={"Applies best practices to Spring Boot 3.5+ applications."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.SpringBoot3BestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot3bestpractices.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Spring Boot 3.3 best practices (only)","href":"java/spring/boot3/springboot3bestpracticesonly"},{"name":"Migrate to Spring Boot 3.5","href":"java/spring/boot3/upgradespringboot_3_5-moderne-edition"},{"name":"Convert field injection to constructor injection","href":"java/spring/boot/fieldtoconstructorinjection"},{"name":"Convert JAX-RS annotations to Spring Web","href":"java/spring/framework/jaxrstospringweb"},{"name":"Replace `@Controller` with `@RestController`","href":"java/spring/framework/replacecontrollerwithrestcontroller"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Spring Boot 3.5 best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies best practices to Spring Boot 3.5+ applications.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Spring Boot 3.3 best practices (only)","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot3bestpracticesonly/"},{"name":"Migrate to Spring Boot 3.5","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-moderne-edition/"},{"name":"Convert field injection to constructor injection","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot/fieldtoconstructorinjection/"},{"name":"Convert JAX-RS annotations to Spring Web","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/jaxrstospringweb/"},{"name":"Replace `@Controller` with `@RestController`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/replacecontrollerwithrestcontroller/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `RestTemplateBuilder.requestFactory(Function)` with `requestFactoryBuilder`"}
-  description={"`RestTemplateBuilder.requestFactory(java.util.function.Function)` was deprecated since Spring Boot 3.4, in favor of `requestFactoryBuilder(ClientHttpRequestFactoryBuilder)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.ReplaceRestTemplateBuilderRequestFactoryMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/replaceresttemplatebuilderrequestfactorymethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `RestTemplateBuilder.requestFactory(Function)` with `requestFactoryBuilder`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`RestTemplateBuilder.requestFactory(java.util.function.Function)` was deprecated since Spring Boot 3.4, in favor of `requestFactoryBuilder(ClientHttpRequestFactoryBuilder)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot3.ReplaceRestTemplateBuilderRequestFactoryMethod","displayName":"Replace `RestTemplateBuilder.requestFactory(Function)` with `requestFactoryBuilder`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Test` methods with empty bodies"}
-  description={"An empty `@Test fun foo() { }` passes unconditionally. The reasons it lands in a codebase are usually disabled-during-WIP, scaffolded-then-forgotten, or a stand-in for a TODO. Each match should either gain assertions, be annotated `@Disabled` with a reason, or be deleted."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindEmptyTestBody$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findemptytestbody$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Test` methods with empty bodies</RecipeHeader.Title>
+
+<RecipeHeader.Description>An empty `@Test fun foo() { }` passes unconditionally. The reasons it lands in a codebase are usually disabled-during-WIP, scaffolded-then-forgotten, or a stand-in for a TODO. Each match should either gain assertions, be annotated `@Disabled` with a reason, or be deleted.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindEmptyTestBody$KtRecipe","displayName":"Find `@Test` methods with empty bodies","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

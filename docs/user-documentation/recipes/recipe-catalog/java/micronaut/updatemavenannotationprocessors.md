@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update the version of core annotation processors"}
-  description={"This recipe will update the version of Maven-configured annotation processors from Micronaut Core."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.UpdateMavenAnnotationProcessors"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/updatemavenannotationprocessors.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Maven annotation processor path","href":"java/micronaut/changeannotationprocessorpath"},{"name":"Change Maven annotation processor path","href":"java/micronaut/changeannotationprocessorpath"},{"name":"Change Maven annotation processor path","href":"java/micronaut/changeannotationprocessorpath"},{"name":"Change Maven annotation processor path","href":"java/micronaut/changeannotationprocessorpath"}]}>
+<RecipeHeader.Title>Update the version of core annotation processors</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will update the version of Maven-configured annotation processors from Micronaut Core.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Maven annotation processor path","href":"/user-documentation/recipes/recipe-catalog/java/micronaut/changeannotationprocessorpath/"},{"name":"Change Maven annotation processor path","href":"/user-documentation/recipes/recipe-catalog/java/micronaut/changeannotationprocessorpath/"},{"name":"Change Maven annotation processor path","href":"/user-documentation/recipes/recipe-catalog/java/micronaut/changeannotationprocessorpath/"},{"name":"Change Maven annotation processor path","href":"/user-documentation/recipes/recipe-catalog/java/micronaut/changeannotationprocessorpath/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Surface { OneChild() }` patterns"}
-  description={"A `Surface { OneChild() }` wrapper that only sets a tonal elevation or color is rarely the right place to live — the same effect is achievable by passing `Modifier.background(...)` or `Modifier.shadow(...)` directly to the child. Audit single-child surfaces for redundancy."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindSurfaceWithSingleChild$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findsurfacewithsinglechild$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Surface { OneChild() }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `Surface { OneChild() }` wrapper that only sets a tonal elevation or color is rarely the right place to live — the same effect is achievable by passing `Modifier.background(...)` or `Modifier.shadow(...)` directly to the child. Audit single-child surfaces for redundancy.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindSurfaceWithSingleChild$KtRecipe","displayName":"Find `Surface { OneChild() }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

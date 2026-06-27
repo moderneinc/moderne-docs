@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Composable` functions without a `Modifier` parameter"}
-  description={"The Compose API guideline says every composable that emits UI should accept a `Modifier` parameter (named `modifier`, defaulted to `Modifier`) so callers can size, layout, and decorate without subclassing. Flag composables that emit content but expose no `Modifier` slot."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposableMissingModifierParam$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposablemissingmodifierparam$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Composable` functions without a `Modifier` parameter</RecipeHeader.Title>
+
+<RecipeHeader.Description>The Compose API guideline says every composable that emits UI should accept a `Modifier` parameter (named `modifier`, defaulted to `Modifier`) so callers can size, layout, and decorate without subclassing. Flag composables that emit content but expose no `Modifier` slot.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindComposableMissingModifierParam$KtRecipe","displayName":"Find `@Composable` functions without a `Modifier` parameter","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

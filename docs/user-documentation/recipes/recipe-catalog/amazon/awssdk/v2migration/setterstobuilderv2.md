@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert V1 setters to V2 toBuilder setters"}
-  description={"Convert V1 setters to V2 toBuilder setters"}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/software.amazon.awssdk.v2migration.SettersToBuilderV2"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/setterstobuilderv2.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert V1 setters to V2 toBuilder setters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert V1 setters to V2 toBuilder setters</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"software.amazon.awssdk.v2migration.SettersToBuilderV2","displayName":"Convert V1 setters to V2 toBuilder setters","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

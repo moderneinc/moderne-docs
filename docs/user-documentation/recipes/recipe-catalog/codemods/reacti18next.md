@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"React i18next internationalization"}
-  description={"Automatically internationalizes React applications by extracting hardcoded strings and replacing them with [react-i18next](https://react.i18next.com) translation calls. Handles JSX text, attributes, and template literals with variables. Creates and updates a translation JSON file with extracted strings."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.ReactI18Next"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/reacti18next.md"}
-/>
+>
+
+<RecipeHeader.Title>React i18next internationalization</RecipeHeader.Title>
+
+<RecipeHeader.Description>Automatically internationalizes React applications by extracting hardcoded strings and replacing them with [react-i18next](https://react.i18next.com) translation calls. Handles JSX text, attributes, and template literals with variables. Creates and updates a translation JSON file with extracted strings.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"translationFilePath","required":false,"description":"Path to the translation JSON file where extracted strings will be stored. Defaults to `translations.json` in the root of the project.","example":"./src/locales/en.json"},{"type":"String","name":"importName","required":true,"description":"The package name to import translation functions from. Required.","example":"react-i18next"},{"type":"String","name":"translationRoot","required":false,"description":"Root key in the translation file to organize translations under. Defaults to `common`.","example":"common"},{"type":"String","name":"filePattern","required":false,"description":"Glob pattern to specify which files to transform. Defaults to all files.","example":"src/**/*.tsx"},{"type":"String","name":"parser","required":false,"description":"Parser to use for transforming files. Defaults to auto-detection based on file extensions (`tsx`/`ts`/`babel`).","example":"tsx"}]}>
 

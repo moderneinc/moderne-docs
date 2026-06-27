@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Cast<T>() instead of Select with cast"}
-  description={"Replace `.Select(x => (T)x)` with `.Cast<T>()`. The `Cast<T>()` method is more concise and clearly expresses the intent."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseCastInsteadOfSelect"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/usecastinsteadofselect.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use Cast&lt;T>() instead of Select with cast</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `.Select(x => (T)x)` with `.Cast<T>()`. The `Cast<T>()` method is more concise and clearly expresses the intent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseCastInsteadOfSelect","displayName":"Use Cast<T>() instead of Select with cast","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

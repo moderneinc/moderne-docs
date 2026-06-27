@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`it` shouldn't be used as a lambda parameter name"}
-  description={"`it` is a special identifier that allows you to refer to the current parameter being passed to a lambda expression without explicitly naming the parameter. Lambda expressions are a concise way of writing anonymous functions. Many lambda expressions have only one parameter, when this is true the compiler can determine the parameter type by context. Thus when using it with single parameter lambda expressions, you do not need to declare the type."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={["RSPEC-S6558"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-kotlin"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.cleanup.ImplicitParameterInLambda"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/cleanup/implicitparameterinlambda.md"}
-/>
+>
+
+<RecipeHeader.Title>`it` shouldn't be used as a lambda parameter name</RecipeHeader.Title>
+
+<RecipeHeader.Description>`it` is a special identifier that allows you to refer to the current parameter being passed to a lambda expression without explicitly naming the parameter. Lambda expressions are a concise way of writing anonymous functions. Many lambda expressions have only one parameter, when this is true the compiler can determine the parameter type by context. Thus when using it with single parameter lambda expressions, you do not need to declare the type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"fun method() {\n    listOf(1, 2, 3).forEach { it -> it.and(6) }\n    val a: (Int) -> Int = { it -> it + 5 }\n}\n","after":"fun method() {\n    listOf(1, 2, 3).forEach { it.and(6) }\n    val a: (Int) -> Int = { it + 5 }\n}\n","diff":"@@ -2,2 +2,2 @@\nfun method() {\n-   listOf(1, 2, 3).forEach { it -> it.and(6) }\n-   val a: (Int) -> Int = { it -> it + 5 }\n+   listOf(1, 2, 3).forEach { it.and(6) }\n+   val a: (Int) -> Int = { it + 5 }\n}\n","newFile":false}]}]}>
 

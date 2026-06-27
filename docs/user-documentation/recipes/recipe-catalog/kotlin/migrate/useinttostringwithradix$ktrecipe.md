@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Int.toString(radix)` instead of `Integer.toString(i, radix)`"}
-  description={"`Integer.toString(i, radix)` is the JVM-only spelling; `i.toString(radix)` is the multiplatform Kotlin receiver call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseIntToStringWithRadix$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useinttostringwithradix$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Int.toString(radix)` instead of `Integer.toString(i, radix)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Integer.toString(i, radix)` is the JVM-only spelling; `i.toString(radix)` is the multiplatform Kotlin receiver call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseIntToStringWithRadix$KtRecipe","displayName":"Use `Int.toString(radix)` instead of `Integer.toString(i, radix)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

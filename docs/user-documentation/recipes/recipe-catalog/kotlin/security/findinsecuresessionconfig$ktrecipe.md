@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find insecure cookie / session configuration"}
-  description={"Cookies missing the `Secure` or `HttpOnly` flag leak to plain HTTP or JavaScript. Each match should set both flags to `true` and consider `SameSite=Strict`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindInsecureSessionConfig$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findinsecuresessionconfig$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Cookie.setSecure(false)` calls","href":"kotlin/security/findcookiesecurefalse$ktrecipe"},{"name":"Find `Cookie.setHttpOnly(false)` calls","href":"kotlin/security/findcookiehttponlyfalse$ktrecipe"}]}>
+<RecipeHeader.Title>Find insecure cookie / session configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Cookies missing the `Secure` or `HttpOnly` flag leak to plain HTTP or JavaScript. Each match should set both flags to `true` and consider `SameSite=Strict`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Cookie.setSecure(false)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findcookiesecurefalse$ktrecipe/"},{"name":"Find `Cookie.setHttpOnly(false)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findcookiehttponlyfalse$ktrecipe/"}]}>
 
 ## Definition
 

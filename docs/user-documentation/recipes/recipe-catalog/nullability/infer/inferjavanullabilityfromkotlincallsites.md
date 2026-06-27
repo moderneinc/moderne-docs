@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Infer Java `@Nullable` return types from Kotlin call sites"}
-  description={"Adds the JSpecify `@Nullable` annotation to the return type of **Java** methods based on how those methods are used in **Kotlin** code. A Java method returning a reference type appears to Kotlin as a platform type (`String!`) of unknown nullability; Kotlin call sites that treat the result as possibly null reveal the intended contract. This recipe scans Kotlin sources for such usage — a safe call (`call()?.x`), an elvis operand (`call() ?: fallback`), a not-null assertion (`call()!!`), or a comparison to `null` — and writes `@Nullable` onto the matching Java method declaration, resolving the platform-type ambiguity. Only Java sources are modified; Kotlin sources are read for evidence and left unchanged. Conservative by design: it skips primitive and `void` returns, methods that already carry a nullability annotation, and `@Override` methods (where annotating the return could violate the supertype contract)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.infer.InferJavaNullabilityFromKotlinCallSites"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/infer/inferjavanullabilityfromkotlincallsites.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Infer Java `@Nullable` return types from Kotlin call sites</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the JSpecify `@Nullable` annotation to the return type of **Java** methods based on how those methods are used in **Kotlin** code. A Java method returning a reference type appears to Kotlin as a platform type (`String!`) of unknown nullability; Kotlin call sites that treat the result as possibly null reveal the intended contract. This recipe scans Kotlin sources for such usage — a safe call (`call()?.x`), an elvis operand (`call() ?: fallback`), a not-null assertion (`call()!!`), or a comparison to `null` — and writes `@Nullable` onto the matching Java method declaration, resolving the platform-type ambiguity. Only Java sources are modified; Kotlin sources are read for evidence and left unchanged. Conservative by design: it skips primitive and `void` returns, methods that already carry a nullability annotation, and `@Override` methods (where annotating the return could violate the supertype contract).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"kotlin","code":"import io.moderne.nullability.fixture.Greeter\nfun use(g: Greeter): Int? {\n    return g.getName()?.length\n}\n"},"variants":[{"language":"java","before":"package io.moderne.nullability.fixture;\n\npublic class Greeter {\n    public String getName() {\n        return \"x\";\n    }\n\n    public String other() {\n        return \"y\";\n    }\n}\n","after":"package io.moderne.nullability.fixture;\n\nimport org.jspecify.annotations.Nullable;\n\npublic class Greeter {\n    @Nullable\n    public String getName() {\n        return \"x\";\n    }\n\n    public String other() {\n        return \"y\";\n    }\n}\n","diff":"@@ -3,0 +3,2 @@\npackage io.moderne.nullability.fixture;\n\n+import org.jspecify.annotations.Nullable;\n+\npublic class Greeter {\n@@ -4,0 +6,1 @@\n\npublic class Greeter {\n+   @Nullable\n    public String getName() {\n","newFile":false}]}]}>
 

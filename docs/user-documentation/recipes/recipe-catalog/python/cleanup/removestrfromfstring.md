@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Strip ``str()`` from f-string placeholders"}
-  description={"F-string placeholders convert values to strings automatically, so wrapping expressions in ``str()`` inside ``{...}`` is redundant."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveStrFromFstring"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removestrfromfstring.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Strip ``str()`` from f-string placeholders</RecipeHeader.Title>
+
+<RecipeHeader.Description>F-string placeholders convert values to strings automatically, so wrapping expressions in ``str()`` inside ``&#123;...}`` is redundant.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveStrFromFstring","displayName":"Strip ``str()`` from f-string placeholders","pipPackage":"openrewrite-static-analysis"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `InputStreamRules.InputStreamSkipNBytes`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class InputStreamSkipNBytes {\n    \n    @BeforeTemplate\n    void before(InputStream in, long n) throws IOException {\n        ByteStreams.skipFully(in, n);\n    }\n    \n    @AfterTemplate\n    void after(InputStream in, long n) throws IOException {\n        in.skipNBytes(n);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.InputStreamRulesRecipes$InputStreamSkipNBytesRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/inputstreamrulesrecipes$inputstreamskipnbytesrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `InputStreamRules.InputStreamSkipNBytes`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class InputStreamSkipNBytes {
+    
+    @BeforeTemplate
+    void before(InputStream in, long n) throws IOException {
+        ByteStreams.skipFully(in, n);
+    }
+    
+    @AfterTemplate
+    void after(InputStream in, long n) throws IOException {
+        in.skipNBytes(n);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.InputStreamRulesRecipes$InputStreamSkipNBytesRecipe","displayName":"Refaster template `InputStreamRules.InputStreamSkipNBytes`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

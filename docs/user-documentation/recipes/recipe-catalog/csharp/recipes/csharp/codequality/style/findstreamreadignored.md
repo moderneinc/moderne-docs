@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Stream.Read() return value ignored"}
-  description={"Detect `Stream.Read()` calls where the return value (bytes read) is not used. This can lead to incomplete reads."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindStreamReadIgnored"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findstreamreadignored.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Stream.Read() return value ignored</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `Stream.Read()` calls where the return value (bytes read) is not used. This can lead to incomplete reads.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindStreamReadIgnored","displayName":"Find Stream.Read() return value ignored","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

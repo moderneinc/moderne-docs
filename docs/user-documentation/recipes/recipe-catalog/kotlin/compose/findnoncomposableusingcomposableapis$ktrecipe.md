@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find non-`@Composable` functions calling `@Composable`-only APIs"}
-  description={"A function that calls `LaunchedEffect`/`remember`/`rememberCoroutineScope` but isn't annotated `@Composable` itself is a compile error in well-typed code, but suppressors and hand-rolled annotations let it slip through. Add `@Composable` to the function declaration so the contract is explicit."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindNonComposableUsingComposableApis$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findnoncomposableusingcomposableapis$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find non-`@Composable` functions calling `@Composable`-only APIs</RecipeHeader.Title>
+
+<RecipeHeader.Description>A function that calls `LaunchedEffect`/`remember`/`rememberCoroutineScope` but isn't annotated `@Composable` itself is a compile error in well-typed code, but suppressors and hand-rolled annotations let it slip through. Add `@Composable` to the function declaration so the contract is explicit.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindNonComposableUsingComposableApis$KtRecipe","displayName":"Find non-`@Composable` functions calling `@Composable`-only APIs","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

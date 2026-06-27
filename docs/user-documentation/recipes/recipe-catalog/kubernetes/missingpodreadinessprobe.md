@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure readiness probe is configured"}
-  description={"Using the Readiness Probe ensures teams define what actions need to be taken to prevent failure and ensure recovery in case of unexpected errors."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kubernetes"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.MissingPodReadinessProbe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/missingpodreadinessprobe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find missing configuration","href":"kubernetes/search/findresourcemissingconfiguration"}]}>
+<RecipeHeader.Title>Ensure readiness probe is configured</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using the Readiness Probe ensures teams define what actions need to be taken to prevent failure and ensure recovery in case of unexpected errors.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find missing configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/search/findresourcemissingconfiguration/"}]}>
 
 ## Definition
 

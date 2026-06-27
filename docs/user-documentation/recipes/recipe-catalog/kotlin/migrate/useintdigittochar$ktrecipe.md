@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Int.digitToChar(radix)` instead of `Character.forDigit(digit, radix)`"}
-  description={"`Character.forDigit(digit, radix)` returns the null `'\\u0000'` for invalid input; the Kotlin extension `digit.digitToChar(radix)` throws `IllegalArgumentException` instead."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseIntDigitToChar$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintdigittochar$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Int.digitToChar(radix)` instead of `Character.forDigit(digit, radix)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Character.forDigit(digit, radix)` returns the null `'\u0000'` for invalid input; the Kotlin extension `digit.digitToChar(radix)` throws `IllegalArgumentException` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseIntDigitToChar$KtRecipe","displayName":"Use `Int.digitToChar(radix)` instead of `Character.forDigit(digit, radix)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

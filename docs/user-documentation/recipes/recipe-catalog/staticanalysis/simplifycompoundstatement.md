@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify compound statement"}
-  description={"Fixes or removes useless compound statements. For example, removing `b &= true`, and replacing `b &= false` with `b = false`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SimplifyCompoundStatement"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/simplifycompoundstatement.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify compound statement</RecipeHeader.Title>
+
+<RecipeHeader.Description>Fixes or removes useless compound statements. For example, removing `b &= true`, and replacing `b &= false` with `b = false`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test() {\n        boolean b = true;\n        b &= true;\n    }\n}\n","after":"class Test {\n    void test() {\n        boolean b = true;\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\n    void test() {\n        boolean b = true;\n-       b &= true;\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Review abstract override for Scala 3"}
-  description={"Finds methods or fields with both `abstract` and `override` modifiers. The stackable trait pattern using `abstract override` may need review for Scala 3."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.ReviewAbstractOverride"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/reviewabstractoverride.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Review abstract override for Scala 3</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds methods or fields with both `abstract` and `override` modifiers. The stackable trait pattern using `abstract override` may need review for Scala 3.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"trait Logging {\n  abstract override def log(msg: String): Unit = {\n    super.log(msg)\n  }\n}\n","after":"trait Logging {\n  /*~~(abstract override (stackable trait pattern) may need review for Scala 3)~~>*/abstract override def log(msg: String): Unit = {\n    super.log(msg)\n  }\n}\n","diff":"@@ -2,1 +2,1 @@\ntrait Logging {\n- abstract override def log(msg: String): Unit = {\n+ /*~~(abstract override (stackable trait pattern) may need review for Scala 3)~~>*/abstract override def log(msg: String): Unit = {\n    super.log(msg)\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Query` DAO methods returning a synchronous result"}
-  description={"A non-suspend `@Query` returning `List<X>`, `X?`, or a scalar runs the DB query on the calling thread — by default Room throws `IllegalStateException` if that's the main thread. Mark the function `suspend` (single-shot) or return `Flow<...>` / `LiveData<...>` (observable) so Room can dispatch the query off the main thread."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindRoomQueryWithoutLiveDataOrFlow$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findroomquerywithoutlivedataorflow$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Query` DAO methods returning a synchronous result</RecipeHeader.Title>
+
+<RecipeHeader.Description>A non-suspend `@Query` returning `List<X>`, `X?`, or a scalar runs the DB query on the calling thread — by default Room throws `IllegalStateException` if that's the main thread. Mark the function `suspend` (single-shot) or return `Flow<...>` / `LiveData<...>` (observable) so Room can dispatch the query off the main thread.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindRoomQueryWithoutLiveDataOrFlow$KtRecipe","displayName":"Find `@Query` DAO methods returning a synchronous result","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

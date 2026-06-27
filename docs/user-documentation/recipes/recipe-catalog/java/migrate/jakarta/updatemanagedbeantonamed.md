@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update Faces `@ManagedBean` to use CDI `@Named`"}
-  description={"Faces ManagedBean was deprecated in JSF 2.3 (EE8) and removed in Jakarta Faces 4.0 (EE10). Replace `@ManagedBean` with `@Named` for CDI-based bean management."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["faces","jsf","jakarta"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.UpdateManagedBeanToNamed"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatemanagedbeantonamed.md"}
-/>
+>
+
+<RecipeHeader.Title>Update Faces `@ManagedBean` to use CDI `@Named`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Faces ManagedBean was deprecated in JSF 2.3 (EE8) and removed in Jakarta Faces 4.0 (EE10). Replace `@ManagedBean` with `@Named` for CDI-based bean management.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.UpdateManagedBeanToNamed","displayName":"Update Faces `@ManagedBean` to use CDI `@Named`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ternary operators should not be nested"}
-  description={"Nested ternary operators can be hard to read quickly. Prefer simpler constructs for improved readability. If supported, this recipe will try to replace nested ternaries with switch expressions. Deeply nested conditional expressions obscure the branching logic and make it easy to misread which value corresponds to which condition."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S3358"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.TernaryOperatorsShouldNotBeNested"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/ternaryoperatorsshouldnotbenested.md"}
-/>
+>
+
+<RecipeHeader.Title>Ternary operators should not be nested</RecipeHeader.Title>
+
+<RecipeHeader.Description>Nested ternary operators can be hard to read quickly. Prefer simpler constructs for improved readability. If supported, this recipe will try to replace nested ternaries with switch expressions. Deeply nested conditional expressions obscure the branching logic and make it easy to misread which value corresponds to which condition.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n  public String determineSomething(String a, String b) {\n    return \"a\".equals(a) ? \"a\" : \"b\".equals(a) ? \"b\" : \"nope\";\n  }\n}\n","after":"class Test {\n  public String determineSomething(String a, String b) {\n    return switch (a) {\n        case \"a\" -> \"a\";\n        case \"b\" -> \"b\";\n        default -> \"nope\";\n    };\n  }\n}\n","diff":"@@ -3,1 +3,5 @@\nclass Test {\n  public String determineSomething(String a, String b) {\n-   return \"a\".equals(a) ? \"a\" : \"b\".equals(a) ? \"b\" : \"nope\";\n+   return switch (a) {\n+       case \"a\" -> \"a\";\n+       case \"b\" -> \"b\";\n+       default -> \"nope\";\n+   };\n  }\n","newFile":false}]},{"variants":[{"language":"java","before":"class Test {\n  public String determineSomething(String a, String b) {\n    return \"a\".equals(a) ? \"a\" : \"b\".equals(b) ? \"b\" : \"nope\";\n  }\n}\n","after":"class Test {\n  public String determineSomething(String a, String b) {\n      if (\"a\".equals(a)) {\n          return \"a\";\n      }\n      return \"b\".equals(b) ? \"b\" : \"nope\";\n  }\n}\n","diff":"@@ -3,1 +3,4 @@\nclass Test {\n  public String determineSomething(String a, String b) {\n-   return \"a\".equals(a) ? \"a\" : \"b\".equals(b) ? \"b\" : \"nope\";\n+     if (\"a\".equals(a)) {\n+         return \"a\";\n+     }\n+     return \"b\".equals(b) ? \"b\" : \"nope\";\n  }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find empty `companion object` declarations"}
-  description={"A `companion object {}` with no members generates a synthetic `Companion` holder class that's never used. Remove it — Kotlin doesn't require an empty companion object for any feature."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindEmptyCompanionObject$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findemptycompanionobject$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find empty `companion object` declarations</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `companion object {}` with no members generates a synthetic `Companion` holder class that's never used. Remove it — Kotlin doesn't require an empty companion object for any feature.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindEmptyCompanionObject$KtRecipe","displayName":"Find empty `companion object` declarations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

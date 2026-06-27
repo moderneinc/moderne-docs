@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Tapestry 4 packages to Tapestry 5"}
-  description={"Updates package imports from org.apache.tapestry to org.apache.tapestry5. Only renames packages that have direct equivalents in Tapestry 5."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["tapestry"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.tapestry.ChangeTapestryPackages"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/tapestry/changetapestrypackages.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename package name","href":"java/changepackage"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Rename package name","href":"java/changepackage"}]}>
+<RecipeHeader.Title>Change Tapestry 4 packages to Tapestry 5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Updates package imports from org.apache.tapestry to org.apache.tapestry5. Only renames packages that have direct equivalents in Tapestry 5.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]}>
 
 ## Definition
 

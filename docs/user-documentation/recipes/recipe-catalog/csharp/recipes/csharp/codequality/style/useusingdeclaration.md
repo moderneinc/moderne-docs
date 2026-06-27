@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use using declaration"}
-  description={"Convert using statement to using declaration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseUsingDeclaration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/useusingdeclaration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use using declaration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert using statement to using declaration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseUsingDeclaration","displayName":"Use using declaration","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `punycode` module usage"}
-  description={"The `punycode` built-in module was deprecated in Node.js 21 (DEP0040). Use the userland `punycode` package from npm or `url.domainToASCII`/`url.domainToUnicode` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0040"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.find-punycode-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/find-punycode-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated `punycode` module usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `punycode` built-in module was deprecated in Node.js 21 (DEP0040). Use the userland `punycode` package from npm or `url.domainToASCII`/`url.domainToUnicode` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.find-punycode-usage","displayName":"Find deprecated `punycode` module usage","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change a Gradle plugin"}
-  description={"Changes the selected Gradle plugin to the new plugin."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.ChangePlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/plugins/changeplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Change a Gradle plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Changes the selected Gradle plugin to the new plugin.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"pluginId","required":true,"description":"The current Gradle plugin id.","example":"org.openrewrite.rewrite"},{"type":"String","name":"newPluginId","required":true,"description":"The new Gradle plugin id.","example":"org.openrewrite.rewrite"},{"type":"String","name":"newVersion","required":false,"description":"An exact version number or node-style semver selector used to select the version number. You can also use `latest.release` for the latest available version and `latest.patch` if the current version is a valid semantic version. For more details, you can look at the documentation page of [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors).","example":"7.x"}]}>
 

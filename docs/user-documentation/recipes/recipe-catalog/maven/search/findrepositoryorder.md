@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Maven repository order"}
-  description={"Determine the order in which dependencies will be resolved for each `pom.xml` based on its defined repositories and effective `settings.xml`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.search.FindRepositoryOrder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/search/findrepositoryorder.md"}
-/>
+>
+
+<RecipeHeader.Title>Maven repository order</RecipeHeader.Title>
+
+<RecipeHeader.Description>Determine the order in which dependencies will be resolved for each `pom.xml` based on its defined repositories and effective `settings.xml`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n  <parent>\n    <groupId>org.springframework.boot</groupId>\n    <artifactId>spring-boot-starter-parent</artifactId>\n    <version>1.5.12.RELEASE</version>\n    <relativePath/> <!-- lookup parent from repository -->\n  </parent>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <repositories>\n    <repository>\n      <id>myRepo</id>\n      <url>https://myrepo.maven.com/repo</url>\n    </repository>\n  </repositories>\n</project>\n","after":"<!--~~(https://myrepo.maven.com/repo\nhttps://repo.spring.io/milestone)~~>--><project>\n  <parent>\n    <groupId>org.springframework.boot</groupId>\n    <artifactId>spring-boot-starter-parent</artifactId>\n    <version>1.5.12.RELEASE</version>\n    <relativePath/> <!-- lookup parent from repository -->\n  </parent>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <repositories>\n    <repository>\n      <id>myRepo</id>\n      <url>https://myrepo.maven.com/repo</url>\n    </repository>\n  </repositories>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -1,1 +1,2 @@\n-<project>\n+<!--~~(https://myrepo.maven.com/repo\n+https://repo.spring.io/milestone)~~>--><project>\n  <parent>\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated Char case conversions"}
-  description={"Replace `Char.toLowerCase()` with `Char.lowercaseChar()` and `Char.toUpperCase()` with `Char.uppercaseChar()`. These were deprecated in Kotlin 1.5 and become errors in Kotlin 2.1."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={["kotlin"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.ReplaceDeprecatedCharCaseConversions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedcharcaseconversions.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"}]}>
+<RecipeHeader.Title>Replace deprecated Char case conversions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `Char.toLowerCase()` with `Char.lowercaseChar()` and `Char.toUpperCase()` with `Char.uppercaseChar()`. These were deprecated in Kotlin 1.5 and become errors in Kotlin 2.1.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]}>
 
 ## Definition
 

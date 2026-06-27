@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary `util.promisify()` on Promise-returning functions"}
-  description={"Removes `util.promisify()` calls on functions that already return a Promise. Since Node.js v17.0.0, calling promisify on a function that returns a Promise emits a runtime deprecation warning (DEP0174)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0174"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.util.remove-promisify-on-promise"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/util/remove-promisify-on-promise.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary `util.promisify()` on Promise-returning functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `util.promisify()` calls on functions that already return a Promise. Since Node.js v17.0.0, calling promisify on a function that returns a Promise emits a runtime deprecation warning (DEP0174).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.util.remove-promisify-on-promise","displayName":"Remove unnecessary `util.promisify()` on Promise-returning functions","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

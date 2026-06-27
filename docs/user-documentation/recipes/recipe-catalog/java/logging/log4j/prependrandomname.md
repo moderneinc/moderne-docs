@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prepend a random name to each Log4J statement"}
-  description={"To make finding the callsite of a logging statement easier in code search."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.log4j.PrependRandomName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/log4j/prependrandomname.md"}
-/>
+>
+
+<RecipeHeader.Title>Prepend a random name to each Log4J statement</RecipeHeader.Title>
+
+<RecipeHeader.Description>To make finding the callsite of a logging statement easier in code search.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.log4j.Logger;\n\nclass Test {\n    Logger logger;\n    void test() {\n        logger.info(\"test\");\n    }\n}\n","after":"import org.apache.log4j.Logger;\n\nclass Test {\n    Logger logger;\n    void test() {\n        logger.info(\"<liquid_crowd> test\");\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n    Logger logger;\n    void test() {\n-       logger.info(\"test\");\n+       logger.info(\"<liquid_crowd> test\");\n    }\n","newFile":false}]}]}>
 

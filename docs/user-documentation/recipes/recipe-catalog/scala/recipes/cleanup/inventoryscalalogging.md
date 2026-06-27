@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Inventory scala-logging usage"}
-  description={"Finds imports of the Typesafe scala-logging library (`com.typesafe.scalalogging`). Use this recipe to inventory logging framework usage across a codebase."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.InventoryScalaLogging"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/inventoryscalalogging.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Inventory scala-logging usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of the Typesafe scala-logging library (`com.typesafe.scalalogging`). Use this recipe to inventory logging framework usage across a codebase.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import com.typesafe.scalalogging.LazyLogging\n\nclass Service extends LazyLogging {\n  val x = 1\n}\n","after":"/*~~(scala-logging (Typesafe) detected)~~>*/import com.typesafe.scalalogging.LazyLogging\n\nclass Service extends LazyLogging {\n  val x = 1\n}\n","diff":"@@ -1,1 +1,1 @@\n-import com.typesafe.scalalogging.LazyLogging\n+/*~~(scala-logging (Typesafe) detected)~~>*/import com.typesafe.scalalogging.LazyLogging\n\n","newFile":false}]}]}>
 

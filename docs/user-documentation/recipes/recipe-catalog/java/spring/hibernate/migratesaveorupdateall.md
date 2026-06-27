@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `HibernateDaoSupport#getHibernateTemplate#saveOrUpdateAll`"}
-  description={"Migrate removed `HibernateDaoSupport#getHibernateTemplate#.saveOrUpdateAll` to an iterative `HibernateDaoSupport#getHibernateTemplate#.saveOrUpdate`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.hibernate.MigrateSaveOrUpdateAll"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/hibernate/migratesaveorupdateall.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `HibernateDaoSupport#getHibernateTemplate#saveOrUpdateAll`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate removed `HibernateDaoSupport#getHibernateTemplate#.saveOrUpdateAll` to an iterative `HibernateDaoSupport#getHibernateTemplate#.saveOrUpdate`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Collection;\nimport org.domain.User;\nimport org.springframework.orm.hibernate3.support.HibernateDaoSupport;\n\nclass UserDao extends HibernateDaoSupport {\n    public void save(Collection<User> users) {\n        this.getHibernateTemplate().saveOrUpdateAll(users);\n    }\n}\n","after":"import java.util.Collection;\nimport org.domain.User;\nimport org.springframework.orm.hibernate3.support.HibernateDaoSupport;\n\nclass UserDao extends HibernateDaoSupport {\n    public void save(Collection<User> users) {\n        for (Object o : users) {\n            this.getHibernateTemplate().saveOrUpdate(o);\n        }\n    }\n}\n","diff":"@@ -7,1 +7,3 @@\nclass UserDao extends HibernateDaoSupport {\n    public void save(Collection<User> users) {\n-       this.getHibernateTemplate().saveOrUpdateAll(users);\n+       for (Object o : users) {\n+           this.getHibernateTemplate().saveOrUpdate(o);\n+       }\n    }\n","newFile":false}]}]}>
 

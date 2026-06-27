@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to JUnit 5.13"}
-  description={"Upgrades JUnit 5 to 5.13.x and migrates all deprecated APIs."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["junit","testing"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.UpgradeToJUnit513"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradetojunit513.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Upgrade to JUnit 5.13</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrades JUnit 5 to 5.13.x and migrates all deprecated APIs.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

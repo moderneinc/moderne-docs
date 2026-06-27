@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find removed Testability pending request methods"}
-  description={"Finds imports of `Testability` from `@angular/core`, which had `increasePendingRequestCount`, `decreasePendingRequestCount`, and `getPendingRequestCount` removed in Angular 18. These are now tracked with zones."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-testability-pending-request-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-testability-pending-request-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find removed Testability pending request methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of `Testability` from `@angular/core`, which had `increasePendingRequestCount`, `decreasePendingRequestCount`, and `getPendingRequestCount` removed in Angular 18. These are now tracked with zones.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-testability-pending-request-usage","displayName":"Find removed Testability pending request methods","npmPackage":"@openrewrite/recipes-angular"}}>
 

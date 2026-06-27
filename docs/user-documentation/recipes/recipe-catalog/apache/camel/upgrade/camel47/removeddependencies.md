@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Moved the camel-cloudevents api into camel-api and removed the camel-cloudevents"}
-  description={"Moved the camel-cloudevents api into camel-api and removed the camel-cloudevents."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel47.removedDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel47/removeddependencies.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove Maven dependency","href":"maven/removedependency"}]}>
+<RecipeHeader.Title>Moved the camel-cloudevents api into camel-api and removed the camel-cloudevents</RecipeHeader.Title>
+
+<RecipeHeader.Description>Moved the camel-cloudevents api into camel-api and removed the camel-cloudevents.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removedependency/"}]}>
 
 ## Definition
 

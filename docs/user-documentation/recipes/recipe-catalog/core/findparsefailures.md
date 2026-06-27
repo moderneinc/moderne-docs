@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find source files with `ParseExceptionResult` markers"}
-  description={"This recipe explores parse failures after an LST is produced for classifying the types of failures that can occur and prioritizing fixes according to the most common problems."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.FindParseFailures"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/findparsefailures.md"}
-/>
+>
+
+<RecipeHeader.Title>Find source files with `ParseExceptionResult` markers</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe explores parse failures after an LST is produced for classifying the types of failures that can occur and prioritizing fixes according to the most common problems.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Integer","name":"maxSnippetLength","required":false,"description":"When the failure occurs on a granular tree element, its source code will be included as a column in the data table up to this maximum snippet length."},{"type":"String","name":"parserType","required":false,"description":"Only display failures from parsers with this simple name.","example":"YamlParser"},{"type":"String","name":"stackTrace","required":false,"description":"Only mark stack traces with a message containing this text.","example":"RuntimeException"},{"type":"String","name":"createdAfter","required":false,"description":"Only report on source files that were created after this date.","example":"2025-01-01"}]}>
 

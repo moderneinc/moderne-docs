@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Inline lambda body from matched method invocations"}
-  description={"Extracts the body of lambda expressions passed to matched method invocations and inlines them into the surrounding code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.test.MethodLambdaExtractor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/methodlambdaextractor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Inline lambda body from matched method invocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Extracts the body of lambda expressions passed to matched method invocations and inlines them into the surrounding code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"preconditionType","required":true,"description":"The fully qualified type that must be present for this recipe to run.","example":"io.dropwizard.testing.junit.DAOTestRule"},{"type":"String","name":"matchingPattern","required":true,"description":"The method pattern to match for lambda extraction.","example":"*..DAOTestRule inTransaction(..)"}]}>
 

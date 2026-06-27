@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find weak cryptographic algorithms"}
-  description={"Finds uses of broken or risky cryptographic algorithms such as MD5, SHA-1, DES, DESede (3DES), RC2, RC4, and Blowfish in calls to `Cipher.getInstance()`, `MessageDigest.getInstance()`, `Mac.getInstance()`, `KeyGenerator.getInstance()`, and `SecretKeyFactory.getInstance()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-327","CWE-328"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindWeakCryptoAlgorithm"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findweakcryptoalgorithm.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find weak cryptographic algorithms</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds uses of broken or risky cryptographic algorithms such as MD5, SHA-1, DES, DESede (3DES), RC2, RC4, and Blowfish in calls to `Cipher.getInstance()`, `MessageDigest.getInstance()`, `Mac.getInstance()`, `KeyGenerator.getInstance()`, and `SecretKeyFactory.getInstance()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.security.MessageDigest;\nimport java.security.NoSuchAlgorithmException;\n\nclass A {\n    void hash() throws NoSuchAlgorithmException {\n        MessageDigest md = MessageDigest.getInstance(\"MD5\");\n    }\n}\n","after":"import java.security.MessageDigest;\nimport java.security.NoSuchAlgorithmException;\n\nclass A {\n    void hash() throws NoSuchAlgorithmException {\n        MessageDigest md = /*~~(Weak cryptographic algorithm: MD5)~~>*/MessageDigest.getInstance(\"MD5\");\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass A {\n    void hash() throws NoSuchAlgorithmException {\n-       MessageDigest md = MessageDigest.getInstance(\"MD5\");\n+       MessageDigest md = /*~~(Weak cryptographic algorithm: MD5)~~>*/MessageDigest.getInstance(\"MD5\");\n    }\n","newFile":false}]}]}>
 

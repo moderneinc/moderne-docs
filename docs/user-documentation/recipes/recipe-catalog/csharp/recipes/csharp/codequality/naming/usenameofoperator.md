@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use nameof operator"}
-  description={"Use nameof(parameter) instead of string literal for argument exception constructors."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Naming.UseNameofOperator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/naming/usenameofoperator.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use nameof operator</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use nameof(parameter) instead of string literal for argument exception constructors.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Naming.UseNameofOperator","displayName":"Use nameof operator","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

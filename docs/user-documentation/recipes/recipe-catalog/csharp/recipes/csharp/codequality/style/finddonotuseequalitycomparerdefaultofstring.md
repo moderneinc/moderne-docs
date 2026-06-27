@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find EqualityComparer<string>.Default"}
-  description={"Detect `EqualityComparer<string>.Default` which may use different comparison semantics across platforms. Use an explicit `StringComparer`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotUseEqualityComparerDefaultOfString"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finddonotuseequalitycomparerdefaultofstring.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find EqualityComparer&lt;string>.Default</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `EqualityComparer<string>.Default` which may use different comparison semantics across platforms. Use an explicit `StringComparer`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotUseEqualityComparerDefaultOfString","displayName":"Find EqualityComparer<string>.Default","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

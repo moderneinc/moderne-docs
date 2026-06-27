@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use the `jvmTarget` provider syntax in Kotlin `compilerOptions`"}
-  description={"In Gradle Kotlin DSL build scripts, replace the legacy `jvmTarget = \"X\"` string assignment inside a `compilerOptions` (or `kotlinOptions`) block with the modern Provider-style `jvmTarget.set(JvmTarget.JVM_X)`, adding the `JvmTarget` import. The string-assignment form does not compile against the `compilerOptions` DSL, where `jvmTarget` is a `Property<JvmTarget>`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseJvmTargetProviderSyntax"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usejvmtargetprovidersyntax.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use the `jvmTarget` provider syntax in Kotlin `compilerOptions`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Gradle Kotlin DSL build scripts, replace the legacy `jvmTarget = "X"` string assignment inside a `compilerOptions` (or `kotlinOptions`) block with the modern Provider-style `jvmTarget.set(JvmTarget.JVM_X)`, adding the `JvmTarget` import. The string-assignment form does not compile against the `compilerOptions` DSL, where `jvmTarget` is a `Property<JvmTarget>`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"plugins {\n    kotlin(\"jvm\") version \"1.9.24\"\n}\ntasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {\n    compilerOptions {\n        jvmTarget = \"11\"\n    }\n}\n","after":"import org.jetbrains.kotlin.gradle.dsl.JvmTarget\n\nplugins {\n    kotlin(\"jvm\") version \"1.9.24\"\n}\ntasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {\n    compilerOptions {\n        jvmTarget.set(JvmTarget.JVM_11)\n    }\n}\n","diff":"--- build.gradle.kts\n+++ build.gradle.kts\n@@ -1,0 +1,2 @@\n+import org.jetbrains.kotlin.gradle.dsl.JvmTarget\n+\nplugins {\n@@ -6,1 +8,1 @@\ntasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {\n    compilerOptions {\n-       jvmTarget = \"11\"\n+       jvmTarget.set(JvmTarget.JVM_11)\n    }\n","newFile":false}]}]}>
 

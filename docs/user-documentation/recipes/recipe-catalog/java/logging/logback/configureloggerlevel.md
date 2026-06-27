@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Configure logback logger level"}
-  description={"Within logback.xml configuration files sets the specified log level for a particular class. Will not create a logback.xml if one does not already exist."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.logback.ConfigureLoggerLevel"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/logback/configureloggerlevel.md"}
-/>
+>
+
+<RecipeHeader.Title>Configure logback logger level</RecipeHeader.Title>
+
+<RecipeHeader.Description>Within logback.xml configuration files sets the specified log level for a particular class. Will not create a logback.xml if one does not already exist.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"className","required":true,"description":"The fully qualified class name to configure the log level for","example":"com.example.MyClass"},{"type":"LogLevel","name":"logLevel","required":true,"description":"The log level to set for the class","example":"off"},{"type":"String","name":"filePattern","required":false,"description":"A glob expression that can be used to constrain which directories or source files should be searched. Multiple patterns may be specified, separated by a semicolon `;`. If multiple patterns are supplied any of the patterns matching will be interpreted as a match. When not set, '**/logback.xml' is used.","example":"**/logback-spring.xml"}]}>
 

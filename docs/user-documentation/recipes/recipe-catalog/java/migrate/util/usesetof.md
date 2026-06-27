@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Set.of(..)`"}
-  description={"Prefer `Set.of(..)` instead of using `java.util.Set#add(..)` in anonymous HashSet initializers in Java 10 or higher. This recipe will not modify code where the Set is later mutated since `Set.of` returns an immutable set."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.UseSetOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/usesetof.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Set.of(..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Set.of(..)` instead of using `java.util.Set#add(..)` in anonymous HashSet initializers in Java 10 or higher. This recipe will not modify code where the Set is later mutated since `Set.of` returns an immutable set.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.HashSet;\nimport java.util.Set;\n\nclass Test {\n    Set<String> s = new HashSet<>() {{\n        add(\"a\");\n        add(\"b\");\n    }};\n}\n","after":"import java.util.Set;\n\nclass Test {\n    Set<String> s = Set.of(\"a\", \"b\");\n}\n","diff":"@@ -1,1 +1,0 @@\n-import java.util.HashSet;\nimport java.util.Set;\n@@ -5,4 +4,1 @@\n\nclass Test {\n-   Set<String> s = new HashSet<>() {{\n-       add(\"a\");\n-       add(\"b\");\n-   }};\n+   Set<String> s = Set.of(\"a\", \"b\");\n}\n","newFile":false}]}]}>
 

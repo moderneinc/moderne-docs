@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `s = s + \"...\"` string concatenation inside loops"}
-  description={"Repeated `String` concatenation inside a loop allocates a new `String` on every iteration — each `+` produces a fresh `StringBuilder`. Prefer building once with `StringBuilder` (or `buildString { … }`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindStringPlusInLoop$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findstringplusinloop$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `s = s + "..."` string concatenation inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>Repeated `String` concatenation inside a loop allocates a new `String` on every iteration — each `+` produces a fresh `StringBuilder`. Prefer building once with `StringBuilder` (or `buildString { … }`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindStringPlusInLoop$KtRecipe","displayName":"Find `s = s + \"...\"` string concatenation inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

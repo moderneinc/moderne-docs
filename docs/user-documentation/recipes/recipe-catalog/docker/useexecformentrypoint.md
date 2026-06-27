@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use exec form for `ENTRYPOINT` and `CMD`"}
-  description={"Converts shell form `ENTRYPOINT` and `CMD` instructions to exec form (JSON array). Exec form is preferred because it runs the command as PID 1, allowing it to receive Unix signals properly. Shell form wraps commands in `/bin/sh -c` which can cause signal handling issues."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.UseExecFormEntrypoint"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/useexecformentrypoint.md"}
-/>
+>
+
+<RecipeHeader.Title>Use exec form for `ENTRYPOINT` and `CMD`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts shell form `ENTRYPOINT` and `CMD` instructions to exec form (JSON array). Exec form is preferred because it runs the command as PID 1, allowing it to receive Unix signals properly. Shell form wraps commands in `/bin/sh -c` which can cause signal handling issues.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"convertEntrypoint","required":false,"description":"Whether to convert ENTRYPOINT instructions. Defaults to true."},{"type":"Boolean","name":"convertCmd","required":false,"description":"Whether to convert CMD instructions. Defaults to true."}]}>
 

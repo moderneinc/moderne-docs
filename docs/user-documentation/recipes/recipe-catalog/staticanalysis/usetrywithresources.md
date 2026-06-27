@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use try-with-resources"}
-  description={"Refactor try/finally blocks to use try-with-resources when the finally block only closes an `AutoCloseable` resource. Try-with-resources guarantees that resources are closed even when exceptions occur, eliminating an entire class of resource-leak bugs that manual `finally` blocks are prone to."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2093"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UseTryWithResources"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/usetrywithresources.md"}
-/>
+>
+
+<RecipeHeader.Title>Use try-with-resources</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refactor try/finally blocks to use try-with-resources when the finally block only closes an `AutoCloseable` resource. Try-with-resources guarantees that resources are closed even when exceptions occur, eliminating an entire class of resource-leak bugs that manual `finally` blocks are prone to.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.*;\n\nclass Test {\n    void method() throws IOException {\n        InputStream in = new FileInputStream(\"file.txt\");\n        try {\n            int data = in.read();\n        } finally {\n            in.close();\n        }\n    }\n}\n","after":"import java.io.*;\n\nclass Test {\n    void method() throws IOException {\n        try (InputStream in = new FileInputStream(\"file.txt\")) {\n            int data = in.read();\n        }\n    }\n}\n","diff":"@@ -5,2 +5,1 @@\nclass Test {\n    void method() throws IOException {\n-       InputStream in = new FileInputStream(\"file.txt\");\n-       try {\n+       try (InputStream in = new FileInputStream(\"file.txt\")) {\n            int data = in.read();\n@@ -8,2 +7,0 @@\n        try {\n            int data = in.read();\n-       } finally {\n-           in.close();\n        }\n","newFile":false}]}]}>
 

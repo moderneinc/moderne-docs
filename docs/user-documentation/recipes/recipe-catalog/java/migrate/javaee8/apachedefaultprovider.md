@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references"}
-  description={"This recipe flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references in validation.xml deployment descriptors. Bean Validation 2.0 and later use the Hibernate Validator implementation instead of the Apache BVal implementation which was used for Bean Validation 1.0 and 1.1."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javaee8.ApacheDefaultProvider"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/apachedefaultprovider.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML tag value","href":"xml/changetagvalue"},{"name":"Change XML tag value","href":"xml/changetagvalue"},{"name":"Change XML tag value","href":"xml/changetagvalue"},{"name":"Change XML tag value","href":"xml/changetagvalue"},{"name":"Remove XML tag","href":"xml/removexmltag"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references in validation.xml deployment descriptors. Bean Validation 2.0 and later use the Hibernate Validator implementation instead of the Apache BVal implementation which was used for Bean Validation 1.0 and 1.1.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"},{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"},{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"},{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"},{"name":"Remove XML tag","href":"/user-documentation/recipes/recipe-catalog/xml/removexmltag/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

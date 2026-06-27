@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find cryptographic primitive entries (`KeyGenerator.generateKey`, `Cipher.getInstance`, etc.)"}
-  description={"Every cryptographic operation is a place where algorithm choice and key handling matter — `Cipher.getInstance(\"AES\")` is not the same as `Cipher.getInstance(\"AES/GCM/NoPadding\")`. Each match is a position for security review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindCryptoSeeds$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findcryptoseeds$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find cryptographic primitive entries (`KeyGenerator.generateKey`, `Cipher.getInstance`, etc.)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Every cryptographic operation is a place where algorithm choice and key handling matter — `Cipher.getInstance("AES")` is not the same as `Cipher.getInstance("AES/GCM/NoPadding")`. Each match is a position for security review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindCryptoSeeds$KtRecipe","displayName":"Find cryptographic primitive entries (`KeyGenerator.generateKey`, `Cipher.getInstance`, etc.)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

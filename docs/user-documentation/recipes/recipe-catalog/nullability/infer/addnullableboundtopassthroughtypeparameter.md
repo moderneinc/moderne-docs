@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add a `@Nullable` upper bound to a pass-through type parameter fed a null-returning lambda"}
-  description={"When a `null`-returning lambda is passed to a generic method whose single, unbounded type parameter is also its return type (a value pass-through such as `<T> T record(String, Supplier<T>)`), widen the declaration to `<T extends @Nullable Object>` so returning `null` through it is legal under JSpecify/NullAway. Relaxing the upper bound is sound (it never rejects previously-valid code) and is the standard JSpecify idiom for a type variable that passes a value through; the method's return correctly becomes `@Nullable` at the null-returning call sites. Only methods declared in the working set, with exactly one unbounded type parameter that is the return type, are changed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.infer.AddNullableBoundToPassthroughTypeParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/infer/addnullableboundtopassthroughtypeparameter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add a `@Nullable` upper bound to a pass-through type parameter fed a null-returning lambda</RecipeHeader.Title>
+
+<RecipeHeader.Description>When a `null`-returning lambda is passed to a generic method whose single, unbounded type parameter is also its return type (a value pass-through such as `<T> T record(String, Supplier<T>)`), widen the declaration to `<T extends @Nullable Object>` so returning `null` through it is legal under JSpecify/NullAway. Relaxing the upper bound is sound (it never rejects previously-valid code) and is the standard JSpecify idiom for a type variable that passes a value through; the method's return correctly becomes `@Nullable` at the null-returning call sites. Only methods declared in the working set, with exactly one unbounded type parameter that is the return type, are changed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.nullability.infer.AddNullableBoundToPassthroughTypeParameter","displayName":"Add a `@Nullable` upper bound to a pass-through type parameter fed a null-returning lambda","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 

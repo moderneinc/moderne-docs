@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `preserveQueryParams` usage"}
-  description={"Finds usages of the deprecated `preserveQueryParams` navigation option. `preserveQueryParams` was deprecated in Angular 4 and removed in Angular 11. Use `queryParamsHandling: 'preserve'` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-preserve-query-params-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-preserve-query-params-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated `preserveQueryParams` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of the deprecated `preserveQueryParams` navigation option. `preserveQueryParams` was deprecated in Angular 4 and removed in Angular 11. Use `queryParamsHandling: 'preserve'` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-preserve-query-params-usage","displayName":"Find deprecated `preserveQueryParams` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

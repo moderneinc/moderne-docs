@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant cast"}
-  description={"Remove unnecessary casts when the expression already has the target type."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantCast"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeredundantcast.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant cast</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unnecessary casts when the expression already has the target type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantCast","displayName":"Remove redundant cast","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

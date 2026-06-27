@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update GraalVM native reflection hints for Spring Framework 7.0"}
-  description={"Migrates GraalVM native reflection hints to Spring Framework 7.0 conventions. Spring Framework 7.0 adopts the unified reachability metadata format for GraalVM. This recipe renames deprecated `MemberCategory` constants and simplifies reflection hint registrations where explicit member categories are no longer needed."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","framework","native","graalvm"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.UpdateGraalVmNativeHints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/updategraalvmnativehints.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename MemberCategory field constants for Spring Framework 7.0","href":"java/spring/framework7/renamemembercategoryconstants"},{"name":"Simplify reflection hint registrations for Spring Framework 7.0","href":"java/spring/framework7/simplifyreflectionhintregistration"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Update GraalVM native reflection hints for Spring Framework 7.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates GraalVM native reflection hints to Spring Framework 7.0 conventions. Spring Framework 7.0 adopts the unified reachability metadata format for GraalVM. This recipe renames deprecated `MemberCategory` constants and simplifies reflection hint registrations where explicit member categories are no longer needed.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename MemberCategory field constants for Spring Framework 7.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/renamemembercategoryconstants/"},{"name":"Simplify reflection hint registrations for Spring Framework 7.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/simplifyreflectionhintregistration/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

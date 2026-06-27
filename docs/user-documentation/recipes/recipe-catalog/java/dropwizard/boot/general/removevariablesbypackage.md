@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove class variables matching package filter"}
-  description={"Removes variable declarations whose type belongs to the specified package."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.general.RemoveVariablesByPackage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/general/removevariablesbypackage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove class variables matching package filter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes variable declarations whose type belongs to the specified package.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageFilter","required":true,"description":"The package name to filter by. Variables with types in this package (or subpackages) will be removed.","example":"com.example.unwanted"},{"type":"Boolean","name":"removeOnlyClassScope","required":true,"description":"When true, only removes class-level field declarations; local variables within methods are left unchanged.","example":"true"}]}>
 

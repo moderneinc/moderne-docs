@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use pattern matching for equality comparison"}
-  description={"Replace `x == constant` with `x is constant` for improved readability using C# pattern matching."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UsePatternMatchingForEquality"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usepatternmatchingforequality.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use pattern matching for equality comparison</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `x == constant` with `x is constant` for improved readability using C# pattern matching.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UsePatternMatchingForEquality","displayName":"Use pattern matching for equality comparison","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

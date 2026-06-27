@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Pin Docker images to digests"}
-  description={"Pin Docker images to specific digest hashes for security and reproducibility. Images pinned to tags can be changed by the image author, while digest pins are immutable. Based on [zizmor's unpinned-images audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/unpinned_images.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.UnpinnedDockerImages"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/unpinneddockerimages.md"}
-/>
+>
+
+<RecipeHeader.Title>Pin Docker images to digests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Pin Docker images to specific digest hashes for security and reproducibility. Images pinned to tags can be changed by the image author, while digest pins are immutable. Based on [zizmor's unpinned-images audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/unpinned_images.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Test Workflow\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    container:\n      image: node:18\n    steps:\n      - uses: actions/checkout@v4\n","after":"name: Test Workflow\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    container:\n      ~~(Docker image 'node:18' is not pinned to a digest. Consider pinning to a specific digest for security and reproducibility.)~~>image: node:18\n    steps:\n      - uses: actions/checkout@v4\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -7,1 +7,1 @@\n    runs-on: ubuntu-latest\n    container:\n-     image: node:18\n+     ~~(Docker image 'node:18' is not pinned to a digest. Consider pinning to a specific digest for security and reproducibility.)~~>image: node:18\n    steps:\n","newFile":false}]}]}>
 

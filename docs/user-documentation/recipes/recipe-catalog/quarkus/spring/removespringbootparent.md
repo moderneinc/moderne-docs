@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Spring Boot 3.x parent POM"}
-  description={"Removes the Spring Boot 3.x starter parent POM from Maven projects."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.RemoveSpringBootParent"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/removespringbootparent.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove Spring Boot 3.x parent POM</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the Spring Boot 3.x starter parent POM from Maven projects.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n\n    <parent>\n        <groupId>org.springframework.boot</groupId>\n        <artifactId>spring-boot-starter-parent</artifactId>\n        <version>3.1.0</version>\n        <relativePath/>\n    </parent>\n\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n\n    <dependencies>\n        <dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot-starter-web</artifactId>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n\n    <dependencies>\n        <dependency>\n            <groupId>org.springframework.boot</groupId>\n            <artifactId>spring-boot-starter-web</artifactId>\n        </dependency>\n    </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -4,7 +4,0 @@\n    <modelVersion>4.0.0</modelVersion>\n\n-   <parent>\n-       <groupId>org.springframework.boot</groupId>\n-       <artifactId>spring-boot-starter-parent</artifactId>\n-       <version>3.1.0</version>\n-       <relativePath/>\n-   </parent>\n-\n    <groupId>com.example</groupId>\n","newFile":false}]}]}>
 

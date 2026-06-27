@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Customize Quarkus Maven Plugin Goals"}
-  description={"Allows customization of Quarkus Maven plugin goals. Adds or modifies the executions and goals for the quarkus-maven-plugin."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","plugin","build","maven","quarkus","migration"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.CustomizeQuarkusPluginGoals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/customizequarkusplugingoals.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Maven profile","href":"maven/addprofile"},{"name":"Add Maven profile","href":"maven/addprofile"}]}>
+<RecipeHeader.Title>Customize Quarkus Maven Plugin Goals</RecipeHeader.Title>
+
+<RecipeHeader.Description>Allows customization of Quarkus Maven plugin goals. Adds or modifies the executions and goals for the quarkus-maven-plugin.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Maven profile","href":"/user-documentation/recipes/recipe-catalog/maven/addprofile/"},{"name":"Add Maven profile","href":"/user-documentation/recipes/recipe-catalog/maven/addprofile/"}]}>
 
 ## Definition
 

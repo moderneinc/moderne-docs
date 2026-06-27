@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Complete migration to OpenTelemetry"}
-  description={"Comprehensive migration to OpenTelemetry including dependencies, configuration properties, and Java code changes. This recipe handles migration from Spring Cloud Sleuth, Brave/Zipkin, and OpenTracing to OpenTelemetry."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","migration","opentelemetry","boot","observability"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.opentelemetry.MigrateToOpenTelemetry"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratetoopentelemetry.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate from Spring Cloud Sleuth to OpenTelemetry","href":"java/spring/opentelemetry/migratesleuthtoopentelemetry"},{"name":"Migrate Brave API to OpenTelemetry API","href":"java/spring/opentelemetry/migratebravetoopentelemetry"},{"name":"Migrate from Zipkin to OpenTelemetry OTLP","href":"java/spring/opentelemetry/migratefromzipkintoopentelemetry"},{"name":"Migrate OpenTracing API to OpenTelemetry API","href":"java/spring/opentelemetry/migrateopentracingtoopentelemetry"},{"name":"Migrate New Relic Agent to OpenTelemetry","href":"java/spring/opentelemetry/migratenewrelictoopentelemetry"},{"name":"Migrate Datadog tracing to OpenTelemetry","href":"java/spring/opentelemetry/migratedatadogtoopentelemetry"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Complete migration to OpenTelemetry</RecipeHeader.Title>
+
+<RecipeHeader.Description>Comprehensive migration to OpenTelemetry including dependencies, configuration properties, and Java code changes. This recipe handles migration from Spring Cloud Sleuth, Brave/Zipkin, and OpenTracing to OpenTelemetry.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate from Spring Cloud Sleuth to OpenTelemetry","href":"/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratesleuthtoopentelemetry/"},{"name":"Migrate Brave API to OpenTelemetry API","href":"/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratebravetoopentelemetry/"},{"name":"Migrate from Zipkin to OpenTelemetry OTLP","href":"/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratefromzipkintoopentelemetry/"},{"name":"Migrate OpenTracing API to OpenTelemetry API","href":"/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migrateopentracingtoopentelemetry/"},{"name":"Migrate New Relic Agent to OpenTelemetry","href":"/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratenewrelictoopentelemetry/"},{"name":"Migrate Datadog tracing to OpenTelemetry","href":"/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratedatadogtoopentelemetry/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

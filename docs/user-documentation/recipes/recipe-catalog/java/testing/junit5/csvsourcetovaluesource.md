@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `@CsvSource` with `@ValueSource` for single method arguments"}
-  description={"Replaces JUnit 5's `@CsvSource` annotation with `@ValueSource` when the parameterized test has only a single method argument."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.CsvSourceToValueSource"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/csvsourcetovaluesource.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `@CsvSource` with `@ValueSource` for single method arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces JUnit 5's `@CsvSource` annotation with `@ValueSource` when the parameterized test has only a single method argument.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.params.ParameterizedTest;\nimport org.junit.jupiter.params.provider.CsvSource;\n\nclass TestClass {\n    @ParameterizedTest\n    @CsvSource({\"apple\", \"banana\", \"cherry\"})\n    void testWithStrings(String fruit) {\n        System.out.println(fruit);\n    }\n}\n","after":"import org.junit.jupiter.params.ParameterizedTest;\nimport org.junit.jupiter.params.provider.ValueSource;\n\nclass TestClass {\n    @ParameterizedTest\n    @ValueSource(strings = {\"apple\", \"banana\", \"cherry\"})\n    void testWithStrings(String fruit) {\n        System.out.println(fruit);\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nimport org.junit.jupiter.params.ParameterizedTest;\n-import org.junit.jupiter.params.provider.CsvSource;\n+import org.junit.jupiter.params.provider.ValueSource;\n\n@@ -6,1 +6,1 @@\nclass TestClass {\n    @ParameterizedTest\n-   @CsvSource({\"apple\", \"banana\", \"cherry\"})\n+   @ValueSource(strings = {\"apple\", \"banana\", \"cherry\"})\n    void testWithStrings(String fruit) {\n","newFile":false}]}]}>
 

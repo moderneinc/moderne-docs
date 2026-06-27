@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@RequestBody` on primitive parameters"}
-  description={"`@RequestBody Int` or `@RequestBody String` parses the entire HTTP body as a single value — a fragile contract that breaks the moment the API evolves to include a second field. Wrap the parameter in a DTO so future additions don't require client-side changes."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindRequestBodyOnPrimitive$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findrequestbodyonprimitive$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@RequestBody` on primitive parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@RequestBody Int` or `@RequestBody String` parses the entire HTTP body as a single value — a fragile contract that breaks the moment the API evolves to include a second field. Wrap the parameter in a DTO so future additions don't require client-side changes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindRequestBodyOnPrimitive$KtRecipe","displayName":"Find `@RequestBody` on primitive parameters","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

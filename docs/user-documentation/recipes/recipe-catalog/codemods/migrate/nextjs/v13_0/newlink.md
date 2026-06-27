@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `<a>` Tags From Link Components"}
-  description={"Remove `&lt;a&gt;` tags inside Link Components or add a `legacyBehavior` prop to Links that cannot be auto-fixed."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["nextjs","codemods"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.migrate.nextjs.v13_0.NewLink"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v13_0/newlink.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"codemods/applycodemod"}]}>
+<RecipeHeader.Title>Remove `<a>` Tags From Link Components</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `&lt;a&gt;` tags inside Link Components or add a `legacyBehavior` prop to Links that cannot be auto-fixed.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"/user-documentation/recipes/recipe-catalog/codemods/applycodemod/"}]}>
 
 ## Definition
 

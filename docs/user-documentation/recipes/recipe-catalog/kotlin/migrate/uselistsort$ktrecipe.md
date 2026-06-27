@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `MutableList.sort()` instead of `Collections.sort(list)`"}
-  description={"`java.util.Collections.sort(list)` is JVM-only; Kotlin's `MutableList.sort()` extension is multiplatform and reads as a receiver call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseListSort$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselistsort$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `MutableList.sort()` instead of `Collections.sort(list)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Collections.sort(list)` is JVM-only; Kotlin's `MutableList.sort()` extension is multiplatform and reads as a receiver call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseListSort$KtRecipe","displayName":"Use `MutableList.sort()` instead of `Collections.sort(list)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

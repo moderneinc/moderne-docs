@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Parameter name should match base definition"}
-  description={"Ensure parameter names match the names used in base class or interface."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Naming.ParameterNameMatchesBase"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/naming/parameternamematchesbase.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Parameter name should match base definition</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure parameter names match the names used in base class or interface.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Naming.ParameterNameMatchesBase","displayName":"Parameter name should match base definition","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

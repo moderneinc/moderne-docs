@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add lifecycle annotations to Dropwizard Managed methods"}
-  description={"Adds `@PostConstruct` to `start()` and `@PreDestroy` to `stop()` on classes implementing `io.dropwizard.lifecycle.Managed`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.lifecycle.MigrateManagedLifecycle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/lifecycle/migratemanagedlifecycle.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add lifecycle annotations to Dropwizard Managed methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `@PostConstruct` to `start()` and `@PreDestroy` to `stop()` on classes implementing `io.dropwizard.lifecycle.Managed`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.java.dropwizard.boot.lifecycle.MigrateManagedLifecycle","displayName":"Add lifecycle annotations to Dropwizard Managed methods","groupId":"io.moderne.recipe","artifactId":"rewrite-dropwizard","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DROPWIZARD","requiresConfiguration":false}}>
 

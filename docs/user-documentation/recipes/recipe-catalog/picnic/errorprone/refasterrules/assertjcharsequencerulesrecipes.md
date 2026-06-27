@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJCharSequenceRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `CharSequence`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJCharSequenceRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJCharSequenceRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceIsEmpty`","href":"picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatcharsequenceisemptyrecipe"},{"name":"Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceIsNotEmpty`","href":"picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatcharsequenceisnotemptyrecipe"},{"name":"Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceHasSize`","href":"picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatcharsequencehassizerecipe"}]}>
+<RecipeHeader.Title>`AssertJCharSequenceRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `CharSequence`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJCharSequenceRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatcharsequenceisemptyrecipe/"},{"name":"Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceIsNotEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatcharsequenceisnotemptyrecipe/"},{"name":"Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceHasSize`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatcharsequencehassizerecipe/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Long.toString()` instead of `Long.toString(l)`"}
-  description={"`java.lang.Long.toString(l)` is the JVM-only spelling; `l.toString()` reads as a receiver call and is multiplatform."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseLongToString$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongtostring$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Long.toString()` instead of `Long.toString(l)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.lang.Long.toString(l)` is the JVM-only spelling; `l.toString()` reads as a receiver call and is multiplatform.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseLongToString$KtRecipe","displayName":"Use `Long.toString()` instead of `Long.toString(l)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

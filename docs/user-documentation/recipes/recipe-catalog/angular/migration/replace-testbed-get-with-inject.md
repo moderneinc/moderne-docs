@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `TestBed.get()` with `TestBed.inject()`"}
-  description={"Replaces deprecated `TestBed.get()` calls with `TestBed.inject()`. `TestBed.get()` was deprecated in Angular 9 and removed in Angular 13."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.replace-testbed-get-with-inject"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/replace-testbed-get-with-inject.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `TestBed.get()` with `TestBed.inject()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces deprecated `TestBed.get()` calls with `TestBed.inject()`. `TestBed.get()` was deprecated in Angular 9 and removed in Angular 13.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.replace-testbed-get-with-inject","displayName":"Replace `TestBed.get()` with `TestBed.inject()`","npmPackage":"@openrewrite/recipes-angular"}}>
 

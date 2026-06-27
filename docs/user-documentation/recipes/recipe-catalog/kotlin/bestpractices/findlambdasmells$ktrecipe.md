@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find lambda / functional smells"}
-  description={"Redundant `map { it.toString() }` / `forEach { it.toString() }`, debug-leftover `.also { println(it) }` / `forEach { println(it) }`, `xs.toList().forEach { }` over already-iterable receivers, `.also { it.add(...) }`-built mutable collections, and `forEach { ys.add(it) }` (use `addAll`)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindLambdaSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findlambdasmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `map { it.toString() }` / `map { x -> x.toString() }` patterns","href":"kotlin/bestpractices/findredundanttostringinmap$ktrecipe"},{"name":"Find `forEach { it.toString() }` patterns","href":"kotlin/bestpractices/findredundanttostringinforeach$ktrecipe"},{"name":"Find `.also { println(it) }` debug patterns","href":"kotlin/bestpractices/findalsoprintln$ktrecipe"},{"name":"Find `forEach { println(it) }` patterns","href":"kotlin/bestpractices/findforeachprintln$ktrecipe"},{"name":"Find `xs.toList().forEach { … }` patterns","href":"kotlin/bestpractices/findtolistbeforeforeach$ktrecipe"},{"name":"Find `mutableListOf<T>().also { it.add(x) }` patterns","href":"kotlin/bestpractices/findmutablelistalsoadd$ktrecipe"},{"name":"Find `mutableMapOf<K,V>().also { it.put(...) }` patterns","href":"kotlin/bestpractices/findmutablemapalsoput$ktrecipe"},{"name":"Find `mutableSetOf<T>().also { it.add(x) }` patterns","href":"kotlin/bestpractices/findmutablesetalsoadd$ktrecipe"},{"name":"Find `xs.forEach { ys.add(it) }` patterns","href":"kotlin/bestpractices/findforeachaddcandidate$ktrecipe"}]}>
+<RecipeHeader.Title>Find lambda / functional smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Redundant `map { it.toString() }` / `forEach { it.toString() }`, debug-leftover `.also { println(it) }` / `forEach { println(it) }`, `xs.toList().forEach { }` over already-iterable receivers, `.also { it.add(...) }`-built mutable collections, and `forEach { ys.add(it) }` (use `addAll`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `map { it.toString() }` / `map { x -> x.toString() }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findredundanttostringinmap$ktrecipe/"},{"name":"Find `forEach { it.toString() }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findredundanttostringinforeach$ktrecipe/"},{"name":"Find `.also { println(it) }` debug patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findalsoprintln$ktrecipe/"},{"name":"Find `forEach { println(it) }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findforeachprintln$ktrecipe/"},{"name":"Find `xs.toList().forEach { … }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findtolistbeforeforeach$ktrecipe/"},{"name":"Find `mutableListOf<T>().also { it.add(x) }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findmutablelistalsoadd$ktrecipe/"},{"name":"Find `mutableMapOf<K,V>().also { it.put(...) }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findmutablemapalsoput$ktrecipe/"},{"name":"Find `mutableSetOf<T>().also { it.add(x) }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findmutablesetalsoadd$ktrecipe/"},{"name":"Find `xs.forEach { ys.add(it) }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findforeachaddcandidate$ktrecipe/"}]}>
 
 ## Definition
 

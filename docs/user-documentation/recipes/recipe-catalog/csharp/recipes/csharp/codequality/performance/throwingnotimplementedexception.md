@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Throwing of new NotImplementedException"}
-  description={"Find code that throws new NotImplementedException, which may indicate unfinished implementation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.ThrowingNotImplementedException"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/throwingnotimplementedexception.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Throwing of new NotImplementedException</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find code that throws new NotImplementedException, which may indicate unfinished implementation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.ThrowingNotImplementedException","displayName":"Throwing of new NotImplementedException","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

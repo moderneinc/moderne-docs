@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use EventArgs.Empty"}
-  description={"Replace `new EventArgs()` with `EventArgs.Empty`. The static `EventArgs.Empty` field avoids unnecessary allocations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseEventArgsEmpty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/useeventargsempty.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use EventArgs.Empty</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `new EventArgs()` with `EventArgs.Empty`. The static `EventArgs.Empty` field avoids unnecessary allocations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseEventArgsEmpty","displayName":"Use EventArgs.Empty","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

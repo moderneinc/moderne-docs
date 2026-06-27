@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `version { }` closure instead of `version = { }` assignment"}
-  description={"Converts `version = { ... }` assignment syntax to `version { ... }` closure call syntax in Gradle dependency declarations. The assignment form is not valid Gradle DSL; the closure form invokes the version spec method directly."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.gradle9.UseVersionClosure"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/gradle9/useversionclosure.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `version { }` closure instead of `version = { }` assignment</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `version = { ... }` assignment syntax to `version { ... }` closure call syntax in Gradle dependency declarations. The assignment form is not valid Gradle DSL; the closure form invokes the version spec method directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"dependencies {\n    implementation('org.example:lib') {\n        version = {\n            strictly '1.0'\n        }\n    }\n}\n","after":"dependencies {\n    implementation('org.example:lib') {\n        version {\n            strictly '1.0'\n        }\n    }\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -3,1 +3,1 @@\ndependencies {\n    implementation('org.example:lib') {\n-       version = {\n+       version {\n            strictly '1.0'\n","newFile":false}]}]}>
 

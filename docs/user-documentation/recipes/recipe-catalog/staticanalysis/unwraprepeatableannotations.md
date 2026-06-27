@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unwrap `@Repeatable` annotations"}
-  description={"Java 8 introduced the concept of `@Repeatable` annotations, making the wrapper annotation unnecessary. Using the repeatable form directly reduces nesting and makes the individual annotations easier to scan."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1710"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UnwrapRepeatableAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/unwraprepeatableannotations.md"}
-/>
+>
+
+<RecipeHeader.Title>Unwrap `@Repeatable` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java 8 introduced the concept of `@Repeatable` annotations, making the wrapper annotation unnecessary. Using the repeatable form directly reduces nesting and makes the individual annotations easier to scan.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.example.*;\n\n@Annotations({@Annotation, @Annotation})\nclass Test {\n}\n","after":"import com.example.*;\n\n@Annotation\n@Annotation\nclass Test {\n}\n","diff":"@@ -3,1 +3,2 @@\nimport com.example.*;\n\n-@Annotations({@Annotation, @Annotation})\n+@Annotation\n+@Annotation\nclass Test {\n","newFile":false}]}]}>
 

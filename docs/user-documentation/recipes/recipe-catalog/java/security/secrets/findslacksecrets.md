@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Slack secrets"}
-  description={"Locates Slack secrets stored in plain text in code."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.secrets.FindSlackSecrets"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/secrets/findslacksecrets.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Slack secrets</RecipeHeader.Title>
+
+<RecipeHeader.Description>Locates Slack secrets stored in plain text in code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"slack:\n  webhook: \"https://hooks.slack.com/services/Txxxxxxxx/Bxxxxxxxx/xxxxxxxxxxxxxxxxxxxxxxxx\"\n","after":"slack:\n  ~~(Slack)~~>webhook: \"https://hooks.slack.com/services/Txxxxxxxx/Bxxxxxxxx/xxxxxxxxxxxxxxxxxxxxxxxx\"\n","diff":"@@ -2,1 +2,1 @@\nslack:\n- webhook: \"https://hooks.slack.com/services/Txxxxxxxx/Bxxxxxxxx/xxxxxxxxxxxxxxxxxxxxxxxx\"\n+ ~~(Slack)~~>webhook: \"https://hooks.slack.com/services/Txxxxxxxx/Bxxxxxxxx/xxxxxxxxxxxxxxxxxxxxxxxx\"\n\n","newFile":false}]}]}>
 

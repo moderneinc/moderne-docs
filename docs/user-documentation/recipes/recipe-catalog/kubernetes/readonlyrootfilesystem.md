@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Read-only root filesystem"}
-  description={"Using an immutable root filesystem and a verified boot mechanism prevents against attackers from \"owning\" the machine through permanent local changes."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kubernetes"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.ReadOnlyRootFilesystem"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/readonlyrootfilesystem.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"kubernetes/addconfiguration"}]}>
+<RecipeHeader.Title>Read-only root filesystem</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using an immutable root filesystem and a verified boot mechanism prevents against attackers from "owning" the machine through permanent local changes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/addconfiguration/"}]}>
 
 ## Definition
 

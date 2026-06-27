@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@PropertySource` on classes that lack `@Configuration`"}
-  description={"`@PropertySource` only takes effect on a Spring `@Configuration` class — when applied to a stereotype like `@Component` or `@Service`, the property file is silently ignored. Move the annotation to a `@Configuration` class or change the surrounding class accordingly."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindPropertySourceOnNonConfiguration$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findpropertysourceonnonconfiguration$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@PropertySource` on classes that lack `@Configuration`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@PropertySource` only takes effect on a Spring `@Configuration` class — when applied to a stereotype like `@Component` or `@Service`, the property file is silently ignored. Move the annotation to a `@Configuration` class or change the surrounding class accordingly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindPropertySourceOnNonConfiguration$KtRecipe","displayName":"Find `@PropertySource` on classes that lack `@Configuration`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

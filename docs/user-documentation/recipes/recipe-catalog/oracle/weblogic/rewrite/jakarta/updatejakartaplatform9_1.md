@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update Jakarta EE Platform Dependencies to 9.1.0"}
-  description={"Update Jakarta EE Platform Dependencies to 9.1.0"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["jakarta","dependencies"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.UpdateJakartaPlatform9_1"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/updatejakartaplatform9_1.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Update Jakarta EE Platform Dependencies to 9.1.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update Jakarta EE Platform Dependencies to 9.1.0</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]}>
 
 ## Definition
 

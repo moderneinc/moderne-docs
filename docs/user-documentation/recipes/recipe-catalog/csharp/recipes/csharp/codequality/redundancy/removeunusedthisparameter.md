@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unused 'this' parameter"}
-  description={"Remove unused 'this' parameter from extension methods."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveUnusedThisParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeunusedthisparameter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Unused 'this' parameter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unused 'this' parameter from extension methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveUnusedThisParameter","displayName":"Unused 'this' parameter","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

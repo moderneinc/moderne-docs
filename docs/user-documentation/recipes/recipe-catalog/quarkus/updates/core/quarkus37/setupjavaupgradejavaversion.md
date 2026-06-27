@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade `actions/setup-java` `java-version`"}
-  description={"Update the Java version used by `actions/setup-java` if it is below the expected version number."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus37.SetupJavaUpgradeJavaVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/setupjavaupgradejavaversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade `actions/setup-java` `java-version`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update the Java version used by `actions/setup-java` if it is below the expected version number.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Integer","name":"minimumJavaMajorVersion","required":true,"description":"The Java version to upgrade to.","example":"17"}]}>
 

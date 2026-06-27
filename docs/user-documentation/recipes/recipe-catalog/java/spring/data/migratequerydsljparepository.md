@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `QuerydslPredicateExecutor<T>`"}
-  description={"`QuerydslJpaRepository<T, ID extends Serializable>` was deprecated in Spring Data 2.1."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.data.MigrateQuerydslJpaRepository"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/data/migratequerydsljparepository.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `QuerydslPredicateExecutor<T>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`QuerydslJpaRepository<T, ID extends Serializable>` was deprecated in Spring Data 2.1.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.persistence.EntityManager;\nimport org.springframework.data.jpa.repository.support.JpaEntityInformation;\nimport org.springframework.data.jpa.repository.support.QuerydslJpaRepository;\nimport org.springframework.data.querydsl.SimpleEntityPathResolver;\n\nclass Test {\n    JpaEntityInformation<String, Long> entityInformation;\n    EntityManager entityManager;\n    SimpleEntityPathResolver resolver;\n    QuerydslJpaRepository<String, Long> declWith2Args = new QuerydslJpaRepository(entityInformation, entityManager);\n    QuerydslJpaRepository<String, Long> declWith3Args = new QuerydslJpaRepository(entityInformation, entityManager, resolver);\n}\n","after":"import javax.persistence.EntityManager;\nimport org.springframework.data.jpa.repository.support.JpaEntityInformation;\nimport org.springframework.data.jpa.repository.support.QuerydslJpaPredicateExecutor;\nimport org.springframework.data.querydsl.SimpleEntityPathResolver;\n\nclass Test {\n    JpaEntityInformation<String, Long> entityInformation;\n    EntityManager entityManager;\n    SimpleEntityPathResolver resolver;\n    QuerydslJpaPredicateExecutor<String> declWith2Args = new QuerydslJpaPredicateExecutor(entityInformation, entityManager, SimpleEntityPathResolver.INSTANCE, null);\n    QuerydslJpaPredicateExecutor<String> declWith3Args = new QuerydslJpaPredicateExecutor(entityInformation, entityManager, resolver, null);\n}\n","diff":"@@ -3,1 +3,1 @@\nimport javax.persistence.EntityManager;\nimport org.springframework.data.jpa.repository.support.JpaEntityInformation;\n-import org.springframework.data.jpa.repository.support.QuerydslJpaRepository;\n+import org.springframework.data.jpa.repository.support.QuerydslJpaPredicateExecutor;\nimport org.springframework.data.querydsl.SimpleEntityPathResolver;\n@@ -10,2 +10,2 @@\n    EntityManager entityManager;\n    SimpleEntityPathResolver resolver;\n-   QuerydslJpaRepository<String, Long> declWith2Args = new QuerydslJpaRepository(entityInformation, entityManager);\n-   QuerydslJpaRepository<String, Long> declWith3Args = new QuerydslJpaRepository(entityInformation, entityManager, resolver);\n+   QuerydslJpaPredicateExecutor<String> declWith2Args = new QuerydslJpaPredicateExecutor(entityInformation, entityManager, SimpleEntityPathResolver.INSTANCE, null);\n+   QuerydslJpaPredicateExecutor<String> declWith3Args = new QuerydslJpaPredicateExecutor(entityInformation, entityManager, resolver, null);\n}\n","newFile":false}]}]}>
 

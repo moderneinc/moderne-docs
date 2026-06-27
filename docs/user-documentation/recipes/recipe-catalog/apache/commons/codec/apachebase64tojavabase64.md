@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `java.util.Base64`"}
-  description={"Prefer the Java standard library's `java.util.Base64` over third-party usage of apache's `apache.commons.codec.binary.Base64`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","commons"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.codec.ApacheBase64ToJavaBase64"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/codec/apachebase64tojavabase64.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `java.util.Base64`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Java standard library's `java.util.Base64` over third-party usage of apache's `apache.commons.codec.binary.Base64`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.commons.codec.binary.Base64;\n\nclass Test {\n    static byte[] decodeBytes(byte[] encodedBytes) {\n        return Base64.decodeBase64(encodedBytes);\n    }\n    static byte[] decodeToBytes(String encodedString) {\n        return Base64.decodeBase64(encodedString);\n    }\n    static String encodeToString(byte[] decodedByteArr) {\n        return Base64.encodeBase64String(decodedByteArr);\n    }\n    static byte[] encodeBase64(byte[] binaryData) {\n        return Base64.encodeBase64(binaryData);\n    }\n    static byte[] encodeBytesUrlSafe(byte [] encodeBytes) {\n        return Base64.encodeBase64URLSafe(encodeBytes);\n    }\n    static String encodeBytesUrlSafeString(byte [] encodeBytes) {\n        return Base64.encodeBase64URLSafeString(encodeBytes);\n    }\n}\n","after":"import java.util.Base64;\n\nclass Test {\n    static byte[] decodeBytes(byte[] encodedBytes) {\n        return Base64.getMimeDecoder().decode(encodedBytes);\n    }\n    static byte[] decodeToBytes(String encodedString) {\n        return Base64.getMimeDecoder().decode(encodedString);\n    }\n    static String encodeToString(byte[] decodedByteArr) {\n        return Base64.getEncoder().encodeToString(decodedByteArr);\n    }\n    static byte[] encodeBase64(byte[] binaryData) {\n        return Base64.getEncoder().encode(binaryData);\n    }\n    static byte[] encodeBytesUrlSafe(byte [] encodeBytes) {\n        return Base64.getUrlEncoder().withoutPadding().encode(encodeBytes);\n    }\n    static String encodeBytesUrlSafeString(byte [] encodeBytes) {\n        return Base64.getUrlEncoder().withoutPadding().encodeToString(encodeBytes);\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.apache.commons.codec.binary.Base64;\n+import java.util.Base64;\n\n@@ -5,1 +5,1 @@\nclass Test {\n    static byte[] decodeBytes(byte[] encodedBytes) {\n-       return Base64.decodeBase64(encodedBytes);\n+       return Base64.getMimeDecoder().decode(encodedBytes);\n    }\n@@ -8,1 +8,1 @@\n    }\n    static byte[] decodeToBytes(String encodedString) {\n-       return Base64.decodeBase64(encodedString);\n+       return Base64.getMimeDecoder().decode(encodedString);\n    }\n@@ -11,1 +11,1 @@\n    }\n    static String encodeToString(byte[] decodedByteArr) {\n-       return Base64.encodeBase64String(decodedByteArr);\n+       return Base64.getEncoder().encodeToString(decodedByteArr);\n    }\n@@ -14,1 +14,1 @@\n    }\n    static byte[] encodeBase64(byte[] binaryData) {\n-       return Base64.encodeBase64(binaryData);\n+       return Base64.getEncoder().encode(binaryData);\n    }\n@@ -17,1 +17,1 @@\n    }\n    static byte[] encodeBytesUrlSafe(byte [] encodeBytes) {\n-       return Base64.encodeBase64URLSafe(encodeBytes);\n+       return Base64.getUrlEncoder().withoutPadding().encode(encodeBytes);\n    }\n@@ -20,1 +20,1 @@\n    }\n    static String encodeBytesUrlSafeString(byte [] encodeBytes) {\n-       return Base64.encodeBase64URLSafeString(encodeBytes);\n+       return Base64.getUrlEncoder().withoutPadding().encodeToString(encodeBytes);\n    }\n","newFile":false}]}]}>
 

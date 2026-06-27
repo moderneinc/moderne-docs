@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename Next Image Imports"}
-  description={"Safely renames `next/image` imports in existing Next.js `10` `11` or `12` applications to `next/legacy/image` in Next.js 13. Also renames `next/future/image` to `next/image`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["nextjs","codemods"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.migrate.nextjs.v13_0.NextImageToLegacyImage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v13_0/nextimagetolegacyimage.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"codemods/applycodemod"}]}>
+<RecipeHeader.Title>Rename Next Image Imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Safely renames `next/image` imports in existing Next.js `10` `11` or `12` applications to `next/legacy/image` in Next.js 13. Also renames `next/future/image` to `next/image`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"/user-documentation/recipes/recipe-catalog/codemods/applycodemod/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `ContentNegotiationConfigurer.favorPathExtension()` calls"}
-  description={"Spring Framework 7 removed `favorPathExtension()` from `ContentNegotiationConfigurer`. Path extension content negotiation is no longer supported. This recipe removes calls to `favorPathExtension()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.RemoveContentNegotiationFavorPathExtension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/removecontentnegotiationfavorpathextension.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `ContentNegotiationConfigurer.favorPathExtension()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Framework 7 removed `favorPathExtension()` from `ContentNegotiationConfigurer`. Path extension content negotiation is no longer supported. This recipe removes calls to `favorPathExtension()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\nclass MyConfig implements WebMvcConfigurer {\n    @Override\n    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {\n        configurer.favorPathExtension(false).favorParameter(true);\n    }\n}\n","after":"import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\nclass MyConfig implements WebMvcConfigurer {\n    @Override\n    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {\n        configurer.favorParameter(true);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    @Override\n    public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {\n-       configurer.favorPathExtension(false).favorParameter(true);\n+       configurer.favorParameter(true);\n    }\n","newFile":false}]}]}>
 

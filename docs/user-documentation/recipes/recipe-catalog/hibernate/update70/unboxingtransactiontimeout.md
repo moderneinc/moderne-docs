@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Null safe Transaction#getTimeout()"}
-  description={"JPA 3.2 adds `#getTimeout` but uses `Integer` whereas Hibernate has historically used `int`. Note that this raises the possibility of a `NullPointerException` during migration if, e.g., performing direct comparisons on the timeout value against an in (auto unboxing). This recipe adds ternary operators where `Transaction#getTimeout()` is used and a negative value will be used if the `getTimeout()` resulted in a null value."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.UnboxingTransactionTimeout"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/unboxingtransactiontimeout.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Null safe Transaction#getTimeout()</RecipeHeader.Title>
+
+<RecipeHeader.Description>JPA 3.2 adds `#getTimeout` but uses `Integer` whereas Hibernate has historically used `int`. Note that this raises the possibility of a `NullPointerException` during migration if, e.g., performing direct comparisons on the timeout value against an in (auto unboxing). This recipe adds ternary operators where `Transaction#getTimeout()` is used and a negative value will be used if the `getTimeout()` resulted in a null value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.Transaction;\nclass SomeClass {\n    void doSomething(Transaction transaction) {\n        int i = transaction.getTimeout();\n    }\n}\n","after":"import org.hibernate.Transaction;\nclass SomeClass {\n    void doSomething(Transaction transaction) {\n        int i = transaction.getTimeout() == null ? -1 : transaction.getTimeout();\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\nclass SomeClass {\n    void doSomething(Transaction transaction) {\n-       int i = transaction.getTimeout();\n+       int i = transaction.getTimeout() == null ? -1 : transaction.getTimeout();\n    }\n","newFile":false}]}]}>
 

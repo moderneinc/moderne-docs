@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.19` application to `camel 4.20`"}
-  description={"Migrates `camel 4.19` application to `camel 4.20`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel420.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel420/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate Pulsar component URIs from V1 to V2 format","href":"apache/camel/upgrade/camel420/migratepulsaruris"}]}>
+<RecipeHeader.Title>Migrates `camel 4.19` application to `camel 4.20`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.19` application to `camel 4.20`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate Pulsar component URIs from V1 to V2 format","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel420/migratepulsaruris/"}]}>
 
 ## Definition
 

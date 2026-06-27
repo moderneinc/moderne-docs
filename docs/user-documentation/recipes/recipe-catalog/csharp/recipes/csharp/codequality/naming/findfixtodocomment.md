@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find TODO/HACK/FIXME comments"}
-  description={"Detect TODO, HACK, UNDONE, and FIXME comments that indicate unfinished work."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","naming","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Naming.FindFixTodoComment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/naming/findfixtodocomment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find TODO/HACK/FIXME comments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect TODO, HACK, UNDONE, and FIXME comments that indicate unfinished work.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Naming.FindFixTodoComment","displayName":"Find TODO/HACK/FIXME comments","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

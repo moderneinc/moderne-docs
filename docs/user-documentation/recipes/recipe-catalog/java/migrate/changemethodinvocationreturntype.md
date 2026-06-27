@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change method invocation return type"}
-  description={"Changes the return type of a method invocation."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.ChangeMethodInvocationReturnType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/changemethodinvocationreturntype.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method invocation return type","href":"java/changemethodinvocationreturntype"}]}>
+<RecipeHeader.Title>Change method invocation return type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Changes the return type of a method invocation.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method invocation return type","href":"/user-documentation/recipes/recipe-catalog/java/changemethodinvocationreturntype/"}]}>
 
 ## Definition
 

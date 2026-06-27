@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Order Kotlin imports"}
-  description={"Groups and orders import statements. If a [style has been defined](https://docs.openrewrite.org/concepts-and-explanations/styles), this recipe will order the imports according to that style. If no style is detected, this recipe will default to ordering imports in the same way that IntelliJ IDEA does."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-kotlin"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.OrderImports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/orderimports.md"}
-/>
+>
+
+<RecipeHeader.Title>Order Kotlin imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Groups and orders import statements. If a [style has been defined](https://docs.openrewrite.org/concepts-and-explanations/styles), this recipe will order the imports according to that style. If no style is detected, this recipe will default to ordering imports in the same way that IntelliJ IDEA does.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"import r.core.Flux\nimport s.core.Flux\nimport com.fasterxml.jackson.databind.ObjectMapper\nimport org.apache.commons.logging.Log\nimport reactor.core.publisher.Mono\n","after":"import com.fasterxml.jackson.databind.ObjectMapper\nimport org.apache.commons.logging.Log\nimport r.core.Flux\nimport reactor.core.publisher.Mono\nimport s.core.Flux\n","diff":"@@ -1,2 +1,0 @@\n-import r.core.Flux\n-import s.core.Flux\nimport com.fasterxml.jackson.databind.ObjectMapper\n@@ -5,0 +3,1 @@\nimport com.fasterxml.jackson.databind.ObjectMapper\nimport org.apache.commons.logging.Log\n+import r.core.Flux\nimport reactor.core.publisher.Mono\n@@ -6,0 +5,1 @@\nimport org.apache.commons.logging.Log\nimport reactor.core.publisher.Mono\n+import s.core.Flux\n\n","newFile":false}]}]}>
 

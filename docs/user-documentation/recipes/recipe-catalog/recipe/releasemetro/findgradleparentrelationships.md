@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Gradle root project to subproject relationships"}
-  description={"Gradle has no parent-project concept like Maven. The closest analog is the root project of a multi-project build, so this recipe records the GAV coordinates of each subproject paired with the root project."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.recipe.releasemetro.FindGradleParentRelationships"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleparentrelationships.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Gradle root project to subproject relationships</RecipeHeader.Title>
+
+<RecipeHeader.Description>Gradle has no parent-project concept like Maven. The closest analog is the root project of a multi-project build, so this recipe records the GAV coordinates of each subproject paired with the root project.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"buildGradleKts","code":"plugins {\n    id(\"java\")\n}\n\ngroup = \"org.openrewrite.recipe\"\n"},"variants":[]}]}>
 

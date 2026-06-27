@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find cyclomatic complexity"}
-  description={"Calculates the cyclomatic complexity of methods and produces a data table containing the class name, method name, argument types, complexity value, and complexity threshold."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.controlflow.search.FindCyclomaticComplexity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/controlflow/search/findcyclomaticcomplexity.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find cyclomatic complexity</RecipeHeader.Title>
+
+<RecipeHeader.Description>Calculates the cyclomatic complexity of methods and produces a data table containing the class name, method name, argument types, complexity value, and complexity threshold.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"addMarker","required":false,"description":"Add a marker with the cyclomatic complexity value and threshold."}]}>
 

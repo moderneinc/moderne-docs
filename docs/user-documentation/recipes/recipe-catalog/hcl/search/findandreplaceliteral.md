@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find and replace literals in HCL files"}
-  description={"Find and replace literal values in HCL files. This recipe parses the source files on which it runs as HCL, meaning you can execute HCL language-specific recipes before and after this recipe in a single recipe run."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-hcl"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hcl.search.FindAndReplaceLiteral"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hcl/search/findandreplaceliteral.md"}
-/>
+>
+
+<RecipeHeader.Title>Find and replace literals in HCL files</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find and replace literal values in HCL files. This recipe parses the source files on which it runs as HCL, meaning you can execute HCL language-specific recipes before and after this recipe in a single recipe run.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"find","required":true,"description":"The literal to find (and replace)","example":"blacklist"},{"type":"String","name":"replace","required":false,"description":"The replacement literal for `find`. This snippet can be multiline.","example":"denylist"},{"type":"Boolean","name":"regex","required":false,"description":"Default false. If true, `find` will be interpreted as a Regular Expression, and capture group contents will be available in `replace`."},{"type":"Boolean","name":"caseSensitive","required":false,"description":"If `true` the search will be sensitive to case. Default `false`."}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use for statement instead of while"}
-  description={"Convert while loops with counter to for loops."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseForInsteadOfWhile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/useforinsteadofwhile.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use for statement instead of while</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert while loops with counter to for loops.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseForInsteadOfWhile","displayName":"Use for statement instead of while","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

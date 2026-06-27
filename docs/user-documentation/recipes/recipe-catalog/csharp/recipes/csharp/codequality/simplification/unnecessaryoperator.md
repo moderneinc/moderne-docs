@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Operator is unnecessary"}
-  description={"Remove unnecessary operators such as unary plus."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UnnecessaryOperator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/unnecessaryoperator.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Operator is unnecessary</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unnecessary operators such as unary plus.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UnnecessaryOperator","displayName":"Operator is unnecessary","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

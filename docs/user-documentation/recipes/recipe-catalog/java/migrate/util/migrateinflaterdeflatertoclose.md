@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `Inflater` and `Deflater` `end()` calls with `close()`"}
-  description={"Replace `end()` method calls with `close()` method calls for `Inflater` and `Deflater` classes in Java 25+, as they now implement AutoCloseable."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.MigrateInflaterDeflaterToClose"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/migrateinflaterdeflatertoclose.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"java/search/hasjavaversion"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Replace `Inflater` and `Deflater` `end()` calls with `close()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `end()` method calls with `close()` method calls for `Inflater` and `Deflater` classes in Java 25+, as they now implement AutoCloseable.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

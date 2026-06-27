@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JPQL `trunc()` to `cast(... as date)`"}
-  description={"Hibernate 7 maps the JPQL `trunc()` function to numeric truncation only (SQL standard). For date truncation, single-argument `trunc(expr)` must be replaced with `cast(expr as date)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.MigrateJpqlTruncToDateCast"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/migratejpqltrunctodatecast.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate JPQL `trunc()` to `cast(... as date)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Hibernate 7 maps the JPQL `trunc()` function to numeric truncation only (SQL standard). For date truncation, single-argument `trunc(expr)` must be replaced with `cast(expr as date)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.data.jpa.repository.Query;\n\ninterface PlanRepository {\n    @Query(\"select p from Plan p where trunc(p.scheduledListingD) >= trunc(:theDate)\")\n    Object findPlans();\n}\n","after":"import org.springframework.data.jpa.repository.Query;\n\ninterface PlanRepository {\n    @Query(\"select p from Plan p where cast(p.scheduledListingD as date) >= cast(:theDate as date)\")\n    Object findPlans();\n}\n","diff":"@@ -4,1 +4,1 @@\n\ninterface PlanRepository {\n-   @Query(\"select p from Plan p where trunc(p.scheduledListingD) >= trunc(:theDate)\")\n+   @Query(\"select p from Plan p where cast(p.scheduledListingD as date) >= cast(:theDate as date)\")\n    Object findPlans();\n","newFile":false}]}]}>
 

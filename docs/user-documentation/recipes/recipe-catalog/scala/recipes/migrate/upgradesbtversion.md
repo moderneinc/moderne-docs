@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade sbt version"}
-  description={"Update the `sbt.version` property in `project/build.properties` to the specified version. Only modifies files at `**/project/build.properties`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.UpgradeSbtVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/upgradesbtversion.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Upgrade sbt version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update the `sbt.version` property in `project/build.properties` to the specified version. Only modifies files at `**/project/build.properties`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"version","required":true,"description":"The version to set for `sbt.version` in `project/build.properties`.","example":"1.10.7"}]}>
 

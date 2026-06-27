@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Testing best practices"}
-  description={"Applies best practices to tests."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["testing"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.BestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/bestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Include an assertion in tests","href":"java/testing/cleanup/testsshouldincludeassertions"},{"name":"Remove `test` prefix from JUnit 5 tests","href":"java/testing/cleanup/removetestprefix"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Testing best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies best practices to tests.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Include an assertion in tests","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/testsshouldincludeassertions/"},{"name":"Remove `test` prefix from JUnit 5 tests","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/removetestprefix/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

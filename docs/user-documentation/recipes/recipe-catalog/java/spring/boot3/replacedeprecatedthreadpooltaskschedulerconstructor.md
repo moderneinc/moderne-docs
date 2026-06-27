@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated ThreadPoolTaskSchedulerBuilder 5-argument constructor"}
-  description={"The 5-parameter constructor of `ThreadPoolTaskSchedulerBuilder` has been deprecated in Spring Boot 3.5. This recipe transforms it to use the builder pattern instead, omitting null values and defaults."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.ReplaceDeprecatedThreadPoolTaskSchedulerConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacedeprecatedthreadpooltaskschedulerconstructor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated ThreadPoolTaskSchedulerBuilder 5-argument constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>The 5-parameter constructor of `ThreadPoolTaskSchedulerBuilder` has been deprecated in Spring Boot 3.5. This recipe transforms it to use the builder pattern instead, omitting null values and defaults.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.task.ThreadPoolTaskSchedulerBuilder;\nimport org.springframework.boot.task.ThreadPoolTaskSchedulerCustomizer;\nimport java.time.Duration;\nimport java.util.Set;\n\npublic class SchedulerConfig {\n    public ThreadPoolTaskSchedulerBuilder createBuilder() {\n        Set<ThreadPoolTaskSchedulerCustomizer> customizers = Set.of();\n        return new ThreadPoolTaskSchedulerBuilder(10, true, Duration.ofSeconds(30), \"task-\", customizers);\n    }\n}\n","after":"import org.springframework.boot.task.ThreadPoolTaskSchedulerBuilder;\nimport org.springframework.boot.task.ThreadPoolTaskSchedulerCustomizer;\nimport java.time.Duration;\nimport java.util.Set;\n\npublic class SchedulerConfig {\n    public ThreadPoolTaskSchedulerBuilder createBuilder() {\n        Set<ThreadPoolTaskSchedulerCustomizer> customizers = Set.of();\n        return new ThreadPoolTaskSchedulerBuilder().poolSize(10).awaitTermination(true).awaitTerminationPeriod(Duration.ofSeconds(30)).threadNamePrefix(\"task-\").customizers(customizers);\n    }\n}\n","diff":"@@ -9,1 +9,1 @@\n    public ThreadPoolTaskSchedulerBuilder createBuilder() {\n        Set<ThreadPoolTaskSchedulerCustomizer> customizers = Set.of();\n-       return new ThreadPoolTaskSchedulerBuilder(10, true, Duration.ofSeconds(30), \"task-\", customizers);\n+       return new ThreadPoolTaskSchedulerBuilder().poolSize(10).awaitTermination(true).awaitTerminationPeriod(Duration.ofSeconds(30)).threadNamePrefix(\"task-\").customizers(customizers);\n    }\n","newFile":false}]}]}>
 

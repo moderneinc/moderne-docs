@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `when` with two or more branches having identical bodies"}
-  description={"`when (x) { A -> f(); B -> f() }` repeats the same body for distinct labels — collapse to a single branch with comma-separated labels: `A, B -> f()`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindWhenWithIdenticalBranches$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenwithidenticalbranches$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `when` with two or more branches having identical bodies</RecipeHeader.Title>
+
+<RecipeHeader.Description>`when (x) { A -> f(); B -> f() }` repeats the same body for distinct labels — collapse to a single branch with comma-separated labels: `A, B -> f()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindWhenWithIdenticalBranches$KtRecipe","displayName":"Find `when` with two or more branches having identical bodies","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use string.Equals instead of == for string comparison"}
-  description={"Replace `==` string comparisons with `string.Equals(a, b, StringComparison.Ordinal)` for explicit comparison semantics."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringEquals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usestringequals.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use string.Equals instead of == for string comparison</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `==` string comparisons with `string.Equals(a, b, StringComparison.Ordinal)` for explicit comparison semantics.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringEquals","displayName":"Use string.Equals instead of == for string comparison","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

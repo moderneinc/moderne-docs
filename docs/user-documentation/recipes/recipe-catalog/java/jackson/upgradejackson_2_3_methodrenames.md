@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename Jackson 2.x methods to 3.x equivalents"}
-  description={"Rename Jackson methods that were renamed in 3.x (e.g., `writeObject()` to `writePOJO()`, `getCurrentValue()` to `currentValue()`)."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.UpgradeJackson_2_3_MethodRenames"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_methodrenames.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename Jackson 2.x methods to 3.x equivalents for JsonGenerator","href":"java/jackson/upgradejackson_2_3_jsongeneratormethodrenames"},{"name":"Rename Jackson 2.x methods to 3.x equivalents for JsonParser","href":"java/jackson/upgradejackson_2_3_jsonparsermethodrenames"},{"name":"Rename Jackson 2.x methods to 3.x equivalents for JsonNode","href":"java/jackson/upgradejackson_2_3_jsonnodemethodrenames"},{"name":"Rename Jackson 2.x methods to 3.x equivalents for ObjectNode","href":"java/jackson/upgradejackson_2_3_objectnodemethodrenames"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"}]}>
+<RecipeHeader.Title>Rename Jackson 2.x methods to 3.x equivalents</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rename Jackson methods that were renamed in 3.x (e.g., `writeObject()` to `writePOJO()`, `getCurrentValue()` to `currentValue()`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename Jackson 2.x methods to 3.x equivalents for JsonGenerator","href":"/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsongeneratormethodrenames/"},{"name":"Rename Jackson 2.x methods to 3.x equivalents for JsonParser","href":"/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsonparsermethodrenames/"},{"name":"Rename Jackson 2.x methods to 3.x equivalents for JsonNode","href":"/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_jsonnodemethodrenames/"},{"name":"Rename Jackson 2.x methods to 3.x equivalents for ObjectNode","href":"/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_objectnodemethodrenames/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]}>
 
 ## Definition
 

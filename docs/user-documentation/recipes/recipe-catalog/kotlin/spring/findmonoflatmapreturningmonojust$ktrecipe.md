@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Mono.flatMap { x -> Mono.just(f(x)) }` patterns"}
-  description={"When a `flatMap` lambda's only job is to wrap a synchronous result in `Mono.just`, the whole step collapses to `map { x -> f(x) }`. `map` is cheaper (no inner Mono allocation) and signals that the transform is synchronous."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindMonoFlatMapReturningMonoJust$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoflatmapreturningmonojust$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Mono.flatMap { x -> Mono.just(f(x)) }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>When a `flatMap` lambda's only job is to wrap a synchronous result in `Mono.just`, the whole step collapses to `map { x -> f(x) }`. `map` is cheaper (no inner Mono allocation) and signals that the transform is synchronous.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindMonoFlatMapReturningMonoJust$KtRecipe","displayName":"Find `Mono.flatMap { x -> Mono.just(f(x)) }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

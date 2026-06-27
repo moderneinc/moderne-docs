@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find OpenRewrite recipes"}
-  description={"This recipe finds all OpenRewrite recipes, primarily to produce a data table that is being used to experiment with fine-tuning a large language model to produce more recipes."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.FindRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/findrecipes.md"}
-/>
+>
+
+<RecipeHeader.Title>Find OpenRewrite recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe finds all OpenRewrite recipes, primarily to produce a data table that is being used to experiment with fine-tuning a large language model to produce more recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.Option;\nimport org.openrewrite.internal.lang.NonNullApi;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.internal.lang.Nullable;\n\n@NonNullApi\nclass MyRecipe extends Recipe {\n  @Option(displayName = \"Method pattern\",\n          description = \"A method pattern that is used to find matching method declarations/invocations.\",\n          example = \"org.mockito.Matchers anyVararg()\")\n  String methodPattern;\n\n  @Option(displayName = \"New access level\",\n          description = \"New method access level to apply to the method, like \\\"public\\\".\",\n          example = \"public\",\n          valid = {\"private\", \"protected\", \"package\", \"public\"},\n          required = false)\n  String newAccessLevel;\n\n  @Override\n  public String getDisplayName() {\n      return \"My recipe\";\n  }\n\n  @Override\n  public String getDescription() {\n      return \"This is my recipe.\";\n  }\n}\n","after":"import org.openrewrite.Option;\nimport org.openrewrite.internal.lang.NonNullApi;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.internal.lang.Nullable;\n\n@NonNullApi\nclass /*~~>*/MyRecipe extends Recipe {\n  @Option(displayName = \"Method pattern\",\n          description = \"A method pattern that is used to find matching method declarations/invocations.\",\n          example = \"org.mockito.Matchers anyVararg()\")\n  String methodPattern;\n\n  @Option(displayName = \"New access level\",\n          description = \"New method access level to apply to the method, like \\\"public\\\".\",\n          example = \"public\",\n          valid = {\"private\", \"protected\", \"package\", \"public\"},\n          required = false)\n  String newAccessLevel;\n\n  @Override\n  public String getDisplayName() {\n      return \"My recipe\";\n  }\n\n  @Override\n  public String getDescription() {\n      return \"This is my recipe.\";\n  }\n}\n","diff":"@@ -7,1 +7,1 @@\n\n@NonNullApi\n-class MyRecipe extends Recipe {\n+class /*~~>*/MyRecipe extends Recipe {\n  @Option(displayName = \"Method pattern\",\n","newFile":false}]}]}>
 

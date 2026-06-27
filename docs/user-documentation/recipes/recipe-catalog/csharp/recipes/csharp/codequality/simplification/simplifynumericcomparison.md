@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify numeric comparison"}
-  description={"Simplify `x - y > 0` to `x > y`, `x - y < 0` to `x < y`, `x - y >= 0` to `x >= y`, and `x - y <= 0` to `x <= y`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyNumericComparison"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifynumericcomparison.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify numeric comparison</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify `x - y > 0` to `x > y`, `x - y < 0` to `x < y`, `x - y >= 0` to `x >= y`, and `x - y <= 0` to `x <= y`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyNumericComparison","displayName":"Simplify numeric comparison","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Removed OpenJPA providers in the persistence.xml file"}
-  description={"When migrating  to EclipseLink, using OpenJPA providers in EclipseLink results in runtime errors. To resolve these errors, the recipe removes the flagged OpenJPA provider from the persistence.xml."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javaee7.OpenJPAPersistenceProvider"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javaee7/openjpapersistenceprovider.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML tag value","href":"xml/changetagvalue"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Removed OpenJPA providers in the persistence.xml file</RecipeHeader.Title>
+
+<RecipeHeader.Description>When migrating  to EclipseLink, using OpenJPA providers in EclipseLink results in runtime errors. To resolve these errors, the recipe removes the flagged OpenJPA provider from the persistence.xml.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

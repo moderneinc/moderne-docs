@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unpinned base images"}
-  description={"Finds FROM instructions that use unpinned base images (CIS Docker Benchmark 4.2). Images without an explicit tag default to 'latest', which is not reproducible. Images pinned by digest are considered acceptable."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.search.FindUnpinnedBaseImages"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/search/findunpinnedbaseimages.md"}
-/>
+>
+
+<RecipeHeader.Title>Find unpinned base images</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds FROM instructions that use unpinned base images (CIS Docker Benchmark 4.2). Images without an explicit tag default to 'latest', which is not reproducible. Images pinned by digest are considered acceptable.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"docker","before":"FROM ubuntu:latest\nRUN apt-get update\n","after":"~~(Uses 'latest' tag)~~>FROM ubuntu:latest\nRUN apt-get update\n","diff":"@@ -1,1 +1,1 @@\n-FROM ubuntu:latest\n+~~(Uses 'latest' tag)~~>FROM ubuntu:latest\nRUN apt-get update\n","newFile":false}]}]}>
 

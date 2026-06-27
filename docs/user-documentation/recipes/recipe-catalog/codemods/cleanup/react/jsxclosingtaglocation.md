@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce closing tag location for multiline JSX"}
-  description={"Enforce closing tag location for multiline JSX\nSee rule details for [react/jsx-closing-tag-location](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-closing-tag-location.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.react.JsxClosingTagLocation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/react/jsxclosingtaglocation.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce closing tag location for multiline JSX</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce closing tag location for multiline JSX See rule details for [react/jsx-closing-tag-location](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-closing-tag-location.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

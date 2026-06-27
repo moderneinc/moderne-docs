@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade AWS RDS MySQL to 8.4"}
-  description={"Upgrade `engine_version` to MySQL 8.4 on `aws_db_instance` resources and set `allow_major_version_upgrade = true` to permit the major version change."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["RDS","terraform","AWS"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.aws.UpgradeAwsRdsMySqlToV8_4"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/aws/upgradeawsrdsmysqltov8_4.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Terraform resource attribute","href":"terraform/changeresourceattribute"},{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Upgrade AWS RDS MySQL to 8.4</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade `engine_version` to MySQL 8.4 on `aws_db_instance` resources and set `allow_major_version_upgrade = true` to permit the major version change.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Terraform resource attribute","href":"/user-documentation/recipes/recipe-catalog/terraform/changeresourceattribute/"},{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace getConstraint*() with getConstraintRef()"}
-  description={"Use `getConstraintRef()` instead of `getConstraintId()` et al."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/ai.timefold.solver.migration.v8.ConstraintRefRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/timefold/solver/migration/v8/constraintrefrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace getConstraint*() with getConstraintRef()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `getConstraintRef()` instead of `getConstraintId()` et al.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"ai.timefold.solver.migration.v8.ConstraintRefRecipe","displayName":"Replace getConstraint*() with getConstraintRef()","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

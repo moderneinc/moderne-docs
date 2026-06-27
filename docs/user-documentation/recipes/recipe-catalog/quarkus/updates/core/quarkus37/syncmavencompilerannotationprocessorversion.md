@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Sync Maven Compiler plugin annotation processor version with the one provided by the BOM"}
-  description={"Sync Maven Compiler plugin annotation processor version with the one provided by the BOM."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus37.SyncMavenCompilerAnnotationProcessorVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/syncmavencompilerannotationprocessorversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Sync Maven Compiler plugin annotation processor version with the one provided by the BOM</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sync Maven Compiler plugin annotation processor version with the one provided by the BOM.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The groupId of the annotation processor.","example":"org.hibernate.orm"},{"type":"String","name":"artifactId","required":true,"description":"The artifactId of the annotation processor.","example":"hibernate-jpamodelgen"}]}>
 

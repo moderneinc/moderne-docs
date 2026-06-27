@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `NonFatal` matcher for broad catch patterns"}
-  description={"Finds catch blocks using broad patterns like `case e: Exception =>` or `case _ =>` that should use `scala.util.control.NonFatal` to catch all non-fatal exceptions while allowing fatal errors to propagate."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.errorhandling.UseNonFatalMatcher"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/errorhandling/usenonfatalmatcher.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `NonFatal` matcher for broad catch patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds catch blocks using broad patterns like `case e: Exception =>` or `case _ =>` that should use `scala.util.control.NonFatal` to catch all non-fatal exceptions while allowing fatal errors to propagate.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  try {\n    println(\"risky\")\n  } catch {\n    case e: Exception => println(\"caught\")\n  }\n}\n","after":"object Test {\n  /*~~(Consider using scala.util.control.NonFatal for catch-all patterns)~~>*/try {\n    println(\"risky\")\n  } catch {\n    case e: Exception => println(\"caught\")\n  }\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Test {\n- try {\n+ /*~~(Consider using scala.util.control.NonFatal for catch-all patterns)~~>*/try {\n    println(\"risky\")\n","newFile":false}]}]}>
 

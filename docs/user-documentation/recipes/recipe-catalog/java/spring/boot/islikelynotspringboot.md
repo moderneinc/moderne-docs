@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Is likely not a Spring Boot project"}
-  description={"Marks the project if it's likely not a Spring Boot project."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot.IsLikelyNotSpringBoot"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot/islikelynotspringboot.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Is likely not a Spring Boot project</RecipeHeader.Title>
+
+<RecipeHeader.Description>Marks the project if it's likely not a Spring Boot project.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"java","before":"package org.example;\n\nclass Main {}\n","after":"/*~~>*/package org.example;\n\nclass Main {}\n","diff":"@@ -1,1 +1,1 @@\n-package org.example;\n+/*~~>*/package org.example;\n\n","newFile":false},{"language":"xml","before":"<project>\n    <groupId>com.example</groupId>\n    <artifactId>fooservice</artifactId>\n    <version>1.0-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.springframework</groupId>\n            <artifactId>spring-core</artifactId>\n            <version>6.2.8</version>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<!--~~>--><project>\n    <groupId>com.example</groupId>\n    <artifactId>fooservice</artifactId>\n    <version>1.0-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.springframework</groupId>\n            <artifactId>spring-core</artifactId>\n            <version>6.2.8</version>\n        </dependency>\n    </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -1,1 +1,1 @@\n-<project>\n+<!--~~>--><project>\n    <groupId>com.example</groupId>\n","newFile":false}]}]}>
 

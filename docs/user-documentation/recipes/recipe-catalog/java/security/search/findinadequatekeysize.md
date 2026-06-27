@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find inadequate cryptographic key sizes"}
-  description={"Finds cryptographic key generation with inadequate key sizes. RSA and DSA keys should be at least 2048 bits, EC keys at least 224 bits, and symmetric keys (AES) at least 128 bits. Weak named EC curves (e.g. `secp112r1`, `prime192v1`) are also flagged. NIST SP 800-131A Rev 2 requires RSA/DSA 2048+, EC 224+, AES 128+."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-326","RSPEC-S4426"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindInadequateKeySize"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findinadequatekeysize.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find inadequate cryptographic key sizes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds cryptographic key generation with inadequate key sizes. RSA and DSA keys should be at least 2048 bits, EC keys at least 224 bits, and symmetric keys (AES) at least 128 bits. Weak named EC curves (e.g. `secp112r1`, `prime192v1`) are also flagged. NIST SP 800-131A Rev 2 requires RSA/DSA 2048+, EC 224+, AES 128+.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.security.KeyPairGenerator;\nimport java.security.NoSuchAlgorithmException;\n\nclass A {\n    void generateKey() throws NoSuchAlgorithmException {\n        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\");\n        kpg.initialize(1024);\n    }\n}\n","after":"import java.security.KeyPairGenerator;\nimport java.security.NoSuchAlgorithmException;\n\nclass A {\n    void generateKey() throws NoSuchAlgorithmException {\n        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\");\n        /*~~(Inadequate RSA key size: 1024 bits. Use at least 2048 bits.)~~>*/kpg.initialize(1024);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    void generateKey() throws NoSuchAlgorithmException {\n        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\");\n-       kpg.initialize(1024);\n+       /*~~(Inadequate RSA key size: 1024 bits. Use at least 2048 bits.)~~>*/kpg.initialize(1024);\n    }\n","newFile":false}]}]}>
 

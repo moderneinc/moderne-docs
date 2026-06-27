@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find writes to static fields from instance methods"}
-  description={"Finds assignments, compound assignments (`+=`, `-=`, ...), and `++`/`--` operators that target a `static` field from inside a non-`static` instance method. Such writes race across instances and obscure ownership of the state; per Sonar S2696 the method should be made `static` or the state guarded by a thread-safe accessor."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S2696"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindInstanceMethodStaticFieldWrite"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findinstancemethodstaticfieldwrite.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find writes to static fields from instance methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds assignments, compound assignments (`+=`, `-=`, ...), and `++`/`--` operators that target a `static` field from inside a non-`static` instance method. Such writes race across instances and obscure ownership of the state; per Sonar S2696 the method should be made `static` or the state guarded by a thread-safe accessor.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Counter {\n    private static int count;\n\n    void set(int n) {\n        count = n;\n    }\n}\n","after":"class Counter {\n    private static int count;\n\n    void set(int n) {\n        /*~~(Instance method writes to a static field. Static state mutated from an instance method is shared across instances and is not inherently thread-safe; make the method `static` or move the state behind a thread-safe accessor.)~~>*/count = n;\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\n\n    void set(int n) {\n-       count = n;\n+       /*~~(Instance method writes to a static field. Static state mutated from an instance method is shared across instances and is not inherently thread-safe; make the method `static` or move the state behind a thread-safe accessor.)~~>*/count = n;\n    }\n","newFile":false}]}]}>
 

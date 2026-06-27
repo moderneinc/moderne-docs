@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Terraform resource attribute"}
-  description={"Change the value of a Terraform resource attribute if it matches a given pattern."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.ChangeResourceAttribute"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/changeresourceattribute.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Change Terraform resource attribute</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the value of a Terraform resource attribute if it matches a given pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"resourceName","required":true,"description":"A Terraform resource type, without the quotes.","example":"aws_db_instance"},{"type":"String","name":"attributeName","required":true,"description":"The name of the attribute to change.","example":"engine_version"},{"type":"String","name":"oldValuePattern","required":false,"description":"A regular expression to match the current attribute value. Only matching attributes will be changed. If not provided, all values will be changed. For quoted string values, match against the content without quotes.","example":"5\\.7.*"},{"type":"String","name":"newValue","required":true,"description":"The new value to set. For quoted string attributes, provide the value without quotes.","example":"8.0"}]}>
 

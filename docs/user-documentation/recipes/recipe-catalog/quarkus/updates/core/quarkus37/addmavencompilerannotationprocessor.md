@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add an annotation processor to the Maven Compiler plugin configuration"}
-  description={"Add an annotation processor to the Maven Compiler plugin configuration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus37.AddMavenCompilerAnnotationProcessor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/addmavencompilerannotationprocessor.md"}
-/>
+>
+
+<RecipeHeader.Title>Add an annotation processor to the Maven Compiler plugin configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add an annotation processor to the Maven Compiler plugin configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The groupId of the annotation processor.","example":"org.hibernate.orm"},{"type":"String","name":"artifactId","required":true,"description":"The artifactId of the annotation processor.","example":"hibernate-jpamodelgen"},{"type":"Boolean","name":"enforceManagedVersion","required":false,"description":"If the new annotation processor has a managed version, this flag can be used to explicitly set the version on the annotation processor with the version of the managed dependency. The default for this flag is `false`."},{"type":"String","name":"mavenCompilerPluginVersion","required":false,"description":"The version of the Maven Compiler plugin to use if not present.","example":"hibernate-jpamodelgen"}]}>
 

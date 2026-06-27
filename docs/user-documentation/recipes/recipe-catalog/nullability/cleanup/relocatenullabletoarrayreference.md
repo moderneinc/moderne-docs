@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Relocate a misplaced leading `@Nullable` on a primitive array to the array reference"}
-  description={"Turns `@Nullable long[] x` into `long @Nullable [] x`. On a primitive-element array a leading type-use `@Nullable` binds to the (impossible-to-be-null) element type, so NullAway still treats the array reference as `@NonNull` and flags `null` assignments; moving the annotation to the array-reference position (which NullAway reads) fixes that without changing intent. Only primitive-element arrays with a leading nullable annotation are changed; object-element arrays (where a leading `@Nullable` legitimately means nullable elements) are left untouched."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.cleanup.RelocateNullableToArrayReference"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/cleanup/relocatenullabletoarrayreference.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Relocate a misplaced leading `@Nullable` on a primitive array to the array reference</RecipeHeader.Title>
+
+<RecipeHeader.Description>Turns `@Nullable long[] x` into `long @Nullable [] x`. On a primitive-element array a leading type-use `@Nullable` binds to the (impossible-to-be-null) element type, so NullAway still treats the array reference as `@NonNull` and flags `null` assignments; moving the annotation to the array-reference position (which NullAway reads) fixes that without changing intent. Only primitive-element arrays with a leading nullable annotation are changed; object-element arrays (where a leading `@Nullable` legitimately means nullable elements) are left untouched.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.nullability.cleanup.RelocateNullableToArrayReference","displayName":"Relocate a misplaced leading `@Nullable` on a primitive array to the array reference","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 

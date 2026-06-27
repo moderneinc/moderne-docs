@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply `var` to Generic Constructors"}
-  description={"Apply `var` to generics variables initialized by constructor calls."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.var.UseVarForGenericsConstructors"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforgenericsconstructors.md"}
-/>
+>
+
+<RecipeHeader.Title>Apply `var` to Generic Constructors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply `var` to generics variables initialized by constructor calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\nimport java.util.ArrayList;\n\nclass A {\n    void m() {\n        List<String> strs = new ArrayList<>();\n    }\n}\n","after":"import java.util.ArrayList;\n\nclass A {\n    void m() {\n        var strs = new ArrayList<String>();\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import java.util.List;\nimport java.util.ArrayList;\n@@ -6,1 +5,1 @@\nclass A {\n    void m() {\n-       List<String> strs = new ArrayList<>();\n+       var strs = new ArrayList<String>();\n    }\n","newFile":false}]}]}>
 

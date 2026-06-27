@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find resource"}
-  description={"Find a Concourse resource by name."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.concourse.FindResource"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/concourse/findresource.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find resource</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find a Concourse resource by name.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"type","required":true,"description":"Resource type","example":"git"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find SQL execution sinks (`Statement.execute*`, `prepareStatement`, `createNativeQuery`)"}
-  description={"SQL execution is the canonical SQL-injection sink — every string argument that reaches one of these calls without parameter binding is a candidate vulnerability. As a data-flow seed, the call site is where untrusted strings either become parameter-bound or stay concatenated."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindSqlExecutionSinks$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findsqlexecutionsinks$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find SQL execution sinks (`Statement.execute*`, `prepareStatement`, `createNativeQuery`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>SQL execution is the canonical SQL-injection sink — every string argument that reaches one of these calls without parameter binding is a candidate vulnerability. As a data-flow seed, the call site is where untrusted strings either become parameter-bound or stay concatenated.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindSqlExecutionSinks$KtRecipe","displayName":"Find SQL execution sinks (`Statement.execute*`, `prepareStatement`, `createNativeQuery`)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

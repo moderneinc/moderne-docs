@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find required providers"}
-  description={"Find `required_providers` blocks in Terraform configuration files. Produces a data table of the provider names and their versions."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.search.FindRequiredProvider"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/search/findrequiredprovider.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find required providers</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find `required_providers` blocks in Terraform configuration files. Produces a data table of the provider names and their versions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"source","required":false,"description":"The source of the required provider, e.g. `hashicorp/aws`.","example":"hashicorp/aws"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify a call chain"}
-  description={"Simplify `a.b().c()` to `a.d()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.SimplifyMethodChain"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/simplifymethodchain.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify a call chain</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify `a.b().c()` to `a.d()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"methodPatternChain","required":true,"description":"A list of method patterns that are called in sequence","example":"['java.util.Map keySet()', 'java.util.Set contains(..)']"},{"type":"String","name":"newMethodName","required":true,"description":"The method name that will replace the existing name. The new method name target is assumed to have the same arguments as the last method in the chain.","example":"containsKey"},{"type":"Boolean","name":"matchOverrides","required":false,"description":"When enabled, find methods that are overrides of the method pattern.","example":"false"}]}>
 

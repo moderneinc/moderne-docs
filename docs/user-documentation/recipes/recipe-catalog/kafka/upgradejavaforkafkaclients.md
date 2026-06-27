@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Java to 11+ for Kafka clients"}
-  description={"Ensures Java 11 or higher is used when Kafka client libraries are present."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.UpgradeJavaForKafkaClients"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/upgradejavaforkafkaclients.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Java version","href":"java/migrate/upgradejavaversion"}]} preconditions={[{"name":"Find Maven and Gradle dependencies","href":"java/dependencies/finddependency"}]}>
+<RecipeHeader.Title>Upgrade Java to 11+ for Kafka clients</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensures Java 11 or higher is used when Kafka client libraries are present.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion/"}]} preconditions={[{"name":"Find Maven and Gradle dependencies","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/finddependency/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `OptionalRules.OptionalEmpty`"}
-  description={"Prefer `Optional#empty()` over the more contrived alternative."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalEmptyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/optionalrulesrecipes$optionalemptyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `OptionalRules.OptionalEmpty`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Optional#empty()` over the more contrived alternative.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalEmptyRecipe","displayName":"Refaster template `OptionalRules.OptionalEmpty`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

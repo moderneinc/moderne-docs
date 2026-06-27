@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `kotlin.math.expm1` instead of `java.lang.Math.expm1`"}
-  description={"Prefer the multiplatform-friendly `kotlin.math.expm1` over the JVM-only `Math.expm1`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseKotlinMathExpm1$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathexpm1$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `kotlin.math.expm1` instead of `java.lang.Math.expm1`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the multiplatform-friendly `kotlin.math.expm1` over the JVM-only `Math.expm1`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseKotlinMathExpm1$KtRecipe","displayName":"Use `kotlin.math.expm1` instead of `java.lang.Math.expm1`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

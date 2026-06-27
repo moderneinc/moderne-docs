@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `requireNotNull(x)` without an explanatory message"}
-  description={"`requireNotNull(x)` throws an `IllegalArgumentException` with a generic message. Pass a lazy message — `requireNotNull(x) { \"x must be set before init\" }` — so the stack trace explains the precondition."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindRequireNotNullWithoutMessage$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findrequirenotnullwithoutmessage$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `requireNotNull(x)` without an explanatory message</RecipeHeader.Title>
+
+<RecipeHeader.Description>`requireNotNull(x)` throws an `IllegalArgumentException` with a generic message. Pass a lazy message — `requireNotNull(x) { "x must be set before init" }` — so the stack trace explains the precondition.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindRequireNotNullWithoutMessage$KtRecipe","displayName":"Find `requireNotNull(x)` without an explanatory message","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

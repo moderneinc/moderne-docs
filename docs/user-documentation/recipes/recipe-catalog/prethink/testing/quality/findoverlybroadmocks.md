@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find overly broad mocks"}
-  description={"Detect Mockito stubbing or verification calls that use 3 or more any() matchers, which can hide incorrect arguments and reduce test effectiveness."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindOverlyBroadMocks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findoverlybroadmocks.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find overly broad mocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect Mockito stubbing or verification calls that use 3 or more any() matchers, which can hide incorrect arguments and reduce test effectiveness.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.mockito.Mockito;\nimport static org.mockito.Mockito.*;\nimport static org.mockito.ArgumentMatchers.*;\n\nclass MyServiceTest {\n    interface MyService {\n        String call(String a, String b, String c);\n    }\n\n    @org.junit.jupiter.api.Test\n    void testWithBroadMatchers() {\n        MyService mock = Mockito.mock(MyService.class);\n        when(mock.call(any(), any(), any())).thenReturn(\"result\");\n    }\n}\n"},"variants":[]}]}>
 

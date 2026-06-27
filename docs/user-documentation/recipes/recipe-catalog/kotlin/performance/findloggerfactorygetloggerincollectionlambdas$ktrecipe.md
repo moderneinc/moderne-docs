@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LoggerFactory.getLogger` calls inside collection lambdas"}
-  description={"`LoggerFactory.getLogger(...)` resolves the logger through SLF4J on every call. Inside a collection lambda that resolves the same logger per element — hoist it to a `private val` companion property."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindLoggerFactoryGetLoggerInCollectionLambdas$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findloggerfactorygetloggerincollectionlambdas$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LoggerFactory.getLogger` calls inside collection lambdas</RecipeHeader.Title>
+
+<RecipeHeader.Description>`LoggerFactory.getLogger(...)` resolves the logger through SLF4J on every call. Inside a collection lambda that resolves the same logger per element — hoist it to a `private val` companion property.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindLoggerFactoryGetLoggerInCollectionLambdas$KtRecipe","displayName":"Find `LoggerFactory.getLogger` calls inside collection lambdas","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace 'camel.main.backlogTracing' with `camel.trace.enabled'"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel45.TraceProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel45/traceproperties.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change property key","href":"properties/changepropertykey"}]}>
+<RecipeHeader.Title>Replace 'camel.main.backlogTracing' with `camel.trace.enabled'</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"}]}>
 
 ## Definition
 

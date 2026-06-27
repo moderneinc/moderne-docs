@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring Theme support usage"}
-  description={"Spring Framework 7.0 removes Theme support entirely. This recipe identifies usages of Theme-related classes like `ThemeResolver`, `ThemeSource`, and `ThemeChangeInterceptor` that need to be removed or replaced with CSS-based alternatives. The Spring team recommends using CSS directly for theming functionality."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.FindThemeSupportUsage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/findthemesupportusage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Spring Theme support usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Framework 7.0 removes Theme support entirely. This recipe identifies usages of Theme-related classes like `ThemeResolver`, `ThemeSource`, and `ThemeChangeInterceptor` that need to be removed or replaced with CSS-based alternatives. The Spring team recommends using CSS directly for theming functionality.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.java.spring.framework7.FindThemeSupportUsage","displayName":"Find Spring Theme support usage","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

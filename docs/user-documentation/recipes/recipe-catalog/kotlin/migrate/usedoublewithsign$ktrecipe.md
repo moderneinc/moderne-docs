@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Double.withSign` instead of `java.lang.Math.copySign`"}
-  description={"`Math.copySign(magnitude, sign)` becomes `magnitude.withSign(sign)` — the multiplatform Kotlin extension expresses the same magnitude/sign combination as a receiver call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseDoubleWithSign$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublewithsign$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Double.withSign` instead of `java.lang.Math.copySign`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Math.copySign(magnitude, sign)` becomes `magnitude.withSign(sign)` — the multiplatform Kotlin extension expresses the same magnitude/sign combination as a receiver call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseDoubleWithSign$KtRecipe","displayName":"Use `Double.withSign` instead of `java.lang.Math.copySign`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Encrypt EBS volumes"}
-  description={"Encrypting EBS volumes ensures that replicated copies of your images are secure even if they are accidentally exposed. AWS EBS encryption uses AWS KMS customer master keys (CMK) when creating encrypted volumes and snapshots. Storing EBS volumes in their encrypted state reduces the risk of data exposure or data loss."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["CKV_AWS_3","terraform","AWS"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.aws.EncryptEBSVolumes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/aws/encryptebsvolumes.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Encrypt EBS volumes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Encrypting EBS volumes ensures that replicated copies of your images are secure even if they are accidentally exposed. AWS EBS encryption uses AWS KMS customer master keys (CMK) when creating encrypted volumes and snapshots. Storing EBS volumes in their encrypted state reduces the risk of data exposure or data loss.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

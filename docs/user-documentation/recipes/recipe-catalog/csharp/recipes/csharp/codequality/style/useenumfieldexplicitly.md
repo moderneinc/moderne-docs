@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use enum field explicitly"}
-  description={"Use named enum field instead of cast integer value."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseEnumFieldExplicitly"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/useenumfieldexplicitly.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use enum field explicitly</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use named enum field instead of cast integer value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseEnumFieldExplicitly","displayName":"Use enum field explicitly","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

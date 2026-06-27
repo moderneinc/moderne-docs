@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `!!` not-null assertions"}
-  description={"Each `!!` is a runtime promise — when the receiver turns out to be `null`, the program crashes with a `NullPointerException`. A reviewer or LLM agent reading the code should know which positions are betting against the type system; many of them are candidates for `?.let { … }` or a `requireNotNull` with a better diagnostic."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindNotNullAssertions$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findnotnullassertions$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `!!` not-null assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `!!` is a runtime promise — when the receiver turns out to be `null`, the program crashes with a `NullPointerException`. A reviewer or LLM agent reading the code should know which positions are betting against the type system; many of them are candidates for `?.let { … }` or a `requireNotNull` with a better diagnostic.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindNotNullAssertions$KtRecipe","displayName":"Find `!!` not-null assertions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

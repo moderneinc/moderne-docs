@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `GlobalScope.actor` calls"}
-  description={"`GlobalScope.actor { }` is structurally identical to `GlobalScope.launch`: the actor coroutine has no parent and cannot be cancelled cooperatively. Use a lifecycle-scoped `actor` instead."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindGlobalScopeActor$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findglobalscopeactor$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `GlobalScope.actor` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`GlobalScope.actor { }` is structurally identical to `GlobalScope.launch`: the actor coroutine has no parent and cannot be cancelled cooperatively. Use a lifecycle-scoped `actor` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindGlobalScopeActor$KtRecipe","displayName":"Find `GlobalScope.actor` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

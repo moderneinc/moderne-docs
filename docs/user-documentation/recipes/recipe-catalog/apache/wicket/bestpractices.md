@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Wicket best practices"}
-  description={"Applies Wicket best practices such as minimizing anonymous inner classes and upgrading to the latest version."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.wicket.BestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/wicket/bestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Wicket 10.x","href":"apache/wicket/migratetowicket10"}]}>
+<RecipeHeader.Title>Wicket best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies Wicket best practices such as minimizing anonymous inner classes and upgrading to the latest version.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Wicket 10.x","href":"/user-documentation/recipes/recipe-catalog/apache/wicket/migratetowicket10/"}]}>
 
 ## Definition
 

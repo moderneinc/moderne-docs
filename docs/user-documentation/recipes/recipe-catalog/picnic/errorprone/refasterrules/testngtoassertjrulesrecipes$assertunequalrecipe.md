@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TestNGToAssertJRules.AssertUnequal`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertUnequal {\n    \n    @BeforeTemplate\n    void before(boolean actual, boolean expected) {\n        assertNotEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(byte actual, byte expected) {\n        assertNotEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(char actual, char expected) {\n        assertNotEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(short actual, short expected) {\n        assertNotEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(int actual, int expected) {\n        assertNotEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(long actual, long expected) {\n        assertNotEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(float actual, float expected) {\n        assertNotEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(double actual, double expected) {\n        assertNotEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Object actual, Object expected) {\n        assertNotEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(String actual, String expected) {\n        assertNotEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Set<?> actual, Set<?> expected) {\n        assertNotEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Map<?, ?> actual, Map<?, ?> expected) {\n        assertNotEquals(actual, expected);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Object actual, Object expected) {\n        assertThat(actual).isNotEqualTo(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,88 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertUnequalRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequalrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TestNGToAssertJRules.AssertUnequal`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertUnequal {
+    
+    @BeforeTemplate
+    void before(boolean actual, boolean expected) {
+        assertNotEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(byte actual, byte expected) {
+        assertNotEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(char actual, char expected) {
+        assertNotEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(short actual, short expected) {
+        assertNotEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(int actual, int expected) {
+        assertNotEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(long actual, long expected) {
+        assertNotEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(float actual, float expected) {
+        assertNotEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(double actual, double expected) {
+        assertNotEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Object actual, Object expected) {
+        assertNotEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(String actual, String expected) {
+        assertNotEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Set<?> actual, Set<?> expected) {
+        assertNotEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Map<?, ?> actual, Map<?, ?> expected) {
+        assertNotEquals(actual, expected);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(Object actual, Object expected) {
+        assertThat(actual).isNotEqualTo(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertUnequalRecipe","displayName":"Refaster template `TestNGToAssertJRules.AssertUnequal`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

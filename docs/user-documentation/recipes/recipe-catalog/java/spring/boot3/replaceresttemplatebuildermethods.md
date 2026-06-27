@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated setters in `RestTemplateBuilder`"}
-  description={"Replaces `setConnectTimeout`, `setReadTimeout`, and `setSslBundle` method invocations with `connectTimeout`, `readTimeout`, and `sslBundle` respectively."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.ReplaceRestTemplateBuilderMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/replaceresttemplatebuildermethods.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Replace `RestTemplateBuilder.requestFactory(Function)` with `requestFactoryBuilder`","href":"java/spring/boot3/replaceresttemplatebuilderrequestfactorymethod"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Replace deprecated setters in `RestTemplateBuilder`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `setConnectTimeout`, `setReadTimeout`, and `setSslBundle` method invocations with `connectTimeout`, `readTimeout`, and `sslBundle` respectively.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Replace `RestTemplateBuilder.requestFactory(Function)` with `requestFactoryBuilder`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/replaceresttemplatebuilderrequestfactorymethod/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

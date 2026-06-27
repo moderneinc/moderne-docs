@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LoggerFactory.getLogger(SomeClass::class.java)` calls"}
-  description={"`LoggerFactory.getLogger(Foo::class.java)` is the Java idiom Kotlin code inherited. kotlin-logging's `KotlinLogging.logger { }` infers the enclosing class automatically (via the stack frame at site of declaration) and avoids the `::class.java` reflection round-trip."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindLoggerFactoryGetLogger$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfactorygetlogger$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LoggerFactory.getLogger(SomeClass::class.java)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`LoggerFactory.getLogger(Foo::class.java)` is the Java idiom Kotlin code inherited. kotlin-logging's `KotlinLogging.logger { }` infers the enclosing class automatically (via the stack frame at site of declaration) and avoids the `::class.java` reflection round-trip.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindLoggerFactoryGetLogger$KtRecipe","displayName":"Find `LoggerFactory.getLogger(SomeClass::class.java)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

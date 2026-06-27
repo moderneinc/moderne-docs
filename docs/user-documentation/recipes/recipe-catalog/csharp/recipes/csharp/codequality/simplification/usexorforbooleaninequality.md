@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use ^ operator for boolean inequality"}
-  description={"Replace a != b with a ^ b when both operands are boolean."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseXorForBooleanInequality"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usexorforbooleaninequality.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use ^ operator for boolean inequality</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace a != b with a ^ b when both operands are boolean.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseXorForBooleanInequality","displayName":"Use ^ operator for boolean inequality","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

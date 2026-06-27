@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Mongoose schemas"}
-  description={"Identify Mongoose models and schemas in Node.js applications. Detects mongoose.model() calls and populates the DatabaseConnections table."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindMongooseSchemas"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findmongooseschemas.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Mongoose schemas</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify Mongoose models and schemas in Node.js applications. Detects mongoose.model() calls and populates the DatabaseConnections table.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindMongooseSchemas","displayName":"Find Mongoose schemas","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

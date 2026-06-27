@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `RestTemplateBuilder#setConnectTimeout(Duration)` and `RestTemplateBuilder#setReadTimeout(Duration)`"}
-  description={"`RestTemplateBuilder#setConnectTimeout(int)` and `RestTemplateBuilder#setReadTimeout(int)` were deprecated in Spring Boot 2.1."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateRestTemplateBuilderTimeoutByInt"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateresttemplatebuildertimeoutbyint.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `RestTemplateBuilder#setConnectTimeout(Duration)` and `RestTemplateBuilder#setReadTimeout(Duration)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`RestTemplateBuilder#setConnectTimeout(int)` and `RestTemplateBuilder#setReadTimeout(int)` were deprecated in Spring Boot 2.1.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.web.client.RestTemplateBuilder;\nimport org.springframework.web.client.RestTemplate;\n\nclass Test {\n    RestTemplate template = new RestTemplateBuilder()\n            .setConnectTimeout(1)\n            .setReadTimeout(1)\n            .build();\n}\n","after":"import org.springframework.boot.web.client.RestTemplateBuilder;\nimport org.springframework.web.client.RestTemplate;\n\nimport java.time.Duration;\n\nclass Test {\n    RestTemplate template = new RestTemplateBuilder()\n            .setConnectTimeout(Duration.ofMillis(1))\n            .setReadTimeout(Duration.ofMillis(1))\n            .build();\n}\n","diff":"@@ -4,0 +4,2 @@\nimport org.springframework.web.client.RestTemplate;\n\n+import java.time.Duration;\n+\nclass Test {\n@@ -6,2 +8,2 @@\nclass Test {\n    RestTemplate template = new RestTemplateBuilder()\n-           .setConnectTimeout(1)\n-           .setReadTimeout(1)\n+           .setConnectTimeout(Duration.ofMillis(1))\n+           .setReadTimeout(Duration.ofMillis(1))\n            .build();\n","newFile":false}]}]}>
 

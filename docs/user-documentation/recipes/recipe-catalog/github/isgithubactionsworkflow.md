@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Is GitHub Actions Workflow"}
-  description={"Checks if the file is a GitHub Actions workflow file."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.IsGitHubActionsWorkflow"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/isgithubactionsworkflow.md"}
-/>
+>
+
+<RecipeHeader.Title>Is GitHub Actions Workflow</RecipeHeader.Title>
+
+<RecipeHeader.Description>Checks if the file is a GitHub Actions workflow file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"on:\n  push:\n    branches:\n      - main\n","after":"on:\n  push:\n    branches:\n      - main\n","diff":"","newFile":false}]}]}>
 

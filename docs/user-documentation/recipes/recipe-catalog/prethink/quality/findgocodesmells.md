@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Go code smells"}
-  description={"Detect God Struct, Feature Envy, Large Interface, and Long Function code smells in Go. Data Class is intentionally excluded (idiomatic in Go)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.quality.FindGoCodeSmells"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/quality/findgocodesmells.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Go code smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect God Struct, Feature Envy, Large Interface, and Long Function code smells in Go. Data Class is intentionally excluded (idiomatic in Go).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.quality.FindGoCodeSmells","displayName":"Find Go code smells","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

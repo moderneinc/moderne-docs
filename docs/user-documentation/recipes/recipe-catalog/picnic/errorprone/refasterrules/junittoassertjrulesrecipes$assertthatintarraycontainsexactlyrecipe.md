@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `JUnitToAssertJRules.AssertThatIntArrayContainsExactly`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIntArrayContainsExactly {\n    \n    @BeforeTemplate\n    void before(int[] actual, int[] expected) {\n        assertArrayEquals(expected, actual);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(int[] actual, int[] expected) {\n        assertThat(actual).containsExactly(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatIntArrayContainsExactlyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatintarraycontainsexactlyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatIntArrayContainsExactly`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIntArrayContainsExactly {
+    
+    @BeforeTemplate
+    void before(int[] actual, int[] expected) {
+        assertArrayEquals(expected, actual);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(int[] actual, int[] expected) {
+        assertThat(actual).containsExactly(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatIntArrayContainsExactlyRecipe","displayName":"Refaster template `JUnitToAssertJRules.AssertThatIntArrayContainsExactly`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

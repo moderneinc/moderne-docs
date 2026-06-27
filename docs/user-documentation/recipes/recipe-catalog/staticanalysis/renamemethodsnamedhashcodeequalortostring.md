@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename methods named `hashcode`, `equal`, or `tostring`"}
-  description={"Methods should not be named `hashcode`, `equal`, or `tostring`. Any of these are confusing as they appear to be intended as overridden methods from the `Object` base class, despite being case-insensitive. These near-miss names are almost certainly spelling mistakes that silently introduce a new method instead of overriding the intended one."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1221"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RenameMethodsNamedHashcodeEqualOrToString"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/renamemethodsnamedhashcodeequalortostring.md"}
-/>
+>
+
+<RecipeHeader.Title>Rename methods named `hashcode`, `equal`, or `tostring`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Methods should not be named `hashcode`, `equal`, or `tostring`. Any of these are confusing as they appear to be intended as overridden methods from the `Object` base class, despite being case-insensitive. These near-miss names are almost certainly spelling mistakes that silently introduce a new method instead of overriding the intended one.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"interface ITest {\n    int HASHcoDE();\n\n    boolean equal(Object obj);\n\n    String tostring();\n}\n\nclass Test {\n    public int hashcode() {\n        return 0;\n    }\n\n    public boolean equal(Object obj) {\n        return false;\n    }\n\n    public String tostring() {\n        return \"\";\n    }\n}\n","after":"interface ITest {\n    int hashCode();\n\n    boolean equals(Object obj);\n\n    String toString();\n}\n\nclass Test {\n    public int hashCode() {\n        return 0;\n    }\n\n    public boolean equals(Object obj) {\n        return false;\n    }\n\n    public String toString() {\n        return \"\";\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\ninterface ITest {\n-   int HASHcoDE();\n+   int hashCode();\n\n@@ -4,1 +4,1 @@\n    int HASHcoDE();\n\n-   boolean equal(Object obj);\n+   boolean equals(Object obj);\n\n@@ -6,1 +6,1 @@\n    boolean equal(Object obj);\n\n-   String tostring();\n+   String toString();\n}\n@@ -10,1 +10,1 @@\n\nclass Test {\n-   public int hashcode() {\n+   public int hashCode() {\n        return 0;\n@@ -14,1 +14,1 @@\n    }\n\n-   public boolean equal(Object obj) {\n+   public boolean equals(Object obj) {\n        return false;\n@@ -18,1 +18,1 @@\n    }\n\n-   public String tostring() {\n+   public String toString() {\n        return \"\";\n","newFile":false}]}]}>
 

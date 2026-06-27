@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ReactorRules.MonoFromFutureAsyncLoadingCacheGet`"}
-  description={"Don't propagate `Mono` cancellations to an upstream cache value computation, as completion of such computations may benefit concurrent or subsequent cache usages."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoFromFutureAsyncLoadingCacheGetRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes$monofromfutureasyncloadingcachegetrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ReactorRules.MonoFromFutureAsyncLoadingCacheGet`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Don't propagate `Mono` cancellations to an upstream cache value computation, as completion of such computations may benefit concurrent or subsequent cache usages.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoFromFutureAsyncLoadingCacheGetRecipe","displayName":"Refaster template `ReactorRules.MonoFromFutureAsyncLoadingCacheGet`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

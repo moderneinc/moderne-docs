@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `BigInteger.valueOf(long)` calls inside loops"}
-  description={"`BigInteger.valueOf` caches small values (-16..16) but allocates fresh `BigInteger` instances outside that range. Loop bodies frequently feed it dynamic values — hoist a constant where possible or accept the allocation cost."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindBigIntegerValueOfInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findbigintegervalueofinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `BigInteger.valueOf(long)` calls inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>`BigInteger.valueOf` caches small values (-16..16) but allocates fresh `BigInteger` instances outside that range. Loop bodies frequently feed it dynamic values — hoist a constant where possible or accept the allocation cost.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindBigIntegerValueOfInLoops$KtRecipe","displayName":"Find `BigInteger.valueOf(long)` calls inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

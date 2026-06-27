@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `isCloseTo` with `isEqualTo`"}
-  description={"Replace `isCloseTo` with `isEqualTo` when `offset` or `percentage` is zero."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.AssertJShortRulesRecipes$AbstractShortAssertIsEqualToRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjshortrulesrecipes$abstractshortassertisequaltorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `isCloseTo` with `isEqualTo`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `isCloseTo` with `isEqualTo` when `offset` or `percentage` is zero.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJShortRulesRecipes$AbstractShortAssertIsEqualToRecipe","displayName":"Replace `isCloseTo` with `isEqualTo`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

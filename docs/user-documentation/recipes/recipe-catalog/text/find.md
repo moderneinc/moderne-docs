@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find text"}
-  description={"Textual search, optionally using Regular Expression (regex) to query."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.text.Find"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/text/find.md"}
-/>
+>
+
+<RecipeHeader.Title>Find text</RecipeHeader.Title>
+
+<RecipeHeader.Description>Textual search, optionally using Regular Expression (regex) to query.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"find","required":true,"description":"The text to find. This snippet can be multiline.","example":"blacklist"},{"type":"Boolean","name":"regex","required":false,"description":"If true, `find` will be interpreted as a [Regular Expression](https://en.wikipedia.org/wiki/Regular_expression). Default `false`."},{"type":"Boolean","name":"caseSensitive","required":false,"description":"If `true` the search will be sensitive to case. Default `false`."},{"type":"Boolean","name":"multiline","required":false,"description":"When performing a regex search setting this to `true` allows \"^\" and \"$\" to match the beginning and end of lines, respectively. When performing a regex search when this is `false` \"^\" and \"$\" will match only the beginning and ending of the entire source file, respectively.Has no effect when not performing a regex search. Default `false`."},{"type":"Boolean","name":"dotAll","required":false,"description":"When performing a regex search setting this to `true` allows \".\" to match line terminators.Has no effect when not performing a regex search. Default `false`."},{"type":"String","name":"filePattern","required":false,"description":"A glob expression that can be used to constrain which directories or source files should be searched. Multiple patterns may be specified, separated by a semicolon `;`. If multiple patterns are supplied any of the patterns matching will be interpreted as a match. When not set, all source files are searched.","example":"**/*.java"},{"type":"Boolean","name":"description","required":false,"description":"Add the matched value(s) as description on the search result marker.  Default `false`."},{"type":"Integer","name":"contextSize","required":false,"description":"The number of characters to include in the datatable before and after the match. Default `0`, `-1` indicates that the whole text should be used.","example":"50"}]}>
 

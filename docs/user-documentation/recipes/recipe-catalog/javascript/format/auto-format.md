@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Auto-format JavaScript/TypeScript code"}
-  description={"Format JavaScript and TypeScript code using formatting rules auto-detected from the project's existing code style."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.format.auto-format"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/format/auto-format.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Auto-format JavaScript/TypeScript code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format JavaScript and TypeScript code using formatting rules auto-detected from the project's existing code style.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.javascript.format.auto-format","displayName":"Auto-format JavaScript/TypeScript code","npmPackage":"@openrewrite/rewrite"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Expression is always true or false"}
-  description={"Simplify `x == x` to `true` and `x != x` to `false`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.ExpressionAlwaysTrueOrFalse"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/expressionalwaystrueorfalse.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Expression is always true or false</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify `x == x` to `true` and `x != x` to `false`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.ExpressionAlwaysTrueOrFalse","displayName":"Expression is always true or false","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

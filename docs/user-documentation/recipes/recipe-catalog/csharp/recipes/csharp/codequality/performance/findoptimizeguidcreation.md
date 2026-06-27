@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Guid.Parse with constant string"}
-  description={"Detect `Guid.Parse(\"...\")` with constant strings. Consider using `new Guid(\"...\")` or a static readonly field for better performance."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindOptimizeGuidCreation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findoptimizeguidcreation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Guid.Parse with constant string</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `Guid.Parse("...")` with constant strings. Consider using `new Guid("...")` or a static readonly field for better performance.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindOptimizeGuidCreation","displayName":"Find Guid.Parse with constant string","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

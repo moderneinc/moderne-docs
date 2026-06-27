@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify nested using statement"}
-  description={"Merge nested `using` statements into a single `using` declaration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyNestedUsingStatement"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifynestedusingstatement.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify nested using statement</RecipeHeader.Title>
+
+<RecipeHeader.Description>Merge nested `using` statements into a single `using` declaration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyNestedUsingStatement","displayName":"Simplify nested using statement","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find async call missing CancellationToken"}
-  description={"Detect async method calls that don't pass a `CancellationToken` when the enclosing method has one available as a parameter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingCancellationTokenOverload"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findmissingcancellationtokenoverload.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find async call missing CancellationToken</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect async method calls that don't pass a `CancellationToken` when the enclosing method has one available as a parameter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingCancellationTokenOverload","displayName":"Find async call missing CancellationToken","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

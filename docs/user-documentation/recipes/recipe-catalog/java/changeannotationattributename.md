@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change annotation attribute name"}
-  description={"Some annotations accept arguments. This recipe renames an existing attribute."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.ChangeAnnotationAttributeName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/changeannotationattributename.md"}
-/>
+>
+
+<RecipeHeader.Title>Change annotation attribute name</RecipeHeader.Title>
+
+<RecipeHeader.Description>Some annotations accept arguments. This recipe renames an existing attribute.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"annotationType","required":true,"description":"The fully qualified name of the annotation.","example":"org.junit.Test"},{"type":"String","name":"oldAttributeName","required":true,"description":"The name of attribute to change.","example":"timeout"},{"type":"String","name":"newAttributeName","required":true,"description":"The new attribute name to use.","example":"waitFor"}]}>
 

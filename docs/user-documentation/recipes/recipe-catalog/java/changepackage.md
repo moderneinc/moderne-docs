@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename package name"}
-  description={"A recipe that will rename a package name in package statements, imports, and fully-qualified types."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.ChangePackage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/changepackage.md"}
-/>
+>
+
+<RecipeHeader.Title>Rename package name</RecipeHeader.Title>
+
+<RecipeHeader.Description>A recipe that will rename a package name in package statements, imports, and fully-qualified types.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldPackageName","required":true,"description":"The package name to replace.","example":"com.yourorg.foo"},{"type":"String","name":"newPackageName","required":true,"description":"New package name to replace the old package name with.","example":"com.yourorg.bar"},{"type":"Boolean","name":"recursive","required":false,"description":"Recursively change subpackage names"}]}>
 

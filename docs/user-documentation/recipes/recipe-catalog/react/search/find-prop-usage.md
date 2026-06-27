@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find React prop usage"}
-  description={"Finds all prop usages on React JSX elements, with optional filtering by component and prop name."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.search.find-prop-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/search/find-prop-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find React prop usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds all prop usages on React JSX elements, with optional filtering by component and prop name.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"componentName","required":false,"description":"Optional component name to filter (e.g., 'Button'). If not specified, finds props on all components.","example":"Button"},{"type":"String","name":"propName","required":false,"description":"Optional prop name to filter (e.g., 'onClick'). If not specified, finds all props.","example":"onClick"}]}>
 

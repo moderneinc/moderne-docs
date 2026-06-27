@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"No root containers"}
-  description={"Containers that run as root frequently have more permissions than their workload requires which, in case of compromise, could help an attacker further their exploits."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kubernetes"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.NoRootContainers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/norootcontainers.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"kubernetes/addconfiguration"}]}>
+<RecipeHeader.Title>No root containers</RecipeHeader.Title>
+
+<RecipeHeader.Description>Containers that run as root frequently have more permissions than their workload requires which, in case of compromise, could help an attacker further their exploits.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/addconfiguration/"}]}>
 
 ## Definition
 

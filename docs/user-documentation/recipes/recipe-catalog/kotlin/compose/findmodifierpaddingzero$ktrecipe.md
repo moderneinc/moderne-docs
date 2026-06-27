@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find zero-valued `Modifier.padding(...)` calls"}
-  description={"`Modifier.padding(0.dp)` allocates a `PaddingValues` and a layout pass to inset by zero — the call is a no-op in terms of layout but not at runtime. Drop the call (or split out the surrounding chain so the zero edge isn't expressed at all)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindModifierPaddingZero$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierpaddingzero$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find zero-valued `Modifier.padding(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Modifier.padding(0.dp)` allocates a `PaddingValues` and a layout pass to inset by zero — the call is a no-op in terms of layout but not at runtime. Drop the call (or split out the surrounding chain so the zero edge isn't expressed at all).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindModifierPaddingZero$KtRecipe","displayName":"Find zero-valued `Modifier.padding(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Append to sequence"}
-  description={"Append item to YAML sequence."}
   type={"Single recipe"}
   languages={["YAML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-yaml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.yaml.AppendToSequence"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/yaml/appendtosequence.md"}
-/>
+>
+
+<RecipeHeader.Title>Append to sequence</RecipeHeader.Title>
+
+<RecipeHeader.Description>Append item to YAML sequence.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"sequencePath","required":true,"description":"A [JsonPath](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expression to locate a YAML sequence.","example":"$.universe.planets"},{"type":"String","name":"value","required":true,"description":"The new value to be appended to the sequence.","example":"earth"},{"type":"List","name":"existingSequenceValues","required":false,"description":"If specified, the item will only be appended if the existing sequence matches these values.","example":"existingValue1"},{"type":"Boolean","name":"matchExistingSequenceValuesInAnyOrder","required":false,"description":"If specified in combination with the above parameter, the item will only be appended if the existing sequence has the specified values in any order.","example":"true"}]}>
 

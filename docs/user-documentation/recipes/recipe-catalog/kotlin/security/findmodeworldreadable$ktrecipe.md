@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `MODE_WORLD_READABLE` references"}
-  description={"`MODE_WORLD_READABLE` (and `MODE_WORLD_WRITEABLE`) were deprecated in API 17 and removed for security reasons — any other app on the device can read/write the file. Use the default `MODE_PRIVATE` mode and grant explicit cross-app access via `FileProvider`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindModeWorldReadable$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findmodeworldreadable$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `MODE_WORLD_READABLE` references</RecipeHeader.Title>
+
+<RecipeHeader.Description>`MODE_WORLD_READABLE` (and `MODE_WORLD_WRITEABLE`) were deprecated in API 17 and removed for security reasons — any other app on the device can read/write the file. Use the default `MODE_PRIVATE` mode and grant explicit cross-app access via `FileProvider`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindModeWorldReadable$KtRecipe","displayName":"Find `MODE_WORLD_READABLE` references","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

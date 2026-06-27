@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Java versions in use"}
-  description={"Finds Java versions in use, emitting one row per git repository (the lowest source/target compatibility across modules in that repository)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.search.FindJavaVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/search/findjavaversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Java versions in use</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds Java versions in use, emitting one row per git repository (the lowest source/target compatibility across modules in that repository).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"class A {\n}\n"},"variants":[]}]}>
 

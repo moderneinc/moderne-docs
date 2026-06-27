@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate camel-groovy-xml to camel-groovy"}
-  description={"camel-groovy-xml has been removed and moved into camel-groovy. Changes the dependency from camel-groovy-xml to camel-groovy."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel419.migrateGroovyXml"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/migrategroovyxml.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Maven dependency","href":"maven/changedependencygroupidandartifactid"}]}>
+<RecipeHeader.Title>Migrate camel-groovy-xml to camel-groovy</RecipeHeader.Title>
+
+<RecipeHeader.Description>camel-groovy-xml has been removed and moved into camel-groovy. Changes the dependency from camel-groovy-xml to camel-groovy.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencygroupidandartifactid/"}]}>
 
 ## Definition
 

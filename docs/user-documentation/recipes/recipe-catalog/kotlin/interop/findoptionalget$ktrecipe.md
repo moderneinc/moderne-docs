@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Optional.get()` / `orElseThrow()` calls"}
-  description={"`opt.get()` is the unsafe unwrap that throws `NoSuchElementException` when the Optional is empty — the equivalent of Kotlin's `!!` on a nullable. Once the underlying value type is `T?`, the call site becomes `value!!` (or, better, a `requireNotNull(value)`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindOptionalGet$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalget$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Optional.get()` / `orElseThrow()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`opt.get()` is the unsafe unwrap that throws `NoSuchElementException` when the Optional is empty — the equivalent of Kotlin's `!!` on a nullable. Once the underlying value type is `T?`, the call site becomes `value!!` (or, better, a `requireNotNull(value)`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindOptionalGet$KtRecipe","displayName":"Find `Optional.get()` / `orElseThrow()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

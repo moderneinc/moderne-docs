@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Dropwizard lifecycle.manage() calls"}
-  description={"Removes `environment.lifecycle().manage()` calls. Spring Boot manages bean lifecycle automatically through its IoC container."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.datasource.RemoveLifecycleManageCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/datasource/removelifecyclemanagecalls.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove Dropwizard lifecycle.manage() calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `environment.lifecycle().manage()` calls. Spring Boot manages bean lifecycle automatically through its IoC container.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example;\n\nimport io.dropwizard.db.ManagedDataSource;\nimport io.dropwizard.lifecycle.setup.LifecycleEnvironment;\n\npublic class App {\n    void run(ManagedDataSource dataSource, LifecycleEnvironment lifecycle) {\n        lifecycle.manage(dataSource);\n        System.out.println(\"started\");\n    }\n}\n","after":"package com.example;\n\nimport io.dropwizard.db.ManagedDataSource;\nimport io.dropwizard.lifecycle.setup.LifecycleEnvironment;\n\npublic class App {\n    void run(ManagedDataSource dataSource, LifecycleEnvironment lifecycle) {\n        System.out.println(\"started\");\n    }\n}\n","diff":"@@ -8,1 +8,0 @@\npublic class App {\n    void run(ManagedDataSource dataSource, LifecycleEnvironment lifecycle) {\n-       lifecycle.manage(dataSource);\n        System.out.println(\"started\");\n","newFile":false}]}]}>
 

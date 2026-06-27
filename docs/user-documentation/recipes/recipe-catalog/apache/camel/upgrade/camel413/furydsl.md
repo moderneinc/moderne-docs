@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change dataformat fury to fury in xml/java dsl."}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel413.furyDsl"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel413/furydsl.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML tag name","href":"xml/changetagname"},{"name":"Change XML tag name","href":"xml/changetagname"},{"name":"Change XML tag name","href":"xml/changetagname"},{"name":"Change method name","href":"java/changemethodname"}]}>
+<RecipeHeader.Title>Change dataformat fury to fury in xml/java dsl.</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"},{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"},{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]}>
 
 ## Definition
 

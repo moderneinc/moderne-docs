@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refactored dataFormats (YAML DSL)"}
-  description={"Refactored dataFormats (YAML DSL)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel415.yamDataFormats"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel415/yamdataformats.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml"}]}>
+<RecipeHeader.Title>Refactored dataFormats (YAML DSL)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refactored dataFormats (YAML DSL).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml/"}]}>
 
 ## Definition
 

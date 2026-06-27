@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find missing langword in XML comment"}
-  description={"Detect XML doc comments that reference `null`, `true`, `false` as plain text instead of using `<see langword=\"...\"/>`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseLangwordInXmlComment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finduselangwordinxmlcomment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find missing langword in XML comment</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect XML doc comments that reference `null`, `true`, `false` as plain text instead of using `<see langword="..."/>`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseLangwordInXmlComment","displayName":"Find missing langword in XML comment","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

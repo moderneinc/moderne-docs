@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Mark additional files as Spring configuration"}
-  description={"Attach a `SpringConfigFile` marker to YAML/properties files matching the provided glob patterns so that Spring property recipes such as `ChangeSpringPropertyKey`, `DeleteSpringProperty`, `ChangeSpringPropertyValue`, and `CommentOutSpringPropertyKey` will visit files that live outside standard resource source sets. Files that already pass the `SourceSet`-based check are skipped to avoid redundant markers."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.MarkAdditionalSpringConfigFiles"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/markadditionalspringconfigfiles.md"}
-/>
+>
+
+<RecipeHeader.Title>Mark additional files as Spring configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Attach a `SpringConfigFile` marker to YAML/properties files matching the provided glob patterns so that Spring property recipes such as `ChangeSpringPropertyKey`, `DeleteSpringProperty`, `ChangeSpringPropertyValue`, and `CommentOutSpringPropertyKey` will visit files that live outside standard resource source sets. Files that already pass the `SourceSet`-based check are skipped to avoid redundant markers.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"pathPatterns","required":true,"description":"Glob patterns (relative to the repository root) identifying YAML or properties files that should be treated as Spring configuration even though they live outside a standard `src/main/resources` source set. Files already carrying a `SourceSet` marker are left alone.","example":"**/properties/*.properties"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find PGP secrets"}
-  description={"Locates PGP secrets stored in plain text in code."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.secrets.FindPgpSecrets"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/secrets/findpgpsecrets.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find secrets with regular expressions","href":"java/security/secrets/findsecretsbypattern"}]}>
+<RecipeHeader.Title>Find PGP secrets</RecipeHeader.Title>
+
+<RecipeHeader.Description>Locates PGP secrets stored in plain text in code.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find secrets with regular expressions","href":"/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern/"}]}>
 
 ## Definition
 

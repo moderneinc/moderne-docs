@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit 6 best practices"}
-  description={"Applies best practices to tests."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["junit","testing"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit.JUnit6BestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit/junit6bestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"JUnit 6 migration from JUnit 5.x","href":"java/testing/junit6/junit5to6migration"},{"name":"JUnit Jupiter best practices","href":"java/testing/junit/jupiterbestpractices"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>JUnit 6 best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies best practices to tests.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"JUnit 6 migration from JUnit 5.x","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration/"},{"name":"JUnit Jupiter best practices","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit/jupiterbestpractices/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

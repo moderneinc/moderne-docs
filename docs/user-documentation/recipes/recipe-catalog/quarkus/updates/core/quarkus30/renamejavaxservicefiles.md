@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename a file example"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus30.RenameJavaxServiceFiles"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/renamejavaxservicefiles.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename a file","href":"core/renamefile"},{"name":"Rename a file","href":"core/renamefile"},{"name":"Rename a file","href":"core/renamefile"},{"name":"Rename a file","href":"core/renamefile"},{"name":"Rename a file","href":"core/renamefile"}]}>
+<RecipeHeader.Title>Rename a file example</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename a file","href":"/user-documentation/recipes/recipe-catalog/core/renamefile/"},{"name":"Rename a file","href":"/user-documentation/recipes/recipe-catalog/core/renamefile/"},{"name":"Rename a file","href":"/user-documentation/recipes/recipe-catalog/core/renamefile/"},{"name":"Rename a file","href":"/user-documentation/recipes/recipe-catalog/core/renamefile/"},{"name":"Rename a file","href":"/user-documentation/recipes/recipe-catalog/core/renamefile/"}]}>
 
 ## Definition
 

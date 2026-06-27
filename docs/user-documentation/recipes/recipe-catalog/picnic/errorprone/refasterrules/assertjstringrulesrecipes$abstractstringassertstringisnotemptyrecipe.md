@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJStringRules.AbstractStringAssertStringIsNotEmpty`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractStringAssertStringIsNotEmpty {\n    \n    @BeforeTemplate\n    AbstractStringAssert<?> before(AbstractStringAssert<?> stringAssert) {\n        return stringAssert.isNotEqualTo(\"\");\n    }\n    \n    @AfterTemplate\n    AbstractStringAssert<?> after(AbstractStringAssert<?> stringAssert) {\n        return stringAssert.isNotEmpty();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AbstractStringAssertStringIsNotEmptyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstringrulesrecipes$abstractstringassertstringisnotemptyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJStringRules.AbstractStringAssertStringIsNotEmpty`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractStringAssertStringIsNotEmpty {
+    
+    @BeforeTemplate
+    AbstractStringAssert<?> before(AbstractStringAssert<?> stringAssert) {
+        return stringAssert.isNotEqualTo("");
+    }
+    
+    @AfterTemplate
+    AbstractStringAssert<?> after(AbstractStringAssert<?> stringAssert) {
+        return stringAssert.isNotEmpty();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AbstractStringAssertStringIsNotEmptyRecipe","displayName":"Refaster template `AssertJStringRules.AbstractStringAssertStringIsNotEmpty`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

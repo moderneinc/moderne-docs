@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find raw string with implicit end of line"}
-  description={"Detect raw string literals (`\"\"\"...\"\"\"`) that contain implicit end-of-line characters which may behave differently across platforms."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindRawStringImplicitEndOfLine"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findrawstringimplicitendofline.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find raw string with implicit end of line</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect raw string literals (`"""..."""`) that contain implicit end-of-line characters which may behave differently across platforms.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindRawStringImplicitEndOfLine","displayName":"Find raw string with implicit end of line","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

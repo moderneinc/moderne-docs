@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `String.toLong()` instead of `java.lang.Long.parseLong(s)`"}
-  description={"Java-idiom `Long.parseLong(s)` migrates to the Kotlin extension `s.toLong()`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseStringToLong$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtolong$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `String.toLong()` instead of `java.lang.Long.parseLong(s)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java-idiom `Long.parseLong(s)` migrates to the Kotlin extension `s.toLong()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseStringToLong$KtRecipe","displayName":"Use `String.toLong()` instead of `java.lang.Long.parseLong(s)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

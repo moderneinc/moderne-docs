@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `AtomicBoolean#weakCompareAndSetPlain(boolean, boolean)`"}
-  description={"Use `AtomicBoolean#weakCompareAndSetPlain(boolean, boolean)` instead of the deprecated `AtomicBoolean#weakCompareAndSet(boolean, boolean)` in Java 9 or higher."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.concurrent.MigrateAtomicBooleanWeakCompareAndSetToWeakCompareAndSetPlain"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/concurrent/migrateatomicbooleanweakcompareandsettoweakcompareandsetplain.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use `AtomicBoolean#weakCompareAndSetPlain(boolean, boolean)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `AtomicBoolean#weakCompareAndSetPlain(boolean, boolean)` instead of the deprecated `AtomicBoolean#weakCompareAndSet(boolean, boolean)` in Java 9 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

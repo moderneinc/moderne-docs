@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit 4 `@Rule Timeout` to JUnit Jupiter's `Timeout`"}
-  description={"Replace usages of JUnit 4's `@Rule Timeout` with JUnit 5 `Timeout` class annotation."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.TimeoutRuleToClassAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/timeoutruletoclassannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit 4 `@Rule Timeout` to JUnit Jupiter's `Timeout`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace usages of JUnit 4's `@Rule Timeout` with JUnit 5 `Timeout` class annotation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Rule;\nimport org.junit.rules.Timeout;\nimport java.util.concurrent.TimeUnit;\n\nclass MyTest {\n\n    @Rule\n    public Timeout timeout = new Timeout(30);\n\n    void testMethod() {\n    }\n}\n","after":"import org.junit.jupiter.api.Timeout;\n\nimport java.util.concurrent.TimeUnit;\n\n@Timeout(value = 30, unit = TimeUnit.MILLISECONDS)\nclass MyTest {\n\n    void testMethod() {\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.junit.Rule;\n-import org.junit.rules.Timeout;\n+import org.junit.jupiter.api.Timeout;\n+\nimport java.util.concurrent.TimeUnit;\n@@ -5,0 +5,1 @@\nimport java.util.concurrent.TimeUnit;\n\n+@Timeout(value = 30, unit = TimeUnit.MILLISECONDS)\nclass MyTest {\n@@ -7,3 +8,0 @@\nclass MyTest {\n\n-   @Rule\n-   public Timeout timeout = new Timeout(30);\n-\n    void testMethod() {\n","newFile":false}]}]}>
 

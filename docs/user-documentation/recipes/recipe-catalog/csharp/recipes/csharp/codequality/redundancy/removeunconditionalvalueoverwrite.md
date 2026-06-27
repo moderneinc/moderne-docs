@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unconditional value overwrite"}
-  description={"Remove consecutive assignments to the same collection key or index where the first value is immediately overwritten and never read."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","redundancy","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveUnconditionalValueOverwrite"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeunconditionalvalueoverwrite.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unconditional value overwrite</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove consecutive assignments to the same collection key or index where the first value is immediately overwritten and never read.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveUnconditionalValueOverwrite","displayName":"Remove unconditional value overwrite","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

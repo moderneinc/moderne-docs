@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find function parameters typed `Optional<T>`"}
-  description={"Taking `Optional<T>` as a parameter is strictly weaker than `T?` — every caller wraps the same value in an Optional, the function unwraps it, and the type system stops helping with null checking. The nullable parameter form composes with default arguments and `?.`/`?:` operators."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindOptionalParam$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalparam$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find function parameters typed `Optional<T>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Taking `Optional<T>` as a parameter is strictly weaker than `T?` — every caller wraps the same value in an Optional, the function unwraps it, and the type system stops helping with null checking. The nullable parameter form composes with default arguments and `?.`/`?:` operators.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindOptionalParam$KtRecipe","displayName":"Find function parameters typed `Optional<T>`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

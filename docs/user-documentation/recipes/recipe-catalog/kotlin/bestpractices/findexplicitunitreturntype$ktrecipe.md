@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find functions with explicit `: Unit` return type"}
-  description={"Kotlin functions that don't declare a return type return `Unit` by convention. Writing `: Unit` explicitly adds noise — drop it unless the explicit form aids a generated API surface (e.g. `@JvmOverloads`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindExplicitUnitReturnType$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findexplicitunitreturntype$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find functions with explicit `: Unit` return type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotlin functions that don't declare a return type return `Unit` by convention. Writing `: Unit` explicitly adds noise — drop it unless the explicit form aids a generated API surface (e.g. `@JvmOverloads`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindExplicitUnitReturnType$KtRecipe","displayName":"Find functions with explicit `: Unit` return type","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

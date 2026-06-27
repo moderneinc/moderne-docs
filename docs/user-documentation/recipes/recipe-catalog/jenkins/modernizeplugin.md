@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Modernize a Jenkins plugin to the latest recommended versions"}
-  description={"This recipe is intended to change over time to reflect the recommended tooling and [recommended Jenkins baseline](https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.ModernizePlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/modernizeplugin.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Maven parent","href":"maven/changeparentpom"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Migrate to HtmlUnit 3.x","href":"java/testing/htmlunit/upgradehtmlunit_3"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Upgrade property's value to version","href":"jenkins/upgradeversionproperty"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Add or correct Jenkins plugins BOM","href":"jenkins/addpluginsbom"},{"name":"Rename package name","href":"java/changepackage"}]}>
+<RecipeHeader.Title>Modernize a Jenkins plugin to the latest recommended versions</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe is intended to change over time to reflect the recommended tooling and [recommended Jenkins baseline](https://www.jenkins.io/doc/developer/plugin-development/choosing-jenkins-baseline/).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Maven parent","href":"/user-documentation/recipes/recipe-catalog/maven/changeparentpom/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Migrate to HtmlUnit 3.x","href":"/user-documentation/recipes/recipe-catalog/java/testing/htmlunit/upgradehtmlunit_3/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Upgrade property's value to version","href":"/user-documentation/recipes/recipe-catalog/jenkins/upgradeversionproperty/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Add or correct Jenkins plugins BOM","href":"/user-documentation/recipes/recipe-catalog/jenkins/addpluginsbom/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]}>
 
 ## Definition
 

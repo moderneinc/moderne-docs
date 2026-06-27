@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `List.of(..)` in Java 9 or higher"}
-  description={"Replaces `.common.collect.ImmutableList.of(..)` if the returned type is immediately down-cast."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaImmutableListOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablelistof.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `List.of(..)` in Java 9 or higher</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `.common.collect.ImmutableList.of(..)` if the returned type is immediately down-cast.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\nimport com.google.common.collect.ImmutableList;\n\nclass Test {\n    List<String> m = ImmutableList.of(\"A\", \"B\", \"C\", \"D\");\n}\n","after":"import java.util.List;\n\nclass Test {\n    List<String> m = List.of(\"A\", \"B\", \"C\", \"D\");\n}\n","diff":"@@ -2,1 +2,0 @@\nimport java.util.List;\n-import com.google.common.collect.ImmutableList;\n\n@@ -5,1 +4,1 @@\n\nclass Test {\n-   List<String> m = ImmutableList.of(\"A\", \"B\", \"C\", \"D\");\n+   List<String> m = List.of(\"A\", \"B\", \"C\", \"D\");\n}\n","newFile":false}]}]}>
 

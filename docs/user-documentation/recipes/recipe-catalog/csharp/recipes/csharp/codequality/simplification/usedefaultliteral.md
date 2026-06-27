@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use default literal"}
-  description={"Simplify default(T) expressions to default. Note: in rare cases where the type cannot be inferred (e.g., overload resolution), manual review may be needed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseDefaultLiteral"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usedefaultliteral.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use default literal</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify default(T) expressions to default. Note: in rare cases where the type cannot be inferred (e.g., overload resolution), manual review may be needed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseDefaultLiteral","displayName":"Use default literal","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

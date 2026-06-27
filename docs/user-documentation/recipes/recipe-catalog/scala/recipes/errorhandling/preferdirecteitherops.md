@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer direct `Either` operations over projections"}
-  description={"Finds usages of `.left` and `.right` projections on `Either`. Since Scala 2.13, `Either` is right-biased so `map`/`flatMap` work directly. Use `swap` to operate on the `Left` side instead of `.left`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.errorhandling.PreferDirectEitherOps"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/errorhandling/preferdirecteitherops.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer direct `Either` operations over projections</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of `.left` and `.right` projections on `Either`. Since Scala 2.13, `Either` is right-biased so `map`/`flatMap` work directly. Use `swap` to operate on the `Left` side instead of `.left`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val either: Either[String, Int] = Right(42)\n    val leftProj = either.left\n}\n","after":"class Example {\n    val either: Either[String, Int] = Right(42)\n    val leftProj = /*~~(Prefer direct Either operations; .left/.right projections are deprecated since Scala 2.13)~~>*/either.left\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    val either: Either[String, Int] = Right(42)\n-   val leftProj = either.left\n+   val leftProj = /*~~(Prefer direct Either operations; .left/.right projections are deprecated since Scala 2.13)~~>*/either.left\n}\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use OkHttp 3 MockWebServer for JUnit 5"}
-  description={"Migrates OkHttp 3 `MockWebServer` to enable JUnit Jupiter Extension support."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["junit","testing","okhttp"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.UpgradeOkHttpMockWebServer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradeokhttpmockwebserver.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Change method name","href":"java/changemethodname"},{"name":"OkHttp `MockWebServer` `MockResponse` to 5.x `MockWebServer3` `MockResponse`","href":"java/testing/junit5/updatemockwebservermockresponse"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use OkHttp 3 MockWebServer for JUnit 5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates OkHttp 3 `MockWebServer` to enable JUnit Jupiter Extension support.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"OkHttp `MockWebServer` `MockResponse` to 5.x `MockWebServer3` `MockResponse`","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/updatemockwebservermockresponse/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to DataNucleus 5.2"}
-  description={"Migrate DataNucleus applications to 5.2. This recipe first applies the 5.1 migration, then handles the column mapping package move and query-related property renames introduced in 5.2."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["datanucleus","jdo","jpa"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.datanucleus.UpgradeDataNucleus_5_2"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_2.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to DataNucleus 5.1","href":"java/migrate/datanucleus/upgradedatanucleus_5_1"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"DataNucleus 5.2 package moves","href":"java/migrate/datanucleus/datanucleuspackagemoves_5_2"},{"name":"DataNucleus 5.2 property migrations","href":"java/migrate/datanucleus/datanucleusproperties_5_2"}]}>
+<RecipeHeader.Title>Migrate to DataNucleus 5.2</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate DataNucleus applications to 5.2. This recipe first applies the 5.1 migration, then handles the column mapping package move and query-related property renames introduced in 5.2.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to DataNucleus 5.1","href":"/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_1/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"DataNucleus 5.2 package moves","href":"/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleuspackagemoves_5_2/"},{"name":"DataNucleus 5.2 property migrations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleusproperties_5_2/"}]}>
 
 ## Definition
 

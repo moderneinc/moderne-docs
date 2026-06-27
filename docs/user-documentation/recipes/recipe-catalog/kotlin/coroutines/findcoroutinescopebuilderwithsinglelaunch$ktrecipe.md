@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `coroutineScope { launch { ... } }` with a single child"}
-  description={"A `coroutineScope { launch { … } }` containing a single `launch` is equivalent to just running the launch body inline — the surrounding scope adds an allocation and a synchronization point with nothing to coordinate."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindCoroutineScopeBuilderWithSingleLaunch$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findcoroutinescopebuilderwithsinglelaunch$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `coroutineScope { launch { ... } }` with a single child</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `coroutineScope { launch { … } }` containing a single `launch` is equivalent to just running the launch body inline — the surrounding scope adds an allocation and a synchronization point with nothing to coordinate.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindCoroutineScopeBuilderWithSingleLaunch$KtRecipe","displayName":"Find `coroutineScope { launch { ... } }` with a single child","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

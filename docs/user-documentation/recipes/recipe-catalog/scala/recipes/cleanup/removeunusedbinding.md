@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unused variable bindings"}
-  description={"Removes variable declarations whose name starts with `_` (underscore-prefixed binding). This removes unused variables that represent dead code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.RemoveUnusedBinding"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/removeunusedbinding.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unused variable bindings</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes variable declarations whose name starts with `_` (underscore-prefixed binding). This removes unused variables that represent dead code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  val _unused = 42\n}\n","after":"object Test {\n}\n","diff":"@@ -2,1 +2,0 @@\nobject Test {\n- val _unused = 42\n}\n","newFile":false}]}]}>
 

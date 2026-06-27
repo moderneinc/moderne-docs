@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from SpringFox Swagger to SpringDoc and OpenAPI"}
-  description={"Migrate from SpringFox Swagger to SpringDoc and OpenAPI."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["springfox","openapi","springdoc","swagger"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.springdoc.SpringFoxToSpringDoc"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/springdoc/springfoxtospringdoc.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"},{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"},{"name":"Migrate from Swagger to SpringDoc and OpenAPI","href":"java/springdoc/swaggertospringdoc"},{"name":"Replace SpringFox Dependencies","href":"java/springdoc/replacespringfoxdependencies"},{"name":"Migrate `ApiInfoBuilder` to `Info`","href":"java/spring/doc/apiinfobuildertoinfo"},{"name":"Replace elements of SpringFox's security with Swagger's security models","href":"java/spring/doc/securitycontexttosecurityscheme"},{"name":"Migrate SpringFox `SecurityConfiguration` bean to Springdoc Swagger UI properties","href":"java/spring/doc/migratespringfoxsecurityconfiguration"},{"name":"Migrate from springdoc-openapi-common to springdoc-openapi-starter-common","href":"java/springdoc/migratespringdoccommon"},{"name":"Remove remaining Springfox dead code","href":"java/springdoc/cleanupremainingspringfox"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate from SpringFox Swagger to SpringDoc and OpenAPI</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from SpringFox Swagger to SpringDoc and OpenAPI.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"},{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"},{"name":"Migrate from Swagger to SpringDoc and OpenAPI","href":"/user-documentation/recipes/recipe-catalog/java/springdoc/swaggertospringdoc/"},{"name":"Replace SpringFox Dependencies","href":"/user-documentation/recipes/recipe-catalog/java/springdoc/replacespringfoxdependencies/"},{"name":"Migrate `ApiInfoBuilder` to `Info`","href":"/user-documentation/recipes/recipe-catalog/java/spring/doc/apiinfobuildertoinfo/"},{"name":"Replace elements of SpringFox's security with Swagger's security models","href":"/user-documentation/recipes/recipe-catalog/java/spring/doc/securitycontexttosecurityscheme/"},{"name":"Migrate SpringFox `SecurityConfiguration` bean to Springdoc Swagger UI properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/doc/migratespringfoxsecurityconfiguration/"},{"name":"Migrate from springdoc-openapi-common to springdoc-openapi-starter-common","href":"/user-documentation/recipes/recipe-catalog/java/springdoc/migratespringdoccommon/"},{"name":"Remove remaining Springfox dead code","href":"/user-documentation/recipes/recipe-catalog/java/springdoc/cleanupremainingspringfox/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

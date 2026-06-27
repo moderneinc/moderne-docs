@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use primitive `mutable<Int|Long|Float|Double>StateOf` in Compose"}
-  description={"Inside `@Composable` functions, replaces `mutableStateOf(<primitive>)` with the matching primitive-specialized `mutableIntStateOf`/`mutableLongStateOf`/`mutableFloatStateOf`/`mutableDoubleStateOf`. The specialized state holders keep the wrapped value unboxed across reads and writes during recomposition."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseComposePrimitiveStateOf$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/usecomposeprimitivestateof$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `mutableIntStateOf` instead of `mutableStateOf<Int>` in Compose","href":"kotlin/performance/usemutableintstateof$ktrecipe"},{"name":"Use `mutableLongStateOf` instead of `mutableStateOf<Long>` in Compose","href":"kotlin/performance/usemutablelongstateof$ktrecipe"},{"name":"Use `mutableFloatStateOf` instead of `mutableStateOf<Float>` in Compose","href":"kotlin/performance/usemutablefloatstateof$ktrecipe"},{"name":"Use `mutableDoubleStateOf` instead of `mutableStateOf<Double>` in Compose","href":"kotlin/performance/usemutabledoublestateof$ktrecipe"}]}>
+<RecipeHeader.Title>Use primitive `mutable<Int|Long|Float|Double>StateOf` in Compose</RecipeHeader.Title>
+
+<RecipeHeader.Description>Inside `@Composable` functions, replaces `mutableStateOf(<primitive>)` with the matching primitive-specialized `mutableIntStateOf`/`mutableLongStateOf`/`mutableFloatStateOf`/`mutableDoubleStateOf`. The specialized state holders keep the wrapped value unboxed across reads and writes during recomposition.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `mutableIntStateOf` instead of `mutableStateOf<Int>` in Compose","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/usemutableintstateof$ktrecipe/"},{"name":"Use `mutableLongStateOf` instead of `mutableStateOf<Long>` in Compose","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/usemutablelongstateof$ktrecipe/"},{"name":"Use `mutableFloatStateOf` instead of `mutableStateOf<Float>` in Compose","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/usemutablefloatstateof$ktrecipe/"},{"name":"Use `mutableDoubleStateOf` instead of `mutableStateOf<Double>` in Compose","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/usemutabledoublestateof$ktrecipe/"}]}>
 
 ## Definition
 

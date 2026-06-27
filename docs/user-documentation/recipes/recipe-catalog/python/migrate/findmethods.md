@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Python function and method usages"}
-  description={"Find function and method calls by pattern. Covers standalone functions, class methods, static methods, and constructor calls."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.migrate.FindMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/migrate/findmethods.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Python function and method usages</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find function and method calls by pattern. Covers standalone functions, class methods, static methods, and constructor calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern used to find matching function and method calls. The pattern format is `<module-or-type> <function-name>(<arg-patterns>)`. The module or type part is optional; when omitted, any declaring type matches. `..` matches any number of arguments. For example, `dumps(..)` finds all calls to any function named `dumps`, `json dumps(..)` finds only calls to `json.dumps()`, and `os.path join(..)` finds calls to `os.path.join()`.","example":"dumps(..)"},{"type":"Boolean","name":"matchOverrides","required":false,"description":"When enabled, find methods that are overrides of the method pattern."}]}>
 

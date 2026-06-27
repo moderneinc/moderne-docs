@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename caught exceptions in empty catch blocks to `ignored`"}
-  description={"Renames caught exceptions in empty catch blocks to `ignored`. `ignored` will be incremented by 1 if a namespace conflict exists."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RenameExceptionInEmptyCatch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/renameexceptioninemptycatch.md"}
-/>
+>
+
+<RecipeHeader.Title>Rename caught exceptions in empty catch blocks to `ignored`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames caught exceptions in empty catch blocks to `ignored`. `ignored` will be incremented by 1 if a namespace conflict exists.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    int ignored = 0;\n    void method(int ignored1) {\n        int ignored2 = 0;\n        for (int ignored3 = 0; ignored3 < 10; ignored3++) { // scope does not apply.\n            int ignored4 = 0; // scope does not apply.\n        }\n        if (ignored1 > 0) {\n            int ignored5 = 0; // scope does not apply.\n        }\n        try {\n            int ignored6 = 0; // scope does not apply.\n        } catch (Exception ex) {\n        }\n    }\n}\n","after":"class Test {\n    int ignored = 0;\n    void method(int ignored1) {\n        int ignored2 = 0;\n        for (int ignored3 = 0; ignored3 < 10; ignored3++) { // scope does not apply.\n            int ignored4 = 0; // scope does not apply.\n        }\n        if (ignored1 > 0) {\n            int ignored5 = 0; // scope does not apply.\n        }\n        try {\n            int ignored6 = 0; // scope does not apply.\n        } catch (Exception ignored3) {\n        }\n    }\n}\n","diff":"@@ -13,1 +13,1 @@\n        try {\n            int ignored6 = 0; // scope does not apply.\n-       } catch (Exception ex) {\n+       } catch (Exception ignored3) {\n        }\n","newFile":false}]}]}>
 

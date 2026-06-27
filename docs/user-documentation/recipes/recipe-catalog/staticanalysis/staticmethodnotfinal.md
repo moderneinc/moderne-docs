@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Static methods need not be final"}
-  description={"Static methods do not need to be declared final because they cannot be overridden. Redundant modifiers add noise to the code and can suggest a misunderstanding of the language's dispatch model."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2333"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.StaticMethodNotFinal"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/staticmethodnotfinal.md"}
-/>
+>
+
+<RecipeHeader.Title>Static methods need not be final</RecipeHeader.Title>
+
+<RecipeHeader.Description>Static methods do not need to be declared final because they cannot be overridden. Redundant modifiers add noise to the code and can suggest a misunderstanding of the language's dispatch model.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    public static final void main(String[] args) {\n    }\n}\n","after":"class Test {\n    public static void main(String[] args) {\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Test {\n-   public static final void main(String[] args) {\n+   public static void main(String[] args) {\n    }\n","newFile":false}]}]}>
 

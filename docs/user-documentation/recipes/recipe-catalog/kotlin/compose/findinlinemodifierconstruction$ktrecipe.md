@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Modifier.xxx()` allocations inside a `@Composable` body"}
-  description={"Each `Modifier.padding(...)`-style chain allocates a fresh `Modifier` instance, and a fresh `Modifier` defeats Compose's structural-equality skip — every recomposition allocates again and forces re-layout. Hoist the modifier into a `remember { Modifier… }`, accept a `Modifier` parameter from the caller, or build static modifiers as top-level vals."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindInlineModifierConstruction$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findinlinemodifierconstruction$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Modifier.xxx()` allocations inside a `@Composable` body</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `Modifier.padding(...)`-style chain allocates a fresh `Modifier` instance, and a fresh `Modifier` defeats Compose's structural-equality skip — every recomposition allocates again and forces re-layout. Hoist the modifier into a `remember { Modifier… }`, accept a `Modifier` parameter from the caller, or build static modifiers as top-level vals.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindInlineModifierConstruction$KtRecipe","displayName":"Find `Modifier.xxx()` allocations inside a `@Composable` body","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

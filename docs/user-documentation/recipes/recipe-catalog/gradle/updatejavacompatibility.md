@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update Gradle project Java compatibility"}
-  description={"Find and updates the Java compatibility for the Gradle project."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateJavaCompatibility"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/updatejavacompatibility.md"}
-/>
+>
+
+<RecipeHeader.Title>Update Gradle project Java compatibility</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find and updates the Java compatibility for the Gradle project.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Integer","name":"version","required":true,"description":"The Java version to upgrade to.","example":"11"},{"type":"CompatibilityType","name":"compatibilityType","required":false,"description":"The compatibility type to change"},{"type":"DeclarationStyle","name":"declarationStyle","required":false,"description":"The desired style to write the new version as when being written to the `sourceCompatibility` or `targetCompatibility` variables. Default, match current source style. (ex. Enum: `JavaVersion.VERSION_11`, Number: 11, or String: \"11\")"},{"type":"Boolean","name":"allowDowngrade","required":false,"description":"Allow downgrading the Java version."},{"type":"Boolean","name":"addIfMissing","required":false,"description":"Adds the specified compatibility type if one is not found."}]}>
 

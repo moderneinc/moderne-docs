@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant dependency overrides"}
-  description={"Removes overrides/resolutions from `package.json` that are redundant because the dependency tree already resolves to the overridden version (or higher) without the override. For each project, the recipe re-runs the package manager's lock-file generation with all overrides stripped and compares the resolved versions against the original override pins. Overrides matching or below the natural resolution are dropped along with any parallel `//overrides`, `//resolutions`, or `//pnpm.overrides` comment entries."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.nodejs.security.RemoveRedundantOverrides"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nodejs/security/removeredundantoverrides.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant dependency overrides</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes overrides/resolutions from `package.json` that are redundant because the dependency tree already resolves to the overridden version (or higher) without the override. For each project, the recipe re-runs the package manager's lock-file generation with all overrides stripped and compares the resolved versions against the original override pins. Overrides matching or below the natural resolution are dropped along with any parallel `//overrides`, `//resolutions`, or `//pnpm.overrides` comment entries.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"dryRun","required":false,"description":"If true, only report which overrides are redundant without removing them.","example":"true"}]}>
 

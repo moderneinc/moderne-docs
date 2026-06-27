@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Finalize private fields"}
-  description={"Adds the `final` modifier keyword to private instance variables which are not reassigned."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.FinalizePrivateFields"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/finalizeprivatefields.md"}
-/>
+>
+
+<RecipeHeader.Title>Finalize private fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the `final` modifier keyword to private instance variables which are not reassigned.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    private String name = \"ABC\";\n\n    String getName() {\n        return name;\n    }\n}\n","after":"class A {\n    private final String name = \"ABC\";\n\n    String getName() {\n        return name;\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass A {\n-   private String name = \"ABC\";\n+   private final String name = \"ABC\";\n\n","newFile":false}]}]}>
 

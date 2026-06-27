@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `java.lang.reflect.Method.invoke(...)` calls"}
-  description={"Calls through `Method.invoke` are reflective dispatch — the target body is opaque to static analysis. Flag for review whenever a reader needs to know which functions are actually reachable."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindMethodInvoke$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findmethodinvoke$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `java.lang.reflect.Method.invoke(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Calls through `Method.invoke` are reflective dispatch — the target body is opaque to static analysis. Flag for review whenever a reader needs to know which functions are actually reachable.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindMethodInvoke$KtRecipe","displayName":"Find `java.lang.reflect.Method.invoke(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

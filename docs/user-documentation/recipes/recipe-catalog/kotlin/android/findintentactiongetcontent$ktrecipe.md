@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find legacy `Intent.ACTION_PICK` / `ACTION_GET_CONTENT` references"}
-  description={"`ACTION_PICK` / `ACTION_GET_CONTENT` predate the Photo Picker (`ACTION_PICK_IMAGES`, API 33+ with backport) and the Storage Access Framework (`ACTION_OPEN_DOCUMENT`). For media, prefer `ActivityResultContracts.PickVisualMedia`; for documents, `OpenDocument`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindIntentActionGetContent$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findintentactiongetcontent$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find legacy `Intent.ACTION_PICK` / `ACTION_GET_CONTENT` references</RecipeHeader.Title>
+
+<RecipeHeader.Description>`ACTION_PICK` / `ACTION_GET_CONTENT` predate the Photo Picker (`ACTION_PICK_IMAGES`, API 33+ with backport) and the Storage Access Framework (`ACTION_OPEN_DOCUMENT`). For media, prefer `ActivityResultContracts.PickVisualMedia`; for documents, `OpenDocument`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindIntentActionGetContent$KtRecipe","displayName":"Find legacy `Intent.ACTION_PICK` / `ACTION_GET_CONTENT` references","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

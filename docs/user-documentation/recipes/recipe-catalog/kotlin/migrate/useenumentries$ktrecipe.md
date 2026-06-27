@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `enumEntries<T>()` instead of `enumValues<T>()`"}
-  description={"Kotlin 1.9 introduced `enumEntries<T>()` returning a stable `EnumEntries<T>` view. Prefer it over `enumValues<T>()`, which allocates a fresh array on each call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseEnumEntries$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useenumentries$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `enumEntries<T>()` instead of `enumValues<T>()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotlin 1.9 introduced `enumEntries<T>()` returning a stable `EnumEntries<T>` view. Prefer it over `enumValues<T>()`, which allocates a fresh array on each call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseEnumEntries$KtRecipe","displayName":"Use `enumEntries<T>()` instead of `enumValues<T>()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

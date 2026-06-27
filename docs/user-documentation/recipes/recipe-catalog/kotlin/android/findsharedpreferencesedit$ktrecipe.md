@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `sharedPrefs.edit()` calls"}
-  description={"Raw `edit()` calls predate AndroidX `SharedPreferences.edit { … }`, the Kotlin extension that handles `apply`/`commit` for the caller. Replace each `prefs.edit().put*(...).apply()` chain with `prefs.edit { put*(...) }` — same disk write, less ceremony, and harder to drop the apply by accident."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindSharedPreferencesEdit$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findsharedpreferencesedit$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `sharedPrefs.edit()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Raw `edit()` calls predate AndroidX `SharedPreferences.edit { … }`, the Kotlin extension that handles `apply`/`commit` for the caller. Replace each `prefs.edit().put*(...).apply()` chain with `prefs.edit { put*(...) }` — same disk write, less ceremony, and harder to drop the apply by accident.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindSharedPreferencesEdit$KtRecipe","displayName":"Find `sharedPrefs.edit()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

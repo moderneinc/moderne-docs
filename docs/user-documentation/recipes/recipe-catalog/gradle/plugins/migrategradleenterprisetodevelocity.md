@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from Gradle Enterprise to Develocity"}
-  description={"Migrate from the Gradle Enterprise Gradle plugin to the Develocity Gradle plugin."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.MigrateGradleEnterpriseToDevelocity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/plugins/migrategradleenterprisetodevelocity.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate from Gradle Enterprise to Develocity</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from the Gradle Enterprise Gradle plugin to the Develocity Gradle plugin.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"version","required":false,"description":"An exact version number or node-style semver selector used to select the version number. You can also use `latest.release` for the latest available version and `latest.patch` if the current version is a valid semantic version. For more details, you can look at the documentation page of [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors). Defaults to `latest.release`.","example":"3.x"}]}>
 

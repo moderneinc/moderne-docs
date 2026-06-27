@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add job timeout"}
-  description={"Set `timeout` in `.gitlab-ci.yml` to prevent jobs from hanging indefinitely."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.AddTimeout"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/addtimeout.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Merge YAML snippet","href":"yaml/mergeyaml"}]}>
+<RecipeHeader.Title>Add job timeout</RecipeHeader.Title>
+
+<RecipeHeader.Description>Set `timeout` in `.gitlab-ci.yml` to prevent jobs from hanging indefinitely.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Merge YAML snippet","href":"/user-documentation/recipes/recipe-catalog/yaml/mergeyaml/"}]}>
 
 ## Definition
 

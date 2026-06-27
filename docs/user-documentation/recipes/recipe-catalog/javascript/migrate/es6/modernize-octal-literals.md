@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Modernize octal literals"}
-  description={"Convert old-style octal literals (e.g., `0777`) to modern ES6 syntax (e.g., `0o777`)."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.migrate.es6.modernize-octal-literals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-literals.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Modernize octal literals</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert old-style octal literals (e.g., `0777`) to modern ES6 syntax (e.g., `0o777`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.javascript.migrate.es6.modernize-octal-literals","displayName":"Modernize octal literals","npmPackage":"@openrewrite/rewrite"}}>
 

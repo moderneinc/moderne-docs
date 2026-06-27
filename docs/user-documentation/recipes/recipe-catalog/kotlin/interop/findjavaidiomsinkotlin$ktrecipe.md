@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Java-style call shapes inside Kotlin source"}
-  description={"Search-only bundle of Java idioms that have idiomatic Kotlin equivalents at the call site: `getX()`/`isX()` getters where property syntax reads the same value, `iterable.forEach(Consumer)`, `requireNotNull(javaCall())` over platform types, manual `getX`/`setX` pairs, static-utility/constants `object` holders, `Builder` classes, and manual `equals`/`hashCode`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindJavaIdiomsInKotlin$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavaidiomsinkotlin$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find Java-style `getX()` calls in Kotlin source","href":"kotlin/interop/findjavagettercallstyleinkotlin$ktrecipe"},{"name":"Find Java-style `iterable.forEach(Consumer)` calls","href":"kotlin/interop/finditerableforeach$ktrecipe"},{"name":"Find `requireNotNull(javaCall())` patterns","href":"kotlin/interop/findrequirenotnullonjavacall$ktrecipe"},{"name":"Find manual `getX()` / `setX(v)` pairs in Kotlin classes","href":"kotlin/interop/findmanualgettersetter$ktrecipe"},{"name":"Find `object Utils { fun foo() = ... }` static-utility holders","href":"kotlin/interop/findstaticutilobject$ktrecipe"},{"name":"Find `object Constants { const val A = ... }` static-constants holders","href":"kotlin/interop/findstaticholderobject$ktrecipe"},{"name":"Find classes with manual `equals`/`hashCode` overrides — `data class` candidate","href":"kotlin/interop/findmanualequalshashcode$ktrecipe"},{"name":"Find inner `class Builder` classes — default-args candidate","href":"kotlin/interop/findbuilderclass$ktrecipe"}]}>
+<RecipeHeader.Title>Find Java-style call shapes inside Kotlin source</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle of Java idioms that have idiomatic Kotlin equivalents at the call site: `getX()`/`isX()` getters where property syntax reads the same value, `iterable.forEach(Consumer)`, `requireNotNull(javaCall())` over platform types, manual `getX`/`setX` pairs, static-utility/constants `object` holders, `Builder` classes, and manual `equals`/`hashCode`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find Java-style `getX()` calls in Kotlin source","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavagettercallstyleinkotlin$ktrecipe/"},{"name":"Find Java-style `iterable.forEach(Consumer)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/finditerableforeach$ktrecipe/"},{"name":"Find `requireNotNull(javaCall())` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findrequirenotnullonjavacall$ktrecipe/"},{"name":"Find manual `getX()` / `setX(v)` pairs in Kotlin classes","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findmanualgettersetter$ktrecipe/"},{"name":"Find `object Utils { fun foo() = ... }` static-utility holders","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findstaticutilobject$ktrecipe/"},{"name":"Find `object Constants { const val A = ... }` static-constants holders","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findstaticholderobject$ktrecipe/"},{"name":"Find classes with manual `equals`/`hashCode` overrides — `data class` candidate","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findmanualequalshashcode$ktrecipe/"},{"name":"Find inner `class Builder` classes — default-args candidate","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findbuilderclass$ktrecipe/"}]}>
 
 ## Definition
 

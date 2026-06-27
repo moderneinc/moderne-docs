@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find boolean literal arguments without parameter name"}
-  description={"Detect method calls passing `true` or `false` literals as arguments. Using named parameters improves readability."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingNamedParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findmissingnamedparameter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find boolean literal arguments without parameter name</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect method calls passing `true` or `false` literals as arguments. Using named parameters improves readability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingNamedParameter","displayName":"Find boolean literal arguments without parameter name","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

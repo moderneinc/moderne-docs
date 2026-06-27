@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find permissive CORS configuration"}
-  description={"Finds overly permissive CORS configurations that allow all origins, which can expose the application to cross-domain attacks."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-942"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindPermissiveCorsConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findpermissivecorsconfiguration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find permissive CORS configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds overly permissive CORS configurations that allow all origins, which can expose the application to cross-domain attacks.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.web.bind.annotation.CrossOrigin;\nimport org.springframework.web.bind.annotation.GetMapping;\n\nclass TestController {\n    @CrossOrigin(origins = \"*\")\n    @GetMapping(\"/api\")\n    String api() {\n        return \"data\";\n    }\n}\n","after":"import org.springframework.web.bind.annotation.CrossOrigin;\nimport org.springframework.web.bind.annotation.GetMapping;\n\nclass TestController {\n    /*~~(Permissive CORS: allows all origins)~~>*/@CrossOrigin(origins = \"*\")\n    @GetMapping(\"/api\")\n    String api() {\n        return \"data\";\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\n\nclass TestController {\n-   @CrossOrigin(origins = \"*\")\n+   /*~~(Permissive CORS: allows all origins)~~>*/@CrossOrigin(origins = \"*\")\n    @GetMapping(\"/api\")\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `@NoArgsConstructor` where applicable"}
-  description={"Prefer the Lombok `@NoArgsConstructor` annotation over explicitly written out constructors."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lombok.UseNoArgsConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/usenoargsconstructor.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `@NoArgsConstructor` where applicable</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Lombok `@NoArgsConstructor` annotation over explicitly written out constructors.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    public A() {}\n}\n","after":"import lombok.NoArgsConstructor;\n\n@NoArgsConstructor\nclass A {\n}\n","diff":"@@ -1,0 +1,3 @@\n+import lombok.NoArgsConstructor;\n+\n+@NoArgsConstructor\nclass A {\n@@ -2,1 +5,0 @@\nclass A {\n-   public A() {}\n}\n","newFile":false}]}]}>
 

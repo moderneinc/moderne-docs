@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Drop unnecessary `0` start argument from `range()`"}
-  description={"Shorten `range(0, n)` to `range(n)` because `range` already defaults to starting at zero."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveZeroFromRange"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removezerofromrange.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Drop unnecessary `0` start argument from `range()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Shorten `range(0, n)` to `range(n)` because `range` already defaults to starting at zero.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveZeroFromRange","displayName":"Drop unnecessary `0` start argument from `range()`","pipPackage":"openrewrite-static-analysis"}}>
 

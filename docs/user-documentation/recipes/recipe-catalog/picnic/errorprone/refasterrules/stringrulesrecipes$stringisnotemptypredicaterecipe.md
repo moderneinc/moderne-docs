@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StringRules.StringIsNotEmptyPredicate`"}
-  description={"Prefer a method reference to `String#isEmpty()` over the equivalent lambda function."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIsNotEmptyPredicateRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/stringrulesrecipes$stringisnotemptypredicaterecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StringRules.StringIsNotEmptyPredicate`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer a method reference to `String#isEmpty()` over the equivalent lambda function.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIsNotEmptyPredicateRecipe","displayName":"Refaster template `StringRules.StringIsNotEmptyPredicate`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

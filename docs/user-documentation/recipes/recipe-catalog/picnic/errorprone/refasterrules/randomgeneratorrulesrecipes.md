@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`RandomGeneratorRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `RandomGenerator` instances.\n[Source](https://error-prone.picnic.tech/refasterrules/RandomGeneratorRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `RandomGeneratorRules.RandomGeneratorNextDouble`","href":"picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextdoublerecipe"},{"name":"Refaster template `RandomGeneratorRules.RandomGeneratorNextDoubleWithOrigin`","href":"picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextdoublewithoriginrecipe"},{"name":"Refaster template `RandomGeneratorRules.RandomGeneratorNextInt`","href":"picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextintrecipe"},{"name":"Refaster template `RandomGeneratorRules.RandomGeneratorNextIntWithOrigin`","href":"picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextintwithoriginrecipe"},{"name":"Prefer `RandomGenerator#nextLong(long)` over more contrived alternatives","href":"picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextlongrecipe"},{"name":"Refaster template `RandomGeneratorRules.RandomGeneratorNextLongWithOrigin`","href":"picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextlongwithoriginrecipe"}]}>
+<RecipeHeader.Title>`RandomGeneratorRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `RandomGenerator` instances. [Source](https://error-prone.picnic.tech/refasterrules/RandomGeneratorRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `RandomGeneratorRules.RandomGeneratorNextDouble`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextdoublerecipe/"},{"name":"Refaster template `RandomGeneratorRules.RandomGeneratorNextDoubleWithOrigin`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextdoublewithoriginrecipe/"},{"name":"Refaster template `RandomGeneratorRules.RandomGeneratorNextInt`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextintrecipe/"},{"name":"Refaster template `RandomGeneratorRules.RandomGeneratorNextIntWithOrigin`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextintwithoriginrecipe/"},{"name":"Prefer `RandomGenerator#nextLong(long)` over more contrived alternatives","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextlongrecipe/"},{"name":"Refaster template `RandomGeneratorRules.RandomGeneratorNextLongWithOrigin`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextlongwithoriginrecipe/"}]}>
 
 ## Definition
 

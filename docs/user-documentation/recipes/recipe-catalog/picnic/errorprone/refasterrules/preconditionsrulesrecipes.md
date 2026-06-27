@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`PreconditionsRules` Refaster recipes"}
-  description={"Refaster templates related to statements dealing with `Preconditions`.\n[Source](https://error-prone.picnic.tech/refasterrules/PreconditionsRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.PreconditionsRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/preconditionsrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `PreconditionsRules.RequireNonNull`","href":"picnic/errorprone/refasterrules/preconditionsrulesrecipes$requirenonnullrecipe"},{"name":"Refaster template `PreconditionsRules.RequireNonNullWithMessage`","href":"picnic/errorprone/refasterrules/preconditionsrulesrecipes$requirenonnullwithmessagerecipe"}]}>
+<RecipeHeader.Title>`PreconditionsRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster templates related to statements dealing with `Preconditions`. [Source](https://error-prone.picnic.tech/refasterrules/PreconditionsRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `PreconditionsRules.RequireNonNull`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/preconditionsrulesrecipes$requirenonnullrecipe/"},{"name":"Refaster template `PreconditionsRules.RequireNonNullWithMessage`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/preconditionsrulesrecipes$requirenonnullwithmessagerecipe/"}]}>
 
 ## Definition
 

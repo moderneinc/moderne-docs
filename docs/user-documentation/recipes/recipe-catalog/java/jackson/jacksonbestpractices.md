@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Jackson best practices"}
-  description={"Apply best practices for using Jackson library, including upgrade to Jackson 2.x and removing redundant annotations."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jackson-2"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.JacksonBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/jacksonbestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove redundant `@JsonProperty` argument","href":"java/jackson/removeredundantjsonpropertyvalue"},{"name":"Replace deprecated `PropertyNamingStrategy` inner classes and constants","href":"java/jackson/replacepropertynamingstrategyconstants"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Jackson best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply best practices for using Jackson library, including upgrade to Jackson 2.x and removing redundant annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove redundant `@JsonProperty` argument","href":"/user-documentation/recipes/recipe-catalog/java/jackson/removeredundantjsonpropertyvalue/"},{"name":"Replace deprecated `PropertyNamingStrategy` inner classes and constants","href":"/user-documentation/recipes/recipe-catalog/java/jackson/replacepropertynamingstrategyconstants/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]}>
 
 ## Definition
 

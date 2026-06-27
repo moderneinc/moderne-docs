@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adopt switch pattern matching (JEP 441)"}
-  description={"[JEP 441](https://openjdk.org/jeps/441) describes how some switch statements can be improved with pattern matching. This recipe applies some of those improvements where applicable."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java21"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.SwitchPatternMatching"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/switchpatternmatching.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use switch cases refinement when possible","href":"java/migrate/lang/refineswitchcases"},{"name":"Use switch cases labels for enums","href":"java/migrate/lang/switchcaseenumguardtolabel"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Adopt switch pattern matching (JEP 441)</RecipeHeader.Title>
+
+<RecipeHeader.Description>[JEP 441](https://openjdk.org/jeps/441) describes how some switch statements can be improved with pattern matching. This recipe applies some of those improvements where applicable.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use switch cases refinement when possible","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/refineswitchcases/"},{"name":"Use switch cases labels for enums","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/switchcaseenumguardtolabel/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `@Log4j2` instead of explicit fields"}
-  description={"Prefer the lombok annotation `@Log4j2` over explicitly written out `org.apache.logging.log4j.Logger` fields."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lombok.log.UseLog4j2"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/log/uselog4j2.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `@Log4j2` instead of explicit fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the lombok annotation `@Log4j2` over explicitly written out `org.apache.logging.log4j.Logger` fields.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fieldName","required":false,"description":"Name of the log field to replace. If not specified, the field name is not checked and any field that satisfies the other checks is converted.","example":"LOGGER"}]}>
 

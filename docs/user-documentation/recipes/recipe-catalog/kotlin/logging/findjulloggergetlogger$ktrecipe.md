@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `java.util.logging.Logger.getLogger(...)` calls"}
-  description={"`java.util.logging` ships with the JDK but lacks the structured-logging, MDC, and parameterized-message ergonomics of SLF4J or kotlin-logging. Migrate `j.u.l.Logger.getLogger(...)` to `LoggerFactory.getLogger(...)` (SLF4J) or `KotlinLogging.logger { }` (kotlin-logging)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindJulLoggerGetLogger$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findjulloggergetlogger$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `java.util.logging.Logger.getLogger(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.logging` ships with the JDK but lacks the structured-logging, MDC, and parameterized-message ergonomics of SLF4J or kotlin-logging. Migrate `j.u.l.Logger.getLogger(...)` to `LoggerFactory.getLogger(...)` (SLF4J) or `KotlinLogging.logger { }` (kotlin-logging).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindJulLoggerGetLogger$KtRecipe","displayName":"Find `java.util.logging.Logger.getLogger(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

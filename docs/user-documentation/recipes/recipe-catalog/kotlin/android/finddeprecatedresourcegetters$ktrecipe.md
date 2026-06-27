@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `Context.getColor`/`getDrawable`/`getColorStateList` calls"}
-  description={"The single-argument forms on `Context`/`Resources` are deprecated — they don't take a theme and behave inconsistently across API levels. Use `ContextCompat.getColor(context, id)`/`ContextCompat.getDrawable(context, id)`/`AppCompatResources.getColorStateList(context, id)` instead."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindDeprecatedResourceGetters$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/finddeprecatedresourcegetters$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated `Context.getColor`/`getDrawable`/`getColorStateList` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>The single-argument forms on `Context`/`Resources` are deprecated — they don't take a theme and behave inconsistently across API levels. Use `ContextCompat.getColor(context, id)`/`ContextCompat.getDrawable(context, id)`/`AppCompatResources.getColorStateList(context, id)` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindDeprecatedResourceGetters$KtRecipe","displayName":"Find deprecated `Context.getColor`/`getDrawable`/`getColorStateList` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

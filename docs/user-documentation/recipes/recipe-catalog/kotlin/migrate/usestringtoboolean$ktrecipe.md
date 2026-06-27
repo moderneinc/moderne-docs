@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `String.toBoolean()` instead of `java.lang.Boolean.parseBoolean(s)`"}
-  description={"Java-idiom `Boolean.parseBoolean(s)` migrates to the Kotlin extension `s.toBoolean()`; for strict parsing that throws on non-`true`/`false`, use `s.toBooleanStrict()` instead."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseStringToBoolean$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtoboolean$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `String.toBoolean()` instead of `java.lang.Boolean.parseBoolean(s)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java-idiom `Boolean.parseBoolean(s)` migrates to the Kotlin extension `s.toBoolean()`; for strict parsing that throws on non-`true`/`false`, use `s.toBooleanStrict()` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseStringToBoolean$KtRecipe","displayName":"Use `String.toBoolean()` instead of `java.lang.Boolean.parseBoolean(s)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

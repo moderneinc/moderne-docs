@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use string.Concat instead of string.Join"}
-  description={"Replace `string.Join(\"\", args)` with `string.Concat(args)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UseStringConcatInsteadOfJoin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/usestringconcatinsteadofjoin.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use string.Concat instead of string.Join</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `string.Join("", args)` with `string.Concat(args)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UseStringConcatInsteadOfJoin","displayName":"Use string.Concat instead of string.Join","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

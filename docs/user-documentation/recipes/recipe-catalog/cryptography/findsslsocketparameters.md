@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find SSL socket configuration parameters"}
-  description={"Finds SSLSocket setter method invocations and extracts their parameter values into a data table."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindSSLSocketParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findsslsocketparameters.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find SSL socket configuration parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds SSLSocket setter method invocations and extracts their parameter values into a data table.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.net.ssl.SSLSocket;\nimport javax.net.ssl.SSLSocketFactory;\nimport javax.net.ssl.SSLParameters;\n\npublic class SSLParamsExample {\n    public void configureWithParams() throws Exception {\n        SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();\n        SSLSocket socket = (SSLSocket) factory.createSocket();\n        SSLParameters params = new SSLParameters();\n        params.setCipherSuites(new String[]{\"TLS_AES_128_GCM_SHA256\"});\n        socket.setSSLParameters(params);\n    }\n}\n","after":"import javax.net.ssl.SSLSocket;\nimport javax.net.ssl.SSLSocketFactory;\nimport javax.net.ssl.SSLParameters;\n\npublic class SSLParamsExample {\n    public void configureWithParams() throws Exception {\n        SSLSocketFactory factory = (SSLSocketFactory) SSLSocketFactory.getDefault();\n        SSLSocket socket = (SSLSocket) factory.createSocket();\n        SSLParameters params = new SSLParameters();\n        params.setCipherSuites(new String[]{\"TLS_AES_128_GCM_SHA256\"});\n        /*~~>*/socket.setSSLParameters(params);\n    }\n}\n","diff":"@@ -11,1 +11,1 @@\n        SSLParameters params = new SSLParameters();\n        params.setCipherSuites(new String[]{\"TLS_AES_128_GCM_SHA256\"});\n-       socket.setSSLParameters(params);\n+       /*~~>*/socket.setSSLParameters(params);\n    }\n","newFile":false}]}]}>
 

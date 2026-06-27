@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use the new `securityMatcher()` method"}
-  description={"In Spring Security 5.8, the `HttpSecurity#antMatcher()`, `HttpSecurity#mvcMatcher()`, and `HttpSecurity#regexMatcher()` methods were deprecated in favor of new `HttpSecurity#securityMatcher()` method. Refer to the [Spring Security docs](https://docs.spring.io/spring-security/reference/5.8/migration/servlet/config.html#use-new-security-matchers) for more information."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security5.UseNewSecurityMatchers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security5/usenewsecuritymatchers.md"}
-/>
+>
+
+<RecipeHeader.Title>Use the new `securityMatcher()` method</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Security 5.8, the `HttpSecurity#antMatcher()`, `HttpSecurity#mvcMatcher()`, and `HttpSecurity#regexMatcher()` methods were deprecated in favor of new `HttpSecurity#securityMatcher()` method. Refer to the [Spring Security docs](https://docs.spring.io/spring-security/reference/5.8/migration/servlet/config.html#use-new-security-matchers) for more information.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example;\n\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\n\n@Configuration\n@EnableWebSecurity\nclass SecurityConfig {\n    @Bean\n    SecurityFilterChain securityFilterChain(HttpSecurity http) {\n        http\n                .antMatcher(\"/static/**\")\n                .authorizeHttpRequests((authz) -> authz\n                        .mvcMatchers(\"/static/**\").permitAll()\n                );\n        return http.build();\n    }\n}\n","after":"package com.example;\n\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\n\n@Configuration\n@EnableWebSecurity\nclass SecurityConfig {\n    @Bean\n    SecurityFilterChain securityFilterChain(HttpSecurity http) {\n        http\n                .securityMatcher(\"/static/**\")\n                .authorizeHttpRequests((authz) -> authz\n                        .mvcMatchers(\"/static/**\").permitAll()\n                );\n        return http.build();\n    }\n}\n","diff":"@@ -15,1 +15,1 @@\n    SecurityFilterChain securityFilterChain(HttpSecurity http) {\n        http\n-               .antMatcher(\"/static/**\")\n+               .securityMatcher(\"/static/**\")\n                .authorizeHttpRequests((authz) -> authz\n","newFile":false}]}]}>
 

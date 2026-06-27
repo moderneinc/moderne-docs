@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find pinned resources by type"}
-  description={"Find resources of a particular type that have pinned versions."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.concourse.search.FindPinnedResource"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/concourse/search/findpinnedresource.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find YAML entries","href":"yaml/search/findkey"}]}>
+<RecipeHeader.Title>Find pinned resources by type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find resources of a particular type that have pinned versions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find YAML entries","href":"/user-documentation/recipes/recipe-catalog/yaml/search/findkey/"}]}>
 
 ## Definition
 

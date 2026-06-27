@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Char(int)` instead of `Int.toChar()`"}
-  description={"`Int.toChar()` was deprecated in Kotlin 1.5; the replacement `Char(int)` constructor expresses the codepoint-to-char intent symmetrically with `Char.code`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseCharCtor$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharctor$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Char(int)` instead of `Int.toChar()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Int.toChar()` was deprecated in Kotlin 1.5; the replacement `Char(int)` constructor expresses the codepoint-to-char intent symmetrically with `Char.code`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseCharCtor$KtRecipe","displayName":"Use `Char(int)` instead of `Int.toChar()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

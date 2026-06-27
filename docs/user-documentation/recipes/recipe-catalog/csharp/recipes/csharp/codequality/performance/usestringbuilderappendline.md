@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use StringBuilder.AppendLine"}
-  description={"Replace `sb.Append(\"\\n\")` with `sb.AppendLine()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UseStringBuilderAppendLine"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/usestringbuilderappendline.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use StringBuilder.AppendLine</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `sb.Append("\n")` with `sb.AppendLine()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UseStringBuilderAppendLine","displayName":"Use StringBuilder.AppendLine","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

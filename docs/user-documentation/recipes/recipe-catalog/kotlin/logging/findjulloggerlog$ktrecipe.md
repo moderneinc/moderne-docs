@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `julLogger.log(level, msg)` and level-specific `julLogger.fine/info/severe/...` calls"}
-  description={"Each `j.u.l.Logger.log(Level, ...)` call (and the level-specific shortcuts `fine`/`info`/`warning`/`severe`/`config`) needs to be re-expressed against SLF4J/kotlin-logging when migrating. Flag for review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindJulLoggerLog$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findjulloggerlog$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `julLogger.log(level, msg)` and level-specific `julLogger.fine/info/severe/...` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `j.u.l.Logger.log(Level, ...)` call (and the level-specific shortcuts `fine`/`info`/`warning`/`severe`/`config`) needs to be re-expressed against SLF4J/kotlin-logging when migrating. Flag for review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindJulLoggerLog$KtRecipe","displayName":"Find `julLogger.log(level, msg)` and level-specific `julLogger.fine/info/severe/...` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

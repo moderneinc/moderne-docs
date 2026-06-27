@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Channel.setReadable(boolean) to Channel.config().setAutoRead(boolean)"}
-  description={"Replaces `channel.setReadable(x)` with `channel.config().setAutoRead(x)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-netty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.netty.upgrade._3_2_to_4_1_.ChannelSetReadableToAutoRead"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/netty/upgrade/_3_2_to_4_1_/channelsetreadabletoautoread.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Channel.setReadable(boolean) to Channel.config().setAutoRead(boolean)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `channel.setReadable(x)` with `channel.config().setAutoRead(x)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.netty.upgrade._3_2_to_4_1_.ChannelSetReadableToAutoRead","displayName":"Migrate Channel.setReadable(boolean) to Channel.config().setAutoRead(boolean)","groupId":"org.openrewrite.recipe","artifactId":"rewrite-netty","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_NETTY","requiresConfiguration":false}}>
 

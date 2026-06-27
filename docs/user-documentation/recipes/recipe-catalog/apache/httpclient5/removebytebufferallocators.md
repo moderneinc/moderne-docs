@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove ByteBufferAllocator implementations"}
-  description={"In Apache Http Client 5.x migration, both implementations of `ByteBufferAllocator` have been removed. This recipe will remove usage of said classes in favour of direct static calls to `ByteBuffer`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.RemoveByteBufferAllocators"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/removebytebufferallocators.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove ByteBufferAllocator implementations</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Apache Http Client 5.x migration, both implementations of `ByteBufferAllocator` have been removed. This recipe will remove usage of said classes in favour of direct static calls to `ByteBuffer`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.apache.httpclient5.RemoveByteBufferAllocators","displayName":"Remove ByteBufferAllocator implementations","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 

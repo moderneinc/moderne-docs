@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TestNGToAssertJRules.AssertFalse`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertFalse {\n    \n    @BeforeTemplate\n    void before(boolean condition) {\n        assertFalse(condition);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(boolean condition) {\n        assertThat(condition).isFalse();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertFalseRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertfalserecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TestNGToAssertJRules.AssertFalse`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertFalse {
+    
+    @BeforeTemplate
+    void before(boolean condition) {
+        assertFalse(condition);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(boolean condition) {
+        assertThat(condition).isFalse();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertFalseRecipe","displayName":"Refaster template `TestNGToAssertJRules.AssertFalse`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

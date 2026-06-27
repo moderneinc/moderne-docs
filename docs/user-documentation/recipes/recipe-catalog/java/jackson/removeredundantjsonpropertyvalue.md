@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant `@JsonProperty` argument"}
-  description={"Remove `@JsonProperty` annotation or value attribute when the value matches the argument name."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-2"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.RemoveRedundantJsonPropertyValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/removeredundantjsonpropertyvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove redundant `@JsonProperty` argument</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `@JsonProperty` annotation or value attribute when the value matches the argument name.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.annotation.JsonProperty;\n\nclass CategorieRequest {\n    @JsonProperty(value = \"name\", required = true)\n    private String name;\n    @JsonProperty(\"color\")\n    private String color;\n    @JsonProperty(\"parent_id\")\n    private Long parentId;\n}\n","after":"import com.fasterxml.jackson.annotation.JsonProperty;\n\nclass CategorieRequest {\n    @JsonProperty(required = true)\n    private String name;\n    private String color;\n    @JsonProperty(\"parent_id\")\n    private Long parentId;\n}\n","diff":"@@ -4,1 +4,1 @@\n\nclass CategorieRequest {\n-   @JsonProperty(value = \"name\", required = true)\n+   @JsonProperty(required = true)\n    private String name;\n@@ -6,1 +6,0 @@\n    @JsonProperty(value = \"name\", required = true)\n    private String name;\n-   @JsonProperty(\"color\")\n    private String color;\n","newFile":false}]}]}>
 

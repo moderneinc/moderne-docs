@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find non-empty catch blocks that neither log nor rethrow"}
-  description={"A catch that handles the exception by silently absorbing it (without logging, without rethrowing, without storing it) loses every detail of the failure. Either log with the exception as the cause (`log.error(\"context\", e)`), rethrow as a wrapping exception, or capture the exception into a `Result`/sealed result type."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindCatchWithoutLogging$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchwithoutlogging$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find non-empty catch blocks that neither log nor rethrow</RecipeHeader.Title>
+
+<RecipeHeader.Description>A catch that handles the exception by silently absorbing it (without logging, without rethrowing, without storing it) loses every detail of the failure. Either log with the exception as the cause (`log.error("context", e)`), rethrow as a wrapping exception, or capture the exception into a `Result`/sealed result type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindCatchWithoutLogging$KtRecipe","displayName":"Find non-empty catch blocks that neither log nor rethrow","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

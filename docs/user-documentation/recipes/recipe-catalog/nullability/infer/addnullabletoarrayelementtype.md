@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@Nullable` to array element types that can hold null"}
-  description={"Adds the JSpecify `@Nullable` annotation to the element type of a Java array whose elements are provably nullable, placing it on the component type to produce `@Nullable String[]` (the array's *elements* may be null) rather than `String @Nullable []` (the array *reference* may be null). NullAway in JSpecify mode checks this position. An array declaration (field, local, parameter, or return type) is annotated when its initializer is an array literal containing a `null` element (`String[] a = {null}`, `new String[]{x, null}`) or when an element is assigned a provably-null value in the same method body (`arr[i] = null`). Conservative by design: it skips primitive-element arrays (whose elements can never be null), arrays whose element type already carries a nullability annotation, and non-Java sources (Kotlin and Groovy express element nullability in the type system, which their compilers already enforce)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.infer.AddNullableToArrayElementType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/infer/addnullabletoarrayelementtype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@Nullable` to array element types that can hold null</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the JSpecify `@Nullable` annotation to the element type of a Java array whose elements are provably nullable, placing it on the component type to produce `@Nullable String[]` (the array's *elements* may be null) rather than `String @Nullable []` (the array *reference* may be null). NullAway in JSpecify mode checks this position. An array declaration (field, local, parameter, or return type) is annotated when its initializer is an array literal containing a `null` element (`String[] a = {null}`, `new String[]{x, null}`) or when an element is assigned a provably-null value in the same method body (`arr[i] = null`). Conservative by design: it skips primitive-element arrays (whose elements can never be null), arrays whose element type already carries a nullability annotation, and non-Java sources (Kotlin and Groovy express element nullability in the type system, which their compilers already enforce).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    String[] f = {null};\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nclass Test {\n    @Nullable String[] f = {null};\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.jspecify.annotations.Nullable;\n+\nclass Test {\n@@ -2,1 +4,1 @@\nclass Test {\n-   String[] f = {null};\n+   @Nullable String[] f = {null};\n}\n","newFile":false}]}]}>
 

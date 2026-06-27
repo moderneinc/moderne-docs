@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find process control vectors"}
-  description={"Finds calls to `System.loadLibrary()`, `System.load()`, and `Runtime.load()` which, when the library path or name is derived from user input, can allow an attacker to load arbitrary native code. Ensure library names are not externally controlled."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["CWE-114","security"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindProcessControl"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findprocesscontrol.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"}]}>
+<RecipeHeader.Title>Find process control vectors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds calls to `System.loadLibrary()`, `System.load()`, and `Runtime.load()` which, when the library path or name is derived from user input, can allow an attacker to load arbitrary native code. Ensure library names are not externally controlled.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure PostgreSQL server enables infrastructure encryption"}
-  description={"Ensure PostgreSQL server enables infrastructure encryption."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["CKV_AZURE_130","Azure","terraform"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.azure.EnsurePostgreSQLServerEnablesInfrastructureEncryption"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/azure/ensurepostgresqlserverenablesinfrastructureencryption.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Ensure PostgreSQL server enables infrastructure encryption</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure PostgreSQL server enables infrastructure encryption.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

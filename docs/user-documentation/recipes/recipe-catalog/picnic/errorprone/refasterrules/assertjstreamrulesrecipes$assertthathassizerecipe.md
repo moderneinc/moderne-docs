@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJStreamRules.AssertThatHasSize`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasSize<T> {\n    \n    @BeforeTemplate\n    AbstractLongAssert<?> before(Stream<T> stream, int size) {\n        return assertThat(stream.count()).isEqualTo(size);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ListAssert<T> after(Stream<T> stream, int size) {\n        return assertThat(stream).hasSize(size);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatHasSizeRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthathassizerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJStreamRules.AssertThatHasSize`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatHasSize<T> {
+    
+    @BeforeTemplate
+    AbstractLongAssert<?> before(Stream<T> stream, int size) {
+        return assertThat(stream.count()).isEqualTo(size);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    ListAssert<T> after(Stream<T> stream, int size) {
+        return assertThat(stream).hasSize(size);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatHasSizeRecipe","displayName":"Refaster template `AssertJStreamRules.AssertThatHasSize`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

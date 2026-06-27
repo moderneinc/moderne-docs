@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@PostMapping` methods missing `@ResponseStatus(HttpStatus.CREATED)`"}
-  description={"By convention, a successful POST that creates a resource should return `201 Created`, not the default `200 OK`. Add `@ResponseStatus(HttpStatus.CREATED)` to the controller method so the status is consistent with the action."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindMissingResponseStatus$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findmissingresponsestatus$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@PostMapping` methods missing `@ResponseStatus(HttpStatus.CREATED)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>By convention, a successful POST that creates a resource should return `201 Created`, not the default `200 OK`. Add `@ResponseStatus(HttpStatus.CREATED)` to the controller method so the status is consistent with the action.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindMissingResponseStatus$KtRecipe","displayName":"Find `@PostMapping` methods missing `@ResponseStatus(HttpStatus.CREATED)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

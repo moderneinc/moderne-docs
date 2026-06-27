@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant base interface"}
-  description={"Remove interface that is already inherited by another implemented interface."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantBaseInterface"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeredundantbaseinterface.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant base interface</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove interface that is already inherited by another implemented interface.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantBaseInterface","displayName":"Remove redundant base interface","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

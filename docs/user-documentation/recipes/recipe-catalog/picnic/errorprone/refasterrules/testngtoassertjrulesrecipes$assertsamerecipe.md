@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TestNGToAssertJRules.AssertSame`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertSame {\n    \n    @BeforeTemplate\n    void before(Object actual, Object expected) {\n        assertSame(actual, expected);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Object actual, Object expected) {\n        assertThat(actual).isSameAs(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertSameRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertsamerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TestNGToAssertJRules.AssertSame`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertSame {
+    
+    @BeforeTemplate
+    void before(Object actual, Object expected) {
+        assertSame(actual, expected);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(Object actual, Object expected) {
+        assertThat(actual).isSameAs(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertSameRecipe","displayName":"Refaster template `TestNGToAssertJRules.AssertSame`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Statically import AssertJ's `assertThat`"}
-  description={"Consistently use a static import rather than inlining the `Assertions` class name in tests."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["testing","assertj"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.StaticImports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/staticimports.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Use static import","href":"java/usestaticimport"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Statically import AssertJ's `assertThat`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Consistently use a static import rather than inlining the `Assertions` class name in tests.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Use static import","href":"/user-documentation/recipes/recipe-catalog/java/usestaticimport/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

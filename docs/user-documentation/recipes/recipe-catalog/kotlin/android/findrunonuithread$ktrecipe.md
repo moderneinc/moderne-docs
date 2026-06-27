@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Activity.runOnUiThread { }` / `View.post { }` calls"}
-  description={"Hand-rolled main-thread dispatch (`runOnUiThread`, `view.post`) was the pre-coroutine pattern for crossing thread boundaries from a background worker. In Kotlin, prefer `withContext(Dispatchers.Main) { … }` — it composes with structured cancellation and surfaces in the call site's coroutine context."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindRunOnUiThread$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findrunonuithread$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Activity.runOnUiThread { }` / `View.post { }` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Hand-rolled main-thread dispatch (`runOnUiThread`, `view.post`) was the pre-coroutine pattern for crossing thread boundaries from a background worker. In Kotlin, prefer `withContext(Dispatchers.Main) { … }` — it composes with structured cancellation and surfaces in the call site's coroutine context.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindRunOnUiThread$KtRecipe","displayName":"Find `Activity.runOnUiThread { }` / `View.post { }` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

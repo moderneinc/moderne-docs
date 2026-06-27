@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `.head` with `.headOption`"}
-  description={"Replaces `.head` calls on collections with `.headOption` to avoid `NoSuchElementException` on empty collections."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.performance.UseHeadOption"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/performance/useheadoption.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `.head` with `.headOption`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `.head` calls on collections with `.headOption` to avoid `NoSuchElementException` on empty collections.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val list = List(1, 2, 3)\n    val first = list.head\n}\n","after":"class Example {\n    val list = List(1, 2, 3)\n    val first = list.headOption\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    val list = List(1, 2, 3)\n-   val first = list.head\n+   val first = list.headOption\n}\n","newFile":false}]}]}>
 

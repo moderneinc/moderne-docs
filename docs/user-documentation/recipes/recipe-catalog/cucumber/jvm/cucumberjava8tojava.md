@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `cucumber-java8` to `cucumber-java`"}
-  description={"Migrates `cucumber-java8` step definitions and `LambdaGlue` hooks to `cucumber-java` annotated methods."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["cucumber","testing"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-cucumber-jvm"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.CucumberJava8ToJava"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8tojava.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `cucumber-java8` hook definition with `cucumber-java`","href":"cucumber/jvm/cucumberjava8hookdefinitiontocucumberjava"},{"name":"Replace `cucumber-java8` step definitions with `cucumber-java`","href":"cucumber/jvm/cucumberjava8stepdefinitiontocucumberjava"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Rename package name","href":"java/changepackage"}]}>
+<RecipeHeader.Title>Migrate `cucumber-java8` to `cucumber-java`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `cucumber-java8` step definitions and `LambdaGlue` hooks to `cucumber-java` annotated methods.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `cucumber-java8` hook definition with `cucumber-java`","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8hookdefinitiontocucumberjava/"},{"name":"Replace `cucumber-java8` step definitions with `cucumber-java`","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8stepdefinitiontocucumberjava/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Setup Spring Framework 5.3.x PetClinic for WebLogic 14.1.2"}
-  description={"Setup Spring Framework 5.3.x PetClinic for WebLogic 14.1.2."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["examples","weblogic","petclinic","springframework"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.examples.spring.SetupSpringFrameworkPetClinicFor1412"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/examples/spring/setupspringframeworkpetclinicfor1412.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Update Default Servlet Handler for Spring Framework if empty","href":"oracle/weblogic/rewrite/spring/framework/defaultservlethandler"},{"name":"Add implicit TLD with taglib 2.1","href":"oracle/weblogic/rewrite/examples/addimplicittldfilewithtaglib2_1"}]}>
+<RecipeHeader.Title>Setup Spring Framework 5.3.x PetClinic for WebLogic 14.1.2</RecipeHeader.Title>
+
+<RecipeHeader.Description>Setup Spring Framework 5.3.x PetClinic for WebLogic 14.1.2.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Update Default Servlet Handler for Spring Framework if empty","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/defaultservlethandler/"},{"name":"Add implicit TLD with taglib 2.1","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/examples/addimplicittldfilewithtaglib2_1/"}]}>
 
 ## Definition
 

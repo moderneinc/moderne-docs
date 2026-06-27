@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade a .NET project using upgrade-assistant"}
-  description={"Run [upgrade-assistant upgrade](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview) across a repository to upgrade projects to a newer version of .NET."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.dotnet.UpgradeAssistant"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/dotnet/upgradeassistant.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Upgrade a .NET project using upgrade-assistant</RecipeHeader.Title>
+
+<RecipeHeader.Description>Run [upgrade-assistant upgrade](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview) across a repository to upgrade projects to a newer version of .NET.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"targetFramework","required":true,"description":"Target framework to which source project should be upgraded.","example":"net9.0"}]}>
 

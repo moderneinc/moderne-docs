@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `DockerApi`"}
-  description={"Replaces deprecated `DockerApi` constructors and configuration methods with their modern equivalents."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.ReplaceDeprecatedDockerApi"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacedeprecateddockerapi.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated `DockerApi`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces deprecated `DockerApi` constructors and configuration methods with their modern equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.buildpack.platform.docker.DockerApi;\nimport org.springframework.boot.buildpack.platform.docker.configuration.DockerConfiguration.DockerHostConfiguration;\n\nclass DockerService {\n    DockerApi createDockerApi(DockerHostConfiguration dockerHost) {\n        return new DockerApi(dockerHost);\n    }\n}\n","after":"import org.springframework.boot.buildpack.platform.docker.DockerApi;\nimport org.springframework.boot.buildpack.platform.docker.DockerLog;\nimport org.springframework.boot.buildpack.platform.docker.configuration.DockerConnectionConfiguration;\n\nclass DockerService {\n    DockerApi createDockerApi(DockerConnectionConfiguration.Host dockerHost) {\n        return new DockerApi(dockerHost, DockerLog.toSystemOut());\n    }\n}\n","diff":"@@ -2,1 +2,2 @@\nimport org.springframework.boot.buildpack.platform.docker.DockerApi;\n-import org.springframework.boot.buildpack.platform.docker.configuration.DockerConfiguration.DockerHostConfiguration;\n+import org.springframework.boot.buildpack.platform.docker.DockerLog;\n+import org.springframework.boot.buildpack.platform.docker.configuration.DockerConnectionConfiguration;\n\n@@ -5,2 +6,2 @@\n\nclass DockerService {\n-   DockerApi createDockerApi(DockerHostConfiguration dockerHost) {\n-       return new DockerApi(dockerHost);\n+   DockerApi createDockerApi(DockerConnectionConfiguration.Host dockerHost) {\n+       return new DockerApi(dockerHost, DockerLog.toSystemOut());\n    }\n","newFile":false}]}]}>
 

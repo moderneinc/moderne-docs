@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `WebView.addJavascriptInterface(...)` calls"}
-  description={"`addJavascriptInterface` exposes a Kotlin/Java object to in-WebView JavaScript — pre-API-17 devices could call any reflectively-reachable method (CVE-2012-6636). Even on modern devices, every annotated method becomes attack surface for whatever content the WebView loads."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindWebViewAddJsInterface$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewaddjsinterface$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `WebView.addJavascriptInterface(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`addJavascriptInterface` exposes a Kotlin/Java object to in-WebView JavaScript — pre-API-17 devices could call any reflectively-reachable method (CVE-2012-6636). Even on modern devices, every annotated method becomes attack surface for whatever content the WebView loads.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindWebViewAddJsInterface$KtRecipe","displayName":"Find `WebView.addJavascriptInterface(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find duplicate source files"}
-  description={"Record the presence of LSTs with duplicate paths, indicating that the same file was parsed more than once."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-all"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.FindDuplicateSourceFiles"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/findduplicatesourcefiles.md"}
-/>
+>
+
+<RecipeHeader.Title>Find duplicate source files</RecipeHeader.Title>
+
+<RecipeHeader.Description>Record the presence of LSTs with duplicate paths, indicating that the same file was parsed more than once.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"properties","before":"hello=world","after":"~~>hello=world","diff":"--- hello.properties\n+++ hello.properties\n@@ -1,1 +1,1 @@\n-hello=world\n+~~>hello=world\n","newFile":false}]}]}>
 

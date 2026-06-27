@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Collapse nested ``if`` into a single ``and`` condition"}
-  description={"When two ``if`` statements are nested with no ``else`` on either, join their conditions with ``and`` and flatten the body."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.MergeNestedIfs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/mergenestedifs.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Collapse nested ``if`` into a single ``and`` condition</RecipeHeader.Title>
+
+<RecipeHeader.Description>When two ``if`` statements are nested with no ``else`` on either, join their conditions with ``and`` and flatten the body.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.MergeNestedIfs","displayName":"Collapse nested ``if`` into a single ``and`` condition","pipPackage":"openrewrite-static-analysis"}}>
 

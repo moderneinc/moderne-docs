@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find RSA encryption without OAEP padding"}
-  description={"Finds uses of RSA encryption with PKCS#1 v1.5 padding or no padding specification. RSA without OAEP padding is vulnerable to padding oracle attacks. Use `RSA/ECB/OAEPWithSHA-256AndMGF1Padding` or equivalent OAEP mode instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-780"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindRsaWithoutOaep"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findrsawithoutoaep.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find RSA encryption without OAEP padding</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds uses of RSA encryption with PKCS#1 v1.5 padding or no padding specification. RSA without OAEP padding is vulnerable to padding oracle attacks. Use `RSA/ECB/OAEPWithSHA-256AndMGF1Padding` or equivalent OAEP mode instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.crypto.Cipher;\nimport java.security.NoSuchAlgorithmException;\nimport javax.crypto.NoSuchPaddingException;\n\nclass A {\n    void encrypt() throws NoSuchAlgorithmException, NoSuchPaddingException {\n        Cipher cipher = Cipher.getInstance(\"RSA\");\n    }\n}\n","after":"import javax.crypto.Cipher;\nimport java.security.NoSuchAlgorithmException;\nimport javax.crypto.NoSuchPaddingException;\n\nclass A {\n    void encrypt() throws NoSuchAlgorithmException, NoSuchPaddingException {\n        Cipher cipher = /*~~(RSA without OAEP: \"RSA\" is vulnerable to padding oracle attacks. Use RSA/ECB/OAEPWithSHA-256AndMGF1Padding instead.)~~>*/Cipher.getInstance(\"RSA\");\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass A {\n    void encrypt() throws NoSuchAlgorithmException, NoSuchPaddingException {\n-       Cipher cipher = Cipher.getInstance(\"RSA\");\n+       Cipher cipher = /*~~(RSA without OAEP: \"RSA\" is vulnerable to padding oracle attacks. Use RSA/ECB/OAEPWithSHA-256AndMGF1Padding instead.)~~>*/Cipher.getInstance(\"RSA\");\n    }\n","newFile":false}]}]}>
 

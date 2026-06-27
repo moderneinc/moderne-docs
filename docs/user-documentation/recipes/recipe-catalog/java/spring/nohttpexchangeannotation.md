@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `HttpExchange` annotations"}
-  description={"Replace method declaration `@HttpExchange` annotations with `@GetExchange`, `@PostExchange`, etc."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.NoHttpExchangeAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/nohttpexchangeannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `HttpExchange` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace method declaration `@HttpExchange` annotations with `@GetExchange`, `@PostExchange`, etc.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.web.service.annotation.HttpExchange;\n\ninterface UserApi {\n    @HttpExchange(method = \"GET\", value = \"/api/users\")\n    String getUsers();\n}\n","after":"import org.springframework.web.service.annotation.GetExchange;\n\ninterface UserApi {\n    @GetExchange(\"/api/users\")\n    String getUsers();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.web.service.annotation.HttpExchange;\n+import org.springframework.web.service.annotation.GetExchange;\n\n@@ -4,1 +4,1 @@\n\ninterface UserApi {\n-   @HttpExchange(method = \"GET\", value = \"/api/users\")\n+   @GetExchange(\"/api/users\")\n    String getUsers();\n","newFile":false}]}]}>
 

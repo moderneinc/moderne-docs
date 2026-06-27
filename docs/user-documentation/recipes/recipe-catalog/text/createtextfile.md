@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create text file"}
-  description={"Creates a new plain text file."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.text.CreateTextFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/text/createtextfile.md"}
-/>
+>
+
+<RecipeHeader.Title>Create text file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Creates a new plain text file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fileContents","required":true,"description":"Multiline text content for the file.","example":"Some text."},{"type":"String","name":"relativeFileName","required":true,"description":"File path of new file.","example":"foo/bar/baz.txt"},{"type":"Boolean","name":"overwriteExisting","required":false,"description":"If there is an existing file, should it be overwritten."}]}>
 

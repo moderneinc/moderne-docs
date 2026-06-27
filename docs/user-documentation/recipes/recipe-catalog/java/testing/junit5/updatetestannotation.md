@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JUnit 4 `@Test` annotations to JUnit 5"}
-  description={"Update usages of JUnit 4's `@org.junit.Test` annotation to JUnit 5's `org.junit.jupiter.api.Test` annotation."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.UpdateTestAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/updatetestannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate JUnit 4 `@Test` annotations to JUnit 5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update usages of JUnit 4's `@org.junit.Test` annotation to JUnit 5's `org.junit.jupiter.api.Test` annotation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Test;\n\npublic class MyTest {\n\n    @Test(expected = Test.None.class)\n    public void test_printLine() {\n        int arr = new int[]{0}[0];\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertDoesNotThrow;\n\npublic class MyTest {\n\n    @Test\n    public void test_printLine() {\n        assertDoesNotThrow(() -> {\n            int arr = new int[]{0}[0];\n        });\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.junit.Test;\n+import org.junit.jupiter.api.Test;\n\n@@ -3,0 +3,2 @@\nimport org.junit.Test;\n\n+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;\n+\npublic class MyTest {\n@@ -5,1 +7,1 @@\npublic class MyTest {\n\n-   @Test(expected = Test.None.class)\n+   @Test\n    public void test_printLine() {\n@@ -7,1 +9,3 @@\n    @Test(expected = Test.None.class)\n    public void test_printLine() {\n-       int arr = new int[]{0}[0];\n+       assertDoesNotThrow(() -> {\n+           int arr = new int[]{0}[0];\n+       });\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find classes with manual `toString`/`equals`/`hashCode` overrides"}
-  description={"A class that overrides all three of `toString`, `equals`, and `hashCode` over its own fields is the canonical shape `data class` exists for. Migrate to `data class C(val a: A, …)` to delete the boilerplate and gain `copy()` plus `componentN()` for free."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindManualToStringEqualsHashCode$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findmanualtostringequalshashcode$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find classes with manual `toString`/`equals`/`hashCode` overrides</RecipeHeader.Title>
+
+<RecipeHeader.Description>A class that overrides all three of `toString`, `equals`, and `hashCode` over its own fields is the canonical shape `data class` exists for. Migrate to `data class C(val a: A, …)` to delete the boilerplate and gain `copy()` plus `componentN()` for free.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindManualToStringEqualsHashCode$KtRecipe","displayName":"Find classes with manual `toString`/`equals`/`hashCode` overrides","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find locale-sensitive date/time formatting"}
-  description={"Finds usages of locale-based date/time formatting APIs that may be affected by JDK 20+ CLDR locale data changes, where the space before AM/PM was changed from a regular space to a narrow no-break space (NNBSP)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.search.FindLocaleDateTimeFormats"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/search/findlocaledatetimeformats.md"}
-/>
+>
+
+<RecipeHeader.Title>Find locale-sensitive date/time formatting</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of locale-based date/time formatting APIs that may be affected by JDK 20+ CLDR locale data changes, where the space before AM/PM was changed from a regular space to a narrow no-break space (NNBSP).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.text.DateFormat;\nimport java.util.Date;\n\nclass Test {\n    void test() {\n        DateFormat df = DateFormat.getTimeInstance();\n        String formatted = df.format(new Date());\n    }\n}\n","after":"import java.text.DateFormat;\nimport java.util.Date;\n\nclass Test {\n    void test() {\n        DateFormat df = /*~~(JDK 20+ CLDR: may use NNBSP before AM/PM)~~>*/DateFormat.getTimeInstance();\n        String formatted = df.format(new Date());\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass Test {\n    void test() {\n-       DateFormat df = DateFormat.getTimeInstance();\n+       DateFormat df = /*~~(JDK 20+ CLDR: may use NNBSP before AM/PM)~~>*/DateFormat.getTimeInstance();\n        String formatted = df.format(new Date());\n","newFile":false}]}]}>
 

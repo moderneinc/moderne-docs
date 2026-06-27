@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find event raised with null EventArgs"}
-  description={"Detect event invocations that pass `null` for EventArgs. Use `EventArgs.Empty` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindEventArgsSenderNotNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findeventargssendernotnull.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find event raised with null EventArgs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect event invocations that pass `null` for EventArgs. Use `EventArgs.Empty` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindEventArgsSenderNotNull","displayName":"Find event raised with null EventArgs","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

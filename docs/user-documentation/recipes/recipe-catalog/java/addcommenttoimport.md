@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add comment to import statement"}
-  description={"Add a comment to an import statement in a Java source file."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.AddCommentToImport"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/addcommenttoimport.md"}
-/>
+>
+
+<RecipeHeader.Title>Add comment to import statement</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a comment to an import statement in a Java source file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"comment","required":true,"description":"The comment to add.","example":"This is a comment."},{"type":"String","name":"typePattern","required":true,"description":"A type pattern that is used to find matching imports uses.","example":"org.springframework..*"}]}>
 

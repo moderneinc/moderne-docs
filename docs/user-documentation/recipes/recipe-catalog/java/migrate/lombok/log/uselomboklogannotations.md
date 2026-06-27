@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Lombok logger annotations instead of explicit fields"}
-  description={"Applies all recipes that replace logger declarations with class level annotations."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lombok.log.UseLombokLogAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/log/uselomboklogannotations.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `@CommonsLog` instead of explicit fields","href":"java/migrate/lombok/log/usecommonslog"},{"name":"Use `@JBossLog` instead of explicit fields","href":"java/migrate/lombok/log/usejbosslog"},{"name":"Use `@Log` instead of explicit fields","href":"java/migrate/lombok/log/uselog"},{"name":"Use `@Log4j2` instead of explicit fields","href":"java/migrate/lombok/log/uselog4j2"},{"name":"Use `@Slf4` instead of explicit fields","href":"java/migrate/lombok/log/useslf4j"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use Lombok logger annotations instead of explicit fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies all recipes that replace logger declarations with class level annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `@CommonsLog` instead of explicit fields","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/log/usecommonslog/"},{"name":"Use `@JBossLog` instead of explicit fields","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/log/usejbosslog/"},{"name":"Use `@Log` instead of explicit fields","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/log/uselog/"},{"name":"Use `@Log4j2` instead of explicit fields","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/log/uselog4j2/"},{"name":"Use `@Slf4` instead of explicit fields","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/log/useslf4j/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

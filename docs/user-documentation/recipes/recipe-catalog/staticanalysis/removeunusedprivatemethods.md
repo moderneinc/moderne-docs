@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unused private methods"}
-  description={"`private` methods that are never executed are dead code and should be removed. Keeping unreachable methods around adds maintenance burden and can give a false impression of the class's capabilities."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1144"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveUnusedPrivateMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedprivatemethods.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unused private methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>`private` methods that are never executed are dead code and should be removed. Keeping unreachable methods around adds maintenance burden and can give a false impression of the class's capabilities.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    private void unused() {\n    }\n\n    public void dontRemove() {\n        dontRemove2();\n    }\n\n    private void dontRemove2() {\n    }\n}\n","after":"class Test {\n\n    public void dontRemove() {\n        dontRemove2();\n    }\n\n    private void dontRemove2() {\n    }\n}\n","diff":"@@ -2,2 +2,0 @@\nclass Test {\n-   private void unused() {\n-   }\n\n","newFile":false}]}]}>
 

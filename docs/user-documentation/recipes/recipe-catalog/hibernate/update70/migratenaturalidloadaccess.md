@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate NaturalIdLoadAccess method calls"}
-  description={"Migrates NaturalIdLoadAccess#using(Object...) to using(Map.of(...)) variants for Hibernate 7.0."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.MigrateNaturalIdLoadAccess"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/migratenaturalidloadaccess.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate NaturalIdLoadAccess method calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates NaturalIdLoadAccess#using(Object...) to using(Map.of(...)) variants for Hibernate 7.0.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.Session;\n\nclass Test {\n    void test(Session session) {\n        Object object = session.byNaturalId(Object.class)\n              .using(1, 2)\n              .load();\n    }\n}\n","after":"import org.hibernate.Session;\n\nimport java.util.Map;\n\nclass Test {\n    void test(Session session) {\n        Object object = session.byNaturalId(Object.class)\n              .using(Map.of(1, 2))\n              .load();\n    }\n}\n","diff":"@@ -3,0 +3,2 @@\nimport org.hibernate.Session;\n\n+import java.util.Map;\n+\nclass Test {\n@@ -6,1 +8,1 @@\n    void test(Session session) {\n        Object object = session.byNaturalId(Object.class)\n-             .using(1, 2)\n+             .using(Map.of(1, 2))\n              .load();\n","newFile":false}]}]}>
 

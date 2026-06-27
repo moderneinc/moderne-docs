@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move `React.PropTypes` to `prop-types` package"}
-  description={"Extracts PropTypes usage from the React namespace to the separate `prop-types` package introduced in React 15.5."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.16.react-prop-types"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/16/react-prop-types.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Move `React.PropTypes` to `prop-types` package</RecipeHeader.Title>
+
+<RecipeHeader.Description>Extracts PropTypes usage from the React namespace to the separate `prop-types` package introduced in React 15.5.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.16.react-prop-types","displayName":"Move `React.PropTypes` to `prop-types` package","npmPackage":"@openrewrite/recipes-react"}}>
 

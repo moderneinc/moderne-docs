@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find a feature flag"}
-  description={"Find a feature flag matching method pattern."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-feature-flags"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.featureflags.search.FindFeatureFlag"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/featureflags/search/findfeatureflag.md"}
-/>
+>
+
+<RecipeHeader.Title>Find a feature flag</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find a feature flag matching method pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern to match against. The first argument must be the feature key as `String`.","example":"dev.openfeature.sdk.Client getBooleanValue(String, Boolean)"},{"type":"String","name":"featureKey","required":false,"description":"The unique key for the feature flag.","example":"flag-key-123abc"}]}>
 

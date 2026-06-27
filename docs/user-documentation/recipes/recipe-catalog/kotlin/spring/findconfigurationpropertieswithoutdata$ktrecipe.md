@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@ConfigurationProperties` classes that aren't `data class`"}
-  description={"A `@ConfigurationProperties` carrier should be a `data class` with `val` properties: immutable, `equals`/`hashCode`/`toString` for free, and the constructor binder works without `@ConstructorBinding`. Plain `class` carriers either require mutable `lateinit var` or lose the value-class benefits."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindConfigurationPropertiesWithoutData$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findconfigurationpropertieswithoutdata$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@ConfigurationProperties` classes that aren't `data class`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `@ConfigurationProperties` carrier should be a `data class` with `val` properties: immutable, `equals`/`hashCode`/`toString` for free, and the constructor binder works without `@ConstructorBinding`. Plain `class` carriers either require mutable `lateinit var` or lose the value-class benefits.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindConfigurationPropertiesWithoutData$KtRecipe","displayName":"Find `@ConfigurationProperties` classes that aren't `data class`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

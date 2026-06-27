@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `A.class::isInstance`"}
-  description={"Prefer `A.class::isInstance` over `Predicates.instanceOf(A.class)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaPredicatesInstanceOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavapredicatesinstanceof.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `A.class::isInstance`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `A.class::isInstance` over `Predicates.instanceOf(A.class)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Collection;\n\nimport com.google.common.base.Predicates;\nimport com.google.common.collect.Iterables;\n\nclass Test {\n    boolean test(Collection<Object> collection) {\n        return Iterables.all(collection, Predicates.instanceOf(String.class));\n    }\n}\n","after":"import java.util.Collection;\n\nimport com.google.common.collect.Iterables;\n\nclass Test {\n    boolean test(Collection<Object> collection) {\n        return Iterables.all(collection, String.class::isInstance);\n    }\n}\n","diff":"@@ -3,1 +3,0 @@\nimport java.util.Collection;\n\n-import com.google.common.base.Predicates;\nimport com.google.common.collect.Iterables;\n@@ -8,1 +7,1 @@\nclass Test {\n    boolean test(Collection<Object> collection) {\n-       return Iterables.all(collection, Predicates.instanceOf(String.class));\n+       return Iterables.all(collection, String.class::isInstance);\n    }\n","newFile":false}]}]}>
 

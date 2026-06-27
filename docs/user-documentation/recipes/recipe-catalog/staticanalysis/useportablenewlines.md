@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use %n instead of \\n in format strings"}
-  description={"Format strings should use %n rather than \\n to produce platform-specific line separators. Hard-coded `\\n` characters produce incorrect line endings on Windows, whereas `%n` adapts to the runtime platform automatically."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S3457"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UsePortableNewlines"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/useportablenewlines.md"}
-/>
+>
+
+<RecipeHeader.Title>Use %n instead of \n in format strings</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format strings should use %n rather than \n to produce platform-specific line separators. Hard-coded `\n` characters produce incorrect line endings on Windows, whereas `%n` adapts to the runtime platform automatically.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test(String name) {\n        System.out.printf(\"Hello %s\\n\", name);\n    }\n}\n","after":"class Test {\n    void test(String name) {\n        System.out.printf(\"Hello %s%n\", name);\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    void test(String name) {\n-       System.out.printf(\"Hello %s\\n\", name);\n+       System.out.printf(\"Hello %s%n\", name);\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `?.apply { }` whose result is discarded"}
-  description={"`x?.apply { … }` returns the receiver, but if the result is discarded the safe-call's return value adds nothing. Use `x?.also { … }` or move the side effect out of `apply`, where the receiver isn't needed."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindApplyResultUnused$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findapplyresultunused$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `?.apply { }` whose result is discarded</RecipeHeader.Title>
+
+<RecipeHeader.Description>`x?.apply { … }` returns the receiver, but if the result is discarded the safe-call's return value adds nothing. Use `x?.also { … }` or move the side effect out of `apply`, where the receiver isn't needed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindApplyResultUnused$KtRecipe","displayName":"Find `?.apply { }` whose result is discarded","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

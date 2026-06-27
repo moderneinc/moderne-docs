@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `n.dp` allocations inside a `@Composable` body"}
-  description={"`Dp` is an inline value class — most `.dp` accesses compile to a primitive. But certain platforms (older Kotlin, KMP non-JVM targets) box the value. In hot composables, prefer hoisting `private val padding = 8.dp` to file scope so the conversion runs once."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindDpAllocationInComposableBody$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/finddpallocationincomposablebody$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `n.dp` allocations inside a `@Composable` body</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Dp` is an inline value class — most `.dp` accesses compile to a primitive. But certain platforms (older Kotlin, KMP non-JVM targets) box the value. In hot composables, prefer hoisting `private val padding = 8.dp` to file scope so the conversion runs once.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindDpAllocationInComposableBody$KtRecipe","displayName":"Find `n.dp` allocations inside a `@Composable` body","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

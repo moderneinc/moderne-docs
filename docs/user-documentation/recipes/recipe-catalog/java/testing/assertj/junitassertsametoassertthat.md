@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit `assertSame` to AssertJ"}
-  description={"Convert JUnit-style `assertSame()` to AssertJ's `assertThat().isSameAs()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.JUnitAssertSameToAssertThat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/junitassertsametoassertthat.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit `assertSame` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert JUnit-style `assertSame()` to AssertJ's `assertThat().isSameAs()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertSame;\n\npublic class MyTest {\n    @Test\n    public void test() {\n        String str = \"String\";\n        assertSame(notification(), str);\n    }\n    private String notification() {\n        return \"String\";\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\npublic class MyTest {\n    @Test\n    public void test() {\n        String str = \"String\";\n        assertThat(str).isSameAs(notification());\n    }\n    private String notification() {\n        return \"String\";\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport org.junit.jupiter.api.Test;\n\n-import static org.junit.jupiter.api.Assertions.assertSame;\n+import static org.assertj.core.api.Assertions.assertThat;\n\n@@ -9,1 +9,1 @@\n    public void test() {\n        String str = \"String\";\n-       assertSame(notification(), str);\n+       assertThat(str).isSameAs(notification());\n    }\n","newFile":false}]}]}>
 

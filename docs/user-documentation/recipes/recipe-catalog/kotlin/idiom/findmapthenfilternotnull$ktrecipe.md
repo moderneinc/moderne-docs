@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `map { ... }.filterNotNull()` chains"}
-  description={"Two-pass `map { … }.filterNotNull()` builds an intermediate list of nullable values. `mapNotNull { … }` does both in one pass with a single allocation and propagates `null` returns naturally."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindMapThenFilterNotNull$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findmapthenfilternotnull$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `map { ... }.filterNotNull()` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>Two-pass `map { … }.filterNotNull()` builds an intermediate list of nullable values. `mapNotNull { … }` does both in one pass with a single allocation and propagates `null` returns naturally.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindMapThenFilterNotNull$KtRecipe","displayName":"Find `map { ... }.filterNotNull()` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

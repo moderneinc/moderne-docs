@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `java.util.concurrent` over `synchronized`"}
-  description={"Finds `synchronized` blocks in Scala code. Consider using `java.util.concurrent` alternatives for better performance and composability."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.safety.PreferConcurrentUtils"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/safety/preferconcurrentutils.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer `java.util.concurrent` over `synchronized`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `synchronized` blocks in Scala code. Consider using `java.util.concurrent` alternatives for better performance and composability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Counter {\n    private var count = 0\n\n    def increment(): Unit = {\n        synchronized {\n            count += 1\n        }\n    }\n}\n","after":"class Counter {\n    private var count = 0\n\n    def increment(): Unit = {\n        /*~~(Consider using java.util.concurrent alternatives to synchronized)~~>*/synchronized {\n            count += 1\n        }\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\n\n    def increment(): Unit = {\n-       synchronized {\n+       /*~~(Consider using java.util.concurrent alternatives to synchronized)~~>*/synchronized {\n            count += 1\n","newFile":false}]}]}>
 

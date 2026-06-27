@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from httpcore-nio to ApacheHttpClient 5.x core dependency"}
-  description={"Adopt `org.apache.httpcomponents.core5:httpcore5` from `org.apache.httpcomponents:httpcore-nio`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","httpclient"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.UpgradeApacheHttpCoreNioDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcoreniodependencies.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"java/dependencies/dependencyinsight"}]}>
+<RecipeHeader.Title>Migrate from httpcore-nio to ApacheHttpClient 5.x core dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adopt `org.apache.httpcomponents.core5:httpcore5` from `org.apache.httpcomponents:httpcore-nio`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyinsight/"}]}>
 
 ## Definition
 

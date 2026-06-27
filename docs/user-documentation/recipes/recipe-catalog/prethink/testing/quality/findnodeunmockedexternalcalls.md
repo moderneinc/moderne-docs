@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unmocked external calls in Node.js tests"}
-  description={"Detect direct HTTP, database, and network calls in JavaScript/TypeScript test files that are not mocked. Integration and e2e test files are excluded."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindNodeUnmockedExternalCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeunmockedexternalcalls.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find unmocked external calls in Node.js tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect direct HTTP, database, and network calls in JavaScript/TypeScript test files that are not mocked. Integration and e2e test files are excluded.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"javascript","code":"function testApiCall() {\n    const response = fetch('http://example.com/api');\n}\n"},"variants":[]}]}>
 

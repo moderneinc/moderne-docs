@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find overrides that change parameter defaults"}
-  description={"Detect `override` methods with default parameter values. Overrides should not change defaults from the base method as this causes confusing behavior depending on the reference type."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindOverrideChangesParameterDefaults"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findoverridechangesparameterdefaults.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find overrides that change parameter defaults</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `override` methods with default parameter values. Overrides should not change defaults from the base method as this causes confusing behavior depending on the reference type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindOverrideChangesParameterDefaults","displayName":"Find overrides that change parameter defaults","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

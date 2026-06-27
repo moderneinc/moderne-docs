@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add GitLab component"}
-  description={"Add a GitLab component to an existing list, or add a new list where none was present."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.AddComponent"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/addcomponent.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Merge YAML snippet","href":"yaml/mergeyaml"}]}>
+<RecipeHeader.Title>Add GitLab component</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a GitLab component to an existing list, or add a new list where none was present.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Merge YAML snippet","href":"/user-documentation/recipes/recipe-catalog/yaml/mergeyaml/"}]}>
 
 ## Definition
 

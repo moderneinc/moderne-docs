@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization"}
-  description={"Replace `@TestExecutionListeners(MockitoTestExecutionListener.class)` with the appropriate Mockito initialization for the test framework in use: `@ExtendWith(MockitoExtension.class)` for JUnit 5, `@RunWith(MockitoJUnitRunner.class)` for JUnit 4, or `MockitoAnnotations.openMocks(this)` for TestNG."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListener"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacemockitotestexecutionlistener.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `@TestExecutionListeners(MockitoTestExecutionListener.class)` with the appropriate Mockito initialization for the test framework in use: `@ExtendWith(MockitoExtension.class)` for JUnit 5, `@RunWith(MockitoJUnitRunner.class)` for JUnit 4, or `MockitoAnnotations.openMocks(this)` for TestNG.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"targetFramework","required":false,"description":"The test framework to use when imports alone cannot determine the framework. Typically set by wrapper recipes that check project dependencies."}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate flyway and liquibase credentials"}
-  description={"If you currently define a `spring.flyway.url` or `spring.liquibase.url` you may need to provide additional username and password properties. In earlier versions of Spring Boot, these settings were derived from `spring.datasource` properties but this turned out to be problematic for people that provided their own `DataSource` beans."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateDatabaseCredentials"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratedatabasecredentials.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate flyway credentials","href":"java/spring/boot2/migratedatabasecredentialsfortoolyaml"},{"name":"Migrate flyway credentials","href":"java/spring/boot2/migratedatabasecredentialsfortoolproperties"},{"name":"Migrate liquibase credentials","href":"java/spring/boot2/migratedatabasecredentialsfortoolyaml"},{"name":"Migrate liquibase credentials","href":"java/spring/boot2/migratedatabasecredentialsfortoolproperties"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate flyway and liquibase credentials</RecipeHeader.Title>
+
+<RecipeHeader.Description>If you currently define a `spring.flyway.url` or `spring.liquibase.url` you may need to provide additional username and password properties. In earlier versions of Spring Boot, these settings were derived from `spring.datasource` properties but this turned out to be problematic for people that provided their own `DataSource` beans.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate flyway credentials","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratedatabasecredentialsfortoolyaml/"},{"name":"Migrate flyway credentials","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratedatabasecredentialsfortoolproperties/"},{"name":"Migrate liquibase credentials","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratedatabasecredentialsfortoolyaml/"},{"name":"Migrate liquibase credentials","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratedatabasecredentialsfortoolproperties/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

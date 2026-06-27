@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `FileRules.PathOfString`"}
-  description={"Prefer the more idiomatic `Path#of(String, String...)` over `Paths#get(String, String...)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.FileRulesRecipes$PathOfStringRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/filerulesrecipes$pathofstringrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `FileRules.PathOfString`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the more idiomatic `Path#of(String, String...)` over `Paths#get(String, String...)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.FileRulesRecipes$PathOfStringRecipe","displayName":"Refaster template `FileRules.PathOfString`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

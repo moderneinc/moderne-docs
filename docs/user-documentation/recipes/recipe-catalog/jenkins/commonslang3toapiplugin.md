@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use commons-lang3 API Plugin"}
-  description={"Updates `pom.xml` to depend on `commons-lang3-api` and exclude `commons-lang3` where it is brought in transitively."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.CommonsLang3ToApiPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/commonslang3toapiplugin.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use Jenkins API plugin instead of libraries","href":"jenkins/replacelibrarieswithapiplugin"}]}>
+<RecipeHeader.Title>Use commons-lang3 API Plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Updates `pom.xml` to depend on `commons-lang3-api` and exclude `commons-lang3` where it is brought in transitively.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use Jenkins API plugin instead of libraries","href":"/user-documentation/recipes/recipe-catalog/jenkins/replacelibrarieswithapiplugin/"}]}>
 
 ## Definition
 

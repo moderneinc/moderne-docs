@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find SCM tag"}
-  description={"Finds any `<scm>` tag directly inside the `<project>` root of a Maven pom.xml file."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.search.FindScm"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/search/findscm.md"}
-/>
+>
+
+<RecipeHeader.Title>Find SCM tag</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds any `<scm>` tag directly inside the `<project>` root of a Maven pom.xml file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>com.example</groupId>\n  <artifactId>demo</artifactId>\n  <version>1.0</version>\n  <scm>\n    <url>https://github.com/example/demo</url>\n  </scm>\n</project>\n","after":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>com.example</groupId>\n  <artifactId>demo</artifactId>\n  <version>1.0</version>\n  <!--~~>--><scm>\n    <url>https://github.com/example/demo</url>\n  </scm>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -6,1 +6,1 @@\n  <artifactId>demo</artifactId>\n  <version>1.0</version>\n- <scm>\n+ <!--~~>--><scm>\n    <url>https://github.com/example/demo</url>\n","newFile":false}]}]}>
 

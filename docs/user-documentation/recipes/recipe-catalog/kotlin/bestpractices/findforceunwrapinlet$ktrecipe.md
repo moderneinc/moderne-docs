@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `!!` inside a `?.let { }` body"}
-  description={"`x?.let { it!! }` (or `it.foo()!!`) is internally inconsistent: the safe-call entry already guards null, so the `!!` on `it` can never trigger. Drop the `!!` — the lambda body has a non-null receiver by construction."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindForceUnwrapInLet$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findforceunwrapinlet$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `!!` inside a `?.let { }` body</RecipeHeader.Title>
+
+<RecipeHeader.Description>`x?.let { it!! }` (or `it.foo()!!`) is internally inconsistent: the safe-call entry already guards null, so the `!!` on `it` can never trigger. Drop the `!!` — the lambda body has a non-null receiver by construction.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindForceUnwrapInLet$KtRecipe","displayName":"Find `!!` inside a `?.let { }` body","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

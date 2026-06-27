@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `EntityManagerFactoryBuilder` deprecated constructor"}
-  description={"The constructors of `EntityManagerFactoryBuilder` have been deprecated in Spring Boot 3.4. This recipe transforms them to use the new constructor with a Function parameter for property mapping."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.MigrateEntityManagerFactoryBuilderConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateentitymanagerfactorybuilderconstructor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `EntityManagerFactoryBuilder` deprecated constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>The constructors of `EntityManagerFactoryBuilder` have been deprecated in Spring Boot 3.4. This recipe transforms them to use the new constructor with a Function parameter for property mapping.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;\nimport org.springframework.orm.jpa.JpaVendorAdapter;\nimport org.springframework.orm.jpa.persistenceunit.PersistenceUnitManager;\nimport java.util.Map;\n\npublic class JpaConfig {\n    public EntityManagerFactoryBuilder createBuilder(JpaVendorAdapter vendorAdapter, Map<String, Object> jpaProperties, PersistenceUnitManager persistenceUnitManager) {\n        return new EntityManagerFactoryBuilder(vendorAdapter, jpaProperties, persistenceUnitManager);\n    }\n}\n","after":"import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;\nimport org.springframework.orm.jpa.JpaVendorAdapter;\nimport org.springframework.orm.jpa.persistenceunit.PersistenceUnitManager;\nimport java.util.Map;\n\npublic class JpaConfig {\n    public EntityManagerFactoryBuilder createBuilder(JpaVendorAdapter vendorAdapter, Map<String, Object> jpaProperties, PersistenceUnitManager persistenceUnitManager) {\n        return new EntityManagerFactoryBuilder(vendorAdapter, properties -> jpaProperties, persistenceUnitManager, null);\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\npublic class JpaConfig {\n    public EntityManagerFactoryBuilder createBuilder(JpaVendorAdapter vendorAdapter, Map<String, Object> jpaProperties, PersistenceUnitManager persistenceUnitManager) {\n-       return new EntityManagerFactoryBuilder(vendorAdapter, jpaProperties, persistenceUnitManager);\n+       return new EntityManagerFactoryBuilder(vendorAdapter, properties -> jpaProperties, persistenceUnitManager, null);\n    }\n","newFile":false}]}]}>
 

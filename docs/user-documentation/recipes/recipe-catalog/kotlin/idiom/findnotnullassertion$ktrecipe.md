@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `!!` non-null assertions"}
-  description={"The `!!` operator throws a generic `NullPointerException` with no context. `requireNotNull(x) { \"explain why\" }` or `x ?: error(\"explain why\")` produces a message that points at the assumption."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindNotNullAssertion$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnotnullassertion$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `!!` non-null assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `!!` operator throws a generic `NullPointerException` with no context. `requireNotNull(x) { "explain why" }` or `x ?: error("explain why")` produces a message that points at the assumption.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindNotNullAssertion$KtRecipe","displayName":"Find `!!` non-null assertions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

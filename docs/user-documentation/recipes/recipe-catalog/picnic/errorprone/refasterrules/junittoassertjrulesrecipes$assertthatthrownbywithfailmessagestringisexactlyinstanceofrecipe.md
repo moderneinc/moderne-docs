@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `JUnitToAssertJRules.AssertThatThrownByWithFailMessageStringIsExactlyInstanceOf`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatThrownByWithFailMessageStringIsExactlyInstanceOf<T extends Throwable> {\n    \n    @BeforeTemplate\n    void before(Executable throwingCallable, String message, Class<T> clazz) {\n        assertThrowsExactly(clazz, throwingCallable, message);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(ThrowingCallable throwingCallable, String message, Class<T> clazz) {\n        assertThatThrownBy(throwingCallable).withFailMessage(message).isExactlyInstanceOf(clazz);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatThrownByWithFailMessageStringIsExactlyInstanceOfRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatthrownbywithfailmessagestringisexactlyinstanceofrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatThrownByWithFailMessageStringIsExactlyInstanceOf`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatThrownByWithFailMessageStringIsExactlyInstanceOf<T extends Throwable> {
+    
+    @BeforeTemplate
+    void before(Executable throwingCallable, String message, Class<T> clazz) {
+        assertThrowsExactly(clazz, throwingCallable, message);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(ThrowingCallable throwingCallable, String message, Class<T> clazz) {
+        assertThatThrownBy(throwingCallable).withFailMessage(message).isExactlyInstanceOf(clazz);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatThrownByWithFailMessageStringIsExactlyInstanceOfRecipe","displayName":"Refaster template `JUnitToAssertJRules.AssertThatThrownByWithFailMessageStringIsExactlyInstanceOf`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

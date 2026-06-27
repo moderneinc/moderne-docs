@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update relocated Micronaut Security config yaml keys"}
-  description={"This recipe will update relocated security config keys in Micronaut configuration yaml files."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.UpdateSecurityYamlIfNeeded"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/updatesecurityyamlifneeded.md"}
-/>
+>
+
+<RecipeHeader.Title>Update relocated Micronaut Security config yaml keys</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will update relocated security config keys in Micronaut configuration yaml files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.micronaut.UpdateSecurityYamlIfNeeded","displayName":"Update relocated Micronaut Security config yaml keys","groupId":"org.openrewrite.recipe","artifactId":"rewrite-micronaut","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT","requiresConfiguration":false}}>
 

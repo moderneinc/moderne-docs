@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove deprecated API's not supported in CDI4.0"}
-  description={"Deprecated APIs have been removed in CDI 4.0. This recipe removes and updates the corresponding deprecated methods."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.DeprecatedCDIAPIsRemoved40"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/deprecatedcdiapisremoved40.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove `Bean.isNullable()`","href":"java/migrate/jakarta/removebeanisnullable"},{"name":"Replace `BeforeBeanDiscovery.addAnnotatedType(AnnotatedType)` with `addAnnotatedType(AnnotatedType, String)`","href":"java/migrate/jakarta/updateaddannotatedtypes"},{"name":"Update `fireEvent()` and `createInjectionTarget()` calls","href":"java/migrate/jakarta/updatebeanmanagermethods"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove deprecated API's not supported in CDI4.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Deprecated APIs have been removed in CDI 4.0. This recipe removes and updates the corresponding deprecated methods.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove `Bean.isNullable()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removebeanisnullable/"},{"name":"Replace `BeforeBeanDiscovery.addAnnotatedType(AnnotatedType)` with `addAnnotatedType(AnnotatedType, String)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateaddannotatedtypes/"},{"name":"Update `fireEvent()` and `createInjectionTarget()` calls","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatebeanmanagermethods/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

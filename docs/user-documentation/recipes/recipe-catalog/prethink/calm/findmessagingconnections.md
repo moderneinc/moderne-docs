@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find messaging connections"}
-  description={"Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, AWS SQS, and SmallRye Reactive Messaging."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindMessagingConnections"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findmessagingconnections.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find messaging connections</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, AWS SQS, and SmallRye Reactive Messaging.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindMessagingConnections","displayName":"Find messaging connections","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

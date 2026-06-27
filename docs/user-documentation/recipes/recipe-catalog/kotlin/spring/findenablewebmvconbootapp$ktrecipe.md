@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@EnableWebMvc` on a Spring Boot application"}
-  description={"`@EnableWebMvc` opts out of Spring Boot's Web MVC auto-configuration. Most applications shouldn't apply it — they want Boot's defaults plus a `WebMvcConfigurer` for tweaks. Flag the annotation so reviewers can confirm it's intentional."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindEnableWebMvcOnBootApp$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findenablewebmvconbootapp$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@EnableWebMvc` on a Spring Boot application</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@EnableWebMvc` opts out of Spring Boot's Web MVC auto-configuration. Most applications shouldn't apply it — they want Boot's defaults plus a `WebMvcConfigurer` for tweaks. Flag the annotation so reviewers can confirm it's intentional.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindEnableWebMvcOnBootApp$KtRecipe","displayName":"Find `@EnableWebMvc` on a Spring Boot application","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

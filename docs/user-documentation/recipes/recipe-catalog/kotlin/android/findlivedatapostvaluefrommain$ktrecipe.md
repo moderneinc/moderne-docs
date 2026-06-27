@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `MutableLiveData.postValue(...)` calls inside coroutine main-thread contexts"}
-  description={"`postValue` exists for background-thread updaters — it marshals through the main looper and coalesces consecutive updates. When called from a place that already runs on the main thread (UI callbacks, view-model initialization, `Dispatchers.Main` blocks), the coalescing is a footgun: intermediate values silently drop. Use `setValue`/`.value =` on the main thread, `postValue` only from background threads."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindLiveDataPostValueFromMain$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findlivedatapostvaluefrommain$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `MutableLiveData.postValue(...)` calls inside coroutine main-thread contexts</RecipeHeader.Title>
+
+<RecipeHeader.Description>`postValue` exists for background-thread updaters — it marshals through the main looper and coalesces consecutive updates. When called from a place that already runs on the main thread (UI callbacks, view-model initialization, `Dispatchers.Main` blocks), the coalescing is a footgun: intermediate values silently drop. Use `setValue`/`.value =` on the main thread, `postValue` only from background threads.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindLiveDataPostValueFromMain$KtRecipe","displayName":"Find `MutableLiveData.postValue(...)` calls inside coroutine main-thread contexts","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Node.js silent test failures"}
-  description={"Detect silent test failures in JavaScript and TypeScript test files including empty .catch() handlers and test functions missing expect() calls."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindNodeSilentTestFailures"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodesilenttestfailures.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Node.js silent test failures</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect silent test failures in JavaScript and TypeScript test files including empty .catch() handlers and test functions missing expect() calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.testing.quality.FindNodeSilentTestFailures","displayName":"Find Node.js silent test failures","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

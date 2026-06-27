@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce the location of first attribute"}
-  description={"Enforce the location of first attribute\nSee rule details for [svelte/first-attribute-linebreak](https://sveltejs.github.io/eslint-plugin-svelte/rules/first-attribute-linebreak/)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["svelte","ESLint","eslint-plugin-svelte"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.svelte.FirstAttributeLinebreak"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/svelte/firstattributelinebreak.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce the location of first attribute</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce the location of first attribute See rule details for [svelte/first-attribute-linebreak](https://sveltejs.github.io/eslint-plugin-svelte/rules/first-attribute-linebreak/).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

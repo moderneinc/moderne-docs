@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find SSLContext.setDefault() usage"}
-  description={"Detects calls to SSLContext.setDefault() which sets the system-wide default SSL context. This is problematic because it affects all SSL/TLS connections in the JVM, potentially overriding security configurations set by other parts of the application or libraries. It also prevents crypto-agility as the configuration becomes global."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindSSLContextSetDefault"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findsslcontextsetdefault.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find SSLContext.setDefault() usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects calls to SSLContext.setDefault() which sets the system-wide default SSL context. This is problematic because it affects all SSL/TLS connections in the JVM, potentially overriding security configurations set by other parts of the application or libraries. It also prevents crypto-agility as the configuration becomes global.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.net.ssl.SSLContext;\n\npublic class SSLDefaultExample {\n    public void setGlobalSSLContext() throws Exception {\n        SSLContext sslContext = SSLContext.getInstance(\"TLSv1.2\");\n        sslContext.init(null, null, null);\n        SSLContext.setDefault(sslContext);\n    }\n}\n","after":"import javax.net.ssl.SSLContext;\n\npublic class SSLDefaultExample {\n    public void setGlobalSSLContext() throws Exception {\n        SSLContext sslContext = SSLContext.getInstance(\"TLSv1.2\");\n        sslContext.init(null, null, null);\n        /*~~(SSL_CONTEXT use)~~>*/SSLContext.setDefault(sslContext);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n        SSLContext sslContext = SSLContext.getInstance(\"TLSv1.2\");\n        sslContext.init(null, null, null);\n-       SSLContext.setDefault(sslContext);\n+       /*~~(SSL_CONTEXT use)~~>*/SSLContext.setDefault(sslContext);\n    }\n","newFile":false}]}]}>
 

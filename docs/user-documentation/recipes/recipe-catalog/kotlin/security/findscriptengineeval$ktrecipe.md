@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `ScriptEngine.eval(...)` calls"}
-  description={"`ScriptEngine.eval(input)` executes its argument as JavaScript (or Groovy / JRuby) — full code execution from a string. Replace with a domain-specific parser, or whitelist the script before evaluation."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindScriptEngineEval$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findscriptengineeval$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `ScriptEngine.eval(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`ScriptEngine.eval(input)` executes its argument as JavaScript (or Groovy / JRuby) — full code execution from a string. Replace with a domain-specific parser, or whitelist the script before evaluation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindScriptEngineEval$KtRecipe","displayName":"Find `ScriptEngine.eval(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

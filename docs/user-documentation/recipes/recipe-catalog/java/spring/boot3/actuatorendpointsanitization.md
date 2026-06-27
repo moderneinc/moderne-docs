@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove the deprecated properties `additional-keys-to-sanitize` from the `configprops` and `env` end points"}
-  description={"Spring Boot 3.0 removed the key-based sanitization mechanism used in Spring Boot 2.x in favor of a unified approach. See https://github.com/openrewrite/rewrite-spring/issues/228."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","boot"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.ActuatorEndpointSanitization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/actuatorendpointsanitization.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Delete a spring configuration property","href":"java/spring/deletespringproperty"},{"name":"Delete a spring configuration property","href":"java/spring/deletespringproperty"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove the deprecated properties `additional-keys-to-sanitize` from the `configprops` and `env` end points</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot 3.0 removed the key-based sanitization mechanism used in Spring Boot 2.x in favor of a unified approach. See https://github.com/openrewrite/rewrite-spring/issues/228.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Delete a spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/deletespringproperty/"},{"name":"Delete a spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/deletespringproperty/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

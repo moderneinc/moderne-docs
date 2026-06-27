@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find coroutine-test patterns"}
-  description={"Search-only bundle for coroutine-testing primitives: `runBlocking` inside `@Test`, `runBlockingTest` (deprecated), `TestCoroutineDispatcher` (deprecated), JUnit 4 `@Rule` fields named after coroutines (hand-rolled `MainCoroutineRule`-style), and `delay(...)` calls inside a `runBlocking` test body."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindCoroutineTestSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findcoroutinetestsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `runBlocking { ... }` calls inside test methods","href":"kotlin/testing/findrunblockingintest$ktrecipe"},{"name":"Find `runBlockingTest { ... }` calls","href":"kotlin/testing/findrunblockingtestcall$ktrecipe"},{"name":"Find `TestCoroutineDispatcher` allocations","href":"kotlin/testing/findtestcoroutinedispatcherusage$ktrecipe"},{"name":"Find JUnit 4 coroutine-test `@Rule` fields","href":"kotlin/testing/findcoroutinetestrule$ktrecipe"},{"name":"Find `delay(...)` calls inside test methods running on a real dispatcher","href":"kotlin/testing/finddelayintest$ktrecipe"}]}>
+<RecipeHeader.Title>Find coroutine-test patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle for coroutine-testing primitives: `runBlocking` inside `@Test`, `runBlockingTest` (deprecated), `TestCoroutineDispatcher` (deprecated), JUnit 4 `@Rule` fields named after coroutines (hand-rolled `MainCoroutineRule`-style), and `delay(...)` calls inside a `runBlocking` test body.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `runBlocking { ... }` calls inside test methods","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findrunblockingintest$ktrecipe/"},{"name":"Find `runBlockingTest { ... }` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findrunblockingtestcall$ktrecipe/"},{"name":"Find `TestCoroutineDispatcher` allocations","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findtestcoroutinedispatcherusage$ktrecipe/"},{"name":"Find JUnit 4 coroutine-test `@Rule` fields","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findcoroutinetestrule$ktrecipe/"},{"name":"Find `delay(...)` calls inside test methods running on a real dispatcher","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/finddelayintest$ktrecipe/"}]}>
 
 ## Definition
 

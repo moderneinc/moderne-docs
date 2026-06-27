@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@Nullable` to collection and map type arguments that hold null elements"}
-  description={"Places the JSpecify `@Nullable` annotation on a collection or map type argument when its elements or values are provably nullable, producing `List<@Nullable String>` or `Map<String, @Nullable String>`. JSpecify distinguishes `List<@Nullable String>` (the list may hold `null` elements) from `@Nullable List<String>` (the list reference may be `null`); this recipe annotates the type argument, which NullAway enforces in JSpecify mode. A type argument is annotated when `Collection.add(...)` is called with a provably-null element, `Map.put(...)` is called with a provably-null value, or the declaration's initializer is a `List.of(...)`/`Set.of(...)`/`Arrays.asList(...)` containing a `null`. The receiver is resolved to its declaration within the same compilation unit (cross-file declarations are not handled). Conservative by design: it skips wildcard (`?`) and raw type arguments, and arguments that are already `@Nullable`, so it is idempotent."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.infer.AddNullableToTypeArgument"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/infer/addnullabletotypeargument.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@Nullable` to collection and map type arguments that hold null elements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Places the JSpecify `@Nullable` annotation on a collection or map type argument when its elements or values are provably nullable, producing `List<@Nullable String>` or `Map<String, @Nullable String>`. JSpecify distinguishes `List<@Nullable String>` (the list may hold `null` elements) from `@Nullable List<String>` (the list reference may be `null`); this recipe annotates the type argument, which NullAway enforces in JSpecify mode. A type argument is annotated when `Collection.add(...)` is called with a provably-null element, `Map.put(...)` is called with a provably-null value, or the declaration's initializer is a `List.of(...)`/`Set.of(...)`/`Arrays.asList(...)` containing a `null`. The receiver is resolved to its declaration within the same compilation unit (cross-file declarations are not handled). Conservative by design: it skips wildcard (`?`) and raw type arguments, and arguments that are already `@Nullable`, so it is idempotent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.ArrayList;\nimport java.util.List;\n\nclass Test {\n    void m() {\n        List<String> l = new ArrayList<>();\n        l.add(null);\n    }\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nimport java.util.ArrayList;\nimport java.util.List;\n\nclass Test {\n    void m() {\n        List<@Nullable String> l = new ArrayList<>();\n        l.add(null);\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.jspecify.annotations.Nullable;\n+\nimport java.util.ArrayList;\n@@ -6,1 +8,1 @@\nclass Test {\n    void m() {\n-       List<String> l = new ArrayList<>();\n+       List<@Nullable String> l = new ArrayList<>();\n        l.add(null);\n","newFile":false}]}]}>
 

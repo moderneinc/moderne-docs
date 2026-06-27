@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace referential equality operators with Object equals method invocations when the operands both override `Object.equals(Object obj)`"}
-  description={"Using `==` or `!=` compares object references, not the equality of two objects. This modifies code where both sides of a binary operation (`==` or `!=`) override `Object.equals(Object obj)` except when the comparison is within an overridden `Object.equals(Object obj)` method declaration itself. The resulting transformation must be carefully reviewed since any modifications change the program's semantics. When a class defines its own notion of equality through `equals`, using reference comparison is almost always a bug that causes logically identical objects to be treated as different."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1698"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReferentialEqualityToObjectEquals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/referentialequalitytoobjectequals.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace referential equality operators with Object equals method invocations when the operands both override `Object.equals(Object obj)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using `==` or `!=` compares object references, not the equality of two objects. This modifies code where both sides of a binary operation (`==` or `!=`) override `Object.equals(Object obj)` except when the comparison is within an overridden `Object.equals(Object obj)` method declaration itself. The resulting transformation must be carefully reviewed since any modifications change the program's semantics. When a class defines its own notion of equality through `equals`, using reference comparison is almost always a bug that causes logically identical objects to be treated as different.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class T {\n    void doSomething() {\n        A a1 = new A();\n        A a2 = new A();\n        if (a1 == a2) {}\n    }\n    class A {\n        @Override\n        public boolean equals(Object anObject) {return true;}\n    }\n}\n","after":"class T {\n    void doSomething() {\n        A a1 = new A();\n        A a2 = new A();\n        if (a1.equals(a2)) {}\n    }\n    class A {\n        @Override\n        public boolean equals(Object anObject) {return true;}\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\n        A a1 = new A();\n        A a2 = new A();\n-       if (a1 == a2) {}\n+       if (a1.equals(a2)) {}\n    }\n","newFile":false}]}]}>
 

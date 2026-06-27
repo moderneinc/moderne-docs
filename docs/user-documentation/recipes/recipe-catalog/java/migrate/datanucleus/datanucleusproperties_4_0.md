@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"DataNucleus 4.0 property migrations"}
-  description={"Rename property keys that changed in DataNucleus 4.0."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.datanucleus.DataNucleusProperties_4_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleusproperties_4_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"}]}>
+<RecipeHeader.Title>DataNucleus 4.0 property migrations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rename property keys that changed in DataNucleus 4.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"}]}>
 
 ## Definition
 

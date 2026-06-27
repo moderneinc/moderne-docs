@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remediate OWASP A05:2021 Security misconfiguration"}
-  description={"OWASP [A05:2021](https://owasp.org/Top10/A05_2021-Security_Misconfiguration/) describes failures related to security misconfiguration."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspA05"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/owaspa05.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"XML parser XXE vulnerability","href":"java/security/xmlparserxxevulnerability"}]}>
+<RecipeHeader.Title>Remediate OWASP A05:2021 Security misconfiguration</RecipeHeader.Title>
+
+<RecipeHeader.Description>OWASP [A05:2021](https://owasp.org/Top10/A05_2021-Security_Misconfiguration/) describes failures related to security misconfiguration.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"XML parser XXE vulnerability","href":"/user-documentation/recipes/recipe-catalog/java/security/xmlparserxxevulnerability/"}]}>
 
 ## Definition
 

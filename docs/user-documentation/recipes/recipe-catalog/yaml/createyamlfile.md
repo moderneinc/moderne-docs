@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create YAML file"}
-  description={"Create a new YAML file."}
   type={"Single recipe"}
   languages={["YAML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-yaml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.yaml.CreateYamlFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/yaml/createyamlfile.md"}
-/>
+>
+
+<RecipeHeader.Title>Create YAML file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Create a new YAML file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"relativeFileName","required":true,"description":"File path of new file.","example":"foo/bar/baz.yaml"},{"type":"String","name":"fileContents","required":false,"description":"Multiline text content for the file.","example":"a:\n  property: value\nanother:\n  property: value"},{"type":"String","name":"fileContentsUrl","required":false,"description":"URL to file containing text content for the file. Use either `fileContents` or `fileContentsUrl` option.","example":"http://foo.bar/baz.yaml"},{"type":"Boolean","name":"overwriteExisting","required":false,"description":"If there is an existing file, should it be overwritten."}]}>
 

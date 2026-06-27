@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Java 6"}
-  description={"This recipe will apply changes commonly needed when upgrading to Java 6. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java6"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava6"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava6.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade JaCoCo","href":"java/migrate/jacoco/upgradejacoco"},{"name":"Add missing `isWrapperFor` and `unwrap` methods","href":"java/migrate/jrewrapperinterface"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Java 6</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when upgrading to Java 6. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade JaCoCo","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jacoco/upgradejacoco/"},{"name":"Add missing `isWrapperFor` and `unwrap` methods","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jrewrapperinterface/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

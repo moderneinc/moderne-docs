@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Atomic Boolean, Integer, and Long equality checks compare their values"}
-  description={"`AtomicBoolean#equals(Object)`, `AtomicInteger#equals(Object)` and `AtomicLong#equals(Object)` are only equal to their instance. This recipe converts `a.equals(b)` to `a.get() == b.get()`. These atomic classes do not override `equals` from `Object`, so calling it compares object identity rather than the wrapped value, which is almost never the intended behavior."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2204"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.AtomicPrimitiveEqualsUsesGet"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/atomicprimitiveequalsusesget.md"}
-/>
+>
+
+<RecipeHeader.Title>Atomic Boolean, Integer, and Long equality checks compare their values</RecipeHeader.Title>
+
+<RecipeHeader.Description>`AtomicBoolean#equals(Object)`, `AtomicInteger#equals(Object)` and `AtomicLong#equals(Object)` are only equal to their instance. This recipe converts `a.equals(b)` to `a.get() == b.get()`. These atomic classes do not override `equals` from `Object`, so calling it compares object identity rather than the wrapped value, which is almost never the intended behavior.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.concurrent.atomic.AtomicInteger;\nimport java.util.concurrent.atomic.AtomicLong;\nimport java.util.concurrent.atomic.AtomicBoolean;\n\nclass A {\n    boolean areEqual(AtomicInteger i1, AtomicInteger i2) {\n        return i1.equals(i2);\n    }\n    boolean areEqual(AtomicLong l1, AtomicLong l2) {\n        return l1.equals(l2);\n    }\n    boolean areEqual(AtomicBoolean b1, AtomicBoolean b2) {\n        return b1.equals(b2);\n    }\n}\n","after":"import java.util.concurrent.atomic.AtomicInteger;\nimport java.util.concurrent.atomic.AtomicLong;\nimport java.util.concurrent.atomic.AtomicBoolean;\n\nclass A {\n    boolean areEqual(AtomicInteger i1, AtomicInteger i2) {\n        return i1.get() == i2.get();\n    }\n    boolean areEqual(AtomicLong l1, AtomicLong l2) {\n        return l1.get() == l2.get();\n    }\n    boolean areEqual(AtomicBoolean b1, AtomicBoolean b2) {\n        return b1.get() == b2.get();\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass A {\n    boolean areEqual(AtomicInteger i1, AtomicInteger i2) {\n-       return i1.equals(i2);\n+       return i1.get() == i2.get();\n    }\n@@ -10,1 +10,1 @@\n    }\n    boolean areEqual(AtomicLong l1, AtomicLong l2) {\n-       return l1.equals(l2);\n+       return l1.get() == l2.get();\n    }\n@@ -13,1 +13,1 @@\n    }\n    boolean areEqual(AtomicBoolean b1, AtomicBoolean b2) {\n-       return b1.equals(b2);\n+       return b1.get() == b2.get();\n    }\n","newFile":false}]}]}>
 

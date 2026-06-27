@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Make declarative recipes singletons"}
-  description={"Adds the `org.openrewrite.Singleton` precondition to declarative YAML recipes to ensure they only execute once, even when included multiple times."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.DeclarativeSingleton"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/declarativesingleton.md"}
-/>
+>
+
+<RecipeHeader.Title>Make declarative recipes singletons</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the `org.openrewrite.Singleton` precondition to declarative YAML recipes to ensure they only execute once, even when included multiple times.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"exclusions","required":false,"description":"List of recipe names to exclude from having the Singleton precondition added.","example":"org.openrewrite.java.cleanup.Cleanup"}]}>
 

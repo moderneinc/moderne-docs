@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `org.springframework.boot.web.server.LocalServerPort`"}
-  description={"Updates the package and adds the necessary dependency if `LocalServerPort` is in use. The package of `LocalServerPort` was changed in Spring Boot 2.0, necessitating changes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateLocalServerPortAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratelocalserverportannotation.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]}>
+<RecipeHeader.Title>Use `org.springframework.boot.web.server.LocalServerPort`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Updates the package and adds the necessary dependency if `LocalServerPort` is in use. The package of `LocalServerPort` was changed in Spring Boot 2.0, necessitating changes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]}>
 
 ## Definition
 

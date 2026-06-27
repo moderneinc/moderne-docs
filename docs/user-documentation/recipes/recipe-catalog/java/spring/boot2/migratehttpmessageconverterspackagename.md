@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `org.springframework.boot.autoconfigure.http.HttpMessageConverters`"}
-  description={"Use `org.springframework.boot.autoconfigure.http.HttpMessageConverters` instead of the deprecated `org.springframework.boot.autoconfigure.web.HttpMessageConverters` in Spring Boot 2.0 or higher."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateHttpMessageConvertersPackageName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratehttpmessageconverterspackagename.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use `org.springframework.boot.autoconfigure.http.HttpMessageConverters`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `org.springframework.boot.autoconfigure.http.HttpMessageConverters` instead of the deprecated `org.springframework.boot.autoconfigure.web.HttpMessageConverters` in Spring Boot 2.0 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Flatten `for/else` when the loop has no `break`"}
-  description={"A `for/else` where the loop body never breaks is misleading -- the `else` runs every time. This moves the else body after the loop."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.UselessElseOnLoop"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/uselesselseonloop.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Flatten `for/else` when the loop has no `break`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `for/else` where the loop body never breaks is misleading -- the `else` runs every time. This moves the else body after the loop.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.UselessElseOnLoop","displayName":"Flatten `for/else` when the loop has no `break`","pipPackage":"openrewrite-static-analysis"}}>
 

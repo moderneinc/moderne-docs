@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Does not include Gradle dependency"}
-  description={"A precondition which returns false if visiting a Gradle file which includes the specified dependency in the classpath of some scope. For compatibility with multimodule projects, this should most often be applied as a precondition."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.search.DoesNotIncludeDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/search/doesnotincludedependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Does not include Gradle dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>A precondition which returns false if visiting a Gradle file which includes the specified dependency in the classpath of some scope. For compatibility with multimodule projects, this should most often be applied as a precondition.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. Supports glob.","example":"com.google.guava"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. Supports glob.","example":"guava"},{"type":"String","name":"version","required":false,"description":"Match only dependencies with the specified resolved version. Node-style [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors) may be used. All versions are searched by default.","example":"1.x"},{"type":"String","name":"configuration","required":false,"description":"Match dependencies with the specified scope. If not specified, all configurations will be searched.","example":"compileClasspath"}]}>
 

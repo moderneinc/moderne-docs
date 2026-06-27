@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `InvocationInterceptor.interceptDynamicTest`"}
-  description={"JUnit 6 removed the `interceptDynamicTest(Invocation, ExtensionContext)` method from `InvocationInterceptor`. This recipe removes implementations of this deprecated method."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit6.RemoveInterceptDynamicTest"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit6/removeinterceptdynamictest.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `InvocationInterceptor.interceptDynamicTest`</RecipeHeader.Title>
+
+<RecipeHeader.Description>JUnit 6 removed the `interceptDynamicTest(Invocation, ExtensionContext)` method from `InvocationInterceptor`. This recipe removes implementations of this deprecated method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.extension.ExtensionContext;\nimport org.junit.jupiter.api.extension.InvocationInterceptor;\nimport org.junit.jupiter.api.extension.ReflectiveInvocationContext;\n\nclass MyInterceptor implements InvocationInterceptor {\n    @Override\n    public void interceptDynamicTest(Invocation<Void> invocation, ExtensionContext extensionContext) throws Throwable {\n        System.out.println(\"Before dynamic test\");\n        invocation.proceed();\n        System.out.println(\"After dynamic test\");\n    }\n\n    @Override\n    public void interceptTestMethod(Invocation<Void> invocation, ReflectiveInvocationContext<Method> invocationContext, ExtensionContext extensionContext) throws Throwable {\n        invocation.proceed();\n    }\n\n    private static class Method {}\n}\n","after":"import org.junit.jupiter.api.extension.ExtensionContext;\nimport org.junit.jupiter.api.extension.InvocationInterceptor;\nimport org.junit.jupiter.api.extension.ReflectiveInvocationContext;\n\nclass MyInterceptor implements InvocationInterceptor {\n\n    @Override\n    public void interceptTestMethod(Invocation<Void> invocation, ReflectiveInvocationContext<Method> invocationContext, ExtensionContext extensionContext) throws Throwable {\n        invocation.proceed();\n    }\n\n    private static class Method {}\n}\n","diff":"@@ -6,6 +6,0 @@\n\nclass MyInterceptor implements InvocationInterceptor {\n-   @Override\n-   public void interceptDynamicTest(Invocation<Void> invocation, ExtensionContext extensionContext) throws Throwable {\n-       System.out.println(\"Before dynamic test\");\n-       invocation.proceed();\n-       System.out.println(\"After dynamic test\");\n-   }\n\n","newFile":false}]}]}>
 

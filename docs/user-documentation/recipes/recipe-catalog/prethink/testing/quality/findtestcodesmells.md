@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find test code smells"}
-  description={"Detect code smells in test files including empty catch blocks, deprecated test APIs, magic numbers, and poorly named test methods."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindTestCodeSmells"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findtestcodesmells.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find test code smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect code smells in test files including empty catch blocks, deprecated test APIs, magic numbers, and poorly named test methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.junit.jupiter.api.Test;\n\npublic class MyTest {\n    @Test\n    void testSomething() {\n        try {\n            int x = 1 / 0;\n        } catch (Exception e) {\n        }\n    }\n}\n"},"variants":[]}]}>
 

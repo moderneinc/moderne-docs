@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUL `Level.ALL` logging with SLF4J's trace level"}
-  description={"Replace `java.util.logging.Logger#log(Level.ALL, String)` with `org.slf4j.Logger#trace(String)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.JulLevelAllToTraceRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jullevelalltotracerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace JUL `Level.ALL` logging with SLF4J's trace level</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `java.util.logging.Logger#log(Level.ALL, String)` with `org.slf4j.Logger#trace(String)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.logging.slf4j.JulLevelAllToTraceRecipe","displayName":"Replace JUL `Level.ALL` logging with SLF4J's trace level","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 

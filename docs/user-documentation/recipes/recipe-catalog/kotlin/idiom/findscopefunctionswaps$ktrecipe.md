@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find scope-function correctness swaps"}
-  description={"The 12 well-known scope-function correctness rules: `with(x)` used as a receiver expression vs `x.run { }`, `?.apply { }` whose result is discarded vs `?.also { }`, `apply { }` without mutation vs `also { }`, `also { }` with mutation vs `apply { }`, redundant `this.` inside `apply { }`, `run` without `this` references."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindScopeFunctionSwaps$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findscopefunctionswaps$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `with(x) { ... }` used as an expression","href":"kotlin/idiom/findwithasreceiver$ktrecipe"},{"name":"Find redundant `this.` inside `apply { }` blocks","href":"kotlin/idiom/findapplythisqualifier$ktrecipe"},{"name":"Find `apply { }` blocks that perform no mutation","href":"kotlin/idiom/findapplywithoutmutation$ktrecipe"},{"name":"Find `also { }` blocks that mutate the receiver","href":"kotlin/idiom/findalsowithmutation$ktrecipe"},{"name":"Find `?.apply { }` whose result is discarded","href":"kotlin/idiom/findapplyresultunused$ktrecipe"},{"name":"Find `x.run { ... }` that doesn't use the receiver","href":"kotlin/idiom/findrunwithoutreceiveruse$ktrecipe"}]}>
+<RecipeHeader.Title>Find scope-function correctness swaps</RecipeHeader.Title>
+
+<RecipeHeader.Description>The 12 well-known scope-function correctness rules: `with(x)` used as a receiver expression vs `x.run { }`, `?.apply { }` whose result is discarded vs `?.also { }`, `apply { }` without mutation vs `also { }`, `also { }` with mutation vs `apply { }`, redundant `this.` inside `apply { }`, `run` without `this` references.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `with(x) { ... }` used as an expression","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findwithasreceiver$ktrecipe/"},{"name":"Find redundant `this.` inside `apply { }` blocks","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findapplythisqualifier$ktrecipe/"},{"name":"Find `apply { }` blocks that perform no mutation","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findapplywithoutmutation$ktrecipe/"},{"name":"Find `also { }` blocks that mutate the receiver","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findalsowithmutation$ktrecipe/"},{"name":"Find `?.apply { }` whose result is discarded","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findapplyresultunused$ktrecipe/"},{"name":"Find `x.run { ... }` that doesn't use the receiver","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findrunwithoutreceiveruse$ktrecipe/"}]}>
 
 ## Definition
 

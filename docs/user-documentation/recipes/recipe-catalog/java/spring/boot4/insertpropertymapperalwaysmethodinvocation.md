@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Preserve `PropertyMapper` null-passing behavior"}
-  description={"Spring Boot 4.0 changes the `PropertyMapper` behavior so that `from()` no longer calls `to()` when the source value is `null`. This recipe inserts `.always()` before terminal mapping methods to preserve the previous behavior. Chains that already contain `.whenNonNull()` or `.alwaysApplyingWhenNonNull()` are skipped, as they explicitly opted into null-skipping behavior which is now the default."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.InsertPropertyMapperAlwaysMethodInvocation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/insertpropertymapperalwaysmethodinvocation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Preserve `PropertyMapper` null-passing behavior</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot 4.0 changes the `PropertyMapper` behavior so that `from()` no longer calls `to()` when the source value is `null`. This recipe inserts `.always()` before terminal mapping methods to preserve the previous behavior. Chains that already contain `.whenNonNull()` or `.alwaysApplyingWhenNonNull()` are skipped, as they explicitly opted into null-skipping behavior which is now the default.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.context.properties.PropertyMapper;\n\nclass Config {\n    void configure() {\n        PropertyMapper map = PropertyMapper.get();\n        map.from(this::getValue).to(this::setValue);\n    }\n    String getValue() { return \"\"; }\n    void setValue(String v) {}\n}\n","after":"import org.springframework.boot.context.properties.PropertyMapper;\n\nclass Config {\n    void configure() {\n        PropertyMapper map = PropertyMapper.get();\n        map.from(this::getValue).always().to(this::setValue);\n    }\n    String getValue() { return \"\"; }\n    void setValue(String v) {}\n}\n","diff":"@@ -6,1 +6,1 @@\n    void configure() {\n        PropertyMapper map = PropertyMapper.get();\n-       map.from(this::getValue).to(this::setValue);\n+       map.from(this::getValue).always().to(this::setValue);\n    }\n","newFile":false}]}]}>
 

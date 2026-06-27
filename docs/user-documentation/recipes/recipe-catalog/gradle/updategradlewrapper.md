@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update Gradle wrapper"}
-  description={"Update the version of Gradle used in an existing Gradle wrapper. Queries `downloads.gradle.org` to determine the available releases, but prefers the artifact repository URL which already exists within the wrapper properties file. If your artifact repository does not contain the same Gradle distributions as `downloads.gradle.org`, then the recipe may suggest a version which is not available in your artifact repository."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.UpdateGradleWrapper"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/updategradlewrapper.md"}
-/>
+>
+
+<RecipeHeader.Title>Update Gradle wrapper</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update the version of Gradle used in an existing Gradle wrapper. Queries `downloads.gradle.org` to determine the available releases, but prefers the artifact repository URL which already exists within the wrapper properties file. If your artifact repository does not contain the same Gradle distributions as `downloads.gradle.org`, then the recipe may suggest a version which is not available in your artifact repository.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"version","required":false,"description":"An exact version number or node-style semver selector used to select the version number. Defaults to the latest release available from `downloads.gradle.org` if not specified.","example":"7.x"},{"type":"String","name":"distribution","required":false,"description":"The distribution of Gradle to use. \"bin\" includes Gradle binaries. \"all\" includes Gradle binaries, source code, and documentation. Defaults to the distribution type of the existing wrapper properties file, or \"bin\" if no wrapper properties file exists."},{"type":"Boolean","name":"addIfMissing","required":false,"description":"Add a Gradle wrapper, if it's missing. Defaults to `true`."},{"type":"String","name":"wrapperUri","required":false,"description":"The URI of the Gradle wrapper distribution.\nSpecifies a custom location from which to download the Gradle wrapper scripts (gradlew, gradlew.bat, etc.). This is useful for setting up the Gradle wrapper without relying on Gradle's official distribution services.\n\nWhen this option is set, the version and distribution fields must not be specified — only one source of truth is allowed. The URI should point to a valid and reachable Gradle wrapper distribution (typically a .zip archive containing the wrapper files).\nThis is particularly helpful in environments where access to Gradle's central services is restricted or where custom Gradle wrapper setups are required.\nIf the URI is inaccessible, the recipe will leave the existing wrapper files in the repository unchanged, as they are generally compatible with various Gradle versions.","example":"https://downloads.gradle.org/distributions/gradle-8.5-bin.zip"},{"type":"String","name":"distributionChecksum","required":false,"description":"The SHA-256 checksum of the Gradle distribution. If specified, the recipe will add the checksum along with the custom distribution URL.","example":"29e49b10984e585d8118b7d0bc452f944e386458df27371b49b4ac1dec4b7fda"}]}>
 

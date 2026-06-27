@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate classic actor tell to typed ActorRef"}
-  description={"Finds classic Akka actor messaging patterns (`actorRef ! msg` or `actorRef.tell(msg)`). Consider migrating to typed `ActorRef` messaging."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.akka.MigrateActorRefTell"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/akka/migrateactorreftell.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate classic actor tell to typed ActorRef</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds classic Akka actor messaging patterns (`actorRef ! msg` or `actorRef.tell(msg)`). Consider migrating to typed `ActorRef` messaging.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Sender {\n    def send(): Unit = {\n      actorRef ! \"hello\"\n    }\n}\n","after":"class Sender {\n    /*~~(Classic actor tell; consider migrating to typed ActorRef)~~>*/def send(): Unit = {\n      actorRef ! \"hello\"\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Sender {\n-   def send(): Unit = {\n+   /*~~(Classic actor tell; consider migrating to typed ActorRef)~~>*/def send(): Unit = {\n      actorRef ! \"hello\"\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use lambda expressions instead of anonymous classes"}
-  description={"Instead of anonymous class declarations, use a lambda where possible. Using lambdas to replace anonymous classes can lead to more expressive and maintainable code, improve code readability, reduce code duplication, and achieve better performance in some cases."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1604"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UseLambdaForFunctionalInterface"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/uselambdaforfunctionalinterface.md"}
-/>
+>
+
+<RecipeHeader.Title>Use lambda expressions instead of anonymous classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Instead of anonymous class declarations, use a lambda where possible. Using lambdas to replace anonymous classes can lead to more expressive and maintainable code, improve code readability, reduce code duplication, and achieve better performance in some cases.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.function.Function;\nclass Test {\n    Function<Integer, Integer> f = new Function<Integer, Integer>() {\n        @Override\n        public Integer apply(Integer n) {\n            return n + 1;\n        }\n    };\n}\n","after":"import java.util.function.Function;\nclass Test {\n    Function<Integer, Integer> f = n -> n + 1;\n}\n","diff":"@@ -3,6 +3,1 @@\nimport java.util.function.Function;\nclass Test {\n-   Function<Integer, Integer> f = new Function<Integer, Integer>() {\n-       @Override\n-       public Integer apply(Integer n) {\n-           return n + 1;\n-       }\n-   };\n+   Function<Integer, Integer> f = n -> n + 1;\n}\n","newFile":false}]}]}>
 

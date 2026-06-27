@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"}
-  description={"Replace `org.apache.commons.lang3.Validate.notNull(..)` with `Objects.requireNonNull(..)`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceApacheCommonsLang3ValidateNotNullWithObjectsRequireNonNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replaceapachecommonslang3validatenotnullwithobjectsrequirenonnull.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`","href":"staticanalysis/replacevalidatenotnullhavingvarargswithobjectsrequirenonnull"},{"name":"Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`","href":"staticanalysis/replacevalidatenotnullhavingsingleargwithobjectsrequirenonnull"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `org.apache.commons.lang3.Validate.notNull(..)` with `Objects.requireNonNull(..)`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacevalidatenotnullhavingvarargswithobjectsrequirenonnull/"},{"name":"Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/replacevalidatenotnullhavingsingleargwithobjectsrequirenonnull/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Call to Mockito method \"verify\", \"when\" or \"given\" should be simplified"}
-  description={"Fixes Sonar issue `java:S6068`: Call to Mockito method \"verify\", \"when\" or \"given\" should be simplified."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-6068"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.SimplifyMockitoVerifyWhenGiven"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/simplifymockitoverifywhengiven.md"}
-/>
+>
+
+<RecipeHeader.Title>Call to Mockito method "verify", "when" or "given" should be simplified</RecipeHeader.Title>
+
+<RecipeHeader.Description>Fixes Sonar issue `java:S6068`: Call to Mockito method "verify", "when" or "given" should be simplified.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.mockito.Mockito.verify;\nimport static org.mockito.Mockito.mock;\nimport static org.mockito.ArgumentMatchers.eq;\n\nclass Test {\n    void test() {\n        var mockString = mock(String.class);\n        verify(mockString).replace(eq(\"foo\"), eq(\"bar\"));\n    }\n}\n","after":"import static org.mockito.Mockito.verify;\nimport static org.mockito.Mockito.mock;\n\nclass Test {\n    void test() {\n        var mockString = mock(String.class);\n        verify(mockString).replace(\"foo\", \"bar\");\n    }\n}\n","diff":"@@ -3,1 +3,0 @@\nimport static org.mockito.Mockito.verify;\nimport static org.mockito.Mockito.mock;\n-import static org.mockito.ArgumentMatchers.eq;\n\n@@ -8,1 +7,1 @@\n    void test() {\n        var mockString = mock(String.class);\n-       verify(mockString).replace(eq(\"foo\"), eq(\"bar\"));\n+       verify(mockString).replace(\"foo\", \"bar\");\n    }\n","newFile":false}]}]}>
 

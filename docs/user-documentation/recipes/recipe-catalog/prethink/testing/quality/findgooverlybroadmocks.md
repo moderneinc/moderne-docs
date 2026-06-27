@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Go overly broad mocks"}
-  description={"Detect testify mock.Anything / mock.AnythingOfType usage in Go tests."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindGoOverlyBroadMocks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgooverlybroadmocks.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Go overly broad mocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect testify mock.Anything / mock.AnythingOfType usage in Go tests.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.testing.quality.FindGoOverlyBroadMocks","displayName":"Find Go overly broad mocks","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

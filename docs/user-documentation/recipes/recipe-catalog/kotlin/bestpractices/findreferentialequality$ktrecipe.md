@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `===` / `!==` referential-equality comparisons"}
-  description={"Kotlin's `===` checks reference identity, ignoring `equals`. For `data class` and other value-like types this almost always wants `==` instead. Flag every referential check for review — true reference comparisons (e.g. sentinel `Any` objects) are legitimate but rare."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindReferentialEquality$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findreferentialequality$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `===` / `!==` referential-equality comparisons</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotlin's `===` checks reference identity, ignoring `equals`. For `data class` and other value-like types this almost always wants `==` instead. Flag every referential check for review — true reference comparisons (e.g. sentinel `Any` objects) are legitimate but rare.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindReferentialEquality$KtRecipe","displayName":"Find `===` / `!==` referential-equality comparisons","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

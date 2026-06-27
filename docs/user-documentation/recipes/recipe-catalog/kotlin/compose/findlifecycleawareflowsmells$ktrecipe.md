@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find lifecycle-naive flow / LiveData collection in Composables"}
-  description={"Collectors and observers that keep running while the host activity is stopped: `LiveData.observeAsState()`, `viewModel.uiState.collectAsState()` (vs `collectAsStateWithLifecycle()`), and `LiveData.observe(...)` called directly from a `@Composable`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindLifecycleAwareFlowSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlifecycleawareflowsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `LiveData.observeAsState()` calls — prefer `collectAsStateWithLifecycle()`","href":"kotlin/compose/findobserveasstate$ktrecipe"},{"name":"Find `viewModel.uiState.collectAsState()` calls — confirm lifecycle-aware collection","href":"kotlin/compose/findstateflowdirectcollect$ktrecipe"},{"name":"Find `LiveData.observe(...)` calls inside `@Composable`","href":"kotlin/compose/findlivedataobserveincomposable$ktrecipe"}]}>
+<RecipeHeader.Title>Find lifecycle-naive flow / LiveData collection in Composables</RecipeHeader.Title>
+
+<RecipeHeader.Description>Collectors and observers that keep running while the host activity is stopped: `LiveData.observeAsState()`, `viewModel.uiState.collectAsState()` (vs `collectAsStateWithLifecycle()`), and `LiveData.observe(...)` called directly from a `@Composable`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `LiveData.observeAsState()` calls — prefer `collectAsStateWithLifecycle()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findobserveasstate$ktrecipe/"},{"name":"Find `viewModel.uiState.collectAsState()` calls — confirm lifecycle-aware collection","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findstateflowdirectcollect$ktrecipe/"},{"name":"Find `LiveData.observe(...)` calls inside `@Composable`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlivedataobserveincomposable$ktrecipe/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Is likely a Kafka consumer module"}
-  description={"Marks the project if it's likely a Kafka consumer module."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.kafka.consumer.IsKafkaConsumer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/kafka/consumer/iskafkaconsumer.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Is likely a Kafka consumer module</RecipeHeader.Title>
+
+<RecipeHeader.Description>Marks the project if it's likely a Kafka consumer module.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"java","before":"import org.springframework.kafka.annotation.KafkaListener;\nimport org.springframework.stereotype.Service;\n\n@Service\nclass MyConsumer {\n\n    @KafkaListener(topics = \"my-topic\")\n    public void consume(String message) {\n        System.out.println(message);\n    }\n}\n","after":"/*~~(Module is likely a Kafka consumer)~~>*/import org.springframework.kafka.annotation.KafkaListener;\nimport org.springframework.stereotype.Service;\n\n@Service\nclass MyConsumer {\n\n    @KafkaListener(topics = \"my-topic\")\n    public void consume(String message) {\n        System.out.println(message);\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.kafka.annotation.KafkaListener;\n+/*~~(Module is likely a Kafka consumer)~~>*/import org.springframework.kafka.annotation.KafkaListener;\nimport org.springframework.stereotype.Service;\n","newFile":false}]}]}>
 

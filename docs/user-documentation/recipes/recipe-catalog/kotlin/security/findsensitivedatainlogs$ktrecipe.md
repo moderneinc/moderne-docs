@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find sensitive data in log calls"}
-  description={"Log calls (SLF4J, `println`, `android.util.Log`) whose message string mentions `password`/`token`/`secret`/`api_key`/`credit_card` — each match likely renders the secret value into a log destination that isn't designed for secret storage."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindSensitiveDataInLogs$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findsensitivedatainlogs$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find SLF4J log calls with sensitive field names in the format string","href":"kotlin/security/findslf4jlogsensitive$ktrecipe"},{"name":"Find `println(\"... password ...\")` patterns","href":"kotlin/security/findprintlnsensitive$ktrecipe"},{"name":"Find `android.util.Log.{d,i,v,w,e}` calls with sensitive content","href":"kotlin/security/findandroidlogsensitive$ktrecipe"}]}>
+<RecipeHeader.Title>Find sensitive data in log calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Log calls (SLF4J, `println`, `android.util.Log`) whose message string mentions `password`/`token`/`secret`/`api_key`/`credit_card` — each match likely renders the secret value into a log destination that isn't designed for secret storage.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find SLF4J log calls with sensitive field names in the format string","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findslf4jlogsensitive$ktrecipe/"},{"name":"Find `println(\"... password ...\")` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findprintlnsensitive$ktrecipe/"},{"name":"Find `android.util.Log.{d,i,v,w,e}` calls with sensitive content","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findandroidlogsensitive$ktrecipe/"}]}>
 
 ## Definition
 

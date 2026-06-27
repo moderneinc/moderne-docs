@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use string.IsNullOrEmpty method"}
-  description={"Replace `s == null || s == \"\"` and `s == null || s.Length == 0` with `string.IsNullOrEmpty(s)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseStringIsNullOrEmpty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/usestringisnullorempty.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use string.IsNullOrEmpty method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `s == null || s == ""` and `s == null || s.Length == 0` with `string.IsNullOrEmpty(s)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseStringIsNullOrEmpty","displayName":"Use string.IsNullOrEmpty method","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

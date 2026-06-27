@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Boot 3.5"}
-  description={"Migrate applications to the latest Spring Boot 3.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","boot"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_5-community-edition.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Boot 3.4","href":"java/spring/boot3/upgradespringboot_3_4-community-edition"},{"name":"Migrate Spring Boot properties to 3.5","href":"java/spring/boot3/springbootproperties_3_5"},{"name":"Migrate to Spring Cloud 2025","href":"java/spring/cloud2025/upgradespringcloud_2025"},{"name":"Update Prometheus Pushgateway Dependency Coordinates","href":"java/spring/boot3/updateprometheuspushgateway"},{"name":"Migrate to Spring Security 6.5","href":"java/spring/security6/upgradespringsecurity_6_5-community-edition"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"},{"name":"Upgrade Maven parent project version","href":"maven/upgradeparentversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Boot 3.5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Boot 3.5 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Boot 3.4","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_4-community-edition/"},{"name":"Migrate Spring Boot properties to 3.5","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_5/"},{"name":"Migrate to Spring Cloud 2025","href":"/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/upgradespringcloud_2025/"},{"name":"Update Prometheus Pushgateway Dependency Coordinates","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/updateprometheuspushgateway/"},{"name":"Migrate to Spring Security 6.5","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_5-community-edition/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"},{"name":"Upgrade Maven parent project version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradeparentversion/"},{"name":"Update a Gradle plugin by id","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/upgradepluginversion/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

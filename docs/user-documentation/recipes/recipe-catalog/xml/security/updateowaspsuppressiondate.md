@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update OWASP suppression date bounds"}
-  description={"Updates the expiration date for OWASP suppressions having a matching cve tag. For use with the OWASP `dependency-check` tool. More details: https://jeremylong.github.io/DependencyCheck/general/suppression.html."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.security.UpdateOwaspSuppressionDate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/security/updateowaspsuppressiondate.md"}
-/>
+>
+
+<RecipeHeader.Title>Update OWASP suppression date bounds</RecipeHeader.Title>
+
+<RecipeHeader.Description>Updates the expiration date for OWASP suppressions having a matching cve tag. For use with the OWASP `dependency-check` tool. More details: https://jeremylong.github.io/DependencyCheck/general/suppression.html.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"cveList","required":true,"description":"Update suppressions having any of the specified CVE tags.","example":"CVE-2022-1234"},{"type":"String","name":"untilDate","required":false,"description":"Optional. The date to add to the suppression. Default will be 30 days from today.","example":"2023-01-01"}]}>
 

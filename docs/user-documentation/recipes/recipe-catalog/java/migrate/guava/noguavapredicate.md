@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Guava's `Predicate` into `java.util.function.Predicate` where possible"}
-  description={"Change the type only where no methods are used that explicitly require a Guava `Predicate`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaPredicate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavapredicate.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Guava's `Predicate` into `java.util.function.Predicate` where possible</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the type only where no methods are used that explicitly require a Guava `Predicate`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.base.Predicate;\n\nclass Test {\n    Predicate<String> predicate = input -> input != null && !input.isEmpty();\n}\n","after":"import java.util.function.Predicate;\n\nclass Test {\n    Predicate<String> predicate = input -> input != null && !input.isEmpty();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import com.google.common.base.Predicate;\n+import java.util.function.Predicate;\n\n","newFile":false}]}]}>
 

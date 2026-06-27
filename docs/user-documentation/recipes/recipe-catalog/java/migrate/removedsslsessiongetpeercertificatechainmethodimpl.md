@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `SSLSession.getPeerCertificateChain()` method"}
-  description={"The `javax.net.ssl.SSLSession.getPeerCertificateChain()` method implementation was removed from the SunJSSE provider and HTTP client implementation in Java SE 15. The default implementation will now throw an `UnsupportedOperationException`. Applications using this method should be updated to use the `javax.net.ssl.SSLSession.getPeerCertificates()` method instead."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java17"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.RemovedSSLSessionGetPeerCertificateChainMethodImpl"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/removedsslsessiongetpeercertificatechainmethodimpl.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Replace `SSLSession.getPeerCertificateChain()` method</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `javax.net.ssl.SSLSession.getPeerCertificateChain()` method implementation was removed from the SunJSSE provider and HTTP client implementation in Java SE 15. The default implementation will now throw an `UnsupportedOperationException`. Applications using this method should be updated to use the `javax.net.ssl.SSLSession.getPeerCertificates()` method instead.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

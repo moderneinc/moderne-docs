@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `PrimitiveRules.DoubleBytes`"}
-  description={"Prefer `Double#BYTES` over the Guava alternative."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$DoubleBytesRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/primitiverulesrecipes$doublebytesrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `PrimitiveRules.DoubleBytes`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Double#BYTES` over the Guava alternative.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$DoubleBytesRecipe","displayName":"Refaster template `PrimitiveRules.DoubleBytes`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

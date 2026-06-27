@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move a file"}
-  description={"Move a file to a different directory. The file name will remain the same."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.MoveFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/movefile.md"}
-/>
+>
+
+<RecipeHeader.Title>Move a file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Move a file to a different directory. The file name will remain the same.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"folder","required":false,"description":"When using the folder option, all files / subfolders in the folder will be moved to the moveTo source path. Folder should be starting at root","example":"src/main/resources/"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be moved. This is a glob expression.","example":"**/*.yml"},{"type":"String","name":"moveTo","required":true,"description":"Either a relative or absolute path. If relative, it is relative to the current file's directory.","example":"../yamls/"}]}>
 

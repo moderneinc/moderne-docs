@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJFloatRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `float`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJFloatRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJFloatRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjfloatrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsCloseToWithOffset`","href":"picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertisclosetowithoffsetrecipe"},{"name":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsEqualTo`","href":"picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertisequaltorecipe"},{"name":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsNotEqualTo`","href":"picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertisnotequaltorecipe"},{"name":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsZero`","href":"picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertiszerorecipe"},{"name":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsNotZero`","href":"picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertisnotzerorecipe"},{"name":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsOne`","href":"picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertisonerecipe"}]}>
+<RecipeHeader.Title>`AssertJFloatRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `float`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJFloatRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsCloseToWithOffset`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertisclosetowithoffsetrecipe/"},{"name":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertisequaltorecipe/"},{"name":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertisnotequaltorecipe/"},{"name":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertiszerorecipe/"},{"name":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsNotZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertisnotzerorecipe/"},{"name":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsOne`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertisonerecipe/"}]}>
 
 ## Definition
 

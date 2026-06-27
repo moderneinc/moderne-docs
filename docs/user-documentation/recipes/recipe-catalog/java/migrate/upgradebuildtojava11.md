@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade build to Java 11"}
-  description={"Updates build files to use Java 11 as the target/source."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java11"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeBuildToJava11"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava11.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Java version","href":"java/migrate/upgradejavaversion"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Upgrade build to Java 11</RecipeHeader.Title>
+
+<RecipeHeader.Description>Updates build files to use Java 11 as the target/source.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

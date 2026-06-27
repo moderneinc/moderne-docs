@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find GitLab Template"}
-  description={"Find a GitLab Template in use."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.search.FindTemplate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/search/findtemplate.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find YAML entries","href":"yaml/search/findkey"}]}>
+<RecipeHeader.Title>Find GitLab Template</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find a GitLab Template in use.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find YAML entries","href":"/user-documentation/recipes/recipe-catalog/yaml/search/findkey/"}]}>
 
 ## Definition
 

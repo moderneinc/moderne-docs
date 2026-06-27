@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Disable the persistence unit second-level cache"}
-  description={"Sets an explicit value for the shared cache mode."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.JpaCacheProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jpacacheproperties.md"}
-/>
+>
+
+<RecipeHeader.Title>Disable the persistence unit second-level cache</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sets an explicit value for the shared cache mode.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<persistence version=\"2.0\" xmlns=\"http://java.sun.com/xml/ns/persistence\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd\">\n    <persistence-unit name=\"set_set_set1\"><!-- flag -->\n        <shared-cache-mode>NONE</shared-cache-mode><!-- leave -->\n        <validation-mode>NONE</validation-mode>\n        <properties>\n            <!-- Connection properties -->\n            <property name=\"openjpa.DataCache\" value=\"falSe\"/><!-- remove -->\n            <property name=\"javax.persistence.sharedCache.mode\" value=\"NONE\"/><!-- remove -->\n        </properties>\n    </persistence-unit>\n</persistence>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<persistence version=\"2.0\" xmlns=\"http://java.sun.com/xml/ns/persistence\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd\">\n    <persistence-unit name=\"set_set_set1\"><!-- flag -->\n        <shared-cache-mode>NONE</shared-cache-mode><!-- leave -->\n        <validation-mode>NONE</validation-mode>\n        <properties>\n            <!-- Connection properties -->\n            <!-- remove -->\n            <!-- remove -->\n        </properties>\n    </persistence-unit>\n</persistence>\n","diff":"@@ -8,2 +8,2 @@\n        <properties>\n            <!-- Connection properties -->\n-           <property name=\"openjpa.DataCache\" value=\"falSe\"/><!-- remove -->\n-           <property name=\"javax.persistence.sharedCache.mode\" value=\"NONE\"/><!-- remove -->\n+           <!-- remove -->\n+           <!-- remove -->\n        </properties>\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Surface impact-analysis findings"}
-  description={"Search-only recipes that help an LLM coding agent or human reviewer build a mental map of the codebase: hotspots, hardcoded literals, reflection, concurrency primitives, public-API stability surface, dataflow source/sink locations, the test surface, and source-organization smells. Each match is a `SearchResult` — nothing is rewritten automatically."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.Search$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/search$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find hotspots and complexity points","href":"kotlin/search/findhotspots$ktrecipe"},{"name":"Find hardcoded literals and error-handling smells","href":"kotlin/search/findhardcodedliterals$ktrecipe"},{"name":"Find reflection and runtime introspection","href":"kotlin/search/findreflectionsurface$ktrecipe"},{"name":"Find concurrency primitives","href":"kotlin/search/findconcurrencysurface$ktrecipe"},{"name":"Find public-API and binary-stability surface","href":"kotlin/search/findapisurface$ktrecipe"},{"name":"Find data-flow source positions","href":"kotlin/search/finddataflowsources$ktrecipe"},{"name":"Find data-flow sink positions","href":"kotlin/search/finddataflowsinks$ktrecipe"},{"name":"Find test-surface positions","href":"kotlin/search/findtestsurface$ktrecipe"},{"name":"Find build- and source-hygiene smells","href":"kotlin/search/findbuildhygiene$ktrecipe"},{"name":"Find reflection seeds","href":"kotlin/search/findreflectionseeds$ktrecipe"},{"name":"Find outbound-networking seeds","href":"kotlin/search/findnetworkingseeds$ktrecipe"},{"name":"Find filesystem-operation seeds","href":"kotlin/search/findfilesystemseeds$ktrecipe"},{"name":"Find database-query seeds","href":"kotlin/search/finddatabaseseeds$ktrecipe"},{"name":"Find serialization seeds","href":"kotlin/search/findserializationseeds$ktrecipe"}]}>
+<RecipeHeader.Title>Surface impact-analysis findings</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only recipes that help an LLM coding agent or human reviewer build a mental map of the codebase: hotspots, hardcoded literals, reflection, concurrency primitives, public-API stability surface, dataflow source/sink locations, the test surface, and source-organization smells. Each match is a `SearchResult` — nothing is rewritten automatically.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find hotspots and complexity points","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findhotspots$ktrecipe/"},{"name":"Find hardcoded literals and error-handling smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findhardcodedliterals$ktrecipe/"},{"name":"Find reflection and runtime introspection","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findreflectionsurface$ktrecipe/"},{"name":"Find concurrency primitives","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findconcurrencysurface$ktrecipe/"},{"name":"Find public-API and binary-stability surface","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findapisurface$ktrecipe/"},{"name":"Find data-flow source positions","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/finddataflowsources$ktrecipe/"},{"name":"Find data-flow sink positions","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/finddataflowsinks$ktrecipe/"},{"name":"Find test-surface positions","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findtestsurface$ktrecipe/"},{"name":"Find build- and source-hygiene smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findbuildhygiene$ktrecipe/"},{"name":"Find reflection seeds","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findreflectionseeds$ktrecipe/"},{"name":"Find outbound-networking seeds","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findnetworkingseeds$ktrecipe/"},{"name":"Find filesystem-operation seeds","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findfilesystemseeds$ktrecipe/"},{"name":"Find database-query seeds","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/finddatabaseseeds$ktrecipe/"},{"name":"Find serialization seeds","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findserializationseeds$ktrecipe/"}]}>
 
 ## Definition
 

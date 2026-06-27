@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer optional chaining"}
-  description={"Converts ternary expressions like `foo ? foo.bar : undefined` to use optional chaining syntax `foo?.bar`."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.cleanup.prefer-optional-chain"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/cleanup/prefer-optional-chain.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer optional chaining</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts ternary expressions like `foo ? foo.bar : undefined` to use optional chaining syntax `foo?.bar`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.javascript.cleanup.prefer-optional-chain","displayName":"Prefer optional chaining","npmPackage":"@openrewrite/rewrite"}}>
 

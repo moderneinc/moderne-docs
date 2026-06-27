@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure image pull policy is `Always`"}
-  description={"Ensures the latest version of a tag is deployed each time."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kubernetes"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.ImagePullPolicyAlways"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/imagepullpolicyalways.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"kubernetes/addconfiguration"}]}>
+<RecipeHeader.Title>Ensure image pull policy is `Always`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensures the latest version of a tag is deployed each time.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/addconfiguration/"}]}>
 
 ## Definition
 

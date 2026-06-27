@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Framework 5.0"}
-  description={"Migrate applications to Spring Framework 5.0, layering proprietary Moderne recipes on top of the OSS `org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_0`. Chains through `UpgradeSpringFramework_4_0` (and transitively `_3_0`) so a customer on Spring 3.x lands on a 5.0 baseline after one composite run."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.UpgradeSpringFramework_5_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_0-moderne-edition.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Framework 4.0","href":"java/spring/framework/upgradespringframework_4_0"},{"name":"Migrate to Spring Framework 5.0","href":"java/spring/framework/upgradespringframework_5_0-community-edition"},{"name":"Change type","href":"java/changetype"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Migrate to Spring ORM to 5","href":"java/spring/orm/springorm5"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Framework 5.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to Spring Framework 5.0, layering proprietary Moderne recipes on top of the OSS `org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_0`. Chains through `UpgradeSpringFramework_4_0` (and transitively `_3_0`) so a customer on Spring 3.x lands on a 5.0 baseline after one composite run.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Framework 4.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_4_0/"},{"name":"Migrate to Spring Framework 5.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_0-community-edition/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Migrate to Spring ORM to 5","href":"/user-documentation/recipes/recipe-catalog/java/spring/orm/springorm5/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

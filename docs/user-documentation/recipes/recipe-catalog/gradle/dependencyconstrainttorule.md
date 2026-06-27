@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Dependency constraint to resolution rule"}
-  description={"Gradle [dependency constraints](https://docs.gradle.org/current/userguide/dependency_constraints.html#dependency-constraints) are useful for managing the versions of transitive dependencies. Some plugins, such as the Spring Dependency Management plugin, do not respect these constraints. This recipe converts constraints into [resolution rules](https://docs.gradle.org/current/userguide/resolution_rules.html), which can achieve similar effects to constraints but are harder for plugins to ignore."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.DependencyConstraintToRule"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/dependencyconstrainttorule.md"}
-/>
+>
+
+<RecipeHeader.Title>Dependency constraint to resolution rule</RecipeHeader.Title>
+
+<RecipeHeader.Description>Gradle [dependency constraints](https://docs.gradle.org/current/userguide/dependency_constraints.html#dependency-constraints) are useful for managing the versions of transitive dependencies. Some plugins, such as the Spring Dependency Management plugin, do not respect these constraints. This recipe converts constraints into [resolution rules](https://docs.gradle.org/current/userguide/resolution_rules.html), which can achieve similar effects to constraints but are harder for plugins to ignore.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins {\n    id 'java'\n}\nrepositories { mavenCentral() }\ndependencies {\n    constraints {\n        implementation('com.fasterxml.jackson.core:jackson-core:2.12.5') {\n            because 'CVE-2024-BAD'\n        }\n    }\n    implementation 'org.openrewrite:rewrite-java:7.0.0'\n}\n","after":"plugins {\n    id 'java'\n}\nrepositories { mavenCentral() }\nconfigurations.all {\n    resolutionStrategy.eachDependency { details ->\n        if (details.requested.group == 'com.fasterxml.jackson.core' && details.requested.name == 'jackson-core') {\n            details.useVersion('2.12.5')\n            details.because('CVE-2024-BAD')\n        }\n    }\n}\ndependencies {\n    implementation 'org.openrewrite:rewrite-java:7.0.0'\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -5,4 +5,5 @@\n}\nrepositories { mavenCentral() }\n-dependencies {\n-   constraints {\n-       implementation('com.fasterxml.jackson.core:jackson-core:2.12.5') {\n-           because 'CVE-2024-BAD'\n+configurations.all {\n+   resolutionStrategy.eachDependency { details ->\n+       if (details.requested.group == 'com.fasterxml.jackson.core' && details.requested.name == 'jackson-core') {\n+           details.useVersion('2.12.5')\n+           details.because('CVE-2024-BAD')\n        }\n@@ -11,0 +12,2 @@\n        }\n    }\n+}\n+dependencies {\n    implementation 'org.openrewrite:rewrite-java:7.0.0'\n","newFile":false}]}]}>
 

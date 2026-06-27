@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move to a later Python version"}
-  description={"Determine the current state of a repository relative to a desired Python version upgrade."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.PythonVersionUpgrade"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/pythonversionupgrade.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Move to a later Python version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Determine the current state of a repository relative to a desired Python version upgrade.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"int","name":"minorVersion","required":true,"description":"The minor version of Python 3 to upgrade to.","example":"13"},{"type":"String","name":"upgradeRecipe","required":false,"description":"The recipe to use to upgrade.","example":"org.openrewrite.python.migrate.UpgradeToPython313"}]}>
 

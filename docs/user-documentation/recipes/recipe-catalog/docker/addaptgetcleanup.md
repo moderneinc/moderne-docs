@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add apt-get cleanup"}
-  description={"Adds cleanup commands to apt-get RUN instructions to reduce Docker image size. By default, adds 'rm -rf /var/lib/apt/lists/*' to remove cached package lists."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.AddAptGetCleanup"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/addaptgetcleanup.md"}
-/>
+>
+
+<RecipeHeader.Title>Add apt-get cleanup</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds cleanup commands to apt-get RUN instructions to reduce Docker image size. By default, adds 'rm -rf /var/lib/apt/lists/*' to remove cached package lists.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"cleanupCommand","required":false,"description":"The cleanup command to append. Defaults to ' && rm -rf /var/lib/apt/lists/*'.","example":" && apt-get clean && rm -rf /var/lib/apt/lists/*"}]}>
 

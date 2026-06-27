@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace removed root directory properties"}
-  description={"Maven 4 removed support for deprecated root directory properties. This recipe replaces `${executionRootDirectory}` with `${session.rootDirectory}` and `${multiModuleProjectDirectory}` with `${project.rootDirectory}`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ReplaceRemovedRootDirectoryProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/replaceremovedrootdirectoryproperties.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename Maven property key","href":"maven/renamepropertykey"},{"name":"Rename Maven property key","href":"maven/renamepropertykey"}]}>
+<RecipeHeader.Title>Replace removed root directory properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Maven 4 removed support for deprecated root directory properties. This recipe replaces `${executionRootDirectory}` with `${session.rootDirectory}` and `${multiModuleProjectDirectory}` with `${project.rootDirectory}`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename Maven property key","href":"/user-documentation/recipes/recipe-catalog/maven/renamepropertykey/"},{"name":"Rename Maven property key","href":"/user-documentation/recipes/recipe-catalog/maven/renamepropertykey/"}]}>
 
 ## Definition
 

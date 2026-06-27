@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add artifacts expire_in"}
-  description={"Set `artifacts:expire_in` in `.gitlab-ci.yml` to prevent storage bloat from indefinitely stored artifacts."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.AddArtifactsExpireIn"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/addartifactsexpirein.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Merge YAML snippet","href":"yaml/mergeyaml"}]}>
+<RecipeHeader.Title>Add artifacts expire_in</RecipeHeader.Title>
+
+<RecipeHeader.Description>Set `artifacts:expire_in` in `.gitlab-ci.yml` to prevent storage bloat from indefinitely stored artifacts.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Merge YAML snippet","href":"/user-documentation/recipes/recipe-catalog/yaml/mergeyaml/"}]}>
 
 ## Definition
 

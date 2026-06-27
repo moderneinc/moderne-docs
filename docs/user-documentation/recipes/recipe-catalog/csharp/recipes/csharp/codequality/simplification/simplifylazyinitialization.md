@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify lazy initialization"}
-  description={"Simplify lazy initialization using ??= operator."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyLazyInitialization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifylazyinitialization.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify lazy initialization</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify lazy initialization using ??= operator.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyLazyInitialization","displayName":"Simplify lazy initialization","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

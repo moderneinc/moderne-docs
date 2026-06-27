@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StreamRules.StreamMapFirst`"}
-  description={"Where possible, clarify that a mapping operation will be applied only to a single stream element."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMapFirstRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/streamrulesrecipes$streammapfirstrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StreamRules.StreamMapFirst`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Where possible, clarify that a mapping operation will be applied only to a single stream element.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMapFirstRecipe","displayName":"Refaster template `StreamRules.StreamMapFirst`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace PowerMock `Whitebox.invokeMethod()` with Java reflection"}
-  description={"Replace `Whitebox.invokeMethod(Object, String, ..)` with `java.lang.reflect.Method` lookup and `invoke()`. Parameter types are taken from the unambiguously resolved target method, falling back to each argument's compile-time class."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.PowerMockWhiteboxInvokeMethodToJavaReflection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxinvokemethodtojavareflection.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace PowerMock `Whitebox.invokeMethod()` with Java reflection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `Whitebox.invokeMethod(Object, String, ..)` with `java.lang.reflect.Method` lookup and `invoke()`. Parameter types are taken from the unambiguously resolved target method, falling back to each argument's compile-time class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.PowerMockWhiteboxInvokeMethodToJavaReflection","displayName":"Replace PowerMock `Whitebox.invokeMethod()` with Java reflection","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

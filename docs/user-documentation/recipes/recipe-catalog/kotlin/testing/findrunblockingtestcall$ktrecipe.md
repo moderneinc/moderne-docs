@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `runBlockingTest { ... }` calls"}
-  description={"`runBlockingTest` was deprecated in `kotlinx-coroutines-test` 1.6 in favor of `runTest { … }`, which uses a `TestCoroutineScheduler` instead of the old `DelayController`. The new API has a cleaner contract around how child coroutines are awaited."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindRunBlockingTestCall$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findrunblockingtestcall$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `runBlockingTest { ... }` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`runBlockingTest` was deprecated in `kotlinx-coroutines-test` 1.6 in favor of `runTest { … }`, which uses a `TestCoroutineScheduler` instead of the old `DelayController`. The new API has a cleaner contract around how child coroutines are awaited.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindRunBlockingTestCall$KtRecipe","displayName":"Find `runBlockingTest { ... }` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

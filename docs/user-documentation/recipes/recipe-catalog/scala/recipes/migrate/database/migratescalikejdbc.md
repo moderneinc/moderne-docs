@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate ScalikeJDBC to Doobie or Quill"}
-  description={"Removes imports of the ScalikeJDBC library (`scalikejdbc.*`). Consider evaluating modern alternatives such as Doobie or Quill."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.database.MigrateScalikeJdbc"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/database/migratescalikejdbc.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate ScalikeJDBC to Doobie or Quill</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes imports of the ScalikeJDBC library (`scalikejdbc.*`). Consider evaluating modern alternatives such as Doobie or Quill.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import scalikejdbc.DB\n\nobject Repository {\n    val name = \"repo\"\n}\n","after":"\n\n\nobject Repository {\n    val name = \"repo\"\n}\n","diff":"@@ -1,1 +1,0 @@\n-import scalikejdbc.DB\n\n@@ -3,0 +2,2 @@\nimport scalikejdbc.DB\n\n+\n+\nobject Repository {\n","newFile":false}]}]}>
 

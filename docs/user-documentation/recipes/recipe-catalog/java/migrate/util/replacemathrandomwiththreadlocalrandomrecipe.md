@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()`"}
-  description={"Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()` to reduce contention."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.ReplaceMathRandomWithThreadLocalRandomRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/replacemathrandomwiththreadlocalrandomrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()` to reduce contention.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Example {\n    double test() {\n        return Math.random();\n    }\n}\n","after":"import java.util.concurrent.ThreadLocalRandom;\n\nclass Example {\n    double test() {\n        return ThreadLocalRandom.current().nextDouble();\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import java.util.concurrent.ThreadLocalRandom;\n+\nclass Example {\n@@ -3,1 +5,1 @@\nclass Example {\n    double test() {\n-       return Math.random();\n+       return ThreadLocalRandom.current().nextDouble();\n    }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster rules related to AssertJ assertions over `Duration`s"}
-  description={"These rules simplify and improve the readability of tests by using `Duration`-specific\n AssertJ assertion methods instead of generic assertions.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJDurationRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJDurationRules.AssertThatHasNanos`","href":"picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathasnanosrecipe"},{"name":"Refaster template `AssertJDurationRules.AssertThatHasMillis`","href":"picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathasmillisrecipe"},{"name":"Refaster template `AssertJDurationRules.AssertThatHasSeconds`","href":"picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathassecondsrecipe"},{"name":"Refaster template `AssertJDurationRules.AssertThatHasMinutes`","href":"picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathasminutesrecipe"},{"name":"Refaster template `AssertJDurationRules.AssertThatHasHours`","href":"picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathashoursrecipe"},{"name":"Refaster template `AssertJDurationRules.AssertThatHasDays`","href":"picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathasdaysrecipe"},{"name":"Refaster template `AssertJDurationRules.AssertThatIsZero`","href":"picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthatiszerorecipe"},{"name":"Refaster template `AssertJDurationRules.AssertThatIsPositive`","href":"picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthatispositiverecipe"},{"name":"Refaster template `AssertJDurationRules.AssertThatIsNegative`","href":"picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthatisnegativerecipe"}]}>
+<RecipeHeader.Title>Refaster rules related to AssertJ assertions over `Duration`s</RecipeHeader.Title>
+
+<RecipeHeader.Description>These rules simplify and improve the readability of tests by using `Duration`-specific  AssertJ assertion methods instead of generic assertions. [Source](https://error-prone.picnic.tech/refasterrules/AssertJDurationRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJDurationRules.AssertThatHasNanos`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathasnanosrecipe/"},{"name":"Refaster template `AssertJDurationRules.AssertThatHasMillis`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathasmillisrecipe/"},{"name":"Refaster template `AssertJDurationRules.AssertThatHasSeconds`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathassecondsrecipe/"},{"name":"Refaster template `AssertJDurationRules.AssertThatHasMinutes`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathasminutesrecipe/"},{"name":"Refaster template `AssertJDurationRules.AssertThatHasHours`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathashoursrecipe/"},{"name":"Refaster template `AssertJDurationRules.AssertThatHasDays`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthathasdaysrecipe/"},{"name":"Refaster template `AssertJDurationRules.AssertThatIsZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthatiszerorecipe/"},{"name":"Refaster template `AssertJDurationRules.AssertThatIsPositive`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthatispositiverecipe/"},{"name":"Refaster template `AssertJDurationRules.AssertThatIsNegative`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthatisnegativerecipe/"}]}>
 
 ## Definition
 

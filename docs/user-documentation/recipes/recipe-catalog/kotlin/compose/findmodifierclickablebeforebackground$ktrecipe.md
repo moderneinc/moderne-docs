@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Modifier.clickable { }.background(...)` chains"}
-  description={"When `clickable` precedes `background` in a `Modifier` chain, the background paints on top of the touch target — the visible color is the background, but the ripple/feedback originates from the layer underneath, which usually isn't the look the author wanted. Place `background(...)` first and `clickable { … }` last so the touch surface sits above the visual fill."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindModifierClickableBeforeBackground$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierclickablebeforebackground$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Modifier.clickable { }.background(...)` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>When `clickable` precedes `background` in a `Modifier` chain, the background paints on top of the touch target — the visible color is the background, but the ripple/feedback originates from the layer underneath, which usually isn't the look the author wanted. Place `background(...)` first and `clickable { … }` last so the touch surface sits above the visual fill.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindModifierClickableBeforeBackground$KtRecipe","displayName":"Find `Modifier.clickable { }.background(...)` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

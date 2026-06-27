@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove LaunchDarkly's `boolVariation` for feature key"}
-  description={"Replace `boolVariation` invocations for feature key with value, and simplify constant if branch execution."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-feature-flags"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.featureflags.launchdarkly.RemoveBoolVariation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/removeboolvariation.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a boolean feature flag for feature key","href":"featureflags/removebooleanflag"}]}>
+<RecipeHeader.Title>Remove LaunchDarkly's `boolVariation` for feature key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `boolVariation` invocations for feature key with value, and simplify constant if branch execution.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a boolean feature flag for feature key","href":"/user-documentation/recipes/recipe-catalog/featureflags/removebooleanflag/"}]}>
 
 ## Definition
 

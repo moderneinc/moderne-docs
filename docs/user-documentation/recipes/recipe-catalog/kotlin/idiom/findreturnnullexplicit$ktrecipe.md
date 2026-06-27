@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `return null` in functions with nullable returns"}
-  description={"An explicit `return null` is rarely the clearest expression of intent — usually the calling chain that produces the nullable can use `?:` or `mapNotNull` to handle the no-value case at the boundary, not the inside."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindReturnNullExplicit$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findreturnnullexplicit$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `return null` in functions with nullable returns</RecipeHeader.Title>
+
+<RecipeHeader.Description>An explicit `return null` is rarely the clearest expression of intent — usually the calling chain that produces the nullable can use `?:` or `mapNotNull` to handle the no-value case at the boundary, not the inside.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindReturnNullExplicit$KtRecipe","displayName":"Find `return null` in functions with nullable returns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

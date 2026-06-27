@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use inline conditional for simple ``if``/``else`` assignment"}
-  description={"When an ``if``/``else`` pair each assign a single value to the same variable, rewrite as a ternary expression."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.AssignIfExp"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/assignifexp.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use inline conditional for simple ``if``/``else`` assignment</RecipeHeader.Title>
+
+<RecipeHeader.Description>When an ``if``/``else`` pair each assign a single value to the same variable, rewrite as a ternary expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.AssignIfExp","displayName":"Use inline conditional for simple ``if``/``else`` assignment","pipPackage":"openrewrite-static-analysis"}}>
 

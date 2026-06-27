@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Hamcrest `is(Matcher)`"}
-  description={"Remove Hamcrest `is(Matcher)` ahead of migration."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.hamcrest.RemoveIsMatcher"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/removeismatcher.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove Hamcrest `is(Matcher)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove Hamcrest `is(Matcher)` ahead of migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport static org.hamcrest.MatcherAssert.assertThat;\nimport static org.hamcrest.Matchers.is;\nimport static org.hamcrest.Matchers.equalTo;\n\nclass ATest {\n    @Test\n    void testEquals() {\n        String str1 = \"Hello world!\";\n        String str2 = \"Hello world!\";\n        assertThat(str1, is(equalTo(str2)));\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport static org.hamcrest.MatcherAssert.assertThat;\nimport static org.hamcrest.Matchers.equalTo;\n\nclass ATest {\n    @Test\n    void testEquals() {\n        String str1 = \"Hello world!\";\n        String str2 = \"Hello world!\";\n        assertThat(str1, equalTo(str2));\n    }\n}\n","diff":"@@ -3,1 +3,0 @@\nimport org.junit.jupiter.api.Test;\nimport static org.hamcrest.MatcherAssert.assertThat;\n-import static org.hamcrest.Matchers.is;\nimport static org.hamcrest.Matchers.equalTo;\n@@ -11,1 +10,1 @@\n        String str1 = \"Hello world!\";\n        String str2 = \"Hello world!\";\n-       assertThat(str1, is(equalTo(str2)));\n+       assertThat(str1, equalTo(str2));\n    }\n","newFile":false}]}]}>
 

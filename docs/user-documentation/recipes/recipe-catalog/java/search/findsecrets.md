@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find plain text secrets"}
-  description={"Find secrets stored in plain text in code."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindSecrets"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/findsecrets.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find within comments and literals","href":"java/search/findcomments"}]}>
+<RecipeHeader.Title>Find plain text secrets</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find secrets stored in plain text in code.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find within comments and literals","href":"/user-documentation/recipes/recipe-catalog/java/search/findcomments/"}]}>
 
 ## Definition
 

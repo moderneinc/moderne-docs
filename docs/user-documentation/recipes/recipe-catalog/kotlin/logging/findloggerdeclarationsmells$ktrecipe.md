@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find logger declaration smells"}
-  description={"Bundles `log` vs `logger` naming, missing `private` on companion-object loggers, and instance-field loggers (one per allocation). The shape consensus is `private val log = LoggerFactory.getLogger(...)` in a companion object."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindLoggerDeclarationSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerdeclarationsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find top-level/companion logger fields named `log`","href":"kotlin/logging/findloggerfieldnamedlog$ktrecipe"},{"name":"Find companion-object loggers missing `private`","href":"kotlin/logging/findcompanionloggerwithoutprivate$ktrecipe"},{"name":"Find loggers declared as instance fields (one per object)","href":"kotlin/logging/findloggernotincompanion$ktrecipe"}]}>
+<RecipeHeader.Title>Find logger declaration smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Bundles `log` vs `logger` naming, missing `private` on companion-object loggers, and instance-field loggers (one per allocation). The shape consensus is `private val log = LoggerFactory.getLogger(...)` in a companion object.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find top-level/companion logger fields named `log`","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfieldnamedlog$ktrecipe/"},{"name":"Find companion-object loggers missing `private`","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findcompanionloggerwithoutprivate$ktrecipe/"},{"name":"Find loggers declared as instance fields (one per object)","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggernotincompanion$ktrecipe/"}]}>
 
 ## Definition
 

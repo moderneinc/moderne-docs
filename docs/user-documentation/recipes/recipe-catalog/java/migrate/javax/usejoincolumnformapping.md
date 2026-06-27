@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`@JoinColumn` annotations must be used with relationship mappings"}
-  description={"In OpenJPA, when a relationship attribute has either a `@OneToOne` or a `@ManyToOne` annotation with a `@Column` annotation, the `@Column` annotation is treated as a `@JoinColumn` annotation. EclipseLink throws an exception that indicates that the entity class must use `@JoinColumn` instead of `@Column` to map a relationship attribute."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.UseJoinColumnForMapping"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/usejoincolumnformapping.md"}
-/>
+>
+
+<RecipeHeader.Title>`@JoinColumn` annotations must be used with relationship mappings</RecipeHeader.Title>
+
+<RecipeHeader.Description>In OpenJPA, when a relationship attribute has either a `@OneToOne` or a `@ManyToOne` annotation with a `@Column` annotation, the `@Column` annotation is treated as a `@JoinColumn` annotation. EclipseLink throws an exception that indicates that the entity class must use `@JoinColumn` instead of `@Column` to map a relationship attribute.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.persistence.Entity;\nimport javax.persistence.Column;\nimport javax.persistence.Id;\nimport javax.persistence.ManyToOne;\n\n@Entity\npublic class TransactionEntity {\n    @Id\n    private int id;\n\n    private long transactionNumber;\n    private double amount;\n\n    @ManyToOne\n    @Column(name=\"account\")\n    private Account account;\n}\n","after":"import javax.persistence.Entity;\nimport javax.persistence.Id;\nimport javax.persistence.JoinColumn;\nimport javax.persistence.ManyToOne;\n\n@Entity\npublic class TransactionEntity {\n    @Id\n    private int id;\n\n    private long transactionNumber;\n    private double amount;\n\n    @ManyToOne\n    @JoinColumn(name=\"account\")\n    private Account account;\n}\n","diff":"@@ -2,1 +2,0 @@\nimport javax.persistence.Entity;\n-import javax.persistence.Column;\nimport javax.persistence.Id;\n@@ -4,0 +3,1 @@\nimport javax.persistence.Column;\nimport javax.persistence.Id;\n+import javax.persistence.JoinColumn;\nimport javax.persistence.ManyToOne;\n@@ -15,1 +15,1 @@\n\n    @ManyToOne\n-   @Column(name=\"account\")\n+   @JoinColumn(name=\"account\")\n    private Account account;\n","newFile":false}]}]}>
 

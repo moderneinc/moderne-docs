@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace a method invocation with a reference to an annotated field"}
-  description={"For each class containing an invocation matching the configured method pattern, introduces an annotated field of the requested type and rewrites every matching invocation in that class to reference the new field. If a field with the same annotation and type already exists, its name is reused."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.test.ReplaceMethodInvocationWithAnnotatedField"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/replacemethodinvocationwithannotatedfield.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace a method invocation with a reference to an annotated field</RecipeHeader.Title>
+
+<RecipeHeader.Description>For each class containing an invocation matching the configured method pattern, introduces an annotated field of the requested type and rewrites every matching invocation in that class to reference the new field. If a field with the same annotation and type already exists, its name is reused.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern matched against the invocation to replace. A [method pattern](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results.","example":"io.dropwizard.testing.junit5.DropwizardAppExtension getLocalPort()"},{"type":"String","name":"fieldType","required":true,"description":"Either a primitive keyword (e.g. `int`) or a fully qualified class name for the field's type.","example":"int"},{"type":"String","name":"annotationFqn","required":true,"description":"Fully qualified annotation type to place on the new field.","example":"org.springframework.boot.test.web.server.LocalServerPort"},{"type":"String","name":"preferredFieldName","required":true,"description":"Name to give the new field. If a same-named field already exists in the class, an incrementing suffix is appended to avoid collision.","example":"localPort"},{"type":"List","name":"classpathResources","required":true,"description":"Resource patterns passed to the JavaParser used by the field-injection template.","example":"spring-boot-test-3.*"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Char.compareTo` instead of `java.lang.Character.compare`"}
-  description={"`Character.compare(a, b)` becomes `a.compareTo(b)` — the multiplatform receiver call on `Char` returns the same `Int` ordering."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseCharCompareTo$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharcompareto$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Char.compareTo` instead of `java.lang.Character.compare`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Character.compare(a, b)` becomes `a.compareTo(b)` — the multiplatform receiver call on `Char` returns the same `Int` ordering.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseCharCompareTo$KtRecipe","displayName":"Use `Char.compareTo` instead of `java.lang.Character.compare`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

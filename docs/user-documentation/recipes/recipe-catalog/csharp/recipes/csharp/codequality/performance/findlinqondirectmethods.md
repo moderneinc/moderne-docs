@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find LINQ methods replaceable with direct methods"}
-  description={"Detect LINQ methods like `.Count()` that could be replaced with direct collection properties. Direct access avoids enumeration overhead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindLinqOnDirectMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findlinqondirectmethods.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find LINQ methods replaceable with direct methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect LINQ methods like `.Count()` that could be replaced with direct collection properties. Direct access avoids enumeration overhead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindLinqOnDirectMethods","displayName":"Find LINQ methods replaceable with direct methods","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

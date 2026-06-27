@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find non-TLS Ingresses"}
-  description={"Find Ingress resources that don't disallow HTTP or don't have TLS configured."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.search.FindNonTlsIngress"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/search/findnontlsingress.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find non-TLS Ingresses</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find Ingress resources that don't disallow HTTP or don't have TLS configured.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

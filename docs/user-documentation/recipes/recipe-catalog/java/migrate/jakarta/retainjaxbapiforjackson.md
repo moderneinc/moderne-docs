@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Retain `javax.xml.bind:jaxb-api` when `jackson-module-jaxb-annotations` is present"}
-  description={"When migrating from `javax.xml.bind` to `jakarta.xml.bind` 3.0+, the `javax.xml.bind:jaxb-api` dependency is normally replaced. However, if `jackson-module-jaxb-annotations` is on the classpath (and still uses the `javax.xml.bind` namespace), this recipe ensures `javax.xml.bind:jaxb-api` remains available as a runtime dependency to prevent `NoClassDefFoundError`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jaxb","javax","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.RetainJaxbApiForJackson"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/retainjaxbapiforjackson.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"java/dependencies/dependencyinsight"}]}>
+<RecipeHeader.Title>Retain `javax.xml.bind:jaxb-api` when `jackson-module-jaxb-annotations` is present</RecipeHeader.Title>
+
+<RecipeHeader.Description>When migrating from `javax.xml.bind` to `jakarta.xml.bind` 3.0+, the `javax.xml.bind:jaxb-api` dependency is normally replaced. However, if `jackson-module-jaxb-annotations` is on the classpath (and still uses the `javax.xml.bind` namespace), this recipe ensures `javax.xml.bind:jaxb-api` remains available as a runtime dependency to prevent `NoClassDefFoundError`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyinsight/"}]}>
 
 ## Definition
 

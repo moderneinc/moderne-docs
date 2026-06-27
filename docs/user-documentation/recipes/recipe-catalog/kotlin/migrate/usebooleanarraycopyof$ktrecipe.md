@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `BooleanArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`"}
-  description={"`java.util.Arrays.copyOf(arr: boolean[], newLength)` is JVM-only; `arr.copyOf(newLength)` is the multiplatform Kotlin extension."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseBooleanArrayCopyOf$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebooleanarraycopyof$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `BooleanArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Arrays.copyOf(arr: boolean[], newLength)` is JVM-only; `arr.copyOf(newLength)` is the multiplatform Kotlin extension.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseBooleanArrayCopyOf$KtRecipe","displayName":"Use `BooleanArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

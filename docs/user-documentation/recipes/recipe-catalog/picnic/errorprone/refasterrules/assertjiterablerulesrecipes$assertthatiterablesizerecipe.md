@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJIterableRules.AssertThatIterableSize`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIterableSize<E> {\n    \n    @BeforeTemplate\n    AbstractIntegerAssert<?> before(Iterable<E> iterable) {\n        return assertThat(Iterables.size(iterable));\n    }\n    \n    @BeforeTemplate\n    AbstractIntegerAssert<?> before(Collection<E> iterable) {\n        return assertThat(iterable.size());\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractIntegerAssert<?> after(Iterable<E> iterable) {\n        return assertThat(iterable).size();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,38 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes$AssertThatIterableSizeRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterablesizerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJIterableRules.AssertThatIterableSize`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIterableSize<E> {
+    
+    @BeforeTemplate
+    AbstractIntegerAssert<?> before(Iterable<E> iterable) {
+        return assertThat(Iterables.size(iterable));
+    }
+    
+    @BeforeTemplate
+    AbstractIntegerAssert<?> before(Collection<E> iterable) {
+        return assertThat(iterable.size());
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractIntegerAssert<?> after(Iterable<E> iterable) {
+        return assertThat(iterable).size();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes$AssertThatIterableSizeRecipe","displayName":"Refaster template `AssertJIterableRules.AssertThatIterableSize`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

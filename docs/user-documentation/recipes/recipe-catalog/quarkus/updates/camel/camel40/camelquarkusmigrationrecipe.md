@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `camel3` application to `camel4.`"}
-  description={"Migrate `camel3` quarkus application to `camel4` quarkus."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.camel.camel40.CamelQuarkusMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel40/camelquarkusmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate `camel3` application to `camel4.`","href":"apache/camel/upgrade/camel40/camelmigrationrecipe"}]}>
+<RecipeHeader.Title>Migrate `camel3` application to `camel4.`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate `camel3` quarkus application to `camel4` quarkus.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate `camel3` application to `camel4.`","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/camelmigrationrecipe/"}]}>
 
 ## Definition
 

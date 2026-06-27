@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update `fireEvent()` and `createInjectionTarget()` calls"}
-  description={"Updates `BeanManager.fireEvent()` or `BeanManager.createInjectionTarget()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.UpdateBeanManagerMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatebeanmanagermethods.md"}
-/>
+>
+
+<RecipeHeader.Title>Update `fireEvent()` and `createInjectionTarget()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Updates `BeanManager.fireEvent()` or `BeanManager.createInjectionTarget()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.enterprise.inject.spi.BeanManager;\nimport jakarta.enterprise.inject.spi.BeforeBeanDiscovery;\nimport java.util.Set;\n\nclass Foo {\n    void bar(BeanManager beanManager, BeforeBeanDiscovery beforeBeanDiscovery) {\n        beanManager.fireEvent(beforeBeanDiscovery);\n    }\n}\n","after":"import jakarta.enterprise.inject.spi.BeanManager;\nimport jakarta.enterprise.inject.spi.BeforeBeanDiscovery;\nimport java.util.Set;\n\nclass Foo {\n    void bar(BeanManager beanManager, BeforeBeanDiscovery beforeBeanDiscovery) {\n        beanManager.getEvent().fire(beforeBeanDiscovery);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass Foo {\n    void bar(BeanManager beanManager, BeforeBeanDiscovery beforeBeanDiscovery) {\n-       beanManager.fireEvent(beforeBeanDiscovery);\n+       beanManager.getEvent().fire(beforeBeanDiscovery);\n    }\n","newFile":false}]}]}>
 

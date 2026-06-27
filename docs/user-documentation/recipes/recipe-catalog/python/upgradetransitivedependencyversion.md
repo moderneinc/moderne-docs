@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade transitive Python dependency version"}
-  description={"Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.UpgradeTransitiveDependencyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/upgradetransitivedependencyversion.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Upgrade transitive Python dependency version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Pin a transitive dependency version using the strategy appropriate for the file type and package manager. For `pyproject.toml`: uv uses `[tool.uv].constraint-dependencies`, PDM uses `[tool.pdm.overrides]`, and other managers add a direct dependency. For `requirements.txt` and `Pipfile`: appends the dependency. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageName","required":true,"description":"The PyPI package name of the transitive dependency to pin.","example":"certifi"},{"type":"String","name":"version","required":true,"description":"The PEP 508 version constraint (e.g., `>=2023.7.22`).","example":">=2023.7.22"}]}>
 

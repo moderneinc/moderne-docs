@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `mutableStateOf(...)` stored in a class field"}
-  description={"`private val x = mutableStateOf(...)` at class scope ties the state to the lifetime of the enclosing class — ViewModel scope is fine, but UI-layer classes shouldn't be holding state for the composable. Hoist into a ViewModel or accept the state from the caller via parameters so recomposition and lifecycle agree on ownership."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindMutableStateInClassField$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findmutablestateinclassfield$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `mutableStateOf(...)` stored in a class field</RecipeHeader.Title>
+
+<RecipeHeader.Description>`private val x = mutableStateOf(...)` at class scope ties the state to the lifetime of the enclosing class — ViewModel scope is fine, but UI-layer classes shouldn't be holding state for the composable. Hoist into a ViewModel or accept the state from the caller via parameters so recomposition and lifecycle agree on ownership.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindMutableStateInClassField$KtRecipe","displayName":"Find `mutableStateOf(...)` stored in a class field","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

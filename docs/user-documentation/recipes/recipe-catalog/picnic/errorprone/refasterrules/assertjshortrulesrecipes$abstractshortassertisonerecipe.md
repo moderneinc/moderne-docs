@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJShortRules.AbstractShortAssertIsOne`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractShortAssertIsOne {\n    \n    @BeforeTemplate\n    AbstractShortAssert<?> before(AbstractShortAssert<?> shortAssert) {\n        return shortAssert.isOne();\n    }\n    \n    @AfterTemplate\n    AbstractShortAssert<?> after(AbstractShortAssert<?> shortAssert) {\n        return shortAssert.isEqualTo((short)1);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJShortRulesRecipes$AbstractShortAssertIsOneRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertisonerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJShortRules.AbstractShortAssertIsOne`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractShortAssertIsOne {
+    
+    @BeforeTemplate
+    AbstractShortAssert<?> before(AbstractShortAssert<?> shortAssert) {
+        return shortAssert.isOne();
+    }
+    
+    @AfterTemplate
+    AbstractShortAssert<?> after(AbstractShortAssert<?> shortAssert) {
+        return shortAssert.isEqualTo((short)1);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJShortRulesRecipes$AbstractShortAssertIsOneRecipe","displayName":"Refaster template `AssertJShortRules.AbstractShortAssertIsOne`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

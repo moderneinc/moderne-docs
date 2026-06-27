@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Increase Node.js version in GitHub Actions"}
-  description={"Increases `node-version` in `actions/setup-node` steps in GitHub Actions workflows. Only modifies plain major version values (e.g. `20`) and x-ranges (e.g. `20.x`). Never decreases the version."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.increase-node-engine-version-in-github-actions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/increase-node-engine-version-in-github-actions.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Increase Node.js version in GitHub Actions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Increases `node-version` in `actions/setup-node` steps in GitHub Actions workflows. Only modifies plain major version values (e.g. `20`) and x-ranges (e.g. `20.x`). Never decreases the version.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"version","required":true,"description":"The Node.js major version to set, e.g. 20 or 22.","example":"22"}]}>
 

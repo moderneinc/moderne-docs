@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace self-referencing ternary with `or`"}
-  description={"When a ternary's condition and true-branch name the same variable, rewrite ``val if val else fallback`` as ``val or fallback`` to avoid repeating the name."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.OrIfExpIdentity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/orifexpidentity.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace self-referencing ternary with `or`</RecipeHeader.Title>
+
+<RecipeHeader.Description>When a ternary's condition and true-branch name the same variable, rewrite ``val if val else fallback`` as ``val or fallback`` to avoid repeating the name.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.OrIfExpIdentity","displayName":"Replace self-referencing ternary with `or`","pipPackage":"openrewrite-static-analysis"}}>
 

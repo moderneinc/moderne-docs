@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade `slackapi/slack-github-action`"}
-  description={"Update the Slack GitHub Action to use version 2.0."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.UpgradeSlackNotificationVersion2"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/upgradeslacknotificationversion2.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade `slackapi/slack-github-action`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update the Slack GitHub Action to use version 2.0.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"jobs:\n  build:\n    steps:\n      - name: Send notification on error\n        if: failure() && inputs.send-notification\n        uses: slackapi/slack-github-action@v1.27.0\n        with:\n          channel-id: \"##foo-alerts\"\n          slack-message: \":boom: Unable run dependency check on: <${{ steps.get_failed_check_link.outputs.failed-check-link }}|${{ inputs.organization }}/${{ inputs.repository }}>\"\n        env:\n          SLACK_BOT_TOKEN: ${{ secrets.SLACK_MORTY_BOT_TOKEN }}\n","after":"jobs:\n  build:\n    steps:\n      - name: Send notification on error\n        if: failure() && inputs.send-notification\n        uses: slackapi/slack-github-action@v2.0.0\n        with:\n          method: chat.postMessage\n          token: ${{ secrets.SLACK_MORTY_BOT_TOKEN }}\n          payload: |\n            channel: \"##foo-alerts\"\n            text: \":boom: Unable run dependency check on: <${{ steps.get_failed_check_link.outputs.failed-check-link }}|${{ inputs.organization }}/${{ inputs.repository }}>\"\n","diff":"--- .github/workflows/ci.yml\n+++ .github/workflows/ci.yml\n@@ -6,1 +6,1 @@\n      - name: Send notification on error\n        if: failure() && inputs.send-notification\n-       uses: slackapi/slack-github-action@v1.27.0\n+       uses: slackapi/slack-github-action@v2.0.0\n        with:\n@@ -8,4 +8,5 @@\n        uses: slackapi/slack-github-action@v1.27.0\n        with:\n-         channel-id: \"##foo-alerts\"\n-         slack-message: \":boom: Unable run dependency check on: <${{ steps.get_failed_check_link.outputs.failed-check-link }}|${{ inputs.organization }}/${{ inputs.repository }}>\"\n-       env:\n-         SLACK_BOT_TOKEN: ${{ secrets.SLACK_MORTY_BOT_TOKEN }}\n+         method: chat.postMessage\n+         token: ${{ secrets.SLACK_MORTY_BOT_TOKEN }}\n+         payload: |\n+           channel: \"##foo-alerts\"\n+           text: \":boom: Unable run dependency check on: <${{ steps.get_failed_check_link.outputs.failed-check-link }}|${{ inputs.organization }}/${{ inputs.repository }}>\"\n\n","newFile":false}]}]}>
 

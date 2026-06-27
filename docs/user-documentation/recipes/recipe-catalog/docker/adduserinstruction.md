@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `USER` instruction"}
-  description={"Adds a `USER` instruction to run the container as a non-root user (CIS Docker Benchmark 4.1). By default, adds to the final stage only and skips if a `USER` instruction already exists."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.AddUserInstruction"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/adduserinstruction.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `USER` instruction</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds a `USER` instruction to run the container as a non-root user (CIS Docker Benchmark 4.1). By default, adds to the final stage only and skips if a `USER` instruction already exists.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"userName","required":true,"description":"The username to run as.","example":"appuser"},{"type":"String","name":"groupName","required":false,"description":"The group name. If specified, the USER instruction will be `USER user:group`.","example":"appgroup"},{"type":"String","name":"stageName","required":false,"description":"Only add the USER instruction to this build stage. If null, adds to the final stage only.","example":"final"},{"type":"Boolean","name":"skipIfUserExists","required":false,"description":"If true (default), skip adding USER if the stage already has a USER instruction. If false, always add the USER instruction at the end of the stage."}]}>
 

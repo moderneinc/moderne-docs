@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Unnecessary `@ConstructorBinding`"}
-  description={"As of Boot 3.0 `@ConstructorBinding` is no longer needed at the type level on `@ConfigurationProperties` classes and should be removed."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.RemoveConstructorBindingAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/removeconstructorbindingannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove Unnecessary `@ConstructorBinding`</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of Boot 3.0 `@ConstructorBinding` is no longer needed at the type level on `@ConfigurationProperties` classes and should be removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.context.properties.ConfigurationProperties;\nimport org.springframework.boot.context.properties.ConstructorBinding;\n\n@ConfigurationProperties\n@ConstructorBinding\nclass A {\n    void method() {\n    }\n}\n","after":"import org.springframework.boot.context.properties.ConfigurationProperties;\n\n@ConfigurationProperties\nclass A {\n    void method() {\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport org.springframework.boot.context.properties.ConfigurationProperties;\n-import org.springframework.boot.context.properties.ConstructorBinding;\n\n@@ -5,1 +4,0 @@\n\n@ConfigurationProperties\n-@ConstructorBinding\nclass A {\n","newFile":false}]}]}>
 

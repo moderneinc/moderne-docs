@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce spacing before closing bracket in JSX"}
-  description={"Enforce spacing before closing bracket in JSX\nSee rule details for [react/jsx-space-before-closing](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-space-before-closing.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.react.JsxSpaceBeforeClosing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/react/jsxspacebeforeclosing.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce spacing before closing bracket in JSX</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce spacing before closing bracket in JSX See rule details for [react/jsx-space-before-closing](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-space-before-closing.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

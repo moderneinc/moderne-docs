@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring Web / WebFlux smells"}
-  description={"Controller endpoints worth a closer look: `ResponseEntity<T>` returns that always emit 200, verb-less `@RequestMapping`, `@RequestMapping(method = [...])` candidates for shortcut annotations, `@PathVariable` parameters without explicit names, primitive `@RequestBody` shapes, POST endpoints missing `@ResponseStatus(CREATED)`, and reactive `block()` calls that stall the event loop."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringWebSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringwebsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `@RestController` methods returning `ResponseEntity<T>`","href":"kotlin/spring/findcontrollerreturningresponseentity$ktrecipe"},{"name":"Find `@RequestMapping(...)` without an HTTP method","href":"kotlin/spring/findrequestmappingwithoutverb$ktrecipe"},{"name":"Find `@RequestMapping(method = [RequestMethod.GET])` candidates for `@GetMapping`","href":"kotlin/spring/findrequestmappingmethodgetmapping$ktrecipe"},{"name":"Find `@PathVariable` parameters without an explicit name","href":"kotlin/spring/findpathvariablewithoutname$ktrecipe"},{"name":"Find `@RequestBody` on primitive parameters","href":"kotlin/spring/findrequestbodyonprimitive$ktrecipe"},{"name":"Find `@PostMapping` methods missing `@ResponseStatus(HttpStatus.CREATED)`","href":"kotlin/spring/findmissingresponsestatus$ktrecipe"},{"name":"Find `Mono.block` / `Flux.blockFirst` / `Flux.blockLast` calls","href":"kotlin/spring/findwebfluxblocking$ktrecipe"},{"name":"Find `Mono.block()` calls in non-test code","href":"kotlin/spring/findmonoflatmapblock$ktrecipe"}]}>
+<RecipeHeader.Title>Find Spring Web / WebFlux smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Controller endpoints worth a closer look: `ResponseEntity<T>` returns that always emit 200, verb-less `@RequestMapping`, `@RequestMapping(method = [...])` candidates for shortcut annotations, `@PathVariable` parameters without explicit names, primitive `@RequestBody` shapes, POST endpoints missing `@ResponseStatus(CREATED)`, and reactive `block()` calls that stall the event loop.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `@RestController` methods returning `ResponseEntity<T>`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findcontrollerreturningresponseentity$ktrecipe/"},{"name":"Find `@RequestMapping(...)` without an HTTP method","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findrequestmappingwithoutverb$ktrecipe/"},{"name":"Find `@RequestMapping(method = [RequestMethod.GET])` candidates for `@GetMapping`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findrequestmappingmethodgetmapping$ktrecipe/"},{"name":"Find `@PathVariable` parameters without an explicit name","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findpathvariablewithoutname$ktrecipe/"},{"name":"Find `@RequestBody` on primitive parameters","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findrequestbodyonprimitive$ktrecipe/"},{"name":"Find `@PostMapping` methods missing `@ResponseStatus(HttpStatus.CREATED)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findmissingresponsestatus$ktrecipe/"},{"name":"Find `Mono.block` / `Flux.blockFirst` / `Flux.blockLast` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebfluxblocking$ktrecipe/"},{"name":"Find `Mono.block()` calls in non-test code","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoflatmapblock$ktrecipe/"}]}>
 
 ## Definition
 

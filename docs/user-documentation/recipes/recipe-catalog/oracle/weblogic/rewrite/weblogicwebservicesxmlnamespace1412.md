@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate xmlns entries in `weblogic-webservices.xml` files to WebLogic 14.1.2"}
-  description={"Migrate xmlns entries in WebLogic Web Services schema files to WebLogic 14.1.2"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["webservices","schemas","weblogic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.WebLogicWebServicesXmlNamespace1412"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/weblogicwebservicesxmlnamespace1412.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"}]} preconditions={[{"name":"Find files","href":"core/findsourcefiles"}]}>
+<RecipeHeader.Title>Migrate xmlns entries in `weblogic-webservices.xml` files to WebLogic 14.1.2</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate xmlns entries in WebLogic Web Services schema files to WebLogic 14.1.2</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"}]} preconditions={[{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"}]}>
 
 ## Definition
 

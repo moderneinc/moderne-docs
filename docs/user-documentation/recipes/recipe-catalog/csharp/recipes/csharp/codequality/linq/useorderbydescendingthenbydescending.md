@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use OrderByDescending().ThenByDescending()"}
-  description={"Replace `.OrderByDescending(a).OrderByDescending(b)` with `.OrderByDescending(a).ThenByDescending(b)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseOrderByDescendingThenByDescending"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/useorderbydescendingthenbydescending.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use OrderByDescending().ThenByDescending()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `.OrderByDescending(a).OrderByDescending(b)` with `.OrderByDescending(a).ThenByDescending(b)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseOrderByDescendingThenByDescending","displayName":"Use OrderByDescending().ThenByDescending()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

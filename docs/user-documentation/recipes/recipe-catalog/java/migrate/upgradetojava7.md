@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Java 7"}
-  description={"This recipe will apply changes commonly needed when upgrading to Java 7. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java7"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava7"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava7.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Java 6","href":"java/migrate/upgradetojava6"},{"name":"Adds missing JDBC interface methods","href":"java/migrate/jrejdbcinterfacenewmethods"},{"name":"Rename final method declarations `getSuppressed()` and `addSuppressed(Throwable exception)` in classes that extend `Throwable`","href":"java/migrate/jrethrowablefinalmethods"},{"name":"Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()`","href":"java/migrate/util/replacemathrandomwiththreadlocalrandomrecipe"},{"name":"Migrate Bouncy Castle from `jdk15on` to `jdk15to18` for Java < 8","href":"java/migrate/bouncycastlefromjdk15ontojdk15to18"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Java 7</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when upgrading to Java 7. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Java 6","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava6/"},{"name":"Adds missing JDBC interface methods","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jrejdbcinterfacenewmethods/"},{"name":"Rename final method declarations `getSuppressed()` and `addSuppressed(Throwable exception)` in classes that extend `Throwable`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jrethrowablefinalmethods/"},{"name":"Replace `java.lang.Math random()` with `ThreadLocalRandom nextDouble()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/util/replacemathrandomwiththreadlocalrandomrecipe/"},{"name":"Migrate Bouncy Castle from `jdk15on` to `jdk15to18` for Java < 8","href":"/user-documentation/recipes/recipe-catalog/java/migrate/bouncycastlefromjdk15ontojdk15to18/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

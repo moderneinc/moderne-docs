@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `EntityManager.createQuery(...)` calls"}
-  description={"Each JPA `createQuery` is a JPQL/HQL execution seed — when the query string is built from user input, the same injection class applies as for raw SQL. Flag for parameter-binding review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindEntityManagerCreateQuery$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findentitymanagercreatequery$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `EntityManager.createQuery(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each JPA `createQuery` is a JPQL/HQL execution seed — when the query string is built from user input, the same injection class applies as for raw SQL. Flag for parameter-binding review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindEntityManagerCreateQuery$KtRecipe","displayName":"Find `EntityManager.createQuery(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

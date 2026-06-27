@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Jackson `@JsonInclude`"}
-  description={"Move Codehaus' `@JsonSerialize.include` argument to FasterXMLs `@JsonInclude` annotation."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.codehaus.JsonIncludeAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/jsonincludeannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate to Jackson `@JsonInclude`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Move Codehaus' `@JsonSerialize.include` argument to FasterXMLs `@JsonInclude` annotation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.codehaus.jackson.map.annotate.JsonSerialize;\nimport org.codehaus.jackson.map.JsonSerializer.None;\nimport static org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion.NON_NULL;\n\n@JsonSerialize(include = NON_NULL, using = None.class)\nclass Test {\n}\n","after":"import org.codehaus.jackson.map.annotate.JsonSerialize;\nimport com.fasterxml.jackson.annotation.JsonInclude;\nimport org.codehaus.jackson.map.JsonSerializer.None;\n\n@JsonInclude(value = JsonInclude.Include.NON_NULL)\n@JsonSerialize(using = None.class)\nclass Test {\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.codehaus.jackson.map.annotate.JsonSerialize;\n+import com.fasterxml.jackson.annotation.JsonInclude;\nimport org.codehaus.jackson.map.JsonSerializer.None;\n@@ -3,1 +4,0 @@\nimport org.codehaus.jackson.map.annotate.JsonSerialize;\nimport org.codehaus.jackson.map.JsonSerializer.None;\n-import static org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion.NON_NULL;\n\n@@ -5,1 +5,2 @@\nimport static org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion.NON_NULL;\n\n-@JsonSerialize(include = NON_NULL, using = None.class)\n+@JsonInclude(value = JsonInclude.Include.NON_NULL)\n+@JsonSerialize(using = None.class)\nclass Test {\n","newFile":false}]}]}>
 

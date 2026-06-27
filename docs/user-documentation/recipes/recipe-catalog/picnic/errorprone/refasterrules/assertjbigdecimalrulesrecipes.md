@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster rules related to AssertJ assertions over `BigDecimal`s"}
-  description={"Note that, contrary to collections of Refaster rules for other `org.assertj.core.api.NumberAssert` subtypes, these rules do not rewrite to/from `BigDecimalAssert#isEqualTo(Object)` and `BigDecimalAssert#isNotEqualTo(Object)`. This is\n because `BigDecimal#equals(Object)` considers not only the numeric value of compared\n instances, but also their scale. As a result various seemingly straightforward transformations\n would actually subtly change the assertion's semantics.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJBigDecimalRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJBigDecimalRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbigdecimalrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJBigDecimalRules.AbstractBigDecimalAssertIsEqualByComparingTo`","href":"picnic/errorprone/refasterrules/assertjbigdecimalrulesrecipes$abstractbigdecimalassertisequalbycomparingtorecipe"},{"name":"Refaster template `AssertJBigDecimalRules.AbstractBigDecimalAssertIsNotEqualByComparingTo`","href":"picnic/errorprone/refasterrules/assertjbigdecimalrulesrecipes$abstractbigdecimalassertisnotequalbycomparingtorecipe"}]}>
+<RecipeHeader.Title>Refaster rules related to AssertJ assertions over `BigDecimal`s</RecipeHeader.Title>
+
+<RecipeHeader.Description>Note that, contrary to collections of Refaster rules for other `org.assertj.core.api.NumberAssert` subtypes, these rules do not rewrite to/from `BigDecimalAssert#isEqualTo(Object)` and `BigDecimalAssert#isNotEqualTo(Object)`. This is  because `BigDecimal#equals(Object)` considers not only the numeric value of compared  instances, but also their scale. As a result various seemingly straightforward transformations  would actually subtly change the assertion's semantics. [Source](https://error-prone.picnic.tech/refasterrules/AssertJBigDecimalRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJBigDecimalRules.AbstractBigDecimalAssertIsEqualByComparingTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbigdecimalrulesrecipes$abstractbigdecimalassertisequalbycomparingtorecipe/"},{"name":"Refaster template `AssertJBigDecimalRules.AbstractBigDecimalAssertIsNotEqualByComparingTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbigdecimalrulesrecipes$abstractbigdecimalassertisnotequalbycomparingtorecipe/"}]}>
 
 ## Definition
 

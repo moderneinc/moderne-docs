@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate DenseVectorProperty.elementType from String to DenseVectorElementType enum"}
-  description={"In Elasticsearch 9, `DenseVectorProperty.elementType()` returns `DenseVectorElementType` enum instead of `String`, and the builder method `elementType(String)` now accepts the enum type. This recipe handles both builder calls and getter calls."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["elasticsearch","migration"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.elastic.elastic9.MigrateDenseVectorElementType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/elastic/elastic9/migratedensevectorelementtype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate DenseVectorProperty.elementType from String to DenseVectorElementType enum</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Elasticsearch 9, `DenseVectorProperty.elementType()` returns `DenseVectorElementType` enum instead of `String`, and the builder method `elementType(String)` now accepts the enum type. This recipe handles both builder calls and getter calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import co.elastic.clients.elasticsearch._types.mapping.DenseVectorProperty;\n\nclass Test {\n    void test() {\n        DenseVectorProperty property = DenseVectorProperty.of(b -> b\n            .dims(768)\n            .elementType(\"float\")\n            .index(true)\n        );\n    }\n}\n","after":"import co.elastic.clients.elasticsearch._types.mapping.DenseVectorElementType;\nimport co.elastic.clients.elasticsearch._types.mapping.DenseVectorProperty;\n\nclass Test {\n    void test() {\n        DenseVectorProperty property = DenseVectorProperty.of(b -> b\n            .dims(768)\n            .elementType(DenseVectorElementType.Float)\n            .index(true)\n        );\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import co.elastic.clients.elasticsearch._types.mapping.DenseVectorElementType;\nimport co.elastic.clients.elasticsearch._types.mapping.DenseVectorProperty;\n@@ -7,1 +8,1 @@\n        DenseVectorProperty property = DenseVectorProperty.of(b -> b\n            .dims(768)\n-           .elementType(\"float\")\n+           .elementType(DenseVectorElementType.Float)\n            .index(true)\n","newFile":false}]}]}>
 

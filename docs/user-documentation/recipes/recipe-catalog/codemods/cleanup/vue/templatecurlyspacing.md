@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Require or disallow spacing around embedded expressions of template strings in `<template>`"}
-  description={"Require or disallow spacing around embedded expressions of template strings in `<template>`\nSee rule details for [vue/template-curly-spacing](https://eslint.vuejs.org/rules/template-curly-spacing.html)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ESLint","vue","eslint-plugin-vue"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.vue.TemplateCurlySpacing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/templatecurlyspacing.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Require or disallow spacing around embedded expressions of template strings in `<template>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Require or disallow spacing around embedded expressions of template strings in `<template>` See rule details for [vue/template-curly-spacing](https://eslint.vuejs.org/rules/template-curly-spacing.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove catch for a checked exception if the try block does not throw that exception"}
-  description={"A refactoring operation may result in a checked exception that is no longer thrown from a `try` block. This recipe will find and remove unnecessary catch blocks."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UnnecessaryCatch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessarycatch.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove catch for a checked exception if the try block does not throw that exception</RecipeHeader.Title>
+
+<RecipeHeader.Description>A refactoring operation may result in a checked exception that is no longer thrown from a `try` block. This recipe will find and remove unnecessary catch blocks.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"boolean","name":"includeJavaLangException","required":false,"description":"Whether to include `java.lang.Exception` in the list of checked exceptions to remove. Unlike other checked exceptions, `java.lang.Exception` is also the superclass of unchecked exceptions. So removing `catch(Exception e)` may result in changed runtime behavior in the presence of unchecked exceptions. Default `false`"},{"type":"boolean","name":"includeJavaLangThrowable","required":false,"description":"Whether to include `java.lang.Throwable` in the list of exceptions to remove. Unlike other checked exceptions, `java.lang.Throwable` is also the superclass of unchecked exceptions. So removing `catch(Throwable e)` may result in changed runtime behavior in the presence of unchecked exceptions. Default `false`"}]}>
 

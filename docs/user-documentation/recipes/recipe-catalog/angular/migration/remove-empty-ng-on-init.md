@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove empty `ngOnInit` lifecycle hooks"}
-  description={"Removes empty `ngOnInit` lifecycle hook methods and OnInit interface from Angular components."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-empty-ng-on-init"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-empty-ng-on-init.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove empty `ngOnInit` lifecycle hooks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes empty `ngOnInit` lifecycle hook methods and OnInit interface from Angular components.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.remove-empty-ng-on-init","displayName":"Remove empty `ngOnInit` lifecycle hooks","npmPackage":"@openrewrite/recipes-angular"}}>
 

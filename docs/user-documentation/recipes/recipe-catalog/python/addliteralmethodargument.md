@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add literal method argument"}
-  description={"Add a literal argument to method invocations matching a pattern."}
   type={"Composite recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.AddLiteralMethodArgument"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/addliteralmethodargument.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"org.openrewrite.java.AddLiteralMethodArgument","href":"java/addliteralmethodargument"}]}>
+<RecipeHeader.Title>Add literal method argument</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a literal argument to method invocations matching a pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"org.openrewrite.java.AddLiteralMethodArgument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"}]}>
 
 ## Definition
 

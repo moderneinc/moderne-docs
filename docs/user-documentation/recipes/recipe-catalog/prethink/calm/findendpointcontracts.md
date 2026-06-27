@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find endpoint contracts"}
-  description={"Extract per-endpoint request body, response body (per status code), and parameter details from Spring/JAX-RS/Micronaut handlers to support OpenAPI 3.0.3 spec generation and consumer/provider contract-test generation. Walks interface inheritance for OpenAPI-codegen-first projects."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindEndpointContracts"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findendpointcontracts.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find endpoint contracts</RecipeHeader.Title>
+
+<RecipeHeader.Description>Extract per-endpoint request body, response body (per status code), and parameter details from Spring/JAX-RS/Micronaut handlers to support OpenAPI 3.0.3 spec generation and consumer/provider contract-test generation. Walks interface inheritance for OpenAPI-codegen-first projects.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindEndpointContracts","displayName":"Find endpoint contracts","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

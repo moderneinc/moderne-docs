@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use consistent Hamcrest matcher imports"}
-  description={"Use consistent imports for Hamcrest matchers, and remove wrapping `is(Matcher)` calls ahead of further changes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["testing","assertj","hamcrest"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.hamcrest.ConsistentHamcrestMatcherImports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/consistenthamcrestmatcherimports.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Remove Hamcrest `is(Matcher)`","href":"java/testing/hamcrest/removeismatcher"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use consistent Hamcrest matcher imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use consistent imports for Hamcrest matchers, and remove wrapping `is(Matcher)` calls ahead of further changes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Remove Hamcrest `is(Matcher)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/removeismatcher/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Disable Kubernetes dashboard"}
-  description={"Disabling the dashboard eliminates it as an attack vector. The dashboard add-on is disabled by default for all new clusters created on Kubernetes 1.18 or greater."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["Azure","terraform","CKV_AZURE_8"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.azure.DisableKubernetesDashboard"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/azure/disablekubernetesdashboard.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Disable Kubernetes dashboard</RecipeHeader.Title>
+
+<RecipeHeader.Description>Disabling the dashboard eliminates it as an attack vector. The dashboard add-on is disabled by default for all new clusters created on Kubernetes 1.18 or greater.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

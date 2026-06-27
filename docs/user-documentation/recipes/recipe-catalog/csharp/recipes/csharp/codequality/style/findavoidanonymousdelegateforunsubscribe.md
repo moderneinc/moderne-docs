@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Do not use anonymous delegates to unsubscribe from events"}
-  description={"Unsubscribing from events using anonymous delegates or lambdas has no effect because each lambda creates a new delegate instance."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindAvoidAnonymousDelegateForUnsubscribe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findavoidanonymousdelegateforunsubscribe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Do not use anonymous delegates to unsubscribe from events</RecipeHeader.Title>
+
+<RecipeHeader.Description>Unsubscribing from events using anonymous delegates or lambdas has no effect because each lambda creates a new delegate instance.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindAvoidAnonymousDelegateForUnsubscribe","displayName":"Do not use anonymous delegates to unsubscribe from events","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

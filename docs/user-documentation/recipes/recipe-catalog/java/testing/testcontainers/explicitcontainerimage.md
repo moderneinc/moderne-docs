@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add image argument to container constructor"}
-  description={"Set the image to use for a container explicitly if unset, rather than relying on the default image for the container class."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testcontainers.ExplicitContainerImage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/explicitcontainerimage.md"}
-/>
+>
+
+<RecipeHeader.Title>Add image argument to container constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>Set the image to use for a container explicitly if unset, rather than relying on the default image for the container class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"containerClass","required":true,"description":"The fully qualified name of the container class to use.","example":"org.testcontainers.containers.NginxContainer"},{"type":"String","name":"image","required":true,"description":"The image to use for the container.","example":"nginx:1.9.4"},{"type":"Boolean","name":"parseImage","required":false,"description":"Whether to call `DockerImageName.parse(image)`."}]}>
 

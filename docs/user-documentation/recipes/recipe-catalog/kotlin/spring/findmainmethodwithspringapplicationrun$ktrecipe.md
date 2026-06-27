@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find top-level `main` functions wrapping `SpringApplication.run`"}
-  description={"A top-level `main(args: Array<String>) { SpringApplication.run(MyApp::class.java, *args) }` collapses to one line with the reified `runApplication<MyApp>(*args)` builder. Flag the `main` entry point for migration."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindMainMethodWithSpringApplicationRun$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findmainmethodwithspringapplicationrun$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find top-level `main` functions wrapping `SpringApplication.run`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A top-level `main(args: Array<String>) { SpringApplication.run(MyApp::class.java, *args) }` collapses to one line with the reified `runApplication<MyApp>(*args)` builder. Flag the `main` entry point for migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindMainMethodWithSpringApplicationRun$KtRecipe","displayName":"Find top-level `main` functions wrapping `SpringApplication.run`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove an annotation processor from the Maven Compiler plugin configuration"}
-  description={"Remove an annotation processor from the Maven Compiler plugin configuration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus39.RemoveMavenCompilerAnnotationProcessor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus39/removemavencompilerannotationprocessor.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove an annotation processor from the Maven Compiler plugin configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove an annotation processor from the Maven Compiler plugin configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The groupId of the annotation processor.","example":"org.hibernate.orm"},{"type":"String","name":"artifactId","required":true,"description":"The artifactId of the annotation processor.","example":"hibernate-jpamodelgen"},{"type":"String","name":"processorClass","required":false,"description":"The fully-qualified class of the annotation processor.","example":"com.example.MyProcessor"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from `@Api` to `@Tag`"}
-  description={"Converts `@Api` to `@Tag` annotation and converts the directly mappable attributes and removes the others."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.MigrateApiToTag"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapitotag.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Migrate from `@Api` to `@Tag`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `@Api` to `@Tag` annotation and converts the directly mappable attributes and removes the others.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find log injection vulnerabilities"}
-  description={"Detects when user-controlled input flows into logging methods without sanitization, which could allow attackers to forge log entries by injecting newline characters."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.security.FindLogInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/security/findloginjection.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find log injection vulnerabilities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects when user-controlled input flows into logging methods without sanitization, which could allow attackers to forge log entries by injecting newline characters.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.http.HttpServletRequest;\nimport org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\nclass UserController {\n    private static final Logger logger = LoggerFactory.getLogger(UserController.class);\n\n    void handleRequest(HttpServletRequest request) {\n        String name = request.getParameter(\"name\");\n        logger.info(\"User logged in: \" + name);\n    }\n}\n","after":"import javax.servlet.http.HttpServletRequest;\nimport org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\nclass UserController {\n    private static final Logger logger = LoggerFactory.getLogger(UserController.class);\n\n    void handleRequest(HttpServletRequest request) {\n        String name = request.getParameter(\"name\");\n        /*~~(LOG_INJECTION use)~~>*/logger.info(\"User logged in: \" + name);\n    }\n}\n","diff":"@@ -10,1 +10,1 @@\n    void handleRequest(HttpServletRequest request) {\n        String name = request.getParameter(\"name\");\n-       logger.info(\"User logged in: \" + name);\n+       /*~~(LOG_INJECTION use)~~>*/logger.info(\"User logged in: \" + name);\n    }\n","newFile":false}]}]}>
 

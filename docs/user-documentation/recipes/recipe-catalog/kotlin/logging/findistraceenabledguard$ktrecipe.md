@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (log.isTraceEnabled) ...` guards"}
-  description={"With kotlin-logging's lambda form (`log.trace { \"...\" }`) the level-check is built into the call — wrapping it in `if (log.isTraceEnabled)` repeats the check. With SLF4J's parameterized form, the placeholder substitution is also deferred, so the explicit guard is only worthwhile if the argument construction itself is expensive."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindIsTraceEnabledGuard$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findistraceenabledguard$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (log.isTraceEnabled) ...` guards</RecipeHeader.Title>
+
+<RecipeHeader.Description>With kotlin-logging's lambda form (`log.trace { "..." }`) the level-check is built into the call — wrapping it in `if (log.isTraceEnabled)` repeats the check. With SLF4J's parameterized form, the placeholder substitution is also deferred, so the explicit guard is only worthwhile if the argument construction itself is expensive.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindIsTraceEnabledGuard$KtRecipe","displayName":"Find `if (log.isTraceEnabled) ...` guards","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

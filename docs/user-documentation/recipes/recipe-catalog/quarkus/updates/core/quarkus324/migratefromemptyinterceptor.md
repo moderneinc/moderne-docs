@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `EmptyInterceptor` with `Interceptor`"}
-  description={"Replace `extends EmptyInterceptor` with `implements Interceptor, Serializable` as `EmptyInterceptor` was removed in Hibernate ORM 7."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus324.MigrateFromEmptyInterceptor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus324/migratefromemptyinterceptor.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `EmptyInterceptor` with `Interceptor`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `extends EmptyInterceptor` with `implements Interceptor, Serializable` as `EmptyInterceptor` was removed in Hibernate ORM 7.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.quarkus.updates.core.quarkus324.MigrateFromEmptyInterceptor","displayName":"Replace `EmptyInterceptor` with `Interceptor`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

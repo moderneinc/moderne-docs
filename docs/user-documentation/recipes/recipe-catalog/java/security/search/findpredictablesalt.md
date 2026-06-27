@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find predictable cryptographic salts"}
-  description={"Finds `PBEParameterSpec` and `PBEKeySpec` constructed with hardcoded or too-short salt byte arrays. A predictable salt undermines the purpose of salting, making rainbow table and precomputation attacks feasible; a salt shorter than 16 bytes is below the minimum strength recommended by NIST SP 800-132. Salts should be generated randomly using `SecureRandom` and at least 16 bytes long."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S2053","CWE-760"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindPredictableSalt"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findpredictablesalt.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find predictable cryptographic salts</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `PBEParameterSpec` and `PBEKeySpec` constructed with hardcoded or too-short salt byte arrays. A predictable salt undermines the purpose of salting, making rainbow table and precomputation attacks feasible; a salt shorter than 16 bytes is below the minimum strength recommended by NIST SP 800-132. Salts should be generated randomly using `SecureRandom` and at least 16 bytes long.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.crypto.spec.PBEParameterSpec;\n\nclass A {\n    void derive() {\n        PBEParameterSpec spec = new PBEParameterSpec(new byte[]{1, 2, 3, 4, 5, 6, 7, 8}, 1000);\n    }\n}\n","after":"import javax.crypto.spec.PBEParameterSpec;\n\nclass A {\n    void derive() {\n        PBEParameterSpec spec = /*~~(Hardcoded salt in PBEParameterSpec. Use SecureRandom to generate a unique salt.)~~>*/new PBEParameterSpec(new byte[]{1, 2, 3, 4, 5, 6, 7, 8}, 1000);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass A {\n    void derive() {\n-       PBEParameterSpec spec = new PBEParameterSpec(new byte[]{1, 2, 3, 4, 5, 6, 7, 8}, 1000);\n+       PBEParameterSpec spec = /*~~(Hardcoded salt in PBEParameterSpec. Use SecureRandom to generate a unique salt.)~~>*/new PBEParameterSpec(new byte[]{1, 2, 3, 4, 5, 6, 7, 8}, 1000);\n    }\n","newFile":false}]}]}>
 

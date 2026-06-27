@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `MockMvcRequestBuilders` to `MockMvcTester` request methods"}
-  description={"Converts `mockMvcTester.perform(get(\"/api\").param(\"k\",\"v\"))` to `mockMvcTester.get().uri(\"/api\").param(\"k\",\"v\")`, removing the `perform()` wrapper and `MockMvcRequestBuilders` static method calls."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.MockMvcRequestBuildersToMockMvcTester"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvcrequestbuilderstomockmvctester.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `MockMvcRequestBuilders` to `MockMvcTester` request methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `mockMvcTester.perform(get("/api").param("k","v"))` to `mockMvcTester.get().uri("/api").param("k","v")`, removing the `perform()` wrapper and `MockMvcRequestBuilders` static method calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.test.web.servlet.assertj.MockMvcTester;\nimport static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;\n\nclass MyTest {\n    private MockMvcTester mockMvcTester;\n\n    void test() throws Exception {\n        mockMvcTester.perform(get(\"/api\"));\n    }\n}\n","after":"import org.springframework.test.web.servlet.assertj.MockMvcTester;\n\nclass MyTest {\n    private MockMvcTester mockMvcTester;\n\n    void test() throws Exception {\n        mockMvcTester.get().uri(\"/api\");\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport org.springframework.test.web.servlet.assertj.MockMvcTester;\n-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;\n\n@@ -8,1 +7,1 @@\n\n    void test() throws Exception {\n-       mockMvcTester.perform(get(\"/api\"));\n+       mockMvcTester.get().uri(\"/api\");\n    }\n","newFile":false}]}]}>
 

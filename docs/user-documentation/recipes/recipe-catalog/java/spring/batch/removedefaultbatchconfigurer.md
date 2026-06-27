@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `DefaultBatchConfigurer`"}
-  description={"Remove `extends DefaultBatchConfigurer` and `@Override` from associated methods."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.RemoveDefaultBatchConfigurer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/removedefaultbatchconfigurer.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `DefaultBatchConfigurer`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `extends DefaultBatchConfigurer` and `@Override` from associated methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer;\nclass Foo extends DefaultBatchConfigurer {\n    @Override\n    public void setDataSource(javax.sql.DataSource dataSource) {\n        // Datasource ignored; this method and comment should be removed\n    }\n}\n","after":"class Foo {\n}\n","diff":"@@ -1,6 +1,1 @@\n-import org.springframework.batch.core.configuration.annotation.DefaultBatchConfigurer;\n-class Foo extends DefaultBatchConfigurer {\n-   @Override\n-   public void setDataSource(javax.sql.DataSource dataSource) {\n-       // Datasource ignored; this method and comment should be removed\n-   }\n+class Foo {\n}\n","newFile":false}]}]}>
 

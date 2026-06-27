@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enable geo-redundant backups on PostgreSQL server"}
-  description={"Ensure PostgreSQL server enables geo-redundant backups."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["Azure","terraform","CKV_AZURE_102"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.azure.EnableGeoRedundantBackupsOnPostgreSQLServer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/azure/enablegeoredundantbackupsonpostgresqlserver.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Enable geo-redundant backups on PostgreSQL server</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure PostgreSQL server enables geo-redundant backups.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

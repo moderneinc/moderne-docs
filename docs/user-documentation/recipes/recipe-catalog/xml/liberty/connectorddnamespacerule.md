@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use correct connector namespace values"}
-  description={"Namespace values in ra.xml must be consistent with the descriptor version."}
   type={"Composite recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-liberty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.liberty.ConnectorDDNamespaceRule"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/liberty/connectorddnamespacerule.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML attribute of a specific resource version","href":"xml/changenamespacevalue"},{"name":"Change XML attribute of a specific resource version","href":"xml/changenamespacevalue"},{"name":"Change XML attribute of a specific resource version","href":"xml/changenamespacevalue"}]}>
+<RecipeHeader.Title>Use correct connector namespace values</RecipeHeader.Title>
+
+<RecipeHeader.Description>Namespace values in ra.xml must be consistent with the descriptor version.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML attribute of a specific resource version","href":"/user-documentation/recipes/recipe-catalog/xml/changenamespacevalue/"},{"name":"Change XML attribute of a specific resource version","href":"/user-documentation/recipes/recipe-catalog/xml/changenamespacevalue/"},{"name":"Change XML attribute of a specific resource version","href":"/user-documentation/recipes/recipe-catalog/xml/changenamespacevalue/"}]}>
 
 ## Definition
 

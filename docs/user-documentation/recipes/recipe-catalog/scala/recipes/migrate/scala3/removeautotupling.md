@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove auto-tupling (not available in Scala 3)"}
-  description={"Finds imports of `scala.language.autoTupling`. Auto-tupling is not available in Scala 3 and code relying on it must be rewritten."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.scala3.RemoveAutoTupling"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/scala3/removeautotupling.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove auto-tupling (not available in Scala 3)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of `scala.language.autoTupling`. Auto-tupling is not available in Scala 3 and code relying on it must be rewritten.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import scala.language.autoTupling\n\nobject Test {\n  val x = 1\n}\n","after":"/*~~(Auto-tupling import found; auto-tupling is not available in Scala 3)~~>*/import scala.language.autoTupling\n\nobject Test {\n  val x = 1\n}\n","diff":"@@ -1,1 +1,1 @@\n-import scala.language.autoTupling\n+/*~~(Auto-tupling import found; auto-tupling is not available in Scala 3)~~>*/import scala.language.autoTupling\n\n","newFile":false}]}]}>
 

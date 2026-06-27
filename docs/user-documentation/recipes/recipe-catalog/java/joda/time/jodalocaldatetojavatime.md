@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Joda-Time `LocalDate` to `java.time.LocalDate`"}
-  description={"Migrates Joda-Time `LocalDate` constructors and instance methods to the equivalent `java.time.LocalDate` calls."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-joda"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.joda.time.JodaLocalDateToJavaTime"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/joda/time/jodalocaldatetojavatime.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Joda-Time `LocalDate` to `java.time.LocalDate`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Joda-Time `LocalDate` constructors and instance methods to the equivalent `java.time.LocalDate` calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.joda.time.JodaLocalDateToJavaTime","displayName":"Migrate Joda-Time `LocalDate` to `java.time.LocalDate`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-joda","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JODA","requiresConfiguration":false}}>
 

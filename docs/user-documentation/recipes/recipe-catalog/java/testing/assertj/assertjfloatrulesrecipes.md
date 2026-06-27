@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adopt AssertJ Float Assertions"}
-  description={"Adopt AssertJ Float Assertions. Favor semantically explicit methods (e.g. `myFloat.isZero()` over `myFloat.isEqualTo(0.0f)`)."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.AssertJFloatRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjfloatrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `isEqualTo` with `isCloseTo`","href":"java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertisclosetowithoffsetrecipe"},{"name":"Replace `isCloseTo` with `isEqualTo`","href":"java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertisequaltorecipe"},{"name":"Replace `isNotCloseTo` with `isNotEqualTo`","href":"java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertisnotequaltorecipe"},{"name":"Replace `isEqualTo(0)` with `isZero()`","href":"java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertiszerorecipe"},{"name":"Replace `isNotEqualTo(0)` with `isNotZero()`","href":"java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertisnotzerorecipe"},{"name":"Replace `isEqualTo(1)` with `isOne()`","href":"java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertisonerecipe"}]}>
+<RecipeHeader.Title>Adopt AssertJ Float Assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adopt AssertJ Float Assertions. Favor semantically explicit methods (e.g. `myFloat.isZero()` over `myFloat.isEqualTo(0.0f)`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `isEqualTo` with `isCloseTo`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertisclosetowithoffsetrecipe/"},{"name":"Replace `isCloseTo` with `isEqualTo`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertisequaltorecipe/"},{"name":"Replace `isNotCloseTo` with `isNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertisnotequaltorecipe/"},{"name":"Replace `isEqualTo(0)` with `isZero()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertiszerorecipe/"},{"name":"Replace `isNotEqualTo(0)` with `isNotZero()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertisnotzerorecipe/"},{"name":"Replace `isEqualTo(1)` with `isOne()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjfloatrulesrecipes$abstractfloatassertisonerecipe/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find GitHub PAT literals (`ghp_…`)"}
-  description={"GitHub personal access tokens begin with `ghp_` and are full-scope unless the PAT is fine-grained. A literal `ghp_…` in source must be revoked at github.com/settings/tokens immediately."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindGitHubPatLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findgithubpatliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find GitHub PAT literals (`ghp_…`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>GitHub personal access tokens begin with `ghp_` and are full-scope unless the PAT is fine-grained. A literal `ghp_…` in source must be revoked at github.com/settings/tokens immediately.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindGitHubPatLiteral$KtRecipe","displayName":"Find GitHub PAT literals (`ghp_…`)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

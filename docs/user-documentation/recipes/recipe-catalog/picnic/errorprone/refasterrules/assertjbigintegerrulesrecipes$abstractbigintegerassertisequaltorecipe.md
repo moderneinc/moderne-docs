@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractBigIntegerAssertIsEqualTo {\n    \n    @BeforeTemplate\n    AbstractBigIntegerAssert<?> before(AbstractBigIntegerAssert<?> bigIntegerAssert, BigInteger n) {\n        return Refaster.anyOf(bigIntegerAssert.isCloseTo(n, offset(BigInteger.ZERO)), bigIntegerAssert.isCloseTo(n, withPercentage(0)));\n    }\n    \n    @AfterTemplate\n    AbstractBigIntegerAssert<?> after(AbstractBigIntegerAssert<?> bigIntegerAssert, BigInteger n) {\n        return bigIntegerAssert.isEqualTo(n);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJBigIntegerRulesRecipes$AbstractBigIntegerAssertIsEqualToRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes$abstractbigintegerassertisequaltorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsEqualTo`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractBigIntegerAssertIsEqualTo {
+    
+    @BeforeTemplate
+    AbstractBigIntegerAssert<?> before(AbstractBigIntegerAssert<?> bigIntegerAssert, BigInteger n) {
+        return Refaster.anyOf(bigIntegerAssert.isCloseTo(n, offset(BigInteger.ZERO)), bigIntegerAssert.isCloseTo(n, withPercentage(0)));
+    }
+    
+    @AfterTemplate
+    AbstractBigIntegerAssert<?> after(AbstractBigIntegerAssert<?> bigIntegerAssert, BigInteger n) {
+        return bigIntegerAssert.isEqualTo(n);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJBigIntegerRulesRecipes$AbstractBigIntegerAssertIsEqualToRecipe","displayName":"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsEqualTo`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

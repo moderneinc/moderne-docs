@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use DateTime.UnixEpoch"}
-  description={"Replace `new DateTime(1970, 1, 1)` with `DateTime.UnixEpoch`. Available since .NET 8, `DateTime.UnixEpoch` is more readable and avoids magic numbers."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseDateTimeUnixEpoch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usedatetimeunixepoch.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use DateTime.UnixEpoch</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `new DateTime(1970, 1, 1)` with `DateTime.UnixEpoch`. Available since .NET 8, `DateTime.UnixEpoch` is more readable and avoids magic numbers.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseDateTimeUnixEpoch","displayName":"Use DateTime.UnixEpoch","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Spring Boot 3.3 best practices"}
-  description={"Applies best practices to Spring Boot 3 applications."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","boot"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.SpringBoot33BestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot33bestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Boot 3.3","href":"java/spring/boot3/upgradespringboot_3_3"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Spring Boot 3.3 best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies best practices to Spring Boot 3 applications.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Boot 3.3","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_3/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

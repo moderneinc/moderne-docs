@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `jakarta.annotation-api` dependency when managed by Spring Boot"}
-  description={"Best practice recipe to cleanup a direct dependency which also comes transitively for Spring Boot applications."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.RemoveJakartaAnnotationDependencyWhenManagedBySpringBoot"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removejakartaannotationdependencywhenmanagedbyspringboot.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"}]} preconditions={[{"name":"Project has no Jakarta annotations","href":"java/migrate/jakarta/hasnojakartaannotations"},{"name":"Dependency insight for Gradle and Maven","href":"java/dependencies/dependencyinsight"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove `jakarta.annotation-api` dependency when managed by Spring Boot</RecipeHeader.Title>
+
+<RecipeHeader.Description>Best practice recipe to cleanup a direct dependency which also comes transitively for Spring Boot applications.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"}]} preconditions={[{"name":"Project has no Jakarta annotations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/hasnojakartaannotations/"},{"name":"Dependency insight for Gradle and Maven","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyinsight/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

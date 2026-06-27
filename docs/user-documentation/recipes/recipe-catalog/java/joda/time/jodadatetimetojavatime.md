@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Joda-Time `DateTime` to `java.time.ZonedDateTime`"}
-  description={"Migrates Joda-Time `DateTime` constructors and instance methods to the equivalent `java.time.ZonedDateTime` calls."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-joda"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.joda.time.JodaDateTimeToJavaTime"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/joda/time/jodadatetimetojavatime.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Joda-Time `DateTime` to `java.time.ZonedDateTime`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Joda-Time `DateTime` constructors and instance methods to the equivalent `java.time.ZonedDateTime` calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.joda.time.JodaDateTimeToJavaTime","displayName":"Migrate Joda-Time `DateTime` to `java.time.ZonedDateTime`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-joda","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JODA","requiresConfiguration":false}}>
 

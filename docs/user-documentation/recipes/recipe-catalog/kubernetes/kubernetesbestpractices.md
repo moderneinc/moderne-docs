@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Kubernetes best practices"}
-  description={"Applies best practices to Kubernetes manifests."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kubernetes"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.KubernetesBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/kubernetesbestpractices.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Ensure liveness probe is configured","href":"kubernetes/missingpodlivenessprobe"},{"name":"Ensure readiness probe is configured","href":"kubernetes/missingpodreadinessprobe"},{"name":"Ensure CPU request is set","href":"kubernetes/missingcpurequest"},{"name":"Ensure CPU limits are set","href":"kubernetes/missingcpulimits"},{"name":"Ensure memory request is set","href":"kubernetes/missingmemoryrequest"},{"name":"Ensure memory limits are set","href":"kubernetes/missingmemorylimits"},{"name":"No privileged containers","href":"kubernetes/noprivilegedcontainers"},{"name":"Ensure lifecycle rule on `StorageBucket`","href":"kubernetes/lifecycleruleonstoragebucket"},{"name":"No host process ID sharing","href":"kubernetes/nohostprocessidsharing"},{"name":"No host IPC sharing","href":"kubernetes/nohostipcsharing"},{"name":"No root containers","href":"kubernetes/norootcontainers"},{"name":"Ensure image pull policy is `Always`","href":"kubernetes/imagepullpolicyalways"},{"name":"No privilege escalation","href":"kubernetes/noprivilegeescalation"},{"name":"No host network sharing","href":"kubernetes/nohostnetworksharing"},{"name":"Read-only root filesystem","href":"kubernetes/readonlyrootfilesystem"},{"name":"Limit root capabilities in a container","href":"kubernetes/limitcontainercapabilities"}]}>
+<RecipeHeader.Title>Kubernetes best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies best practices to Kubernetes manifests.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Ensure liveness probe is configured","href":"/user-documentation/recipes/recipe-catalog/kubernetes/missingpodlivenessprobe/"},{"name":"Ensure readiness probe is configured","href":"/user-documentation/recipes/recipe-catalog/kubernetes/missingpodreadinessprobe/"},{"name":"Ensure CPU request is set","href":"/user-documentation/recipes/recipe-catalog/kubernetes/missingcpurequest/"},{"name":"Ensure CPU limits are set","href":"/user-documentation/recipes/recipe-catalog/kubernetes/missingcpulimits/"},{"name":"Ensure memory request is set","href":"/user-documentation/recipes/recipe-catalog/kubernetes/missingmemoryrequest/"},{"name":"Ensure memory limits are set","href":"/user-documentation/recipes/recipe-catalog/kubernetes/missingmemorylimits/"},{"name":"No privileged containers","href":"/user-documentation/recipes/recipe-catalog/kubernetes/noprivilegedcontainers/"},{"name":"Ensure lifecycle rule on `StorageBucket`","href":"/user-documentation/recipes/recipe-catalog/kubernetes/lifecycleruleonstoragebucket/"},{"name":"No host process ID sharing","href":"/user-documentation/recipes/recipe-catalog/kubernetes/nohostprocessidsharing/"},{"name":"No host IPC sharing","href":"/user-documentation/recipes/recipe-catalog/kubernetes/nohostipcsharing/"},{"name":"No root containers","href":"/user-documentation/recipes/recipe-catalog/kubernetes/norootcontainers/"},{"name":"Ensure image pull policy is `Always`","href":"/user-documentation/recipes/recipe-catalog/kubernetes/imagepullpolicyalways/"},{"name":"No privilege escalation","href":"/user-documentation/recipes/recipe-catalog/kubernetes/noprivilegeescalation/"},{"name":"No host network sharing","href":"/user-documentation/recipes/recipe-catalog/kubernetes/nohostnetworksharing/"},{"name":"Read-only root filesystem","href":"/user-documentation/recipes/recipe-catalog/kubernetes/readonlyrootfilesystem/"},{"name":"Limit root capabilities in a container","href":"/user-documentation/recipes/recipe-catalog/kubernetes/limitcontainercapabilities/"}]}>
 
 ## Definition
 

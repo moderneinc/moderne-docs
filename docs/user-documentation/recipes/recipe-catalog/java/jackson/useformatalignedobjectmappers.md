@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use format alignment `ObjectMappers`"}
-  description={"Replace wrapping `ObjectMapper` calls with their format aligned implementation."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.UseFormatAlignedObjectMappers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/useformatalignedobjectmappers.md"}
-/>
+>
+
+<RecipeHeader.Title>Use format alignment `ObjectMappers`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace wrapping `ObjectMapper` calls with their format aligned implementation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.databind.ObjectMapper;\nimport com.fasterxml.jackson.core.JsonFactory;\n\nclass A {\n    ObjectMapper mapper = new ObjectMapper(new JsonFactory());\n}\n","after":"import com.fasterxml.jackson.databind.ObjectMapper;\nimport com.fasterxml.jackson.databind.json.JsonMapper;\n\nclass A {\n    ObjectMapper mapper = new JsonMapper();\n}\n","diff":"@@ -2,1 +2,1 @@\nimport com.fasterxml.jackson.databind.ObjectMapper;\n-import com.fasterxml.jackson.core.JsonFactory;\n+import com.fasterxml.jackson.databind.json.JsonMapper;\n\n@@ -5,1 +5,1 @@\n\nclass A {\n-   ObjectMapper mapper = new ObjectMapper(new JsonFactory());\n+   ObjectMapper mapper = new JsonMapper();\n}\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Improper privilege management"}
-  description={"Marking code as privileged enables a piece of trusted code to temporarily enable access to more resources than are available directly to the code that called it."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-269"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.ImproperPrivilegeManagement"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/improperprivilegemanagement.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Improper privilege management</RecipeHeader.Title>
+
+<RecipeHeader.Description>Marking code as privileged enables a piece of trusted code to temporarily enable access to more resources than are available directly to the code that called it.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.security.*;\npublic class Test {\n    class MyAction implements PrivilegedAction<Integer> {\n        public Integer run() {\n            System.loadLibrary(\"awt\");\n            return 0;\n        }\n    }\n    void test() {\n        AccessController.doPrivileged((PrivilegedAction<Void>)\n            () -> {\n                // Privileged code goes here, for example:\n                System.loadLibrary(\"awt\");\n                return null; // nothing to return\n            }\n        );\n    }\n}\n","after":"import java.security.*;\npublic class Test {\n    /*~~>*/class MyAction implements PrivilegedAction<Integer> {\n        public Integer run() {\n            System.loadLibrary(\"awt\");\n            return 0;\n        }\n    }\n    void test() {\n        /*~~>*/AccessController.doPrivileged((PrivilegedAction<Void>)\n            () -> {\n                // Privileged code goes here, for example:\n                System.loadLibrary(\"awt\");\n                return null; // nothing to return\n            }\n        );\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport java.security.*;\npublic class Test {\n-   class MyAction implements PrivilegedAction<Integer> {\n+   /*~~>*/class MyAction implements PrivilegedAction<Integer> {\n        public Integer run() {\n@@ -10,1 +10,1 @@\n    }\n    void test() {\n-       AccessController.doPrivileged((PrivilegedAction<Void>)\n+       /*~~>*/AccessController.doPrivileged((PrivilegedAction<Void>)\n            () -> {\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `UsernamePasswordCredentials` to httpclient5"}
-  description={"Change the password argument going into `UsernamePasswordCredentials` to be a `char[]`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.UsernamePasswordCredentials"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/usernamepasswordcredentials.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `UsernamePasswordCredentials` to httpclient5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the password argument going into `UsernamePasswordCredentials` to be a `char[]`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.apache.httpclient5.UsernamePasswordCredentials","displayName":"Migrate `UsernamePasswordCredentials` to httpclient5","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 

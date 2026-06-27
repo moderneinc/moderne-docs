@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant auto-property initialization"}
-  description={"Remove auto-property initializers that assign the default value."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantAutoPropertyInitialization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeredundantautopropertyinitialization.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant auto-property initialization</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove auto-property initializers that assign the default value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantAutoPropertyInitialization","displayName":"Remove redundant auto-property initialization","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

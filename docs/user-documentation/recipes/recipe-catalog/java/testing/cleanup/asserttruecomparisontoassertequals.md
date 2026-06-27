@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Junit `assertTrue(a == b)` to `assertEquals(a,b)`"}
-  description={"Using `assertEquals(a,b)` is simpler and more clear."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.AssertTrueComparisonToAssertEquals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttruecomparisontoassertequals.md"}
-/>
+>
+
+<RecipeHeader.Title>Junit `assertTrue(a == b)` to `assertEquals(a,b)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using `assertEquals(a,b)` is simpler and more clear.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Assertions;\n\npublic class Test {\n    void test() {\n        int a = 1;\n        int b = 1;\n        Assertions.assertTrue(a == b, \"a does not equal b\");\n    }\n}\n","after":"import org.junit.jupiter.api.Assertions;\n\npublic class Test {\n    void test() {\n        int a = 1;\n        int b = 1;\n        Assertions.assertEquals(a, b, \"a does not equal b\");\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n        int a = 1;\n        int b = 1;\n-       Assertions.assertTrue(a == b, \"a does not equal b\");\n+       Assertions.assertEquals(a, b, \"a does not equal b\");\n    }\n","newFile":false}]}]}>
 

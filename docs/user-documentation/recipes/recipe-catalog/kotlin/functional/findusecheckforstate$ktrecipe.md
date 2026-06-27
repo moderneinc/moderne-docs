@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (x == null) throw IllegalStateException(...)` patterns"}
-  description={"`checkNotNull(x) { \"…\" }` is the state-precondition twin of `requireNotNull`: throws `IllegalStateException` when `x` is null and smart-casts to non-nullable on return. Use it for invariants about the object's state, leaving `requireNotNull` for arguments."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindUseCheckForState$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findusecheckforstate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (x == null) throw IllegalStateException(...)` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`checkNotNull(x) { "…" }` is the state-precondition twin of `requireNotNull`: throws `IllegalStateException` when `x` is null and smart-casts to non-nullable on return. Use it for invariants about the object's state, leaving `requireNotNull` for arguments.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindUseCheckForState$KtRecipe","displayName":"Find `if (x == null) throw IllegalStateException(...)` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

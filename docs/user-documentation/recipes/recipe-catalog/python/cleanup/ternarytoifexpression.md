@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `and`/`or` ternary trick to conditional expression"}
-  description={"Rewrite the legacy `cond and val or fallback` idiom as `val if cond else fallback` to avoid silent bugs when `val` is falsy."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.TernaryToIfExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/ternarytoifexpression.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert `and`/`or` ternary trick to conditional expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rewrite the legacy `cond and val or fallback` idiom as `val if cond else fallback` to avoid silent bugs when `val` is falsy.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.TernaryToIfExpression","displayName":"Convert `and`/`or` ternary trick to conditional expression","pipPackage":"openrewrite-static-analysis"}}>
 

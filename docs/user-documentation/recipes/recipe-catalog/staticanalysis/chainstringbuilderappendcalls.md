@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Chain `StringBuilder.append()` calls"}
-  description={"String concatenation within calls to `StringBuilder.append()` causes unnecessary memory allocation. Except for concatenations of String literals, which are joined together at compile time. Replaces inefficient concatenations with chained calls to `StringBuilder.append()`. Using `+` inside `append()` defeats the purpose of the `StringBuilder`, since the concatenation creates a temporary `String` before appending."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S3024"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ChainStringBuilderAppendCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/chainstringbuilderappendcalls.md"}
-/>
+>
+
+<RecipeHeader.Title>Chain `StringBuilder.append()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>String concatenation within calls to `StringBuilder.append()` causes unnecessary memory allocation. Except for concatenations of String literals, which are joined together at compile time. Replaces inefficient concatenations with chained calls to `StringBuilder.append()`. Using `+` inside `append()` defeats the purpose of the `StringBuilder`, since the concatenation creates a temporary `String` before appending.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void method1() {\n        StringBuilder sb = new StringBuilder();\n        String op = \"+\";\n        sb.append(\"A\" + op + \"B\");\n        sb.append(1 + op + 2);\n    }\n}\n","after":"class A {\n    void method1() {\n        StringBuilder sb = new StringBuilder();\n        String op = \"+\";\n        sb.append(\"A\").append(op).append(\"B\");\n        sb.append(1).append(op).append(2);\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\n        StringBuilder sb = new StringBuilder();\n        String op = \"+\";\n-       sb.append(\"A\" + op + \"B\");\n-       sb.append(1 + op + 2);\n+       sb.append(\"A\").append(op).append(\"B\");\n+       sb.append(1).append(op).append(2);\n    }\n","newFile":false}]}]}>
 

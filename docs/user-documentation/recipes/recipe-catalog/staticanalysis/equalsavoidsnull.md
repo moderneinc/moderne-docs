@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Equals avoids null"}
-  description={"Checks that any combination of String literals is on the left side of an `equals()` comparison. Also checks for String literals assigned to some field (such as `someString.equals(anotherString = \"text\"))`. And removes redundant null checks in conjunction with equals comparisons. Placing the literal on the left side prevents `NullPointerException`s, since a literal can never be null and its `equals` method handles null arguments safely."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1132"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.EqualsAvoidsNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/equalsavoidsnull.md"}
-/>
+>
+
+<RecipeHeader.Title>Equals avoids null</RecipeHeader.Title>
+
+<RecipeHeader.Description>Checks that any combination of String literals is on the left side of an `equals()` comparison. Also checks for String literals assigned to some field (such as `someString.equals(anotherString = "text"))`. And removes redundant null checks in conjunction with equals comparisons. Placing the literal on the left side prevents `NullPointerException`s, since a literal can never be null and its `equals` method handles null arguments safely.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n    {\n        String s = null;\n        if(s.equals(\"test\")) {}\n        if(s.equalsIgnoreCase(\"test\")) {}\n        System.out.println(s.contentEquals(\"test\"));\n    }\n}\n","after":"public class A {\n    {\n        String s = null;\n        if(\"test\".equals(s)) {}\n        if(\"test\".equalsIgnoreCase(s)) {}\n        System.out.println(\"test\".contentEquals(s));\n    }\n}\n","diff":"@@ -4,3 +4,3 @@\n    {\n        String s = null;\n-       if(s.equals(\"test\")) {}\n-       if(s.equalsIgnoreCase(\"test\")) {}\n-       System.out.println(s.contentEquals(\"test\"));\n+       if(\"test\".equals(s)) {}\n+       if(\"test\".equalsIgnoreCase(s)) {}\n+       System.out.println(\"test\".contentEquals(s));\n    }\n","newFile":false}]}]}>
 

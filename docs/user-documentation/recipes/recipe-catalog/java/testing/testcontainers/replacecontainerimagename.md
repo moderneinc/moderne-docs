@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace container image name"}
-  description={"Replace a Docker image name in `DockerImageName.parse(image)` or `new DockerImageName(image)` constructor arguments for a specific container class."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testcontainers.ReplaceContainerImageName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/replacecontainerimagename.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace container image name</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace a Docker image name in `DockerImageName.parse(image)` or `new DockerImageName(image)` constructor arguments for a specific container class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"containerClass","required":true,"description":"The fully qualified name of the container class to match.","example":"org.testcontainers.containers.KafkaContainer"},{"type":"String","name":"imagePrefix","required":true,"description":"The Docker image prefix to match (e.g. `confluentinc/cp-kafka`).","example":"confluentinc/cp-kafka"},{"type":"String","name":"newImage","required":true,"description":"The new Docker image to use. When a tag is included (e.g. `apache/kafka-native:4.0.2`), the entire image string is replaced. When no tag is included (e.g. `clickhouse/clickhouse-server`), only the image name prefix is replaced and the original tag is preserved.","example":"apache/kafka-native:4.0.2"}]}>
 

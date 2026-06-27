@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `StringUtils.abbreviate(String, int)` with JDK provided API"}
-  description={"Replace Plexus `StringUtils.abbreviate(String str, int maxWidth)` with JDK provided API."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$AbbreviateRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codehaus/plexus/plexusstringutilsrecipes$abbreviaterecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `StringUtils.abbreviate(String, int)` with JDK provided API</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace Plexus `StringUtils.abbreviate(String str, int maxWidth)` with JDK provided API.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$AbbreviateRecipe","displayName":"Replace `StringUtils.abbreviate(String, int)` with JDK provided API","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"No whitespace after"}
-  description={"Removes unnecessary whitespace appearing after a token. A linebreak after a token is allowed unless `allowLineBreaks` is set to `false`, in which case it will be removed."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.format.NoWhitespaceAfter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/format/nowhitespaceafter.md"}
-/>
+>
+
+<RecipeHeader.Title>No whitespace after</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes unnecessary whitespace appearing after a token. A linebreak after a token is allowed unless `allowLineBreaks` is set to `false`, in which case it will be removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    static void method() {\n        int [] [] a;\n        int [] b;\n        int c, d = 0;\n    }\n}\n","after":"class Test {\n    static void method() {\n        int[][] a;\n        int[] b;\n        int c, d = 0;\n    }\n}\n","diff":"@@ -3,2 +3,2 @@\nclass Test {\n    static void method() {\n-       int [] [] a;\n-       int [] b;\n+       int[][] a;\n+       int[] b;\n        int c, d = 0;\n","newFile":false}]}]}>
 

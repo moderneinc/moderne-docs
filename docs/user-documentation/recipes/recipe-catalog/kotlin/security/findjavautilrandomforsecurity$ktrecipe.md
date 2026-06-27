@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `java.util.Random()` allocations"}
-  description={"`java.util.Random` is a linear-congruential generator — its state is recoverable from a handful of outputs, so it must not produce session IDs, tokens, salts, IVs, or password reset values. Use `java.security.SecureRandom` for any security-adjacent randomness."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindJavaUtilRandomForSecurity$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findjavautilrandomforsecurity$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `java.util.Random()` allocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Random` is a linear-congruential generator — its state is recoverable from a handful of outputs, so it must not produce session IDs, tokens, salts, IVs, or password reset values. Use `java.security.SecureRandom` for any security-adjacent randomness.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindJavaUtilRandomForSecurity$KtRecipe","displayName":"Find `java.util.Random()` allocations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Annotate null-checked method parameters with `@Nullable`"}
-  description={"Add `@Nullable` to parameters of public methods that are explicitly checked for `null`. By default `org.jspecify.annotations.Nullable` is used, but through the `nullableAnnotationClass` option a custom annotation can be provided. Both `@Target(TYPE_USE)` and declaration annotations (e.g. `javax.annotation.CheckForNull`) are supported. Parameters that already carry a known nullable annotation are skipped to avoid duplication. This recipe scans for methods that do not already have parameters annotated with a nullable annotation and checks their usages for potential null checks. Additional null-checking methods can be specified via the `additionalNullCheckingMethods` option."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.AnnotateNullableParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/annotatenullableparameters.md"}
-/>
+>
+
+<RecipeHeader.Title>Annotate null-checked method parameters with `@Nullable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add `@Nullable` to parameters of public methods that are explicitly checked for `null`. By default `org.jspecify.annotations.Nullable` is used, but through the `nullableAnnotationClass` option a custom annotation can be provided. Both `@Target(TYPE_USE)` and declaration annotations (e.g. `javax.annotation.CheckForNull`) are supported. Parameters that already carry a known nullable annotation are skipped to avoid duplication. This recipe scans for methods that do not already have parameters annotated with a nullable annotation and checks their usages for potential null checks. Additional null-checking methods can be specified via the `additionalNullCheckingMethods` option.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"nullableAnnotationClass","required":false,"description":"The fully qualified name of the @Nullable annotation to add. Both `@Target(TYPE_USE)` and declaration annotations (e.g. `javax.annotation.CheckForNull`) are supported. Defaults to `org.jspecify.annotations.Nullable`.","example":"org.jspecify.annotations.Nullable"},{"type":"List","name":"additionalNullCheckingMethods","required":false,"description":"A list of method patterns (in OpenRewrite MethodMatcher format) that should be considered as null-checking methods. These will be added to the built-in list of known null-checking methods. Use `..` for any parameters, e.g., `com.mycompany.utils.StringUtil isEmpty(..)` or `com.mycompany.utils.CollectionUtil isNullOrEmpty(java.util.Collection)`","example":"com.mycompany.utils.StringUtil isEmpty(..), com.mycompany.utils.CollectionUtil isNullOrEmpty(..)"}]}>
 

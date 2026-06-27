@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `camel3` application to `camel4.`"}
-  description={"Migrate `camel3` application to `camel4`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel40.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/camel40/xml/xmldslrecipe"},{"name":"Camel XMl DSL Circuit Breaker changes","href":"apache/camel/upgrade/camel40/xml/circuitbreakerxmldslrecipe"},{"name":"Camel Yaml changes regarding route-configuration children","href":"apache/camel/upgrade/camel40/yaml/camelyamlrouteconfigurationsequencerecipe"},{"name":"Camel Yaml steps not allowed as route child","href":"apache/camel/upgrade/camel40/yaml/camelyamlstepsinfromrecipe"},{"name":"Camel API changes","href":"apache/camel/upgrade/camel40/java/camelapisrecipe"},{"name":"Replaces removed method camel EIP","href":"apache/camel/upgrade/camel40/java/cameleiprecipe"},{"name":"Camel bean recipe","href":"apache/camel/upgrade/camel40/java/camelbeanrecipe"},{"name":"Camel Http Extension changes","href":"apache/camel/upgrade/camel40/java/camelhttprecipe"},{"name":"Camel API changes in application.properties","href":"apache/camel/upgrade/camel40/properties/rejectedpolicy"},{"name":"Replace context.getExtension(ExtendedCamelContext.class).get* with PluginHelper.get*(context)","href":"apache/camel/upgrade/camel40/usepluginhelperforcontextgetters"},{"name":"Migrate moved types between Camel 3.x and Camel 4.x","href":"apache/camel/upgrade/camel40/changetypes"},{"name":"Change of method names brought by Camel JMX API changes","href":"apache/camel/upgrade/camel40/changemanagedchoicembeanmethodname"},{"name":"Change of method names brought by Camel JMX API changes","href":"apache/camel/upgrade/camel40/changemanagedfailoverloadbalancermbeanmethodname"}]}>
+<RecipeHeader.Title>Migrate `camel3` application to `camel4.`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate `camel3` application to `camel4`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/xml/xmldslrecipe/"},{"name":"Camel XMl DSL Circuit Breaker changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/xml/circuitbreakerxmldslrecipe/"},{"name":"Camel Yaml changes regarding route-configuration children","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/yaml/camelyamlrouteconfigurationsequencerecipe/"},{"name":"Camel Yaml steps not allowed as route child","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/yaml/camelyamlstepsinfromrecipe/"},{"name":"Camel API changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/java/camelapisrecipe/"},{"name":"Replaces removed method camel EIP","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/java/cameleiprecipe/"},{"name":"Camel bean recipe","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/java/camelbeanrecipe/"},{"name":"Camel Http Extension changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/java/camelhttprecipe/"},{"name":"Camel API changes in application.properties","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/properties/rejectedpolicy/"},{"name":"Replace context.getExtension(ExtendedCamelContext.class).get* with PluginHelper.get*(context)","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/usepluginhelperforcontextgetters/"},{"name":"Migrate moved types between Camel 3.x and Camel 4.x","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/changetypes/"},{"name":"Change of method names brought by Camel JMX API changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/changemanagedchoicembeanmethodname/"},{"name":"Change of method names brought by Camel JMX API changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/changemanagedfailoverloadbalancermbeanmethodname/"}]}>
 
 ## Definition
 

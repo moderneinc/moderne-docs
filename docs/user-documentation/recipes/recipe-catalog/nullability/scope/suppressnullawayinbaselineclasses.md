@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Suppress NullAway in baseline classes"}
-  description={"Adds `@SuppressWarnings(\"NullAway\")` to each top-level class whose fully-qualified name is listed in the baseline file, carrying those classes' pre-existing NullAway findings as a baseline so the check can be enabled at ERROR immediately while every other class and every new file stays checked."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.scope.SuppressNullAwayInBaselineClasses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/scope/suppressnullawayinbaselineclasses.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Suppress NullAway in baseline classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `@SuppressWarnings("NullAway")` to each top-level class whose fully-qualified name is listed in the baseline file, carrying those classes' pre-existing NullAway findings as a baseline so the check can be enabled at ERROR immediately while every other class and every new file stays checked.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"baselineClassesFile","required":true,"description":"Absolute path to a file listing the fully-qualified names of the top-level classes to carry as a NullAway baseline, one per line.","example":"/tmp/nullaway-baseline-classes.txt"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Detect async callbacks in synchronous array methods"}
-  description={"Detects async callbacks passed to array methods like .some(), .every(), .filter() which don't await promises. This is a common bug where Promise objects are always truthy."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={["async","bug","cleanup","typescript","javascript"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/cleanup/async-callback-in-sync-array-method.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Detect async callbacks in synchronous array methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects async callbacks passed to array methods like .some(), .every(), .filter() which don't await promises. This is a common bug where Promise objects are always truthy.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method","displayName":"Detect async callbacks in synchronous array methods","npmPackage":"@openrewrite/rewrite"}}>
 

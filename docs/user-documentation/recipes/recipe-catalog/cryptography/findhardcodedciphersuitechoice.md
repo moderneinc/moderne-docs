@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hardcoded cipher suite choices"}
-  description={"Detects hardcoded cipher suite choices used in SSL/TLS configurations. Hardcoded cipher suites prevent easy updates when cipher suites become weak or need to be changed for compliance reasons."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindHardcodedCiphersuiteChoice"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedciphersuitechoice.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find hardcoded cipher suite choices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects hardcoded cipher suite choices used in SSL/TLS configurations. Hardcoded cipher suites prevent easy updates when cipher suites become weak or need to be changed for compliance reasons.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.net.ssl.SSLSocket;\n\npublic class CipherSuiteExample {\n    public void configureSocket(SSLSocket socket) {\n        String[] ciphers = {\n            \"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\",\n            \"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\"\n        };\n        socket.setEnabledCipherSuites(ciphers);\n    }\n}\n","after":"import javax.net.ssl.SSLSocket;\n\npublic class CipherSuiteExample {\n    public void configureSocket(SSLSocket socket) {\n        String[] ciphers = {\n            \"TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\",\n            \"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\"\n        };\n        /*~~(CIPHER_SUITE use)~~>*/socket.setEnabledCipherSuites(ciphers);\n    }\n}\n","diff":"@@ -9,1 +9,1 @@\n            \"TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\"\n        };\n-       socket.setEnabledCipherSuites(ciphers);\n+       /*~~(CIPHER_SUITE use)~~>*/socket.setEnabledCipherSuites(ciphers);\n    }\n","newFile":false}]}]}>
 

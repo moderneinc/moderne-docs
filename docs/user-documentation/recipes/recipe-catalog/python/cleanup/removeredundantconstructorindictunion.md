@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unwrap unnecessary `dict()` from union operands"}
-  description={"The `|` operator already produces a fresh dict, so wrapping an operand in `dict()` is redundant and can be removed."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveRedundantConstructorInDictUnion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantconstructorindictunion.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Unwrap unnecessary `dict()` from union operands</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `|` operator already produces a fresh dict, so wrapping an operand in `dict()` is redundant and can be removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveRedundantConstructorInDictUnion","displayName":"Unwrap unnecessary `dict()` from union operands","pipPackage":"openrewrite-static-analysis"}}>
 

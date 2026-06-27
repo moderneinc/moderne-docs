@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields"}
-  description={"In Jackson 3, `@JsonIgnore` on fields initialized with empty collections causes the field value to become `null` instead of maintaining the empty collection. This recipe replaces `@JsonIgnore` with `@JsonSetter(nulls = Nulls.AS_EMPTY)` on `Map` and `Collection` fields that have an empty collection initializer."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.ReplaceJsonIgnoreWithJsonSetter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/replacejsonignorewithjsonsetter.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `@JsonIgnore` with `@JsonSetter` on empty collection fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Jackson 3, `@JsonIgnore` on fields initialized with empty collections causes the field value to become `null` instead of maintaining the empty collection. This recipe replaces `@JsonIgnore` with `@JsonSetter(nulls = Nulls.AS_EMPTY)` on `Map` and `Collection` fields that have an empty collection initializer.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.annotation.JsonIgnore;\nimport java.util.LinkedHashMap;\nimport java.util.Map;\n\nclass Model {\n    @JsonIgnore\n    private Map<String, Object> additionalProperties = new LinkedHashMap<>();\n}\n","after":"import com.fasterxml.jackson.annotation.JsonSetter;\nimport com.fasterxml.jackson.annotation.Nulls;\n\nimport java.util.LinkedHashMap;\nimport java.util.Map;\n\nclass Model {\n    @JsonSetter(nulls = Nulls.AS_EMPTY)\n    private Map<String, Object> additionalProperties = new LinkedHashMap<>();\n}\n","diff":"@@ -1,1 +1,3 @@\n-import com.fasterxml.jackson.annotation.JsonIgnore;\n+import com.fasterxml.jackson.annotation.JsonSetter;\n+import com.fasterxml.jackson.annotation.Nulls;\n+\nimport java.util.LinkedHashMap;\n@@ -6,1 +8,1 @@\n\nclass Model {\n-   @JsonIgnore\n+   @JsonSetter(nulls = Nulls.AS_EMPTY)\n    private Map<String, Object> additionalProperties = new LinkedHashMap<>();\n","newFile":false}]}]}>
 

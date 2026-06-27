@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertWithFailMessage`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractThrowableAssertWithFailMessage {\n    \n    @BeforeTemplate\n    AbstractThrowableAssert<?, ? extends Throwable> before(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated\n    Object args) {\n        return abstractThrowableAssert.withFailMessage(message.formatted(args));\n    }\n    \n    @AfterTemplate\n    AbstractThrowableAssert<?, ? extends Throwable> after(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated\n    Object args) {\n        return abstractThrowableAssert.withFailMessage(message, args);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,34 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AbstractThrowableAssertWithFailMessageRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$abstractthrowableassertwithfailmessagerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertWithFailMessage`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractThrowableAssertWithFailMessage {
+    
+    @BeforeTemplate
+    AbstractThrowableAssert<?, ? extends Throwable> before(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated
+    Object args) {
+        return abstractThrowableAssert.withFailMessage(message.formatted(args));
+    }
+    
+    @AfterTemplate
+    AbstractThrowableAssert<?, ? extends Throwable> after(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated
+    Object args) {
+        return abstractThrowableAssert.withFailMessage(message, args);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AbstractThrowableAssertWithFailMessageRecipe","displayName":"Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertWithFailMessage`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

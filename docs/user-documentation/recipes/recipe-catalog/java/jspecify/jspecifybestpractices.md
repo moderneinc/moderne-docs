@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JSpecify best practices"}
-  description={"Apply JSpecify best practices, such as migrating off of alternatives, and adding missing `@Nullable` annotations."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jspecify.JSpecifyBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jspecify/jspecifybestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to JSpecify","href":"java/jspecify/migratetojspecify"},{"name":"Annotate methods which may return `null` with `@Nullable`","href":"staticanalysis/annotatenullablemethods"},{"name":"Annotate null-checked method parameters with `@Nullable`","href":"staticanalysis/annotatenullableparameters"},{"name":"Annotate required method parameters with `@NonNull`","href":"staticanalysis/annotaterequiredparameters"},{"name":"Move `@Nullable` method annotations to the return type","href":"staticanalysis/nullableonmethodreturntype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>JSpecify best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply JSpecify best practices, such as migrating off of alternatives, and adding missing `@Nullable` annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to JSpecify","href":"/user-documentation/recipes/recipe-catalog/java/jspecify/migratetojspecify/"},{"name":"Annotate methods which may return `null` with `@Nullable`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/annotatenullablemethods/"},{"name":"Annotate null-checked method parameters with `@Nullable`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/annotatenullableparameters/"},{"name":"Annotate required method parameters with `@NonNull`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/annotaterequiredparameters/"},{"name":"Move `@Nullable` method annotations to the return type","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/nullableonmethodreturntype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

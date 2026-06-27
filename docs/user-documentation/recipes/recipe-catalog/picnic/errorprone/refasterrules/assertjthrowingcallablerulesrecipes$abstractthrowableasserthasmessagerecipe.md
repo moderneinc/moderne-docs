@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertHasMessage`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractThrowableAssertHasMessage {\n    \n    @BeforeTemplate\n    AbstractThrowableAssert<?, ? extends Throwable> before(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated\n    Object parameters) {\n        return abstractThrowableAssert.hasMessage(message.formatted(parameters));\n    }\n    \n    @AfterTemplate\n    AbstractThrowableAssert<?, ? extends Throwable> after(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated\n    Object parameters) {\n        return abstractThrowableAssert.hasMessage(message, parameters);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,34 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AbstractThrowableAssertHasMessageRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$abstractthrowableasserthasmessagerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertHasMessage`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractThrowableAssertHasMessage {
+    
+    @BeforeTemplate
+    AbstractThrowableAssert<?, ? extends Throwable> before(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated
+    Object parameters) {
+        return abstractThrowableAssert.hasMessage(message.formatted(parameters));
+    }
+    
+    @AfterTemplate
+    AbstractThrowableAssert<?, ? extends Throwable> after(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated
+    Object parameters) {
+        return abstractThrowableAssert.hasMessage(message, parameters);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AbstractThrowableAssertHasMessageRecipe","displayName":"Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertHasMessage`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Optimize LINQ Select().Max()"}
-  description={"Replace `items.Select(selector).Max()` with `items.Max(selector)`. Passing the selector directly to `Max` avoids an intermediate iterator."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqSelectMax"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/optimizelinqselectmax.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Optimize LINQ Select().Max()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `items.Select(selector).Max()` with `items.Max(selector)`. Passing the selector directly to `Max` avoids an intermediate iterator.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqSelectMax","displayName":"Optimize LINQ Select().Max()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

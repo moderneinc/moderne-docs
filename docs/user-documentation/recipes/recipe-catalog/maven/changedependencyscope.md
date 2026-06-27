@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Maven dependency scope"}
-  description={"Add or alter the scope of the specified dependency."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ChangeDependencyScope"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/changedependencyscope.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Maven dependency scope</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add or alter the scope of the specified dependency.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`.","example":"com.google.guava"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`.","example":"guava"},{"type":"String","name":"newScope","required":false,"description":"Scope to apply to specified Maven dependency. May be omitted, which indicates that no scope should be added and any existing scope be removed from the dependency.","example":"compile"}]}>
 

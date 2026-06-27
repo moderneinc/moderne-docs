@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Optional.ofNullable(...)` calls"}
-  description={"`Optional.ofNullable(x)` is the conversion `T? -> Optional<T>` — the very wrapping Kotlin's null type system was designed to make unnecessary. Inside Kotlin code, return `x` and let `?:`/`?.let { … }` express the absent-value branch directly."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindOptionalOfNullable$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalofnullable$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Optional.ofNullable(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Optional.ofNullable(x)` is the conversion `T? -> Optional<T>` — the very wrapping Kotlin's null type system was designed to make unnecessary. Inside Kotlin code, return `x` and let `?:`/`?.let { … }` express the absent-value branch directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindOptionalOfNullable$KtRecipe","displayName":"Find `Optional.ofNullable(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

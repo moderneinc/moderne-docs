@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `maxBy { selector }` instead of `sortedBy { selector }.last()`"}
-  description={"`sortedBy(f).last()` does an O(n log n) sort just to read the maximum-by-`f`. `maxBy(f)` finds it in a single linear pass."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseMaxByForSortedByLast$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/usemaxbyforsortedbylast$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `maxBy { selector }` instead of `sortedBy { selector }.last()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`sortedBy(f).last()` does an O(n log n) sort just to read the maximum-by-`f`. `maxBy(f)` finds it in a single linear pass.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseMaxByForSortedByLast$KtRecipe","displayName":"Use `maxBy { selector }` instead of `sortedBy { selector }.last()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

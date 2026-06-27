@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find XPath injection vectors"}
-  description={"Finds calls to `XPath.evaluate()` and `XPath.compile()` which, when the expression is built from user input, can allow XPath injection attacks. Use parameterized XPath expressions or input validation instead."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["CWE-643","security"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindXPathInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findxpathinjection.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"}]}>
+<RecipeHeader.Title>Find XPath injection vectors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds calls to `XPath.evaluate()` and `XPath.compile()` which, when the expression is built from user input, can allow XPath injection attacks. Use parameterized XPath expressions or input validation instead.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"}]}>
 
 ## Definition
 

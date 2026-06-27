@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `kotlin.text.Regex` instead of `java.util.regex.Pattern`"}
-  description={"Replaces JVM-only `java.util.regex.Pattern` calls with their multiplatform Kotlin equivalents: `s.toRegex()` and `Regex.escape(s)`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseKotlinRegex$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinregex$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `String.toRegex()` instead of `Pattern.compile(s)`","href":"kotlin/migrate/usestringtoregex$ktrecipe"},{"name":"Use `Regex.escape(s)` instead of `Pattern.quote(s)`","href":"kotlin/migrate/useregexescape$ktrecipe"}]}>
+<RecipeHeader.Title>Use `kotlin.text.Regex` instead of `java.util.regex.Pattern`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces JVM-only `java.util.regex.Pattern` calls with their multiplatform Kotlin equivalents: `s.toRegex()` and `Regex.escape(s)`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `String.toRegex()` instead of `Pattern.compile(s)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtoregex$ktrecipe/"},{"name":"Use `Regex.escape(s)` instead of `Pattern.quote(s)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/useregexescape$ktrecipe/"}]}>
 
 ## Definition
 

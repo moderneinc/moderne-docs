@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unmocked external calls in .NET tests"}
-  description={"Detect direct HttpClient/SqlConnection/EF DbContext/File/Socket usage inside .NET unit tests that should typically be mocked."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindDotnetUnmockedExternalCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetunmockedexternalcalls.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find unmocked external calls in .NET tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect direct HttpClient/SqlConnection/EF DbContext/File/Socket usage inside .NET unit tests that should typically be mocked.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.testing.quality.FindDotnetUnmockedExternalCalls","displayName":"Find unmocked external calls in .NET tests","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

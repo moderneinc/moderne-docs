@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Hamcrest `assertThat(boolean, Matcher)` to AssertJ"}
-  description={"Replace Hamcrest `assertThat(String, boolean)` with AssertJ `assertThat(boolean).as(String).isTrue()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.hamcrest.AssertThatBooleanToAssertJ"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/assertthatbooleantoassertj.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Hamcrest `assertThat(boolean, Matcher)` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace Hamcrest `assertThat(String, boolean)` with AssertJ `assertThat(boolean).as(String).isTrue()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\n\nimport static org.hamcrest.MatcherAssert.assertThat;\n\nclass ATest {\n    @Test\n    void test() {\n        assertThat(\"Reason\", 1 != 2);\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass ATest {\n    @Test\n    void test() {\n        assertThat(1 != 2).as(\"Reason\").isTrue();\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport org.junit.jupiter.api.Test;\n\n-import static org.hamcrest.MatcherAssert.assertThat;\n+import static org.assertj.core.api.Assertions.assertThat;\n\n@@ -8,1 +8,1 @@\n    @Test\n    void test() {\n-       assertThat(\"Reason\", 1 != 2);\n+       assertThat(1 != 2).as(\"Reason\").isTrue();\n    }\n","newFile":false}]}]}>
 

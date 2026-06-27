@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Java to 17+ for Kafka broker/tools"}
-  description={"Ensures Java 17 or higher is used when Kafka broker or tools dependencies are present."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.UpgradeJavaForKafkaBroker"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/upgradejavaforkafkabroker.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Java version","href":"java/migrate/upgradejavaversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"}]} preconditions={[{"name":"Find Maven and Gradle dependencies","href":"java/dependencies/finddependency"}]}>
+<RecipeHeader.Title>Upgrade Java to 17+ for Kafka broker/tools</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensures Java 17 or higher is used when Kafka broker or tools dependencies are present.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"}]} preconditions={[{"name":"Find Maven and Gradle dependencies","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/finddependency/"}]}>
 
 ## Definition
 

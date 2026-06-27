@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Node.js messaging"}
-  description={"Identify messaging patterns in Node.js applications. Detects KafkaJS, amqplib, and Bull/BullMQ usage."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindNodeMessaging"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findnodemessaging.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Node.js messaging</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify messaging patterns in Node.js applications. Detects KafkaJS, amqplib, and Bull/BullMQ usage.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindNodeMessaging","displayName":"Find Node.js messaging","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

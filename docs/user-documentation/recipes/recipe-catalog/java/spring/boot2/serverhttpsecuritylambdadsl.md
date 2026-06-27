@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `ServerHttpSecurity` chained calls into Lambda DSL"}
-  description={"Converts `ServerHttpSecurity` chained call from Spring Security pre 5.2.x into new lambda DSL style calls and removes `and()` methods."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.ServerHttpSecurityLambdaDsl"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/serverhttpsecuritylambdadsl.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `ServerHttpSecurity` chained calls into Lambda DSL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `ServerHttpSecurity` chained call from Spring Security pre 5.2.x into new lambda DSL style calls and removes `and()` methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Bean;\nimport org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;\nimport org.springframework.security.config.web.server.ServerHttpSecurity;\nimport org.springframework.security.web.server.SecurityWebFilterChain;\n\n@EnableWebFluxSecurity\npublic class SecurityConfig {\n    @Bean\n    SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {\n        http.authorizeExchange()\n                .pathMatchers(\"/blog/**\").permitAll()\n                .anyExchange().authenticated();\n        return http.build();\n    }\n}\n","after":"import org.springframework.context.annotation.Bean;\nimport org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;\nimport org.springframework.security.config.web.server.ServerHttpSecurity;\nimport org.springframework.security.web.server.SecurityWebFilterChain;\n\n@EnableWebFluxSecurity\npublic class SecurityConfig {\n    @Bean\n    SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {\n        http.authorizeExchange(exchange -> exchange\n                .pathMatchers(\"/blog/**\").permitAll()\n                .anyExchange().authenticated());\n        return http.build();\n    }\n}\n","diff":"@@ -10,1 +10,1 @@\n    @Bean\n    SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {\n-       http.authorizeExchange()\n+       http.authorizeExchange(exchange -> exchange\n                .pathMatchers(\"/blog/**\").permitAll()\n@@ -12,1 +12,1 @@\n        http.authorizeExchange()\n                .pathMatchers(\"/blog/**\").permitAll()\n-               .anyExchange().authenticated();\n+               .anyExchange().authenticated());\n        return http.build();\n","newFile":false}]}]}>
 

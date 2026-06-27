@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find security configuration"}
-  description={"Identify security configurations including Spring Security, OAuth2, CORS, Jakarta Security (@RolesAllowed, @PermitAll, @DenyAll), and Quarkus Security settings."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindSecurityConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findsecurityconfiguration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find security configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify security configurations including Spring Security, OAuth2, CORS, Jakarta Security (@RolesAllowed, @PermitAll, @DenyAll), and Quarkus Security settings.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example.config;\n\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\n\n@EnableWebSecurity\npublic class SecurityConfig {\n}\n"},"variants":[]}]}>
 

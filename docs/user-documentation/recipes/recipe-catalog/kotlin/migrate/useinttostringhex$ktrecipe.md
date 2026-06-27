@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Int.toString(16)` instead of `Integer.toHexString`"}
-  description={"`Integer.toHexString(i)` is JVM-only; the multiplatform `i.toString(16)` produces the same hexadecimal text."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseIntToStringHex$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useinttostringhex$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Int.toString(16)` instead of `Integer.toHexString`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Integer.toHexString(i)` is JVM-only; the multiplatform `i.toString(16)` produces the same hexadecimal text.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseIntToStringHex$KtRecipe","displayName":"Use `Int.toString(16)` instead of `Integer.toHexString`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

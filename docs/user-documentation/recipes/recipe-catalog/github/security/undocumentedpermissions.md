@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Document permissions usage"}
-  description={"Add documentation comments for permissions blocks in GitHub Actions workflows. Documenting permissions helps reviewers understand why specific permissions are needed and ensures security-conscious development practices. Based on [zizmor's undocumented-permissions audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/undocumented_permissions.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.UndocumentedPermissions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/undocumentedpermissions.md"}
-/>
+>
+
+<RecipeHeader.Title>Document permissions usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add documentation comments for permissions blocks in GitHub Actions workflows. Documenting permissions helps reviewers understand why specific permissions are needed and ensures security-conscious development practices. Based on [zizmor's undocumented-permissions audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/undocumented_permissions.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Test Workflow\non: push\npermissions:\n  contents: write\n  packages: read\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n","after":"name: Test Workflow\non: push\n~~(Permissions block lacks documentation comment. Consider adding a comment explaining why these permissions are needed for workflow.)~~>permissions:\n  contents: write\n  packages: read\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -3,1 +3,1 @@\nname: Test Workflow\non: push\n-permissions:\n+~~(Permissions block lacks documentation comment. Consider adding a comment explaining why these permissions are needed for workflow.)~~>permissions:\n  contents: write\n","newFile":false}]}]}>
 

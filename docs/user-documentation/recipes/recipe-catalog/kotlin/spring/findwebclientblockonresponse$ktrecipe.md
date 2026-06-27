@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `webClient...bodyToMono(X::class).block()` chains"}
-  description={"Chaining `block()` onto a `WebClient.bodyToMono(...)` call defeats the reactive request entirely — the calling thread blocks for the HTTP round-trip, throwing away every concurrency benefit of WebClient. In a `suspend fun`, `awaitBody<X>()` produces the same value without blocking the event loop."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindWebClientBlockOnResponse$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebclientblockonresponse$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `webClient...bodyToMono(X::class).block()` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>Chaining `block()` onto a `WebClient.bodyToMono(...)` call defeats the reactive request entirely — the calling thread blocks for the HTTP round-trip, throwing away every concurrency benefit of WebClient. In a `suspend fun`, `awaitBody<X>()` produces the same value without blocking the event loop.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindWebClientBlockOnResponse$KtRecipe","displayName":"Find `webClient...bodyToMono(X::class).block()` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

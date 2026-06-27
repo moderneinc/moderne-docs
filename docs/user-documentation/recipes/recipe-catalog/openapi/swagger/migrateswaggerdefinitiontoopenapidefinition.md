@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from `@SwaggerDefinition` to `@OpenAPIDefinition`"}
-  description={"Migrate from `@SwaggerDefinition` to `@OpenAPIDefinition`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.MigrateSwaggerDefinitionToOpenAPIDefinition"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateswaggerdefinitiontoopenapidefinition.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate from `@SwaggerDefinition` to `@OpenAPIDefinition`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from `@SwaggerDefinition` to `@OpenAPIDefinition`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.openapi.swagger.MigrateSwaggerDefinitionToOpenAPIDefinition","displayName":"Migrate from `@SwaggerDefinition` to `@OpenAPIDefinition`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-openapi","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_OPENAPI","requiresConfiguration":false}}>
 

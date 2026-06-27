@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Mockito.spy(...)` / `spy(...)` calls"}
-  description={"Mockito's `spy(realInstance)` wraps a real object so unstubbed methods call the real implementation. mockk uses `spyk(realInstance)` — same idea, different semantics around `every { } returns ...` (mockk records the call, Mockito intercepts the invocation)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindMockitoSpyCall$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitospycall$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Mockito.spy(...)` / `spy(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Mockito's `spy(realInstance)` wraps a real object so unstubbed methods call the real implementation. mockk uses `spyk(realInstance)` — same idea, different semantics around `every { } returns ...` (mockk records the call, Mockito intercepts the invocation).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindMockitoSpyCall$KtRecipe","displayName":"Find `Mockito.spy(...)` / `spy(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

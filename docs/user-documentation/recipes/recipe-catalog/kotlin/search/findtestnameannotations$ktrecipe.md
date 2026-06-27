@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@DisplayName(...)` test annotations"}
-  description={"JUnit 5 `@DisplayName` overrides the rendered test name. Listing them helps a reviewer or LLM agent see where the source's function name and the test's reported name diverge — relevant for triaging CI failures."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindTestNameAnnotations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findtestnameannotations$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@DisplayName(...)` test annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>JUnit 5 `@DisplayName` overrides the rendered test name. Listing them helps a reviewer or LLM agent see where the source's function name and the test's reported name diverge — relevant for triaging CI failures.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindTestNameAnnotations$KtRecipe","displayName":"Find `@DisplayName(...)` test annotations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

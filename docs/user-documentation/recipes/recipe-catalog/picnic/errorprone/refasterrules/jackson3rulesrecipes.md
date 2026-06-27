@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`Jackson3Rules` Refaster recipes"}
-  description={"Refaster rules related to Jackson 3.x expressions and statements.\n[Source](https://error-prone.picnic.tech/refasterrules/Jackson3Rules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.Jackson3RulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/jackson3rulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `Jackson3Rules.JsonNodeOptionalInt`","href":"picnic/errorprone/refasterrules/jackson3rulesrecipes$jsonnodeoptionalintrecipe"},{"name":"Refaster template `Jackson3Rules.JsonNodeOptionalString`","href":"picnic/errorprone/refasterrules/jackson3rulesrecipes$jsonnodeoptionalstringrecipe"},{"name":"Refaster template `Jackson3Rules.ObjectMapperValueToTree`","href":"picnic/errorprone/refasterrules/jackson3rulesrecipes$objectmappervaluetotreerecipe"},{"name":"Refaster template `Jackson3Rules.ObjectMapperConvertValueWithClass`","href":"picnic/errorprone/refasterrules/jackson3rulesrecipes$objectmapperconvertvaluewithclassrecipe"},{"name":"Refaster template `Jackson3Rules.ObjectMapperConvertValueWithJavaType`","href":"picnic/errorprone/refasterrules/jackson3rulesrecipes$objectmapperconvertvaluewithjavatyperecipe"},{"name":"Refaster template `Jackson3Rules.ObjectMapperConvertValueWithTypeReference`","href":"picnic/errorprone/refasterrules/jackson3rulesrecipes$objectmapperconvertvaluewithtypereferencerecipe"}]}>
+<RecipeHeader.Title>`Jackson3Rules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to Jackson 3.x expressions and statements. [Source](https://error-prone.picnic.tech/refasterrules/Jackson3Rules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `Jackson3Rules.JsonNodeOptionalInt`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/jackson3rulesrecipes$jsonnodeoptionalintrecipe/"},{"name":"Refaster template `Jackson3Rules.JsonNodeOptionalString`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/jackson3rulesrecipes$jsonnodeoptionalstringrecipe/"},{"name":"Refaster template `Jackson3Rules.ObjectMapperValueToTree`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/jackson3rulesrecipes$objectmappervaluetotreerecipe/"},{"name":"Refaster template `Jackson3Rules.ObjectMapperConvertValueWithClass`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/jackson3rulesrecipes$objectmapperconvertvaluewithclassrecipe/"},{"name":"Refaster template `Jackson3Rules.ObjectMapperConvertValueWithJavaType`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/jackson3rulesrecipes$objectmapperconvertvaluewithjavatyperecipe/"},{"name":"Refaster template `Jackson3Rules.ObjectMapperConvertValueWithTypeReference`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/jackson3rulesrecipes$objectmapperconvertvaluewithtypereferencerecipe/"}]}>
 
 ## Definition
 

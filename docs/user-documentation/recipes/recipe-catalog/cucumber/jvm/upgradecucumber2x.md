@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Cucumber-JVM 2.x"}
-  description={"Upgrade to Cucumber-JVM 2.x from any previous version."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["cucumber","testing"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-cucumber-jvm"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.UpgradeCucumber2x"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber2x.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"}]}>
+<RecipeHeader.Title>Upgrade to Cucumber-JVM 2.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade to Cucumber-JVM 2.x from any previous version.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Android-specific security smells"}
-  description={"Deprecated world-readable/writeable file modes, `WebView` JavaScript enablement and `addJavascriptInterface` exposure, plaintext `SharedPreferences` for sensitive data, and implicit `Intent` broadcasts that any app on the device can intercept."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindAndroidSecuritySmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findandroidsecuritysmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `MODE_WORLD_READABLE` references","href":"kotlin/security/findmodeworldreadable$ktrecipe"},{"name":"Find `WebView.settings.javaScriptEnabled = true` / `setJavaScriptEnabled(true)`","href":"kotlin/security/findwebviewjavascriptenabled$ktrecipe"},{"name":"Find `WebView.addJavascriptInterface(...)` calls","href":"kotlin/security/findwebviewaddjsinterface$ktrecipe"},{"name":"Find `getSharedPreferences(_, MODE_PRIVATE)` callers","href":"kotlin/security/findsharedpreferencesforsensitivedata$ktrecipe"},{"name":"Find `Intent(\"some.implicit.action\")` constructions","href":"kotlin/security/findintentexplicitactionliteral$ktrecipe"},{"name":"Find `WebView.loadUrl(\"http://...\")` calls","href":"kotlin/security/findwebviewloadurlhttp$ktrecipe"},{"name":"Find `WebView.settings.mixedContentMode = MIXED_CONTENT_ALWAYS_ALLOW` settings","href":"kotlin/security/findwebviewsetmixedcontentalwaysallow$ktrecipe"},{"name":"Find `WebView.settings.setAllowFileAccessFromFileURLs(true)` calls","href":"kotlin/security/findwebviewsetallowfileaccesstrue$ktrecipe"},{"name":"Find `WebView.settings.setSavePassword(true)` calls","href":"kotlin/security/findwebviewsavepassword$ktrecipe"}]}>
+<RecipeHeader.Title>Find Android-specific security smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Deprecated world-readable/writeable file modes, `WebView` JavaScript enablement and `addJavascriptInterface` exposure, plaintext `SharedPreferences` for sensitive data, and implicit `Intent` broadcasts that any app on the device can intercept.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `MODE_WORLD_READABLE` references","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findmodeworldreadable$ktrecipe/"},{"name":"Find `WebView.settings.javaScriptEnabled = true` / `setJavaScriptEnabled(true)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewjavascriptenabled$ktrecipe/"},{"name":"Find `WebView.addJavascriptInterface(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewaddjsinterface$ktrecipe/"},{"name":"Find `getSharedPreferences(_, MODE_PRIVATE)` callers","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findsharedpreferencesforsensitivedata$ktrecipe/"},{"name":"Find `Intent(\"some.implicit.action\")` constructions","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findintentexplicitactionliteral$ktrecipe/"},{"name":"Find `WebView.loadUrl(\"http://...\")` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewloadurlhttp$ktrecipe/"},{"name":"Find `WebView.settings.mixedContentMode = MIXED_CONTENT_ALWAYS_ALLOW` settings","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewsetmixedcontentalwaysallow$ktrecipe/"},{"name":"Find `WebView.settings.setAllowFileAccessFromFileURLs(true)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewsetallowfileaccesstrue$ktrecipe/"},{"name":"Find `WebView.settings.setSavePassword(true)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewsavepassword$ktrecipe/"}]}>
 
 ## Definition
 

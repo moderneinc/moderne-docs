@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unsigned JWT usage"}
-  description={"Finds construction or parsing of Nimbus `PlainJWT` — an unsecured JWT that has no signature or MAC. Unsecured JWTs allow an attacker to forge tokens because their payloads are not integrity-protected. Use a signed (`SignedJWT`) or encrypted (`EncryptedJWT`) JWT instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["security","CWE-347","CWE-327"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindUnsignedJwt"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findunsignedjwt.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find unsigned JWT usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds construction or parsing of Nimbus `PlainJWT` — an unsecured JWT that has no signature or MAC. Unsecured JWTs allow an attacker to forge tokens because their payloads are not integrity-protected. Use a signed (`SignedJWT`) or encrypted (`EncryptedJWT`) JWT instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.nimbusds.jwt.JWTClaimsSet;\nimport com.nimbusds.jwt.PlainJWT;\n\nclass Tokens {\n    PlainJWT unsigned(JWTClaimsSet claims) {\n        return new PlainJWT(claims);\n    }\n}\n","after":"import com.nimbusds.jwt.JWTClaimsSet;\nimport com.nimbusds.jwt.PlainJWT;\n\nclass Tokens {\n    PlainJWT unsigned(JWTClaimsSet claims) {\n        return /*~~(Unsigned JWT (PlainJWT) lacks integrity protection and can be forged (CWE-347))~~>*/new PlainJWT(claims);\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass Tokens {\n    PlainJWT unsigned(JWTClaimsSet claims) {\n-       return new PlainJWT(claims);\n+       return /*~~(Unsigned JWT (PlainJWT) lacks integrity protection and can be forged (CWE-347))~~>*/new PlainJWT(claims);\n    }\n","newFile":false}]}]}>
 

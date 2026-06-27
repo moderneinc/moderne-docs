@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Maven plugin dependency"}
-  description={"Removes a dependency from the <dependencies> section of a plugin in the pom.xml."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.RemovePluginDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/removeplugindependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove Maven plugin dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes a dependency from the &lt;dependencies> section of a plugin in the pom.xml.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"pluginGroupId","required":true,"description":"Group ID of the plugin from which the dependency will be removed. Supports glob.A Group ID is the first part of a dependency coordinate 'org.openrewrite.maven:rewrite-maven-plugin:VERSION'.","example":"org.openrewrite.maven"},{"type":"String","name":"pluginArtifactId","required":true,"description":"Artifact ID of the plugin from which the dependency will be removed. Supports glob.The second part of a dependency coordinate 'org.openrewrite.maven:rewrite-maven-plugin:VERSION'.","example":"rewrite-maven-plugin"},{"type":"String","name":"groupId","required":true,"description":"The first part of a plugin dependency coordinate. Supports glob.","example":"com.google.guava"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a plugin dependency coordinate. Supports glob.","example":"guava"}]}>
 

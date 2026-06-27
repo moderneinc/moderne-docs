@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Camel YAML DSL Saga EIP restructuring"}
-  description={"Apache Camel YAML DSL migration from version 4.18 to 4.19. Flattens saga compensation and completion nested uri to direct values."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel419.YamlDsl419SagaRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/yamldsl419sagarecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Camel YAML DSL Saga EIP restructuring</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apache Camel YAML DSL migration from version 4.18 to 4.19. Flattens saga compensation and completion nested uri to direct values.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.apache.camel.upgrade.camel419.YamlDsl419SagaRecipe","displayName":"Camel YAML DSL Saga EIP restructuring","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

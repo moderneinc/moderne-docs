@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove GitLab template"}
-  description={"Remove a GitLab template from use."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.RemoveTemplate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/removetemplate.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove GitLab template</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove a GitLab template from use.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldTemplate","required":true,"description":"The name of the template to match.","example":"Terraform/Base.gitlab-ci.yml"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `SideEffect(key) { … }` calls"}
-  description={"`SideEffect { }` takes no keys — it runs after every successful composition. Passing an argument suggests the author meant `LaunchedEffect(key) { }` (lifecycle-tied) or `DisposableEffect(key) { … }` (cleanup-tied). Either drop the argument or switch to the keyed effect type."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindSideEffectWithKey$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findsideeffectwithkey$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `SideEffect(key) { … }` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`SideEffect { }` takes no keys — it runs after every successful composition. Passing an argument suggests the author meant `LaunchedEffect(key) { }` (lifecycle-tied) or `DisposableEffect(key) { … }` (cleanup-tied). Either drop the argument or switch to the keyed effect type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindSideEffectWithKey$KtRecipe","displayName":"Find `SideEffect(key) { … }` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

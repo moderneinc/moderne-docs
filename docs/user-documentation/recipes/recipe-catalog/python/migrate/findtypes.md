@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Python types"}
-  description={"Find type references by name. Identifies classes matching a type pattern. In Python, all type definitions use the `class` keyword, covering regular classes, abstract base classes, protocols, enums, dataclasses, named tuples, typed dicts, and more."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.migrate.FindTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/migrate/findtypes.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Python types</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find type references by name. Identifies classes matching a type pattern. In Python, all type definitions use the `class` keyword, covering regular classes, abstract base classes, protocols, enums, dataclasses, named tuples, typed dicts, and more.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"typeName","required":true,"description":"A type name used to find matching type references. Can be a simple class name (e.g., `OrderedDict`) or a module-qualified name (e.g., `collections.OrderedDict`). Simple names match against the class name only, while qualified names match against the full module path. Supports glob expressions. `collections..*` finds every type from every submodule of the `collections` module.","example":"OrderedDict"},{"type":"Boolean","name":"checkAssignability","required":false,"description":"When enabled, find type references that are assignable to (i.e., subclasses of) the provided type."}]}>
 

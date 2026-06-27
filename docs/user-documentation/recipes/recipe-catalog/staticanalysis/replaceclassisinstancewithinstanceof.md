@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `A.class.isInstance(a)` with `a instanceof A`"}
-  description={"There should be no `A.class.isInstance(a)`, it should be replaced by `a instanceof A`. Using `instanceof` enables the compiler to catch type incompatibilities at compile time rather than silently passing at runtime, which helps detect dead code early."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S6202"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceClassIsInstanceWithInstanceof"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replaceclassisinstancewithinstanceof.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `A.class.isInstance(a)` with `a instanceof A`</RecipeHeader.Title>
+
+<RecipeHeader.Description>There should be no `A.class.isInstance(a)`, it should be replaced by `a instanceof A`. Using `instanceof` enables the compiler to catch type incompatibilities at compile time rather than silently passing at runtime, which helps detect dead code early.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void foo() {\n        String s = \"\";\n        boolean result = String.class.isInstance(s);\n        result = Integer.class.isInstance(s);\n    }\n}\n","after":"class A {\n    void foo() {\n        String s = \"\";\n        boolean result = s instanceof String;\n        result = s instanceof Integer;\n    }\n}\n","diff":"@@ -4,2 +4,2 @@\n    void foo() {\n        String s = \"\";\n-       boolean result = String.class.isInstance(s);\n-       result = Integer.class.isInstance(s);\n+       boolean result = s instanceof String;\n+       result = s instanceof Integer;\n    }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify AssertJ assertions with `hasSize` argument"}
-  description={"Simplify AssertJ assertions by replacing `hasSize` with `hasSameSizeAs` dedicated assertions."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.SimplifyHasSizeAssertion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyhassizeassertion.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify AssertJ assertions with `hasSize` argument</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify AssertJ assertions by replacing `hasSize` with `hasSameSizeAs` dedicated assertions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    void testMethod() {\n        String a = \"ab\";\n        String b = \"ab\";\n\n        assertThat(a).hasSize(b.length());\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    void testMethod() {\n        String a = \"ab\";\n        String b = \"ab\";\n\n        assertThat(a).hasSameSizeAs(b);\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\n        String b = \"ab\";\n\n-       assertThat(a).hasSize(b.length());\n+       assertThat(a).hasSameSizeAs(b);\n    }\n","newFile":false}]}]}>
 

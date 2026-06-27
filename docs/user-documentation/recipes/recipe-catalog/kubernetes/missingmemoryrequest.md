@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure memory request is set"}
-  description={"A container is guaranteed to have as much memory as it requests, but is not allowed to use more memory than the limit set. This configuration may save resources and prevent an attack on an exploited container."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kubernetes"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.MissingMemoryRequest"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/missingmemoryrequest.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find missing configuration","href":"kubernetes/search/findresourcemissingconfiguration"}]}>
+<RecipeHeader.Title>Ensure memory request is set</RecipeHeader.Title>
+
+<RecipeHeader.Description>A container is guaranteed to have as much memory as it requests, but is not allowed to use more memory than the limit set. This configuration may save resources and prevent an attack on an exploited container.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find missing configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/search/findresourcemissingconfiguration/"}]}>
 
 ## Definition
 

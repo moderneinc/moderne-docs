@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce props indentation in JSX"}
-  description={"Enforce props indentation in JSX\nSee rule details for [react/jsx-indent-props](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-indent-props.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.react.JsxIndentProps"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/react/jsxindentprops.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce props indentation in JSX</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce props indentation in JSX See rule details for [react/jsx-indent-props](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-indent-props.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

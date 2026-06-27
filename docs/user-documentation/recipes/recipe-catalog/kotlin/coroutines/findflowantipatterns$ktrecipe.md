@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Flow operator antipatterns"}
-  description={"Flow chains where operator order, sharing configuration, or terminal placement undermines the intended behavior — collapsible `map.map` / `filter.filter`, `flowOn` past a terminal, `stateIn`/`shareIn` without an explicit timeout, `Flow.collect` inside `@Composable`, etc."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindFlowAntiPatterns$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowantipatterns$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Flow.map { } .map { }` chains","href":"kotlin/coroutines/findflowmapmapchain$ktrecipe"},{"name":"Find `Flow.filter { } .filter { }` chains","href":"kotlin/coroutines/findflowfilterfilterchain$ktrecipe"},{"name":"Find `Flow.flowOn` placed after a terminal operator","href":"kotlin/coroutines/findflowonafterterminal$ktrecipe"},{"name":"Find `stateIn` with `SharingStarted.Eagerly` or unparameterized start","href":"kotlin/coroutines/findstateinwithouttimeout$ktrecipe"},{"name":"Find `shareIn` calls without a timeout-parameterized start","href":"kotlin/coroutines/findshareinwithouttimeout$ktrecipe"},{"name":"Find `Flow.collect` calls inside a `@Composable`","href":"kotlin/coroutines/findflowcollectinsidecompose$ktrecipe"},{"name":"Find `debounce(...).distinctUntilChanged()` patterns","href":"kotlin/coroutines/finddebouncebeforedistinctuntilchanged$ktrecipe"},{"name":"Find `flowOf(...)` calls — verify size","href":"kotlin/coroutines/findflowofwithvararg$ktrecipe"},{"name":"Find `callbackFlow { }` blocks without an `awaitClose { }` terminator","href":"kotlin/coroutines/findcallbackflowwithoutawaitclose$ktrecipe"}]}>
+<RecipeHeader.Title>Find Flow operator antipatterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flow chains where operator order, sharing configuration, or terminal placement undermines the intended behavior — collapsible `map.map` / `filter.filter`, `flowOn` past a terminal, `stateIn`/`shareIn` without an explicit timeout, `Flow.collect` inside `@Composable`, etc.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Flow.map { } .map { }` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowmapmapchain$ktrecipe/"},{"name":"Find `Flow.filter { } .filter { }` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowfilterfilterchain$ktrecipe/"},{"name":"Find `Flow.flowOn` placed after a terminal operator","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowonafterterminal$ktrecipe/"},{"name":"Find `stateIn` with `SharingStarted.Eagerly` or unparameterized start","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findstateinwithouttimeout$ktrecipe/"},{"name":"Find `shareIn` calls without a timeout-parameterized start","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findshareinwithouttimeout$ktrecipe/"},{"name":"Find `Flow.collect` calls inside a `@Composable`","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowcollectinsidecompose$ktrecipe/"},{"name":"Find `debounce(...).distinctUntilChanged()` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/finddebouncebeforedistinctuntilchanged$ktrecipe/"},{"name":"Find `flowOf(...)` calls — verify size","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowofwithvararg$ktrecipe/"},{"name":"Find `callbackFlow { }` blocks without an `awaitClose { }` terminator","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findcallbackflowwithoutawaitclose$ktrecipe/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Immutable` on classes with `var` properties"}
-  description={"`@Immutable` is the stronger sibling of `@Stable`: it promises that all public properties are observably unchangeable after construction. A `var` field is by definition observably changeable — Compose will assume it can skip recompositions safely and miss updates. Drop the annotation or convert the property to `val` (and a private backing var if needed)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindImmutableAnnotationOnMutableClass$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findimmutableannotationonmutableclass$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Immutable` on classes with `var` properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@Immutable` is the stronger sibling of `@Stable`: it promises that all public properties are observably unchangeable after construction. A `var` field is by definition observably changeable — Compose will assume it can skip recompositions safely and miss updates. Drop the annotation or convert the property to `val` (and a private backing var if needed).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindImmutableAnnotationOnMutableClass$KtRecipe","displayName":"Find `@Immutable` on classes with `var` properties","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

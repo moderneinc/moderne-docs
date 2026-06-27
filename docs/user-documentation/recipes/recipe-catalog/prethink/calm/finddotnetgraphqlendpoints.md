@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET GraphQL endpoints"}
-  description={"Detect HotChocolate query/mutation/subscription types and GraphQL.NET schema types in .NET projects."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDotnetGraphQLEndpoints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetgraphqlendpoints.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET GraphQL endpoints</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect HotChocolate query/mutation/subscription types and GraphQL.NET schema types in .NET projects.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindDotnetGraphQLEndpoints","displayName":"Find .NET GraphQL endpoints","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

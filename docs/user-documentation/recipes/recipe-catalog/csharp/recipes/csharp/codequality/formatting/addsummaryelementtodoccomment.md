@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add summary to documentation comment"}
-  description={"Add summary text to documentation comments with empty summary elements."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.AddSummaryElementToDocComment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/formatting/addsummaryelementtodoccomment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add summary to documentation comment</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add summary text to documentation comments with empty summary elements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.AddSummaryElementToDocComment","displayName":"Add summary to documentation comment","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

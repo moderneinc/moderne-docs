@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `Jackson2ObjectMapperBuilder` to mapper builder pattern"}
-  description={"Replaces `Jackson2ObjectMapperBuilder.json().build()` and similar factory methods with the corresponding Jackson mapper builder pattern (e.g. `JsonMapper.builder()...build()`). Setter calls on the resulting mapper are folded into the builder chain when safe, or annotated with a TODO comment when automatic migration is not possible."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.MigrateJackson2ObjectMapperBuilder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratejackson2objectmapperbuilder.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `Jackson2ObjectMapperBuilder` to mapper builder pattern</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `Jackson2ObjectMapperBuilder.json().build()` and similar factory methods with the corresponding Jackson mapper builder pattern (e.g. `JsonMapper.builder()...build()`). Setter calls on the resulting mapper are folded into the builder chain when safe, or annotated with a TODO comment when automatic migration is not possible.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.databind.ObjectMapper;\nimport org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;\n\nclass Config {\n    ObjectMapper mapper() {\n        return Jackson2ObjectMapperBuilder.json().build();\n    }\n}\n","after":"import com.fasterxml.jackson.databind.ObjectMapper;\nimport com.fasterxml.jackson.databind.json.JsonMapper;\n\nclass Config {\n    ObjectMapper mapper() {\n        return JsonMapper.builder()\n                .build();\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nimport com.fasterxml.jackson.databind.ObjectMapper;\n-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;\n+import com.fasterxml.jackson.databind.json.JsonMapper;\n\n@@ -6,1 +6,2 @@\nclass Config {\n    ObjectMapper mapper() {\n-       return Jackson2ObjectMapperBuilder.json().build();\n+       return JsonMapper.builder()\n+               .build();\n    }\n","newFile":false}]}]}>
 

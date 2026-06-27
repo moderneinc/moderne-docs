@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Optimize log statements"}
-  description={"When trace, debug and info log statements use methods for constructing log messages, those methods are called regardless of whether the log level is enabled. This recipe optimizes these statements by either wrapping them in if-statements (SLF4J 1.x) or converting them to fluent API calls (SLF4J 2.0+) to ensure expensive methods are only called when necessary."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.WrapExpensiveLogStatementsInConditionals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/wrapexpensivelogstatementsinconditionals.md"}
-/>
+>
+
+<RecipeHeader.Title>Optimize log statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>When trace, debug and info log statements use methods for constructing log messages, those methods are called regardless of whether the log level is enabled. This recipe optimizes these statements by either wrapping them in if-statements (SLF4J 1.x) or converting them to fluent API calls (SLF4J 2.0+) to ensure expensive methods are only called when necessary.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.slf4j.Logger;\n\nclass A {\n    void method(Logger logger) {\n        logger.info(\"Result: {}\", calculateResult());\n        logger.info(\"This was {} and {}\", doExpensiveOperation(), \"bar\");\n    }\n\n    String calculateResult() {\n        return \"result\";\n    }\n\n    String doExpensiveOperation() {\n        return \"foo\";\n    }\n}\n","after":"import org.slf4j.Logger;\n\nclass A {\n    void method(Logger logger) {\n        logger.atInfo().addArgument(() -> calculateResult()).log(\"Result: {}\");\n        logger.atInfo().addArgument(() -> doExpensiveOperation()).addArgument(\"bar\").log(\"This was {} and {}\");\n    }\n\n    String calculateResult() {\n        return \"result\";\n    }\n\n    String doExpensiveOperation() {\n        return \"foo\";\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass A {\n    void method(Logger logger) {\n-       logger.info(\"Result: {}\", calculateResult());\n-       logger.info(\"This was {} and {}\", doExpensiveOperation(), \"bar\");\n+       logger.atInfo().addArgument(() -> calculateResult()).log(\"Result: {}\");\n+       logger.atInfo().addArgument(() -> doExpensiveOperation()).addArgument(\"bar\").log(\"This was {} and {}\");\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import org.slf4j.Logger;\n\nclass A {\n    void method(Logger LOG) {\n        LOG.debug(\"SomeString {}, {}\", \"some param\", expensiveOp());\n    }\n\n    String expensiveOp() {\n        return \"expensive\";\n    }\n}\n","after":"import org.slf4j.Logger;\n\nclass A {\n    void method(Logger LOG) {\n        if (LOG.isDebugEnabled()) {\n            LOG.debug(\"SomeString {}, {}\", \"some param\", expensiveOp());\n        }\n    }\n\n    String expensiveOp() {\n        return \"expensive\";\n    }\n}\n","diff":"@@ -5,1 +5,3 @@\nclass A {\n    void method(Logger LOG) {\n-       LOG.debug(\"SomeString {}, {}\", \"some param\", expensiveOp());\n+       if (LOG.isDebugEnabled()) {\n+           LOG.debug(\"SomeString {}, {}\", \"some param\", expensiveOp());\n+       }\n    }\n","newFile":false}]}]}>
 

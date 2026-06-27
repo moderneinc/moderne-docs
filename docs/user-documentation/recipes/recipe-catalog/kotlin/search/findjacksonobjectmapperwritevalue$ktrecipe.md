@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Jackson `ObjectMapper.writeValue*(...)` calls"}
-  description={"Each `writeValue` / `writeValueAsString` / `writeValueAsBytes` call serializes a Kotlin object to JSON — useful as a seed for tracking which types cross the JSON boundary (DTO surface) and where sensitive fields might leak."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindJacksonObjectMapperWriteValue$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findjacksonobjectmapperwritevalue$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Jackson `ObjectMapper.writeValue*(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `writeValue` / `writeValueAsString` / `writeValueAsBytes` call serializes a Kotlin object to JSON — useful as a seed for tracking which types cross the JSON boundary (DTO surface) and where sensitive fields might leak.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindJacksonObjectMapperWriteValue$KtRecipe","displayName":"Find Jackson `ObjectMapper.writeValue*(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

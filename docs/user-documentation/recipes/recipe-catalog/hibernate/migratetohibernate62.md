@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Hibernate 6.2.x"}
-  description={"This recipe will apply changes commonly needed when migrating to Hibernate 6.2.x."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-hibernate"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hibernate.MigrateToHibernate62"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate62.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Hibernate 6.1.x","href":"hibernate/migratetohibernate61"},{"name":"Migrate Hibernate Types to Hypersistence Utils 6.2","href":"hibernate/migratetohypersistenceutilshibernate62"},{"name":"Migrate Hibernate dialect to the generic dialect","href":"hibernate/migratedialect"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Replace `@LazyCollection` with `jakarta.persistence.FetchType`","href":"hibernate/replacelazycollectionannotation"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Hibernate 6.2.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when migrating to Hibernate 6.2.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Hibernate 6.1.x","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate61/"},{"name":"Migrate Hibernate Types to Hypersistence Utils 6.2","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate62/"},{"name":"Migrate Hibernate dialect to the generic dialect","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratedialect/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Replace `@LazyCollection` with `jakarta.persistence.FetchType`","href":"/user-documentation/recipes/recipe-catalog/hibernate/replacelazycollectionannotation/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

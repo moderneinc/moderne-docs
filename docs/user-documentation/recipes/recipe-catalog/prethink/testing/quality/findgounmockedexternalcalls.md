@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Go unmocked external calls"}
-  description={"Detect net/http, os.Open, net.Dial, sql.Open calls directly in Go tests."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindGoUnmockedExternalCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findgounmockedexternalcalls.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Go unmocked external calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect net/http, os.Open, net.Dial, sql.Open calls directly in Go tests.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.testing.quality.FindGoUnmockedExternalCalls","displayName":"Find Go unmocked external calls","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

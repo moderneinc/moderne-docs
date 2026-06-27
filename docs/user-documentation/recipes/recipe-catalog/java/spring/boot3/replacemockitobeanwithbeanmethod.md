@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `@MockitoBean` and `@MockitoSpyBean` with `@Bean` methods in `@Configuration` classes"}
-  description={"`@MockitoBean` and `@MockitoSpyBean` only work in test classes, not in `@Configuration` classes. This recipe converts annotated fields into `@Bean` methods using `Mockito.mock()` or `Mockito.spy()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.ReplaceMockitoBeanWithBeanMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacemockitobeanwithbeanmethod.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `@MockitoBean` and `@MockitoSpyBean` with `@Bean` methods in `@Configuration` classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@MockitoBean` and `@MockitoSpyBean` only work in test classes, not in `@Configuration` classes. This recipe converts annotated fields into `@Bean` methods using `Mockito.mock()` or `Mockito.spy()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"public class AuditLogger {}\n"},"variants":[{"language":"java","before":"import org.springframework.context.annotation.Configuration;\nimport org.springframework.test.context.bean.override.mockito.MockitoBean;\n\n@Configuration\npublic class TestConfig {\n    @MockitoBean\n    private AuditLogger auditLogger;\n}\n","after":"import org.mockito.Mockito;\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\n\n@Configuration\npublic class TestConfig {\n\n    @Bean\n    public AuditLogger auditLogger() {\n        return Mockito.mock(AuditLogger.class);\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.mockito.Mockito;\n+import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\n@@ -2,1 +4,0 @@\nimport org.springframework.context.annotation.Configuration;\n-import org.springframework.test.context.bean.override.mockito.MockitoBean;\n\n@@ -6,2 +7,5 @@\n@Configuration\npublic class TestConfig {\n-   @MockitoBean\n-   private AuditLogger auditLogger;\n+\n+   @Bean\n+   public AuditLogger auditLogger() {\n+       return Mockito.mock(AuditLogger.class);\n+   }\n}\n","newFile":false}]}]}>
 

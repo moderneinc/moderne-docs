@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Double.nextUp()` instead of `java.lang.Math.nextUp`"}
-  description={"`Math.nextUp(x)` becomes `x.nextUp()` — multiplatform Kotlin extension on `Double`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseDoubleNextUp$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublenextup$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Double.nextUp()` instead of `java.lang.Math.nextUp`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Math.nextUp(x)` becomes `x.nextUp()` — multiplatform Kotlin extension on `Double`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseDoubleNextUp$KtRecipe","displayName":"Use `Double.nextUp()` instead of `java.lang.Math.nextUp`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Angular decorators"}
-  description={"Finds all Angular decorators like @Component, @Directive, @Injectable, etc."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-angular-decorator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-angular-decorator.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Angular decorators</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds all Angular decorators like @Component, @Directive, @Injectable, etc.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-angular-decorator","displayName":"Find Angular decorators","npmPackage":"@openrewrite/recipes-angular"}}>
 

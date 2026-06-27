@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Extract coding conventions"}
-  description={"Analyze the codebase to extract coding conventions including naming patterns, import organization, and documentation patterns."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.ExtractCodingConventions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/extractcodingconventions.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Extract coding conventions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Analyze the codebase to extract coding conventions including naming patterns, import organization, and documentation patterns.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.ExtractCodingConventions","displayName":"Extract coding conventions","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Boot 2.7"}
-  description={"Upgrade to Spring Boot 2.7."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_7"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_7.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Boot 2.6","href":"java/spring/boot2/upgradespringboot_2_6"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"},{"name":"Upgrade Maven parent project version","href":"maven/upgradeparentversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate to Spring Data JPA 2.7","href":"java/spring/data/upgradespringdata_2_7"},{"name":"Migrate to Spring Security 5.7","href":"java/spring/security5/upgradespringsecurity_5_7"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Migrate Spring Boot properties to 2.7","href":"java/spring/boot2/springbootproperties_2_7"},{"name":"Move SAML relying party identity provider property to asserting party","href":"java/spring/boot2/samlrelyingpartypropertyapplicationpropertiesmove"},{"name":"Change key","href":"yaml/changekey"},{"name":"Change the value of a spring application property","href":"java/spring/changespringpropertyvalue"},{"name":"Upgrade MyBatis to Spring Boot 2.7","href":"java/spring/boot3/upgrademybatistospringboot_2_7"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Boot 2.7</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade to Spring Boot 2.7.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Boot 2.6","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_6/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"},{"name":"Upgrade Maven parent project version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradeparentversion/"},{"name":"Update a Gradle plugin by id","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/upgradepluginversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Migrate to Spring Data JPA 2.7","href":"/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_2_7/"},{"name":"Migrate to Spring Security 5.7","href":"/user-documentation/recipes/recipe-catalog/java/spring/security5/upgradespringsecurity_5_7/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Migrate Spring Boot properties to 2.7","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/springbootproperties_2_7/"},{"name":"Move SAML relying party identity provider property to asserting party","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/samlrelyingpartypropertyapplicationpropertiesmove/"},{"name":"Change key","href":"/user-documentation/recipes/recipe-catalog/yaml/changekey/"},{"name":"Change the value of a spring application property","href":"/user-documentation/recipes/recipe-catalog/java/spring/changespringpropertyvalue/"},{"name":"Upgrade MyBatis to Spring Boot 2.7","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_7/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

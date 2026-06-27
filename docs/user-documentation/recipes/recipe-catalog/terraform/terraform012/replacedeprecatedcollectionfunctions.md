@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `list()` and `map()` functions"}
-  description={"In Terraform 0.12+, the `list()` function is replaced by `[...]` tuple syntax and the `map()` function is replaced by `{...}` object syntax."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.terraform012.ReplaceDeprecatedCollectionFunctions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/terraform012/replacedeprecatedcollectionfunctions.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated `list()` and `map()` functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Terraform 0.12+, the `list()` function is replaced by `[...]` tuple syntax and the `map()` function is replaced by `{...}` object syntax.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"hcl","before":"resource \"aws_instance\" \"example\" {\n  security_groups = list(\"sg-1234\", \"sg-5678\")\n}\n","after":"resource \"aws_instance\" \"example\" {\n  security_groups = [\"sg-1234\", \"sg-5678\"]\n}\n","diff":"@@ -2,1 +2,1 @@\nresource \"aws_instance\" \"example\" {\n- security_groups = list(\"sg-1234\", \"sg-5678\")\n+ security_groups = [\"sg-1234\", \"sg-5678\"]\n}\n","newFile":false}]}]}>
 

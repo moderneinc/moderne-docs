@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `distinct()` instead of `toHashSet().toList()`"}
-  description={"Round-tripping through a `HashSet` to drop duplicates obscures intent and allocates an intermediate. `distinct()` says what it does and returns a `List` directly."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.UseDistinctForToHashSetToList$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usedistinctfortohashsettolist$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `distinct()` instead of `toHashSet().toList()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Round-tripping through a `HashSet` to drop duplicates obscures intent and allocates an intermediate. `distinct()` says what it does and returns a `List` directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.stdlib.UseDistinctForToHashSetToList$KtRecipe","displayName":"Use `distinct()` instead of `toHashSet().toList()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

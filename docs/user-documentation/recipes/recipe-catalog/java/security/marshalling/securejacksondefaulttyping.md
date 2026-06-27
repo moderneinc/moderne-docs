@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Secure the use of Jackson default typing"}
-  description={"See the [blog post](https://cowtowncoder.medium.com/on-jackson-cves-dont-panic-here-is-what-you-need-to-know-54cd0d6e8062) on this subject."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-502","CWE-94"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.marshalling.SecureJacksonDefaultTyping"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/marshalling/securejacksondefaulttyping.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Secure the use of Jackson default typing</RecipeHeader.Title>
+
+<RecipeHeader.Description>See the [blog post](https://cowtowncoder.medium.com/on-jackson-cves-dont-panic-here-is-what-you-need-to-know-54cd0d6e8062) on this subject.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.databind.ObjectMapper;\n\nclass Test {\n    ObjectMapper o = new ObjectMapper().enableDefaultTyping();\n    ObjectMapper o2 = new ObjectMapper().enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);\n}\n","after":"import com.fasterxml.jackson.databind.ObjectMapper;\nimport com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;\n\nclass Test {\n    ObjectMapper o = new ObjectMapper().activateDefaultTyping(BasicPolymorphicTypeValidator.builder().build());\n    ObjectMapper o2 = new ObjectMapper().activateDefaultTyping(BasicPolymorphicTypeValidator.builder().build(), ObjectMapper.DefaultTyping.NON_FINAL);\n}\n","diff":"@@ -2,0 +2,1 @@\nimport com.fasterxml.jackson.databind.ObjectMapper;\n+import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;\n\n@@ -4,2 +5,2 @@\n\nclass Test {\n-   ObjectMapper o = new ObjectMapper().enableDefaultTyping();\n-   ObjectMapper o2 = new ObjectMapper().enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);\n+   ObjectMapper o = new ObjectMapper().activateDefaultTyping(BasicPolymorphicTypeValidator.builder().build());\n+   ObjectMapper o2 = new ObjectMapper().activateDefaultTyping(BasicPolymorphicTypeValidator.builder().build(), ObjectMapper.DefaultTyping.NON_FINAL);\n}\n","newFile":false}]}]}>
 

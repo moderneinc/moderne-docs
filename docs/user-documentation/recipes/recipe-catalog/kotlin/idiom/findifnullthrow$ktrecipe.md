@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (x == null) throw ...` patterns"}
-  description={"An `if (x == null) throw …` is the elvis-throw idiom written long-hand. `x ?: throw …` keeps the throw expression in line and reads as the assertion it is, rather than as a control-flow branch."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindIfNullThrow$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifnullthrow$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (x == null) throw ...` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `if (x == null) throw …` is the elvis-throw idiom written long-hand. `x ?: throw …` keeps the throw expression in line and reads as the assertion it is, rather than as a control-flow branch.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindIfNullThrow$KtRecipe","displayName":"Find `if (x == null) throw ...` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

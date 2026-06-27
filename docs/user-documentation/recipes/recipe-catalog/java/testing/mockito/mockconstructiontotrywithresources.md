@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Wrap `MockedConstruction` in try-with-resources"}
-  description={"Wraps `MockedConstruction` variable declarations that have explicit `.close()` calls into try-with-resources blocks, removing the explicit close call. This ensures proper resource management and makes the code cleaner."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.MockConstructionToTryWithResources"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockconstructiontotrywithresources.md"}
-/>
+>
+
+<RecipeHeader.Title>Wrap `MockedConstruction` in try-with-resources</RecipeHeader.Title>
+
+<RecipeHeader.Description>Wraps `MockedConstruction` variable declarations that have explicit `.close()` calls into try-with-resources blocks, removing the explicit close call. This ensures proper resource management and makes the code cleaner.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport org.mockito.MockedConstruction;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.mockito.Mockito.mockConstruction;\nimport static org.mockito.Mockito.when;\nimport static org.mockito.ArgumentMatchers.any;\n\nclass TestClass {\n    @Test\n    void test() {\n        MockedConstruction<A> aMockedConstruction = mockConstruction(A.class, (mock, context) -> {\n            when(mock.method(any())).thenReturn(\"XYZ\");\n        });\n        A instance = new A();\n        assertEquals(\"XYZ\", instance.method(\"test\"));\n        aMockedConstruction.close();\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport org.mockito.MockedConstruction;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.mockito.Mockito.mockConstruction;\nimport static org.mockito.Mockito.when;\nimport static org.mockito.ArgumentMatchers.any;\n\nclass TestClass {\n    @Test\n    void test() {\n        try (MockedConstruction<A> aMockedConstruction = mockConstruction(A.class, (mock, context) -> {\n                 when(mock.method(any())).thenReturn(\"XYZ\");\n             })) {\n            A instance = new A();\n            assertEquals(\"XYZ\", instance.method(\"test\"));\n        }\n    }\n}\n","diff":"@@ -12,6 +12,6 @@\n    @Test\n    void test() {\n-       MockedConstruction<A> aMockedConstruction = mockConstruction(A.class, (mock, context) -> {\n-           when(mock.method(any())).thenReturn(\"XYZ\");\n-       });\n-       A instance = new A();\n-       assertEquals(\"XYZ\", instance.method(\"test\"));\n-       aMockedConstruction.close();\n+       try (MockedConstruction<A> aMockedConstruction = mockConstruction(A.class, (mock, context) -> {\n+                when(mock.method(any())).thenReturn(\"XYZ\");\n+            })) {\n+           A instance = new A();\n+           assertEquals(\"XYZ\", instance.method(\"test\"));\n+       }\n    }\n","newFile":false}]}]}>
 

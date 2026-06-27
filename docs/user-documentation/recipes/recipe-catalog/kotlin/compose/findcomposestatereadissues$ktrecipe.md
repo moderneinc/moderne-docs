@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose state read/write issues"}
-  description={"Patterns where a `MutableState`/`State` is read or constructed in a way that loses the snapshot value: explicit `.value` reads, bare `mutableStateOf` without `remember`, class-field state ownership, missing `derivedStateOf`, transient collection allocations."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposeStateReadIssues$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposestatereadissues$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `state.value` reads inside a `@Composable`","href":"kotlin/compose/findstatevalueread$ktrecipe"},{"name":"Find bare `mutableStateOf(...)` inside `@Composable` without `remember { }`","href":"kotlin/compose/findmutablestateincomposablewithoutremember$ktrecipe"},{"name":"Find `mutableStateOf(...)` stored in a class field","href":"kotlin/compose/findmutablestateinclassfield$ktrecipe"},{"name":"Find `remember { mutableStateOf(expensiveCall()) }` patterns","href":"kotlin/compose/findderivedstateofcandidate$ktrecipe"},{"name":"Find `listOf(...)` / `mapOf(...)` / `setOf(...)` calls inside a `@Composable`","href":"kotlin/compose/findlistofincomposablebody$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose state read/write issues</RecipeHeader.Title>
+
+<RecipeHeader.Description>Patterns where a `MutableState`/`State` is read or constructed in a way that loses the snapshot value: explicit `.value` reads, bare `mutableStateOf` without `remember`, class-field state ownership, missing `derivedStateOf`, transient collection allocations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `state.value` reads inside a `@Composable`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findstatevalueread$ktrecipe/"},{"name":"Find bare `mutableStateOf(...)` inside `@Composable` without `remember { }`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findmutablestateincomposablewithoutremember$ktrecipe/"},{"name":"Find `mutableStateOf(...)` stored in a class field","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findmutablestateinclassfield$ktrecipe/"},{"name":"Find `remember { mutableStateOf(expensiveCall()) }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findderivedstateofcandidate$ktrecipe/"},{"name":"Find `listOf(...)` / `mapOf(...)` / `setOf(...)` calls inside a `@Composable`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlistofincomposablebody$ktrecipe/"}]}>
 
 ## Definition
 

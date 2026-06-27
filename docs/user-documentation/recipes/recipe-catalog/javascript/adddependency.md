@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add npm dependency"}
-  description={"Add an npm dependency to `package.json` and regenerate the lock file by running the package manager. If the dependency already exists in any scope, the recipe is a no-op. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-javascript"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.AddDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/adddependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Add npm dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add an npm dependency to `package.json` and regenerate the lock file by running the package manager. If the dependency already exists in any scope, the recipe is a no-op. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageName","required":true,"description":"The name of the npm package to add (e.g., `lodash`, `@types/node`).","example":"lodash"},{"type":"String","name":"version","required":true,"description":"The version constraint to set (e.g., `^5.0.0`, `~2.1.0`, `3.0.0`).","example":"^5.0.0"},{"type":"String","name":"scope","required":false,"description":"The dependency scope: `dependencies`, `devDependencies`, `peerDependencies`, or `optionalDependencies`. Defaults to `dependencies`.","example":"dependencies"}]}>
 

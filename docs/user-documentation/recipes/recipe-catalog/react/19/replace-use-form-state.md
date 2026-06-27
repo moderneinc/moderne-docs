@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `useFormState` with `useActionState`"}
-  description={"In React 19, `useFormState` from `react-dom` has been renamed to `useActionState` and moved to `react`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.replace-use-form-state"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/replace-use-form-state.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `useFormState` with `useActionState`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In React 19, `useFormState` from `react-dom` has been renamed to `useActionState` and moved to `react`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.19.replace-use-form-state","displayName":"Replace `useFormState` with `useActionState`","npmPackage":"@openrewrite/recipes-react"}}>
 

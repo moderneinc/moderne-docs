@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Anorm to Doobie, Quill, or Skunk"}
-  description={"Removes imports of the Anorm SQL library (`anorm.*`). Consider evaluating modern alternatives such as Doobie, Quill, or Skunk."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.database.MigrateAnorm"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/database/migrateanorm.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Anorm to Doobie, Quill, or Skunk</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes imports of the Anorm SQL library (`anorm.*`). Consider evaluating modern alternatives such as Doobie, Quill, or Skunk.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import anorm.SQL\n\nobject Dao {\n    val query = \"SELECT 1\"\n}\n","after":"\n\n\nobject Dao {\n    val query = \"SELECT 1\"\n}\n","diff":"@@ -1,1 +1,0 @@\n-import anorm.SQL\n\n@@ -3,0 +2,2 @@\nimport anorm.SQL\n\n+\n+\nobject Dao {\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Session.buildLockRequest with LockOptions"}
-  description={"Migrates Session.buildLockRequest(LockOptions.X) calls to use session.lock(entity, new LockOptions(LockMode.X)) in Hibernate 7.0."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.ReplaceSessionLockRequest"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/replacesessionlockrequest.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace Session.buildLockRequest with LockOptions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Session.buildLockRequest(LockOptions.X) calls to use session.lock(entity, new LockOptions(LockMode.X)) in Hibernate 7.0.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.Session;\nimport org.hibernate.LockOptions;\n\npublic class SomeClass {\n    public void doSomething(Session session, Object entity) {\n        session.buildLockRequest(LockOptions.NONE).lock(entity);\n    }\n}\n","after":"import org.hibernate.Session;\nimport org.hibernate.LockMode;\nimport org.hibernate.LockOptions;\n\npublic class SomeClass {\n    public void doSomething(Session session, Object entity) {\n        session.lock(entity, new LockOptions(LockMode.NONE));\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.hibernate.Session;\n+import org.hibernate.LockMode;\nimport org.hibernate.LockOptions;\n@@ -6,1 +7,1 @@\npublic class SomeClass {\n    public void doSomething(Session session, Object entity) {\n-       session.buildLockRequest(LockOptions.NONE).lock(entity);\n+       session.lock(entity, new LockOptions(LockMode.NONE));\n    }\n","newFile":false}]}]}>
 

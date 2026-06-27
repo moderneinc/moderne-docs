@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update Apache Camel configurations keys"}
-  description={"Update Apache Camel configurations keys"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.customRecipes.PropertiesAndYamlKeyUpdate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/propertiesandyamlkeyupdate.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change property key","href":"yaml/changepropertykey"}]}>
+<RecipeHeader.Title>Update Apache Camel configurations keys</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update Apache Camel configurations keys</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/yaml/changepropertykey/"}]}>
 
 ## Definition
 

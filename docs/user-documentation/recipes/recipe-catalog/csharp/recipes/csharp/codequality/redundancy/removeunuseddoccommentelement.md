@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unused element in documentation comment"}
-  description={"Remove unused param/typeparam elements from XML documentation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveUnusedDocCommentElement"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeunuseddoccommentelement.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Unused element in documentation comment</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unused param/typeparam elements from XML documentation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveUnusedDocCommentElement","displayName":"Unused element in documentation comment","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

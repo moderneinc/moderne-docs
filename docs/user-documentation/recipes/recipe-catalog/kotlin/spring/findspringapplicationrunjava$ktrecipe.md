@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `SpringApplication.run(MyApp::class.java, ...)` calls"}
-  description={"Kotlin Spring Boot ships a reified helper `runApplication<MyApp>(*args)` that drops the `::class.java` token and the explicit `SpringApplication` reference. The Java-style form here works but reads as a Java port — flag for migration."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringApplicationRunJava$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringapplicationrunjava$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `SpringApplication.run(MyApp::class.java, ...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotlin Spring Boot ships a reified helper `runApplication<MyApp>(*args)` that drops the `::class.java` token and the explicit `SpringApplication` reference. The Java-style form here works but reads as a Java port — flag for migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindSpringApplicationRunJava$KtRecipe","displayName":"Find `SpringApplication.run(MyApp::class.java, ...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

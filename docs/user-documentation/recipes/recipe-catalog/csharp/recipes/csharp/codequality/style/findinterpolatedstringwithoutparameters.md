@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find interpolated string without parameters"}
-  description={"Detect interpolated strings (`$\"...\"`) that contain no interpolation expressions. Use a regular string literal instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindInterpolatedStringWithoutParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findinterpolatedstringwithoutparameters.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find interpolated string without parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect interpolated strings (`$"..."`) that contain no interpolation expressions. Use a regular string literal instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindInterpolatedStringWithoutParameters","displayName":"Find interpolated string without parameters","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

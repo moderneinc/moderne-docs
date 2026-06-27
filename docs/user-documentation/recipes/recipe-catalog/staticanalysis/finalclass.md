@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Finalize classes with private constructors"}
-  description={"Adds the `final` modifier to classes that expose no public or package-private constructors. If a class cannot be instantiated from the outside, marking it `final` communicates that it was not designed for inheritance and prevents accidental subclassing."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2974"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.FinalClass"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/finalclass.md"}
-/>
+>
+
+<RecipeHeader.Title>Finalize classes with private constructors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the `final` modifier to classes that expose no public or package-private constructors. If a class cannot be instantiated from the outside, marking it `final` communicates that it was not designed for inheritance and prevents accidental subclassing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n    private A(String s) {\n    }\n\n    private A() {\n    }\n}\n","after":"public final class A {\n    private A(String s) {\n    }\n\n    private A() {\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-public class A {\n+public final class A {\n    private A(String s) {\n","newFile":false}]}]}>
 

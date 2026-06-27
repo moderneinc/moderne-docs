@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Virtual Thread opportunities"}
-  description={"Find opportunities to convert existing code to use Virtual Threads."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java21","virtual_threads"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.FindVirtualThreadOpportunities"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/findvirtualthreadopportunities.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find implementing classes","href":"java/search/findimplementations"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find non-virtual `ExecutorService` creation","href":"java/migrate/lang/findnonvirtualexecutors"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Find Virtual Thread opportunities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find opportunities to convert existing code to use Virtual Threads.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find implementing classes","href":"/user-documentation/recipes/recipe-catalog/java/search/findimplementations/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find non-virtual `ExecutorService` creation","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/findnonvirtualexecutors/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

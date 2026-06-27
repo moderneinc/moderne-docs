@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Optional.get()` calls inside loops"}
-  description={"`Optional.get()` throws `NoSuchElementException` when the optional is empty — the loop body usually relies on a preceding `isPresent` check. Prefer `orElse`, `orElseThrow`, or `ifPresent { }` to make the empty branch explicit and avoid the double-check."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindOptionalGetInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findoptionalgetinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Optional.get()` calls inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Optional.get()` throws `NoSuchElementException` when the optional is empty — the loop body usually relies on a preceding `isPresent` check. Prefer `orElse`, `orElseThrow`, or `ifPresent { }` to make the empty branch explicit and avoid the double-check.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindOptionalGetInLoops$KtRecipe","displayName":"Find `Optional.get()` calls inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

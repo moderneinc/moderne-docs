@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET gRPC services"}
-  description={"Detect gRPC service implementations (classes deriving from generated *Base types under Grpc.Core / Grpc.AspNetCore) and ASP.NET Core gRPC endpoint registrations via MapGrpcService<T>()."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDotnetGrpcServices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetgrpcservices.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET gRPC services</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect gRPC service implementations (classes deriving from generated *Base types under Grpc.Core / Grpc.AspNetCore) and ASP.NET Core gRPC endpoint registrations via MapGrpcService&lt;T>().</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindDotnetGrpcServices","displayName":"Find .NET gRPC services","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

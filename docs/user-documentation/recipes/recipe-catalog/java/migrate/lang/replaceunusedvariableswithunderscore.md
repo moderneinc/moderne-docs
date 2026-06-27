@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace unused variables with underscore"}
-  description={"Replace unused variable declarations with underscore (_) for Java 22+. This includes unused variables in enhanced for loops, catch blocks, and lambda parameters where the variable is never referenced."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.ReplaceUnusedVariablesWithUnderscore"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/replaceunusedvariableswithunderscore.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace unused variables with underscore</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace unused variable declarations with underscore (_) for Java 22+. This includes unused variables in enhanced for loops, catch blocks, and lambda parameters where the variable is never referenced.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\n\nclass Test {\n    int countOrders(List<String> orders) {\n        int total = 0;\n        for (String order : orders) {\n            total++;\n        }\n        return total;\n    }\n}\n","after":"import java.util.List;\n\nclass Test {\n    int countOrders(List<String> orders) {\n        int total = 0;\n        for (String _ : orders) {\n            total++;\n        }\n        return total;\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n    int countOrders(List<String> orders) {\n        int total = 0;\n-       for (String order : orders) {\n+       for (String _ : orders) {\n            total++;\n","newFile":false}]}]}>
 

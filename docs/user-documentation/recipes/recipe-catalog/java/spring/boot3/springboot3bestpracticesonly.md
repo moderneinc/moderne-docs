@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Spring Boot 3.3 best practices (only)"}
-  description={"Applies best practices to Spring Boot 3 applications, without chaining in upgrades to Spring Boot."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","boot"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.SpringBoot3BestPracticesOnly"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot3bestpracticesonly.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Normalize Spring properties to kebab-case","href":"java/spring/propertiestokebabcase"},{"name":"Enable Virtual Threads on Java 21","href":"java/spring/boot3/enablevirtualthreads"},{"name":"Remove `public` from `@Bean` methods","href":"java/spring/framework/beanmethodsnotpublic"},{"name":"Bean methods should return concrete types","href":"java/spring/boot3/precisebeantype"},{"name":"Replace String literals with Spring constants","href":"java/spring/boot3/replacestringliteralswithconstants"},{"name":"Remove unnecessary `@Repository` annotation from Spring Data `Repository` sub-interface","href":"java/spring/norepoannotationonrepointerface"},{"name":"Spring security best practices","href":"java/spring/security/springsecuritybestpractices"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Spring Boot 3.3 best practices (only)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies best practices to Spring Boot 3 applications, without chaining in upgrades to Spring Boot.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Normalize Spring properties to kebab-case","href":"/user-documentation/recipes/recipe-catalog/java/spring/propertiestokebabcase/"},{"name":"Enable Virtual Threads on Java 21","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/enablevirtualthreads/"},{"name":"Remove `public` from `@Bean` methods","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/beanmethodsnotpublic/"},{"name":"Bean methods should return concrete types","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/precisebeantype/"},{"name":"Replace String literals with Spring constants","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacestringliteralswithconstants/"},{"name":"Remove unnecessary `@Repository` annotation from Spring Data `Repository` sub-interface","href":"/user-documentation/recipes/recipe-catalog/java/spring/norepoannotationonrepointerface/"},{"name":"Spring security best practices","href":"/user-documentation/recipes/recipe-catalog/java/spring/security/springsecuritybestpractices/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

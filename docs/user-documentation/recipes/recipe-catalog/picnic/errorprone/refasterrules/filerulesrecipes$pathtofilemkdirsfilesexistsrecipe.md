@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `FileRules.PathToFileMkDirsFilesExists`"}
-  description={"Invoke `File#mkdirs()` before `Files#exists(Path, LinkOption...)` to avoid concurrency issues."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.FileRulesRecipes$PathToFileMkDirsFilesExistsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/filerulesrecipes$pathtofilemkdirsfilesexistsrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `FileRules.PathToFileMkDirsFilesExists`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Invoke `File#mkdirs()` before `Files#exists(Path, LinkOption...)` to avoid concurrency issues.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.FileRulesRecipes$PathToFileMkDirsFilesExistsRecipe","displayName":"Refaster template `FileRules.PathToFileMkDirsFilesExists`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

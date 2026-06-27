@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use conditional expression in declaration"}
-  description={"Convert `int x; if (cond) x = a; else x = b;` to `int x = cond ? a : b;`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseConditionalExpressionForDeclaration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/useconditionalexpressionfordeclaration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use conditional expression in declaration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert `int x; if (cond) x = a; else x = b;` to `int x = cond ? a : b;`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseConditionalExpressionForDeclaration","displayName":"Use conditional expression in declaration","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

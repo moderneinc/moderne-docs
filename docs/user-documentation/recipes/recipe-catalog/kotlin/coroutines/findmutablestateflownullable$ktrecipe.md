@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `MutableStateFlow<T?>(null)` declarations"}
-  description={"Nullable `MutableStateFlow<T?>` is a common pattern for 'no value yet', but collapses the empty state and the value-is-null state into one. A `SharedFlow<T>` with `replay = 0` and explicit `tryEmit` (or a sealed wrapper `UiState.Empty | Loaded(T)`) usually expresses intent more precisely."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindMutableStateFlowNullable$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findmutablestateflownullable$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `MutableStateFlow<T?>(null)` declarations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Nullable `MutableStateFlow<T?>` is a common pattern for 'no value yet', but collapses the empty state and the value-is-null state into one. A `SharedFlow<T>` with `replay = 0` and explicit `tryEmit` (or a sealed wrapper `UiState.Empty | Loaded(T)`) usually expresses intent more precisely.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindMutableStateFlowNullable$KtRecipe","displayName":"Find `MutableStateFlow<T?>(null)` declarations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

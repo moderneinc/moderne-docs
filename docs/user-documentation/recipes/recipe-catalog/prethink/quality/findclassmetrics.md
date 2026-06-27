@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find class quality metrics"}
-  description={"Compute per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.quality.FindClassMetrics"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/quality/findclassmetrics.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find class quality metrics</RecipeHeader.Title>
+
+<RecipeHeader.Description>Compute per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\npublic class Single {\n    public String greet() {\n        return \"hello\";\n    }\n}\n"},"variants":[]}]}>
 

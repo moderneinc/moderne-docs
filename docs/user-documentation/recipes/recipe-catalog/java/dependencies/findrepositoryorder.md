@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Maven repository order"}
-  description={"Determine the order in which dependencies will be resolved for each `pom.xml` or `build.gradle` based on its defined repositories and effective settings."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-java-dependencies"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.FindRepositoryOrder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/findrepositoryorder.md"}
-/>
+>
+
+<RecipeHeader.Title>Maven repository order</RecipeHeader.Title>
+
+<RecipeHeader.Description>Determine the order in which dependencies will be resolved for each `pom.xml` or `build.gradle` based on its defined repositories and effective settings.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <repositories>\n    <repository>\n      <id>myRepo</id>\n      <url>https://myrepo.maven.com/repo</url>\n    </repository>\n  </repositories>\n</project>\n","after":"<!--~~(https://myrepo.maven.com/repo)~~>--><project>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <repositories>\n    <repository>\n      <id>myRepo</id>\n      <url>https://myrepo.maven.com/repo</url>\n    </repository>\n  </repositories>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -1,1 +1,1 @@\n-<project>\n+<!--~~(https://myrepo.maven.com/repo)~~>--><project>\n  <groupId>com.mycompany.app</groupId>\n","newFile":false}]}]}>
 

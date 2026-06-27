@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ImmutableSortedSetRules.ImmutableSortedSetNaturalOrderBuilder`"}
-  description={"Prefer `ImmutableSortedSet#naturalOrder()` over the alternative that requires explicitly providing the `Comparator`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableSortedSetRulesRecipes$ImmutableSortedSetNaturalOrderBuilderRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$immutablesortedsetnaturalorderbuilderrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ImmutableSortedSetRules.ImmutableSortedSetNaturalOrderBuilder`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `ImmutableSortedSet#naturalOrder()` over the alternative that requires explicitly providing the `Comparator`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableSortedSetRulesRecipes$ImmutableSortedSetNaturalOrderBuilderRecipe","displayName":"Refaster template `ImmutableSortedSetRules.ImmutableSortedSetNaturalOrderBuilder`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

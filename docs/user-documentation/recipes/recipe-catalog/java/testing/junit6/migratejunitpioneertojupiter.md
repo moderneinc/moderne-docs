@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JUnit Pioneer extensions to native JUnit Jupiter equivalents"}
-  description={"Migrates `@DefaultLocale`, `@DefaultTimeZone`, `@SetSystemProperty`, `@ClearSystemProperty`, `@RestoreSystemProperties` (and their `@Reads.../@Writes...` companions) from JUnit Pioneer to the native equivalents added in JUnit Jupiter 6.1. The `junit-pioneer` dependency is not removed since other Pioneer features (e.g. `@RetryingTest`, `@CartesianTest`) have no Jupiter equivalent."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["junit","testing","junit-pioneer","jupiter"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit6.MigrateJUnitPioneerToJupiter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit6/migratejunitpioneertojupiter.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Migrate JUnit Pioneer extensions to native JUnit Jupiter equivalents</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `@DefaultLocale`, `@DefaultTimeZone`, `@SetSystemProperty`, `@ClearSystemProperty`, `@RestoreSystemProperties` (and their `@Reads.../@Writes...` companions) from JUnit Pioneer to the native equivalents added in JUnit Jupiter 6.1. The `junit-pioneer` dependency is not removed since other Pioneer features (e.g. `@RetryingTest`, `@CartesianTest`) have no Jupiter equivalent.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

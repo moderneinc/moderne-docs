@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find call graph"}
-  description={"Produces a data table where each row represents a method call."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-all"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.FindCallGraph"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/findcallgraph.md"}
-/>
+>
+
+<RecipeHeader.Title>Find call graph</RecipeHeader.Title>
+
+<RecipeHeader.Description>Produces a data table where each row represents a method call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"boolean","name":"includeStdLib","required":false,"description":"When enabled calls to methods in packages beginning with \"java\", \"groovy\", and \"kotlin\" will be included in the report. By default these are omitted."}]}>
 

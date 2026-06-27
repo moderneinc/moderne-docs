@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`new BigDecimal(double)` should not be used"}
-  description={"Use of `new BigDecimal(double)` constructor can lead to loss of precision. Use `BigDecimal.valueOf(double)` instead.\nFor example writing `new BigDecimal(0.1)` does not create a `BigDecimal` which is exactly equal to `0.1`, but it is equal to `0.1000000000000000055511151231257827021181583404541015625`. This is because `0.1` cannot be represented exactly as a double (or, for that matter, as a binary fraction of any finite length). `BigDecimal.valueOf` avoids this by converting through a string representation, preserving the value you actually intended."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2111"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.BigDecimalDoubleConstructorRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/bigdecimaldoubleconstructorrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>`new BigDecimal(double)` should not be used</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use of `new BigDecimal(double)` constructor can lead to loss of precision. Use `BigDecimal.valueOf(double)` instead. For example writing `new BigDecimal(0.1)` does not create a `BigDecimal` which is exactly equal to `0.1`, but it is equal to `0.1000000000000000055511151231257827021181583404541015625`. This is because `0.1` cannot be represented exactly as a double (or, for that matter, as a binary fraction of any finite length). `BigDecimal.valueOf` avoids this by converting through a string representation, preserving the value you actually intended.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.math.BigDecimal;\nclass Test {\n    void test(double d) {\n        BigDecimal bd = new BigDecimal(1.0);\n        BigDecimal bd2 = new BigDecimal(d);\n    }\n}\n","after":"import java.math.BigDecimal;\nclass Test {\n    void test(double d) {\n        BigDecimal bd = BigDecimal.valueOf(1.0);\n        BigDecimal bd2 = BigDecimal.valueOf(d);\n    }\n}\n","diff":"@@ -4,2 +4,2 @@\nclass Test {\n    void test(double d) {\n-       BigDecimal bd = new BigDecimal(1.0);\n-       BigDecimal bd2 = new BigDecimal(d);\n+       BigDecimal bd = BigDecimal.valueOf(1.0);\n+       BigDecimal bd2 = BigDecimal.valueOf(d);\n    }\n","newFile":false}]}]}>
 

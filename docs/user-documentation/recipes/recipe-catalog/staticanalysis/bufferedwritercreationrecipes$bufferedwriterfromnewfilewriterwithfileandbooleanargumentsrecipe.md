@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `new BufferedWriter(new FileWriter(File, boolean))` to `Files.newBufferedWriter(Path, StandardOpenOption)`"}
-  description={"Convert `new BufferedWriter(new FileWriter(f, b))` to `Files.newBufferedWriter(f.toPath(), b ? StandardOpenOption.APPEND : StandardOpenOption.CREATE)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.BufferedWriterCreationRecipes$BufferedWriterFromNewFileWriterWithFileAndBooleanArgumentsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithfileandbooleanargumentsrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `new BufferedWriter(new FileWriter(File, boolean))` to `Files.newBufferedWriter(Path, StandardOpenOption)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert `new BufferedWriter(new FileWriter(f, b))` to `Files.newBufferedWriter(f.toPath(), b ? StandardOpenOption.APPEND : StandardOpenOption.CREATE)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.BufferedWriterCreationRecipes$BufferedWriterFromNewFileWriterWithFileAndBooleanArgumentsRecipe","displayName":"Convert `new BufferedWriter(new FileWriter(File, boolean))` to `Files.newBufferedWriter(Path, StandardOpenOption)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Fold same-literal `==`/`!=` comparisons to boolean constants"}
-  description={"When both sides of `==` or `!=` are the same literal, replace the expression with `True` or `False` respectively."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.EqualityIdentity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/equalityidentity.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Fold same-literal `==`/`!=` comparisons to boolean constants</RecipeHeader.Title>
+
+<RecipeHeader.Description>When both sides of `==` or `!=` are the same literal, replace the expression with `True` or `False` respectively.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.EqualityIdentity","displayName":"Fold same-literal `==`/`!=` comparisons to boolean constants","pipPackage":"openrewrite-static-analysis"}}>
 

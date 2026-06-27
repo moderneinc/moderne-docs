@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate LockOptions to direct parameters"}
-  description={"Migrates deprecated `LockOptions` usage to direct parameters in method calls. As of JPA 3.2 and Hibernate 7, `LockMode`, `Timeout`, and `PessimisticLockScope` are passed directly to `find()`, `refresh()`, and `lock()` methods instead of being wrapped in a `LockOptions` object."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.MigrateLockOptionsToDirectParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/migratelockoptionstodirectparameters.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate LockOptions to direct parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates deprecated `LockOptions` usage to direct parameters in method calls. As of JPA 3.2 and Hibernate 7, `LockMode`, `Timeout`, and `PessimisticLockScope` are passed directly to `find()`, `refresh()`, and `lock()` methods instead of being wrapped in a `LockOptions` object.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example;\n\nimport org.hibernate.LockOptions;\nimport org.hibernate.Session;\n\npublic class FindDirectConstructorEmpty {\n    public void m(Session session) {\n        Object loaded = session.get(\n            Object.class,\n            1L,\n            new LockOptions());\n    }\n}\n","after":"package com.example;\n\nimport org.hibernate.Session;\n\npublic class FindDirectConstructorEmpty {\n    public void m(Session session) {\n        Object loaded = session.find(\n            Object.class,\n            1L);\n    }\n}\n","diff":"@@ -3,1 +3,0 @@\npackage com.example;\n\n-import org.hibernate.LockOptions;\nimport org.hibernate.Session;\n@@ -8,1 +7,1 @@\npublic class FindDirectConstructorEmpty {\n    public void m(Session session) {\n-       Object loaded = session.get(\n+       Object loaded = session.find(\n            Object.class,\n@@ -10,2 +9,1 @@\n        Object loaded = session.get(\n            Object.class,\n-           1L,\n-           new LockOptions());\n+           1L);\n    }\n","newFile":false}]}]}>
 

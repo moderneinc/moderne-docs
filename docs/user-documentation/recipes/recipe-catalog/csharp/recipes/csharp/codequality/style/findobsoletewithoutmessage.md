@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Obsolete attribute should include explanation"}
-  description={"The `[Obsolete]` attribute should include a message explaining why the member is obsolete and what to use instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindObsoleteWithoutMessage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findobsoletewithoutmessage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Obsolete attribute should include explanation</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `[Obsolete]` attribute should include a message explaining why the member is obsolete and what to use instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindObsoleteWithoutMessage","displayName":"Obsolete attribute should include explanation","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Cloud AWS (awspring) to 4.0"}
-  description={"Upgrade `io.awspring.cloud` dependencies to 4.0.x and migrate code for the breaking API changes in Spring Cloud AWS 4.0. Spring Cloud AWS 4.0 aligns with Spring Boot 4 / Spring Framework 7 and adopts Jackson 3 by default; this recipe moves usages off the deprecated Jackson 2 variants to their Jackson 3 replacements and migrates the SQS default-converter `setObjectMapper` configurer. Run after the Jackson 2 to 3 migration so user mappers are already `tools.jackson` `JsonMapper`s."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot","aws"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.UpgradeAwspringCloud_4_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradeawspringcloud_4_0.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Migrate awspring SQS default converter `setObjectMapper` to constructor injection","href":"java/spring/boot4/migrateawspringsqsmessageconverter"}]}>
+<RecipeHeader.Title>Migrate Spring Cloud AWS (awspring) to 4.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade `io.awspring.cloud` dependencies to 4.0.x and migrate code for the breaking API changes in Spring Cloud AWS 4.0. Spring Cloud AWS 4.0 aligns with Spring Boot 4 / Spring Framework 7 and adopts Jackson 3 by default; this recipe moves usages off the deprecated Jackson 2 variants to their Jackson 3 replacements and migrates the SQS default-converter `setObjectMapper` configurer. Run after the Jackson 2 to 3 migration so user mappers are already `tools.jackson` `JsonMapper`s.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Migrate awspring SQS default converter `setObjectMapper` to constructor injection","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/migrateawspringsqsmessageconverter/"}]}>
 
 ## Definition
 

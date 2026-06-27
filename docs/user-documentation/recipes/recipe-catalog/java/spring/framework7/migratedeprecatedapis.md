@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated APIs removed in Spring Framework 7.0"}
-  description={"Migrates deprecated APIs that were removed in Spring Framework 7.0. This includes ListenableFuture to CompletableFuture migration, ContentCachingRequestWrapper constructor changes, and NestedServletException to ServletException type migration."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","framework"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.MigrateDeprecatedAPIs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratedeprecatedapis.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate `ListenableFuture` to `CompletableFuture`","href":"java/spring/framework7/migratelistenablefuture"},{"name":"Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`","href":"java/spring/framework7/migrateresponseentitygetstatuscodevaluemethod"},{"name":"Add a literal method argument","href":"java/addliteralmethodargument"},{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate deprecated APIs removed in Spring Framework 7.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates deprecated APIs that were removed in Spring Framework 7.0. This includes ListenableFuture to CompletableFuture migration, ContentCachingRequestWrapper constructor changes, and NestedServletException to ServletException type migration.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate `ListenableFuture` to `CompletableFuture`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratelistenablefuture/"},{"name":"Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/migrateresponseentitygetstatuscodevaluemethod/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant default field initialization"}
-  description={"Remove field initializations that assign the default value (e.g., `int x = 0`, `bool b = false`, `string s = null`, `object o = default`)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantDefaultFieldInitialization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeredundantdefaultfieldinitialization.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant default field initialization</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove field initializations that assign the default value (e.g., `int x = 0`, `bool b = false`, `string s = null`, `object o = default`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantDefaultFieldInitialization","displayName":"Remove redundant default field initialization","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Don't use final on local variables"}
-  description={"Remove the `final` modifier keyword from local variables regardless of whether they are used within a local class or an anonymous class."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.NoFinalizedLocalVariables"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/nofinalizedlocalvariables.md"}
-/>
+>
+
+<RecipeHeader.Title>Don't use final on local variables</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove the `final` modifier keyword from local variables regardless of whether they are used within a local class or an anonymous class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"excludeMethodParameters","required":false,"description":"If true, do not remove final from method parameters."}]}>
 

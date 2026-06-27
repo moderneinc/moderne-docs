@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Hibernate Criteria API to JPA Criteria API"}
-  description={"Migrates code using the legacy Hibernate Criteria API (org.hibernate.Criteria, org.hibernate.criterion.*) to the JPA Criteria API (jakarta.persistence.criteria.*). Handles common patterns including Restrictions (with and/or), Order, Projections, list(), and uniqueResult()."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update60.MigrateHibernateCriteriaToJpaCriteria"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update60/migratehibernatecriteriatojpacriteria.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Hibernate Criteria API to JPA Criteria API</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates code using the legacy Hibernate Criteria API (org.hibernate.Criteria, org.hibernate.criterion.*) to the JPA Criteria API (jakarta.persistence.criteria.*). Handles common patterns including Restrictions (with and/or), Order, Projections, list(), and uniqueResult().</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"public class Employee {\n    private String department;\n    public String getDepartment() { return department; }\n}\n"},"variants":[{"language":"java","before":"import org.hibernate.Criteria;\nimport org.hibernate.Session;\nimport org.hibernate.criterion.Restrictions;\n\nimport java.util.List;\n\npublic class EmployeeDao {\n    private Session session;\n\n    public List findByDepartment(String dept) {\n        Criteria criteria = session.createCriteria(Employee.class);\n        criteria.add(Restrictions.eq(\"department\", dept));\n        return criteria.list();\n    }\n}\n","after":"import jakarta.persistence.criteria.CriteriaBuilder;\nimport jakarta.persistence.criteria.CriteriaQuery;\nimport jakarta.persistence.criteria.Root;\nimport org.hibernate.Session;\n\nimport java.util.List;\n\npublic class EmployeeDao {\n    private Session session;\n\n    public List findByDepartment(String dept) {\n        CriteriaBuilder cb = session.getCriteriaBuilder();\n        CriteriaQuery<Employee> cq = cb.createQuery(Employee.class);\n        Root<Employee> root = cq.from(Employee.class);\n        cq.where(cb.equal(root.get(\"department\"), dept));\n        return session.createQuery(cq).getResultList();\n    }\n}\n","diff":"@@ -1,1 +1,3 @@\n-import org.hibernate.Criteria;\n+import jakarta.persistence.criteria.CriteriaBuilder;\n+import jakarta.persistence.criteria.CriteriaQuery;\n+import jakarta.persistence.criteria.Root;\nimport org.hibernate.Session;\n@@ -3,1 +5,0 @@\nimport org.hibernate.Criteria;\nimport org.hibernate.Session;\n-import org.hibernate.criterion.Restrictions;\n\n@@ -11,3 +12,5 @@\n\n    public List findByDepartment(String dept) {\n-       Criteria criteria = session.createCriteria(Employee.class);\n-       criteria.add(Restrictions.eq(\"department\", dept));\n-       return criteria.list();\n+       CriteriaBuilder cb = session.getCriteriaBuilder();\n+       CriteriaQuery<Employee> cq = cb.createQuery(Employee.class);\n+       Root<Employee> root = cq.from(Employee.class);\n+       cq.where(cb.equal(root.get(\"department\"), dept));\n+       return session.createQuery(cq).getResultList();\n    }\n","newFile":false}]}]}>
 

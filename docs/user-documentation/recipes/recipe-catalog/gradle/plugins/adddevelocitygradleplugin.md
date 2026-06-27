@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add the Develocity Gradle plugin"}
-  description={"Add the Develocity Gradle plugin to settings.gradle files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.AddDevelocityGradlePlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/plugins/adddevelocitygradleplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Add the Develocity Gradle plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add the Develocity Gradle plugin to settings.gradle files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"version","required":false,"description":"An exact version number or node-style semver selector used to select the version number. You can also use `latest.release` for the latest available version and `latest.patch` if the current version is a valid semantic version. For more details, you can look at the documentation page of [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors). Defaults to `latest.release`.","example":"3.x"},{"type":"String","name":"server","required":false,"description":"The URL of the Develocity server. If omitted the recipe will set no URL and Gradle will direct scans to https://scans.gradle.com/","example":"https://scans.gradle.com/"},{"type":"Boolean","name":"allowUntrustedServer","required":false,"description":"When set to `true` the plugin will be configured to allow unencrypted http connections with the server. If set to `false` or omitted, the plugin will refuse to communicate without transport layer security enabled.","example":"true"},{"type":"Boolean","name":"captureTaskInputFiles","required":false,"description":"When set to `true` the plugin will capture additional information about the inputs to Gradle tasks. This increases the size of build scans, but is useful for diagnosing issues with task caching. ","example":"true"},{"type":"Boolean","name":"uploadInBackground","required":false,"description":"When set to `true` the plugin will capture additional information about the outputs of Gradle tasks. This increases the size of build scans, but is useful for diagnosing issues with task caching. ","example":"true"},{"type":"PublishCriteria","name":"publishCriteria","required":false,"description":"When set to `Always` the plugin will publish build scans of every single build. When set to `Failure` the plugin will only publish build scans when the build fails. When omitted scans will be published only when the `--scan` option is passed to the build.","example":"Always"}]}>
 

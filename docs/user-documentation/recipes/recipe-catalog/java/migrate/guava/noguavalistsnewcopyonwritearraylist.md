@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `new CopyOnWriteArrayList<>()`"}
-  description={"Prefer the Java standard library over third-party usage of Guava in simple cases like this."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaListsNewCopyOnWriteArrayList"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavalistsnewcopyonwritearraylist.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `new CopyOnWriteArrayList<>()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Java standard library over third-party usage of Guava in simple cases like this.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = Lists.newCopyOnWriteArrayList();\n}\n","after":"import java.util.List;\nimport java.util.concurrent.CopyOnWriteArrayList;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = new CopyOnWriteArrayList<>();\n}\n","diff":"@@ -1,2 +1,0 @@\n-import com.google.common.collect.*;\n-\nimport java.util.List;\n@@ -4,0 +2,1 @@\n\nimport java.util.List;\n+import java.util.concurrent.CopyOnWriteArrayList;\n\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   List<Integer> cardinalsWorldSeries = Lists.newCopyOnWriteArrayList();\n+   List<Integer> cardinalsWorldSeries = new CopyOnWriteArrayList<>();\n}\n","newFile":false}]}]}>
 

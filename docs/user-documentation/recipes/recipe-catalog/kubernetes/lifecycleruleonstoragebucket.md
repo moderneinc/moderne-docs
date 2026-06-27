@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure lifecycle rule on `StorageBucket`"}
-  description={"When defining a rule, you can specify any set of conditions for any action. The following configuration defines a rule to delete all objects older than 7 days in a bucket."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kubernetes"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.LifecycleRuleOnStorageBucket"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/lifecycleruleonstoragebucket.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"kubernetes/addconfiguration"}]}>
+<RecipeHeader.Title>Ensure lifecycle rule on `StorageBucket`</RecipeHeader.Title>
+
+<RecipeHeader.Description>When defining a rule, you can specify any set of conditions for any action. The following configuration defines a rule to delete all objects older than 7 days in a bucket.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/addconfiguration/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use HTTPS for repositories"}
-  description={"Use HTTPS for repository URLs."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["security"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.security.UseHttpsForRepositories"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/security/usehttpsforrepositories.md"}
-/>
+>
+
+<RecipeHeader.Title>Use HTTPS for repositories</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use HTTPS for repository URLs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"repositories {\n    maven { url 'http://repo.spring.example.com/libs-release-local' }\n}\n","after":"repositories {\n    maven { url 'https://repo.spring.example.com/libs-release-local' }\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -2,1 +2,1 @@\nrepositories {\n-   maven { url 'http://repo.spring.example.com/libs-release-local' }\n+   maven { url 'https://repo.spring.example.com/libs-release-local' }\n}\n","newFile":false}]}]}>
 

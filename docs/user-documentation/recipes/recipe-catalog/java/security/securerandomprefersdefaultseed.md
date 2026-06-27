@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"SecureRandom seeds are not constant or predictable"}
-  description={"Remove `SecureRandom#setSeed(*)` method invocations having constant or predictable arguments."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S4347"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.SecureRandomPrefersDefaultSeed"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/securerandomprefersdefaultseed.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>SecureRandom seeds are not constant or predictable</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `SecureRandom#setSeed(*)` method invocations having constant or predictable arguments.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.security.SecureRandom;\n\npublic class A {\n    void test(byte[] bytes) {\n        SecureRandom r = new SecureRandom();\n        r.setSeed(System.currentTimeMillis());\n        r.setSeed(System.nanoTime());\n    }\n}\n","after":"import java.security.SecureRandom;\n\npublic class A {\n    void test(byte[] bytes) {\n        SecureRandom r = new SecureRandom();\n    }\n}\n","diff":"@@ -6,2 +6,0 @@\n    void test(byte[] bytes) {\n        SecureRandom r = new SecureRandom();\n-       r.setSeed(System.currentTimeMillis());\n-       r.setSeed(System.nanoTime());\n    }\n","newFile":false}]}]}>
 

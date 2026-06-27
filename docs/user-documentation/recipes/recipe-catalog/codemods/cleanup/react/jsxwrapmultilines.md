@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Disallow missing parentheses around multiline JSX"}
-  description={"Disallow missing parentheses around multiline JSX\nSee rule details for [react/jsx-wrap-multilines](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-wrap-multilines.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.react.JsxWrapMultilines"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/react/jsxwrapmultilines.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Disallow missing parentheses around multiline JSX</RecipeHeader.Title>
+
+<RecipeHeader.Description>Disallow missing parentheses around multiline JSX See rule details for [react/jsx-wrap-multilines](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-wrap-multilines.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

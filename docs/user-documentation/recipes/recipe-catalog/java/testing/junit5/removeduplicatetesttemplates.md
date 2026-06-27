@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove duplicates uses of @TestTemplate implementations for a single method"}
-  description={"Remove duplicates uses of @TestTemplate implementations for a single method."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.RemoveDuplicateTestTemplates"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/removeduplicatetesttemplates.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove duplicates uses of @TestTemplate implementations for a single method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove duplicates uses of @TestTemplate implementations for a single method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.RepeatedTest;\nimport org.junit.jupiter.api.DisplayName;\n\nclass MyTest {\n    @Test\n    @RepeatedTest(3)\n    @DisplayName(\"When an entry does not exist, it should be created and initialized to 0\")\n    void testMethod() {\n        System.out.println(\"foobar\");\n    }\n}\n","after":"import org.junit.jupiter.api.RepeatedTest;\nimport org.junit.jupiter.api.DisplayName;\n\nclass MyTest {\n    @RepeatedTest(3)\n    @DisplayName(\"When an entry does not exist, it should be created and initialized to 0\")\n    void testMethod() {\n        System.out.println(\"foobar\");\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.RepeatedTest;\n@@ -6,1 +5,0 @@\n\nclass MyTest {\n-   @Test\n    @RepeatedTest(3)\n","newFile":false}]}]}>
 

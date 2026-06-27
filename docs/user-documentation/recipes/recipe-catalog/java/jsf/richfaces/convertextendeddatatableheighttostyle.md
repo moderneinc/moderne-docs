@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert height/width attributes to `extendedDataTable` style"}
-  description={"Converts height and width attributes to inline style attribute for RichFaces `extendedDataTable` components."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.jsf.richfaces.ConvertExtendedDataTableHeightToStyle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/convertextendeddatatableheighttostyle.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert height/width attributes to `extendedDataTable` style</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts height and width attributes to inline style attribute for RichFaces `extendedDataTable` components.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<html xmlns=\"http://www.w3.org/1999/xhtml\"\n      xmlns:rich=\"http://richfaces.org/rich\">\n    <body>\n        <rich:extendedDataTable height=\"400px\" value=\"#{bean.items}\"/>\n    </body>\n</html>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<html xmlns=\"http://www.w3.org/1999/xhtml\"\n      xmlns:rich=\"http://richfaces.org/rich\">\n    <body>\n        <rich:extendedDataTable value=\"#{bean.items}\" style=\"height:400px;\"/>\n    </body>\n</html>\n","diff":"--- test.xhtml\n+++ test.xhtml\n@@ -5,1 +5,1 @@\n      xmlns:rich=\"http://richfaces.org/rich\">\n    <body>\n-       <rich:extendedDataTable height=\"400px\" value=\"#{bean.items}\"/>\n+       <rich:extendedDataTable value=\"#{bean.items}\" style=\"height:400px;\"/>\n    </body>\n","newFile":false}]}]}>
 

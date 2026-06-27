@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `data class` declarations with `List<T>` properties"}
-  description={"When a `data class` is passed to a `@Composable` and one of its properties is a `kotlin.collections.List<T>`, Compose marks the entire class unstable. Wrap the list in `ImmutableList<T>` from `kotlinx.collections.immutable` (or split the list out and remember it separately) so stability inference can prove the holder is `@Stable`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindDataClassWithListProperty$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/finddataclasswithlistproperty$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `data class` declarations with `List<T>` properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>When a `data class` is passed to a `@Composable` and one of its properties is a `kotlin.collections.List<T>`, Compose marks the entire class unstable. Wrap the list in `ImmutableList<T>` from `kotlinx.collections.immutable` (or split the list out and remember it separately) so stability inference can prove the holder is `@Stable`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindDataClassWithListProperty$KtRecipe","displayName":"Find `data class` declarations with `List<T>` properties","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

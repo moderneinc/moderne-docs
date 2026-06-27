@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Maven and Gradle dependencies"}
-  description={"Finds direct dependencies declared in Maven and Gradle build files. This does *not* search transitive dependencies. To detect both direct and transitive dependencies use `org.openrewrite.java.dependencies.DependencyInsight` This recipe works for both Maven and Gradle projects."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-java-dependencies"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.FindDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/finddependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Maven and Gradle dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds direct dependencies declared in Maven and Gradle build files. This does *not* search transitive dependencies. To detect both direct and transitive dependencies use `org.openrewrite.java.dependencies.DependencyInsight` This recipe works for both Maven and Gradle projects.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate identifying its publisher.","example":"com.google.guava"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate uniquely identifying it among artifacts from the same publisher.","example":"guava"},{"type":"String","name":"version","required":false,"description":"An exact version number or node-style semver selector used to select the version number.","example":"3.0.0"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example, setting 'version' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select Guava 29.0-jre","example":"-jre"},{"type":"String","name":"configuration","required":false,"description":"For Gradle only, the dependency configuration to search for dependencies in. If omitted then all configurations will be searched.","example":"api"}]}>
 

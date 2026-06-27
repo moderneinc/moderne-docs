@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find string method missing StringComparison"}
-  description={"Detect string methods like `Equals`, `Contains`, `StartsWith`, `EndsWith` called without an explicit `StringComparison` parameter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingStringComparison"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findmissingstringcomparison.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find string method missing StringComparison</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect string methods like `Equals`, `Contains`, `StartsWith`, `EndsWith` called without an explicit `StringComparison` parameter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingStringComparison","displayName":"Find string method missing StringComparison","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

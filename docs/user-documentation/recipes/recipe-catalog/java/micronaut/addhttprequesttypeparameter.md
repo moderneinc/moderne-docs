@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `HttpRequest` type parameter for implemented interfaces"}
-  description={"Add an `HttpRequest` type parameter to a class `implements` statement for interfaces that have been generically parameterized where they previously specified `HttpRequest` explicitly."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.AddHttpRequestTypeParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/addhttprequesttypeparameter.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `HttpRequest` type parameter for implemented interfaces</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add an `HttpRequest` type parameter to a class `implements` statement for interfaces that have been generically parameterized where they previously specified `HttpRequest` explicitly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import io.micronaut.http.HttpRequest;\nimport io.micronaut.security.authentication.AuthenticationProvider;\nimport io.micronaut.security.authentication.AuthenticationRequest;\nimport io.micronaut.security.authentication.AuthenticationResponse;\nimport org.reactivestreams.Publisher;\n\npublic class AuthenticationProviderUserPassword implements AuthenticationProvider {\n\n    @Override\n    public Publisher<AuthenticationResponse> authenticate(HttpRequest<?> httpRequest,\n                                                          AuthenticationRequest<?, ?> authenticationRequest) {\n        return null;\n    }\n}\n","after":"import io.micronaut.http.HttpRequest;\nimport io.micronaut.security.authentication.AuthenticationProvider;\nimport io.micronaut.security.authentication.AuthenticationRequest;\nimport io.micronaut.security.authentication.AuthenticationResponse;\nimport org.reactivestreams.Publisher;\n\npublic class AuthenticationProviderUserPassword implements AuthenticationProvider<HttpRequest<?>> {\n\n    @Override\n    public Publisher<AuthenticationResponse> authenticate(HttpRequest<?> httpRequest,\n                                                          AuthenticationRequest<?, ?> authenticationRequest) {\n        return null;\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nimport org.reactivestreams.Publisher;\n\n-public class AuthenticationProviderUserPassword implements AuthenticationProvider {\n+public class AuthenticationProviderUserPassword implements AuthenticationProvider<HttpRequest<?>> {\n\n","newFile":false}]}]}>
 

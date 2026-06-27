@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `catch (e: Exception)` clauses whose body never references `e`"}
-  description={"If the catch body never reads the bound exception parameter — and there's still some statement that handles the recovery — the binding name is dead weight. Use `catch (_: Exception)` to make 'I have no use for the exception' explicit, and so future readers don't waste time looking for where `e` gets used."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindCatchBindingUnusedException$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchbindingunusedexception$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `catch (e: Exception)` clauses whose body never references `e`</RecipeHeader.Title>
+
+<RecipeHeader.Description>If the catch body never reads the bound exception parameter — and there's still some statement that handles the recovery — the binding name is dead weight. Use `catch (_: Exception)` to make 'I have no use for the exception' explicit, and so future readers don't waste time looking for where `e` gets used.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindCatchBindingUnusedException$KtRecipe","displayName":"Find `catch (e: Exception)` clauses whose body never references `e`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

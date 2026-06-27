@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert Truth Throwable assertions to AssertJ"}
-  description={"Converts Google Truth's Throwable assertion chains like `hasMessageThat().contains()` to AssertJ equivalents."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.truth.TruthThrowableAssertions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/truth/truththrowableassertions.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert Truth Throwable assertions to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts Google Truth's Throwable assertion chains like `hasMessageThat().contains()` to AssertJ equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.truth.TruthThrowableAssertions","displayName":"Convert Truth Throwable assertions to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

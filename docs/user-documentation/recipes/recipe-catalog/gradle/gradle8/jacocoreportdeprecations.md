@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Gradle 8 introduced deprecations in JaCoCo report task"}
-  description={"Set the `enabled` to `required` and the `destination` to `outputLocation` for Reports deprecations that were removed in gradle 8. See [the gradle docs on this topic](https://docs.gradle.org/current/userguide/upgrading_version_7.html#report_and_testreport_api_cleanup)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.gradle8.JacocoReportDeprecations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/gradle8/jacocoreportdeprecations.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace Gradle 8 introduced deprecations in JaCoCo report task</RecipeHeader.Title>
+
+<RecipeHeader.Description>Set the `enabled` to `required` and the `destination` to `outputLocation` for Reports deprecations that were removed in gradle 8. See [the gradle docs on this topic](https://docs.gradle.org/current/userguide/upgrading_version_7.html#report_and_testreport_api_cleanup).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins {\n    id \"java\"\n    id \"jacoco\"\n}\n\njacocoTestReport {\n    reports {\n        xml.enabled = false\n        csv.enabled = true\n        html.enabled = false\n\n        xml.destination = layout.buildDirectory.dir('jacocoXml')\n        csv.destination = layout.buildDirectory.dir('jacocoCsv')\n        html.destination = layout.buildDirectory.dir('jacocoHtml')\n    }\n}\n","after":"plugins {\n    id \"java\"\n    id \"jacoco\"\n}\n\njacocoTestReport {\n    reports {\n        xml.required = false\n        csv.required = true\n        html.required = false\n\n        xml.outputLocation = layout.buildDirectory.dir('jacocoXml')\n        csv.outputLocation = layout.buildDirectory.dir('jacocoCsv')\n        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')\n    }\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -8,3 +8,3 @@\njacocoTestReport {\n    reports {\n-       xml.enabled = false\n-       csv.enabled = true\n-       html.enabled = false\n+       xml.required = false\n+       csv.required = true\n+       html.required = false\n\n@@ -12,3 +12,3 @@\n        html.enabled = false\n\n-       xml.destination = layout.buildDirectory.dir('jacocoXml')\n-       csv.destination = layout.buildDirectory.dir('jacocoCsv')\n-       html.destination = layout.buildDirectory.dir('jacocoHtml')\n+       xml.outputLocation = layout.buildDirectory.dir('jacocoXml')\n+       csv.outputLocation = layout.buildDirectory.dir('jacocoCsv')\n+       html.outputLocation = layout.buildDirectory.dir('jacocoHtml')\n    }\n","newFile":false}]}]}>
 

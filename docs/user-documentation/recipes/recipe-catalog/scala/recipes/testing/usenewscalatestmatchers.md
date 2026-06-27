@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to `org.scalatest.matchers.should.Matchers`"}
-  description={"Replaces imports of `org.scalatest.Matchers` or `org.scalatest.ShouldMatchers` with `org.scalatest.matchers.should.Matchers`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.testing.UseNewScalaTestMatchers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/testing/usenewscalatestmatchers.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate to `org.scalatest.matchers.should.Matchers`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces imports of `org.scalatest.Matchers` or `org.scalatest.ShouldMatchers` with `org.scalatest.matchers.should.Matchers`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import org.scalatest.Matchers\n\nclass MyTest {\n    val x = 1\n}\n","after":"import org.scalatest.matchers.should.Matchers\n\nclass MyTest {\n    val x = 1\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.scalatest.Matchers\n+import org.scalatest.matchers.should.Matchers\n\n","newFile":false}]}]}>
 

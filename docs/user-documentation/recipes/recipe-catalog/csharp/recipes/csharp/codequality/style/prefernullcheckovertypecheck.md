@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer null check over type check"}
-  description={"Replace `x is object` with `x is not null` for clarity."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.PreferNullCheckOverTypeCheck"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/prefernullcheckovertypecheck.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer null check over type check</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `x is object` with `x is not null` for clarity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.PreferNullCheckOverTypeCheck","displayName":"Prefer null check over type check","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

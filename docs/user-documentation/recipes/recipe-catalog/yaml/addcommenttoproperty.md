@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add comment to a YAML property"}
-  description={"Add a comment to a YAML property. The comment will be added on the line before the property."}
   type={"Single recipe"}
   languages={["YAML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-yaml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.yaml.AddCommentToProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/yaml/addcommenttoproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Add comment to a YAML property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a comment to a YAML property. The comment will be added on the line before the property.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The property key to add a comment to. Supports glob patterns.","example":"management.metrics.binders.*.enabled"},{"type":"String","name":"comment","required":true,"description":"The comment to add to the property.","example":"This property is deprecated"},{"type":"Boolean","name":"relaxedBinding","required":false,"description":"Whether to match the `propertyKey` using [relaxed binding](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) rules. Defaults to `true`. If you want to use exact matching in your search, set this to `false`."},{"type":"String","name":"filePattern","required":false,"description":"A glob expression representing a file path to search for (relative to the project root). Blank/null matches all.","example":".github/workflows/*.yml"}]}>
 

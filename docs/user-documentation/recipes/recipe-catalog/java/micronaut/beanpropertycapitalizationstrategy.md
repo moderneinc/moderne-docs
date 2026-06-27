@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"De-capitalize `BeanIntrospection` `getProperty(..)` and `getRequiredProperty(..)` name arguments"}
-  description={"As of Micronaut 3.x property names for getters like `getXForwarded()` are de-capitalized from `XForwarded` to `xForwarded`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.BeanPropertyCapitalizationStrategy"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/beanpropertycapitalizationstrategy.md"}
-/>
+>
+
+<RecipeHeader.Title>De-capitalize `BeanIntrospection` `getProperty(..)` and `getRequiredProperty(..)` name arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of Micronaut 3.x property names for getters like `getXForwarded()` are de-capitalized from `XForwarded` to `xForwarded`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package a.b;\nimport io.micronaut.core.beans.BeanIntrospection;\nimport io.micronaut.core.beans.BeanProperty;\nimport org.checkerframework.checker.units.qual.C;\n\nclass T {\n    void p() {\n        BeanIntrospection<C> introspection = BeanIntrospection.getIntrospection(C.class);\n        BeanProperty<C, String> p1 = introspection.getRequiredProperty(\"CName\", String.class);\n        Optional<BeanProperty<C, String>> p2 = introspection.getProperty(\"CName\", String.class);\n        Optional<BeanProperty<C, Object>> p3 = introspection.getProperty(\"CName\");\n    }\n}\n","after":"package a.b;\nimport io.micronaut.core.beans.BeanIntrospection;\nimport io.micronaut.core.beans.BeanProperty;\nimport org.checkerframework.checker.units.qual.C;\n\nclass T {\n    void p() {\n        BeanIntrospection<C> introspection = BeanIntrospection.getIntrospection(C.class);\n        BeanProperty<C, String> p1 = introspection.getRequiredProperty(\"cName\", String.class);\n        Optional<BeanProperty<C, String>> p2 = introspection.getProperty(\"cName\", String.class);\n        Optional<BeanProperty<C, Object>> p3 = introspection.getProperty(\"cName\");\n    }\n}\n","diff":"@@ -9,3 +9,3 @@\n    void p() {\n        BeanIntrospection<C> introspection = BeanIntrospection.getIntrospection(C.class);\n-       BeanProperty<C, String> p1 = introspection.getRequiredProperty(\"CName\", String.class);\n-       Optional<BeanProperty<C, String>> p2 = introspection.getProperty(\"CName\", String.class);\n-       Optional<BeanProperty<C, Object>> p3 = introspection.getProperty(\"CName\");\n+       BeanProperty<C, String> p1 = introspection.getRequiredProperty(\"cName\", String.class);\n+       Optional<BeanProperty<C, String>> p2 = introspection.getProperty(\"cName\", String.class);\n+       Optional<BeanProperty<C, Object>> p3 = introspection.getProperty(\"cName\");\n    }\n","newFile":false}]}]}>
 

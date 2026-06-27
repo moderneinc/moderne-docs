@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Avoid NullReferenceException"}
-  description={"Flag patterns that may throw NullReferenceException, such as using 'as' cast result without null check."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.AvoidNullReferenceException"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/avoidnullreferenceexception.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Avoid NullReferenceException</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flag patterns that may throw NullReferenceException, such as using 'as' cast result without null check.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.AvoidNullReferenceException","displayName":"Avoid NullReferenceException","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

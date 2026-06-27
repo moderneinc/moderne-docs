@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hard-coded secret literals"}
-  description={"High-confidence regex matches for AWS access keys, GitHub PATs, Stripe API keys, Google API keys, Slack tokens, and JWTs — plus a heuristic match for properties named `password`/`secret`/`token`/`apiKey` with non-empty string defaults. Each match needs immediate rotation if it is a real credential."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindHardCodedSecrets$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findhardcodedsecrets$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find AWS Access Key literals (`AKIA…`)","href":"kotlin/security/findawsaccesskeyliteral$ktrecipe"},{"name":"Find GitHub PAT literals (`ghp_…`)","href":"kotlin/security/findgithubpatliteral$ktrecipe"},{"name":"Find Stripe API key literals (`sk_live_…` / `sk_test_…`)","href":"kotlin/security/findstripekeyliteral$ktrecipe"},{"name":"Find Google API key literals (`AIza…`)","href":"kotlin/security/findgoogleapikeyliteral$ktrecipe"},{"name":"Find Slack token literals (`xoxb-`/`xoxp-`/`xoxa-`/`xoxr-`/`xoxs-`)","href":"kotlin/security/findslacktokenliteral$ktrecipe"},{"name":"Find JWT literals (`eyJ…`-prefixed three-segment tokens)","href":"kotlin/security/findjwtliteral$ktrecipe"},{"name":"Find variables named `password`/`secret`/`token`/`apiKey` with a non-empty literal default","href":"kotlin/security/findsensitivenamedvariableliteral$ktrecipe"},{"name":"Find `-----BEGIN ... PRIVATE KEY-----` literals","href":"kotlin/security/findprivatekeyheaderliteral$ktrecipe"},{"name":"Find `\"Basic <base64>\"` literals in source","href":"kotlin/security/findbasicauthliteral$ktrecipe"}]}>
+<RecipeHeader.Title>Find hard-coded secret literals</RecipeHeader.Title>
+
+<RecipeHeader.Description>High-confidence regex matches for AWS access keys, GitHub PATs, Stripe API keys, Google API keys, Slack tokens, and JWTs — plus a heuristic match for properties named `password`/`secret`/`token`/`apiKey` with non-empty string defaults. Each match needs immediate rotation if it is a real credential.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find AWS Access Key literals (`AKIA…`)","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findawsaccesskeyliteral$ktrecipe/"},{"name":"Find GitHub PAT literals (`ghp_…`)","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findgithubpatliteral$ktrecipe/"},{"name":"Find Stripe API key literals (`sk_live_…` / `sk_test_…`)","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findstripekeyliteral$ktrecipe/"},{"name":"Find Google API key literals (`AIza…`)","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findgoogleapikeyliteral$ktrecipe/"},{"name":"Find Slack token literals (`xoxb-`/`xoxp-`/`xoxa-`/`xoxr-`/`xoxs-`)","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findslacktokenliteral$ktrecipe/"},{"name":"Find JWT literals (`eyJ…`-prefixed three-segment tokens)","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findjwtliteral$ktrecipe/"},{"name":"Find variables named `password`/`secret`/`token`/`apiKey` with a non-empty literal default","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findsensitivenamedvariableliteral$ktrecipe/"},{"name":"Find `-----BEGIN ... PRIVATE KEY-----` literals","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findprivatekeyheaderliteral$ktrecipe/"},{"name":"Find `\"Basic <base64>\"` literals in source","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findbasicauthliteral$ktrecipe/"}]}>
 
 ## Definition
 

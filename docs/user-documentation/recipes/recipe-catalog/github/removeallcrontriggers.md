@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove all cron triggers"}
-  description={"Removes all cron triggers from a workflow."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.RemoveAllCronTriggers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/removeallcrontriggers.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove all cron triggers</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes all cron triggers from a workflow.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"on:\n  push:\n    branches:\n      - main\n  schedule:\n    - cron: \"0 18 * * *\"\n    - cron: \"0 11 * * *\"\n","after":"on:\n  push:\n    branches:\n      - main\n","diff":"--- .github/workflows/ci.yml\n+++ .github/workflows/ci.yml\n@@ -5,3 +5,0 @@\n    branches:\n      - main\n- schedule:\n-   - cron: \"0 18 * * *\"\n-   - cron: \"0 11 * * *\"\n\n","newFile":false}]}]}>
 

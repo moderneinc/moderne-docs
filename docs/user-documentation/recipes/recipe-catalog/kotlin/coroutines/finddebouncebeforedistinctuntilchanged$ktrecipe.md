@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `debounce(...).distinctUntilChanged()` patterns"}
-  description={"`debounce` already drops intermediate values within the window; adding `distinctUntilChanged` after it is redundant if the upstream is already deduped. Verify whether `distinctUntilChanged` belongs before `debounce`, where it can prevent re-firing the debounce window for repeated values."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindDebounceBeforeDistinctUntilChanged$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/finddebouncebeforedistinctuntilchanged$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `debounce(...).distinctUntilChanged()` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`debounce` already drops intermediate values within the window; adding `distinctUntilChanged` after it is redundant if the upstream is already deduped. Verify whether `distinctUntilChanged` belongs before `debounce`, where it can prevent re-firing the debounce window for repeated values.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindDebounceBeforeDistinctUntilChanged$KtRecipe","displayName":"Find `debounce(...).distinctUntilChanged()` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

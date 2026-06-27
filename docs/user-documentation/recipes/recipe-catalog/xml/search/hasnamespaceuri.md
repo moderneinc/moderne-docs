@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find XML namespace URIs"}
-  description={"Find XML namespace URIs, optionally restricting the search by a XPath expression."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.search.HasNamespaceUri"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/search/hasnamespaceuri.md"}
-/>
+>
+
+<RecipeHeader.Title>Find XML namespace URIs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find XML namespace URIs, optionally restricting the search by a XPath expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"namespaceUri","required":true,"description":"The Namespace URI to find.","example":"http://www.w3.org/2001/XMLSchema-instance"},{"type":"String","name":"xPath","required":false,"description":"An XPath expression used to find namespace URIs.","example":"/dependencies/dependency"}]}>
 

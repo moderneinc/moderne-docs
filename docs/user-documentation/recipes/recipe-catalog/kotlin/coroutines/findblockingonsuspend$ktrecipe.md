@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find blocking calls inside coroutine contexts"}
-  description={"Java-monitor and `runBlocking` primitives that pin the dispatcher thread when invoked from a suspend function or coroutine builder. Each match needs to migrate to a coroutine-aware signaling primitive (`delay`, `Channel`, `Mutex`, `CompletableDeferred`)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindBlockingOnSuspend$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findblockingonsuspend$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `runBlocking` calls inside `suspend` functions","href":"kotlin/coroutines/findrunblockinginsuspend$ktrecipe"},{"name":"Find `runBlocking` calls inside a `launch`/`async` lambda","href":"kotlin/coroutines/findrunblockinginlaunch$ktrecipe"},{"name":"Find `Thread.sleep` calls inside `suspend` functions","href":"kotlin/coroutines/findthreadsleepinsuspend$ktrecipe"},{"name":"Find `Object.wait` calls inside `suspend` functions","href":"kotlin/coroutines/findobjectwaitinsuspend$ktrecipe"},{"name":"Find `Object.notify` / `notifyAll` calls inside `suspend` functions","href":"kotlin/coroutines/findobjectnotifyinsuspend$ktrecipe"}]}>
+<RecipeHeader.Title>Find blocking calls inside coroutine contexts</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java-monitor and `runBlocking` primitives that pin the dispatcher thread when invoked from a suspend function or coroutine builder. Each match needs to migrate to a coroutine-aware signaling primitive (`delay`, `Channel`, `Mutex`, `CompletableDeferred`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `runBlocking` calls inside `suspend` functions","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findrunblockinginsuspend$ktrecipe/"},{"name":"Find `runBlocking` calls inside a `launch`/`async` lambda","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findrunblockinginlaunch$ktrecipe/"},{"name":"Find `Thread.sleep` calls inside `suspend` functions","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findthreadsleepinsuspend$ktrecipe/"},{"name":"Find `Object.wait` calls inside `suspend` functions","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findobjectwaitinsuspend$ktrecipe/"},{"name":"Find `Object.notify` / `notifyAll` calls inside `suspend` functions","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findobjectnotifyinsuspend$ktrecipe/"}]}>
 
 ## Definition
 

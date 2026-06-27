@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsFalse`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatWithFailMessageSupplierIsFalse {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4449\")\n    void before(boolean actual, Supplier<@Nullable String> supplier) {\n        assertFalse(actual, supplier);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(boolean actual, Supplier<@Nullable String> supplier) {\n        assertThat(actual).withFailMessage(supplier).isFalse();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4449"]}
@@ -31,7 +29,34 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatWithFailMessageSupplierIsFalseRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatwithfailmessagesupplierisfalserecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsFalse`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatWithFailMessageSupplierIsFalse {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "java:S4449")
+    void before(boolean actual, Supplier<@Nullable String> supplier) {
+        assertFalse(actual, supplier);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(boolean actual, Supplier<@Nullable String> supplier) {
+        assertThat(actual).withFailMessage(supplier).isFalse();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatWithFailMessageSupplierIsFalseRecipe","displayName":"Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsFalse`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

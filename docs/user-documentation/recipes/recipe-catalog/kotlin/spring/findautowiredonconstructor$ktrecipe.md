@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Autowired` on a single constructor"}
-  description={"Spring 4.3+ automatically autowires the single primary constructor — the `@Autowired` annotation is redundant and adds noise. Drop it from the constructor declaration."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindAutowiredOnConstructor$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredonconstructor$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Autowired` on a single constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring 4.3+ automatically autowires the single primary constructor — the `@Autowired` annotation is redundant and adds noise. Drop it from the constructor declaration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindAutowiredOnConstructor$KtRecipe","displayName":"Find `@Autowired` on a single constructor","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `HttpServletRequest` parameters in controllers"}
-  description={"Reaching for `HttpServletRequest` inside a controller handler bypasses Spring's argument-resolver chain (`@PathVariable`, `@RequestParam`, `@RequestHeader`, `@RequestBody`, etc.). Each of those binds the value with type conversion and validation; using the raw servlet request loses that and couples the handler to the servlet API."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindHttpServletRequestParameter$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findhttpservletrequestparameter$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `HttpServletRequest` parameters in controllers</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reaching for `HttpServletRequest` inside a controller handler bypasses Spring's argument-resolver chain (`@PathVariable`, `@RequestParam`, `@RequestHeader`, `@RequestBody`, etc.). Each of those binds the value with type conversion and validation; using the raw servlet request loses that and couples the handler to the servlet API.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindHttpServletRequestParameter$KtRecipe","displayName":"Find `HttpServletRequest` parameters in controllers","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

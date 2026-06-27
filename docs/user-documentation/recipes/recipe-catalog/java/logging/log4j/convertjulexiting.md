@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rewrites JUL's Logger#exiting method to Log4j API"}
-  description={"Replaces JUL's Logger#exiting method calls to Log4j API Logger#traceEntry calls."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.log4j.ConvertJulExiting"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/log4j/convertjulexiting.md"}
-/>
+>
+
+<RecipeHeader.Title>Rewrites JUL's Logger#exiting method to Log4j API</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces JUL's Logger#exiting method calls to Log4j API Logger#traceEntry calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.logging.Logger; // ChangeType will handle import\n\nclass Test {\n    void method(Logger logger) {\n      logger.exiting(\"Test\", \"method\");\n      logger.exiting(\"Test\", \"method\", \"result\");\n    }\n}\n","after":"import java.util.logging.Logger; // ChangeType will handle import\n\nclass Test {\n    void method(Logger logger) {\n      logger.traceExit();\n      logger.traceExit(\"result\");\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass Test {\n    void method(Logger logger) {\n-     logger.exiting(\"Test\", \"method\");\n-     logger.exiting(\"Test\", \"method\", \"result\");\n+     logger.traceExit();\n+     logger.traceExit(\"result\");\n    }\n","newFile":false}]}]}>
 

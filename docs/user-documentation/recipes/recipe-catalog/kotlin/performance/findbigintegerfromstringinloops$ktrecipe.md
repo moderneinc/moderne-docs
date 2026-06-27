@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `BigInteger(\"...\")` allocations inside loops"}
-  description={"Parsing a `BigInteger` from a `String` literal inside a loop reparses the same value every iteration. Hoist the literal `BigInteger` to a top-level property or `BigInteger.valueOf` constant."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindBigIntegerFromStringInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findbigintegerfromstringinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `BigInteger("...")` allocations inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>Parsing a `BigInteger` from a `String` literal inside a loop reparses the same value every iteration. Hoist the literal `BigInteger` to a top-level property or `BigInteger.valueOf` constant.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindBigIntegerFromStringInLoops$KtRecipe","displayName":"Find `BigInteger(\"...\")` allocations inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

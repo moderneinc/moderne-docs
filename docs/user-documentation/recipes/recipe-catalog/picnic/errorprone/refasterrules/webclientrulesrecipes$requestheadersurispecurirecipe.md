@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `WebClientRules.RequestHeadersUriSpecUri`"}
-  description={"Don't unnecessarily use `RequestHeadersUriSpec#uri(Function)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.WebClientRulesRecipes$RequestHeadersUriSpecUriRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/webclientrulesrecipes$requestheadersurispecurirecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `WebClientRules.RequestHeadersUriSpecUri`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Don't unnecessarily use `RequestHeadersUriSpec#uri(Function)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.WebClientRulesRecipes$RequestHeadersUriSpecUriRecipe","displayName":"Refaster template `WebClientRules.RequestHeadersUriSpecUri`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

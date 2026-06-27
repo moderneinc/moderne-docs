@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `RESOURCE_CACHE_PROVIDER` usage"}
-  description={"Finds usages of the removed `RESOURCE_CACHE_PROVIDER` from `@angular/platform-browser-dynamic`. This unused API was removed in Angular 18."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-resource-cache-provider-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-resource-cache-provider-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `RESOURCE_CACHE_PROVIDER` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of the removed `RESOURCE_CACHE_PROVIDER` from `@angular/platform-browser-dynamic`. This unused API was removed in Angular 18.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-resource-cache-provider-usage","displayName":"Find `RESOURCE_CACHE_PROVIDER` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

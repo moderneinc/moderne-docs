@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Kotlin Gradle plugins to 2.x"}
-  description={"Upgrade all `org.jetbrains.kotlin.*` Gradle plugins to Kotlin 2.x. This includes the core kotlin-jvm plugin as well as all official Kotlin Gradle plugins such as serialization, Spring, allopen, noarg, JPA, and parcelize."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={["gradle","kotlin"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UpgradeKotlinGradlePlugins"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlingradleplugins.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"}]}>
+<RecipeHeader.Title>Upgrade Kotlin Gradle plugins to 2.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade all `org.jetbrains.kotlin.*` Gradle plugins to Kotlin 2.x. This includes the core kotlin-jvm plugin as well as all official Kotlin Gradle plugins such as serialization, Spring, allopen, noarg, JPA, and parcelize.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Update a Gradle plugin by id","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/upgradepluginversion/"}]}>
 
 ## Definition
 

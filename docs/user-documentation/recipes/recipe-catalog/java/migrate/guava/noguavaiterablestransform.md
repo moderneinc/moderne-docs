@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Collection.stream().map(Function)` over `Iterables.transform`"}
-  description={"Prefer `Collection.stream().map(Function)` over `Iterables.transform(Collection, Function)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaIterablesTransform"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaiterablestransform.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Collection.stream().map(Function)` over `Iterables.transform`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Collection.stream().map(Function)` over `Iterables.transform(Collection, Function)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Collection;\n\nimport com.google.common.base.Function;\nimport com.google.common.collect.Iterables;\n\nclass Test {\n    Iterable<Integer> test(Collection<String> collection, Function<String, Integer> toSize) {\n        return Iterables.transform(collection, toSize);\n    }\n}\n","after":"import java.util.Collection;\nimport java.util.stream.Collectors;\n\nimport com.google.common.base.Function;\n\nclass Test {\n    Iterable<Integer> test(Collection<String> collection, Function<String, Integer> toSize) {\n        return collection.stream().map(toSize).collect(Collectors.toList());\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport java.util.Collection;\n+import java.util.stream.Collectors;\n\n@@ -4,1 +5,0 @@\n\nimport com.google.common.base.Function;\n-import com.google.common.collect.Iterables;\n\n@@ -8,1 +8,1 @@\nclass Test {\n    Iterable<Integer> test(Collection<String> collection, Function<String, Integer> toSize) {\n-       return Iterables.transform(collection, toSize);\n+       return collection.stream().map(toSize).collect(Collectors.toList());\n    }\n","newFile":false}]}]}>
 

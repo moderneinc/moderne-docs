@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `var` for variables initialized with type casts"}
-  description={"Apply local variable type inference `var` to variables that are initialized by a cast expression where the cast type matches the declared variable type. This removes the redundant type duplication. For example, `String s = (String) obj;` becomes `var s = (String) obj;`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.var.UseVarForTypeCast"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarfortypecast.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `var` for variables initialized with type casts</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply local variable type inference `var` to variables that are initialized by a cast expression where the cast type matches the declared variable type. This removes the redundant type duplication. For example, `String s = (String) obj;` becomes `var s = (String) obj;`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void m(Object obj) {\n        String s = (String) obj;\n    }\n}\n","after":"class A {\n    void m(Object obj) {\n        var s = (String) obj;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n    void m(Object obj) {\n-       String s = (String) obj;\n+       var s = (String) obj;\n    }\n","newFile":false}]}]}>
 

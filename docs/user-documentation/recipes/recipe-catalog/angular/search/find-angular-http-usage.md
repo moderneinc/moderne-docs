@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find removed `@angular/http` usage"}
-  description={"Finds imports from the `@angular/http` module, which was deprecated in Angular 5 and removed in Angular 8. Use `@angular/common/http` (`HttpClient`, `HttpClientModule`) instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-angular-http-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-angular-http-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find removed `@angular/http` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports from the `@angular/http` module, which was deprecated in Angular 5 and removed in Angular 8. Use `@angular/common/http` (`HttpClient`, `HttpClientModule`) instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-angular-http-usage","displayName":"Find removed `@angular/http` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

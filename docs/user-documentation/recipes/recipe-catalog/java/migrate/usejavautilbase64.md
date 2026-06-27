@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `java.util.Base64` instead of `sun.misc`"}
-  description={"Prefer `java.util.Base64` instead of using `sun.misc` in Java 8 or higher. `sun.misc` is not exported by the Java module system and accessing this class will result in a warning in Java 11 and an error in Java 17."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UseJavaUtilBase64"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/usejavautilbase64.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `java.util.Base64` instead of `sun.misc`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `java.util.Base64` instead of using `sun.misc` in Java 8 or higher. `sun.misc` is not exported by the Java module system and accessing this class will result in a warning in Java 11 and an error in Java 17.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"boolean","name":"useMimeCoder","required":false,"description":"Use `Base64.getMimeEncoder()/getMimeDecoder()` instead of `Base64.getEncoder()/getDecoder()`.","example":"false"}]}>
 

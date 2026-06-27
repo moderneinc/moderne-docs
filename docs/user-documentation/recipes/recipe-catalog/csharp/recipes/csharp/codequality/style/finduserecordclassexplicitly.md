@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find implicit record class declaration"}
-  description={"Detect `record` declarations that should use `record class` explicitly to clarify that they are reference types."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseRecordClassExplicitly"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finduserecordclassexplicitly.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find implicit record class declaration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `record` declarations that should use `record class` explicitly to clarify that they are reference types.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseRecordClassExplicitly","displayName":"Find implicit record class declaration","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

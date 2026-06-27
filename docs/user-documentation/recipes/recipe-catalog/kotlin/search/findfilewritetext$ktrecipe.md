@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `File.writeText(...)` calls"}
-  description={"Each `File.writeText` call writes data to disk — a persistent side effect at the application's IO boundary. Useful as an individual write seed for path-traversal or trust-boundary analysis."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindFileWriteText$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findfilewritetext$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `File.writeText(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `File.writeText` call writes data to disk — a persistent side effect at the application's IO boundary. Useful as an individual write seed for path-traversal or trust-boundary analysis.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindFileWriteText$KtRecipe","displayName":"Find `File.writeText(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

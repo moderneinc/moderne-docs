@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find broad `catch (e: Exception)` / `catch (e: Throwable)` clauses"}
-  description={"`catch (e: Exception)` catches almost everything — `IllegalArgumentException`, `ConcurrentModificationException`, even programmer-error `NullPointerException`. `catch (e: Throwable)` is worse: it catches `OutOfMemoryError` and `kotlinx.coroutines.CancellationException`. Each broad catch is a candidate for narrowing to the specific exceptions the surrounding code is prepared to handle."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindCatchAllException$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchallexception$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find broad `catch (e: Exception)` / `catch (e: Throwable)` clauses</RecipeHeader.Title>
+
+<RecipeHeader.Description>`catch (e: Exception)` catches almost everything — `IllegalArgumentException`, `ConcurrentModificationException`, even programmer-error `NullPointerException`. `catch (e: Throwable)` is worse: it catches `OutOfMemoryError` and `kotlinx.coroutines.CancellationException`. Each broad catch is a candidate for narrowing to the specific exceptions the surrounding code is prepared to handle.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindCatchAllException$KtRecipe","displayName":"Find broad `catch (e: Exception)` / `catch (e: Throwable)` clauses","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

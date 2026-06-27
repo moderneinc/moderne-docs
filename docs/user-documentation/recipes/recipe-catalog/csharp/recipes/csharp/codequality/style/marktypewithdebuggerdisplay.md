@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Mark type with DebuggerDisplay attribute"}
-  description={"Add DebuggerDisplay attribute to publicly visible types to improve debugging experience."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.MarkTypeWithDebuggerDisplay"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/marktypewithdebuggerdisplay.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Mark type with DebuggerDisplay attribute</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add DebuggerDisplay attribute to publicly visible types to improve debugging experience.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.MarkTypeWithDebuggerDisplay","displayName":"Mark type with DebuggerDisplay attribute","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

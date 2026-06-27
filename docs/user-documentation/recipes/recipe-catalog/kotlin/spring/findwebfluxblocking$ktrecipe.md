@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Mono.block` / `Flux.blockFirst` / `Flux.blockLast` calls"}
-  description={"Calling `block()` on a reactive pipeline parks the calling thread until the upstream completes, which is exactly what the reactive runtime is built to avoid. On Netty's small event-loop pool, a single `block()` can stall every concurrent request the server is processing."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindWebFluxBlocking$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebfluxblocking$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Mono.block` / `Flux.blockFirst` / `Flux.blockLast` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Calling `block()` on a reactive pipeline parks the calling thread until the upstream completes, which is exactly what the reactive runtime is built to avoid. On Netty's small event-loop pool, a single `block()` can stall every concurrent request the server is processing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindWebFluxBlocking$KtRecipe","displayName":"Find `Mono.block` / `Flux.blockFirst` / `Flux.blockLast` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

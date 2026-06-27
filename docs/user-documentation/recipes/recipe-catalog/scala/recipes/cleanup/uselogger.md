@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use logging framework instead of `println`"}
-  description={"Finds `println` calls in Scala code. Using `println` directly is not suitable for production; use a logging framework instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.UseLogger"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/uselogger.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use logging framework instead of `println`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `println` calls in Scala code. Using `println` directly is not suitable for production; use a logging framework instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object App {\n  def main(args: Array[String]): Unit = {\n    println(\"Hello, world!\")\n  }\n}\n","after":"object App {\n  /*~~(println found; use a logging framework instead)~~>*/def main(args: Array[String]): Unit = {\n    println(\"Hello, world!\")\n  }\n}\n","diff":"@@ -2,1 +2,1 @@\nobject App {\n- def main(args: Array[String]): Unit = {\n+ /*~~(println found; use a logging framework instead)~~>*/def main(args: Array[String]): Unit = {\n    println(\"Hello, world!\")\n","newFile":false}]}]}>
 

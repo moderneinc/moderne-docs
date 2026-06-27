@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find classes with more than 200 statements"}
-  description={"Large classes accumulate responsibility — they bury invariants and slow every cross-cutting edit. As LLM context, an oversized class dominates the window with details that may not be relevant to the task; flagging them helps a reviewer (or an agent) decide where to split."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindLargeClasses$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findlargeclasses$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find classes with more than 200 statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Large classes accumulate responsibility — they bury invariants and slow every cross-cutting edit. As LLM context, an oversized class dominates the window with details that may not be relevant to the task; flagging them helps a reviewer (or an agent) decide where to split.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindLargeClasses$KtRecipe","displayName":"Find classes with more than 200 statements","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

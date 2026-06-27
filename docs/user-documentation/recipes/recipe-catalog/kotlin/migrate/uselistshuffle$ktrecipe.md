@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `MutableList.shuffle()` instead of `Collections.shuffle(list)`"}
-  description={"`java.util.Collections.shuffle(list)` is JVM-only; Kotlin's `MutableList.shuffle()` extension is multiplatform and reads as a receiver call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseListShuffle$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselistshuffle$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `MutableList.shuffle()` instead of `Collections.shuffle(list)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Collections.shuffle(list)` is JVM-only; Kotlin's `MutableList.shuffle()` extension is multiplatform and reads as a receiver call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseListShuffle$KtRecipe","displayName":"Use `MutableList.shuffle()` instead of `Collections.shuffle(list)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

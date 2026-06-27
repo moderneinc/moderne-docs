@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade build to Java 25 (non-Kotlin)"}
-  description={"Upgrades build files to Java 25 for modules without Kotlin source files. This covers pure Java projects, including those that only pick up `kotlin-stdlib` transitively through another dependency."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeBuildToJava25"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava25.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Java version","href":"java/migrate/upgradejavaversion"}]} preconditions={[{"name":"Module has Kotlin source files","href":"java/migrate/search/modulehaskotlinsource"}]}>
+<RecipeHeader.Title>Upgrade build to Java 25 (non-Kotlin)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrades build files to Java 25 for modules without Kotlin source files. This covers pure Java projects, including those that only pick up `kotlin-stdlib` transitively through another dependency.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion/"}]} preconditions={[{"name":"Module has Kotlin source files","href":"/user-documentation/recipes/recipe-catalog/java/migrate/search/modulehaskotlinsource/"}]}>
 
 ## Definition
 

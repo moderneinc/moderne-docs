@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find RSA key generation parameters"}
-  description={"Finds RSAKeyGenParameterSpec instantiations and extracts their parameter values into a data table."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindRSAKeyGenParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findrsakeygenparameters.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find RSA key generation parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds RSAKeyGenParameterSpec instantiations and extracts their parameter values into a data table.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.security.spec.RSAKeyGenParameterSpec;\n\npublic class RSAKeyExample {\n    public void generateKey() {\n        // Basic RSA key generation with 2048 bits and F4 exponent\n        RSAKeyGenParameterSpec spec = new RSAKeyGenParameterSpec(2048,\n            RSAKeyGenParameterSpec.F4);\n    }\n}\n","after":"import java.security.spec.RSAKeyGenParameterSpec;\n\npublic class RSAKeyExample {\n    public void generateKey() {\n        // Basic RSA key generation with 2048 bits and F4 exponent\n        RSAKeyGenParameterSpec spec = /*~~>*/new RSAKeyGenParameterSpec(2048,\n            RSAKeyGenParameterSpec.F4);\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n    public void generateKey() {\n        // Basic RSA key generation with 2048 bits and F4 exponent\n-       RSAKeyGenParameterSpec spec = new RSAKeyGenParameterSpec(2048,\n+       RSAKeyGenParameterSpec spec = /*~~>*/new RSAKeyGenParameterSpec(2048,\n            RSAKeyGenParameterSpec.F4);\n","newFile":false}]}]}>
 

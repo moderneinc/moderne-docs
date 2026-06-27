@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove invocations of deprecated invocations from Deflater, Inflater, ZipFile "}
-  description={"Remove invocations of finalize() deprecated invocations from Deflater, Inflater, ZipFile."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.RemoveFinalizerFromZip"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/removefinalizerfromzip.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove invocations of deprecated invocations from Deflater, Inflater, ZipFile</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove invocations of finalize() deprecated invocations from Deflater, Inflater, ZipFile.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.zip.Inflater;\n\nclass FooInflater extends Inflater {\n    public void test() {\n        FooInflater obj = new FooInflater();\n        obj.finalize();\n    }\n}\n","after":"import java.util.zip.Inflater;\n\nclass FooInflater extends Inflater {\n    public void test() {\n        FooInflater obj = new FooInflater();\n    }\n}\n","diff":"@@ -6,1 +6,0 @@\n    public void test() {\n        FooInflater obj = new FooInflater();\n-       obj.finalize();\n    }\n","newFile":false}]}]}>
 

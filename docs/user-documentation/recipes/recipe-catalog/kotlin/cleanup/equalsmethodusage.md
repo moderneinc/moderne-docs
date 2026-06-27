@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Structural equality tests should use `==` or `!=`"}
-  description={"In Kotlin, `==` means structural equality and `!=` structural inequality and both map to the left-side term’s `equals()` function. It is, therefore, redundant to call `equals()` as a function. Also, `==` and `!=` are more general than `equals()` and `!equals()` because it allows either of both operands to be `null`.\nDevelopers using `equals()` instead of `==` or `!=` is often the result of adapting styles from other languages like Java, where `==` means reference equality and `!=` means reference inequality.\nThe `==` and `!=` operators are a more concise and elegant way to test structural equality than calling a function."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={["RSPEC-S6519"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-kotlin"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.cleanup.EqualsMethodUsage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/cleanup/equalsmethodusage.md"}
-/>
+>
+
+<RecipeHeader.Title>Structural equality tests should use `==` or `!=`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Kotlin, `==` means structural equality and `!=` structural inequality and both map to the left-side term’s `equals()` function. It is, therefore, redundant to call `equals()` as a function. Also, `==` and `!=` are more general than `equals()` and `!equals()` because it allows either of both operands to be `null`. Developers using `equals()` instead of `==` or `!=` is often the result of adapting styles from other languages like Java, where `==` means reference equality and `!=` means reference inequality. The `==` and `!=` operators are a more concise and elegant way to test structural equality than calling a function.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"fun isSame(obj1 : String, obj2: String) : Boolean {\n    val isSame = obj1.equals(obj2)\n}\n","after":"fun isSame(obj1 : String, obj2: String) : Boolean {\n    val isSame = obj1 == obj2\n}\n","diff":"@@ -2,1 +2,1 @@\nfun isSame(obj1 : String, obj2: String) : Boolean {\n-   val isSame = obj1.equals(obj2)\n+   val isSame = obj1 == obj2\n}\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unnecessary `String#valueOf(..)`"}
-  description={"Replace unnecessary `String#valueOf(..)` method invocations with the argument directly. This occurs when the argument to `String#valueOf(arg)` is a string literal, such as `String.valueOf(\"example\")`. Or, when the `String#valueOf(..)` invocation is used in a concatenation, such as `\"example\" + String.valueOf(\"example\")`. The wrapping call is redundant since Java already performs the conversion implicitly in these contexts."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1153"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.NoValueOfOnStringType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/novalueofonstringtype.md"}
-/>
+>
+
+<RecipeHeader.Title>Unnecessary `String#valueOf(..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace unnecessary `String#valueOf(..)` method invocations with the argument directly. This occurs when the argument to `String#valueOf(arg)` is a string literal, such as `String.valueOf("example")`. Or, when the `String#valueOf(..)` invocation is used in a concatenation, such as `"example" + String.valueOf("example")`. The wrapping call is redundant since Java already performs the conversion implicitly in these contexts.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    static void method(char[] data) {\n        String str = String.valueOf(\"changeMe\");\n        str = String.valueOf(0);\n        str = \"changeMe\" + String.valueOf(0);\n        str = String.valueOf(data);\n        str = \"changeMe\" + String.valueOf(data);\n        str = String.valueOf(data, 0, 0);\n        str = \"doNotChangeMe\" + String.valueOf(data, 0, 0);\n    }\n}\n","after":"class Test {\n    static void method(char[] data) {\n        String str = \"changeMe\";\n        str = String.valueOf(0);\n        str = \"changeMe\" + 0;\n        str = String.valueOf(data);\n        str = \"changeMe\" + String.valueOf(data);\n        str = String.valueOf(data, 0, 0);\n        str = \"doNotChangeMe\" + String.valueOf(data, 0, 0);\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    static void method(char[] data) {\n-       String str = String.valueOf(\"changeMe\");\n+       String str = \"changeMe\";\n        str = String.valueOf(0);\n@@ -5,1 +5,1 @@\n        String str = String.valueOf(\"changeMe\");\n        str = String.valueOf(0);\n-       str = \"changeMe\" + String.valueOf(0);\n+       str = \"changeMe\" + 0;\n        str = String.valueOf(data);\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to `maven-dependency-plugin` goal `resolve-sources`"}
-  description={"Migrate from `sources` to `resolve-sources` for the `maven-dependency-plugin`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.plugin.DependencyPluginGoalResolveSources"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/plugin/dependencyplugingoalresolvesources.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate to `maven-dependency-plugin` goal `resolve-sources`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from `sources` to `resolve-sources` for the `maven-dependency-plugin`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"foo"},"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.apache.maven.plugins</groupId>\n                <artifactId>maven-dependency-plugin</artifactId>\n                <version>3.8.0</version>\n                <executions>\n                    <execution>\n                        <goals>\n                            <goal>sources</goal>\n                        </goals>\n                    </execution>\n                </executions>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.mycompany.app</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.apache.maven.plugins</groupId>\n                <artifactId>maven-dependency-plugin</artifactId>\n                <version>3.8.0</version>\n                <executions>\n                    <execution>\n                        <goals>\n                            <goal>resolve-sources</goal>\n                        </goals>\n                    </execution>\n                </executions>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -15,1 +15,1 @@\n                    <execution>\n                        <goals>\n-                           <goal>sources</goal>\n+                           <goal>resolve-sources</goal>\n                        </goals>\n","newFile":false}]}]}>
 

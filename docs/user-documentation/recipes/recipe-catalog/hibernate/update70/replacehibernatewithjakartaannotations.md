@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace hibernate annotations with Jakarta variants"}
-  description={"Tries to replaces annotations that have been removed in Hibernate 7.0 with its Jakarta equivalent, such as Table, @Where, @OrderBy, etc.\nIf a annotation is used with arguments that do not have a direct replacement, the annotation is not replaced at all."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.ReplaceHibernateWithJakartaAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/replacehibernatewithjakartaannotations.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace hibernate annotations with Jakarta variants</RecipeHeader.Title>
+
+<RecipeHeader.Description>Tries to replaces annotations that have been removed in Hibernate 7.0 with its Jakarta equivalent, such as Table, @Where, @OrderBy, etc. If a annotation is used with arguments that do not have a direct replacement, the annotation is not replaced at all.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.annotations.Index;\nimport org.hibernate.annotations.Table;\n\n@Table(\n        appliesTo = \"some_entity\",\n        comment = \"comment\",\n        indexes = {\n                @Index(columnNames = {\"A\", \"B\"}, name = \"idx_1\"),\n                @Index(columnNames = {\"C\"}, name = \"idx_2\")\n        }\n)\npublic class SomeEntity {\n    private Long id;\n    private String name;\n}\n","after":"import jakarta.persistence.Index;\nimport jakarta.persistence.Table;\n\n@Table(name = \"some_entity\", comment = \"comment\", indexes = {\n        @Index(columnList = \"A,B\", name = \"idx_1\"),\n        @Index(columnList = \"C\", name = \"idx_2\")\n})\npublic class SomeEntity {\n    private Long id;\n    private String name;\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.hibernate.annotations.Index;\n-import org.hibernate.annotations.Table;\n+import jakarta.persistence.Index;\n+import jakarta.persistence.Table;\n\n@@ -4,8 +4,4 @@\nimport org.hibernate.annotations.Table;\n\n-@Table(\n-       appliesTo = \"some_entity\",\n-       comment = \"comment\",\n-       indexes = {\n-               @Index(columnNames = {\"A\", \"B\"}, name = \"idx_1\"),\n-               @Index(columnNames = {\"C\"}, name = \"idx_2\")\n-       }\n-)\n+@Table(name = \"some_entity\", comment = \"comment\", indexes = {\n+       @Index(columnList = \"A,B\", name = \"idx_1\"),\n+       @Index(columnList = \"C\", name = \"idx_2\")\n+})\npublic class SomeEntity {\n","newFile":false}]}]}>
 

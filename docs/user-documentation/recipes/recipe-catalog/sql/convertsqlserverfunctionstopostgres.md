@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert SQL Server functions to PostgreSQL"}
-  description={"Replaces SQL Server-specific functions with PostgreSQL equivalents."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["sqlserver","postgresql","mssql","sql"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.sql.ConvertSqlServerFunctionsToPostgres"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/sql/convertsqlserverfunctionstopostgres.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"},{"name":"Change a SQL function name","href":"sql/changefunctionname"}]}>
+<RecipeHeader.Title>Convert SQL Server functions to PostgreSQL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces SQL Server-specific functions with PostgreSQL equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"},{"name":"Change a SQL function name","href":"/user-documentation/recipes/recipe-catalog/sql/changefunctionname/"}]}>
 
 ## Definition
 

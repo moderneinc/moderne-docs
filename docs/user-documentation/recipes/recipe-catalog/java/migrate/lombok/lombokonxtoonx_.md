@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Lombok's `@__` syntax to `onX_` for Java 8+"}
-  description={"Migrates Lombok's `onX` annotations from the Java 7 style using `@__` to the Java 8+ style using `onX_`. For example, `@Getter(onMethod=@__({@Id}))` becomes `@Getter(onMethod_={@Id})`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["lombok"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lombok.LombokOnXToOnX_"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokonxtoonx_.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Lombok's `@__` syntax to `onX_` for Java 8+</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Lombok's `onX` annotations from the Java 7 style using `@__` to the Java 8+ style using `onX_`. For example, `@Getter(onMethod=@__({@Id}))` becomes `@Getter(onMethod_={@Id})`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import lombok.Getter;\nclass Example {\n    @Getter(onMethod=@__({@Deprecated}))\n    private String field;\n}\n","after":"import lombok.Getter;\nclass Example {\n    @Getter(onMethod_={@Deprecated})\n    private String field;\n}\n","diff":"@@ -3,1 +3,1 @@\nimport lombok.Getter;\nclass Example {\n-   @Getter(onMethod=@__({@Deprecated}))\n+   @Getter(onMethod_={@Deprecated})\n    private String field;\n","newFile":false}]}]}>
 

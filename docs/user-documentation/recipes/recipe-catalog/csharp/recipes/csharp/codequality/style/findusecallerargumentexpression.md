@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find redundant nameof with CallerArgumentExpression"}
-  description={"Detect `nameof(param)` passed to parameters marked with `[CallerArgumentExpression]`. The attribute fills the value automatically."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseCallerArgumentExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findusecallerargumentexpression.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find redundant nameof with CallerArgumentExpression</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `nameof(param)` passed to parameters marked with `[CallerArgumentExpression]`. The attribute fills the value automatically.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseCallerArgumentExpression","displayName":"Find redundant nameof with CallerArgumentExpression","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

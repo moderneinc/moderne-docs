@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `Optional#isPresent()` with `Optional#ifPresent()`"}
-  description={"Replace `Optional#isPresent()` with `Optional#ifPresent()`. Please note that this recipe is only suitable for if-blocks that lack an Else-block and have a single condition applied."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceOptionalIsPresentWithIfPresent"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replaceoptionalispresentwithifpresent.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `Optional#isPresent()` with `Optional#ifPresent()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `Optional#isPresent()` with `Optional#ifPresent()`. Please note that this recipe is only suitable for if-blocks that lack an Else-block and have a single condition applied.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Optional;\nimport java.util.function.Supplier;\npublic class A {\n    Supplier<Integer> s = () -> { return 1; };\n    int method(Optional<Integer> o) {\n        if (o.isPresent()) {\n            s = () -> {\n                return 2;\n            };\n        }\n        return s.get();\n    }\n}\n","after":"import java.util.Optional;\nimport java.util.function.Supplier;\npublic class A {\n    Supplier<Integer> s = () -> { return 1; };\n    int method(Optional<Integer> o) {\n        o.ifPresent(obj -> {\n            s = () -> {\n                return 2;\n            };\n        });\n        return s.get();\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n    Supplier<Integer> s = () -> { return 1; };\n    int method(Optional<Integer> o) {\n-       if (o.isPresent()) {\n+       o.ifPresent(obj -> {\n            s = () -> {\n@@ -10,1 +10,1 @@\n                return 2;\n            };\n-       }\n+       });\n        return s.get();\n","newFile":false}]}]}>
 

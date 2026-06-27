@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use pattern matching instead of is"}
-  description={"Use pattern matching instead of is. Note: Needs type resolution."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UsePatternMatchingInsteadOfIs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usepatternmatchinginsteadofis.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use pattern matching instead of is</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use pattern matching instead of is. Note: Needs type resolution.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UsePatternMatchingInsteadOfIs","displayName":"Use pattern matching instead of is","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Inline method calls"}
-  description={"Inline method calls using a template replacement pattern. Supports both method invocations and constructor calls, with optional imports."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.InlineMethodCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls.md"}
-/>
+>
+
+<RecipeHeader.Title>Inline method calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Inline method calls using a template replacement pattern. Supports both method invocations and constructor calls, with optional imports.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern that is used to find matching method invocations.","example":"com.google.common.base.Preconditions checkNotNull(..)"},{"type":"String","name":"replacement","required":true,"description":"The replacement template for the method invocation. Parameters can be referenced using their names from the original method.","example":"java.util.Objects.requireNonNull(#{p0})"},{"type":"Set","name":"imports","required":false,"description":"List of regular imports to add when the replacement is made.","example":"[\"java.util.Objects\"]"},{"type":"Set","name":"staticImports","required":false,"description":"List of static imports to add when the replacement is made.","example":"[\"java.util.Collections.emptyList\"]"},{"type":"Set","name":"classpathFromResources","required":false,"description":"List of paths to JAR files on the classpath for parsing the replacement template.","example":"[\"guava-33.4.8-jre\"]"}]}>
 

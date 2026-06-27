@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find nullable values passed to non-null parameters"}
-  description={"Marks call arguments where a provably-nullable value is passed to a callee parameter that is not declared `@Nullable`. Inside a null-marked scope NullAway treats every unannotated parameter as non-null, so such a call is a NullAway error. A value is considered provably nullable when it is the `null` literal (directly, through a cast or parentheses, or via either branch of a ternary), a call to a method whose return is itself nullable, or a reference to a variable or field declared `@Nullable`. This is a search recipe: it only marks the offending arguments and does not modify the code. It is conservative — when the invoked method type cannot be resolved, the argument is left unmarked (a false negative rather than a false positive)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.search.FindNullableToNonNullArgument"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/search/findnullabletononnullargument.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find nullable values passed to non-null parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Marks call arguments where a provably-nullable value is passed to a callee parameter that is not declared `@Nullable`. Inside a null-marked scope NullAway treats every unannotated parameter as non-null, so such a call is a NullAway error. A value is considered provably nullable when it is the `null` literal (directly, through a cast or parentheses, or via either branch of a ternary), a call to a method whose return is itself nullable, or a reference to a variable or field declared `@Nullable`. This is a search recipe: it only marks the offending arguments and does not modify the code. It is conservative — when the invoked method type cannot be resolved, the argument is left unmarked (a false negative rather than a false positive).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void use(String s) {\n    }\n\n    void caller() {\n        use(null);\n    }\n}\n","after":"class Test {\n    void use(String s) {\n    }\n\n    void caller() {\n        use(/*~~(Passing nullable value to non-null parameter (NullAway))~~>*/null);\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n\n    void caller() {\n-       use(null);\n+       use(/*~~(Passing nullable value to non-null parameter (NullAway))~~>*/null);\n    }\n","newFile":false}]}]}>
 

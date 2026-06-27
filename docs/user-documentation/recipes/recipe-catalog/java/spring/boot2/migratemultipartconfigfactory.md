@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `MultipartConfigFactory` with `DataSize` arguments"}
-  description={"Methods to set `DataSize` with primitive arguments were deprecated in 2.1 and removed in 2.2."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateMultipartConfigFactory"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratemultipartconfigfactory.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `MultipartConfigFactory` with `DataSize` arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Methods to set `DataSize` with primitive arguments were deprecated in 2.1 and removed in 2.2.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.web.servlet.MultipartConfigFactory;\n\nclass Test {\n    void method() {\n        MultipartConfigFactory factory = new MultipartConfigFactory();\n        factory.setMaxFileSize(1);\n        factory.setMaxFileSize(\"1\");\n        factory.setMaxRequestSize(1);\n        factory.setMaxRequestSize(\"1\");\n        factory.setFileSizeThreshold(1);\n        factory.setFileSizeThreshold(\"1\");\n    }\n}\n","after":"import org.springframework.boot.web.servlet.MultipartConfigFactory;\nimport org.springframework.util.unit.DataSize;\n\nclass Test {\n    void method() {\n        MultipartConfigFactory factory = new MultipartConfigFactory();\n        factory.setMaxFileSize(DataSize.ofBytes(1));\n        factory.setMaxFileSize(DataSize.parse(\"1\"));\n        factory.setMaxRequestSize(DataSize.ofBytes(1));\n        factory.setMaxRequestSize(DataSize.parse(\"1\"));\n        factory.setFileSizeThreshold(DataSize.ofBytes(1));\n        factory.setFileSizeThreshold(DataSize.parse(\"1\"));\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.springframework.boot.web.servlet.MultipartConfigFactory;\n+import org.springframework.util.unit.DataSize;\n\n@@ -6,6 +7,6 @@\n    void method() {\n        MultipartConfigFactory factory = new MultipartConfigFactory();\n-       factory.setMaxFileSize(1);\n-       factory.setMaxFileSize(\"1\");\n-       factory.setMaxRequestSize(1);\n-       factory.setMaxRequestSize(\"1\");\n-       factory.setFileSizeThreshold(1);\n-       factory.setFileSizeThreshold(\"1\");\n+       factory.setMaxFileSize(DataSize.ofBytes(1));\n+       factory.setMaxFileSize(DataSize.parse(\"1\"));\n+       factory.setMaxRequestSize(DataSize.ofBytes(1));\n+       factory.setMaxRequestSize(DataSize.parse(\"1\"));\n+       factory.setFileSizeThreshold(DataSize.ofBytes(1));\n+       factory.setFileSizeThreshold(DataSize.parse(\"1\"));\n    }\n","newFile":false}]}]}>
 

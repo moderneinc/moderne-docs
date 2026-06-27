@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prepare a codebase for NullAway, baselining the remaining findings"}
-  description={"Runs the full code-level `io.moderne.nullability.PrepareForNullAway` inference, then carries the pre-existing NullAway findings of the classes listed in the baseline file as a `@SuppressWarnings(\"NullAway\")` baseline. This lets a codebase enable NullAway at ERROR immediately — every clean class and every new file is checked, while the listed classes' existing debt is snapshotted to be burned down over time. The baseline file is produced from a NullAway WARN-level build report of the inference output (one fully-qualified top-level class name per line)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["nullaway","jspecify","nullability"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.PrepareForNullAwayWithBaseline"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/preparefornullawaywithbaseline.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Prepare a codebase for NullAway","href":"nullability/preparefornullaway"},{"name":"Suppress NullAway in baseline classes","href":"nullability/scope/suppressnullawayinbaselineclasses"}]}>
+<RecipeHeader.Title>Prepare a codebase for NullAway, baselining the remaining findings</RecipeHeader.Title>
+
+<RecipeHeader.Description>Runs the full code-level `io.moderne.nullability.PrepareForNullAway` inference, then carries the pre-existing NullAway findings of the classes listed in the baseline file as a `@SuppressWarnings("NullAway")` baseline. This lets a codebase enable NullAway at ERROR immediately — every clean class and every new file is checked, while the listed classes' existing debt is snapshotted to be burned down over time. The baseline file is produced from a NullAway WARN-level build report of the inference output (one fully-qualified top-level class name per line).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Prepare a codebase for NullAway","href":"/user-documentation/recipes/recipe-catalog/nullability/preparefornullaway/"},{"name":"Suppress NullAway in baseline classes","href":"/user-documentation/recipes/recipe-catalog/nullability/scope/suppressnullawayinbaselineclasses/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Statically import JUnit Jupiter assertions"}
-  description={"Always use a static import for assertion methods."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["junit","testing"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.StaticImports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/staticimports.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use static import","href":"java/usestaticimport"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Statically import JUnit Jupiter assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Always use a static import for assertion methods.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use static import","href":"/user-documentation/recipes/recipe-catalog/java/usestaticimport/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

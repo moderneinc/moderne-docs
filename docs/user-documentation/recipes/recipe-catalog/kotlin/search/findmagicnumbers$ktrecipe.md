@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find numeric literals other than 0, 1, -1"}
-  description={"Magic numbers in code hide units, bounds, and protocol constants from a reader. Each match is a candidate to extract to a named `const val` so a reviewer or LLM agent can see the intent (`MAX_RETRIES`, `BUFFER_BYTES`, etc.) rather than the bare literal."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindMagicNumbers$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findmagicnumbers$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find numeric literals other than 0, 1, -1</RecipeHeader.Title>
+
+<RecipeHeader.Description>Magic numbers in code hide units, bounds, and protocol constants from a reader. Each match is a candidate to extract to a named `const val` so a reviewer or LLM agent can see the intent (`MAX_RETRIES`, `BUFFER_BYTES`, etc.) rather than the bare literal.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindMagicNumbers$KtRecipe","displayName":"Find numeric literals other than 0, 1, -1","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

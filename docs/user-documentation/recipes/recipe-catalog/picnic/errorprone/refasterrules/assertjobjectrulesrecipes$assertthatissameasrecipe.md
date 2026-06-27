@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJObjectRules.AssertThatIsSameAs`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsSameAs<T> {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(T object1, T object2) {\n        return Refaster.anyOf(assertThat(object1 == object2).isTrue(), assertThat(object1 != object2).isFalse());\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ObjectAssert<T> after(T object1, T object2) {\n        return assertThat(object1).isSameAs(object2);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes$AssertThatIsSameAsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatissameasrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJObjectRules.AssertThatIsSameAs`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIsSameAs<T> {
+    
+    @BeforeTemplate
+    AbstractBooleanAssert<?> before(T object1, T object2) {
+        return Refaster.anyOf(assertThat(object1 == object2).isTrue(), assertThat(object1 != object2).isFalse());
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    ObjectAssert<T> after(T object1, T object2) {
+        return assertThat(object1).isSameAs(object2);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes$AssertThatIsSameAsRecipe","displayName":"Refaster template `AssertJObjectRules.AssertThatIsSameAs`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

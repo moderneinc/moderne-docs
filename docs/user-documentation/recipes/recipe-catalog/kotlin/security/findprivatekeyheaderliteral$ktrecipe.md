@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `-----BEGIN ... PRIVATE KEY-----` literals"}
-  description={"A PEM-formatted private key in source means the private key is in every artifact, every git commit, and every developer machine. Load from a secrets store or a file outside the build."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindPrivateKeyHeaderLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findprivatekeyheaderliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `-----BEGIN ... PRIVATE KEY-----` literals</RecipeHeader.Title>
+
+<RecipeHeader.Description>A PEM-formatted private key in source means the private key is in every artifact, every git commit, and every developer machine. Load from a secrets store or a file outside the build.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindPrivateKeyHeaderLiteral$KtRecipe","displayName":"Find `-----BEGIN ... PRIVATE KEY-----` literals","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

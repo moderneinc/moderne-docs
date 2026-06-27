@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Android SDK version"}
-  description={"Change `compileSdk`, `compileSdkVersion`, `targetSdk` and `targetSdkVersion` in an Android Gradle build file to the argument version."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.android.ChangeAndroidSdkVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/android/changeandroidsdkversion.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Change Android SDK version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change `compileSdk`, `compileSdkVersion`, `targetSdk` and `targetSdkVersion` in an Android Gradle build file to the argument version.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Integer","name":"version","required":true,"description":"The version of the Android SDK to use.","example":"35"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `DiskSpaceHealthIndicator(File, DataSize)`"}
-  description={"`DiskSpaceHealthIndicator(File, long)` was deprecated in Spring Data 2.1 for removal in 2.2."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateDiskSpaceHealthIndicatorConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratediskspacehealthindicatorconstructor.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `DiskSpaceHealthIndicator(File, DataSize)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`DiskSpaceHealthIndicator(File, long)` was deprecated in Spring Data 2.1 for removal in 2.2.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.actuate.system.DiskSpaceHealthIndicator;\n\nclass Test {\n    void method() {\n        DiskSpaceHealthIndicator literal = new DiskSpaceHealthIndicator(null, 1L);\n        DiskSpaceHealthIndicator methodInvocation = new DiskSpaceHealthIndicator(null, value());\n        Long arg = 10L;\n        DiskSpaceHealthIndicator variable = new DiskSpaceHealthIndicator(null, arg);\n    }\n    long value() {\n        return 10L;\n    }\n}\n","after":"import org.springframework.boot.actuate.system.DiskSpaceHealthIndicator;\nimport org.springframework.util.unit.DataSize;\n\nclass Test {\n    void method() {\n        DiskSpaceHealthIndicator literal = new DiskSpaceHealthIndicator(null, DataSize.ofBytes(1L));\n        DiskSpaceHealthIndicator methodInvocation = new DiskSpaceHealthIndicator(null, DataSize.ofBytes(value()));\n        Long arg = 10L;\n        DiskSpaceHealthIndicator variable = new DiskSpaceHealthIndicator(null, DataSize.ofBytes(arg));\n    }\n    long value() {\n        return 10L;\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.springframework.boot.actuate.system.DiskSpaceHealthIndicator;\n+import org.springframework.util.unit.DataSize;\n\n@@ -5,2 +6,2 @@\nclass Test {\n    void method() {\n-       DiskSpaceHealthIndicator literal = new DiskSpaceHealthIndicator(null, 1L);\n-       DiskSpaceHealthIndicator methodInvocation = new DiskSpaceHealthIndicator(null, value());\n+       DiskSpaceHealthIndicator literal = new DiskSpaceHealthIndicator(null, DataSize.ofBytes(1L));\n+       DiskSpaceHealthIndicator methodInvocation = new DiskSpaceHealthIndicator(null, DataSize.ofBytes(value()));\n        Long arg = 10L;\n@@ -8,1 +9,1 @@\n        DiskSpaceHealthIndicator methodInvocation = new DiskSpaceHealthIndicator(null, value());\n        Long arg = 10L;\n-       DiskSpaceHealthIndicator variable = new DiskSpaceHealthIndicator(null, arg);\n+       DiskSpaceHealthIndicator variable = new DiskSpaceHealthIndicator(null, DataSize.ofBytes(arg));\n    }\n","newFile":false}]}]}>
 

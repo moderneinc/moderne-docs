@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hardcoded cryptographic key lengths"}
-  description={"Detects hardcoded key lengths used in cryptographic operations like KeyGenerator.init(), KeyPairGenerator.initialize(), RSAKeyGenParameterSpec, and PBEKeySpec. Hardcoded key lengths reduce flexibility and may not meet changing security requirements."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindHardcodedKeyLength"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedkeylength.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find hardcoded cryptographic key lengths</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects hardcoded key lengths used in cryptographic operations like KeyGenerator.init(), KeyPairGenerator.initialize(), RSAKeyGenParameterSpec, and PBEKeySpec. Hardcoded key lengths reduce flexibility and may not meet changing security requirements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.crypto.KeyGenerator;\nimport javax.crypto.SecretKey;\n\npublic class KeyGenExample {\n    public SecretKey generateKey() throws Exception {\n        KeyGenerator kg = KeyGenerator.getInstance(\"AES\");\n        kg.init(256);\n        return kg.generateKey();\n    }\n}\n","after":"import javax.crypto.KeyGenerator;\nimport javax.crypto.SecretKey;\n\npublic class KeyGenExample {\n    public SecretKey generateKey() throws Exception {\n        KeyGenerator kg = KeyGenerator.getInstance(\"AES\");\n        /*~~(KEY_SIZE use)~~>*/kg.init(256);\n        return kg.generateKey();\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    public SecretKey generateKey() throws Exception {\n        KeyGenerator kg = KeyGenerator.getInstance(\"AES\");\n-       kg.init(256);\n+       /*~~(KEY_SIZE use)~~>*/kg.init(256);\n        return kg.generateKey();\n","newFile":false}]}]}>
 

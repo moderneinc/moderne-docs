@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `fail()` in `try-catch` blocks with `Assertions.assertDoesNotThrow(() -> { ... })`"}
-  description={"Replace `try-catch` blocks where `catch` merely contains a `fail()` for `fail(String)` statement with `Assertions.assertDoesNotThrow(() -> { ... })`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S3658"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.RemoveTryCatchFailBlocks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/removetrycatchfailblocks.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `fail()` in `try-catch` blocks with `Assertions.assertDoesNotThrow(() -> { ... })`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `try-catch` blocks where `catch` merely contains a `fail()` for `fail(String)` statement with `Assertions.assertDoesNotThrow(() -> { ... })`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Assertions;\nimport org.junit.jupiter.api.Test;\n\nclass MyTest {\n    @Test\n    public void testMethod() {\n        try {\n            int divide = 50 / 0;\n        } catch (ArithmeticException e) {\n            Assertions.fail(e.getMessage());\n        }\n    }\n}\n","after":"import org.junit.jupiter.api.Assertions;\nimport org.junit.jupiter.api.Test;\n\nclass MyTest {\n    @Test\n    public void testMethod() {\n        Assertions.assertDoesNotThrow(() -> {\n            int divide = 50 / 0;\n        });\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    @Test\n    public void testMethod() {\n-       try {\n+       Assertions.assertDoesNotThrow(() -> {\n            int divide = 50 / 0;\n@@ -9,3 +9,1 @@\n        try {\n            int divide = 50 / 0;\n-       } catch (ArithmeticException e) {\n-           Assertions.fail(e.getMessage());\n-       }\n+       });\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `aotSummaries` from TestBed"}
-  description={"Removes the `aotSummaries` property from `TestBed.configureTestingModule()` and `TestBed.initTestEnvironment()` calls. The `aotSummaries` parameter was removed in Angular 14 as it was only needed for the View Engine compiler."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-aot-summaries"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-aot-summaries.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `aotSummaries` from TestBed</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the `aotSummaries` property from `TestBed.configureTestingModule()` and `TestBed.initTestEnvironment()` calls. The `aotSummaries` parameter was removed in Angular 14 as it was only needed for the View Engine compiler.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.remove-aot-summaries","displayName":"Remove `aotSummaries` from TestBed","npmPackage":"@openrewrite/recipes-angular"}}>
 

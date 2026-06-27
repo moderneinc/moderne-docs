@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `PrimeNG` config field assignments to `.set()`"}
-  description={"In PrimeNG 18, fields on the `PrimeNG` config service like `ripple`, `inputStyle`, `inputVariant`, and `csp` are `WritableSignal<T>` rather than plain fields. Direct assignment (`service.ripple = true`) no longer compiles. This recipe rewrites such assignments to use the signal's `set()` method (`service.ripple.set(true)`) when the file imports `PrimeNG` from `primeng/config`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.MigratePrimeNGSignalAssignments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/migrateprimengsignalassignments.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `PrimeNG` config field assignments to `.set()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In PrimeNG 18, fields on the `PrimeNG` config service like `ripple`, `inputStyle`, `inputVariant`, and `csp` are `WritableSignal<T>` rather than plain fields. Direct assignment (`service.ripple = true`) no longer compiles. This recipe rewrites such assignments to use the signal's `set()` method (`service.ripple.set(true)`) when the file imports `PrimeNG` from `primeng/config`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.primeng.MigratePrimeNGSignalAssignments","displayName":"Migrate `PrimeNG` config field assignments to `.set()`","npmPackage":"@openrewrite/recipes-angular"}}>
 

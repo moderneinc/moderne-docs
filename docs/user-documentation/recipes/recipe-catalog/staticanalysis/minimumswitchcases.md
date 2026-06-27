@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`switch` statements should have at least 3 `case` clauses"}
-  description={"`switch` statements are useful when many code paths branch depending on the value of a single expression. For just one or two code paths, the code will be more readable with `if` statements. Using `switch` for trivial branching adds unnecessary syntactic overhead and obscures the simplicity of the logic."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1301"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.MinimumSwitchCases"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/minimumswitchcases.md"}
-/>
+>
+
+<RecipeHeader.Title>`switch` statements should have at least 3 `case` clauses</RecipeHeader.Title>
+
+<RecipeHeader.Description>`switch` statements are useful when many code paths branch depending on the value of a single expression. For just one or two code paths, the code will be more readable with `if` statements. Using `switch` for trivial branching adds unnecessary syntactic overhead and obscures the simplicity of the logic.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    int variable;\n    int test() {\n        switch (variable) {\n          case 0:\n              return 0;\n          default:\n              doSomethingElse();\n        }\n        return 1;\n    }\n    void doSomething() {}\n    void doSomethingElse() {}\n}\n","after":"class Test {\n    int variable;\n    int test() {\n        if (variable == 0) {\n            return 0;\n        } else {\n            doSomethingElse();\n        }\n        return 1;\n    }\n    void doSomething() {}\n    void doSomethingElse() {}\n}\n","diff":"@@ -4,5 +4,4 @@\n    int variable;\n    int test() {\n-       switch (variable) {\n-         case 0:\n-             return 0;\n-         default:\n-             doSomethingElse();\n+       if (variable == 0) {\n+           return 0;\n+       } else {\n+           doSomethingElse();\n        }\n","newFile":false}]},{"variants":[{"language":"groovy","before":"def s = \"prod\"\nswitch(s) {\n    case \"prod\":\n        println(\"prod\")\n        break\n    default:\n        println(\"default\")\n        break\n}\n","after":"def s = \"prod\"\nif (\"prod\".equals(s)) {\n    println(\"prod\")\n} else {\n    println(\"default\")\n}\n","diff":"@@ -2,7 +2,4 @@\ndef s = \"prod\"\n-switch(s) {\n-   case \"prod\":\n-       println(\"prod\")\n-       break\n-   default:\n-       println(\"default\")\n-       break\n+if (\"prod\".equals(s)) {\n+   println(\"prod\")\n+} else {\n+   println(\"default\")\n}\n","newFile":false}]}]}>
 

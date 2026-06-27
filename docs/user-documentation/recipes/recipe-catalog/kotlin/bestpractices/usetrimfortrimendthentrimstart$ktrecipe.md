@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `trim()` instead of `trimEnd().trimStart()`"}
-  description={"Same as the inverse — `trim()` strips both ends in one pass without the intermediate `String` allocation."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.UseTrimForTrimEndThenTrimStart$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetrimfortrimendthentrimstart$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `trim()` instead of `trimEnd().trimStart()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Same as the inverse — `trim()` strips both ends in one pass without the intermediate `String` allocation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.UseTrimForTrimEndThenTrimStart$KtRecipe","displayName":"Use `trim()` instead of `trimEnd().trimStart()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

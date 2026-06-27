@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Comment Kotlin modules capped at Java 24"}
-  description={"Adds an explanatory comment to Kotlin modules that remain at Java 24 after the Java 25 migration, because Kotlin before 2.3 cannot target Java 25 bytecode. This covers both a Kotlin 1.x cap (which cannot be upgraded automatically) and a Kotlin 2.0-2.2 module whose upgrade to 2.3 could not be applied. Scoped to modules that actually compile Kotlin (i.e. contain `.kt` source files); the comment is self-healing, so a module that does reach Java 25 has it removed."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["kotlin","java25"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.CommentKotlinModulesCappedAtJava24"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/commentkotlinmodulescappedatjava24.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Explain why the Java version was capped at 24 for Kotlin modules","href":"java/migrate/commentjava24kotlincap"}]} preconditions={[{"name":"Module has Kotlin source files","href":"java/migrate/search/modulehaskotlinsource"}]}>
+<RecipeHeader.Title>Comment Kotlin modules capped at Java 24</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds an explanatory comment to Kotlin modules that remain at Java 24 after the Java 25 migration, because Kotlin before 2.3 cannot target Java 25 bytecode. This covers both a Kotlin 1.x cap (which cannot be upgraded automatically) and a Kotlin 2.0-2.2 module whose upgrade to 2.3 could not be applied. Scoped to modules that actually compile Kotlin (i.e. contain `.kt` source files); the comment is self-healing, so a module that does reach Java 25 has it removed.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Explain why the Java version was capped at 24 for Kotlin modules","href":"/user-documentation/recipes/recipe-catalog/java/migrate/commentjava24kotlincap/"}]} preconditions={[{"name":"Module has Kotlin source files","href":"/user-documentation/recipes/recipe-catalog/java/migrate/search/modulehaskotlinsource/"}]}>
 
 ## Definition
 

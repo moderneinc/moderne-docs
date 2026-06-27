@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `OAuth2AccessTokenResponseClient` from `RestOperations` to `RestClient` based implementations"}
-  description={"A new set of `OAuth2AccessTokenResponseClient` implementations were introduced based on `RestClient`. This recipe replaces the `RestOperations`-based implementations which have been deprecated. The `RestClient` implementations are drop-in replacements for the deprecated implementations."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","security"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.security7.MigrateOAuth2AccessTokenResponseClient"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security7/migrateoauth2accesstokenresponseclient.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Find types","href":"java/search/findtypes"}]}>
+<RecipeHeader.Title>Migrate `OAuth2AccessTokenResponseClient` from `RestOperations` to `RestClient` based implementations</RecipeHeader.Title>
+
+<RecipeHeader.Description>A new set of `OAuth2AccessTokenResponseClient` implementations were introduced based on `RestClient`. This recipe replaces the `RestOperations`-based implementations which have been deprecated. The `RestClient` implementations are drop-in replacements for the deprecated implementations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Find types","href":"/user-documentation/recipes/recipe-catalog/java/search/findtypes/"}]}>
 
 ## Definition
 

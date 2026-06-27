@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `doNothing()` for void methods on `@Mock` fields"}
-  description={"Remove unnecessary `doNothing()` stubbings for void methods on `@Mock` fields. Mockito mocks already do nothing for void methods by default, making these stubbings redundant and triggering strict stubbing violations in Mockito 3+."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.RemoveDoNothingForDefaultMocks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/removedonothingfordefaultmocks.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `doNothing()` for void methods on `@Mock` fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unnecessary `doNothing()` stubbings for void methods on `@Mock` fields. Mockito mocks already do nothing for void methods by default, making these stubbings redundant and triggering strict stubbing violations in Mockito 3+.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Test;\nimport org.junit.runner.RunWith;\nimport org.mockito.Mock;\nimport org.mockito.junit.MockitoJUnitRunner;\nimport java.io.BufferedWriter;\nimport java.io.IOException;\n\nimport static org.mockito.Mockito.doNothing;\nimport static org.mockito.ArgumentMatchers.anyString;\n\n@RunWith(MockitoJUnitRunner.class)\nclass MyTest {\n    @Mock\n    private BufferedWriter bufferedWriter;\n\n    @Test\n    public void test() throws IOException {\n        doNothing().when(bufferedWriter).write(anyString());\n    }\n}\n","after":"import org.junit.Test;\nimport org.junit.runner.RunWith;\nimport org.mockito.Mock;\nimport org.mockito.junit.MockitoJUnitRunner;\nimport java.io.BufferedWriter;\nimport java.io.IOException;\n\nimport static org.mockito.ArgumentMatchers.anyString;\n\n@RunWith(MockitoJUnitRunner.class)\nclass MyTest {\n    @Mock\n    private BufferedWriter bufferedWriter;\n\n    @Test\n    public void test() throws IOException {\n    }\n}\n","diff":"@@ -8,1 +8,0 @@\nimport java.io.IOException;\n\n-import static org.mockito.Mockito.doNothing;\nimport static org.mockito.ArgumentMatchers.anyString;\n@@ -18,1 +17,0 @@\n    @Test\n    public void test() throws IOException {\n-       doNothing().when(bufferedWriter).write(anyString());\n    }\n","newFile":false}]}]}>
 

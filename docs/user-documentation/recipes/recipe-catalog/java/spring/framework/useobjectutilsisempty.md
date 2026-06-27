@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `ObjectUtils#isEmpty(Object)`"}
-  description={"`StringUtils#isEmpty(Object)` was deprecated in 5.3."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.UseObjectUtilsIsEmpty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/useobjectutilsisempty.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `ObjectUtils#isEmpty(Object)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`StringUtils#isEmpty(Object)` was deprecated in 5.3.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.util.StringUtils;\n\nclass A {\n    boolean test(String s) {\n        return StringUtils.isEmpty(s);\n    }\n}\n","after":"import org.springframework.util.ObjectUtils;\n\nclass A {\n    boolean test(String s) {\n        return ObjectUtils.isEmpty(s);\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.util.StringUtils;\n+import org.springframework.util.ObjectUtils;\n\n@@ -5,1 +5,1 @@\nclass A {\n    boolean test(String s) {\n-       return StringUtils.isEmpty(s);\n+       return ObjectUtils.isEmpty(s);\n    }\n","newFile":false}]}]}>
 

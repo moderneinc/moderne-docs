@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert Mockito mock() to @MockBean"}
-  description={"Converts static final Mockito mock fields to Spring Boot @MockBean fields."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.test.MockitoVariableToMockBean"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/mockitovariabletomockbean.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert Mockito mock() to @MockBean</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts static final Mockito mock fields to Spring Boot @MockBean fields.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example.dao;\n\npublic interface PersonDAO {\n}\n"},"variants":[{"language":"java","before":"import org.mockito.Mockito;\nimport com.example.dao.PersonDAO;\n\nclass TestClass {\n\n    @Deprecated\n    private static final PersonDAO PERSON_DAO = Mockito.mock(PersonDAO.class);\n\n    void testMethod() {\n        // some test code\n    }\n}\n","after":"import com.example.dao.PersonDAO;\nimport org.springframework.boot.test.mock.mockito.MockBean;\n\nclass TestClass {\n\n    @MockBean\n    private PersonDAO PERSON_DAO;\n\n    void testMethod() {\n        // some test code\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import org.mockito.Mockito;\nimport com.example.dao.PersonDAO;\n@@ -3,0 +2,1 @@\nimport org.mockito.Mockito;\nimport com.example.dao.PersonDAO;\n+import org.springframework.boot.test.mock.mockito.MockBean;\n\n@@ -6,2 +6,2 @@\nclass TestClass {\n\n-   @Deprecated\n-   private static final PersonDAO PERSON_DAO = Mockito.mock(PersonDAO.class);\n+   @MockBean\n+   private PersonDAO PERSON_DAO;\n\n","newFile":false}]}]}>
 

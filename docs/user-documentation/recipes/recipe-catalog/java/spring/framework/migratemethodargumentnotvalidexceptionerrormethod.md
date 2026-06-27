@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages`"}
-  description={"`org.springframework.web.bind.MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages` method was deprecated, in favor of `BindErrorUtils`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateMethodArgumentNotValidExceptionErrorMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratemethodargumentnotvalidexceptionerrormethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`org.springframework.web.bind.MethodArgumentNotValidException.errorsToStringList` and `resolveErrorMessages` method was deprecated, in favor of `BindErrorUtils`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.MessageSource;\nimport java.util.Locale;\nimport org.springframework.web.bind.MethodArgumentNotValidException;\nimport java.util.List;\nimport java.util.Map;\nimport org.springframework.validation.BindException;\nimport org.springframework.validation.ObjectError;\n\nclass A {\n    public void handleValidationError(BindException bindException, MethodArgumentNotValidException methodArgumentNotValidException, MessageSource messageSource, Locale locale) {\n        List<ObjectError> errors = bindException.getAllErrors();\n        List<String> errorMessages = MethodArgumentNotValidException.errorsToStringList(errors, null, Locale.CANADA);\n        Map<ObjectError, String> errorMessages = methodArgumentNotValidException.resolveErrorMessages(messageSource, locale);\n    }\n}\n","after":"import org.springframework.context.MessageSource;\nimport java.util.Locale;\nimport org.springframework.web.bind.MethodArgumentNotValidException;\nimport org.springframework.web.util.BindErrorUtils;\n\nimport java.util.List;\nimport java.util.Map;\nimport org.springframework.validation.BindException;\nimport org.springframework.validation.ObjectError;\n\nclass A {\n    public void handleValidationError(BindException bindException, MethodArgumentNotValidException methodArgumentNotValidException, MessageSource messageSource, Locale locale) {\n        List<ObjectError> errors = bindException.getAllErrors();\n        List<String> errorMessages = BindErrorUtils.resolve(errors).values().stream().toList();\n        Map<ObjectError, String> errorMessages = BindErrorUtils.resolve(methodArgumentNotValidException.getAllErrors(), messageSource, locale);\n    }\n}\n","diff":"@@ -4,0 +4,2 @@\nimport java.util.Locale;\nimport org.springframework.web.bind.MethodArgumentNotValidException;\n+import org.springframework.web.util.BindErrorUtils;\n+\nimport java.util.List;\n@@ -12,2 +14,2 @@\n    public void handleValidationError(BindException bindException, MethodArgumentNotValidException methodArgumentNotValidException, MessageSource messageSource, Locale locale) {\n        List<ObjectError> errors = bindException.getAllErrors();\n-       List<String> errorMessages = MethodArgumentNotValidException.errorsToStringList(errors, null, Locale.CANADA);\n-       Map<ObjectError, String> errorMessages = methodArgumentNotValidException.resolveErrorMessages(messageSource, locale);\n+       List<String> errorMessages = BindErrorUtils.resolve(errors).values().stream().toList();\n+       Map<ObjectError, String> errorMessages = BindErrorUtils.resolve(methodArgumentNotValidException.getAllErrors(), messageSource, locale);\n    }\n","newFile":false}]}]}>
 

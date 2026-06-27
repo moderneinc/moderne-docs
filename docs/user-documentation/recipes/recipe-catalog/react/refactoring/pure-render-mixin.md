@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `PureRenderMixin`"}
-  description={"Removes `PureRenderMixin` from `React.createClass` mixins and adds an explicit `shouldComponentUpdate` method."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.refactoring.pure-render-mixin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/refactoring/pure-render-mixin.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `PureRenderMixin`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `PureRenderMixin` from `React.createClass` mixins and adds an explicit `shouldComponentUpdate` method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.refactoring.pure-render-mixin","displayName":"Remove `PureRenderMixin`","npmPackage":"@openrewrite/recipes-react"}}>
 

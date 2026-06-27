@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `SpringClassRule` and `SpringMethodRule` with JUnit 5 `SpringExtension`"}
-  description={"Replace JUnit 4's `SpringClassRule` and `SpringMethodRule` with JUnit 5's `SpringExtension` or rely on an existing `@SpringBootTest`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.test.SpringRulesToJUnitExtension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/test/springrulestojunitextension.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `SpringClassRule` and `SpringMethodRule` with JUnit 5 `SpringExtension`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace JUnit 4's `SpringClassRule` and `SpringMethodRule` with JUnit 5's `SpringExtension` or rely on an existing `@SpringBootTest`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.test.context.SpringBootTest;\nimport org.springframework.test.context.junit4.rules.SpringClassRule;\nimport org.springframework.test.context.junit4.rules.SpringMethodRule;\nimport org.junit.ClassRule;\nimport org.junit.Rule;\n\n@SpringBootTest\nclass SomeTest {\n\n    @ClassRule\n    public static final SpringClassRule springClassRule = new SpringClassRule();\n\n    @Rule\n    public final SpringMethodRule springMethodRule = new SpringMethodRule();\n\n}\n","after":"import org.junit.jupiter.api.extension.ExtendWith;\nimport org.springframework.boot.test.context.SpringBootTest;\nimport org.springframework.test.context.junit.jupiter.SpringExtension;\n\n@ExtendWith(SpringExtension.class)\n@SpringBootTest\nclass SomeTest {\n\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.junit.jupiter.api.extension.ExtendWith;\nimport org.springframework.boot.test.context.SpringBootTest;\n@@ -2,4 +3,1 @@\nimport org.springframework.boot.test.context.SpringBootTest;\n-import org.springframework.test.context.junit4.rules.SpringClassRule;\n-import org.springframework.test.context.junit4.rules.SpringMethodRule;\n-import org.junit.ClassRule;\n-import org.junit.Rule;\n+import org.springframework.test.context.junit.jupiter.SpringExtension;\n\n@@ -7,0 +5,1 @@\nimport org.junit.Rule;\n\n+@ExtendWith(SpringExtension.class)\n@SpringBootTest\n@@ -10,6 +9,0 @@\nclass SomeTest {\n\n-   @ClassRule\n-   public static final SpringClassRule springClassRule = new SpringClassRule();\n-\n-   @Rule\n-   public final SpringMethodRule springMethodRule = new SpringMethodRule();\n-\n}\n","newFile":false}]}]}>
 

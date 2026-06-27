@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `x?.something.orEmpty()` patterns"}
-  description={"`x?.something.orEmpty()` mixes safe-call and a null-coalescing extension. Either drop the `?.` (if `x` is non-null) or chain through `?: emptyList()` — the mix obscures which call is providing the fallback."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindOrEmptyAfterSafeCall$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findoremptyaftersafecall$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `x?.something.orEmpty()` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`x?.something.orEmpty()` mixes safe-call and a null-coalescing extension. Either drop the `?.` (if `x` is non-null) or chain through `?: emptyList()` — the mix obscures which call is providing the fallback.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindOrEmptyAfterSafeCall$KtRecipe","displayName":"Find `x?.something.orEmpty()` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

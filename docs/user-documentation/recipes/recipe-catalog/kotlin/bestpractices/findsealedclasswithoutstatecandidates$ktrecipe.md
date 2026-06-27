@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `sealed class` declarations that could be `sealed interface`"}
-  description={"A `sealed class` with no constructor parameters and no fields adds no expressive power over `sealed interface`. The interface form composes better (allows multiple inheritance, supports `data object` direct implementation, makes the no-state contract explicit)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindSealedClassWithoutStateCandidates$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findsealedclasswithoutstatecandidates$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `sealed class` declarations that could be `sealed interface`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `sealed class` with no constructor parameters and no fields adds no expressive power over `sealed interface`. The interface form composes better (allows multiple inheritance, supports `data object` direct implementation, makes the no-state contract explicit).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindSealedClassWithoutStateCandidates$KtRecipe","displayName":"Find `sealed class` declarations that could be `sealed interface`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

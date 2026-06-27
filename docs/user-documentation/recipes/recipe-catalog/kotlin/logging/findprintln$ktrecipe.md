@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `println(...)` calls"}
-  description={"`println` writes to stdout, which in containerized deployments lands in log files without structure, level filtering, or correlation IDs. Replace with a proper logger; if this is a CLI tool, consider the kotlin-logging level filter so tests can silence noisy output."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindPrintln$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findprintln$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `println(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`println` writes to stdout, which in containerized deployments lands in log files without structure, level filtering, or correlation IDs. Replace with a proper logger; if this is a CLI tool, consider the kotlin-logging level filter so tests can silence noisy output.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindPrintln$KtRecipe","displayName":"Find `println(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

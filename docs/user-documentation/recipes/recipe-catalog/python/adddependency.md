@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Python dependency"}
-  description={"Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.AddDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/adddependency.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add Python dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a dependency to a Python project. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageName","required":true,"description":"The PyPI package name to add.","example":"requests"},{"type":"String","name":"version","required":false,"description":"The PEP 508 version constraint (e.g., `>=2.28.0`).","example":">=2.28.0"},{"type":"String","name":"scope","required":false,"description":"The dependency scope to add to. For pyproject.toml this targets a specific TOML section. For requirements files, `null` matches all files, empty string matches only `requirements.txt`, and a value like `dev` matches `requirements-dev.txt`. Defaults to `project.dependencies`.","example":"project.dependencies"},{"type":"String","name":"groupName","required":false,"description":"The group name, required when scope is `project.optional-dependencies` or `dependency-groups`.","example":"dev"}]}>
 

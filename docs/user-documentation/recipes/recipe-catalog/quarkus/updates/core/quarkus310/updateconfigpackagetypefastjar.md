@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeFastJar"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeFastJar"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus310/updateconfigpackagetypefastjar.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add a Quarkus configuration property","href":"quarkus/addquarkusproperty"},{"name":"Delete Quarkus configuration property","href":"quarkus/deletequarkusproperty"}]} preconditions={[{"name":"Change Quarkus configuration property value","href":"quarkus/changequarkuspropertyvalue"}]}>
+<RecipeHeader.Title>io.quarkus.updates.core.quarkus310.UpdateConfigPackageTypeFastJar</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add a Quarkus configuration property","href":"/user-documentation/recipes/recipe-catalog/quarkus/addquarkusproperty/"},{"name":"Delete Quarkus configuration property","href":"/user-documentation/recipes/recipe-catalog/quarkus/deletequarkusproperty/"}]} preconditions={[{"name":"Change Quarkus configuration property value","href":"/user-documentation/recipes/recipe-catalog/quarkus/changequarkuspropertyvalue/"}]}>
 
 ## Definition
 

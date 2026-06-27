@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JUnit 4 assertion failure exceptions to JUnit Jupiter"}
-  description={"Replace JUnit 4's `junit.framework.AssertionFailedError` and `org.junit.ComparisonFailure` with JUnit Jupiter's `org.opentest4j.AssertionFailedError`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["junit","testing"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.MigrateAssertionFailedError"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/migrateassertionfailederror.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate JUnit 4 assertion failure exceptions to JUnit Jupiter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace JUnit 4's `junit.framework.AssertionFailedError` and `org.junit.ComparisonFailure` with JUnit Jupiter's `org.opentest4j.AssertionFailedError`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

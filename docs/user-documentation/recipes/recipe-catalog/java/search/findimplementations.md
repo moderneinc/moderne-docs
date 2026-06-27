@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find implementing classes"}
-  description={"Find class declarations which implement the specified type. If the specified type is a class, its subclasses will be matched. If the specified type is an interface, classes which implement it will be matched."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindImplementations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/findimplementations.md"}
-/>
+>
+
+<RecipeHeader.Title>Find implementing classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find class declarations which implement the specified type. If the specified type is a class, its subclasses will be matched. If the specified type is an interface, classes which implement it will be matched.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"typeName","required":true,"description":"The fully qualified name to search for.","example":"org.openrewrite.Recipe"}]}>
 

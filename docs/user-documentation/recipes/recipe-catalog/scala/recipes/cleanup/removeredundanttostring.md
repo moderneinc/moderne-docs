@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant `toString` on `String`"}
-  description={"Removes calls to `.toString` on expressions that are already of type `String`. Such calls are redundant."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.RemoveRedundantToString"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/removeredundanttostring.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant `toString` on `String`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes calls to `.toString` on expressions that are already of type `String`. Such calls are redundant.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val s = \"hello\".toString\n}\n","after":"class Example {\n    val s = \"hello\"\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Example {\n-   val s = \"hello\".toString\n+   val s = \"hello\"\n}\n","newFile":false}]}]}>
 

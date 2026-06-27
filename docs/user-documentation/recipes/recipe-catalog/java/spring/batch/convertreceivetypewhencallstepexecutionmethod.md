@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert receive type in some invocation of StepExecution.xx()"}
-  description={"Convert receive type in some invocation of StepExecution.xx()."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.ConvertReceiveTypeWhenCallStepExecutionMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/convertreceivetypewhencallstepexecutionmethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert receive type in some invocation of StepExecution.xx()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert receive type in some invocation of StepExecution.xx().</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package test;\n\nimport org.springframework.batch.core.JobExecution;\nimport org.springframework.batch.core.StepExecution;\npublic class ProfileUpdateWriter {\n\n    private void populateJobMetrics(JobExecution jobExecution) {\n      jobExecution.getStepExecutions().stream().map(StepExecution::getRollbackCount).mapToLong(Integer::longValue).sum();\n    }\n\n}\n","after":"package test;\n\nimport org.springframework.batch.core.JobExecution;\nimport org.springframework.batch.core.StepExecution;\npublic class ProfileUpdateWriter {\n\n    private void populateJobMetrics(JobExecution jobExecution) {\n      jobExecution.getStepExecutions().stream().map(_stepExecution -> (int) _stepExecution.getRollbackCount()).mapToLong(Integer::longValue).sum();\n    }\n\n}\n","diff":"@@ -8,1 +8,1 @@\n\n    private void populateJobMetrics(JobExecution jobExecution) {\n-     jobExecution.getStepExecutions().stream().map(StepExecution::getRollbackCount).mapToLong(Integer::longValue).sum();\n+     jobExecution.getStepExecutions().stream().map(_stepExecution -> (int) _stepExecution.getRollbackCount()).mapToLong(Integer::longValue).sum();\n    }\n","newFile":false}]}]}>
 

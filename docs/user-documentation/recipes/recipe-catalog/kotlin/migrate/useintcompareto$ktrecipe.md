@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Int.compareTo` instead of `java.lang.Integer.compare`"}
-  description={"`Integer.compare(a, b)` is the JVM-only static comparator; the multiplatform `a.compareTo(b)` reads as a receiver call and returns the same `Int` ordering."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseIntCompareTo$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintcompareto$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Int.compareTo` instead of `java.lang.Integer.compare`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Integer.compare(a, b)` is the JVM-only static comparator; the multiplatform `a.compareTo(b)` reads as a receiver call and returns the same `Int` ordering.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseIntCompareTo$KtRecipe","displayName":"Use `Int.compareTo` instead of `java.lang.Integer.compare`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

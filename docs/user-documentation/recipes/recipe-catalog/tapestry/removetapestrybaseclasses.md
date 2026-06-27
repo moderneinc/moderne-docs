@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Tapestry 4 base classes"}
-  description={"Removes Tapestry 4 base class inheritance (`BasePage`, `BaseComponent`, `AbstractComponent`) and converts the class to a POJO suitable for Tapestry 5. Abstract getter/setter methods are converted to fields with `@Property` annotation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.tapestry.RemoveTapestryBaseClasses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/tapestry/removetapestrybaseclasses.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove Tapestry 4 base classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes Tapestry 4 base class inheritance (`BasePage`, `BaseComponent`, `AbstractComponent`) and converts the class to a POJO suitable for Tapestry 5. Abstract getter/setter methods are converted to fields with `@Property` annotation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.tapestry.html.BasePage;\n\npublic abstract class Home extends BasePage {\n    public String getMessage() {\n        return \"Hello\";\n    }\n}\n","after":"public class Home {\n    public String getMessage() {\n        return \"Hello\";\n    }\n}\n","diff":"@@ -1,3 +1,1 @@\n-import org.apache.tapestry.html.BasePage;\n-\n-public abstract class Home extends BasePage {\n+public class Home {\n    public String getMessage() {\n","newFile":false}]}]}>
 

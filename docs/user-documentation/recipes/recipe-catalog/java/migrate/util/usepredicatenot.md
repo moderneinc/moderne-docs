@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Predicate.not(..)` over casting to `Predicate` and calling `negate()`"}
-  description={"Replace `((Predicate<T>) lambdaOrMethodRef).negate()` with `Predicate.not(lambdaOrMethodRef)` as of Java 11."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.UsePredicateNot"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/usepredicatenot.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Predicate.not(..)` over casting to `Predicate` and calling `negate()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `((Predicate<T>) lambdaOrMethodRef).negate()` with `Predicate.not(lambdaOrMethodRef)` as of Java 11.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.function.Predicate;\n\nclass A {\n    Predicate<String> notEmpty = ((Predicate<String>) String::isEmpty).negate();\n}\n","after":"import java.util.function.Predicate;\n\nclass A {\n    Predicate<String> notEmpty = Predicate.not(String::isEmpty);\n}\n","diff":"@@ -4,1 +4,1 @@\n\nclass A {\n-   Predicate<String> notEmpty = ((Predicate<String>) String::isEmpty).negate();\n+   Predicate<String> notEmpty = Predicate.not(String::isEmpty);\n}\n","newFile":false}]}]}>
 

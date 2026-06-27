@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace all `EventLoopGroup`s with `MultiThreadIoEventLoopGroup`"}
-  description={"Replaces Netty's `new *EventLoopGroup` with `new MultiThreadIoEventLoopGroup(*IoHandler.newFactory())`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["netty"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-netty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.netty.EventLoopGroupToMultiThreadIoEventLoopGroupRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/netty/eventloopgrouptomultithreadioeventloopgrouprecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `EpollEventLoopGroup` with `MultiThreadIoEventLoopGroup`","href":"java/netty/eventloopgrouptomultithreadioeventloopgrouprecipes$epolleventloopgroupfactoryrecipe"},{"name":"Replace `LocalEventLoopGroup` with `MultiThreadIoEventLoopGroup`","href":"java/netty/eventloopgrouptomultithreadioeventloopgrouprecipes$localeventloopgroupfactoryrecipe"},{"name":"Replace `NioEventLoopGroup` with `MultiThreadIoEventLoopGroup`","href":"java/netty/eventloopgrouptomultithreadioeventloopgrouprecipes$nioeventloopgroupfactoryrecipe"}]}>
+<RecipeHeader.Title>Replace all `EventLoopGroup`s with `MultiThreadIoEventLoopGroup`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces Netty's `new *EventLoopGroup` with `new MultiThreadIoEventLoopGroup(*IoHandler.newFactory())`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `EpollEventLoopGroup` with `MultiThreadIoEventLoopGroup`","href":"/user-documentation/recipes/recipe-catalog/java/netty/eventloopgrouptomultithreadioeventloopgrouprecipes$epolleventloopgroupfactoryrecipe/"},{"name":"Replace `LocalEventLoopGroup` with `MultiThreadIoEventLoopGroup`","href":"/user-documentation/recipes/recipe-catalog/java/netty/eventloopgrouptomultithreadioeventloopgrouprecipes$localeventloopgroupfactoryrecipe/"},{"name":"Replace `NioEventLoopGroup` with `MultiThreadIoEventLoopGroup`","href":"/user-documentation/recipes/recipe-catalog/java/netty/eventloopgrouptomultithreadioeventloopgrouprecipes$nioeventloopgroupfactoryrecipe/"}]}>
 
 ## Definition
 

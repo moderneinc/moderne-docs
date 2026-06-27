@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Maven dependency exclusion"}
-  description={"Modify Maven dependency exclusions, changing the group ID, artifact Id, or both. Useful when an excluded dependency has been renamed and references to it must be updated."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ChangeExclusion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/changeexclusion.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Maven dependency exclusion</RecipeHeader.Title>
+
+<RecipeHeader.Description>Modify Maven dependency exclusions, changing the group ID, artifact Id, or both. Useful when an excluded dependency has been renamed and references to it must be updated.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldGroupId","required":true,"description":"The old groupId to replace. Supports glob expressions.","example":"org.springframework"},{"type":"String","name":"oldArtifactId","required":true,"description":"The old artifactId to replace. Supports glob expressions.","example":"spring-web*"},{"type":"String","name":"newGroupId","required":false,"description":"The new groupId to use. Defaults to the existing group id.","example":"org.springframework.boot"},{"type":"String","name":"newArtifactId","required":false,"description":"The new artifactId to use. Defaults to the existing artifact id.","example":"spring-boot-starter-web"}]}>
 

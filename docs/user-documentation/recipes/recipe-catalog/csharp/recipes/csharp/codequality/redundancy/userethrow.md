@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use rethrow instead of throw ex"}
-  description={"Replace `throw ex;` with `throw;` inside catch clauses when `ex` is the caught exception variable. A bare `throw` preserves the original stack trace."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UseRethrow"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/userethrow.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use rethrow instead of throw ex</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `throw ex;` with `throw;` inside catch clauses when `ex` is the caught exception variable. A bare `throw` preserves the original stack trace.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UseRethrow","displayName":"Use rethrow instead of throw ex","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

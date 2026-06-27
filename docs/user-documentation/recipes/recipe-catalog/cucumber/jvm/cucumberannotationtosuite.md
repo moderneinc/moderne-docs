@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `@Cucumber` with `@Suite`"}
-  description={"Replace `@Cucumber` with `@Suite` and `@SelectClasspathResource(\"cucumber/annotated/class/package\")`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-cucumber-jvm"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.CucumberAnnotationToSuite"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberannotationtosuite.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `@Cucumber` with `@Suite`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `@Cucumber` with `@Suite` and `@SelectClasspathResource("cucumber/annotated/class/package")`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.app;\n\nimport io.cucumber.junit.platform.engine.Cucumber;\n\n@Cucumber\npublic class CucumberJava8Definitions {\n}\n","after":"package com.example.app;\n\nimport org.junit.platform.suite.api.SelectClasspathResource;\nimport org.junit.platform.suite.api.Suite;\n\n@Suite\n@SelectClasspathResource(\"com/example/app\")\npublic class CucumberJava8Definitions {\n}\n","diff":"@@ -3,1 +3,2 @@\npackage com.example.app;\n\n-import io.cucumber.junit.platform.engine.Cucumber;\n+import org.junit.platform.suite.api.SelectClasspathResource;\n+import org.junit.platform.suite.api.Suite;\n\n@@ -5,1 +6,2 @@\nimport io.cucumber.junit.platform.engine.Cucumber;\n\n-@Cucumber\n+@Suite\n+@SelectClasspathResource(\"com/example/app\")\npublic class CucumberJava8Definitions {\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Angular 8"}
-  description={"Migrates Angular 7.x applications to Angular 8. This includes adding the now-required `static: false` to `@ViewChild` and `@ContentChild` decorators, moving the `DOCUMENT` import from `@angular/platform-browser` to `@angular/common`, removing `rxjs-compat` and flagging any remaining RxJS 5-style imports, flagging removed `@angular/http` imports, converting deprecated string-based `loadChildren` to dynamic imports, and upgrading Angular, TypeScript, and related dependency versions."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.UpgradeToAngular8"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/upgradetoangular8.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add `static: false` to view queries","href":"angular/migration/add-static-false-to-view-queries"},{"name":"Move `DOCUMENT` import to `@angular/common`","href":"angular/migration/move-document-import"},{"name":"Find RxJS 5-style imports requiring `rxjs-compat`","href":"angular/search/find-rxjs-compat-usage"},{"name":"Replace string-based `loadChildren` with dynamic `import()`","href":"angular/migration/replace-load-children-string"},{"name":"Find removed `@angular/http` usage","href":"angular/search/find-angular-http-usage"},{"name":"Find removed `@angular/platform-webworker` usage","href":"angular/search/find-platform-webworker-usage"},{"name":"Remove npm dependency","href":"javascript/removedependency"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Upgrade to Angular 8</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Angular 7.x applications to Angular 8. This includes adding the now-required `static: false` to `@ViewChild` and `@ContentChild` decorators, moving the `DOCUMENT` import from `@angular/platform-browser` to `@angular/common`, removing `rxjs-compat` and flagging any remaining RxJS 5-style imports, flagging removed `@angular/http` imports, converting deprecated string-based `loadChildren` to dynamic imports, and upgrading Angular, TypeScript, and related dependency versions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add `static: false` to view queries","href":"/user-documentation/recipes/recipe-catalog/angular/migration/add-static-false-to-view-queries/"},{"name":"Move `DOCUMENT` import to `@angular/common`","href":"/user-documentation/recipes/recipe-catalog/angular/migration/move-document-import/"},{"name":"Find RxJS 5-style imports requiring `rxjs-compat`","href":"/user-documentation/recipes/recipe-catalog/angular/search/find-rxjs-compat-usage/"},{"name":"Replace string-based `loadChildren` with dynamic `import()`","href":"/user-documentation/recipes/recipe-catalog/angular/migration/replace-load-children-string/"},{"name":"Find removed `@angular/http` usage","href":"/user-documentation/recipes/recipe-catalog/angular/search/find-angular-http-usage/"},{"name":"Find removed `@angular/platform-webworker` usage","href":"/user-documentation/recipes/recipe-catalog/angular/search/find-platform-webworker-usage/"},{"name":"Remove npm dependency","href":"/user-documentation/recipes/recipe-catalog/javascript/removedependency/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"}]}>
 
 ## Definition
 

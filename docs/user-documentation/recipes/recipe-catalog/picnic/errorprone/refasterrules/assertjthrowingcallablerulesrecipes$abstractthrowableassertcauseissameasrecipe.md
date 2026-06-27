@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertCauseIsSameAs`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractThrowableAssertCauseIsSameAs {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"deprecation\")\n    AbstractThrowableAssert<?, ? extends Throwable> before(AbstractThrowableAssert<?, ? extends Throwable> throwableAssert, Throwable expected) {\n        return throwableAssert.hasCauseReference(expected);\n    }\n    \n    @AfterTemplate\n    AbstractThrowableAssert<?, ? extends Throwable> after(AbstractThrowableAssert<?, ? extends Throwable> throwableAssert, Throwable expected) {\n        return throwableAssert.cause().isSameAs(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AbstractThrowableAssertCauseIsSameAsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$abstractthrowableassertcauseissameasrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertCauseIsSameAs`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractThrowableAssertCauseIsSameAs {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "deprecation")
+    AbstractThrowableAssert<?, ? extends Throwable> before(AbstractThrowableAssert<?, ? extends Throwable> throwableAssert, Throwable expected) {
+        return throwableAssert.hasCauseReference(expected);
+    }
+    
+    @AfterTemplate
+    AbstractThrowableAssert<?, ? extends Throwable> after(AbstractThrowableAssert<?, ? extends Throwable> throwableAssert, Throwable expected) {
+        return throwableAssert.cause().isSameAs(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AbstractThrowableAssertCauseIsSameAsRecipe","displayName":"Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertCauseIsSameAs`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

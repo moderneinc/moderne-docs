@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate method when it annotated by Spring Batch API"}
-  description={"Migrate method when it annotated by Spring Batch API."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.MigrateMethodAnnotatedByBatchAPI"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/migratemethodannotatedbybatchapi.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate method when it annotated by Spring Batch API</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate method when it annotated by Spring Batch API.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\nimport org.springframework.batch.core.annotation.BeforeWrite;\n\npublic class ProfileUpdateWriter {\n\n    @BeforeWrite\n    public void write(List<? extends List<String>> items) throws Exception {\n        for (List<String> subList : items) {\n        }\n    }\n\n}\n","after":"import java.util.List;\nimport org.springframework.batch.core.annotation.BeforeWrite;\nimport org.springframework.batch.item.Chunk;\n\npublic class ProfileUpdateWriter {\n\n    @BeforeWrite\n    public void write(Chunk<? extends List<String>> _chunk) throws Exception {\n        List<? extends List<String>> items = _chunk.getItems();\n        for (List<String> subList : items) {\n        }\n    }\n\n}\n","diff":"@@ -3,0 +3,1 @@\nimport java.util.List;\nimport org.springframework.batch.core.annotation.BeforeWrite;\n+import org.springframework.batch.item.Chunk;\n\n@@ -7,1 +8,2 @@\n\n    @BeforeWrite\n-   public void write(List<? extends List<String>> items) throws Exception {\n+   public void write(Chunk<? extends List<String>> _chunk) throws Exception {\n+       List<? extends List<String>> items = _chunk.getItems();\n        for (List<String> subList : items) {\n","newFile":false}]}]}>
 

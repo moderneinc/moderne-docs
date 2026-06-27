@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Hibernate `Integrator#integrate` method"}
-  description={"Migrate Hibernate `Integrator#integrate` method from deprecated signature to Hibernate 7 compatible signature. Changes `integrate(Metadata, SessionFactoryImplementor, SessionFactoryServiceRegistry)` to `integrate(Metadata, BootstrapContext, SessionFactoryImplementor)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.MigrateIntegratorMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/migrateintegratormethod.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Hibernate `Integrator#integrate` method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Hibernate `Integrator#integrate` method from deprecated signature to Hibernate 7 compatible signature. Changes `integrate(Metadata, SessionFactoryImplementor, SessionFactoryServiceRegistry)` to `integrate(Metadata, BootstrapContext, SessionFactoryImplementor)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.boot.Metadata;\nimport org.hibernate.engine.spi.SessionFactoryImplementor;\nimport org.hibernate.integrator.spi.Integrator;\nimport org.hibernate.service.Service;\nimport org.hibernate.service.spi.SessionFactoryServiceRegistry;\n\nclass ServiceRegistryUsingIntegrator implements Integrator {\n    @Override\n    public void integrate(Metadata metadata,\n                        SessionFactoryImplementor sessionFactory,\n                        SessionFactoryServiceRegistry serviceRegistry) {\n        SomeService service = serviceRegistry.getService(SomeService.class);\n    }\n\n    static class SomeService implements Service {\n    }\n}\n","after":"import org.hibernate.boot.Metadata;\nimport org.hibernate.boot.spi.BootstrapContext;\nimport org.hibernate.engine.spi.SessionFactoryImplementor;\nimport org.hibernate.integrator.spi.Integrator;\nimport org.hibernate.service.Service;\nimport org.hibernate.service.ServiceRegistry;\n\nclass ServiceRegistryUsingIntegrator implements Integrator {\n    @Override\n    public void integrate(Metadata metadata,\n                        BootstrapContext bootstrapContext,\n                        SessionFactoryImplementor sessionFactory) {\n        ServiceRegistry serviceRegistry = bootstrapContext.getServiceRegistry();\n        SomeService service = serviceRegistry.getService(SomeService.class);\n    }\n\n    static class SomeService implements Service {\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.hibernate.boot.Metadata;\n+import org.hibernate.boot.spi.BootstrapContext;\nimport org.hibernate.engine.spi.SessionFactoryImplementor;\n@@ -5,1 +6,1 @@\nimport org.hibernate.integrator.spi.Integrator;\nimport org.hibernate.service.Service;\n-import org.hibernate.service.spi.SessionFactoryServiceRegistry;\n+import org.hibernate.service.ServiceRegistry;\n\n@@ -10,2 +11,3 @@\n    @Override\n    public void integrate(Metadata metadata,\n-                       SessionFactoryImplementor sessionFactory,\n-                       SessionFactoryServiceRegistry serviceRegistry) {\n+                       BootstrapContext bootstrapContext,\n+                       SessionFactoryImplementor sessionFactory) {\n+       ServiceRegistry serviceRegistry = bootstrapContext.getServiceRegistry();\n        SomeService service = serviceRegistry.getService(SomeService.class);\n","newFile":false}]}]}>
 

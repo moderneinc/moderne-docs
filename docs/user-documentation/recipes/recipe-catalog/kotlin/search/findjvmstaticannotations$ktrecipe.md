@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@JvmStatic` annotations"}
-  description={"`@JvmStatic` declares a member function that should appear as a JVM static — a Java-interop affordance. Each annotation is a hint that the API is consumed from Java code, which constrains how it can evolve."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindJvmStaticAnnotations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findjvmstaticannotations$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@JvmStatic` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@JvmStatic` declares a member function that should appear as a JVM static — a Java-interop affordance. Each annotation is a hint that the API is consumed from Java code, which constrains how it can evolve.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindJvmStaticAnnotations$KtRecipe","displayName":"Find `@JvmStatic` annotations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

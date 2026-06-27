@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Python test coverage"}
-  description={"Identify test methods in Python test files. Detects pytest test functions/classes, unittest.TestCase subclasses, and behave/pytest-bdd/lettuce BDD step definitions, and populates the TestMapping table."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindPythonTestCoverage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findpythontestcoverage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Python test coverage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify test methods in Python test files. Detects pytest test functions/classes, unittest.TestCase subclasses, and behave/pytest-bdd/lettuce BDD step definitions, and populates the TestMapping table.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"pyproject","code":"[project]\nname = \"test-app\"\nversion = \"0.1.0\"\ndependencies = [\"pytest>=7.0\"]\n"},"variants":[]}]}>
 

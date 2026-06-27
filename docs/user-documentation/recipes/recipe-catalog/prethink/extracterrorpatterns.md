@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Extract error handling patterns"}
-  description={"Analyze the codebase to extract error handling patterns including exception types, handling strategies, and logging frameworks used."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.ExtractErrorPatterns"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/extracterrorpatterns.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Extract error handling patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Analyze the codebase to extract error handling patterns including exception types, handling strategies, and logging frameworks used.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.ExtractErrorPatterns","displayName":"Extract error handling patterns","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

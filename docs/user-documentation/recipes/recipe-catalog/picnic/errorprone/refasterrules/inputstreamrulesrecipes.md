@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`InputStreamRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `InputStream`s.\n[Source](https://error-prone.picnic.tech/refasterrules/InputStreamRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.InputStreamRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/inputstreamrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `InputStreamRules.InputStreamTransferTo`","href":"picnic/errorprone/refasterrules/inputstreamrulesrecipes$inputstreamtransfertorecipe"},{"name":"Refaster template `InputStreamRules.InputStreamReadAllBytes`","href":"picnic/errorprone/refasterrules/inputstreamrulesrecipes$inputstreamreadallbytesrecipe"},{"name":"Refaster template `InputStreamRules.InputStreamReadNBytes`","href":"picnic/errorprone/refasterrules/inputstreamrulesrecipes$inputstreamreadnbytesrecipe"},{"name":"Refaster template `InputStreamRules.InputStreamSkipNBytes`","href":"picnic/errorprone/refasterrules/inputstreamrulesrecipes$inputstreamskipnbytesrecipe"}]}>
+<RecipeHeader.Title>`InputStreamRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `InputStream`s. [Source](https://error-prone.picnic.tech/refasterrules/InputStreamRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `InputStreamRules.InputStreamTransferTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/inputstreamrulesrecipes$inputstreamtransfertorecipe/"},{"name":"Refaster template `InputStreamRules.InputStreamReadAllBytes`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/inputstreamrulesrecipes$inputstreamreadallbytesrecipe/"},{"name":"Refaster template `InputStreamRules.InputStreamReadNBytes`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/inputstreamrulesrecipes$inputstreamreadnbytesrecipe/"},{"name":"Refaster template `InputStreamRules.InputStreamSkipNBytes`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/inputstreamrulesrecipes$inputstreamskipnbytesrecipe/"}]}>
 
 ## Definition
 

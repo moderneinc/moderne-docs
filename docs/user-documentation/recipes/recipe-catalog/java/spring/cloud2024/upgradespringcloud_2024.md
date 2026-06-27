@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Cloud 2024"}
-  description={"Migrate applications to the latest Spring Cloud 2024 (Moorgate) release."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","cloud"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.cloud2024.UpgradeSpringCloud_2024"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/cloud2024/upgradespringcloud_2024.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade dependencies to Spring Cloud 2024","href":"java/spring/cloud2024/dependencyupgrades"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Cloud 2024</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Cloud 2024 (Moorgate) release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade dependencies to Spring Cloud 2024","href":"/user-documentation/recipes/recipe-catalog/java/spring/cloud2024/dependencyupgrades/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

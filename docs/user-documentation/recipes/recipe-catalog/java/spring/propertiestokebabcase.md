@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Normalize Spring properties to kebab-case"}
-  description={"Normalize Spring properties to use lowercase and hyphen-separated syntax.  For example, changing `spring.main.showBanner` to `spring.main.show-banner`.  With [Spring's relaxed binding](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding),  `kebab-case` may be used in properties files and still be converted to configuration beans.  Note, an exception to this is the case of `@Value`, which is match-sensitive. For example, `@Value(\"${anExampleValue}\")` will not match `an-example-value`.  [The Spring reference documentation recommends using `kebab-case` for properties where possible](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding)."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.PropertiesToKebabCase"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/propertiestokebabcase.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Normalize Spring `application*.{yml,yaml}` properties to kebab-case","href":"java/spring/propertiestokebabcaseyaml"},{"name":"Normalize Spring `application*.properties` properties to kebab-case","href":"java/spring/propertiestokebabcaseproperties"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Normalize Spring properties to kebab-case</RecipeHeader.Title>
+
+<RecipeHeader.Description>Normalize Spring properties to use lowercase and hyphen-separated syntax.  For example, changing `spring.main.showBanner` to `spring.main.show-banner`.  With [Spring's relaxed binding](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding),  `kebab-case` may be used in properties files and still be converted to configuration beans.  Note, an exception to this is the case of `@Value`, which is match-sensitive. For example, `@Value("${anExampleValue}")` will not match `an-example-value`.  [The Spring reference documentation recommends using `kebab-case` for properties where possible](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Normalize Spring `application*.{yml,yaml}` properties to kebab-case","href":"/user-documentation/recipes/recipe-catalog/java/spring/propertiestokebabcaseyaml/"},{"name":"Normalize Spring `application*.properties` properties to kebab-case","href":"/user-documentation/recipes/recipe-catalog/java/spring/propertiestokebabcaseproperties/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

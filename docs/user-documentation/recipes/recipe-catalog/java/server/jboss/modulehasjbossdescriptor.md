@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Module has JBoss descriptor"}
-  description={"Searches for modules containing JBoss descriptor files (`jboss-web.xml`, `jboss-deployment-structure.xml`). Places a `SearchResult` marker on all source files within a module with a JBoss descriptor. This recipe is intended to be used as a precondition for other recipes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.ModuleHasJBossDescriptor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/modulehasjbossdescriptor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Module has JBoss descriptor</RecipeHeader.Title>
+
+<RecipeHeader.Description>Searches for modules containing JBoss descriptor files (`jboss-web.xml`, `jboss-deployment-structure.xml`). Places a `SearchResult` marker on all source files within a module with a JBoss descriptor. This recipe is intended to be used as a precondition for other recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"xml","code":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>parent</artifactId>\n    <version>1.0.0</version>\n    <packaging>pom</packaging>\n    <modules>\n        <module>my-app</module>\n        <module>other-module</module>\n    </modules>\n</project>\n"},"variants":[{"language":"xml","before":"<jboss-web>\n    <context-root>/myapp</context-root>\n</jboss-web>\n","after":"<!--~~(Module has JBoss descriptor)~~>--><jboss-web>\n    <context-root>/myapp</context-root>\n</jboss-web>\n","diff":"@@ -1,1 +1,1 @@\n-<jboss-web>\n+<!--~~(Module has JBoss descriptor)~~>--><jboss-web>\n    <context-root>/myapp</context-root>\n","newFile":false},{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <parent>\n        <groupId>com.example</groupId>\n        <artifactId>parent</artifactId>\n        <version>1.0.0</version>\n    </parent>\n    <artifactId>my-app</artifactId>\n    <packaging>war</packaging>\n</project>\n","after":"<!--~~(Module has JBoss descriptor)~~>--><project>\n    <modelVersion>4.0.0</modelVersion>\n    <parent>\n        <groupId>com.example</groupId>\n        <artifactId>parent</artifactId>\n        <version>1.0.0</version>\n    </parent>\n    <artifactId>my-app</artifactId>\n    <packaging>war</packaging>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -1,1 +1,1 @@\n-<project>\n+<!--~~(Module has JBoss descriptor)~~>--><project>\n    <modelVersion>4.0.0</modelVersion>\n","newFile":false}]}]}>
 

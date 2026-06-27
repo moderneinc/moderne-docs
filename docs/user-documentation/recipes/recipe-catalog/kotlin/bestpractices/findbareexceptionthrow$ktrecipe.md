@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `throw Exception(\"…\")` calls"}
-  description={"Throwing bare `Exception` (or `RuntimeException`) loses information that a more specific type would carry. Prefer `IllegalArgumentException` (bad input), `IllegalStateException` (object in wrong state), or a domain-specific subclass."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindBareExceptionThrow$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbareexceptionthrow$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `throw Exception("…")` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Throwing bare `Exception` (or `RuntimeException`) loses information that a more specific type would carry. Prefer `IllegalArgumentException` (bad input), `IllegalStateException` (object in wrong state), or a domain-specific subclass.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindBareExceptionThrow$KtRecipe","displayName":"Find `throw Exception(\"…\")` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

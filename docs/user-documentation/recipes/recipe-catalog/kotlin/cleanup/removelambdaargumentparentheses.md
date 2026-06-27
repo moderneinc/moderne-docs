@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove method invocation parentheses around single lambda argument"}
-  description={"For example, convert `1.let({ it + 1 })` to `1.let { it + 1 }`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-kotlin"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.cleanup.RemoveLambdaArgumentParentheses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/cleanup/removelambdaargumentparentheses.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove method invocation parentheses around single lambda argument</RecipeHeader.Title>
+
+<RecipeHeader.Description>For example, convert `1.let({ it + 1 })` to `1.let { it + 1 }`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"fun method(number: Int) {\n    val foo = number.let({ it + 1 })\n}\n","after":"fun method(number: Int) {\n    val foo = number.let { it + 1 }\n}\n","diff":"@@ -2,1 +2,1 @@\nfun method(number: Int) {\n-   val foo = number.let({ it + 1 })\n+   val foo = number.let { it + 1 }\n}\n","newFile":false}]}]}>
 

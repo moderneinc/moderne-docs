@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use JUnit Jupiter `@TempDir`"}
-  description={"Translates JUnit 4's `org.junit.rules.TemporaryFolder` into JUnit 5's `org.junit.jupiter.api.io.TempDir`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.TemporaryFolderToTempDir"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/temporaryfoldertotempdir.md"}
-/>
+>
+
+<RecipeHeader.Title>Use JUnit Jupiter `@TempDir`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Translates JUnit 4's `org.junit.rules.TemporaryFolder` into JUnit 5's `org.junit.jupiter.api.io.TempDir`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"import org.junit.Rule\nimport org.junit.rules.TemporaryFolder\n\nclass AbstractIntegrationTest {\n    @Rule\n    TemporaryFolder temporaryFolder = new TemporaryFolder()\n\n    def setup() {\n        projectDir = temporaryFolder.root\n        buildFile = temporaryFolder.newFile('build.gradle')\n        settingsFile = temporaryFolder.newFile('settings.gradle')\n    }\n}\n","after":"import org.junit.Rule\nimport org.junit.rules.TemporaryFolder\n\nimport java.io.File\nimport java.io.IOException\n\nclass AbstractIntegrationTest {\n    @TempDir\n    File temporaryFolder\n\n    def setup() {\n        projectDir = temporaryFolder.root\n        buildFile = newFile(temporaryFolder, 'build.gradle')\n        settingsFile = newFile(temporaryFolder, 'settings.gradle')\n    }\n\n    private static File newFile(File parent, String child) throws IOException {\n        File result = new File(parent, child)\n        result.createNewFile()\n        return result\n    }\n}\n","diff":"@@ -4,0 +4,3 @@\nimport org.junit.rules.TemporaryFolder\n\n+import java.io.File\n+import java.io.IOException\n+\nclass AbstractIntegrationTest {\n@@ -5,2 +8,2 @@\n\nclass AbstractIntegrationTest {\n-   @Rule\n-   TemporaryFolder temporaryFolder = new TemporaryFolder()\n+   @TempDir\n+   File temporaryFolder\n\n@@ -10,2 +13,2 @@\n    def setup() {\n        projectDir = temporaryFolder.root\n-       buildFile = temporaryFolder.newFile('build.gradle')\n-       settingsFile = temporaryFolder.newFile('settings.gradle')\n+       buildFile = newFile(temporaryFolder, 'build.gradle')\n+       settingsFile = newFile(temporaryFolder, 'settings.gradle')\n    }\n@@ -13,0 +16,6 @@\n        settingsFile = temporaryFolder.newFile('settings.gradle')\n    }\n+\n+   private static File newFile(File parent, String child) throws IOException {\n+       File result = new File(parent, child)\n+       result.createNewFile()\n+       return result\n+   }\n}\n","newFile":false}]}]}>
 

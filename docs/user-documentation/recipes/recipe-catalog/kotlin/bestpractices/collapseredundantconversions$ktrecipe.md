@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Collapse redundant collection / string conversions"}
-  description={"Drops needless `toList()`/`toMutableList()`/`toSet()`/`toTypedArray()` round-trips and `trimStart().trimEnd()`-style chains that allocate one or more intermediate copies. The replacement performs the same conversion in one pass."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.CollapseRedundantConversions$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/collapseredundantconversions$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `toSet()` instead of `distinct().toSet()`","href":"kotlin/bestpractices/usetosetfordistinctthentoset$ktrecipe"},{"name":"Use `toSet()` instead of `toList().toSet()`","href":"kotlin/bestpractices/usetosetfortolistthentoset$ktrecipe"},{"name":"Use `toList()` instead of `toMutableList().toList()`","href":"kotlin/bestpractices/usetolistfortomutablelistthentolist$ktrecipe"},{"name":"Use `toTypedArray()` instead of `toList().toTypedArray()`","href":"kotlin/bestpractices/usetotypedarrayfortolistthentotypedarray$ktrecipe"},{"name":"Use `distinct()` instead of `toSet().toList()`","href":"kotlin/bestpractices/usetolistfortosetthentolist$ktrecipe"},{"name":"Use `trim()` instead of `trimStart().trimEnd()`","href":"kotlin/bestpractices/usetrimfortrimstartthentrimend$ktrecipe"},{"name":"Use `trim()` instead of `trimEnd().trimStart()`","href":"kotlin/bestpractices/usetrimfortrimendthentrimstart$ktrecipe"},{"name":"Drop redundant `String.toString()`","href":"kotlin/bestpractices/usetostringforstringtostring$ktrecipe"}]}>
+<RecipeHeader.Title>Collapse redundant collection / string conversions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Drops needless `toList()`/`toMutableList()`/`toSet()`/`toTypedArray()` round-trips and `trimStart().trimEnd()`-style chains that allocate one or more intermediate copies. The replacement performs the same conversion in one pass.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `toSet()` instead of `distinct().toSet()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetosetfordistinctthentoset$ktrecipe/"},{"name":"Use `toSet()` instead of `toList().toSet()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetosetfortolistthentoset$ktrecipe/"},{"name":"Use `toList()` instead of `toMutableList().toList()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetolistfortomutablelistthentolist$ktrecipe/"},{"name":"Use `toTypedArray()` instead of `toList().toTypedArray()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetotypedarrayfortolistthentotypedarray$ktrecipe/"},{"name":"Use `distinct()` instead of `toSet().toList()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetolistfortosetthentolist$ktrecipe/"},{"name":"Use `trim()` instead of `trimStart().trimEnd()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetrimfortrimstartthentrimend$ktrecipe/"},{"name":"Use `trim()` instead of `trimEnd().trimStart()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetrimfortrimendthentrimstart$ktrecipe/"},{"name":"Drop redundant `String.toString()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetostringforstringtostring$ktrecipe/"}]}>
 
 ## Definition
 

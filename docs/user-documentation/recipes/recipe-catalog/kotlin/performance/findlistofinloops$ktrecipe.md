@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `listOf(...)` calls inside loops"}
-  description={"An immutable `listOf(...)` built inside a loop allocates a fresh list every iteration. If the contents are constant, hoist the list to a `val` outside the loop. If the contents change per iteration, the allocation is necessary — review and accept."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindListOfInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findlistofinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `listOf(...)` calls inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>An immutable `listOf(...)` built inside a loop allocates a fresh list every iteration. If the contents are constant, hoist the list to a `val` outside the loop. If the contents change per iteration, the allocation is necessary — review and accept.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindListOfInLoops$KtRecipe","displayName":"Find `listOf(...)` calls inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

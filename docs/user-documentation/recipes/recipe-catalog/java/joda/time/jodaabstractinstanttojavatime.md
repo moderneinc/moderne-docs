@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Joda-Time `AbstractInstant` to Java time"}
-  description={"Migrates Joda-Time `AbstractInstant` method calls to their Java time equivalents."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-joda"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.joda.time.JodaAbstractInstantToJavaTime"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/joda/time/jodaabstractinstanttojavatime.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Joda-Time `AbstractInstant` to Java time</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Joda-Time `AbstractInstant` method calls to their Java time equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.joda.time.JodaAbstractInstantToJavaTime","displayName":"Migrate Joda-Time `AbstractInstant` to Java time","groupId":"org.openrewrite.recipe","artifactId":"rewrite-joda","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JODA","requiresConfiguration":false}}>
 

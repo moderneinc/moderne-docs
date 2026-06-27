@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `@JoinTable` to `@CollectionTable` for element collections"}
-  description={"Replaces `@JoinTable` with `@CollectionTable` when used alongside `@CollectionOfElements` or `@ElementCollection`. `@CollectionTable` is the JPA 2.0 standard for defining the table that stores element collections. When `inverseJoinColumns` is present, its column name is preserved as a `@Column` annotation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update40.MigrateJoinTableToCollectionTable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update40/migratejointabletocollectiontable.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `@JoinTable` to `@CollectionTable` for element collections</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `@JoinTable` with `@CollectionTable` when used alongside `@CollectionOfElements` or `@ElementCollection`. `@CollectionTable` is the JPA 2.0 standard for defining the table that stores element collections. When `inverseJoinColumns` is present, its column name is preserved as a `@Column` annotation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.annotations.CollectionOfElements;\nimport javax.persistence.JoinTable;\nimport javax.persistence.JoinColumn;\nimport java.util.Set;\n\npublic class Person {\n    @CollectionOfElements\n    @JoinTable(name = \"person_addresses\", joinColumns = @JoinColumn(name = \"person_id\"))\n    private Set<String> addresses;\n}\n","after":"import org.hibernate.annotations.CollectionOfElements;\n\nimport javax.persistence.CollectionTable;\nimport javax.persistence.JoinColumn;\nimport java.util.Set;\n\npublic class Person {\n    @CollectionOfElements\n    @CollectionTable(name = \"person_addresses\", joinColumns = @JoinColumn(name = \"person_id\"))\n    private Set<String> addresses;\n}\n","diff":"@@ -2,1 +2,2 @@\nimport org.hibernate.annotations.CollectionOfElements;\n-import javax.persistence.JoinTable;\n+\n+import javax.persistence.CollectionTable;\nimport javax.persistence.JoinColumn;\n@@ -8,1 +9,1 @@\npublic class Person {\n    @CollectionOfElements\n-   @JoinTable(name = \"person_addresses\", joinColumns = @JoinColumn(name = \"person_id\"))\n+   @CollectionTable(name = \"person_addresses\", joinColumns = @JoinColumn(name = \"person_id\"))\n    private Set<String> addresses;\n","newFile":false}]}]}>
 

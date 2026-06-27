@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find LDAP injection vulnerabilities"}
-  description={"Finds LDAP injection vulnerabilities by tracking tainted data flow from user input to LDAP queries."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.security.FindLdapInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/security/findldapinjection.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find LDAP injection vulnerabilities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds LDAP injection vulnerabilities by tracking tainted data flow from user input to LDAP queries.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.naming.directory.DirContext;\nimport javax.naming.directory.InitialDirContext;\nimport javax.naming.directory.SearchControls;\nimport javax.servlet.http.HttpServletRequest;\n\npublic class LdapSearch {\n    public void searchUser(HttpServletRequest request, DirContext ctx) throws Exception {\n        String username = request.getParameter(\"username\");\n        String filter = \"(uid=\" + username + \")\";\n        SearchControls controls = new SearchControls();\n        ctx.search(\"ou=users,dc=example,dc=com\", filter, controls);\n    }\n}\n","after":"import javax.naming.directory.DirContext;\nimport javax.naming.directory.InitialDirContext;\nimport javax.naming.directory.SearchControls;\nimport javax.servlet.http.HttpServletRequest;\n\npublic class LdapSearch {\n    public void searchUser(HttpServletRequest request, DirContext ctx) throws Exception {\n        String username = request.getParameter(\"username\");\n        String filter = \"(uid=\" + username + \")\";\n        SearchControls controls = new SearchControls();\n        /*~~(LDAP_INJECTION use)~~>*/ctx.search(\"ou=users,dc=example,dc=com\", filter, controls);\n    }\n}\n","diff":"@@ -11,1 +11,1 @@\n        String filter = \"(uid=\" + username + \")\";\n        SearchControls controls = new SearchControls();\n-       ctx.search(\"ou=users,dc=example,dc=com\", filter, controls);\n+       /*~~(LDAP_INJECTION use)~~>*/ctx.search(\"ou=users,dc=example,dc=com\", filter, controls);\n    }\n","newFile":false}]}]}>
 

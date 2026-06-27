@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Class.forName(...)` calls with non-literal arguments"}
-  description={"`Class.forName(input)` lets the caller choose a class to load — the classic gadget chain for deserialization-style attacks and unsafe reflection. Match against a sealed allowlist instead."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindClassForNameWithNonLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findclassfornamewithnonliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Class.forName(...)` calls with non-literal arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Class.forName(input)` lets the caller choose a class to load — the classic gadget chain for deserialization-style attacks and unsafe reflection. Match against a sealed allowlist instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindClassForNameWithNonLiteral$KtRecipe","displayName":"Find `Class.forName(...)` calls with non-literal arguments","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

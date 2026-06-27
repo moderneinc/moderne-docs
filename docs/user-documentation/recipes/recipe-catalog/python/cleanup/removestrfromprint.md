@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unwrap ``str()`` from ``print()`` arguments"}
-  description={"``print()`` automatically converts its arguments to strings, so an explicit ``str()`` wrapper is unnecessary and can be removed."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveStrFromPrint"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removestrfromprint.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Unwrap ``str()`` from ``print()`` arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>``print()`` automatically converts its arguments to strings, so an explicit ``str()`` wrapper is unnecessary and can be removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveStrFromPrint","displayName":"Unwrap ``str()`` from ``print()`` arguments","pipPackage":"openrewrite-static-analysis"}}>
 

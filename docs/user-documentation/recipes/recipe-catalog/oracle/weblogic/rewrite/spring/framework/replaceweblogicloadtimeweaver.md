@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Removed WebLogicLoadTimeWeaver from Spring Framework 5.3.x to 6.2.x"}
-  description={"Replace removed WebLogicLoadTimeWeaver with LoadTimeWeaver from Spring Framework 6.2.x."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["LoadTimeWeaver","weblogic","springframework"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.spring.framework.ReplaceWebLogicLoadTimeWeaver"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/replaceweblogicloadtimeweaver.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Replace Removed WebLogicLoadTimeWeaver from Spring Framework 5.3.x to 6.2.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace removed WebLogicLoadTimeWeaver with LoadTimeWeaver from Spring Framework 6.2.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Collection#isEmpty()` instead of comparing `size()`"}
-  description={"Also check for _not_ `isEmpty()` when testing for not equal to zero size. Using `isEmpty()` communicates intent more clearly than comparing `size()` to zero, and for some collection implementations `isEmpty()` can be more efficient since `size()` may require traversal."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1155","RSPEC-S3981"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.IsEmptyCallOnCollections"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/isemptycalloncollections.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Collection#isEmpty()` instead of comparing `size()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Also check for _not_ `isEmpty()` when testing for not equal to zero size. Using `isEmpty()` communicates intent more clearly than comparing `size()` to zero, and for some collection implementations `isEmpty()` can be more efficient since `size()` may require traversal.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.ArrayList;\nclass Test {\n    public boolean isZeroSize() {\n        return new ArrayList<String>() {\n            boolean test() {\n                return size() == 0;\n            }\n        }.test();\n    }\n}\n","after":"import java.util.ArrayList;\nclass Test {\n    public boolean isZeroSize() {\n        return new ArrayList<String>() {\n            boolean test() {\n                return isEmpty();\n            }\n        }.test();\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n        return new ArrayList<String>() {\n            boolean test() {\n-               return size() == 0;\n+               return isEmpty();\n            }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce new lines between multi-line properties in Vue components"}
-  description={"Enforce new lines between multi-line properties in Vue components\nSee rule details for [vue/new-line-between-multi-line-property](https://eslint.vuejs.org/rules/new-line-between-multi-line-property.html)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ESLint","vue","eslint-plugin-vue"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.vue.NewLineBetweenMultiLineProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/newlinebetweenmultilineproperty.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce new lines between multi-line properties in Vue components</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce new lines between multi-line properties in Vue components See rule details for [vue/new-line-between-multi-line-property](https://eslint.vuejs.org/rules/new-line-between-multi-line-property.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

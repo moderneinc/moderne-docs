@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Make parameter ref read-only"}
-  description={"Use in parameter modifier for large struct parameters."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.MakeParameterRefReadOnly"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/makeparameterrefreadonly.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Make parameter ref read-only</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use in parameter modifier for large struct parameters.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.MakeParameterRefReadOnly","displayName":"Make parameter ref read-only","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

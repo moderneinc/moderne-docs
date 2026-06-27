@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Android storage / data-layer smells"}
-  description={"Storage-tier patterns that block the main thread or sit on deprecated APIs: `SharedPreferences.Editor.commit()`, bare `prefs.edit()` calls, Room `@Query` methods returning synchronous results, `ContentResolver.query`, and Realm usage."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindAndroidStorageSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidstoragesmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `SharedPreferences.Editor.commit()` calls","href":"kotlin/android/findsharedpreferencescommit$ktrecipe"},{"name":"Find `sharedPrefs.edit()` calls","href":"kotlin/android/findsharedpreferencesedit$ktrecipe"},{"name":"Find `@Query` DAO methods returning a synchronous result","href":"kotlin/android/findroomquerywithoutlivedataorflow$ktrecipe"},{"name":"Find `ContentResolver.query(...)` calls","href":"kotlin/android/findcontentresolverquery$ktrecipe"},{"name":"Find `Realm.getDefaultInstance()` calls","href":"kotlin/android/findrealmusage$ktrecipe"}]}>
+<RecipeHeader.Title>Find Android storage / data-layer smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Storage-tier patterns that block the main thread or sit on deprecated APIs: `SharedPreferences.Editor.commit()`, bare `prefs.edit()` calls, Room `@Query` methods returning synchronous results, `ContentResolver.query`, and Realm usage.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `SharedPreferences.Editor.commit()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findsharedpreferencescommit$ktrecipe/"},{"name":"Find `sharedPrefs.edit()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findsharedpreferencesedit$ktrecipe/"},{"name":"Find `@Query` DAO methods returning a synchronous result","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findroomquerywithoutlivedataorflow$ktrecipe/"},{"name":"Find `ContentResolver.query(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findcontentresolverquery$ktrecipe/"},{"name":"Find `Realm.getDefaultInstance()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findrealmusage$ktrecipe/"}]}>
 
 ## Definition
 

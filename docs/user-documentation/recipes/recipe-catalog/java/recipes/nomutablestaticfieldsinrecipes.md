@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Recipe classes should not have mutable `static` fields"}
-  description={"Add the `final` keyword to mutable static fields in Recipe classes."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.NoMutableStaticFieldsInRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/nomutablestaticfieldsinrecipes.md"}
-/>
+>
+
+<RecipeHeader.Title>Recipe classes should not have mutable `static` fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add the `final` keyword to mutable static fields in Recipe classes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.Recipe;\n\npublic class A extends Recipe {\n    static final int immutable = 0;\n    static int mutable = 0;\n}\n","after":"import org.openrewrite.Recipe;\n\npublic class A extends Recipe {\n    static final int immutable = 0;\n    static final int mutable = 0;\n}\n","diff":"@@ -5,1 +5,1 @@\npublic class A extends Recipe {\n    static final int immutable = 0;\n-   static int mutable = 0;\n+   static final int mutable = 0;\n}\n","newFile":false}]}]}>
 

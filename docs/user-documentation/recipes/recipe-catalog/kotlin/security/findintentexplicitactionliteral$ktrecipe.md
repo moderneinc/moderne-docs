@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Intent(\"some.implicit.action\")` constructions"}
-  description={"An `Intent` constructed with a string action becomes an implicit broadcast — any app declaring a matching `<intent-filter>` can receive it (and potentially read PII the sender attached). Prefer explicit intents with `Intent(context, Activity::class.java)`, or send with `LocalBroadcastManager` / `setPackage(...)`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindIntentExplicitActionLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findintentexplicitactionliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Intent("some.implicit.action")` constructions</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `Intent` constructed with a string action becomes an implicit broadcast — any app declaring a matching `<intent-filter>` can receive it (and potentially read PII the sender attached). Prefer explicit intents with `Intent(context, Activity::class.java)`, or send with `LocalBroadcastManager` / `setPackage(...)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindIntentExplicitActionLiteral$KtRecipe","displayName":"Find `Intent(\"some.implicit.action\")` constructions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

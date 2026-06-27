@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Stylize Groovy code to omit parentheses"}
-  description={"Omit parentheses for last argument lambdas in Groovy code."}
   type={"Single recipe"}
   languages={["Groovy"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-groovy"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.groovy.format.OmitParenthesesFormat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/groovy/format/omitparenthesesformat.md"}
-/>
+>
+
+<RecipeHeader.Title>Stylize Groovy code to omit parentheses</RecipeHeader.Title>
+
+<RecipeHeader.Description>Omit parentheses for last argument lambdas in Groovy code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.groovy.format.OmitParenthesesFormat","displayName":"Stylize Groovy code to omit parentheses","groupId":"org.openrewrite","artifactId":"rewrite-groovy","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GROOVY","requiresConfiguration":false}}>
 

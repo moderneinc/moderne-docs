@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"The package scan classes has moved from camel-base-engine to camel-support - maven"}
-  description={"The package scan classes has moved from camel-base-engine to camel-support JAR and moved to a new package - maven."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel412.scanClassesMovedMaven"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel412/scanclassesmovedmaven.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Maven dependency","href":"maven/adddependency"},{"name":"Add Maven dependency","href":"maven/adddependency"},{"name":"Add Maven dependency","href":"maven/adddependency"},{"name":"Add Maven dependency","href":"maven/adddependency"}]}>
+<RecipeHeader.Title>The package scan classes has moved from camel-base-engine to camel-support - maven</RecipeHeader.Title>
+
+<RecipeHeader.Description>The package scan classes has moved from camel-base-engine to camel-support JAR and moved to a new package - maven.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/adddependency/"},{"name":"Add Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/adddependency/"},{"name":"Add Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/adddependency/"},{"name":"Add Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/adddependency/"}]}>
 
 ## Definition
 

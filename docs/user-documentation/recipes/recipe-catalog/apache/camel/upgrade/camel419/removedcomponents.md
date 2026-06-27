@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"The camel-test module has been removed from camel-bom"}
-  description={"The camel-test module has been removed from camel-bom."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel419.removedComponents"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/removedcomponents.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove Maven dependency","href":"maven/removedependency"},{"name":"Remove Maven dependency","href":"maven/removedependency"},{"name":"Remove Maven dependency","href":"maven/removedependency"},{"name":"Remove Maven dependency","href":"maven/removedependency"},{"name":"Remove Maven dependency","href":"maven/removedependency"},{"name":"Remove Maven dependency","href":"maven/removedependency"}]}>
+<RecipeHeader.Title>The camel-test module has been removed from camel-bom</RecipeHeader.Title>
+
+<RecipeHeader.Description>The camel-test module has been removed from camel-bom.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removedependency/"},{"name":"Remove Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removedependency/"},{"name":"Remove Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removedependency/"},{"name":"Remove Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removedependency/"},{"name":"Remove Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removedependency/"},{"name":"Remove Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removedependency/"}]}>
 
 ## Definition
 

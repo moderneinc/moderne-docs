@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find committers on repositories"}
-  description={"List the committers on a repository."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.search.FindCommitters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/search/findcommitters.md"}
-/>
+>
+
+<RecipeHeader.Title>Find committers on repositories</RecipeHeader.Title>
+
+<RecipeHeader.Description>List the committers on a repository.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fromDate","required":false,"description":"Optional. Take into account only commits since this date (inclusive). Default will be the entire history.","example":"2023-01-01"}]}>
 

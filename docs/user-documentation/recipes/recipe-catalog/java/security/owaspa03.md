@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remediate OWASP A03:2021 Injection"}
-  description={"OWASP [A03:2021](https://owasp.org/Top10/A03_2021-Injection/) describes failures related to user-supplied data being used to influence program state to operate outside of its intended bounds. This recipe seeks to remediate these vulnerabilities."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspA03"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/owaspa03.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Regular Expression Denial of Service (ReDOS)","href":"java/security/regularexpressiondenialofservice"},{"name":"Use comparison rather than equality checks in for conditions","href":"staticanalysis/noequalityinforcondition"},{"name":"Insecure cookies","href":"java/security/servlet/cookiesetsecure"},{"name":"Fix XSS vulnerabilities","href":"java/security/xss/fixxssvulnerability"}]}>
+<RecipeHeader.Title>Remediate OWASP A03:2021 Injection</RecipeHeader.Title>
+
+<RecipeHeader.Description>OWASP [A03:2021](https://owasp.org/Top10/A03_2021-Injection/) describes failures related to user-supplied data being used to influence program state to operate outside of its intended bounds. This recipe seeks to remediate these vulnerabilities.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Regular Expression Denial of Service (ReDOS)","href":"/user-documentation/recipes/recipe-catalog/java/security/regularexpressiondenialofservice/"},{"name":"Use comparison rather than equality checks in for conditions","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/noequalityinforcondition/"},{"name":"Insecure cookies","href":"/user-documentation/recipes/recipe-catalog/java/security/servlet/cookiesetsecure/"},{"name":"Fix XSS vulnerabilities","href":"/user-documentation/recipes/recipe-catalog/java/security/xss/fixxssvulnerability/"}]}>
 
 ## Definition
 

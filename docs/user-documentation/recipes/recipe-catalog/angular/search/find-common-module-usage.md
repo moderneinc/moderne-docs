@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `CommonModule` usage"}
-  description={"Finds imports of `CommonModule` from `@angular/common`. Since Angular 19, standalone components are the default and `CommonModule` is no longer needed in component `imports` arrays. Built-in directives and pipes are available automatically."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-common-module-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-common-module-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `CommonModule` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of `CommonModule` from `@angular/common`. Since Angular 19, standalone components are the default and `CommonModule` is no longer needed in component `imports` arrays. Built-in directives and pipes are available automatically.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-common-module-usage","displayName":"Find `CommonModule` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

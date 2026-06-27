@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `useDefaultJaasConfig=true` to MSSQL Kerberos JDBC URLs"}
-  description={"For MSSQL JDBC connections using Kerberos authentication (`authenticationScheme=JavaKerberos` or `integratedSecurity=true`), adds `useDefaultJaasConfig=true` to the connection string. This is required for compatibility with Keycloak 26.4+ which changes JAAS configuration handling."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.AddMssqlKerberosJaasConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmssqlkerberosjaasconfig.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `useDefaultJaasConfig=true` to MSSQL Kerberos JDBC URLs</RecipeHeader.Title>
+
+<RecipeHeader.Description>For MSSQL JDBC connections using Kerberos authentication (`authenticationScheme=JavaKerberos` or `integratedSecurity=true`), adds `useDefaultJaasConfig=true` to the connection string. This is required for compatibility with Keycloak 26.4+ which changes JAAS configuration handling.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"spring:\n  datasource:\n    url: 'jdbc:sqlserver://server:1433;databaseName=mydb;authenticationScheme=JavaKerberos'\n","after":"spring:\n  datasource:\n    url: 'jdbc:sqlserver://server:1433;databaseName=mydb;authenticationScheme=JavaKerberos;useDefaultJaasConfig=true'\n","diff":"@@ -3,1 +3,1 @@\nspring:\n  datasource:\n-   url: 'jdbc:sqlserver://server:1433;databaseName=mydb;authenticationScheme=JavaKerberos'\n+   url: 'jdbc:sqlserver://server:1433;databaseName=mydb;authenticationScheme=JavaKerberos;useDefaultJaasConfig=true'\n\n","newFile":false}]}]}>
 

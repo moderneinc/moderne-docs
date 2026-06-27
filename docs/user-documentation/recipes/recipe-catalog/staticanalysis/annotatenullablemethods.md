@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Annotate methods which may return `null` with `@Nullable`"}
-  description={"Add `@Nullable` to non-private methods that may return `null`. By default `org.jspecify.annotations.Nullable` is used, but through the `nullableAnnotationClass` option a custom annotation can be provided. Both `@Target(TYPE_USE)` and declaration annotations (e.g. `javax.annotation.CheckForNull`) are supported. Methods that already carry a known nullable annotation (matched by simple name) are skipped to avoid duplication. This recipe scans for methods that do not already have a `@Nullable` annotation and checks their return statements for potential null values. It also identifies known methods from standard libraries that may return null, such as methods from `Map`, `Queue`, `Deque`, `NavigableSet`, and `Spliterator`. The return of streams, or lambdas are not taken into account."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.AnnotateNullableMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/annotatenullablemethods.md"}
-/>
+>
+
+<RecipeHeader.Title>Annotate methods which may return `null` with `@Nullable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add `@Nullable` to non-private methods that may return `null`. By default `org.jspecify.annotations.Nullable` is used, but through the `nullableAnnotationClass` option a custom annotation can be provided. Both `@Target(TYPE_USE)` and declaration annotations (e.g. `javax.annotation.CheckForNull`) are supported. Methods that already carry a known nullable annotation (matched by simple name) are skipped to avoid duplication. This recipe scans for methods that do not already have a `@Nullable` annotation and checks their return statements for potential null values. It also identifies known methods from standard libraries that may return null, such as methods from `Map`, `Queue`, `Deque`, `NavigableSet`, and `Spliterator`. The return of streams, or lambdas are not taken into account.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"nullableAnnotationClass","required":false,"description":"The fully qualified name of the @Nullable annotation to add. Both `@Target(TYPE_USE)` and declaration annotations (e.g. `javax.annotation.CheckForNull`) are supported. Defaults to `org.jspecify.annotations.Nullable`.","example":"org.jspecify.annotations.Nullable"}]}>
 

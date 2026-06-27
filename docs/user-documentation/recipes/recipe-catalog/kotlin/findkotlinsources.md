@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Kotlin sources and collect data metrics"}
-  description={"Use data table to collect source files types and counts of files with extensions `.kt`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-kotlin"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.FindKotlinSources"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/findkotlinsources.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Kotlin sources and collect data metrics</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use data table to collect source files types and counts of files with extensions `.kt`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"markCompilationUnits","required":false,"description":"Limit the search results to Kotlin CompilationUnits."}]}>
 

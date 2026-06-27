@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename `ExperimentalPendingTasks` to `PendingTasks`"}
-  description={"Renames `ExperimentalPendingTasks` to `PendingTasks` in imports and usages. `ExperimentalPendingTasks` was renamed in Angular 19."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.rename-pending-tasks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/rename-pending-tasks.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Rename `ExperimentalPendingTasks` to `PendingTasks`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames `ExperimentalPendingTasks` to `PendingTasks` in imports and usages. `ExperimentalPendingTasks` was renamed in Angular 19.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.rename-pending-tasks","displayName":"Rename `ExperimentalPendingTasks` to `PendingTasks`","npmPackage":"@openrewrite/recipes-angular"}}>
 

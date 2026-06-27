@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find OS command injection vectors"}
-  description={"Finds calls to `Runtime.exec(String)` which passes the command through a shell interpreter, enabling command injection via metacharacters like `;`, `|`, and `&&`. Use the `String[]` overload instead to avoid shell interpretation."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-78"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindCommandInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findcommandinjection.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find OS command injection vectors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds calls to `Runtime.exec(String)` which passes the command through a shell interpreter, enabling command injection via metacharacters like `;`, `|`, and `&&`. Use the `String[]` overload instead to avoid shell interpretation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void run(String cmd) throws Exception {\n        Runtime.getRuntime().exec(cmd);\n    }\n}\n","after":"class A {\n    void run(String cmd) throws Exception {\n        /*~~(Runtime.exec(String) passes through a shell interpreter. Use Runtime.exec(String[]) to avoid command injection.)~~>*/Runtime.getRuntime().exec(cmd);\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n    void run(String cmd) throws Exception {\n-       Runtime.getRuntime().exec(cmd);\n+       /*~~(Runtime.exec(String) passes through a shell interpreter. Use Runtime.exec(String[]) to avoid command injection.)~~>*/Runtime.getRuntime().exec(cmd);\n    }\n","newFile":false}]}]}>
 

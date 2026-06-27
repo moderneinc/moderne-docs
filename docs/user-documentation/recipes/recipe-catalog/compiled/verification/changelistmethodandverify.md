@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change `List#add` to `List#plus` and verify"}
-  description={"We know this won't compile."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.compiled.verification.ChangeListMethodAndVerify"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/compiled/verification/changelistmethodandverify.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"},{"name":"Verify compilation","href":"compiled/verification/verifycompilation"}]}>
+<RecipeHeader.Title>Change `List#add` to `List#plus` and verify</RecipeHeader.Title>
+
+<RecipeHeader.Description>We know this won't compile.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Verify compilation","href":"/user-documentation/recipes/recipe-catalog/compiled/verification/verifycompilation/"}]}>
 
 ## Definition
 

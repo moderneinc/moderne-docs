@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unused imports"}
-  description={"Remove imports for types that are not referenced. As a precaution against incorrect changes no imports will be removed from any source where unknown types are referenced."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S1128"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.RemoveUnusedImports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/removeunusedimports.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unused imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove imports for types that are not referenced. As a precaution against incorrect changes no imports will be removed from any source where unknown types are referenced.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\nclass A {}\n","after":"class A {}","diff":"@@ -1,1 +1,0 @@\n-import java.util.List;\nclass A {}\n@@ -3,1 +2,0 @@\nimport java.util.List;\nclass A {}\n-\n","newFile":false}]}]}>
 

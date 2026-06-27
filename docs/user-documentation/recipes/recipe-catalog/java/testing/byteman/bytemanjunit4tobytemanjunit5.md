@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Byteman JUnit 5 dependency"}
-  description={"Migrates Byteman JUnit 4 to JUnit 5."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["junit","testing","byteman"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.byteman.BytemanJUnit4ToBytemanJUnit5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/byteman/bytemanjunit4tobytemanjunit5.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Replace annotation","href":"java/replaceannotation"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use Byteman JUnit 5 dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Byteman JUnit 4 to JUnit 5.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Replace annotation","href":"/user-documentation/recipes/recipe-catalog/java/replaceannotation/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

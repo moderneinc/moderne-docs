@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJObjectRules.AssertThatIsIsEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsIsEqualTo<S, T> {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(S object1, T object2) {\n        return assertThat(object1.equals(object2)).isTrue();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ObjectAssert<S> after(S object1, T object2) {\n        return assertThat(object1).isEqualTo(object2);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes$AssertThatIsIsEqualToRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisisequaltorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJObjectRules.AssertThatIsIsEqualTo`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIsIsEqualTo<S, T> {
+    
+    @BeforeTemplate
+    AbstractBooleanAssert<?> before(S object1, T object2) {
+        return assertThat(object1.equals(object2)).isTrue();
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    ObjectAssert<S> after(S object1, T object2) {
+        return assertThat(object1).isEqualTo(object2);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes$AssertThatIsIsEqualToRecipe","displayName":"Refaster template `AssertJObjectRules.AssertThatIsIsEqualTo`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

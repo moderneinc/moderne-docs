@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `verifyZeroInteractions()` with `verifyNoMoreInteractions()`"}
-  description={"Replaces `verifyZeroInteractions()` with `verifyNoMoreInteractions()` in Mockito tests when migration when using a Mockito version < 3.x."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.VerifyZeroToNoMoreInteractions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/verifyzerotonomoreinteractions.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `verifyZeroInteractions()` with `verifyNoMoreInteractions()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `verifyZeroInteractions()` with `verifyNoMoreInteractions()` in Mockito tests when migration when using a Mockito version &lt; 3.x.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.mockito.Mockito.verifyZeroInteractions;\n\nclass MyTest {\n    void test() {\n        verifyZeroInteractions(System.out);\n    }\n}\n","after":"import static org.mockito.Mockito.verifyNoMoreInteractions;\n\nclass MyTest {\n    void test() {\n        verifyNoMoreInteractions(System.out);\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static org.mockito.Mockito.verifyZeroInteractions;\n+import static org.mockito.Mockito.verifyNoMoreInteractions;\n\n@@ -5,1 +5,1 @@\nclass MyTest {\n    void test() {\n-       verifyZeroInteractions(System.out);\n+       verifyNoMoreInteractions(System.out);\n    }\n","newFile":false}]}]}>
 

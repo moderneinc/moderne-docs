@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Avoid nested ternary operator"}
-  description={"Replace nested ternary expressions with if/else chains for clarity."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.AvoidNestingTernary"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/avoidnestingternary.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Avoid nested ternary operator</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace nested ternary expressions with if/else chains for clarity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.AvoidNestingTernary","displayName":"Avoid nested ternary operator","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

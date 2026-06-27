@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Guid.Empty"}
-  description={"Replace `new Guid()` with `Guid.Empty`. The static `Guid.Empty` field avoids unnecessary allocations and clearly expresses intent."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseGuidEmpty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/useguidempty.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use Guid.Empty</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `new Guid()` with `Guid.Empty`. The static `Guid.Empty` field avoids unnecessary allocations and clearly expresses intent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseGuidEmpty","displayName":"Use Guid.Empty","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

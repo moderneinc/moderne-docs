@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update agent configuration files"}
-  description={"Update coding agent configuration files (CLAUDE.md, .cursorrules, etc.) to include references to Moderne Prethink context files in .moderne/context/."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-prethink"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.prethink.UpdateAgentConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/updateagentconfig.md"}
-/>
+>
+
+<RecipeHeader.Title>Update agent configuration files</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update coding agent configuration files (CLAUDE.md, .cursorrules, etc.) to include references to Moderne Prethink context files in .moderne/context/.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"targetConfigFile","required":false,"description":"Which agent config file to update. If not specified, updates all found files.","example":"CLAUDE.md"}]}>
 

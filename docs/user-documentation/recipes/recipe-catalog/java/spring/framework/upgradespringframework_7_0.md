@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Framework 7.0"}
-  description={"Migrate applications to the latest Spring Framework 7.0 release."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.UpgradeSpringFramework_7_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_7_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Framework 6.2","href":"java/spring/framework/upgradespringframework_6_2"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"JUnit 6 migration from JUnit 5.x","href":"java/testing/junit6/junit5to6migration"},{"name":"Migrates from Jackson 2.x to Jackson 3.x","href":"java/jackson/upgradejackson_2_3"},{"name":"Migrate to Spring Kafka 4.0","href":"java/spring/kafka/upgradespringkafka_4_0"},{"name":"Migrate from Spring Framework annotations to JSpecify","href":"java/jspecify/migratefromspringframeworkannotations"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Framework 7.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Framework 7.0 release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Framework 6.2","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_2/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"JUnit 6 migration from JUnit 5.x","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit6/junit5to6migration/"},{"name":"Migrates from Jackson 2.x to Jackson 3.x","href":"/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3/"},{"name":"Migrate to Spring Kafka 4.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_4_0/"},{"name":"Migrate from Spring Framework annotations to JSpecify","href":"/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromspringframeworkannotations/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

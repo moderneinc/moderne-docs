@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace unnecessary intermediate collection before `.toSet`"}
-  description={"Replaces patterns like `.toList.toSet` or `.toSeq.toSet` with `.toSet` to avoid creating an unnecessary intermediate collection."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.UseDirectToSet"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/usedirecttoset.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace unnecessary intermediate collection before `.toSet`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces patterns like `.toList.toSet` or `.toSeq.toSet` with `.toSet` to avoid creating an unnecessary intermediate collection.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val xs = List(1, 2, 3)\n    val s = xs.toList.toSet\n}\n","after":"class Example {\n    val xs = List(1, 2, 3)\n    val s = xs.toSet\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    val xs = List(1, 2, 3)\n-   val s = xs.toList.toSet\n+   val s = xs.toSet\n}\n","newFile":false}]}]}>
 

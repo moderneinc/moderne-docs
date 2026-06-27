@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Sort dependencies"}
-  description={"Sort dependencies alphabetically by groupId then artifactId. Test-scoped dependencies are sorted after non-test dependencies. Applies to both `<dependencies>` and `<dependencyManagement>` sections."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.SortDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/sortdependencies.md"}
-/>
+>
+
+<RecipeHeader.Title>Sort dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sort dependencies alphabetically by groupId then artifactId. Test-scoped dependencies are sorted after non-test dependencies. Applies to both `<dependencies>` and `<dependencyManagement>` sections.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <dependencies>\n    <dependency>\n      <groupId>org.junit.jupiter</groupId>\n      <artifactId>junit-jupiter</artifactId>\n      <version>5.9.1</version>\n    </dependency>\n    <dependency>\n      <groupId>com.google.guava</groupId>\n      <artifactId>guava</artifactId>\n      <version>29.0-jre</version>\n    </dependency>\n    <dependency>\n      <groupId>com.fasterxml.jackson.core</groupId>\n      <artifactId>jackson-databind</artifactId>\n      <version>2.13.0</version>\n    </dependency>\n  </dependencies>\n</project>\n","after":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <dependencies>\n    <dependency>\n      <groupId>com.fasterxml.jackson.core</groupId>\n      <artifactId>jackson-databind</artifactId>\n      <version>2.13.0</version>\n    </dependency>\n    <dependency>\n      <groupId>com.google.guava</groupId>\n      <artifactId>guava</artifactId>\n      <version>29.0-jre</version>\n    </dependency>\n    <dependency>\n      <groupId>org.junit.jupiter</groupId>\n      <artifactId>junit-jupiter</artifactId>\n      <version>5.9.1</version>\n    </dependency>\n  </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -8,3 +8,3 @@\n  <dependencies>\n    <dependency>\n-     <groupId>org.junit.jupiter</groupId>\n-     <artifactId>junit-jupiter</artifactId>\n-     <version>5.9.1</version>\n+     <groupId>com.fasterxml.jackson.core</groupId>\n+     <artifactId>jackson-databind</artifactId>\n+     <version>2.13.0</version>\n    </dependency>\n@@ -18,3 +18,3 @@\n    </dependency>\n    <dependency>\n-     <groupId>com.fasterxml.jackson.core</groupId>\n-     <artifactId>jackson-databind</artifactId>\n-     <version>2.13.0</version>\n+     <groupId>org.junit.jupiter</groupId>\n+     <artifactId>junit-jupiter</artifactId>\n+     <version>5.9.1</version>\n    </dependency>\n","newFile":false}]}]}>
 

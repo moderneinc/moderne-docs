@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hardcoded private keys"}
-  description={"Detects hardcoded private keys in the code, including PEM-encoded keys that flow into KeyFactory.generatePrivate() calls. Hardcoded private keys are a severe security vulnerability as they compromise the entire cryptographic system."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindHardcodedPrivateKey"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprivatekey.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find hardcoded private keys</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects hardcoded private keys in the code, including PEM-encoded keys that flow into KeyFactory.generatePrivate() calls. Hardcoded private keys are a severe security vulnerability as they compromise the entire cryptographic system.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.security.KeyFactory;\nimport java.security.PrivateKey;\nimport java.security.spec.PKCS8EncodedKeySpec;\nimport java.util.Base64;\n\npublic class HardcodedKeyExample {\n    public PrivateKey loadKey() throws Exception {\n        String privateKeyPEM = \"-----BEGIN PRIVATE KEY-----\\n\" +\n            \"MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7W3...\\n\" +\n            \"-----END PRIVATE KEY-----\";\n\n        byte[] encoded = Base64.getDecoder().decode(\n            privateKeyPEM.replaceAll(\"-----.*-----\", \"\").replaceAll(\"\\\\s\", \"\")\n        );\n\n        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(encoded);\n        KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\");\n        return keyFactory.generatePrivate(keySpec);\n    }\n}\n","after":"import java.security.KeyFactory;\nimport java.security.PrivateKey;\nimport java.security.spec.PKCS8EncodedKeySpec;\nimport java.util.Base64;\n\npublic class HardcodedKeyExample {\n    public PrivateKey loadKey() throws Exception {\n        String privateKeyPEM = \"-----BEGIN PRIVATE KEY-----\\n\" +\n            \"MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC7W3...\\n\" +\n            \"-----END PRIVATE KEY-----\";\n\n        byte[] encoded = Base64.getDecoder().decode(\n            privateKeyPEM.replaceAll(\"-----.*-----\", \"\").replaceAll(\"\\\\s\", \"\")\n        );\n\n        PKCS8EncodedKeySpec keySpec = /*~~(PRIVATE_KEY use)~~>*/new PKCS8EncodedKeySpec(encoded);\n        KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\");\n        return /*~~(PRIVATE_KEY use)~~>*/keyFactory.generatePrivate(keySpec);\n    }\n}\n","diff":"@@ -16,1 +16,1 @@\n        );\n\n-       PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(encoded);\n+       PKCS8EncodedKeySpec keySpec = /*~~(PRIVATE_KEY use)~~>*/new PKCS8EncodedKeySpec(encoded);\n        KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\");\n@@ -18,1 +18,1 @@\n        PKCS8EncodedKeySpec keySpec = new PKCS8EncodedKeySpec(encoded);\n        KeyFactory keyFactory = KeyFactory.getInstance(\"RSA\");\n-       return keyFactory.generatePrivate(keySpec);\n+       return /*~~(PRIVATE_KEY use)~~>*/keyFactory.generatePrivate(keySpec);\n    }\n","newFile":false}]}]}>
 

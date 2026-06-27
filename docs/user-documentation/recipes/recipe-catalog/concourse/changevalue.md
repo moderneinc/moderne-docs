@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Concourse value"}
-  description={"Change every value matching the key pattern."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.concourse.ChangeValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/concourse/changevalue.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Change Concourse value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change every value matching the key pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"keyPath","required":true,"description":"The key to match and replace.","example":"$.resources[?(@.type == 'git')].source.uri"},{"type":"String","name":"oldValue","required":false,"description":"Only change if the existing value matches.","example":"https://github.com/openrewrite/rewrite0"},{"type":"String","name":"newValue","required":true,"description":"New value to replace the old value with.","example":"git@github.com:openrewrite/rewrite1.git"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pipeline*.yml"}]}>
 

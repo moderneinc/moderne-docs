@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace beans.xml file"}
-  description={"This Recipe replaces OpenWebBeans schema in every beans.xml with the standard CDI schema."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-liberty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.liberty.WebBeansXmlRule"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/liberty/webbeansxmlrule.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace beans.xml file</RecipeHeader.Title>
+
+<RecipeHeader.Description>This Recipe replaces OpenWebBeans schema in every beans.xml with the standard CDI schema.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<WebBeans xmlns=\"urn:java:ee\"\n          xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n          xsi:schemaLocation=\"\n              urn:java:ee http://java.sun.com/jee/beans-1.0.xsd\">\n  <!-- some beans here -->\n</WebBeans>\n","after":"<beans xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\n          xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n          xsi:schemaLocation=\"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd\">\n  <!-- some beans here -->\n</beans>\n","diff":"--- src/main/resources/META-INF/beans.xml\n+++ src/main/resources/META-INF/beans.xml\n@@ -1,1 +1,1 @@\n-<WebBeans xmlns=\"urn:java:ee\"\n+<beans xmlns=\"http://xmlns.jcp.org/xml/ns/javaee\"\n          xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n@@ -3,2 +3,1 @@\n<WebBeans xmlns=\"urn:java:ee\"\n          xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n-         xsi:schemaLocation=\"\n-             urn:java:ee http://java.sun.com/jee/beans-1.0.xsd\">\n+         xsi:schemaLocation=\"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd\">\n  <!-- some beans here -->\n@@ -6,1 +5,1 @@\n              urn:java:ee http://java.sun.com/jee/beans-1.0.xsd\">\n  <!-- some beans here -->\n-</WebBeans>\n+</beans>\n\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `map { it.toString() }` / `map { x -> x.toString() }` patterns"}
-  description={"If the producer already returns a type whose `toString()` is the desired representation, the `map` is a no-op. If the goal is to materialize the `String`s up-front, `joinToString()` / `toString()` on the collection is usually a better fit."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindRedundantToStringInMap$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findredundanttostringinmap$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `map { it.toString() }` / `map { x -> x.toString() }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>If the producer already returns a type whose `toString()` is the desired representation, the `map` is a no-op. If the goal is to materialize the `String`s up-front, `joinToString()` / `toString()` on the collection is usually a better fit.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindRedundantToStringInMap$KtRecipe","displayName":"Find `map { it.toString() }` / `map { x -> x.toString() }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

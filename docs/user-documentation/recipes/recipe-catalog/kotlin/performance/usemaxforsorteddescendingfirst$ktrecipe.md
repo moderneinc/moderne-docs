@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `max()` instead of `sortedDescending().first()`"}
-  description={"`sortedDescending().first()` does an O(n log n) sort just to read the maximum. `max()` finds it in a single linear pass."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseMaxForSortedDescendingFirst$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/usemaxforsorteddescendingfirst$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `max()` instead of `sortedDescending().first()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`sortedDescending().first()` does an O(n log n) sort just to read the maximum. `max()` finds it in a single linear pass.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseMaxForSortedDescendingFirst$KtRecipe","displayName":"Use `max()` instead of `sortedDescending().first()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

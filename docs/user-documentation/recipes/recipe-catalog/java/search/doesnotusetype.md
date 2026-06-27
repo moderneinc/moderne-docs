@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Check whether a type is **not** in use"}
-  description={"Useful as a precondition to skip over compilation units using the argument type."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.DoesNotUseType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/doesnotusetype.md"}
-/>
+>
+
+<RecipeHeader.Title>Check whether a type is **not** in use</RecipeHeader.Title>
+
+<RecipeHeader.Description>Useful as a precondition to skip over compilation units using the argument type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fullyQualifiedTypeName","required":true,"description":"A fully-qualified type name, that is used to find matching type references. Supports glob expressions. `java..*` finds every type from every subpackage of the `java` package.","example":"java.util.List"},{"type":"Boolean","name":"includeImplicit","required":false,"description":"Whether to include implicit type references, such as those in method signatures."}]}>
 

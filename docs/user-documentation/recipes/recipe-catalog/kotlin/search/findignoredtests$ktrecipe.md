@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Disabled` / `@Ignore` test annotations"}
-  description={"An ignored test is a regression-detection gap — at minimum it represents technical debt; at worst it's a silenced failure that turned chronic. Each match is a candidate to triage."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindIgnoredTests$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findignoredtests$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Disabled` / `@Ignore` test annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>An ignored test is a regression-detection gap — at minimum it represents technical debt; at worst it's a silenced failure that turned chronic. Each match is a candidate to triage.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindIgnoredTests$KtRecipe","displayName":"Find `@Disabled` / `@Ignore` test annotations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

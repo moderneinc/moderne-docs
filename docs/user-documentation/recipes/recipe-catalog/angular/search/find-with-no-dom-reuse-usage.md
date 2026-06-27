@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `withNoDomReuse` usage"}
-  description={"Finds usages of the removed `withNoDomReuse` function from `@angular/platform-browser`. This function was removed in Angular 17. To disable hydration, remove the `provideClientHydration()` call from your providers or use the `ngSkipHydration` attribute on specific components."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-with-no-dom-reuse-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-with-no-dom-reuse-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `withNoDomReuse` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of the removed `withNoDomReuse` function from `@angular/platform-browser`. This function was removed in Angular 17. To disable hydration, remove the `provideClientHydration()` call from your providers or use the `ngSkipHydration` attribute on specific components.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-with-no-dom-reuse-usage","displayName":"Find `withNoDomReuse` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

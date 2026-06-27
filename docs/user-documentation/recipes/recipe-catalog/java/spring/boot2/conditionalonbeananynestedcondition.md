@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate multi-condition `@ConditionalOnBean` annotations"}
-  description={"Migrate multi-condition `@ConditionalOnBean` annotations to `AnyNestedCondition`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.ConditionalOnBeanAnyNestedCondition"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/conditionalonbeananynestedcondition.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate multi-condition `@ConditionalOnBean` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate multi-condition `@ConditionalOnBean` annotations to `AnyNestedCondition`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;\nimport org.springframework.context.annotation.Bean;\n\nclass ThingOne {}\n\nclass ThingTwo {}\n\nclass ConfigClass {\n    @Bean\n    @ConditionalOnBean({Aa.class, Bb.class})\n    public ThingOne thingOne() {\n        return new ThingOne();\n    }\n    @Bean\n    @ConditionalOnBean({Bb.class, Aa.class})\n    public ThingTwo thingTwo() {\n        return new ThingTwo();\n    }\n}\n","after":"import org.springframework.boot.autoconfigure.condition.AnyNestedCondition;\nimport org.springframework.boot.autoconfigure.condition.ConditionalOnBean;\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Conditional;\n\nclass ThingOne {}\n\nclass ThingTwo {}\n\nclass ConfigClass {\n    @Bean\n    @Conditional(ConditionAaOrBb.class)\n    public ThingOne thingOne() {\n        return new ThingOne();\n    }\n\n    @Bean\n    @Conditional(ConditionAaOrBb.class)\n    public ThingTwo thingTwo() {\n        return new ThingTwo();\n    }\n\n    private static class ConditionAaOrBb extends AnyNestedCondition {\n        ConditionAaOrBb() {\n            super(ConfigurationPhase.REGISTER_BEAN);\n        }\n\n        @ConditionalOnBean(Aa.class)\n        class AaCondition {\n        }\n\n        @ConditionalOnBean(Bb.class)\n        class BbCondition {\n        }\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.springframework.boot.autoconfigure.condition.AnyNestedCondition;\nimport org.springframework.boot.autoconfigure.condition.ConditionalOnBean;\n@@ -3,0 +4,1 @@\nimport org.springframework.boot.autoconfigure.condition.ConditionalOnBean;\nimport org.springframework.context.annotation.Bean;\n+import org.springframework.context.annotation.Conditional;\n\n@@ -10,1 +12,1 @@\nclass ConfigClass {\n    @Bean\n-   @ConditionalOnBean({Aa.class, Bb.class})\n+   @Conditional(ConditionAaOrBb.class)\n    public ThingOne thingOne() {\n@@ -14,0 +16,1 @@\n        return new ThingOne();\n    }\n+\n    @Bean\n@@ -15,1 +18,1 @@\n    }\n    @Bean\n-   @ConditionalOnBean({Bb.class, Aa.class})\n+   @Conditional(ConditionAaOrBb.class)\n    public ThingTwo thingTwo() {\n@@ -19,0 +22,14 @@\n        return new ThingTwo();\n    }\n+\n+   private static class ConditionAaOrBb extends AnyNestedCondition {\n+       ConditionAaOrBb() {\n+           super(ConfigurationPhase.REGISTER_BEAN);\n+       }\n+\n+       @ConditionalOnBean(Aa.class)\n+       class AaCondition {\n+       }\n+\n+       @ConditionalOnBean(Bb.class)\n+       class BbCondition {\n+       }\n+   }\n}\n","newFile":false}]}]}>
 

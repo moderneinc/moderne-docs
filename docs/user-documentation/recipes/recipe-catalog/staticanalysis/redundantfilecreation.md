@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Redundant file creation"}
-  description={"Remove unnecessary intermediate creations of files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RedundantFileCreation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/redundantfilecreation.md"}
-/>
+>
+
+<RecipeHeader.Title>Redundant file creation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unnecessary intermediate creations of files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.*;\nclass Test {\n    void test() throws IOException {\n        new FileInputStream(new File(\"test\"));\n    }\n}\n","after":"import java.io.FileInputStream;\nimport java.io.IOException;\nclass Test {\n    void test() throws IOException {\n        new FileInputStream(\"test\");\n    }\n}\n","diff":"@@ -1,1 +1,2 @@\n-import java.io.*;\n+import java.io.FileInputStream;\n+import java.io.IOException;\nclass Test {\n@@ -4,1 +5,1 @@\nclass Test {\n    void test() throws IOException {\n-       new FileInputStream(new File(\"test\"));\n+       new FileInputStream(\"test\");\n    }\n","newFile":false}]}]}>
 

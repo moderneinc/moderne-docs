@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ImmutableListRules.StreamToImmutableList`"}
-  description={"Prefer `ImmutableList#toImmutableList()` over less idiomatic alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableListRulesRecipes$StreamToImmutableListRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablelistrulesrecipes$streamtoimmutablelistrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ImmutableListRules.StreamToImmutableList`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `ImmutableList#toImmutableList()` over less idiomatic alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableListRulesRecipes$StreamToImmutableListRecipe","displayName":"Refaster template `ImmutableListRules.StreamToImmutableList`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

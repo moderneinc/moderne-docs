@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Tree.randomId()` in LST constructors"}
-  description={"Replaces occurrences of `UUID.randomUUID()` with `Tree.randomId()` when passed as an argument to a constructor call for LST elements."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.UseTreeRandomId"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/usetreerandomid.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Tree.randomId()` in LST constructors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces occurrences of `UUID.randomUUID()` with `Tree.randomId()` when passed as an argument to a constructor call for LST elements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.java.tree.J;\nimport org.openrewrite.java.tree.JavaType;\nimport org.openrewrite.marker.Markers;\nimport org.openrewrite.java.tree.Space;\n\nimport java.util.UUID;\nimport static java.util.UUID.randomUUID;\n\nclass Foo {\n    void bar() {\n        J.Literal literal1 = new J.Literal(UUID.randomUUID(), Space.EMPTY, Markers.EMPTY, null, null, null, JavaType.Primitive.Boolean);\n        J.Literal literal2 = new J.Literal(randomUUID(), Space.EMPTY, Markers.EMPTY, null, null, null, JavaType.Primitive.Boolean);\n    }\n}\n","after":"import org.openrewrite.Tree;\nimport org.openrewrite.java.tree.J;\nimport org.openrewrite.java.tree.JavaType;\nimport org.openrewrite.marker.Markers;\nimport org.openrewrite.java.tree.Space;\n\nclass Foo {\n    void bar() {\n        J.Literal literal1 = new J.Literal(Tree.randomId(), Space.EMPTY, Markers.EMPTY, null, null, null, JavaType.Primitive.Boolean);\n        J.Literal literal2 = new J.Literal(Tree.randomId(), Space.EMPTY, Markers.EMPTY, null, null, null, JavaType.Primitive.Boolean);\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.openrewrite.Tree;\nimport org.openrewrite.java.tree.J;\n@@ -6,3 +7,0 @@\nimport org.openrewrite.java.tree.Space;\n\n-import java.util.UUID;\n-import static java.util.UUID.randomUUID;\n-\nclass Foo {\n@@ -11,2 +9,2 @@\nclass Foo {\n    void bar() {\n-       J.Literal literal1 = new J.Literal(UUID.randomUUID(), Space.EMPTY, Markers.EMPTY, null, null, null, JavaType.Primitive.Boolean);\n-       J.Literal literal2 = new J.Literal(randomUUID(), Space.EMPTY, Markers.EMPTY, null, null, null, JavaType.Primitive.Boolean);\n+       J.Literal literal1 = new J.Literal(Tree.randomId(), Space.EMPTY, Markers.EMPTY, null, null, null, JavaType.Primitive.Boolean);\n+       J.Literal literal2 = new J.Literal(Tree.randomId(), Space.EMPTY, Markers.EMPTY, null, null, null, JavaType.Primitive.Boolean);\n    }\n","newFile":false}]}]}>
 

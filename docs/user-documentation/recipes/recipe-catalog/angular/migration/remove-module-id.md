@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `moduleId`"}
-  description={"Removes the `moduleId` property from `@Component` and `@Directive` decorators. `moduleId` was deprecated in Angular 16 and removed in Angular 17 as it served no purpose since Ivy."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-module-id"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-module-id.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `moduleId`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the `moduleId` property from `@Component` and `@Directive` decorators. `moduleId` was deprecated in Angular 16 and removed in Angular 17 as it served no purpose since Ivy.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.remove-module-id","displayName":"Remove `moduleId`","npmPackage":"@openrewrite/recipes-angular"}}>
 

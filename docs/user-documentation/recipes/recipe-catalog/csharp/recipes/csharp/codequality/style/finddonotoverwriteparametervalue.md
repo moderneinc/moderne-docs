@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find overwritten parameter values"}
-  description={"Detect assignments to method parameters, which can mask the original argument and lead to confusion."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotOverwriteParameterValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finddonotoverwriteparametervalue.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find overwritten parameter values</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect assignments to method parameters, which can mask the original argument and lead to confusion.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotOverwriteParameterValue","displayName":"Find overwritten parameter values","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

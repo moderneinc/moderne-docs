@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find trivial `String.format(\"%s\", x)` calls"}
-  description={"`String.format(\"%s\", x)` is the long-hand for the Kotlin string template `\"$x\"`. The template avoids the per-call format-string parse and reads as the thing it produces."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindStringFormatTrivial$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstringformattrivial$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find trivial `String.format("%s", x)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`String.format("%s", x)` is the long-hand for the Kotlin string template `"$x"`. The template avoids the per-call format-string parse and reads as the thing it produces.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindStringFormatTrivial$KtRecipe","displayName":"Find trivial `String.format(\"%s\", x)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

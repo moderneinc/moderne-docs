@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply Kotlin string shorthands"}
-  description={"Folds `trim().isEmpty()` into `isBlank()`, and prefers `take`/`drop` over `substring` indexing."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.StringShorthands$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/stringshorthands$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `isBlank()` instead of `trim().isEmpty()` on a `String`","href":"kotlin/stdlib/usestringisblankfortrimisempty$ktrecipe"},{"name":"Use `isNotBlank()` instead of `trim().isNotEmpty()` on a `String`","href":"kotlin/stdlib/usestringisnotblankfortrimisnotempty$ktrecipe"},{"name":"Use `take(n)` instead of `substring(0, n)` on a `String`","href":"kotlin/stdlib/usestringtakeforsubstringfromzero$ktrecipe"},{"name":"Use `drop(n)` instead of `substring(n)` on a `String`","href":"kotlin/stdlib/usestringdropforsubstring$ktrecipe"}]}>
+<RecipeHeader.Title>Apply Kotlin string shorthands</RecipeHeader.Title>
+
+<RecipeHeader.Description>Folds `trim().isEmpty()` into `isBlank()`, and prefers `take`/`drop` over `substring` indexing.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `isBlank()` instead of `trim().isEmpty()` on a `String`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usestringisblankfortrimisempty$ktrecipe/"},{"name":"Use `isNotBlank()` instead of `trim().isNotEmpty()` on a `String`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usestringisnotblankfortrimisnotempty$ktrecipe/"},{"name":"Use `take(n)` instead of `substring(0, n)` on a `String`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usestringtakeforsubstringfromzero$ktrecipe/"},{"name":"Use `drop(n)` instead of `substring(n)` on a `String`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usestringdropforsubstring$ktrecipe/"}]}>
 
 ## Definition
 

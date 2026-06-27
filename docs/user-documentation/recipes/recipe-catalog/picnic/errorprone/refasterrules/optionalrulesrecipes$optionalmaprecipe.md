@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `OptionalRules.OptionalMap`"}
-  description={"Avoid unnecessary `Optional` to `Stream` conversion when mapping a value of the former type."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalMapRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/optionalrulesrecipes$optionalmaprecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `OptionalRules.OptionalMap`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Avoid unnecessary `Optional` to `Stream` conversion when mapping a value of the former type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalMapRecipe","displayName":"Refaster template `OptionalRules.OptionalMap`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

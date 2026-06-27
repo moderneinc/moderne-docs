@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `appendLine(value)` instead of `appendln(value)` (Any?)"}
-  description={"`StringBuilder.appendln(value: Any?)` was deprecated in Kotlin 1.4 in favor of `appendLine(value: Any?)`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseAppendLineAny$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useappendlineany$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `appendLine(value)` instead of `appendln(value)` (Any?)</RecipeHeader.Title>
+
+<RecipeHeader.Description>`StringBuilder.appendln(value: Any?)` was deprecated in Kotlin 1.4 in favor of `appendLine(value: Any?)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseAppendLineAny$KtRecipe","displayName":"Use `appendLine(value)` instead of `appendln(value)` (Any?)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

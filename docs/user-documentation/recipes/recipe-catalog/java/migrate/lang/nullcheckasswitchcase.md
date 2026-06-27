@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add null check to existing switch cases"}
-  description={"In later Java 21+, null checks are valid in switch cases. This recipe will only add null checks to existing switch cases if there are no other statements in between them or if the block in the if statement is not impacting the flow of the switch."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.NullCheckAsSwitchCase"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/nullcheckasswitchcase.md"}
-/>
+>
+
+<RecipeHeader.Title>Add null check to existing switch cases</RecipeHeader.Title>
+
+<RecipeHeader.Description>In later Java 21+, null checks are valid in switch cases. This recipe will only add null checks to existing switch cases if there are no other statements in between them or if the block in the if statement is not impacting the flow of the switch.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    static String score(String obj) {\n        String formatted = \"Score not translated yet\";\n        if (obj == null) {\n            formatted = \"You did not enter the test yet\";\n        }\n        switch (obj) {\n            case \"A\", \"B\" -> formatted = \"Very good\";\n            case \"C\" -> formatted = \"Good\";\n            case \"D\" -> formatted = \"Hmmm...\";\n            default -> formatted = \"unknown\";\n        }\n        return formatted;\n    }\n}\n","after":"class Test {\n    static String score(String obj) {\n        String formatted = \"Score not translated yet\";\n        switch (obj) {\n            case null -> formatted = \"You did not enter the test yet\";\n            case \"A\", \"B\" -> formatted = \"Very good\";\n            case \"C\" -> formatted = \"Good\";\n            case \"D\" -> formatted = \"Hmmm...\";\n            default -> formatted = \"unknown\";\n        }\n        return formatted;\n    }\n}\n","diff":"@@ -4,3 +4,0 @@\n    static String score(String obj) {\n        String formatted = \"Score not translated yet\";\n-       if (obj == null) {\n-           formatted = \"You did not enter the test yet\";\n-       }\n        switch (obj) {\n@@ -8,0 +5,1 @@\n        }\n        switch (obj) {\n+           case null -> formatted = \"You did not enter the test yet\";\n            case \"A\", \"B\" -> formatted = \"Very good\";\n","newFile":false}]}]}>
 

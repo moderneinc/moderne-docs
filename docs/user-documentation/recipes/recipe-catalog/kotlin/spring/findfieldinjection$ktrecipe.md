@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Inject lateinit var` field injection"}
-  description={"The JSR-330 `@Inject` annotation has the same drawbacks as `@Autowired` for field injection: hidden dependencies, harder testing, mutable state. Migrate to constructor injection."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindFieldInjection$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findfieldinjection$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Inject lateinit var` field injection</RecipeHeader.Title>
+
+<RecipeHeader.Description>The JSR-330 `@Inject` annotation has the same drawbacks as `@Autowired` for field injection: hidden dependencies, harder testing, mutable state. Migrate to constructor injection.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindFieldInjection$KtRecipe","displayName":"Find `@Inject lateinit var` field injection","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

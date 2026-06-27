@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove LaunchDarkly's `doubleVariation` for feature key"}
-  description={"Replace `doubleVariation` invocations for feature key with value, and simplify constant if branch execution."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-feature-flags"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.featureflags.launchdarkly.RemoveDoubleVariation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/removedoublevariation.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a double feature flag for feature key","href":"featureflags/removedoubleflag"}]}>
+<RecipeHeader.Title>Remove LaunchDarkly's `doubleVariation` for feature key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `doubleVariation` invocations for feature key with value, and simplify constant if branch execution.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a double feature flag for feature key","href":"/user-documentation/recipes/recipe-catalog/featureflags/removedoubleflag/"}]}>
 
 ## Definition
 

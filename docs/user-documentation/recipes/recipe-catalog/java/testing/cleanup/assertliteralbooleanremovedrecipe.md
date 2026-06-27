@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove JUnit `assertTrue(true)` and `assertFalse(false)`"}
-  description={"These assertions are redundant and do not provide any value. They can be safely removed."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.AssertLiteralBooleanRemovedRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertliteralbooleanremovedrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove JUnit `assertTrue(true)` and `assertFalse(false)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>These assertions are redundant and do not provide any value. They can be safely removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertTrue;\n\nclass Test {\n    void test() {\n        assertFalse(false, \"message\");\n        assertTrue(true, \"message\");\n        assertFalse(false);\n        assertTrue(true);\n    }\n}\n","after":"class Test {\n    void test() {\n    }\n}\n","diff":"@@ -1,3 +1,0 @@\n-import static org.junit.jupiter.api.Assertions.assertFalse;\n-import static org.junit.jupiter.api.Assertions.assertTrue;\n-\nclass Test {\n@@ -6,4 +3,0 @@\nclass Test {\n    void test() {\n-       assertFalse(false, \"message\");\n-       assertTrue(true, \"message\");\n-       assertFalse(false);\n-       assertTrue(true);\n    }\n","newFile":false}]}]}>
 

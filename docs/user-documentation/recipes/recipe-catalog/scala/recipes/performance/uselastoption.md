@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `.last` with `.lastOption`"}
-  description={"Replaces `.last` calls on collections with `.lastOption` to avoid `NoSuchElementException` on empty collections."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.performance.UseLastOption"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/performance/uselastoption.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `.last` with `.lastOption`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `.last` calls on collections with `.lastOption` to avoid `NoSuchElementException` on empty collections.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val list = List(1, 2, 3)\n    val end = list.last\n}\n","after":"class Example {\n    val list = List(1, 2, 3)\n    val end = list.lastOption\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    val list = List(1, 2, 3)\n-   val end = list.last\n+   val end = list.lastOption\n}\n","newFile":false}]}]}>
 

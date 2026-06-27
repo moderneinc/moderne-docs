@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace global method security with method security"}
-  description={"`@EnableGlobalMethodSecurity` and `<global-method-security>` are deprecated in favor of `@EnableMethodSecurity` and `<method-security>`, respectively. The new annotation and XML element activate Spring’s pre-post annotations by default and use AuthorizationManager internally."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","security"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security5.ReplaceGlobalMethodSecurityWithMethodSecurityXml"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security5/replaceglobalmethodsecuritywithmethodsecurityxml.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML tag name","href":"xml/changetagname"},{"name":"Change XML attribute","href":"xml/changetagattribute"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Replace global method security with method security</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@EnableGlobalMethodSecurity` and `<global-method-security>` are deprecated in favor of `@EnableMethodSecurity` and `<method-security>`, respectively. The new annotation and XML element activate Spring’s pre-post annotations by default and use AuthorizationManager internally.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change package"}
-  description={"Change package/module references from one name to another."}
   type={"Composite recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.ChangePackage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/changepackage.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"org.openrewrite.java.ChangePackage","href":"java/changepackage"}]}>
+<RecipeHeader.Title>Change package</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change package/module references from one name to another.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"org.openrewrite.java.ChangePackage","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]}>
 
 ## Definition
 

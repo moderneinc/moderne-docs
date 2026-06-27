@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove registrations of modules built-in to Jackson 3"}
-  description={"In Jackson 3, `ParameterNamesModule`, `Jdk8Module`, and `JavaTimeModule` are built into `jackson-databind` and no longer need to be registered manually. This recipe removes `ObjectMapper.registerModule()` and `MapperBuilder.addModule()` calls for these modules."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.RemoveBuiltInModuleRegistrations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/removebuiltinmoduleregistrations.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove registrations of modules built-in to Jackson 3</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Jackson 3, `ParameterNamesModule`, `Jdk8Module`, and `JavaTimeModule` are built into `jackson-databind` and no longer need to be registered manually. This recipe removes `ObjectMapper.registerModule()` and `MapperBuilder.addModule()` calls for these modules.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.databind.ObjectMapper;\nimport com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;\n\nclass Test {\n    void configure() {\n        ObjectMapper mapper = new ObjectMapper();\n        mapper.registerModule(new JavaTimeModule());\n    }\n}\n","after":"import com.fasterxml.jackson.databind.ObjectMapper;\n\nclass Test {\n    void configure() {\n        ObjectMapper mapper = new ObjectMapper();\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport com.fasterxml.jackson.databind.ObjectMapper;\n-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;\n\n@@ -7,1 +6,0 @@\n    void configure() {\n        ObjectMapper mapper = new ObjectMapper();\n-       mapper.registerModule(new JavaTimeModule());\n    }\n","newFile":false}]}]}>
 

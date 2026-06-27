@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find public `lateinit var` declarations"}
-  description={"`lateinit var` defers initialization but exposes a mutable, possibly-uninitialized property. As public API, every caller can both read (and potentially trigger `UninitializedPropertyAccessException`) and write the field. Flag for review of encapsulation."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindPublicLateinit$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findpubliclateinit$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find public `lateinit var` declarations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`lateinit var` defers initialization but exposes a mutable, possibly-uninitialized property. As public API, every caller can both read (and potentially trigger `UninitializedPropertyAccessException`) and write the field. Flag for review of encapsulation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindPublicLateinit$KtRecipe","displayName":"Find public `lateinit var` declarations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

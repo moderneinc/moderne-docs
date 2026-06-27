@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Transform 'new' expressions to static factory methods"}
-  description={"Transforms 'new' expression for client config related objects to the equivalent .create() expression in V2."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/software.amazon.awssdk.v2migration.NewClassToStaticFactory"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/newclasstostaticfactory.md"}
-/>
+>
+
+<RecipeHeader.Title>Transform 'new' expressions to static factory methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms 'new' expression for client config related objects to the equivalent .create() expression in V2.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"software.amazon.awssdk.v2migration.NewClassToStaticFactory","displayName":"Transform 'new' expressions to static factory methods","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Explain why the Java version was capped at 24 for Kotlin modules"}
-  description={"Adds an explanatory comment to Maven `pom.xml` files in modules that were held at Java 24 because they compile Kotlin and depend on `kotlin-stdlib` older than 2.3, which cannot target Java 25 bytecode. The comment names the `kotlin-stdlib` version found and the next step needed to reach Java 25. Self-healing: the comment is added while the module is at Java 24 and removed again once the module reaches a higher Java version (for instance after its Kotlin was upgraded to 2.3), so it only ever remains on modules that truly stay at Java 24 — whether a Kotlin 1.x cap or a 2.0-2.2 module whose Kotlin upgrade could not be applied. Intended to run last, scoped to modules that compile Kotlin."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.CommentJava24KotlinCap"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/commentjava24kotlincap.md"}
-/>
+>
+
+<RecipeHeader.Title>Explain why the Java version was capped at 24 for Kotlin modules</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds an explanatory comment to Maven `pom.xml` files in modules that were held at Java 24 because they compile Kotlin and depend on `kotlin-stdlib` older than 2.3, which cannot target Java 25 bytecode. The comment names the `kotlin-stdlib` version found and the next step needed to reach Java 25. Self-healing: the comment is added while the module is at Java 24 and removed again once the module reaches a higher Java version (for instance after its Kotlin was upgraded to 2.3), so it only ever remains on modules that truly stay at Java 24 — whether a Kotlin 1.x cap or a 2.0-2.2 module whose Kotlin upgrade could not be applied. Intended to run last, scoped to modules that compile Kotlin.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.CommentJava24KotlinCap","displayName":"Explain why the Java version was capped at 24 for Kotlin modules","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

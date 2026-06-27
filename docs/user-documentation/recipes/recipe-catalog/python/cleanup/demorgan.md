@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Flatten negated logic via De Morgan's identities"}
-  description={"Use De Morgan's identities to remove double negation and to distribute ``not`` into compound conditions, e.g. ``not not finished`` becomes ``finished`` and ``not (m and n)`` becomes ``not m or not n``."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.DeMorgan"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/demorgan.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Flatten negated logic via De Morgan's identities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use De Morgan's identities to remove double negation and to distribute ``not`` into compound conditions, e.g. ``not not finished`` becomes ``finished`` and ``not (m and n)`` becomes ``not m or not n``.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.DeMorgan","displayName":"Flatten negated logic via De Morgan's identities","pipPackage":"openrewrite-static-analysis"}}>
 

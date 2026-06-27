@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Int.MAX_VALUE` instead of `java.lang.Integer.MAX_VALUE`"}
-  description={"`Integer.MAX_VALUE` is the JVM-only spelling; Kotlin's `Int.MAX_VALUE` is the multiplatform equivalent."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseKotlinIntMax$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinintmax$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Int.MAX_VALUE` instead of `java.lang.Integer.MAX_VALUE`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Integer.MAX_VALUE` is the JVM-only spelling; Kotlin's `Int.MAX_VALUE` is the multiplatform equivalent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseKotlinIntMax$KtRecipe","displayName":"Use `Int.MAX_VALUE` instead of `java.lang.Integer.MAX_VALUE`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

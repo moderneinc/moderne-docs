@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Kubernetes API version"}
-  description={"Change the Kubernetes API version in a resource."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.ChangeApiVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/changeapiversion.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Change Kubernetes API version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the Kubernetes API version in a resource.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldApiVersion","required":true,"description":"The old Kubernetes API version to match.","example":"flowcontrol.apiserver.k8s.io/v1beta3"},{"type":"String","name":"newApiVersion","required":true,"description":"The new Kubernetes API version to change to.","example":"flowcontrol.apiserver.k8s.io/v1"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

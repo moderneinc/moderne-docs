@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `Runtime.traceInstructions(boolean)` and `Runtime.traceMethodCalls` methods"}
-  description={"The `traceInstructions` and `traceMethodCalls` methods in `java.lang.Runtime` were deprecated in Java SE 9 and are no longer available in Java SE 13 and later. The recipe removes the invocations of these methods since the method invocations do nothing functionally."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java17"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.RemovedRuntimeTraceMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/removedruntimetracemethods.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove method invocations","href":"java/removemethodinvocations"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove `Runtime.traceInstructions(boolean)` and `Runtime.traceMethodCalls` methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `traceInstructions` and `traceMethodCalls` methods in `java.lang.Runtime` were deprecated in Java SE 9 and are no longer available in Java SE 13 and later. The recipe removes the invocations of these methods since the method invocations do nothing functionally.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

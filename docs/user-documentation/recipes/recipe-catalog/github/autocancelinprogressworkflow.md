@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Cancel in-progress workflow when it is triggered again"}
-  description={"When a workflow is already running and would be triggered again, cancel the existing workflow. See [`styfle/cancel-workflow-action`](https://github.com/styfle/cancel-workflow-action) for details."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.AutoCancelInProgressWorkflow"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/autocancelinprogressworkflow.md"}
-/>
+>
+
+<RecipeHeader.Title>Cancel in-progress workflow when it is triggered again</RecipeHeader.Title>
+
+<RecipeHeader.Description>When a workflow is already running and would be triggered again, cancel the existing workflow. See [`styfle/cancel-workflow-action`](https://github.com/styfle/cancel-workflow-action) for details.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"accessToken","required":false,"description":"Optionally provide the key name of a repository or organization secret that contains a GitHub personal access token with permission to cancel workflows.","example":"WORKFLOWS_ACCESS_TOKEN"}]}>
 

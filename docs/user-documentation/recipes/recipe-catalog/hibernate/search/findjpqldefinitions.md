@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find JPQL definitions"}
-  description={"Find Java Persistence Query Language definitions in the codebase."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.search.FindJPQLDefinitions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/search/findjpqldefinitions.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find JPQL definitions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find Java Persistence Query Language definitions in the codebase.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.persistence.NamedQuery;\n\n@NamedQuery(name=\"Test\", query=\"SELECT * FROM Employee e WHERE e.salary = ?1\")\nclass MyEntity {}\n","after":"import jakarta.persistence.NamedQuery;\n\n@NamedQuery(name=\"Test\", query=/*~~>*/\"SELECT * FROM Employee e WHERE e.salary = ?1\")\nclass MyEntity {}\n","diff":"@@ -3,1 +3,1 @@\nimport jakarta.persistence.NamedQuery;\n\n-@NamedQuery(name=\"Test\", query=\"SELECT * FROM Employee e WHERE e.salary = ?1\")\n+@NamedQuery(name=\"Test\", query=/*~~>*/\"SELECT * FROM Employee e WHERE e.salary = ?1\")\nclass MyEntity {}\n","newFile":false}]}]}>
 

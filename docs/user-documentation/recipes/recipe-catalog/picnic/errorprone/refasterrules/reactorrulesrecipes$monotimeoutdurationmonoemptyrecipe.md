@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ReactorRules.MonoTimeoutDurationMonoEmpty`"}
-  description={"Prefer `Mono#timeout(Duration, Mono)` over more contrived or less performant alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoTimeoutDurationMonoEmptyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes$monotimeoutdurationmonoemptyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ReactorRules.MonoTimeoutDurationMonoEmpty`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Mono#timeout(Duration, Mono)` over more contrived or less performant alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoTimeoutDurationMonoEmptyRecipe","displayName":"Refaster template `ReactorRules.MonoTimeoutDurationMonoEmpty`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

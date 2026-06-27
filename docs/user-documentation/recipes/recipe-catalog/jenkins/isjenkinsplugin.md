@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Is the project a Jenkins plugin?"}
-  description={"Checks if the project is a Jenkins plugin by the presence of a managed version of `jenkins-core`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.IsJenkinsPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/isjenkinsplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Is the project a Jenkins plugin?</RecipeHeader.Title>
+
+<RecipeHeader.Description>Checks if the project is a Jenkins plugin by the presence of a managed version of `jenkins-core`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"version","required":true,"description":"The value of the `<jenkins.version>` property.","example":"[1,)"}]}>
 

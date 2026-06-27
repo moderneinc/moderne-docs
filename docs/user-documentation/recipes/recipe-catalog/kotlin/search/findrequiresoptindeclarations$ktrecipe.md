@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find declarations annotated `@RequiresOptIn`"}
-  description={"A `@RequiresOptIn` annotation defines a new opt-in marker — every caller must explicitly acknowledge it via `@OptIn`. Each match here is a place where stability semantics are being defined, not just consumed."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindRequiresOptInDeclarations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findrequiresoptindeclarations$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find declarations annotated `@RequiresOptIn`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `@RequiresOptIn` annotation defines a new opt-in marker — every caller must explicitly acknowledge it via `@OptIn`. Each match here is a place where stability semantics are being defined, not just consumed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindRequiresOptInDeclarations$KtRecipe","displayName":"Find declarations annotated `@RequiresOptIn`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

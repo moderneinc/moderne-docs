@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Tag(...)` annotations"}
-  description={"`@Tag(\"slow\")` is JUnit 5's mechanism for grouping tests so the build can include/exclude them by tag. Useful to flag for tag-name consistency review across modules — if every module has its own spelling of \"integration\", the build's tag filter doesn't catch them uniformly."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindTagAnnotationUsage$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findtagannotationusage$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Tag(...)` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@Tag("slow")` is JUnit 5's mechanism for grouping tests so the build can include/exclude them by tag. Useful to flag for tag-name consistency review across modules — if every module has its own spelling of "integration", the build's tag filter doesn't catch them uniformly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindTagAnnotationUsage$KtRecipe","displayName":"Find `@Tag(...)` annotations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `OptionalRules.OptionalOrElseThrow`"}
-  description={"Prefer `Optional#orElseThrow()` over the less explicit `Optional#get()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S3655"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalOrElseThrowRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/optionalrulesrecipes$optionalorelsethrowrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `OptionalRules.OptionalOrElseThrow`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Optional#orElseThrow()` over the less explicit `Optional#get()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalOrElseThrowRecipe","displayName":"Refaster template `OptionalRules.OptionalOrElseThrow`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

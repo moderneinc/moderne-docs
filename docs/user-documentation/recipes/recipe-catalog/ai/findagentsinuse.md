@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find AI agents configuration files"}
-  description={"Scans codebases to identify usage of AI agents by looking at the agent configuration files present in the repository."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.ai.FindAgentsInUse"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/ai/findagentsinuse.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find files","href":"core/findsourcefiles"}]}>
+<RecipeHeader.Title>Find AI agents configuration files</RecipeHeader.Title>
+
+<RecipeHeader.Description>Scans codebases to identify usage of AI agents by looking at the agent configuration files present in the repository.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"}]}>
 
 ## Definition
 

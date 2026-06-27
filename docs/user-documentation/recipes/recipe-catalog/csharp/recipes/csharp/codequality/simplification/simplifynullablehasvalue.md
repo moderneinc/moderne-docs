@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify Nullable<T>.HasValue"}
-  description={"Replace `x.HasValue` with `x != null` and `!x.HasValue` with `x == null`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyNullableHasValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifynullablehasvalue.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify Nullable&lt;T>.HasValue</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `x.HasValue` with `x != null` and `!x.HasValue` with `x == null`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyNullableHasValue","displayName":"Simplify Nullable<T>.HasValue","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

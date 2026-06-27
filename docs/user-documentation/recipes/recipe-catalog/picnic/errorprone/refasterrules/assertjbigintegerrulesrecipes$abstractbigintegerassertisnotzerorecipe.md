@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsNotZero`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractBigIntegerAssertIsNotZero {\n    \n    @BeforeTemplate\n    AbstractBigIntegerAssert<?> before(AbstractBigIntegerAssert<?> bigIntegerAssert) {\n        return Refaster.anyOf(bigIntegerAssert.isNotZero(), bigIntegerAssert.isNotEqualTo(0L), bigIntegerAssert.isNotEqualTo(BigInteger.ZERO));\n    }\n    \n    @AfterTemplate\n    AbstractBigIntegerAssert<?> after(AbstractBigIntegerAssert<?> bigIntegerAssert) {\n        return bigIntegerAssert.isNotEqualTo(0);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJBigIntegerRulesRecipes$AbstractBigIntegerAssertIsNotZeroRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes$abstractbigintegerassertisnotzerorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsNotZero`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractBigIntegerAssertIsNotZero {
+    
+    @BeforeTemplate
+    AbstractBigIntegerAssert<?> before(AbstractBigIntegerAssert<?> bigIntegerAssert) {
+        return Refaster.anyOf(bigIntegerAssert.isNotZero(), bigIntegerAssert.isNotEqualTo(0L), bigIntegerAssert.isNotEqualTo(BigInteger.ZERO));
+    }
+    
+    @AfterTemplate
+    AbstractBigIntegerAssert<?> after(AbstractBigIntegerAssert<?> bigIntegerAssert) {
+        return bigIntegerAssert.isNotEqualTo(0);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJBigIntegerRulesRecipes$AbstractBigIntegerAssertIsNotZeroRecipe","displayName":"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsNotZero`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

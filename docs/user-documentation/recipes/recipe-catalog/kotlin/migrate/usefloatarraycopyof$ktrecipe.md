@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `FloatArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`"}
-  description={"`java.util.Arrays.copyOf(arr: float[], newLength)` is JVM-only; `arr.copyOf(newLength)` is the multiplatform Kotlin extension."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseFloatArrayCopyOf$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usefloatarraycopyof$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `FloatArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Arrays.copyOf(arr: float[], newLength)` is JVM-only; `arr.copyOf(newLength)` is the multiplatform Kotlin extension.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseFloatArrayCopyOf$KtRecipe","displayName":"Use `FloatArray.copyOf()` instead of `Arrays.copyOf(arr, newLength)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

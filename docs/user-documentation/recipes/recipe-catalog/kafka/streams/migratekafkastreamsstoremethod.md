@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated `KafkaStreams#store` method"}
-  description={"In Kafka Streams 2.5, the method `KafkaStreams#store(String storeName, QueryableStoreType<T> storeType)` was deprecated. It only allowed querying active stores and did not support any additional query options. Use the new `StoreQueryParameters` API instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.streams.MigrateKafkaStreamsStoreMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/streams/migratekafkastreamsstoremethod.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate deprecated `KafkaStreams#store` method</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Kafka Streams 2.5, the method `KafkaStreams#store(String storeName, QueryableStoreType<T> storeType)` was deprecated. It only allowed querying active stores and did not support any additional query options. Use the new `StoreQueryParameters` API instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.kafka.streams.KafkaStreams;\nimport org.apache.kafka.streams.state.QueryableStoreTypes;\n\nclass StreamsApp {\n    void queryStore(KafkaStreams streams) {\n        streams.store(\"myStore\", QueryableStoreTypes.keyValueStore());\n    }\n}\n","after":"import org.apache.kafka.streams.KafkaStreams;\nimport org.apache.kafka.streams.StoreQueryParameters;\nimport org.apache.kafka.streams.state.QueryableStoreTypes;\n\nclass StreamsApp {\n    void queryStore(KafkaStreams streams) {\n        streams.store(StoreQueryParameters.fromNameAndType(\"myStore\", QueryableStoreTypes.keyValueStore()));\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.apache.kafka.streams.KafkaStreams;\n+import org.apache.kafka.streams.StoreQueryParameters;\nimport org.apache.kafka.streams.state.QueryableStoreTypes;\n@@ -6,1 +7,1 @@\nclass StreamsApp {\n    void queryStore(KafkaStreams streams) {\n-       streams.store(\"myStore\", QueryableStoreTypes.keyValueStore());\n+       streams.store(StoreQueryParameters.fromNameAndType(\"myStore\", QueryableStoreTypes.keyValueStore()));\n    }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer a `Mono#justOrEmpty(Optional)` and `Mono#switchIfEmpty(Mono)` chain over more contrived alternatives"}
-  description={"In particular, avoid mixing of the `Optional` and `Mono` APIs."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoFromOptionalSwitchIfEmptyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes$monofromoptionalswitchifemptyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer a `Mono#justOrEmpty(Optional)` and `Mono#switchIfEmpty(Mono)` chain over more contrived alternatives</RecipeHeader.Title>
+
+<RecipeHeader.Description>In particular, avoid mixing of the `Optional` and `Mono` APIs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoFromOptionalSwitchIfEmptyRecipe","displayName":"Prefer a `Mono#justOrEmpty(Optional)` and `Mono#switchIfEmpty(Mono)` chain over more contrived alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

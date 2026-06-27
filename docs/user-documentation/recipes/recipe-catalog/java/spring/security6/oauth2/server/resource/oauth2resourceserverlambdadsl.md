@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `OAuth2ResourceServerConfigurer` chained calls into Lambda DSL"}
-  description={"Converts `OAuth2ResourceServerConfigurer` chained call from Spring Security pre 5.2.x into new lambda DSL style calls and removes `and()` methods."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security6.oauth2.server.resource.OAuth2ResourceServerLambdaDsl"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/oauth2/server/resource/oauth2resourceserverlambdadsl.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `OAuth2ResourceServerConfigurer` chained calls into Lambda DSL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `OAuth2ResourceServerConfigurer` chained call from Spring Security pre 5.2.x into new lambda DSL style calls and removes `and()` methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\n\n@EnableWebSecurity\npublic class ConventionalSecurityConfig extends WebSecurityConfigurerAdapter {\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n                .oauth2ResourceServer(server -> server\n                        .jwt()\n                                .jwkSetUri(\"\")\n                                .and()\n                        .opaqueToken()\n                                .introspectionUri(\"\"));\n    }\n}\n","after":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\n\n@EnableWebSecurity\npublic class ConventionalSecurityConfig extends WebSecurityConfigurerAdapter {\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n                .oauth2ResourceServer(server -> server\n                        .jwt(jwt -> jwt\n                                .jwkSetUri(\"\"))\n                        .opaqueToken(token -> token\n                                .introspectionUri(\"\")));\n    }\n}\n","diff":"@@ -11,5 +11,4 @@\n        http\n                .oauth2ResourceServer(server -> server\n-                       .jwt()\n-                               .jwkSetUri(\"\")\n-                               .and()\n-                       .opaqueToken()\n-                               .introspectionUri(\"\"));\n+                       .jwt(jwt -> jwt\n+                               .jwkSetUri(\"\"))\n+                       .opaqueToken(token -> token\n+                               .introspectionUri(\"\")));\n    }\n","newFile":false}]}]}>
 

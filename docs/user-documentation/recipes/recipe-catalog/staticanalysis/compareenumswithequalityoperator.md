@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enum values should be compared with \"==\""}
-  description={"Replaces `Enum equals(java.lang.Object)` with `Enum == java.lang.Object`. An `!Enum equals(java.lang.Object)` will change to `!=`. Using `==` for enum comparison is null-safe, catches type mismatches at compile time, and is idiomatic since each enum constant is guaranteed to be a singleton."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4551"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CompareEnumsWithEqualityOperator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/compareenumswithequalityoperator.md"}
-/>
+>
+
+<RecipeHeader.Title>Enum values should be compared with "=="</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `Enum equals(java.lang.Object)` with `Enum == java.lang.Object`. An `!Enum equals(java.lang.Object)` will change to `!=`. Using `==` for enum comparison is null-safe, catches type mismatches at compile time, and is idiomatic since each enum constant is guaranteed to be a singleton.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import a.A;\nclass Test {\n    void method(A arg0) {\n        if (A.FOO.equals(arg0)) {\n        }\n        if (arg0.equals(A.FOO)) {\n        }\n    }\n}\n","after":"import a.A;\nclass Test {\n    void method(A arg0) {\n        if (A.FOO == arg0) {\n        }\n        if (arg0 == A.FOO) {\n        }\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\nclass Test {\n    void method(A arg0) {\n-       if (A.FOO.equals(arg0)) {\n+       if (A.FOO == arg0) {\n        }\n@@ -6,1 +6,1 @@\n        if (A.FOO.equals(arg0)) {\n        }\n-       if (arg0.equals(A.FOO)) {\n+       if (arg0 == A.FOO) {\n        }\n","newFile":false}]}]}>
 

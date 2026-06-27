@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `DefaultResponseErrorHandler.handleError` method signature"}
-  description={"Migrates overridden `handleError(ClientHttpResponse response)` methods to the new signature `handleError(URI url, HttpMethod method, ClientHttpResponse response)` in classes extending `DefaultResponseErrorHandler`. The old single-argument method was removed in Spring Framework 7.0."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","framework"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.MigrateDefaultResponseErrorHandler"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratedefaultresponseerrorhandler.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add method parameter to a method declaration","href":"java/addmethodparameter"},{"name":"Add method parameter to a method declaration","href":"java/addmethodparameter"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Find implementing classes","href":"java/search/findimplementations"}]}>
+<RecipeHeader.Title>Migrate `DefaultResponseErrorHandler.handleError` method signature</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates overridden `handleError(ClientHttpResponse response)` methods to the new signature `handleError(URI url, HttpMethod method, ClientHttpResponse response)` in classes extending `DefaultResponseErrorHandler`. The old single-argument method was removed in Spring Framework 7.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add method parameter to a method declaration","href":"/user-documentation/recipes/recipe-catalog/java/addmethodparameter/"},{"name":"Add method parameter to a method declaration","href":"/user-documentation/recipes/recipe-catalog/java/addmethodparameter/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Find implementing classes","href":"/user-documentation/recipes/recipe-catalog/java/search/findimplementations/"}]}>
 
 ## Definition
 

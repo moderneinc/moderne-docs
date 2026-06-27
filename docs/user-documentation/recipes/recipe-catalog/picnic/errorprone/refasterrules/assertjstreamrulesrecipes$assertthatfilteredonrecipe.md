@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJStreamRules.AssertThatFilteredOn`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatFilteredOn<T> {\n    \n    @BeforeTemplate\n    ListAssert<T> before(Stream<T> stream, Predicate<? super T> predicate) {\n        return assertThat(stream.filter(predicate));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ListAssert<T> after(Stream<T> stream, Predicate<? super T> predicate) {\n        return assertThat(stream).filteredOn(predicate);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatFilteredOnRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatfilteredonrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJStreamRules.AssertThatFilteredOn`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatFilteredOn<T> {
+    
+    @BeforeTemplate
+    ListAssert<T> before(Stream<T> stream, Predicate<? super T> predicate) {
+        return assertThat(stream.filter(predicate));
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    ListAssert<T> after(Stream<T> stream, Predicate<? super T> predicate) {
+        return assertThat(stream).filteredOn(predicate);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatFilteredOnRecipe","displayName":"Refaster template `AssertJStreamRules.AssertThatFilteredOn`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

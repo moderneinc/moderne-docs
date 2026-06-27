@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use HttpServletRequest `logout` method for programmatic security logout in Servlet 3.0"}
-  description={"Do not rely on HttpSession `invalidate` method for programmatic security logout. Add the HttpServletRequest `logout` method which was introduced in Java EE 6 as part of the Servlet 3.0 specification."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.HttpSessionInvalidate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/httpsessioninvalidate.md"}
-/>
+>
+
+<RecipeHeader.Title>Use HttpServletRequest `logout` method for programmatic security logout in Servlet 3.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Do not rely on HttpSession `invalidate` method for programmatic security logout. Add the HttpServletRequest `logout` method which was introduced in Java EE 6 as part of the Servlet 3.0 specification.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.http.HttpServletResponse;\nimport javax.servlet.http.HttpServletRequest;\nimport javax.servlet.http.HttpSession;\n\nclass Foo {\n    void logOut(HttpServletRequest req, HttpServletResponse res) {\n        HttpSession session = req.getSession(false);\n        session.invalidate();\n        res.sendRedirect(\"login.html\");\n    }\n}\n","after":"import javax.servlet.http.HttpServletResponse;\nimport javax.servlet.http.HttpServletRequest;\nimport javax.servlet.http.HttpSession;\n\nclass Foo {\n    void logOut(HttpServletRequest req, HttpServletResponse res) {\n        HttpSession session = req.getSession(false);\n        req.logout();\n        res.sendRedirect(\"login.html\");\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\n    void logOut(HttpServletRequest req, HttpServletResponse res) {\n        HttpSession session = req.getSession(false);\n-       session.invalidate();\n+       req.logout();\n        res.sendRedirect(\"login.html\");\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use modernized `javax.lang.model.util` APIs"}
-  description={"Certain `javax.lang.model.util` APIs have become deprecated and their usages changed, necessitating usage changes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.JavaxLangModelUtil"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/javaxlangmodelutil.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `javax.lang.model.util.AbstractAnnotationValueVisitor9`","href":"java/migrate/javax/migrateabstractannotationvaluevisitor6to9"},{"name":"Use `javax.lang.model.util.AbstractElementVisitor9`","href":"java/migrate/javax/migrateabstractelementvisitor6to9"},{"name":"Use `javax.lang.model.util.AbstractTypeVisitor9`","href":"java/migrate/javax/migrateabstracttypevisitor6to9"},{"name":"Use `javax.lang.model.util.ElementKindVisitor9`","href":"java/migrate/javax/migrateelementkindvisitor6to9"},{"name":"Use `javax.lang.model.util.ElementScanner9`","href":"java/migrate/javax/migrateelementscanner6to9"},{"name":"Use `javax.lang.model.util.SimpleAnnotationValueVisitor9`","href":"java/migrate/javax/migratesimpleannotationvaluevisitor6to9"},{"name":"Use `javax.lang.model.util.SimpleElementVisitor9`","href":"java/migrate/javax/migratesimpleelementvisitor6to9"},{"name":"Use `javax.lang.model.util.SimpleTypeVisitor9`","href":"java/migrate/javax/migratesimpletypevisitor6to9"},{"name":"Use `javax.lang.model.util.TypeKindVisitor9`","href":"java/migrate/javax/migratetypekindvisitor6to9"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use modernized `javax.lang.model.util` APIs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Certain `javax.lang.model.util` APIs have become deprecated and their usages changed, necessitating usage changes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `javax.lang.model.util.AbstractAnnotationValueVisitor9`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/migrateabstractannotationvaluevisitor6to9/"},{"name":"Use `javax.lang.model.util.AbstractElementVisitor9`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/migrateabstractelementvisitor6to9/"},{"name":"Use `javax.lang.model.util.AbstractTypeVisitor9`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/migrateabstracttypevisitor6to9/"},{"name":"Use `javax.lang.model.util.ElementKindVisitor9`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/migrateelementkindvisitor6to9/"},{"name":"Use `javax.lang.model.util.ElementScanner9`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/migrateelementscanner6to9/"},{"name":"Use `javax.lang.model.util.SimpleAnnotationValueVisitor9`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratesimpleannotationvaluevisitor6to9/"},{"name":"Use `javax.lang.model.util.SimpleElementVisitor9`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratesimpleelementvisitor6to9/"},{"name":"Use `javax.lang.model.util.SimpleTypeVisitor9`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratesimpletypevisitor6to9/"},{"name":"Use `javax.lang.model.util.TypeKindVisitor9`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratetypekindvisitor6to9/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

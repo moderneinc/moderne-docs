@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Modifier.fillMaxXxx().padding(...)` chains"}
-  description={"Modifier order matters: `Modifier.fillMaxSize().padding(8.dp)` fills the parent first and then insets — the visible content is smaller than the parent. `Modifier.padding(8.dp).fillMaxSize()` insets the available space and then fills it, producing a layout that hugs the padded box. The right order is intent-specific; flag chains for review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindModifierFillMaxAndPaddingOrderSmell$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierfillmaxandpaddingordersmell$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Modifier.fillMaxXxx().padding(...)` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>Modifier order matters: `Modifier.fillMaxSize().padding(8.dp)` fills the parent first and then insets — the visible content is smaller than the parent. `Modifier.padding(8.dp).fillMaxSize()` insets the available space and then fills it, producing a layout that hugs the padded box. The right order is intent-specific; flag chains for review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindModifierFillMaxAndPaddingOrderSmell$KtRecipe","displayName":"Find `Modifier.fillMaxXxx().padding(...)` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

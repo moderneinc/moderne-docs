@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `JUnitToAssertJRules.FailWithThrowable`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class FailWithThrowable<T> {\n    \n    @BeforeTemplate\n    T before(Throwable throwable) {\n        return Assertions.fail(throwable);\n    }\n    \n    @AfterTemplate\n    @DoNotCall\n    T after(Throwable throwable) {\n        return fail(throwable);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$FailWithThrowableRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$failwiththrowablerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `JUnitToAssertJRules.FailWithThrowable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class FailWithThrowable<T> {
+    
+    @BeforeTemplate
+    T before(Throwable throwable) {
+        return Assertions.fail(throwable);
+    }
+    
+    @AfterTemplate
+    @DoNotCall
+    T after(Throwable throwable) {
+        return fail(throwable);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$FailWithThrowableRecipe","displayName":"Refaster template `JUnitToAssertJRules.FailWithThrowable`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

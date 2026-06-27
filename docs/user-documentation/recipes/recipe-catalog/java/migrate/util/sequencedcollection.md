@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adopt `SequencedCollection`"}
-  description={"Replace older code patterns with `SequencedCollection` methods, as per https://openjdk.org/jeps/431."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["collections","java21"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.SequencedCollection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/sequencedcollection.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `List.get(int)`, `add(int, Object)`, and `remove(int)` with `SequencedCollection` `*First` and `*Last` methods","href":"java/migrate/util/listfirstandlast"},{"name":"Replace `iterator().next()` with `getFirst()`","href":"java/migrate/util/iteratornext"},{"name":"Use `getFirst()` instead of `stream().findFirst().orElseThrow()`","href":"java/migrate/util/streamfindfirst"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Adopt `SequencedCollection`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace older code patterns with `SequencedCollection` methods, as per https://openjdk.org/jeps/431.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `List.get(int)`, `add(int, Object)`, and `remove(int)` with `SequencedCollection` `*First` and `*Last` methods","href":"/user-documentation/recipes/recipe-catalog/java/migrate/util/listfirstandlast/"},{"name":"Replace `iterator().next()` with `getFirst()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/util/iteratornext/"},{"name":"Use `getFirst()` instead of `stream().findFirst().orElseThrow()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/util/streamfindfirst/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Modernize Kotlin coroutines code"}
-  description={"Search-only recipes that surface coroutine-related issues IntelliJ IDEA 2026.1's coroutine inspections flag: structured-concurrency leaks, blocking on suspend contexts, Flow operator misorder, and hand-rolled sequencing where a canonical operator exists. Each match is a `SearchResult` for review — nothing is rewritten automatically."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.Coroutines$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/coroutines$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find structured-concurrency leaks","href":"kotlin/coroutines/findstructuredconcurrencyleaks$ktrecipe"},{"name":"Find blocking calls inside coroutine contexts","href":"kotlin/coroutines/findblockingonsuspend$ktrecipe"},{"name":"Find Flow operator antipatterns","href":"kotlin/coroutines/findflowantipatterns$ktrecipe"},{"name":"Find coroutine sequencing smells","href":"kotlin/coroutines/findcoroutinesequencingsmells$ktrecipe"},{"name":"Find `MutableStateFlow<T?>(null)` declarations","href":"kotlin/coroutines/findmutablestateflownullable$ktrecipe"}]}>
+<RecipeHeader.Title>Modernize Kotlin coroutines code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only recipes that surface coroutine-related issues IntelliJ IDEA 2026.1's coroutine inspections flag: structured-concurrency leaks, blocking on suspend contexts, Flow operator misorder, and hand-rolled sequencing where a canonical operator exists. Each match is a `SearchResult` for review — nothing is rewritten automatically.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find structured-concurrency leaks","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findstructuredconcurrencyleaks$ktrecipe/"},{"name":"Find blocking calls inside coroutine contexts","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findblockingonsuspend$ktrecipe/"},{"name":"Find Flow operator antipatterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowantipatterns$ktrecipe/"},{"name":"Find coroutine sequencing smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findcoroutinesequencingsmells$ktrecipe/"},{"name":"Find `MutableStateFlow<T?>(null)` declarations","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findmutablestateflownullable$ktrecipe/"}]}>
 
 ## Definition
 

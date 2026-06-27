@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JBoss to Tomcat"}
-  description={"Comprehensive migration from JBoss to Tomcat."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.tomcat.CreateTomcatFilesInPath"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/createtomcatfilesinpath.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Create Tomcat context XML","href":"java/server/jboss/tomcat/createtomcatcontextxml"},{"name":"Create Tomcat server source file","href":"java/server/jboss/tomcat/createtomcatsourcefile"}]}>
+<RecipeHeader.Title>Migrate JBoss to Tomcat</RecipeHeader.Title>
+
+<RecipeHeader.Description>Comprehensive migration from JBoss to Tomcat.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Create Tomcat context XML","href":"/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/createtomcatcontextxml/"},{"name":"Create Tomcat server source file","href":"/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/createtomcatsourcefile/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Struts 6.0"}
-  description={"Migrate Struts 2.x to Struts 6.0."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate6.MigrateStruts6"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate Struts 2.0 interceptors to action \"aware\" interfaces","href":"java/struts/migrate6/migrateawareinterfaces"},{"name":"Migrate Dynamic Method Invocation to explicit action mappings","href":"java/struts/migrate6/migratedynamicmethodinvocation"},{"name":"Migrate OpenSymphony classes to Struts 6.0","href":"java/struts/migrate6/migrateopensymphonyclasses"},{"name":"Upgrade Struts 6.0 dependencies","href":"java/struts/migrate6/upgradestruts6dependencies"},{"name":"Migrate to Struts 6.0 constants","href":"java/struts/migrate6/migratestruts6constants"},{"name":"Migrate Struts date tag format patterns","href":"java/struts/migrate6/migratedatetagformat"},{"name":"Remove deprecated Freemarker `?html` built-in","href":"java/struts/migrate6/removefreemarkerhtmlbuiltin"},{"name":"Migrate DTD to a specific Struts version","href":"java/struts/migratestrutsdtd"},{"name":"Migrate static OGNL method access to action wrapper methods","href":"java/struts/migrate6/migratestaticognlmethodaccess"},{"name":"Migrate `xwork-validator` DTD to 1.0.4","href":"java/struts/migrate6/migratevalidatordtd"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML tag value","href":"xml/changetagvalue"}]}>
+<RecipeHeader.Title>Migrate to Struts 6.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Struts 2.x to Struts 6.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate Struts 2.0 interceptors to action \"aware\" interfaces","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migrateawareinterfaces/"},{"name":"Migrate Dynamic Method Invocation to explicit action mappings","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratedynamicmethodinvocation/"},{"name":"Migrate OpenSymphony classes to Struts 6.0","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migrateopensymphonyclasses/"},{"name":"Upgrade Struts 6.0 dependencies","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate6/upgradestruts6dependencies/"},{"name":"Migrate to Struts 6.0 constants","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestruts6constants/"},{"name":"Migrate Struts date tag format patterns","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratedatetagformat/"},{"name":"Remove deprecated Freemarker `?html` built-in","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate6/removefreemarkerhtmlbuiltin/"},{"name":"Migrate DTD to a specific Struts version","href":"/user-documentation/recipes/recipe-catalog/java/struts/migratestrutsdtd/"},{"name":"Migrate static OGNL method access to action wrapper methods","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestaticognlmethodaccess/"},{"name":"Migrate `xwork-validator` DTD to 1.0.4","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratevalidatordtd/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"}]}>
 
 ## Definition
 

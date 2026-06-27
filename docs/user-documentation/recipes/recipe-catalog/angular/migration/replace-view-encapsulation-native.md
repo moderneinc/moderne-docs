@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`"}
-  description={"Replaces `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`. `ViewEncapsulation.Native` was deprecated in Angular 6 and removed in Angular 11."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.replace-view-encapsulation-native"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/replace-view-encapsulation-native.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`. `ViewEncapsulation.Native` was deprecated in Angular 6 and removed in Angular 11.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.replace-view-encapsulation-native","displayName":"Replace `ViewEncapsulation.Native` with `ViewEncapsulation.ShadowDom`","npmPackage":"@openrewrite/recipes-angular"}}>
 

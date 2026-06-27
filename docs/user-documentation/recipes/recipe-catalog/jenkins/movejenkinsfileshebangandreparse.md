@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Recover `Jenkinsfile` parse errors caused by a misplaced shebang"}
-  description={"Groovy's Antlr4 parser rejects a `#!` shebang that is not on the first line of the file, causing the `Jenkinsfile` to be ingested as a `ParseError`. This recipe detects that exact failure mode, relocates the shebang to line 1, and re-parses the result with the Groovy parser so downstream recipes have a usable Groovy LST to work with."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.MoveJenkinsfileShebangAndReparse"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/movejenkinsfileshebangandreparse.md"}
-/>
+>
+
+<RecipeHeader.Title>Recover `Jenkinsfile` parse errors caused by a misplaced shebang</RecipeHeader.Title>
+
+<RecipeHeader.Description>Groovy's Antlr4 parser rejects a `#!` shebang that is not on the first line of the file, causing the `Jenkinsfile` to be ingested as a `ParseError`. This recipe detects that exact failure mode, relocates the shebang to line 1, and re-parses the result with the Groovy parser so downstream recipes have a usable Groovy LST to work with.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.jenkins.MoveJenkinsfileShebangAndReparse","displayName":"Recover `Jenkinsfile` parse errors caused by a misplaced shebang","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jenkins","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JENKINS","requiresConfiguration":false}}>
 

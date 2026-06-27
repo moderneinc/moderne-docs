@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Throwable.localizedMessage` instead of `Throwable.message`"}
-  description={"Prefer the i18n-aware `localizedMessage` property over `message` when surfacing exception text to end users. Both are Kotlin properties on `java.lang.Throwable` — the rewrite is a pure property-access rename."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseLocalizedMessage$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselocalizedmessage$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Throwable.localizedMessage` instead of `Throwable.message`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the i18n-aware `localizedMessage` property over `message` when surfacing exception text to end users. Both are Kotlin properties on `java.lang.Throwable` — the rewrite is a pure property-access rename.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseLocalizedMessage$KtRecipe","displayName":"Use `Throwable.localizedMessage` instead of `Throwable.message`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJMapRules.AssertThatMapIsEmpty`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatMapIsEmpty<K, V> {\n    \n    @BeforeTemplate\n    void before(Map<K, V> map) {\n        Refaster.anyOf(assertThat(map).hasSize(0), assertThat(map.isEmpty()).isTrue(), assertThat(map.size()).isEqualTo(0L), assertThat(map.size()).isNotPositive());\n    }\n    \n    @BeforeTemplate\n    void before2(Map<K, V> map) {\n        assertThat(Refaster.anyOf(map.keySet(), map.values(), map.entrySet())).isEmpty();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Map<K, V> map) {\n        assertThat(map).isEmpty();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,38 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AssertThatMapIsEmptyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapisemptyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJMapRules.AssertThatMapIsEmpty`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatMapIsEmpty<K, V> {
+    
+    @BeforeTemplate
+    void before(Map<K, V> map) {
+        Refaster.anyOf(assertThat(map).hasSize(0), assertThat(map.isEmpty()).isTrue(), assertThat(map.size()).isEqualTo(0L), assertThat(map.size()).isNotPositive());
+    }
+    
+    @BeforeTemplate
+    void before2(Map<K, V> map) {
+        assertThat(Refaster.anyOf(map.keySet(), map.values(), map.entrySet())).isEmpty();
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(Map<K, V> map) {
+        assertThat(map).isEmpty();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AssertThatMapIsEmptyRecipe","displayName":"Refaster template `AssertJMapRules.AssertThatMapIsEmpty`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@GetMapping`/`@PostMapping`/... methods returning `Mono<T>`"}
-  description={"A controller method returning `Mono<T>` is a candidate for `suspend fun foo(): T`. The suspending form reads as plain Kotlin, integrates with structured concurrency, and Spring WebFlux handles the bridge automatically."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindCoroutineControllerCandidate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findcoroutinecontrollercandidate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@GetMapping`/`@PostMapping`/... methods returning `Mono<T>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A controller method returning `Mono<T>` is a candidate for `suspend fun foo(): T`. The suspending form reads as plain Kotlin, integrates with structured concurrency, and Spring WebFlux handles the bridge automatically.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindCoroutineControllerCandidate$KtRecipe","displayName":"Find `@GetMapping`/`@PostMapping`/... methods returning `Mono<T>`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

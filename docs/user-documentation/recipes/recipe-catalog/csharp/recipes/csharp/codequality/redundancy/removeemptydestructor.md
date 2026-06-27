@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove empty destructor"}
-  description={"Remove destructors (finalizers) with empty bodies."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEmptyDestructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeemptydestructor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove empty destructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove destructors (finalizers) with empty bodies.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEmptyDestructor","displayName":"Remove empty destructor","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

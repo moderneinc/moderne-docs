@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Merge Spring `bootstrap.yml` with `application.yml`"}
-  description={"In Spring Boot 2.4, the bootstrap context that loads `bootstrap.yml` is [disabled by default](https://docs.spring.io/spring-cloud-config/reference/client.html). Its properties should be merged with `application.yml` unless `spring-cloud-starter-bootstrap` is present as a dependency."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MergeBootstrapYamlWithApplicationYaml"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/mergebootstrapyamlwithapplicationyaml.md"}
-/>
+>
+
+<RecipeHeader.Title>Merge Spring `bootstrap.yml` with `application.yml`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Boot 2.4, the bootstrap context that loads `bootstrap.yml` is [disabled by default](https://docs.spring.io/spring-cloud-config/reference/client.html). Its properties should be merged with `application.yml` unless `spring-cloud-starter-bootstrap` is present as a dependency.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"yaml","code":"name: test\n"},"variants":[{"language":"yaml","before":"spring.application.name: main\n","after":"spring.application.name: main\nname: test\n","diff":"--- application.yaml\n+++ application.yaml\n@@ -2,0 +2,1 @@\nspring.application.name: main\n+name: test\n\n","newFile":false}]}]}>
 

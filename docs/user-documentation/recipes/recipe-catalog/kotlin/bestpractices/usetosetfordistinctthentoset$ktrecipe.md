@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `toSet()` instead of `distinct().toSet()`"}
-  description={"`toSet()` deduplicates while building the set. `distinct().toSet()` allocates a `List` of distinct elements first, then copies into the set."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.UseToSetForDistinctThenToSet$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetosetfordistinctthentoset$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `toSet()` instead of `distinct().toSet()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`toSet()` deduplicates while building the set. `distinct().toSet()` allocates a `List` of distinct elements first, then copies into the set.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.UseToSetForDistinctThenToSet$KtRecipe","displayName":"Use `toSet()` instead of `distinct().toSet()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to JetBrains Exposed 1.0"}
-  description={"Migrate from JetBrains Exposed 0.x to 1.0.0. This includes package reorganization (adding `v1` prefix), type moves between modules, class renames, method renames, and Gradle dependency updates.\nSome changes require manual intervention and are not covered by this recipe: `Table.uuid()` should be changed to `Table.javaUUID()` for `java.util.UUID` values, `DateColumnType` with constructor parameter `time=false` or `time=true` should be split into `JodaLocalDateColumnType` or `JodaLocalDateTimeColumnType`, `SqlExpressionBuilder.*` usages should be replaced with top-level function imports, and `Statement.execute()` calls should use `BlockingExecutable` wrapping."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={["kotlin","exposed"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.exposed.UpgradeToExposed_1"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/exposed/upgradetoexposed_1.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate Exposed type references to 1.0 packages","href":"kotlin/exposed/exposedchangetypes"},{"name":"Rename Exposed deprecated methods for 1.0","href":"kotlin/exposed/exposedchangemethodnames"},{"name":"Upgrade Exposed Gradle dependencies to 1.0","href":"kotlin/exposed/exposedupgradegradledependencies"}]}>
+<RecipeHeader.Title>Migrate to JetBrains Exposed 1.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from JetBrains Exposed 0.x to 1.0.0. This includes package reorganization (adding `v1` prefix), type moves between modules, class renames, method renames, and Gradle dependency updates. Some changes require manual intervention and are not covered by this recipe: `Table.uuid()` should be changed to `Table.javaUUID()` for `java.util.UUID` values, `DateColumnType` with constructor parameter `time=false` or `time=true` should be split into `JodaLocalDateColumnType` or `JodaLocalDateTimeColumnType`, `SqlExpressionBuilder.*` usages should be replaced with top-level function imports, and `Statement.execute()` calls should use `BlockingExecutable` wrapping.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate Exposed type references to 1.0 packages","href":"/user-documentation/recipes/recipe-catalog/kotlin/exposed/exposedchangetypes/"},{"name":"Rename Exposed deprecated methods for 1.0","href":"/user-documentation/recipes/recipe-catalog/kotlin/exposed/exposedchangemethodnames/"},{"name":"Upgrade Exposed Gradle dependencies to 1.0","href":"/user-documentation/recipes/recipe-catalog/kotlin/exposed/exposedupgradegradledependencies/"}]}>
 
 ## Definition
 

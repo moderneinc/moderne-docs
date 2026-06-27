@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `JsonFactory.builder()` over `new JsonFactoryBuilder()`"}
-  description={"After the Jackson 2 → 3 migration, prefer the concrete static `JsonFactory.builder()` entry over `new JsonFactoryBuilder()` so `JsonFactory` chains read the same way as the format-aligned factories (`YAMLFactory.builder()`, `CBORFactory.builder()`, etc.). The reason `MigrateFactorySettersToBuilder` emits `new JsonFactoryBuilder()` in the first place is a Jackson 2 quirk — `JsonFactory.builder()` returned the wildcard `TSFBuilder<?, ?>` there. In Jackson 3 the static returns a concretely-typed `JsonFactoryBuilder`, so the constructor form no longer earns its keep."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.UseJsonFactoryStaticBuilder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/usejsonfactorystaticbuilder.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `JsonFactory.builder()` over `new JsonFactoryBuilder()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>After the Jackson 2 → 3 migration, prefer the concrete static `JsonFactory.builder()` entry over `new JsonFactoryBuilder()` so `JsonFactory` chains read the same way as the format-aligned factories (`YAMLFactory.builder()`, `CBORFactory.builder()`, etc.). The reason `MigrateFactorySettersToBuilder` emits `new JsonFactoryBuilder()` in the first place is a Jackson 2 quirk — `JsonFactory.builder()` returned the wildcard `TSFBuilder<?, ?>` there. In Jackson 3 the static returns a concretely-typed `JsonFactoryBuilder`, so the constructor form no longer earns its keep.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.jackson.UseJsonFactoryStaticBuilder","displayName":"Use `JsonFactory.builder()` over `new JsonFactoryBuilder()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
 

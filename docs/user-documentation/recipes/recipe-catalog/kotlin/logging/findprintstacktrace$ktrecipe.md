@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Throwable.printStackTrace()` calls"}
-  description={"`e.printStackTrace()` writes the throwable's stack frames straight to `System.err`, bypassing whatever logger the application configures. Use `log.error(\"context\", e)` so the throwable flows through SLF4J's last-arg-is-Throwable convention and ends up in the same sink as the rest of your errors."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindPrintStackTrace$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findprintstacktrace$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Throwable.printStackTrace()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`e.printStackTrace()` writes the throwable's stack frames straight to `System.err`, bypassing whatever logger the application configures. Use `log.error("context", e)` so the throwable flows through SLF4J's last-arg-is-Throwable convention and ends up in the same sink as the rest of your errors.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindPrintStackTrace$KtRecipe","displayName":"Find `Throwable.printStackTrace()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

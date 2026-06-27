@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Runtime.exec(...)` / `ProcessBuilder.start()` calls"}
-  description={"Forking a process from an Android app is almost never the right shape — the system imposes strict app-sandbox limits (no `su`, no arbitrary binaries) and process lifetime is unrelated to the activity that spawned it. Audit each call site against `WorkManager`, foreground services, or — if you genuinely need shell tools — `java.lang.ProcessBuilder` with explicit lifecycle management."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindRuntimeExecInAndroid$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findruntimeexecinandroid$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Runtime.exec(...)` / `ProcessBuilder.start()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Forking a process from an Android app is almost never the right shape — the system imposes strict app-sandbox limits (no `su`, no arbitrary binaries) and process lifetime is unrelated to the activity that spawned it. Audit each call site against `WorkManager`, foreground services, or — if you genuinely need shell tools — `java.lang.ProcessBuilder` with explicit lifecycle management.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindRuntimeExecInAndroid$KtRecipe","displayName":"Find `Runtime.exec(...)` / `ProcessBuilder.start()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

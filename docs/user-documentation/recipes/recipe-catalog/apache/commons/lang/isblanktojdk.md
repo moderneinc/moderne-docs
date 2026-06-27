@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace any StringUtils#isBlank(String) and #isNotBlank(String)"}
-  description={"Replace any `StringUtils#isBlank(String)` and `#isNotBlank(String)` with `s == null || s.isBlank()` and `s != null && !s.isBlank()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","commons"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.lang.IsBlankToJdk"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/lang/isblanktojdk.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace any StringUtils#isBlank(String) and #isNotBlank(String)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace any `StringUtils#isBlank(String)` and `#isNotBlank(String)` with `s == null || s.isBlank()` and `s != null && !s.isBlank()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.commons.lang3.StringUtils;\n\nclass A {\n    boolean test(String first) {\n        return StringUtils.isBlank(first);\n    }\n}\n","after":"class A {\n    boolean test(String first) {\n        return first == null || first.isBlank();\n    }\n}\n","diff":"@@ -1,2 +1,0 @@\n-import org.apache.commons.lang3.StringUtils;\n-\nclass A {\n@@ -5,1 +3,1 @@\nclass A {\n    boolean test(String first) {\n-       return StringUtils.isBlank(first);\n+       return first == null || first.isBlank();\n    }\n","newFile":false}]}]}>
 

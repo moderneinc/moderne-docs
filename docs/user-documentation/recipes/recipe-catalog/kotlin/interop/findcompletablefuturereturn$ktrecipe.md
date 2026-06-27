@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find functions returning `CompletableFuture<T>`"}
-  description={"Returning `CompletableFuture<T>` from Kotlin code obliges every caller to either `.thenCompose` chain or `.await()` through the `kotlinx-coroutines-jdk8` bridge. A `suspend fun foo(): T` integrates with structured concurrency at the language level — keep the future shape only at the Java boundary."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindCompletableFutureReturn$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findcompletablefuturereturn$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find functions returning `CompletableFuture<T>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Returning `CompletableFuture<T>` from Kotlin code obliges every caller to either `.thenCompose` chain or `.await()` through the `kotlinx-coroutines-jdk8` bridge. A `suspend fun foo(): T` integrates with structured concurrency at the language level — keep the future shape only at the Java boundary.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindCompletableFutureReturn$KtRecipe","displayName":"Find functions returning `CompletableFuture<T>`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

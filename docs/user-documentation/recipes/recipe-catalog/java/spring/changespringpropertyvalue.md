@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change the value of a spring application property"}
-  description={"Change Spring application property values existing in either Properties or YAML files, and in `@Value`, `@ConditionalOnProperty`, `@SpringBootTest`, or `@TestPropertySource` annotations."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.ChangeSpringPropertyValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/changespringpropertyvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Change the value of a spring application property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change Spring application property values existing in either Properties or YAML files, and in `@Value`, `@ConditionalOnProperty`, `@SpringBootTest`, or `@TestPropertySource` annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The name of the property key whose value is to be changed.","example":"management.metrics.binders.files.enabled"},{"type":"String","name":"newValue","required":true,"description":"The new value to be used for key specified by `propertyKey`.","example":"management.metrics.enable.process.files"},{"type":"String","name":"oldValue","required":false,"description":"Only change the property value if it matches the configured `oldValue`.","example":"false"},{"type":"Boolean","name":"regex","required":false,"description":"Default false. If enabled, `oldValue` will be interpreted as a Regular Expression, and capture group contents will be available in `newValue`"},{"type":"Boolean","name":"relaxedBinding","required":false,"description":"Whether to match the `propertyKey` using [relaxed binding](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) rules. Default is `true`. Set to `false` to use exact matching."}]}>
 

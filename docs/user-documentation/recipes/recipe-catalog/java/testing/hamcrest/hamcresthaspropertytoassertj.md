@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Hamcrest `hasProperty` to AssertJ"}
-  description={"Migrate Hamcrest `hasProperty` to AssertJ `hasFieldOrProperty` and `hasFieldOrPropertyWithValue`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.hamcrest.HamcrestHasPropertyToAssertJ"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/hamcresthaspropertytoassertj.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Hamcrest `hasProperty` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Hamcrest `hasProperty` to AssertJ `hasFieldOrProperty` and `hasFieldOrPropertyWithValue`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\n\nimport static org.hamcrest.MatcherAssert.assertThat;\nimport static org.hamcrest.Matchers.hasProperty;\n\nclass MyTest {\n    @Test\n    void testMethod() {\n        Object obj = new Object();\n        assertThat(obj, hasProperty(\"class\"));\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    @Test\n    void testMethod() {\n        Object obj = new Object();\n        assertThat(obj).hasFieldOrProperty(\"class\");\n    }\n}\n","diff":"@@ -3,2 +3,1 @@\nimport org.junit.jupiter.api.Test;\n\n-import static org.hamcrest.MatcherAssert.assertThat;\n-import static org.hamcrest.Matchers.hasProperty;\n+import static org.assertj.core.api.Assertions.assertThat;\n\n@@ -10,1 +9,1 @@\n    void testMethod() {\n        Object obj = new Object();\n-       assertThat(obj, hasProperty(\"class\"));\n+       assertThat(obj).hasFieldOrProperty(\"class\");\n    }\n","newFile":false}]}]}>
 

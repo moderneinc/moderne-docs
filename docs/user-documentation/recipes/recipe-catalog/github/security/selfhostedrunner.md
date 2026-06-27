@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find usage of self-hosted runners"}
-  description={"Find workflows that use `self-hosted` runners, which may have security implications in public repositories due to potential persistence between workflow runs and lack of isolation. Self-hosted runners should be properly secured and ideally ephemeral. Based on [zizmor's `self-hosted-runner` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/self_hosted_runner.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.SelfHostedRunner"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/selfhostedrunner.md"}
-/>
+>
+
+<RecipeHeader.Title>Find usage of self-hosted runners</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find workflows that use `self-hosted` runners, which may have security implications in public repositories due to potential persistence between workflow runs and lack of isolation. Self-hosted runners should be properly secured and ideally ephemeral. Based on [zizmor's `self-hosted-runner` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/self_hosted_runner.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Test Workflow\non: push\njobs:\n  test:\n    runs-on: [self-hosted, linux, x64]\n    steps:\n      - uses: actions/checkout@v4\n","after":"name: Test Workflow\non: push\njobs:\n  test:\n    ~~(Uses self-hosted runner which may have security implications in public repositories. Ensure runners are ephemeral and properly isolated.)~~>runs-on: [self-hosted, linux, x64]\n    steps:\n      - uses: actions/checkout@v4\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -5,1 +5,1 @@\njobs:\n  test:\n-   runs-on: [self-hosted, linux, x64]\n+   ~~(Uses self-hosted runner which may have security implications in public repositories. Ensure runners are ephemeral and properly isolated.)~~>runs-on: [self-hosted, linux, x64]\n    steps:\n","newFile":false}]}]}>
 

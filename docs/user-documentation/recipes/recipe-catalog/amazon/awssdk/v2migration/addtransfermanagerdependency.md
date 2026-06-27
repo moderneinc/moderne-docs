@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add AWS SDK for Java v2 S3 Transfer Manager dependency if needed"}
-  description={"This recipe will add the Java v2 S3 Transfer Manager dependency if v1 Transfer Manager is used"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["sdk","aws"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/software.amazon.awssdk.v2migration.AddTransferManagerDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/addtransfermanagerdependency.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]}>
+<RecipeHeader.Title>Add AWS SDK for Java v2 S3 Transfer Manager dependency if needed</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will add the Java v2 S3 Transfer Manager dependency if v1 Transfer Manager is used</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]}>
 
 ## Definition
 

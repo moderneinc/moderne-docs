@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove conditional with identical branches"}
-  description={"Replace `if`/`elif`/`else` chains where every branch has the same body with just the body, since the condition has no effect on what code executes."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={["python","RSPEC-S3923","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.codequality.AllBranchesIdentical"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/codequality/allbranchesidentical.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove conditional with identical branches</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `if`/`elif`/`else` chains where every branch has the same body with just the body, since the condition has no effect on what code executes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.codequality.AllBranchesIdentical","displayName":"Remove conditional with identical branches","pipPackage":"openrewrite-migrate-python"}}>
 

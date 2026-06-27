@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find data-flow source positions"}
-  description={"Locations where untrusted or configuration-controlled data enters the program: `readLine`/`Scanner` reads, environment/system-property reads, HTTP request reads, and filesystem reads. Each match is a seed an LLM agent (or human reviewer) can connect to downstream sinks."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindDataFlowSources$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/finddataflowsources$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `readLine()` / `Scanner.next*()` calls","href":"kotlin/search/findstdinsources$ktrecipe"},{"name":"Find `System.getenv(...)` / `System.getProperty(...)` reads","href":"kotlin/search/findenvironmentsources$ktrecipe"},{"name":"Find `HttpServletRequest.getParameter/getHeader/getCookies` reads","href":"kotlin/search/findhttprequestsources$ktrecipe"},{"name":"Find filesystem read calls (`File.readText`, `Files.readString`, etc.)","href":"kotlin/search/findfilereadsources$ktrecipe"}]}>
+<RecipeHeader.Title>Find data-flow source positions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Locations where untrusted or configuration-controlled data enters the program: `readLine`/`Scanner` reads, environment/system-property reads, HTTP request reads, and filesystem reads. Each match is a seed an LLM agent (or human reviewer) can connect to downstream sinks.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `readLine()` / `Scanner.next*()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findstdinsources$ktrecipe/"},{"name":"Find `System.getenv(...)` / `System.getProperty(...)` reads","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findenvironmentsources$ktrecipe/"},{"name":"Find `HttpServletRequest.getParameter/getHeader/getCookies` reads","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findhttprequestsources$ktrecipe/"},{"name":"Find filesystem read calls (`File.readText`, `Files.readString`, etc.)","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findfilereadsources$ktrecipe/"}]}>
 
 ## Definition
 

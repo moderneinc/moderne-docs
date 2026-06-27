@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hardcoded algorithm-specific parameters"}
-  description={"Detects hardcoded algorithm-specific parameters like RSA public exponents or EC curve parameters. These hardcoded values prevent algorithm agility and may use weak or non-standard parameters that compromise security."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindHardcodedAlgorithmParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedalgorithmparameters.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find hardcoded algorithm-specific parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects hardcoded algorithm-specific parameters like RSA public exponents or EC curve parameters. These hardcoded values prevent algorithm agility and may use weak or non-standard parameters that compromise security.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.math.BigInteger;\nimport java.security.spec.RSAKeyGenParameterSpec;\nimport java.security.KeyPairGenerator;\n\npublic class RSAExample {\n    public void generateRSAKey() throws Exception {\n        BigInteger publicExponent = new BigInteger(\"65537\");\n        RSAKeyGenParameterSpec spec = new RSAKeyGenParameterSpec(2048, publicExponent);\n\n        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\");\n        kpg.initialize(spec);\n        kpg.generateKeyPair();\n    }\n}\n","after":"import java.math.BigInteger;\nimport java.security.spec.RSAKeyGenParameterSpec;\nimport java.security.KeyPairGenerator;\n\npublic class RSAExample {\n    public void generateRSAKey() throws Exception {\n        BigInteger publicExponent = /*~~(ALGORITHM_PARAMETER use)~~>*/new BigInteger(\"65537\");\n        RSAKeyGenParameterSpec spec = /*~~(ALGORITHM_PARAMETER use)~~>*/new RSAKeyGenParameterSpec(2048, publicExponent);\n\n        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\");\n        kpg.initialize(spec);\n        kpg.generateKeyPair();\n    }\n}\n","diff":"@@ -7,2 +7,2 @@\npublic class RSAExample {\n    public void generateRSAKey() throws Exception {\n-       BigInteger publicExponent = new BigInteger(\"65537\");\n-       RSAKeyGenParameterSpec spec = new RSAKeyGenParameterSpec(2048, publicExponent);\n+       BigInteger publicExponent = /*~~(ALGORITHM_PARAMETER use)~~>*/new BigInteger(\"65537\");\n+       RSAKeyGenParameterSpec spec = /*~~(ALGORITHM_PARAMETER use)~~>*/new RSAKeyGenParameterSpec(2048, publicExponent);\n\n","newFile":false}]}]}>
 

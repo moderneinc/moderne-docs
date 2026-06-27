@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find test-surface positions"}
-  description={"Disabled/ignored tests, slow-tagged tests, mockk fakes, AssertJ assertion chains, and Kotest spec classes. Each match helps a reviewer or LLM agent navigate a module's test surface and verification logic."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindTestSurface$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findtestsurface$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `@Disabled` / `@Ignore` test annotations","href":"kotlin/search/findignoredtests$ktrecipe"},{"name":"Find tests tagged `@Tag(\"slow\")`","href":"kotlin/search/findteststaggedslow$ktrecipe"},{"name":"Find `mockk<X>()` / `mockk(...)` calls","href":"kotlin/search/findmockkallocations$ktrecipe"},{"name":"Find AssertJ `assertThat(...)` assertion chains","href":"kotlin/search/findassertjchains$ktrecipe"},{"name":"Find Kotest spec classes","href":"kotlin/search/findkotestspecs$ktrecipe"},{"name":"Find `@DisplayName(...)` test annotations","href":"kotlin/search/findtestnameannotations$ktrecipe"},{"name":"Find `@ParameterizedTest` annotations","href":"kotlin/search/findparameterizedtests$ktrecipe"}]}>
+<RecipeHeader.Title>Find test-surface positions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Disabled/ignored tests, slow-tagged tests, mockk fakes, AssertJ assertion chains, and Kotest spec classes. Each match helps a reviewer or LLM agent navigate a module's test surface and verification logic.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `@Disabled` / `@Ignore` test annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findignoredtests$ktrecipe/"},{"name":"Find tests tagged `@Tag(\"slow\")`","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findteststaggedslow$ktrecipe/"},{"name":"Find `mockk<X>()` / `mockk(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findmockkallocations$ktrecipe/"},{"name":"Find AssertJ `assertThat(...)` assertion chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findassertjchains$ktrecipe/"},{"name":"Find Kotest spec classes","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findkotestspecs$ktrecipe/"},{"name":"Find `@DisplayName(...)` test annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findtestnameannotations$ktrecipe/"},{"name":"Find `@ParameterizedTest` annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findparameterizedtests$ktrecipe/"}]}>
 
 ## Definition
 

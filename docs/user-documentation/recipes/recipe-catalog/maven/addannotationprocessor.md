@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add an annotation processor to `maven-compiler-plugin`"}
-  description={"Add an annotation processor path to the `maven-compiler-plugin` configuration. For modules with an in-reactor parent, adds to the parent's `build/pluginManagement/plugins` section. For modules without a parent or with a parent outside the reactor, adds directly to `build/plugins`. Updates the annotation processor version if a newer version is specified."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.AddAnnotationProcessor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/addannotationprocessor.md"}
-/>
+>
+
+<RecipeHeader.Title>Add an annotation processor to `maven-compiler-plugin`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add an annotation processor path to the `maven-compiler-plugin` configuration. For modules with an in-reactor parent, adds to the parent's `build/pluginManagement/plugins` section. For modules without a parent or with a parent outside the reactor, adds directly to `build/plugins`. Updates the annotation processor version if a newer version is specified.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of the coordinate 'org.projectlombok:lombok-mapstruct-binding:0.2.0' of the processor to add.","example":"org.projectlombok"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a coordinate 'org.projectlombok:lombok-mapstruct-binding:0.2.0' of the processor to add.","example":"lombok-mapstruct-binding"},{"type":"String","name":"version","required":true,"description":"The third part of a coordinate 'org.projectlombok:lombok-mapstruct-binding:0.2.0' of the processor to add. Note that an exact version is expected","example":"0.2.0"}]}>
 

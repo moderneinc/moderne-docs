@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `ByteArray.decodeToString()` instead of `String(byteArray)`"}
-  description={"The `String(ByteArray)` constructor is JVM-only and uses the platform default charset; `byteArray.decodeToString()` is the multiplatform Kotlin extension and always uses UTF-8."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseDecodeToString$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedecodetostring$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `ByteArray.decodeToString()` instead of `String(byteArray)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `String(ByteArray)` constructor is JVM-only and uses the platform default charset; `byteArray.decodeToString()` is the multiplatform Kotlin extension and always uses UTF-8.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseDecodeToString$KtRecipe","displayName":"Use `ByteArray.decodeToString()` instead of `String(byteArray)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary trailing semicolon"}
-  description={"Some Java programmers may mistakenly add semicolons at the end when writing Kotlin code, but in reality, they are not necessary."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-kotlin"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.cleanup.RemoveTrailingSemicolon"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/cleanup/removetrailingsemicolon.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary trailing semicolon</RecipeHeader.Title>
+
+<RecipeHeader.Description>Some Java programmers may mistakenly add semicolons at the end when writing Kotlin code, but in reality, they are not necessary.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"fun method() {\n    var foo = 1;\n    var bar: Int;\n    var baz: String = \"a\";\n}\n","after":"fun method() {\n    var foo = 1\n    var bar: Int\n    var baz: String = \"a\"\n}\n","diff":"@@ -2,3 +2,3 @@\nfun method() {\n-   var foo = 1;\n-   var bar: Int;\n-   var baz: String = \"a\";\n+   var foo = 1\n+   var bar: Int\n+   var baz: String = \"a\"\n}\n","newFile":false}]}]}>
 

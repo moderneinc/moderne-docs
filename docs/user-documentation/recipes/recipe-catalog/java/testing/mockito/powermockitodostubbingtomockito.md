@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace PowerMockito `doX().when(instance, \"method\")` with Mockito-compatible stubbing"}
-  description={"Replaces PowerMockito's private method stubbing pattern `doNothing().when(instance, \"methodName\", args...)` with the standard Mockito pattern `doNothing().when(instance).methodName(args...)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.PowerMockitoDoStubbingToMockito"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockitodostubbingtomockito.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace PowerMockito `doX().when(instance, "method")` with Mockito-compatible stubbing</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces PowerMockito's private method stubbing pattern `doNothing().when(instance, "methodName", args...)` with the standard Mockito pattern `doNothing().when(instance).methodName(args...)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.BeforeEach;\nimport org.powermock.api.mockito.PowerMockito;\nimport java.util.Calendar;\n\nclass MyTest {\n\n    private Calendar calendarSpy;\n\n    @BeforeEach\n    void setUp() throws Exception {\n        calendarSpy = PowerMockito.spy(Calendar.getInstance());\n        PowerMockito.doNothing().when(calendarSpy, \"clear\");\n    }\n}\n","after":"import org.junit.jupiter.api.BeforeEach;\nimport org.powermock.api.mockito.PowerMockito;\nimport java.util.Calendar;\n\nclass MyTest {\n\n    private Calendar calendarSpy;\n\n    @BeforeEach\n    void setUp() throws Exception {\n        calendarSpy = PowerMockito.spy(Calendar.getInstance());\n        PowerMockito.doNothing().when(calendarSpy).clear();\n    }\n}\n","diff":"@@ -12,1 +12,1 @@\n    void setUp() throws Exception {\n        calendarSpy = PowerMockito.spy(Calendar.getInstance());\n-       PowerMockito.doNothing().when(calendarSpy, \"clear\");\n+       PowerMockito.doNothing().when(calendarSpy).clear();\n    }\n","newFile":false}]}]}>
 

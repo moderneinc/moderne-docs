@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove methods that only call super"}
-  description={"Methods that override a parent method but only call `super` with the same arguments are redundant and should be removed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1185"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveMethodsOnlyCallSuper"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removemethodsonlycallsuper.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove methods that only call super</RecipeHeader.Title>
+
+<RecipeHeader.Description>Methods that override a parent method but only call `super` with the same arguments are redundant and should be removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"class Parent {\n    void foo() {\n    }\n}\n"},"variants":[{"language":"java","before":"class Child extends Parent {\n    @Override\n    void foo() {\n        super.foo();\n    }\n}\n","after":"class Child extends Parent {\n}\n","diff":"@@ -2,4 +2,0 @@\nclass Child extends Parent {\n-   @Override\n-   void foo() {\n-       super.foo();\n-   }\n}\n","newFile":false}]}]}>
 

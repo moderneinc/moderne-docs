@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Optimize method call"}
-  description={"Replace inefficient method calls with more optimal equivalents."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.OptimizeMethodCall"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/optimizemethodcall.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Optimize method call</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace inefficient method calls with more optimal equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.OptimizeMethodCall","displayName":"Optimize method call","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

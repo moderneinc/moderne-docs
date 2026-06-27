@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Boolean-conditional smells"}
-  description={"`if (x) true else false`, its inverse, `!x.isEmpty()` / `!x.isBlank()` family negations, `if (x == null) null else x.foo()`, `if (x != null) x.foo()` patterns, and `if (return …) else …` early-return ladders — each is the long form of a single Kotlin operator or method."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindBooleanConditionalSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbooleanconditionalsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `if (x) true else false` patterns","href":"kotlin/bestpractices/findifreturntrueelsefalse$ktrecipe"},{"name":"Find `if (x) false else true` patterns","href":"kotlin/bestpractices/findifreturnfalseelsetrue$ktrecipe"},{"name":"Find `if (x == null) null else x.foo()` patterns","href":"kotlin/bestpractices/findifnullelseexpression$ktrecipe"},{"name":"Find `if (x != null) x.foo()` patterns","href":"kotlin/bestpractices/findletfornotnullcheck$ktrecipe"},{"name":"Find `!x.isEmpty()` calls","href":"kotlin/bestpractices/findnegatedisempty$ktrecipe"},{"name":"Find `!x.isNotEmpty()` calls","href":"kotlin/bestpractices/findnegatedisnotempty$ktrecipe"},{"name":"Find `!x.isBlank()` calls","href":"kotlin/bestpractices/findnegatedisblank$ktrecipe"},{"name":"Find `!x.isNotBlank()` calls","href":"kotlin/bestpractices/findnegatedisnotblank$ktrecipe"},{"name":"Find `x.isNotEmpty()` on `String` where `isNotBlank()` might be wanted","href":"kotlin/bestpractices/findisnotemptyonstring$ktrecipe"},{"name":"Find `if (x) { return … } else { … }` patterns","href":"kotlin/bestpractices/findelseafterreturn$ktrecipe"}]}>
+<RecipeHeader.Title>Find Boolean-conditional smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>`if (x) true else false`, its inverse, `!x.isEmpty()` / `!x.isBlank()` family negations, `if (x == null) null else x.foo()`, `if (x != null) x.foo()` patterns, and `if (return …) else …` early-return ladders — each is the long form of a single Kotlin operator or method.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `if (x) true else false` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findifreturntrueelsefalse$ktrecipe/"},{"name":"Find `if (x) false else true` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findifreturnfalseelsetrue$ktrecipe/"},{"name":"Find `if (x == null) null else x.foo()` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findifnullelseexpression$ktrecipe/"},{"name":"Find `if (x != null) x.foo()` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findletfornotnullcheck$ktrecipe/"},{"name":"Find `!x.isEmpty()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findnegatedisempty$ktrecipe/"},{"name":"Find `!x.isNotEmpty()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findnegatedisnotempty$ktrecipe/"},{"name":"Find `!x.isBlank()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findnegatedisblank$ktrecipe/"},{"name":"Find `!x.isNotBlank()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findnegatedisnotblank$ktrecipe/"},{"name":"Find `x.isNotEmpty()` on `String` where `isNotBlank()` might be wanted","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findisnotemptyonstring$ktrecipe/"},{"name":"Find `if (x) { return … } else { … }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findelseafterreturn$ktrecipe/"}]}>
 
 ## Definition
 

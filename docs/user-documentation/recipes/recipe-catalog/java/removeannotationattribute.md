@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove annotation attribute"}
-  description={"Some annotations accept arguments. This recipe removes an existing attribute."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.RemoveAnnotationAttribute"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/removeannotationattribute.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove annotation attribute</RecipeHeader.Title>
+
+<RecipeHeader.Description>Some annotations accept arguments. This recipe removes an existing attribute.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"annotationType","required":true,"description":"The fully qualified name of the annotation.","example":"org.junit.Test"},{"type":"String","name":"attributeName","required":true,"description":"The name of attribute to remove.","example":"timeout"}]}>
 

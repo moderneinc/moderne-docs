@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change XML attribute of a specific resource version"}
-  description={"Alters XML Attribute value within specified element of a specific resource versions."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.ChangeNamespaceValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/changenamespacevalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Change XML attribute of a specific resource version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Alters XML Attribute value within specified element of a specific resource versions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"elementName","required":false,"description":"The name of the element whose attribute's value is to be changed. Interpreted as an XPath Expression.","example":"property"},{"type":"String","name":"oldValue","required":false,"description":"Only change the property value if it matches the configured `oldValue`.","example":"newfoo.bar.attribute.value.string"},{"type":"String","name":"newValue","required":true,"description":"The new value to be used for the namespace.","example":"newfoo.bar.attribute.value.string"},{"type":"String","name":"versionMatcher","required":false,"description":"The version of resource to change","example":"1.1"},{"type":"Boolean","name":"searchAllNamespaces","required":false,"description":"Specify whether evaluate all namespaces. Defaults to true","example":"true"},{"type":"String","name":"newVersion","required":true,"description":"The new version of the resource","example":"2.0"},{"type":"String","name":"newSchemaLocation","required":false,"description":"The new value to be used for the namespace schema location.","example":"newfoo.bar.attribute.value.string"}]}>
 

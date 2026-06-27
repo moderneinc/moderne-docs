@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `catch (e: Exception) { throw e }` patterns"}
-  description={"A catch whose only statement is `throw e` is a no-op: the same exception flows through the same way it would have without the try. Drop the entire try/catch (or, if there's a `finally`, switch to a try/finally)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindCatchAndRethrowSameException$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchandrethrowsameexception$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `catch (e: Exception) { throw e }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>A catch whose only statement is `throw e` is a no-op: the same exception flows through the same way it would have without the try. Drop the entire try/catch (or, if there's a `finally`, switch to a try/finally).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindCatchAndRethrowSameException$KtRecipe","displayName":"Find `catch (e: Exception) { throw e }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

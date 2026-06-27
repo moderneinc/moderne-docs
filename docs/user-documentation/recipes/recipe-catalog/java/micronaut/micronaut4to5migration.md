@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from Micronaut 4.x to 5.x"}
-  description={"This recipe will apply changes required for migrating from Micronaut 4 to Micronaut 5. Micronaut 5 raises the Java baseline to 25 and ships a number of artifact/plugin renames; see the [upstream migration guide](https://github.com/micronaut-projects/micronaut-core/wiki/Update-to-Micronaut-5) for the full list of breaking changes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.Micronaut4to5Migration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut4to5migration.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate from Micronaut 3.x to 4.x","href":"java/micronaut/micronaut3to4migration"},{"name":"Upgrade Java version","href":"java/migrate/upgradejavaversion"},{"name":"Update Gradle wrapper","href":"gradle/updategradlewrapper"},{"name":"Upgrade `micronaut.version` Maven property","href":"java/micronaut/upgrademicronautmavenpropertyversion"},{"name":"Upgrade gradle.properties Micronaut version","href":"java/micronaut/upgrademicronautgradlepropertiesversion"},{"name":"Change Maven parent","href":"maven/changeparentpom"},{"name":"Update Micronaut Gradle build plugins to 5.x","href":"java/micronaut/updatebuildplugins5"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change type","href":"java/changetype"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Migrates from Jackson 2.x to Jackson 3.x","href":"java/jackson/upgradejackson_2_3"},{"name":"Migrate to JSpecify","href":"java/jspecify/migratetojspecify"}]}>
+<RecipeHeader.Title>Migrate from Micronaut 4.x to 5.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes required for migrating from Micronaut 4 to Micronaut 5. Micronaut 5 raises the Java baseline to 25 and ships a number of artifact/plugin renames; see the [upstream migration guide](https://github.com/micronaut-projects/micronaut-core/wiki/Update-to-Micronaut-5) for the full list of breaking changes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate from Micronaut 3.x to 4.x","href":"/user-documentation/recipes/recipe-catalog/java/micronaut/micronaut3to4migration/"},{"name":"Upgrade Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion/"},{"name":"Update Gradle wrapper","href":"/user-documentation/recipes/recipe-catalog/gradle/updategradlewrapper/"},{"name":"Upgrade `micronaut.version` Maven property","href":"/user-documentation/recipes/recipe-catalog/java/micronaut/upgrademicronautmavenpropertyversion/"},{"name":"Upgrade gradle.properties Micronaut version","href":"/user-documentation/recipes/recipe-catalog/java/micronaut/upgrademicronautgradlepropertiesversion/"},{"name":"Change Maven parent","href":"/user-documentation/recipes/recipe-catalog/maven/changeparentpom/"},{"name":"Update Micronaut Gradle build plugins to 5.x","href":"/user-documentation/recipes/recipe-catalog/java/micronaut/updatebuildplugins5/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Migrates from Jackson 2.x to Jackson 3.x","href":"/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3/"},{"name":"Migrate to JSpecify","href":"/user-documentation/recipes/recipe-catalog/java/jspecify/migratetojspecify/"}]}>
 
 ## Definition
 

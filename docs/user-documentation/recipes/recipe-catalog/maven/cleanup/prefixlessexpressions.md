@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Drop prefixless expressions in POM"}
-  description={"MNG-7404 drops support for prefixless in POMs. This recipe will add the `project.` prefix where missing."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.cleanup.PrefixlessExpressions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/cleanup/prefixlessexpressions.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename Maven property key","href":"maven/renamepropertykey"},{"name":"Rename Maven property key","href":"maven/renamepropertykey"},{"name":"Rename Maven property key","href":"maven/renamepropertykey"},{"name":"Rename Maven property key","href":"maven/renamepropertykey"},{"name":"Rename Maven property key","href":"maven/renamepropertykey"},{"name":"Rename Maven property key","href":"maven/renamepropertykey"}]}>
+<RecipeHeader.Title>Drop prefixless expressions in POM</RecipeHeader.Title>
+
+<RecipeHeader.Description>MNG-7404 drops support for prefixless in POMs. This recipe will add the `project.` prefix where missing.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename Maven property key","href":"/user-documentation/recipes/recipe-catalog/maven/renamepropertykey/"},{"name":"Rename Maven property key","href":"/user-documentation/recipes/recipe-catalog/maven/renamepropertykey/"},{"name":"Rename Maven property key","href":"/user-documentation/recipes/recipe-catalog/maven/renamepropertykey/"},{"name":"Rename Maven property key","href":"/user-documentation/recipes/recipe-catalog/maven/renamepropertykey/"},{"name":"Rename Maven property key","href":"/user-documentation/recipes/recipe-catalog/maven/renamepropertykey/"},{"name":"Rename Maven property key","href":"/user-documentation/recipes/recipe-catalog/maven/renamepropertykey/"}]}>
 
 ## Definition
 

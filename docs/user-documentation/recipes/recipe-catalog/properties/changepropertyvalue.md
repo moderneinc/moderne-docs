@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change property value"}
-  description={"Change a property value leaving the key intact."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-properties"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.properties.ChangePropertyValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/properties/changepropertyvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Change property value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change a property value leaving the key intact.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The name of the property key whose value is to be changed. Supports glob patterns.","example":"management.metrics.binders.*.enabled"},{"type":"String","name":"newValue","required":true,"description":"The new value to be used for key specified by `propertyKey`.","example":"newValue"},{"type":"String","name":"oldValue","required":false,"description":"Only change the property value if it matches the configured `oldValue`.","example":"oldValue"},{"type":"Boolean","name":"regex","required":false,"description":"Default `false`. If enabled, `oldValue` will be interpreted as a Regular Expression, to replace only all parts that match the regex. Capturing group can be used in `newValue`."},{"type":"Boolean","name":"relaxedBinding","required":false,"description":"Whether to match the `propertyKey` using [relaxed binding](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) rules. Default is `true`. Set to `false`  to use exact matching."}]}>
 

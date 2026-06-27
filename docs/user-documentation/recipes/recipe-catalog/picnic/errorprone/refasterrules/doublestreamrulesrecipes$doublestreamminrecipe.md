@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `DoubleStreamRules.DoubleStreamMin`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class DoubleStreamMin {\n    \n    @BeforeTemplate\n    OptionalDouble before(DoubleStream stream) {\n        return stream.sorted().findFirst();\n    }\n    \n    @AfterTemplate\n    OptionalDouble after(DoubleStream stream) {\n        return stream.min();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.DoubleStreamRulesRecipes$DoubleStreamMinRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/doublestreamrulesrecipes$doublestreamminrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `DoubleStreamRules.DoubleStreamMin`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class DoubleStreamMin {
+    
+    @BeforeTemplate
+    OptionalDouble before(DoubleStream stream) {
+        return stream.sorted().findFirst();
+    }
+    
+    @AfterTemplate
+    OptionalDouble after(DoubleStream stream) {
+        return stream.min();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.DoubleStreamRulesRecipes$DoubleStreamMinRecipe","displayName":"Refaster template `DoubleStreamRules.DoubleStreamMin`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

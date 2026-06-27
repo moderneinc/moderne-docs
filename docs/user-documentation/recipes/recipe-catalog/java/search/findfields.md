@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find fields"}
-  description={"Find uses of a field."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindFields"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/findfields.md"}
-/>
+>
+
+<RecipeHeader.Title>Find fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find uses of a field.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fullyQualifiedTypeName","required":true,"description":"A fully-qualified Java type name, that is used to find matching fields.","example":"com.fasterxml.jackson.core.json.JsonWriteFeature"},{"type":"Boolean","name":"matchInherited","required":false,"description":"When enabled, find types that inherit from a deprecated type."},{"type":"String","name":"fieldName","required":true,"description":"The name of a field on the type.","example":"QUOTE_FIELD_NAMES"}]}>
 

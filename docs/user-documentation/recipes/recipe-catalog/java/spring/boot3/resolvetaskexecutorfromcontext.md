@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `taskExecutor` with `applicationTaskExecutor`"}
-  description={"Use bean name `applicationTaskExecutor` instead of `taskExecutor` when resolving `TaskExecutor` Bean from application context."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.ResolveTaskExecutorFromContext"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/resolvetaskexecutorfromcontext.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `taskExecutor` with `applicationTaskExecutor`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use bean name `applicationTaskExecutor` instead of `taskExecutor` when resolving `TaskExecutor` Bean from application context.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.java.spring.boot3.ResolveTaskExecutorFromContext","displayName":"Replace `taskExecutor` with `applicationTaskExecutor`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

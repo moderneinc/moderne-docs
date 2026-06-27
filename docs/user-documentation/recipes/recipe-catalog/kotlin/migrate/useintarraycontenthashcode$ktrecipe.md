@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `IntArray.contentHashCode()` instead of `Arrays.hashCode(arr)`"}
-  description={"`java.util.Arrays.hashCode(arr: int[])` is JVM-only; `arr.contentHashCode()` is the multiplatform Kotlin extension and produces the same value."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseIntArrayContentHashCode$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintarraycontenthashcode$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `IntArray.contentHashCode()` instead of `Arrays.hashCode(arr)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Arrays.hashCode(arr: int[])` is JVM-only; `arr.contentHashCode()` is the multiplatform Kotlin extension and produces the same value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseIntArrayContentHashCode$KtRecipe","displayName":"Use `IntArray.contentHashCode()` instead of `Arrays.hashCode(arr)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

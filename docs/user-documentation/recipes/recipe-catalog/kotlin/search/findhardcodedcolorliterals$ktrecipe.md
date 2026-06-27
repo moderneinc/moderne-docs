@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Color(0xFF...)` color-literal constructions"}
-  description={"Hardcoded ARGB literals inside `Color(0xFF...)` calls are a design-token leak — they should usually live in a theme or material color scheme. Each match is a candidate to extract to `MaterialTheme.colorScheme.X`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindHardcodedColorLiterals$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findhardcodedcolorliterals$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Color(0xFF...)` color-literal constructions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Hardcoded ARGB literals inside `Color(0xFF...)` calls are a design-token leak — they should usually live in a theme or material color scheme. Each match is a candidate to extract to `MaterialTheme.colorScheme.X`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindHardcodedColorLiterals$KtRecipe","displayName":"Find `Color(0xFF...)` color-literal constructions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

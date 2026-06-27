@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove with debugging mode"}
-  description={"Remove debugging mode from SOURCE-COMPUTER paragraphs."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-4057"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-cobol"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.cobol.cleanup.RemoveWithDebuggingMode"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cobol/cleanup/removewithdebuggingmode.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove with debugging mode</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove debugging mode from SOURCE-COMPUTER paragraphs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"updateSequenceAreas","required":false,"description":"When set to `true` the existing sequence are updated to preserve ordering. This is default to false, and is used to prevent large diffs since COBOL has a line limit of 999k.","example":"true"}]}>
 

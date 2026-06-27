@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `getSSOCookieFromSSOToken` and `logout`"}
-  description={"This recipe replaces `LTPACookieFromSSOToken()` with  `getSSOCookieFromSSOToken`  and `revokeSSOCookies` with `logout`. The two methods are  deprecated in traditional WebSphere Application Server Version 8.5 and might be removed in a future release. They are not available on Liberty."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-liberty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.liberty.WebSphereUnavailableSSOMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/liberty/websphereunavailablessomethods.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `revokeSSOCookies` with `logout`","href":"java/liberty/websphereunavailablessocookiemethod"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Use `getSSOCookieFromSSOToken` and `logout`</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe replaces `LTPACookieFromSSOToken()` with  `getSSOCookieFromSSOToken`  and `revokeSSOCookies` with `logout`. The two methods are  deprecated in traditional WebSphere Application Server Version 8.5 and might be removed in a future release. They are not available on Liberty.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `revokeSSOCookies` with `logout`","href":"/user-documentation/recipes/recipe-catalog/java/liberty/websphereunavailablessocookiemethod/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

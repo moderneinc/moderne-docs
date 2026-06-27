@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `KafkaConsumer.poll(long)` to `poll(Duration)`"}
-  description={"Migrates from the deprecated `KafkaConsumer.poll(long)` to `poll(Duration)` for Kafka 4.0 compatibility. Converts millisecond timeout values to `Duration.ofMillis()` calls."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.MigrateConsumerPollToDuration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/migrateconsumerpolltoduration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `KafkaConsumer.poll(long)` to `poll(Duration)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates from the deprecated `KafkaConsumer.poll(long)` to `poll(Duration)` for Kafka 4.0 compatibility. Converts millisecond timeout values to `Duration.ofMillis()` calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.kafka.clients.consumer.KafkaConsumer;\nimport org.apache.kafka.clients.consumer.ConsumerRecords;\n\nclass KafkaConsumerExample {\n    void pollMessages(KafkaConsumer<String, String> consumer) {\n        ConsumerRecords<String, String> records = consumer.poll(1000);\n    }\n}\n","after":"import org.apache.kafka.clients.consumer.KafkaConsumer;\nimport org.apache.kafka.clients.consumer.ConsumerRecords;\n\nimport java.time.Duration;\n\nclass KafkaConsumerExample {\n    void pollMessages(KafkaConsumer<String, String> consumer) {\n        ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));\n    }\n}\n","diff":"@@ -4,0 +4,2 @@\nimport org.apache.kafka.clients.consumer.ConsumerRecords;\n\n+import java.time.Duration;\n+\nclass KafkaConsumerExample {\n@@ -6,1 +8,1 @@\nclass KafkaConsumerExample {\n    void pollMessages(KafkaConsumer<String, String> consumer) {\n-       ConsumerRecords<String, String> records = consumer.poll(1000);\n+       ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));\n    }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Assertion arguments should be passed in the correct order"}
-  description={"Assertions such as `org.junit.Assert.assertEquals` expect the first argument to be the expected value and the second argument to be the actual value; for `org.testng.Assert`, it’s the other way around.  This recipe detects `J.Literal`, `J.NewArray`, and `java.util.Iterable` arguments swapping them if necessary so that the error messages won't be confusing."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S3415"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.AssertionsArgumentOrder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertionsargumentorder.md"}
-/>
+>
+
+<RecipeHeader.Title>Assertion arguments should be passed in the correct order</RecipeHeader.Title>
+
+<RecipeHeader.Description>Assertions such as `org.junit.Assert.assertEquals` expect the first argument to be the expected value and the second argument to be the actual value; for `org.testng.Assert`, it’s the other way around.  This recipe detects `J.Literal`, `J.NewArray`, and `java.util.Iterable` arguments swapping them if necessary so that the error messages won't be confusing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass MyTest {\n    void someMethod() {\n        assertEquals(result(), \"result\");\n        assertEquals(result(), \"result\", \"message\");\n        assertEquals(0L, 1L);\n    }\n    String result() {\n        return \"result\";\n    }\n}\n","after":"import static org.junit.jupiter.api.Assertions.assertEquals;\n\nclass MyTest {\n    void someMethod() {\n        assertEquals(\"result\", result());\n        assertEquals(\"result\", result(), \"message\");\n        assertEquals(0L, 1L);\n    }\n    String result() {\n        return \"result\";\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass MyTest {\n    void someMethod() {\n-       assertEquals(result(), \"result\");\n-       assertEquals(result(), \"result\", \"message\");\n+       assertEquals(\"result\", result());\n+       assertEquals(\"result\", result(), \"message\");\n        assertEquals(0L, 1L);\n","newFile":false}]}]}>
 

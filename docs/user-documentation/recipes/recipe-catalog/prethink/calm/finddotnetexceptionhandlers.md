@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET exception handlers"}
-  description={"Detect IExceptionFilter / IAsyncExceptionFilter / IExceptionHandler implementations and ExceptionFilterAttribute-derived classes in ASP.NET Core projects."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDotnetExceptionHandlers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetexceptionhandlers.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET exception handlers</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect IExceptionFilter / IAsyncExceptionFilter / IExceptionHandler implementations and ExceptionFilterAttribute-derived classes in ASP.NET Core projects.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindDotnetExceptionHandlers","displayName":"Find .NET exception handlers","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

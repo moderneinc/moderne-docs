@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find calls that could use TimeProvider"}
-  description={"Detect `DateTime.UtcNow`, `DateTimeOffset.UtcNow`, and `Task.Delay` calls that could use a `TimeProvider` parameter for better testability (.NET 8+)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindUseTimeProviderOverload"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findusetimeprovideroverload.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find calls that could use TimeProvider</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `DateTime.UtcNow`, `DateTimeOffset.UtcNow`, and `Task.Delay` calls that could use a `TimeProvider` parameter for better testability (.NET 8+).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindUseTimeProviderOverload","displayName":"Find calls that could use TimeProvider","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

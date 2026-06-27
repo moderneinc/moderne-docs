@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adds `TimeUnit` to timeouts and duration methods"}
-  description={"Apache HttpClient 5.x Timeout and duration methods need an extra the TimeUnit argument. This recipe uses milliseconds as a default unit."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.UpgradeApacheHttpClient_5_TimeUnit"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5_timeunit.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Adds a TimeUnit argument to the matched method invocations","href":"apache/httpclient5/addtimeunitargument"},{"name":"Adds a TimeUnit argument to the matched method invocations","href":"apache/httpclient5/addtimeunitargument"},{"name":"Adds a TimeUnit argument to the matched method invocations","href":"apache/httpclient5/addtimeunitargument"},{"name":"Adds a TimeUnit argument to the matched method invocations","href":"apache/httpclient5/addtimeunitargument"},{"name":"Adds a TimeUnit argument to the matched method invocations","href":"apache/httpclient5/addtimeunitargument"}]}>
+<RecipeHeader.Title>Adds `TimeUnit` to timeouts and duration methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apache HttpClient 5.x Timeout and duration methods need an extra the TimeUnit argument. This recipe uses milliseconds as a default unit.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Adds a TimeUnit argument to the matched method invocations","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient5/addtimeunitargument/"},{"name":"Adds a TimeUnit argument to the matched method invocations","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient5/addtimeunitargument/"},{"name":"Adds a TimeUnit argument to the matched method invocations","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient5/addtimeunitargument/"},{"name":"Adds a TimeUnit argument to the matched method invocations","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient5/addtimeunitargument/"},{"name":"Adds a TimeUnit argument to the matched method invocations","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient5/addtimeunitargument/"}]}>
 
 ## Definition
 

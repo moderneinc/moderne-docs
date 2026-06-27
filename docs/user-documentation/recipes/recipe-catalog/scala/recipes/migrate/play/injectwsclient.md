@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Inject `WSClient` instead of using deprecated `WS`"}
-  description={"Finds imports of the deprecated `play.api.libs.ws.WS` object. In Play 2.6+, `WS` was deprecated; inject `WSClient` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.play.InjectWsClient"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/play/injectwsclient.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Inject `WSClient` instead of using deprecated `WS`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of the deprecated `play.api.libs.ws.WS` object. In Play 2.6+, `WS` was deprecated; inject `WSClient` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import play.api.libs.ws.WS\n\nclass MyService {\n    val version: Int = 1\n}\n","after":"/*~~(play.api.libs.ws.WS is deprecated; inject WSClient instead)~~>*/import play.api.libs.ws.WS\n\nclass MyService {\n    val version: Int = 1\n}\n","diff":"@@ -1,1 +1,1 @@\n-import play.api.libs.ws.WS\n+/*~~(play.api.libs.ws.WS is deprecated; inject WSClient instead)~~>*/import play.api.libs.ws.WS\n\n","newFile":false}]}]}>
 

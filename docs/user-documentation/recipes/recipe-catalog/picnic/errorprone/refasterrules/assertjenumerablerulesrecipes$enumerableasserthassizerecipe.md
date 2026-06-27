@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSize`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class EnumerableAssertHasSize<E> {\n    \n    @BeforeTemplate\n    AbstractIterableAssert<?, ?, E, ?> before(AbstractIterableAssert<?, ?, E, ?> enumAssert, int size) {\n        return enumAssert.size().isEqualTo(size).returnToIterable();\n    }\n    \n    @BeforeTemplate\n    AbstractIterableSizeAssert<?, ?, E, ?> before2(AbstractIterableAssert<?, ?, E, ?> enumAssert, int size) {\n        return enumAssert.size().isEqualTo(size);\n    }\n    \n    @AfterTemplate\n    EnumerableAssert<?, E> after(EnumerableAssert<?, E> enumAssert, int size) {\n        return enumAssert.hasSize(size);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,37 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJEnumerableRulesRecipes$EnumerableAssertHasSizeRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJEnumerableRules.EnumerableAssertHasSize`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class EnumerableAssertHasSize<E> {
+    
+    @BeforeTemplate
+    AbstractIterableAssert<?, ?, E, ?> before(AbstractIterableAssert<?, ?, E, ?> enumAssert, int size) {
+        return enumAssert.size().isEqualTo(size).returnToIterable();
+    }
+    
+    @BeforeTemplate
+    AbstractIterableSizeAssert<?, ?, E, ?> before2(AbstractIterableAssert<?, ?, E, ?> enumAssert, int size) {
+        return enumAssert.size().isEqualTo(size);
+    }
+    
+    @AfterTemplate
+    EnumerableAssert<?, E> after(EnumerableAssert<?, E> enumAssert, int size) {
+        return enumAssert.hasSize(size);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJEnumerableRulesRecipes$EnumerableAssertHasSizeRecipe","displayName":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSize`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

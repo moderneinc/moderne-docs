@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring Security configurations that disable session fixation protection"}
-  description={"Finds Spring Security configurations that disable session fixation protection by calling `sessionFixation().none()`. Without session fixation protection, an attacker who obtains a victim's session identifier before authentication can reuse it to hijack the authenticated session. Spring Security defaults to `changeSessionId()`; applications should keep that default or use `migrateSession()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["security","CWE-384"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindInsecureSessionFixationConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findinsecuresessionfixationconfig.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Spring Security configurations that disable session fixation protection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds Spring Security configurations that disable session fixation protection by calling `sessionFixation().none()`. Without session fixation protection, an attacker who obtains a victim's session identifier before authentication can reuse it to hijack the authenticated session. Spring Security defaults to `changeSessionId()`; applications should keep that default or use `migrateSession()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\n\nclass SecurityConfig {\n    void configure(HttpSecurity http) throws Exception {\n        http.sessionManagement().sessionFixation().none();\n    }\n}\n","after":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\n\nclass SecurityConfig {\n    void configure(HttpSecurity http) throws Exception {\n        /*~~(Session fixation protection disabled (CWE-384))~~>*/http.sessionManagement().sessionFixation().none();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass SecurityConfig {\n    void configure(HttpSecurity http) throws Exception {\n-       http.sessionManagement().sessionFixation().none();\n+       /*~~(Session fixation protection disabled (CWE-384))~~>*/http.sessionManagement().sessionFixation().none();\n    }\n","newFile":false}]}]}>
 

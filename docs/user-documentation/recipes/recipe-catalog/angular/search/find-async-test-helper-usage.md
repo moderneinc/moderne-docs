@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `async` test helper usage"}
-  description={"Finds usages of the deprecated `async` test helper from `@angular/core/testing`. The `async` function was deprecated in Angular 11 and should be replaced with `waitForAsync`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-async-test-helper-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-async-test-helper-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated `async` test helper usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of the deprecated `async` test helper from `@angular/core/testing`. The `async` function was deprecated in Angular 11 and should be replaced with `waitForAsync`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-async-test-helper-usage","displayName":"Find deprecated `async` test helper usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

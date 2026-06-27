@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `import x.*` wildcard imports"}
-  description={"Wildcard imports pull every public name from a package into the file's symbol table — making it harder for a reviewer or LLM agent to tell where a name comes from. Each match is a candidate to expand into explicit imports."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindWildcardImports$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findwildcardimports$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `import x.*` wildcard imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Wildcard imports pull every public name from a package into the file's symbol table — making it harder for a reviewer or LLM agent to tell where a name comes from. Each match is a candidate to expand into explicit imports.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindWildcardImports$KtRecipe","displayName":"Find `import x.*` wildcard imports","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

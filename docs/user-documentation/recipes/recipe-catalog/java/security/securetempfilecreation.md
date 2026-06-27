@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use secure temporary file creation"}
-  description={"`java.io.File.createTempFile()` has exploitable default file permissions. This recipe migrates to the more secure `java.nio.file.Files.createTempFile()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-377"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.SecureTempFileCreation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/securetempfilecreation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use secure temporary file creation</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.io.File.createTempFile()` has exploitable default file permissions. This recipe migrates to the more secure `java.nio.file.Files.createTempFile()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.File;\nimport java.io.IOException;\n\nclass Test {\n    static void method() throws IOException {\n        File tempDir = File.createTempFile(\"hello\", \"world\");\n    }\n}\n","after":"import java.io.File;\nimport java.io.IOException;\nimport java.nio.file.Files;\n\nclass Test {\n    static void method() throws IOException {\n        File tempDir = Files.createTempFile(\"hello\", \"world\").toFile();\n    }\n}\n","diff":"@@ -3,0 +3,1 @@\nimport java.io.File;\nimport java.io.IOException;\n+import java.nio.file.Files;\n\n@@ -6,1 +7,1 @@\nclass Test {\n    static void method() throws IOException {\n-       File tempDir = File.createTempFile(\"hello\", \"world\");\n+       File tempDir = Files.createTempFile(\"hello\", \"world\").toFile();\n    }\n","newFile":false}]}]}>
 

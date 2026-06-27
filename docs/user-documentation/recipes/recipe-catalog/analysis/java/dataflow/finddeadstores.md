@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find dead stores"}
-  description={"Identifies variable assignments whose values are never used before being overwritten or going out of scope."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.dataflow.FindDeadStores"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/dataflow/finddeadstores.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find dead stores</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identifies variable assignments whose values are never used before being overwritten or going out of scope.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test() {\n        int x = 1;      // Dead store - immediately overwritten\n        x = 2;          // Dead store - never used\n        int z = 3;      // Dead store - never used\n    }\n}\n","after":"class Test {\n    void test() {\n        /*~~>*/int x = 1;      // Dead store - immediately overwritten\n        /*~~>*/x = 2;          // Dead store - never used\n        /*~~>*/int z = 3;      // Dead store - never used\n    }\n}\n","diff":"@@ -3,3 +3,3 @@\nclass Test {\n    void test() {\n-       int x = 1;      // Dead store - immediately overwritten\n-       x = 2;          // Dead store - never used\n-       int z = 3;      // Dead store - never used\n+       /*~~>*/int x = 1;      // Dead store - immediately overwritten\n+       /*~~>*/x = 2;          // Dead store - never used\n+       /*~~>*/int z = 3;      // Dead store - never used\n    }\n","newFile":false}]}]}>
 

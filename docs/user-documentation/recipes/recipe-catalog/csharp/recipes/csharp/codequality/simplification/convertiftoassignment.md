@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert 'if' to assignment"}
-  description={"Convert 'if' statement that assigns boolean literals to a simple assignment with the condition expression."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.ConvertIfToAssignment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/convertiftoassignment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert 'if' to assignment</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert 'if' statement that assigns boolean literals to a simple assignment with the condition expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.ConvertIfToAssignment","displayName":"Convert 'if' to assignment","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

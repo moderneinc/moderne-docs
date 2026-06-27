@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create `index.jelly` if it doesn't exist"}
-  description={"Jenkins tooling [requires](https://github.com/jenkinsci/maven-hpi-plugin/pull/302) `src/main/resources/index.jelly` exists with a description."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.CreateIndexJelly"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/createindexjelly.md"}
-/>
+>
+
+<RecipeHeader.Title>Create `index.jelly` if it doesn't exist</RecipeHeader.Title>
+
+<RecipeHeader.Description>Jenkins tooling [requires](https://github.com/jenkinsci/maven-hpi-plugin/pull/302) `src/main/resources/index.jelly` exists with a description.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"xml","code":"<project>\n    <parent>\n        <groupId>org.jenkins-ci.plugins</groupId>\n        <artifactId>plugin</artifactId>\n        <version>4.86</version>\n    </parent>\n    <artifactId>my-plugin</artifactId>\n    <description>This is my plugin's description</description>\n    <version>0.1</version>\n    <repositories>\n        <repository>\n            <id>maven-central</id>\n            <url>https://repo1.maven.org/maven2/</url>\n        </repository>\n        <repository>\n            <id>repo.jenkins-ci.org</id>\n            <url>https://repo.jenkins-ci.org/public/</url>\n        </repository>\n    </repositories>\n</project>\n"},"variants":[]}]}>
 

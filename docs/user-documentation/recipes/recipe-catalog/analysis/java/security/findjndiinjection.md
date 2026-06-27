@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find JNDI injection vulnerabilities"}
-  description={"Detects when user-controlled input flows into JNDI lookup operations without proper validation, which could allow an attacker to connect to malicious naming/directory services (CWE-99)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["CWE-99"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.security.FindJndiInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/security/findjndiinjection.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find JNDI injection vulnerabilities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects when user-controlled input flows into JNDI lookup operations without proper validation, which could allow an attacker to connect to malicious naming/directory services (CWE-99).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.http.HttpServletRequest;\nimport javax.naming.Context;\nimport javax.naming.NamingException;\n\nclass ResourceLookup {\n    Object lookup(HttpServletRequest request, Context ctx) throws NamingException {\n        String name = request.getParameter(\"resource\");\n        return ctx.lookup(name);\n    }\n}\n","after":"import javax.servlet.http.HttpServletRequest;\nimport javax.naming.Context;\nimport javax.naming.NamingException;\n\nclass ResourceLookup {\n    Object lookup(HttpServletRequest request, Context ctx) throws NamingException {\n        String name = request.getParameter(\"resource\");\n        return /*~~(JNDI_INJECTION use)~~>*/ctx.lookup(name);\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\n    Object lookup(HttpServletRequest request, Context ctx) throws NamingException {\n        String name = request.getParameter(\"resource\");\n-       return ctx.lookup(name);\n+       return /*~~(JNDI_INJECTION use)~~>*/ctx.lookup(name);\n    }\n","newFile":false}]}]}>
 

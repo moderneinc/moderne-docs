@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `listOf(...)` / `mapOf(...)` / `setOf(...)` calls inside a `@Composable`"}
-  description={"`listOf(a, b)` allocates a fresh `List` on every recomposition. If the composable downstream is `@Stable` and compares its inputs by reference, the new list defeats memoization. Hoist into a `remember { listOf(a, b) }` or convert to an `ImmutableList` declared at file scope."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindListOfInComposableBody$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlistofincomposablebody$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `listOf(...)` / `mapOf(...)` / `setOf(...)` calls inside a `@Composable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`listOf(a, b)` allocates a fresh `List` on every recomposition. If the composable downstream is `@Stable` and compares its inputs by reference, the new list defeats memoization. Hoist into a `remember { listOf(a, b) }` or convert to an `ImmutableList` declared at file scope.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindListOfInComposableBody$KtRecipe","displayName":"Find `listOf(...)` / `mapOf(...)` / `setOf(...)` calls inside a `@Composable`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

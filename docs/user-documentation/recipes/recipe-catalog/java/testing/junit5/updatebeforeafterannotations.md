@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JUnit 4 lifecycle annotations to JUnit Jupiter"}
-  description={"Replace JUnit 4's `@Before`, `@BeforeClass`, `@After`, and `@AfterClass` annotations with their JUnit Jupiter equivalents."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.UpdateBeforeAfterAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/updatebeforeafterannotations.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate JUnit 4 lifecycle annotations to JUnit Jupiter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace JUnit 4's `@Before`, `@BeforeClass`, `@After`, and `@AfterClass` annotations with their JUnit Jupiter equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Before;\n\nclass Test {\n    @Before\n    void before() {\n    }\n}\n","after":"import org.junit.jupiter.api.BeforeEach;\n\nclass Test {\n    @BeforeEach\n    void before() {\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.junit.Before;\n+import org.junit.jupiter.api.BeforeEach;\n\n@@ -4,1 +4,1 @@\n\nclass Test {\n-   @Before\n+   @BeforeEach\n    void before() {\n","newFile":false},{"language":"kotlin","before":"import org.junit.Before\n\nclass Test {\n\n    @Before\n    fun before() {\n    }\n}\n","after":"import org.junit.jupiter.api.BeforeEach\n\nclass Test {\n\n    @BeforeEach\n    fun before() {\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.junit.Before\n+import org.junit.jupiter.api.BeforeEach\n\n@@ -5,1 +5,1 @@\nclass Test {\n\n-   @Before\n+   @BeforeEach\n    fun before() {\n","newFile":false}]}]}>
 

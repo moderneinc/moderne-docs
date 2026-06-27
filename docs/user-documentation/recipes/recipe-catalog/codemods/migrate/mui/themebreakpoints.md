@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Updates theme breakpoints"}
-  description={"See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-breakpoints)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["mui","codemods","material-ui"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.migrate.mui.ThemeBreakpoints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/themebreakpoints.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"codemods/applycodemod"}]}>
+<RecipeHeader.Title>Updates theme breakpoints</RecipeHeader.Title>
+
+<RecipeHeader.Description>See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#theme-breakpoints).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"/user-documentation/recipes/recipe-catalog/codemods/applycodemod/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove obsolete Spring JUnit runners"}
-  description={"Remove obsolete classpath runners."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.RemoveObsoleteSpringRunners"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/removeobsoletespringrunners.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendsWith` replacement","href":"java/testing/junit5/removeobsoleterunners"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove obsolete Spring JUnit runners</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove obsolete classpath runners.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove JUnit 4 `@RunWith` annotations that do not require an `@ExtendsWith` replacement","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/removeobsoleterunners/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

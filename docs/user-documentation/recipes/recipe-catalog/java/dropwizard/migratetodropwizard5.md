@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Dropwizard 5.0.x from 4.x"}
-  description={"Apply changes required to upgrade a Dropwizard 4.x application to 5.0.x. This includes upgrading dependencies, removing deprecated configuration options, and migrating Jetty handler implementations.\nIncludes required migrations to Java 17, Jakarta EE 10, JUnit 5, Jackson 2.x, and Hibernate 6.6. See [the upgrade guide](https://www.dropwizard.io/en/stable/manual/upgrade-notes/upgrade-notes-5_0_x.html)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.MigrateToDropwizard5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/migratetodropwizard5.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate to Java 17","href":"java/migrate/upgradetojava17"},{"name":"Migrate to Jakarta EE 10","href":"java/migrate/jakarta/jakartaee10"},{"name":"Upgrade to JUnit 5.14","href":"java/testing/junit5/upgradetojunit514"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate to Hibernate 6.6.x","href":"hibernate/migratetohibernate66-community-edition"},{"name":"Delete key","href":"yaml/deletekey"},{"name":"Migrate Jetty `AbstractHandler` to Jetty 12 `Handler.Abstract`","href":"java/dropwizard/dw5/migratejettyhandlersignature"}]}>
+<RecipeHeader.Title>Migrate to Dropwizard 5.0.x from 4.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply changes required to upgrade a Dropwizard 4.x application to 5.0.x. This includes upgrading dependencies, removing deprecated configuration options, and migrating Jetty handler implementations. Includes required migrations to Java 17, Jakarta EE 10, JUnit 5, Jackson 2.x, and Hibernate 6.6. See [the upgrade guide](https://www.dropwizard.io/en/stable/manual/upgrade-notes/upgrade-notes-5_0_x.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Migrate to Java 17","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava17/"},{"name":"Migrate to Jakarta EE 10","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee10/"},{"name":"Upgrade to JUnit 5.14","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradetojunit514/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Migrate to Hibernate 6.6.x","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate66-community-edition/"},{"name":"Delete key","href":"/user-documentation/recipes/recipe-catalog/yaml/deletekey/"},{"name":"Migrate Jetty `AbstractHandler` to Jetty 12 `Handler.Abstract`","href":"/user-documentation/recipes/recipe-catalog/java/dropwizard/dw5/migratejettyhandlersignature/"}]}>
 
 ## Definition
 

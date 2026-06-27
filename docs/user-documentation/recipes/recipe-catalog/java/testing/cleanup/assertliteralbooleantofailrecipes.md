@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUnit `assertTrue(false)` and `assertFalse(true)` with `fail()`"}
-  description={"Using fail is more direct and clear."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.AssertLiteralBooleanToFailRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertliteralbooleantofailrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace JUnit `assertTrue(false, \"reason\")` and `assertFalse(true, \"reason\")` with `fail(\"reason\")`","href":"java/testing/cleanup/assertliteralbooleantofailrecipes$withmessagerecipe"},{"name":"Replace JUnit `assertTrue(false)` and `assertFalse(true)` with `fail()`","href":"java/testing/cleanup/assertliteralbooleantofailrecipes$withoutmessagerecipe"}]}>
+<RecipeHeader.Title>Replace JUnit `assertTrue(false)` and `assertFalse(true)` with `fail()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using fail is more direct and clear.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace JUnit `assertTrue(false, \"reason\")` and `assertFalse(true, \"reason\")` with `fail(\"reason\")`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertliteralbooleantofailrecipes$withmessagerecipe/"},{"name":"Replace JUnit `assertTrue(false)` and `assertFalse(true)` with `fail()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertliteralbooleantofailrecipes$withoutmessagerecipe/"}]}>
 
 ## Definition
 

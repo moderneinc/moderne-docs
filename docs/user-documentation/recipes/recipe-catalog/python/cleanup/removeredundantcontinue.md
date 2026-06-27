@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Strip trailing ``continue`` from loop body"}
-  description={"Strip ``continue`` when it is the final statement in a loop body, since the loop naturally advances to the next iteration."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveRedundantContinue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantcontinue.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Strip trailing ``continue`` from loop body</RecipeHeader.Title>
+
+<RecipeHeader.Description>Strip ``continue`` when it is the final statement in a loop body, since the loop naturally advances to the next iteration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveRedundantContinue","displayName":"Strip trailing ``continue`` from loop body","pipPackage":"openrewrite-static-analysis"}}>
 

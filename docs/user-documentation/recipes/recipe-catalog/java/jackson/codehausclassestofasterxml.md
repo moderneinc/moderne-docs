@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate classes from Jackson Codehaus (legacy) to Jackson FasterXML"}
-  description={"In Jackson 2, the package and dependency coordinates moved from Codehaus to FasterXML."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jackson-2"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.CodehausClassesToFasterXML"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/codehausclassestofasterxml.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Jackson `@JsonInclude`","href":"java/jackson/codehaus/jsonincludeannotation"},{"name":"Migrate serialization annotation processor","href":"java/jackson/codehaus/replaceserializationconfigannotationintrospector"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Add imports for fully qualified references to types","href":"java/shortenfullyqualifiedtypereferences"}]}>
+<RecipeHeader.Title>Migrate classes from Jackson Codehaus (legacy) to Jackson FasterXML</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Jackson 2, the package and dependency coordinates moved from Codehaus to FasterXML.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Jackson `@JsonInclude`","href":"/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/jsonincludeannotation/"},{"name":"Migrate serialization annotation processor","href":"/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/replaceserializationconfigannotationintrospector/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Add imports for fully qualified references to types","href":"/user-documentation/recipes/recipe-catalog/java/shortenfullyqualifiedtypereferences/"}]}>
 
 ## Definition
 

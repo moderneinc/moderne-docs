@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find ThrowIfNull with value type argument"}
-  description={"Detect `ArgumentNullException.ThrowIfNull` called with value type parameters that can never be null."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindThrowIfNullWithNonNullable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findthrowifnullwithnonnullable.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find ThrowIfNull with value type argument</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `ArgumentNullException.ThrowIfNull` called with value type parameters that can never be null.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindThrowIfNullWithNonNullable","displayName":"Find ThrowIfNull with value type argument","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

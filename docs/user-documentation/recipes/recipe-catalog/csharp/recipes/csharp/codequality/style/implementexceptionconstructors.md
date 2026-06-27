@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Implement exception constructors"}
-  description={"Ensure custom exception classes implement standard constructors."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.ImplementExceptionConstructors"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/implementexceptionconstructors.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Implement exception constructors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure custom exception classes implement standard constructors.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.ImplementExceptionConstructors","displayName":"Implement exception constructors","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

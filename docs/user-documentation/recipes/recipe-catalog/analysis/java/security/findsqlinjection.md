@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find SQL injection vulnerabilities"}
-  description={"Detects potential SQL injection vulnerabilities where user input flows to SQL execution methods without proper sanitization."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.security.FindSqlInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/security/findsqlinjection.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find SQL injection vulnerabilities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects potential SQL injection vulnerabilities where user input flows to SQL execution methods without proper sanitization.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.http.HttpServletRequest;\nimport java.sql.Statement;\n\n/**\n * @noinspection SqlSourceToSinkFlow\n */\npublic class UserController {\n    public void getUser(HttpServletRequest request, Statement stmt) throws Exception {\n        String userId = request.getParameter(\"id\");\n        String query = \"SELECT * FROM users WHERE id = '\" + userId + \"'\";\n        stmt.execute(query);\n    }\n}\n","after":"import javax.servlet.http.HttpServletRequest;\nimport java.sql.Statement;\n\n/**\n * @noinspection SqlSourceToSinkFlow\n */\npublic class UserController {\n    public void getUser(HttpServletRequest request, Statement stmt) throws Exception {\n        String userId = request.getParameter(\"id\");\n        String query = \"SELECT * FROM users WHERE id = '\" + userId + \"'\";\n        /*~~(SQL_INJECTION use)~~>*/stmt.execute(query);\n    }\n}\n","diff":"@@ -11,1 +11,1 @@\n        String userId = request.getParameter(\"id\");\n        String query = \"SELECT * FROM users WHERE id = '\" + userId + \"'\";\n-       stmt.execute(query);\n+       /*~~(SQL_INJECTION use)~~>*/stmt.execute(query);\n    }\n","newFile":false}]}]}>
 

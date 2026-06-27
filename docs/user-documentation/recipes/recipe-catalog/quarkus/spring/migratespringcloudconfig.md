@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Cloud Config Client to Quarkus Config"}
-  description={"Migrates Spring Cloud Config Client to Quarkus configuration sources. Converts bootstrap.yml/properties patterns to Quarkus config."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","cloud","quarkus","migration","config"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.MigrateSpringCloudConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudconfig.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change property key","href":"properties/changepropertykey"}]}>
+<RecipeHeader.Title>Migrate Spring Cloud Config Client to Quarkus Config</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Spring Cloud Config Client to Quarkus configuration sources. Converts bootstrap.yml/properties patterns to Quarkus config.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `?` instead of `_` for wildcard types (Scala 3)"}
-  description={"Finds usage of `_` as a wildcard type in type parameters (e.g., `List[_]`). In Scala 3, the wildcard type syntax changed from `_` to `?`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.UseQuestionMarkWildcard"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/usequestionmarkwildcard.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `?` instead of `_` for wildcard types (Scala 3)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usage of `_` as a wildcard type in type parameters (e.g., `List[_]`). In Scala 3, the wildcard type syntax changed from `_` to `?`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  def process(list: List[_]): Unit = {\n    println(list.size)\n  }\n}\n","after":"object Test {\n  /*~~(Use ? instead of _ for wildcard types in Scala 3)~~>*/def process(list: List[_]): Unit = {\n    println(list.size)\n  }\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Test {\n- def process(list: List[_]): Unit = {\n+ /*~~(Use ? instead of _ for wildcard types in Scala 3)~~>*/def process(list: List[_]): Unit = {\n    println(list.size)\n","newFile":false}]}]}>
 

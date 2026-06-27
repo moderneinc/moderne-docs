@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `setUseSuffixPatternMatch(true)` in Spring MVC configuration"}
-  description={"In Spring Framework 5.2.4 and earlier, suffix pattern matching was enabled by default. This meant a controller method mapped to `/users` would also match `/users.json`, `/users.xml`, etc. Spring Framework 5.3 deprecated this behavior and changed the default to false. This recipe adds `setUseSuffixPatternMatch(true)` to `WebMvcConfigurer` implementations to preserve the legacy behavior during migration. Note: This only applies to Spring MVC; Spring WebFlux does not support suffix pattern matching."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.AddSetUseSuffixPatternMatch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/addsetusesuffixpatternmatch.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `setUseSuffixPatternMatch(true)` in Spring MVC configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Framework 5.2.4 and earlier, suffix pattern matching was enabled by default. This meant a controller method mapped to `/users` would also match `/users.json`, `/users.xml`, etc. Spring Framework 5.3 deprecated this behavior and changed the default to false. This recipe adds `setUseSuffixPatternMatch(true)` to `WebMvcConfigurer` implementations to preserve the legacy behavior during migration. Note: This only applies to Spring MVC; Spring WebFlux does not support suffix pattern matching.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.demo;\n\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n}\n","after":"package com.example.demo;\n\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n    @Override\n    public void configurePathMatch(PathMatchConfigurer configurer) {\n        configurer.setUseSuffixPatternMatch(true);\n    }\n}\n","diff":"@@ -4,0 +4,1 @@\n\nimport org.springframework.context.annotation.Configuration;\n+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n@@ -8,0 +9,4 @@\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n+   @Override\n+   public void configurePathMatch(PathMatchConfigurer configurer) {\n+       configurer.setUseSuffixPatternMatch(true);\n+   }\n}\n","newFile":false}]}]}>
 

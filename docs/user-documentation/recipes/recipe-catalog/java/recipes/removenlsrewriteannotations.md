@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `@NlsRewrite` annotations from `Recipe` classes"}
-  description={"Remove `@NlsRewrite.DisplayName` and `@NlsRewrite.Description` annotations, but only from classes that extend `Recipe`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.RemoveNlsRewriteAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/removenlsrewriteannotations.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `@NlsRewrite` annotations from `Recipe` classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `@NlsRewrite.DisplayName` and `@NlsRewrite.Description` annotations, but only from classes that extend `Recipe`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.ExecutionContext;\nimport org.openrewrite.NlsRewrite;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.TreeVisitor;\n\npublic class MyRecipe extends Recipe {\n    @Override\n    public @NlsRewrite.DisplayName String getDisplayName() {\n        return \"My Recipe\";\n    }\n\n    @Override\n    public @NlsRewrite.Description String getDescription() {\n        return \"My description.\";\n    }\n\n    @Override\n    public TreeVisitor<?, ExecutionContext> getVisitor() {\n        return TreeVisitor.noop();\n    }\n}\n","after":"import org.openrewrite.ExecutionContext;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.TreeVisitor;\n\npublic class MyRecipe extends Recipe {\n    @Override\n    public String getDisplayName() {\n        return \"My Recipe\";\n    }\n\n    @Override\n    public String getDescription() {\n        return \"My description.\";\n    }\n\n    @Override\n    public TreeVisitor<?, ExecutionContext> getVisitor() {\n        return TreeVisitor.noop();\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport org.openrewrite.ExecutionContext;\n-import org.openrewrite.NlsRewrite;\nimport org.openrewrite.Recipe;\n@@ -8,1 +7,1 @@\npublic class MyRecipe extends Recipe {\n    @Override\n-   public @NlsRewrite.DisplayName String getDisplayName() {\n+   public String getDisplayName() {\n        return \"My Recipe\";\n@@ -13,1 +12,1 @@\n\n    @Override\n-   public @NlsRewrite.Description String getDescription() {\n+   public String getDescription() {\n        return \"My description.\";\n","newFile":false}]}]}>
 

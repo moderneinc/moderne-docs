@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"The option camel.main.debugger has been renamed"}
-  description={"The option camel.main.debugger has been renamed to camel.debug.enabled."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel42.CamelMainDebugger"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel42/camelmaindebugger.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change property key","href":"properties/changepropertykey"}]}>
+<RecipeHeader.Title>The option camel.main.debugger has been renamed</RecipeHeader.Title>
+
+<RecipeHeader.Description>The option camel.main.debugger has been renamed to camel.debug.enabled.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"}]}>
 
 ## Definition
 

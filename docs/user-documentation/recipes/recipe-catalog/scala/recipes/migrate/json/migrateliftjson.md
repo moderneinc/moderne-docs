@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove lift-json imports"}
-  description={"Removes imports of the lift-json library (`net.liftweb.json.*`). lift-json is tightly coupled to the Lift framework and should be replaced with a standalone Scala JSON library such as circe or play-json. Removing the imports causes the compiler to highlight all usage sites that need updating."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.json.MigrateLiftJson"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/json/migrateliftjson.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove lift-json imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes imports of the lift-json library (`net.liftweb.json.*`). lift-json is tightly coupled to the Lift framework and should be replaced with a standalone Scala JSON library such as circe or play-json. Removing the imports causes the compiler to highlight all usage sites that need updating.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import net.liftweb.json.JsonParser\n\nclass Parser {\n    val name = \"lift\"\n}\n","after":"\n\n\nclass Parser {\n    val name = \"lift\"\n}\n","diff":"@@ -1,1 +1,0 @@\n-import net.liftweb.json.JsonParser\n\n@@ -3,0 +2,2 @@\nimport net.liftweb.json.JsonParser\n\n+\n+\nclass Parser {\n","newFile":false}]}]}>
 

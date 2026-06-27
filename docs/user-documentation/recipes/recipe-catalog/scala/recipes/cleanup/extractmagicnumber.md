@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Extract magic numbers to named constants"}
-  description={"Finds magic numbers (literal integers other than -1, 0, 1, 2) used in expressions or method arguments. Consider extracting them to named constants."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.ExtractMagicNumber"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/extractmagicnumber.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Extract magic numbers to named constants</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds magic numbers (literal integers other than -1, 0, 1, 2) used in expressions or method arguments. Consider extracting them to named constants.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val result = 1 + 42\n}\n","after":"class Example {\n    val result = 1 + /*~~(Consider extracting magic number to a named constant)~~>*/42\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Example {\n-   val result = 1 + 42\n+   val result = 1 + /*~~(Consider extracting magic number to a named constant)~~>*/42\n}\n","newFile":false}]}]}>
 

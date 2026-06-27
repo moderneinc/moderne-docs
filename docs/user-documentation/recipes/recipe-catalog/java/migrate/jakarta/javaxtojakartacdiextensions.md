@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename CDI Extension to Jakarta"}
-  description={"Rename `javax.enterprise.inject.spi.Extension` to `jakarta.enterprise.inject.spi.Extension`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.JavaxToJakartaCdiExtensions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxtojakartacdiextensions.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename a file","href":"core/renamefile"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Rename CDI Extension to Jakarta</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rename `javax.enterprise.inject.spi.Extension` to `jakarta.enterprise.inject.spi.Extension`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename a file","href":"/user-documentation/recipes/recipe-catalog/core/renamefile/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

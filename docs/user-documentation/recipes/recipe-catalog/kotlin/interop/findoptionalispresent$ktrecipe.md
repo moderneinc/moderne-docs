@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Optional.isPresent` / `isEmpty` checks"}
-  description={"`opt.isPresent` and `opt.isEmpty` are the Optional-flavored analogs of `x != null` and `x == null`. Once the upstream returns `T?` instead of `Optional<T>`, the check collapses to a Kotlin null comparison plus a smart-cast."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindOptionalIsPresent$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalispresent$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Optional.isPresent` / `isEmpty` checks</RecipeHeader.Title>
+
+<RecipeHeader.Description>`opt.isPresent` and `opt.isEmpty` are the Optional-flavored analogs of `x != null` and `x == null`. Once the upstream returns `T?` instead of `Optional<T>`, the check collapses to a Kotlin null comparison plus a smart-cast.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindOptionalIsPresent$KtRecipe","displayName":"Find `Optional.isPresent` / `isEmpty` checks","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

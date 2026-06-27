@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename packages to lowercase"}
-  description={"By convention all Java package names should contain only lowercase letters, numbers, and dashes. This recipe converts any uppercase letters in package names to be lowercase. Consistent package naming prevents confusion and potential issues on case-insensitive file systems."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S120"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.LowercasePackage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/lowercasepackage.md"}
-/>
+>
+
+<RecipeHeader.Title>Rename packages to lowercase</RecipeHeader.Title>
+
+<RecipeHeader.Description>By convention all Java package names should contain only lowercase letters, numbers, and dashes. This recipe converts any uppercase letters in package names to be lowercase. Consistent package naming prevents confusion and potential issues on case-insensitive file systems.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.UPPERCASE.CamelCase;\nclass A {}\n","after":"package com.uppercase.camelcase;\nclass A {}\n","diff":"@@ -1,1 +1,1 @@\n-package com.UPPERCASE.CamelCase;\n+package com.uppercase.camelcase;\nclass A {}\n","newFile":false}]}]}>
 

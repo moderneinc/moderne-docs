@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find uses of internal javax APIs"}
-  description={"The libraries that define these APIs will have to be migrated before any of the repositories that use them."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.search.FindInternalJavaxApis"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/search/findinternaljavaxapis.md"}
-/>
+>
+
+<RecipeHeader.Title>Find uses of internal javax APIs</RecipeHeader.Title>
+
+<RecipeHeader.Description>The libraries that define these APIs will have to be migrated before any of the repositories that use them.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":false,"description":"Optionally limit the search to declarations that match the provided method pattern.","example":"java.util.List add(..)"}]}>
 

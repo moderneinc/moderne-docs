@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `ReactDOM.render` callback argument"}
-  description={"Removes the third callback argument from `ReactDOM.render(element, container, callback)` calls. Callbacks are not supported in React 18's `createRoot` API."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.18.replace-render-callback"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/18/replace-render-callback.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `ReactDOM.render` callback argument</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the third callback argument from `ReactDOM.render(element, container, callback)` calls. Callbacks are not supported in React 18's `createRoot` API.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.18.replace-render-callback","displayName":"Remove `ReactDOM.render` callback argument","npmPackage":"@openrewrite/recipes-react"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Resolve TODO/FIXME comments"}
-  description={"Finds comments containing TODO, FIXME, HACK, or XXX. These indicate incomplete work that should be tracked and resolved."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.ResolveTodoComment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/resolvetodocomment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Resolve TODO/FIXME comments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds comments containing TODO, FIXME, HACK, or XXX. These indicate incomplete work that should be tracked and resolved.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    // TODO: implement this\n    val x = 1\n}\n","after":"class Example {\n    // TODO: implement this\n    /*~~(TODO/FIXME comment found)~~>*/val x = 1\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    // TODO: implement this\n-   val x = 1\n+   /*~~(TODO/FIXME comment found)~~>*/val x = 1\n}\n","newFile":false}]}]}>
 

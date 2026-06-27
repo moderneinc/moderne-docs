@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Additional Spring Web Parameter Annotations"}
-  description={"Migrates additional Spring Web parameter annotations not covered by the main WebToJaxRs recipe. Includes @MatrixVariable, @CookieValue, and other edge cases."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","jaxrs","web","quarkus","migration"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.MigrateRequestParameterEdgeCases"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/migraterequestparameteredgecases.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Remove annotation","href":"java/removeannotation"}]}>
+<RecipeHeader.Title>Migrate Additional Spring Web Parameter Annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates additional Spring Web parameter annotations not covered by the main WebToJaxRs recipe. Includes @MatrixVariable, @CookieValue, and other edge cases.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"}]}>
 
 ## Definition
 

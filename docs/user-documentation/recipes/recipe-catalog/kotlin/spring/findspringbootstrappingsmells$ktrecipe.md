@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring Boot bootstrapping smells"}
-  description={"Bootstrap code that hasn't been Kotlinized: Java-style `SpringApplication.run(MyApp::class.java, ...)` calls and `main` wrappers that could collapse to a one-line `runApplication<MyApp>(*args)`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringBootstrappingSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringbootstrappingsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `SpringApplication.run(MyApp::class.java, ...)` calls","href":"kotlin/spring/findspringapplicationrunjava$ktrecipe"},{"name":"Find top-level `main` functions wrapping `SpringApplication.run`","href":"kotlin/spring/findmainmethodwithspringapplicationrun$ktrecipe"}]}>
+<RecipeHeader.Title>Find Spring Boot bootstrapping smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Bootstrap code that hasn't been Kotlinized: Java-style `SpringApplication.run(MyApp::class.java, ...)` calls and `main` wrappers that could collapse to a one-line `runApplication<MyApp>(*args)`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `SpringApplication.run(MyApp::class.java, ...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringapplicationrunjava$ktrecipe/"},{"name":"Find top-level `main` functions wrapping `SpringApplication.run`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findmainmethodwithspringapplicationrun$ktrecipe/"}]}>
 
 ## Definition
 

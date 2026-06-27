@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Char.isISOControl()` instead of `Character.isISOControl(c)`"}
-  description={"Prefer the multiplatform Kotlin extension `c.isISOControl()` over the JVM-only `Character.isISOControl(c)`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseCharIsISOControl$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharisisocontrol$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Char.isISOControl()` instead of `Character.isISOControl(c)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the multiplatform Kotlin extension `c.isISOControl()` over the JVM-only `Character.isISOControl(c)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseCharIsISOControl$KtRecipe","displayName":"Use `Char.isISOControl()` instead of `Character.isISOControl(c)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

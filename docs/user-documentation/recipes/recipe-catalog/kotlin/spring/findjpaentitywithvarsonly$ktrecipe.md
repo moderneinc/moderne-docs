@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Entity` classes with `var` properties only"}
-  description={"JPA entities need mutable properties for the persistence provider to hydrate them, but a `class X(var a: A, var b: B)` form mixes that JPA requirement with full external mutability. Promote to `data class` (still mutable for JPA via the `kotlin-jpa` compiler plugin's synthesized no-arg ctor) to get `equals`/`hashCode`/`toString` and `copy`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindJpaEntityWithVarsOnly$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findjpaentitywithvarsonly$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Entity` classes with `var` properties only</RecipeHeader.Title>
+
+<RecipeHeader.Description>JPA entities need mutable properties for the persistence provider to hydrate them, but a `class X(var a: A, var b: B)` form mixes that JPA requirement with full external mutability. Promote to `data class` (still mutable for JPA via the `kotlin-jpa` compiler plugin's synthesized no-arg ctor) to get `equals`/`hashCode`/`toString` and `copy`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindJpaEntityWithVarsOnly$KtRecipe","displayName":"Find `@Entity` classes with `var` properties only","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

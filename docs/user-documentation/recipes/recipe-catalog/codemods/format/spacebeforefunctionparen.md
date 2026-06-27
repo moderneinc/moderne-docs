@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce consistent spacing before &#x60;function&#x60; definition opening parenthesis"}
-  description={"Enforce consistent spacing before &#x60;function&#x60; definition opening parenthesis\n\nSee [rule details](https://eslint.style/rules/default/space-before-function-paren)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["eslint","stylistic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.format.SpaceBeforeFunctionParen"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/format/spacebeforefunctionparen.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce consistent spacing before &#x60;function&#x60; definition opening parenthesis</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce consistent spacing before &#x60;function&#x60; definition opening parenthesis  See [rule details](https://eslint.style/rules/default/space-before-function-paren).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

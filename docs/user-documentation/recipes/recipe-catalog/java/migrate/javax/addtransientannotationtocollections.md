@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unannotated collection attributes require a Transient annotation"}
-  description={"In OpenJPA, attributes that inherit from the `java.util.Collection<E>` interface are not a default persistent type, so these attributes are not persisted unless they are annotated. EclipseLink has a different default behavior and attempts to persist these attributes to the database. To keep the OpenJPA behavior of ignoring unannotated collection attributes, add the `javax.persistence.Transient` annotation to these attributes in EclipseLink."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.AddTransientAnnotationToCollections"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addtransientannotationtocollections.md"}
-/>
+>
+
+<RecipeHeader.Title>Unannotated collection attributes require a Transient annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>In OpenJPA, attributes that inherit from the `java.util.Collection<E>` interface are not a default persistent type, so these attributes are not persisted unless they are annotated. EclipseLink has a different default behavior and attempts to persist these attributes to the database. To keep the OpenJPA behavior of ignoring unannotated collection attributes, add the `javax.persistence.Transient` annotation to these attributes in EclipseLink.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Collection;\nimport java.util.List;\n\nimport javax.persistence.Entity;\nimport javax.persistence.Id;\n\n@Entity\npublic class UnannotatedCollectionEntity {\n    @Id\n    private int id;\n\n    private Collection collectionField;\n    private List listField;\n}\n","after":"import java.util.Collection;\nimport java.util.List;\n\nimport javax.persistence.Entity;\nimport javax.persistence.Id;\nimport javax.persistence.Transient;\n\n@Entity\npublic class UnannotatedCollectionEntity {\n    @Id\n    private int id;\n\n    @Transient\n    private Collection collectionField;\n    @Transient\n    private List listField;\n}\n","diff":"@@ -6,0 +6,1 @@\nimport javax.persistence.Entity;\nimport javax.persistence.Id;\n+import javax.persistence.Transient;\n\n@@ -12,0 +13,1 @@\n    private int id;\n\n+   @Transient\n    private Collection collectionField;\n@@ -13,0 +15,1 @@\n\n    private Collection collectionField;\n+   @Transient\n    private List listField;\n","newFile":false}]}]}>
 

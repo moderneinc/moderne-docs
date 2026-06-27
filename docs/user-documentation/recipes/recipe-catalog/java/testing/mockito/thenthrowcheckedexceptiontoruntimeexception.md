@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace undeclared checked exceptions in `thenThrow` with `RuntimeException`"}
-  description={"In Mockito 3+, `thenThrow()` validates that checked exceptions are declared in the mocked method's `throws` clause. This recipe replaces checked exception class literals in `thenThrow()` calls with `RuntimeException.class` when the mocked method does not declare the exception."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.ThenThrowCheckedExceptionToRuntimeException"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/thenthrowcheckedexceptiontoruntimeexception.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace undeclared checked exceptions in `thenThrow` with `RuntimeException`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Mockito 3+, `thenThrow()` validates that checked exceptions are declared in the mocked method's `throws` clause. This recipe replaces checked exception class literals in `thenThrow()` calls with `RuntimeException.class` when the mocked method does not declare the exception.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.mockito.Mockito.when;\n\nclass MyTest {\n    void test(MyService service) {\n        when(service.execute(\"a\", \"b\")).thenThrow(Exception.class);\n    }\n}\n","after":"import static org.mockito.Mockito.when;\n\nclass MyTest {\n    void test(MyService service) {\n        when(service.execute(\"a\", \"b\")).thenThrow(RuntimeException.class);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass MyTest {\n    void test(MyService service) {\n-       when(service.execute(\"a\", \"b\")).thenThrow(Exception.class);\n+       when(service.execute(\"a\", \"b\")).thenThrow(RuntimeException.class);\n    }\n","newFile":false}]}]}>
 

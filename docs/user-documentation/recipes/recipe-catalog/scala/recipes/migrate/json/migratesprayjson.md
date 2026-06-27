@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove spray-json imports"}
-  description={"Removes imports of the spray-json library (`spray.json.*`). spray-json is no longer actively maintained and should be replaced with a modern Scala JSON library such as circe, play-json, or zio-json. Removing the imports causes the compiler to highlight all usage sites that need updating."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.json.MigrateSprayJson"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/json/migratesprayjson.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove spray-json imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes imports of the spray-json library (`spray.json.*`). spray-json is no longer actively maintained and should be replaced with a modern Scala JSON library such as circe, play-json, or zio-json. Removing the imports causes the compiler to highlight all usage sites that need updating.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import spray.json.DefaultJsonProtocol\n\nclass MyFormat {\n    val name = \"format\"\n}\n","after":"\n\n\nclass MyFormat {\n    val name = \"format\"\n}\n","diff":"@@ -1,1 +1,0 @@\n-import spray.json.DefaultJsonProtocol\n\n@@ -3,0 +2,2 @@\nimport spray.json.DefaultJsonProtocol\n\n+\n+\nclass MyFormat {\n","newFile":false}]}]}>
 

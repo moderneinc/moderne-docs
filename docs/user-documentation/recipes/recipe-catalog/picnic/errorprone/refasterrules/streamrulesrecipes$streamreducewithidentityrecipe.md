@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StreamRules.StreamReduceWithIdentity`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamReduceWithIdentity<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4266\")\n    T before(Stream<T> stream, T identity, BinaryOperator<T> accumulator) {\n        return stream.collect(reducing(identity, accumulator));\n    }\n    \n    @AfterTemplate\n    T after(Stream<T> stream, T identity, BinaryOperator<T> accumulator) {\n        return stream.reduce(identity, accumulator);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4266"]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamReduceWithIdentityRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/streamrulesrecipes$streamreducewithidentityrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StreamRules.StreamReduceWithIdentity`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class StreamReduceWithIdentity<T> {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "java:S4266")
+    T before(Stream<T> stream, T identity, BinaryOperator<T> accumulator) {
+        return stream.collect(reducing(identity, accumulator));
+    }
+    
+    @AfterTemplate
+    T after(Stream<T> stream, T identity, BinaryOperator<T> accumulator) {
+        return stream.reduce(identity, accumulator);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamReduceWithIdentityRecipe","displayName":"Refaster template `StreamRules.StreamReduceWithIdentity`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

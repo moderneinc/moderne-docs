@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Flip empty ``if``-body by negating the condition"}
-  description={"When the ``if`` branch is just ``pass`` and an ``else`` exists, invert the test and promote the else body to the if body."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SwapIfElseBranches"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/swapifelsebranches.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Flip empty ``if``-body by negating the condition</RecipeHeader.Title>
+
+<RecipeHeader.Description>When the ``if`` branch is just ``pass`` and an ``else`` exists, invert the test and promote the else body to the if body.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SwapIfElseBranches","displayName":"Flip empty ``if``-body by negating the condition","pipPackage":"openrewrite-static-analysis"}}>
 

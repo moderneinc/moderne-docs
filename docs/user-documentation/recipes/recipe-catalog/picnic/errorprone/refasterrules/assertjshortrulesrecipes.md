@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJShortRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `short`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJShortRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJShortRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjshortrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJShortRules.AbstractShortAssertIsEqualTo`","href":"picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertisequaltorecipe"},{"name":"Refaster template `AssertJShortRules.AbstractShortAssertIsNotEqualTo`","href":"picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertisnotequaltorecipe"},{"name":"Refaster template `AssertJShortRules.AbstractShortAssertIsZero`","href":"picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertiszerorecipe"},{"name":"Refaster template `AssertJShortRules.AbstractShortAssertIsNotZero`","href":"picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertisnotzerorecipe"},{"name":"Refaster template `AssertJShortRules.AbstractShortAssertIsOne`","href":"picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertisonerecipe"}]}>
+<RecipeHeader.Title>`AssertJShortRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `short`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJShortRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJShortRules.AbstractShortAssertIsEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertisequaltorecipe/"},{"name":"Refaster template `AssertJShortRules.AbstractShortAssertIsNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertisnotequaltorecipe/"},{"name":"Refaster template `AssertJShortRules.AbstractShortAssertIsZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertiszerorecipe/"},{"name":"Refaster template `AssertJShortRules.AbstractShortAssertIsNotZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertisnotzerorecipe/"},{"name":"Refaster template `AssertJShortRules.AbstractShortAssertIsOne`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertisonerecipe/"}]}>
 
 ## Definition
 

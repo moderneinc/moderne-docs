@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use logger instead of system print statements"}
-  description={"Replace `System.out` and `System.err` print statements with a logger."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.SystemPrintToLogging"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/systemprinttologging.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use logger instead of `System.err` print statements","href":"java/logging/systemerrtologging"},{"name":"Use logger instead of `System.out` print statements","href":"java/logging/systemouttologging"},{"name":"Use logger instead of `printStackTrace()`","href":"java/logging/printstacktracetologerror"}]}>
+<RecipeHeader.Title>Use logger instead of system print statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `System.out` and `System.err` print statements with a logger.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use logger instead of `System.err` print statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/systemerrtologging/"},{"name":"Use logger instead of `System.out` print statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/systemouttologging/"},{"name":"Use logger instead of `printStackTrace()`","href":"/user-documentation/recipes/recipe-catalog/java/logging/printstacktracetologerror/"}]}>
 
 ## Definition
 

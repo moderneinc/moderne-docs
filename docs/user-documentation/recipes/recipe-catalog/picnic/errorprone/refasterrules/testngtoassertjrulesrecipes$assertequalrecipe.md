@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TestNGToAssertJRules.AssertEqual`"}
-  description={"Recipe created for the following Refaster template:\n```java\n@SuppressWarnings(value = \"java:S1448\")\nstatic final class AssertEqual {\n    \n    @BeforeTemplate\n    void before(boolean actual, boolean expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(boolean actual, Boolean expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Boolean actual, boolean expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Boolean actual, Boolean expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(byte actual, byte expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(byte actual, Byte expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Byte actual, byte expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Byte actual, Byte expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(char actual, char expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(char actual, Character expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Character actual, char expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Character actual, Character expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(short actual, short expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(short actual, Short expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Short actual, short expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Short actual, Short expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(int actual, int expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(int actual, Integer expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Integer actual, int expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Integer actual, Integer expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(long actual, long expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(long actual, Long expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Long actual, long expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Long actual, Long expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(float actual, float expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(float actual, Float expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Float actual, float expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Float actual, Float expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(double actual, double expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(double actual, Double expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Double actual, double expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Double actual, Double expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Object actual, Object expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(String actual, String expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @BeforeTemplate\n    void before(Map<?, ?> actual, Map<?, ?> expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Object actual, Object expected) {\n        assertThat(actual).isEqualTo(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1448"]}
@@ -31,7 +29,204 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TestNGToAssertJRules.AssertEqual`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+@SuppressWarnings(value = "java:S1448")
+static final class AssertEqual {
+    
+    @BeforeTemplate
+    void before(boolean actual, boolean expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(boolean actual, Boolean expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Boolean actual, boolean expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Boolean actual, Boolean expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(byte actual, byte expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(byte actual, Byte expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Byte actual, byte expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Byte actual, Byte expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(char actual, char expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(char actual, Character expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Character actual, char expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Character actual, Character expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(short actual, short expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(short actual, Short expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Short actual, short expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Short actual, Short expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(int actual, int expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(int actual, Integer expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Integer actual, int expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Integer actual, Integer expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(long actual, long expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(long actual, Long expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Long actual, long expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Long actual, Long expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(float actual, float expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(float actual, Float expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Float actual, float expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Float actual, Float expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(double actual, double expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(double actual, Double expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Double actual, double expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Double actual, Double expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Object actual, Object expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(String actual, String expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @BeforeTemplate
+    void before(Map<?, ?> actual, Map<?, ?> expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(Object actual, Object expected) {
+        assertThat(actual).isEqualTo(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualRecipe","displayName":"Refaster template `TestNGToAssertJRules.AssertEqual`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

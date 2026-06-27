@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to WebLogic 15.1.1"}
-  description={"This recipe will apply changes required for migrating to WebLogic 15.1.1 and Jakarta EE 9.1"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["java","weblogic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.UpgradeTo1511"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradeto1511.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Output Recipe Version","href":"oracle/weblogic/rewrite/outputrecipeversion"},{"name":"Update the WebLogic version to 15.1.1","href":"oracle/weblogic/rewrite/updatebuildtoweblogic1511"},{"name":"Report types deprecated or removed in WebLogic version 15.1.1","href":"oracle/weblogic/rewrite/reportdeprecatedorremoved1511"},{"name":"Migrate WebLogic Schemas to 15.1.1","href":"oracle/weblogic/rewrite/migrateweblogicschemasto1511"},{"name":"Change the jakarta.inject-api dependency to scope provided when jakartaee-api 9.x is provided.","href":"oracle/weblogic/rewrite/changejakartainjectapidependencyscope"},{"name":"Change the jakarta.xml.bind-api dependency to scope provided when jakartaee-api 9.x is provided.","href":"oracle/weblogic/rewrite/changejaxbbindapidependencyscope"},{"name":"Change the jakarta.ws.rs-api dependency to scope provided when jakartaee-api 9.x is provided.","href":"oracle/weblogic/rewrite/changejakartawebservicersapidependencyscope"}]}>
+<RecipeHeader.Title>Migrate to WebLogic 15.1.1</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes required for migrating to WebLogic 15.1.1 and Jakarta EE 9.1</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Output Recipe Version","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/outputrecipeversion/"},{"name":"Update the WebLogic version to 15.1.1","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/updatebuildtoweblogic1511/"},{"name":"Report types deprecated or removed in WebLogic version 15.1.1","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/reportdeprecatedorremoved1511/"},{"name":"Migrate WebLogic Schemas to 15.1.1","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/migrateweblogicschemasto1511/"},{"name":"Change the jakarta.inject-api dependency to scope provided when jakartaee-api 9.x is provided.","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/changejakartainjectapidependencyscope/"},{"name":"Change the jakarta.xml.bind-api dependency to scope provided when jakartaee-api 9.x is provided.","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/changejaxbbindapidependencyscope/"},{"name":"Change the jakarta.ws.rs-api dependency to scope provided when jakartaee-api 9.x is provided.","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/changejakartawebservicersapidependencyscope/"}]}>
 
 ## Definition
 

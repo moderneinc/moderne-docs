@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Mockito Java Agent to Maven Surefire Plugin"}
-  description={"Adds required configuration to specifically enable the Mockito/Bytebuddy Java agent in the Maven Surefire plugin for Java 21 compatibility."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.AddMockitoJavaAgentToMavenSurefirePlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/addmockitojavaagenttomavensurefireplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Add Mockito Java Agent to Maven Surefire Plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds required configuration to specifically enable the Mockito/Bytebuddy Java agent in the Maven Surefire plugin for Java 21 compatibility.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.AddMockitoJavaAgentToMavenSurefirePlugin","displayName":"Add Mockito Java Agent to Maven Surefire Plugin","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

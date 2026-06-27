@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"io.quarkus.updates.core.quarkus319.HibernateORMValidationMode"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus319.HibernateORMValidationMode"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus319/hibernateormvalidationmode.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Quarkus configuration property key","href":"quarkus/changequarkuspropertykey"},{"name":"Change Quarkus configuration property value","href":"quarkus/changequarkuspropertyvalue"},{"name":"Change Quarkus configuration property value","href":"quarkus/changequarkuspropertyvalue"}]}>
+<RecipeHeader.Title>io.quarkus.updates.core.quarkus319.HibernateORMValidationMode</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Quarkus configuration property key","href":"/user-documentation/recipes/recipe-catalog/quarkus/changequarkuspropertykey/"},{"name":"Change Quarkus configuration property value","href":"/user-documentation/recipes/recipe-catalog/quarkus/changequarkuspropertyvalue/"},{"name":"Change Quarkus configuration property value","href":"/user-documentation/recipes/recipe-catalog/quarkus/changequarkuspropertyvalue/"}]}>
 
 ## Definition
 

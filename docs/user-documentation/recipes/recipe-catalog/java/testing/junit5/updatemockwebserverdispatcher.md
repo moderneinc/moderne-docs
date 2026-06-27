@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Preserve `MockResponse` return type for `Dispatcher.dispatch()` overrides"}
-  description={"In mockwebserver3 5.x, `Dispatcher.dispatch()` returns `MockResponse`, not `MockResponse.Builder`. Pre-pin the return type to `mockwebserver3.MockResponse` and wrap return expressions with `.build()`, so the subsequent blanket `MockResponse` → `Builder` type change leaves `dispatch()` alone."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.UpdateMockWebServerDispatcher"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/updatemockwebserverdispatcher.md"}
-/>
+>
+
+<RecipeHeader.Title>Preserve `MockResponse` return type for `Dispatcher.dispatch()` overrides</RecipeHeader.Title>
+
+<RecipeHeader.Description>In mockwebserver3 5.x, `Dispatcher.dispatch()` returns `MockResponse`, not `MockResponse.Builder`. Pre-pin the return type to `mockwebserver3.MockResponse` and wrap return expressions with `.build()`, so the subsequent blanket `MockResponse` → `Builder` type change leaves `dispatch()` alone.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.UpdateMockWebServerDispatcher","displayName":"Preserve `MockResponse` return type for `Dispatcher.dispatch()` overrides","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

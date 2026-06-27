@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"TestNG `assertEqualsNoOrder` to AssertJ"}
-  description={"Convert TestNG-style `assertEqualsNoOrder()` to AssertJ's `assertThat().containsExactlyInAnyOrder()` (arrays) or `assertThat().containsExactlyInAnyOrderElementsOf()` (collections)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testng.TestNgAssertEqualsNoOrderToAssertThat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertequalsnoordertoassertthat.md"}
-/>
+>
+
+<RecipeHeader.Title>TestNG `assertEqualsNoOrder` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert TestNG-style `assertEqualsNoOrder()` to AssertJ's `assertThat().containsExactlyInAnyOrder()` (arrays) or `assertThat().containsExactlyInAnyOrderElementsOf()` (collections).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.testng.TestNgAssertEqualsNoOrderToAssertThat","displayName":"TestNG `assertEqualsNoOrder` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

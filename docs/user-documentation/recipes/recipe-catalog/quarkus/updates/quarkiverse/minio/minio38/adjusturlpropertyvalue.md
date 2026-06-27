@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adust quarkus.minio.url property key"}
-  description={"Adjust quarkus.minio.url property key to quarkus.minio.host."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.quarkiverse.minio.minio38.AdjustURLPropertyValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/quarkiverse/minio/minio38/adjusturlpropertyvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Adust quarkus.minio.url property key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adjust quarkus.minio.url property key to quarkus.minio.host.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.quarkus.updates.quarkiverse.minio.minio38.AdjustURLPropertyValue","displayName":"Adust quarkus.minio.url property key","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `defaultConfiguration` to build targets"}
-  description={"Adds `\"defaultConfiguration\": \"production\"` to build architect targets in `angular.json`. Angular 12 changed `ng build` to produce production bundles by default."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.add-default-configuration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/add-default-configuration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `defaultConfiguration` to build targets</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `"defaultConfiguration": "production"` to build architect targets in `angular.json`. Angular 12 changed `ng build` to produce production bundles by default.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.add-default-configuration","displayName":"Add `defaultConfiguration` to build targets","npmPackage":"@openrewrite/recipes-angular"}}>
 

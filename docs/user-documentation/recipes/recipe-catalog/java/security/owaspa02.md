@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remediate OWASP A02:2021 Cryptographic failures"}
-  description={"OWASP [A02:2021](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/) describes failures related to cryptography (or lack thereof), which often lead to exposure of sensitive data. This recipe seeks to remediate these vulnerabilities."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspA02"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/owaspa02.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Finds uses of `Encryptors.queryableText()`","href":"java/spring/security5/search/findencryptorsqueryabletextuses"},{"name":"Insecure cookies","href":"java/security/servlet/cookiesetsecure"}]}>
+<RecipeHeader.Title>Remediate OWASP A02:2021 Cryptographic failures</RecipeHeader.Title>
+
+<RecipeHeader.Description>OWASP [A02:2021](https://owasp.org/Top10/A02_2021-Cryptographic_Failures/) describes failures related to cryptography (or lack thereof), which often lead to exposure of sensitive data. This recipe seeks to remediate these vulnerabilities.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Finds uses of `Encryptors.queryableText()`","href":"/user-documentation/recipes/recipe-catalog/java/spring/security5/search/findencryptorsqueryabletextuses/"},{"name":"Insecure cookies","href":"/user-documentation/recipes/recipe-catalog/java/security/servlet/cookiesetsecure/"}]}>
 
 ## Definition
 

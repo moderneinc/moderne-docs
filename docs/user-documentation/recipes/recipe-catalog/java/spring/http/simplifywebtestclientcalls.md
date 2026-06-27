@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify WebTestClient expressions"}
-  description={"Simplifies various types of WebTestClient expressions to improve code readability."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.http.SimplifyWebTestClientCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/http/simplifywebtestclientcalls.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify WebTestClient expressions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplifies various types of WebTestClient expressions to improve code readability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"import org.springframework.test.web.reactive.server.WebTestClient\n\nclass Test {\n    val webClient: WebTestClient = WebTestClient.bindToServer().build()\n    fun someMethod() {\n      webClient\n          .post()\n          .uri(\"/some/url\")\n          .bodyValue(\"someValue\")\n          .exchange()\n          .expectStatus()\n          .isEqualTo(200)\n    }\n}\n","after":"import org.springframework.test.web.reactive.server.WebTestClient\n\nclass Test {\n    val webClient: WebTestClient = WebTestClient.bindToServer().build()\n    fun someMethod() {\n      webClient\n          .post()\n          .uri(\"/some/url\")\n          .bodyValue(\"someValue\")\n          .exchange()\n          .expectStatus()\n          .isOk()\n    }\n}\n","diff":"@@ -12,1 +12,1 @@\n          .exchange()\n          .expectStatus()\n-         .isEqualTo(200)\n+         .isOk()\n    }\n","newFile":false}]}]}>
 

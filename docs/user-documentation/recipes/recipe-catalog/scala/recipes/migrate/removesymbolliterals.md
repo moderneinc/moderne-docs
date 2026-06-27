@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove deprecated symbol literals"}
-  description={"Finds symbol literals like `'foo` which were deprecated in Scala 2.13 and removed in Scala 3. Use `Symbol(\"foo\")` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.RemoveSymbolLiterals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/removesymbolliterals.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove deprecated symbol literals</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds symbol literals like `'foo` which were deprecated in Scala 2.13 and removed in Scala 3. Use `Symbol("foo")` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  val s = 'foo\n}\n","after":"object Test {\n  val s = /*~~(Symbol literals are deprecated in Scala 2.13+)~~>*/'foo\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Test {\n- val s = 'foo\n+ val s = /*~~(Symbol literals are deprecated in Scala 2.13+)~~>*/'foo\n}\n","newFile":false}]}]}>
 

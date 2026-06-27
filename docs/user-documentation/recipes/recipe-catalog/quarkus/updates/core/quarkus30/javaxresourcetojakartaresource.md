@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated `javax.resource` packages to `jakarta.resource`"}
-  description={"Java EE has been rebranded to Jakarta EE, necessitating a package relocation."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus30.JavaxResourceToJakartaResource"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxresourcetojakartaresource.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Maven dependency version","href":"maven/upgradedependencyversion"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"}]}>
+<RecipeHeader.Title>Migrate deprecated `javax.resource` packages to `jakarta.resource`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java EE has been rebranded to Jakarta EE, necessitating a package relocation.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Maven dependency version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"}]}>
 
 ## Definition
 

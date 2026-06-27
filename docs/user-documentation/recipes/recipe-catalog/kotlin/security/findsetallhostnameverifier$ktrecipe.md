@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `setHostnameVerifier(ALLOW_ALL)` calls"}
-  description={"Setting an Apache-style `ALLOW_ALL` (or a custom always-true) hostname verifier disables one of TLS's two integrity checks. Remove the override and let the default verifier run."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindSetAllHostnameVerifier$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findsetallhostnameverifier$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `setHostnameVerifier(ALLOW_ALL)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Setting an Apache-style `ALLOW_ALL` (or a custom always-true) hostname verifier disables one of TLS's two integrity checks. Remove the override and let the default verifier run.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindSetAllHostnameVerifier$KtRecipe","displayName":"Find `setHostnameVerifier(ALLOW_ALL)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

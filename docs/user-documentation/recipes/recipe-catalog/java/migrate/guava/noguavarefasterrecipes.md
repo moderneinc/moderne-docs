@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster style Guava to Java migration recipes"}
-  description={"Recipes that migrate from Guava to Java, using Refaster style templates for cases beyond what declarative recipes can cover."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaRefasterRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"`Preconditions.checkNotNull` to `Objects.requireNonNull`","href":"java/migrate/guava/noguavarefasterrecipes$preconditionschecknotnulltoobjectsrequirenonnullrecipe"},{"name":"`Preconditions.checkNotNull` with `String` message to `Objects.requireNonNull`","href":"java/migrate/guava/noguavarefasterrecipes$preconditionschecknotnullwithmessagetoobjectsrequirenonnullrecipe"},{"name":"`Preconditions.checkNotNull` with `Object` message to `Objects.requireNonNull` with `String.valueOf`","href":"java/migrate/guava/noguavarefasterrecipes$preconditionschecknotnullwithmessagetoobjectsrequirenonnullmessagetypeobjectrecipe"}]}>
+<RecipeHeader.Title>Refaster style Guava to Java migration recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Recipes that migrate from Guava to Java, using Refaster style templates for cases beyond what declarative recipes can cover.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"`Preconditions.checkNotNull` to `Objects.requireNonNull`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$preconditionschecknotnulltoobjectsrequirenonnullrecipe/"},{"name":"`Preconditions.checkNotNull` with `String` message to `Objects.requireNonNull`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$preconditionschecknotnullwithmessagetoobjectsrequirenonnullrecipe/"},{"name":"`Preconditions.checkNotNull` with `Object` message to `Objects.requireNonNull` with `String.valueOf`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$preconditionschecknotnullwithmessagetoobjectsrequirenonnullmessagetypeobjectrecipe/"}]}>
 
 ## Definition
 

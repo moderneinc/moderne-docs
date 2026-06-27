@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Boot 4.0 modular starters"}
-  description={"Adds Spring Boot 4.0 modular starter dependencies based on package usage and rewrites the classic starters to the minimal `spring-boot-starter` / `spring-boot-starter-test`. The minimal starter is retained so that modules whose code only references core Spring annotations (e.g. `@SpringBootApplication`, `@Configuration`, `@Component`) still compile after migration."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.MigrateToModularStarters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratetomodularstarters-moderne-edition.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Spring Boot 4.0 Module Starter Relocations","href":"java/spring/boot4/modulestarterrelocations"},{"name":"Add Spring Boot 4.0 modular starters","href":"java/spring/boot4/addmodularstarters"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Module has monolithic Spring Boot starter","href":"java/spring/boot4/modulehasmonolithicstarter"}]}>
+<RecipeHeader.Title>Migrate to Spring Boot 4.0 modular starters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds Spring Boot 4.0 modular starter dependencies based on package usage and rewrites the classic starters to the minimal `spring-boot-starter` / `spring-boot-starter-test`. The minimal starter is retained so that modules whose code only references core Spring annotations (e.g. `@SpringBootApplication`, `@Configuration`, `@Component`) still compile after migration.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Spring Boot 4.0 Module Starter Relocations","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulestarterrelocations/"},{"name":"Add Spring Boot 4.0 modular starters","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmodularstarters/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Module has monolithic Spring Boot starter","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulehasmonolithicstarter/"}]}>
 
 ## Definition
 

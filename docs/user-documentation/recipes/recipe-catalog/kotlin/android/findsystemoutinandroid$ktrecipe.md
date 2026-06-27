@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `System.out.println(...)` calls"}
-  description={"`System.out` on Android writes to logcat under a default tag that's easy to lose. Use `Log.d`/`Log.i` for tagged output (or, better, Timber) — both route through Android's logging pipeline with filterable tags."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindSystemOutInAndroid$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findsystemoutinandroid$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `System.out.println(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`System.out` on Android writes to logcat under a default tag that's easy to lose. Use `Log.d`/`Log.i` for tagged output (or, better, Timber) — both route through Android's logging pipeline with filterable tags.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindSystemOutInAndroid$KtRecipe","displayName":"Find `System.out.println(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

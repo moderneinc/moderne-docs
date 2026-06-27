@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `cucumber-java8` hook definition with `cucumber-java`"}
-  description={"Replace `LambdaGlue` hook definitions with new annotated methods with the same body."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-cucumber-jvm"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.CucumberJava8HookDefinitionToCucumberJava"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8hookdefinitiontocucumberjava.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `cucumber-java8` hook definition with `cucumber-java`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `LambdaGlue` hook definitions with new annotated methods with the same body.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.cucumber.jvm.CucumberJava8HookDefinitionToCucumberJava","displayName":"Replace `cucumber-java8` hook definition with `cucumber-java`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-cucumber-jvm","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_CUCUMBER_JVM","requiresConfiguration":false}}>
 

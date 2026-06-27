@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade transitive Gradle or Maven dependencies"}
-  description={"Upgrades the version of a transitive dependency in a Maven pom.xml or Gradle build.gradle. Leaves direct dependencies unmodified. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-java-dependencies"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.UpgradeTransitiveDependencyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/upgradetransitivedependencyversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade transitive Gradle or Maven dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrades the version of a transitive dependency in a Maven pom.xml or Gradle build.gradle. Leaves direct dependencies unmodified. Can be paired with the regular Upgrade Dependency Version recipe to upgrade a dependency everywhere, regardless of whether it is direct or transitive.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate 'org.apache.logging.log4j:ARTIFACT_ID:VERSION'.","example":"org.apache.logging.log4j"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate 'org.apache.logging.log4j:log4j-bom:VERSION'.","example":"log4j-bom"},{"type":"String","name":"version","required":true,"description":"An exact version number or node-style semver selector used to select the version number.","example":"latest.release"},{"type":"String","name":"scope","required":false,"description":"An optional scope to use for the dependency management tag. Relevant only to Maven.","example":"import"},{"type":"String","name":"type","required":false,"description":"An optional type to use for the dependency management tag. Relevant only to Maven builds.","example":"pom"},{"type":"String","name":"classifier","required":false,"description":"An optional classifier to use for the dependency management tag. Relevant only to Maven.","example":"test"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'version' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select 29.0-jre","example":"-jre"},{"type":"String","name":"because","required":false,"description":"The reason for upgrading the transitive dependency. For example, we could be responding to a vulnerability.","example":"CVE-2021-1234"},{"type":"Boolean","name":"releasesOnly","required":false,"description":"Whether to exclude snapshots from consideration when using a semver selector"},{"type":"String","name":"onlyIfUsing","required":false,"description":"Only add managed dependencies to projects having a dependency matching the expression.","example":"org.apache.logging.log4j:log4j*"},{"type":"Boolean","name":"addToRootPom","required":false,"description":"Add to the root pom where root is the eldest parent of the pom within the source set."}]}>
 

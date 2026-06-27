@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Kafka 2.4"}
-  description={"Migrate applications to the latest Kafka 2.4 release."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kafka"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.MigrateToKafka24"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/migratetokafka24.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Kafka 2.3","href":"kafka/migratetokafka23"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate `WindowStore.put()` to include timestamp","href":"kafka/streams/migratewindowstoreputmethod"},{"name":"Remove `PartitionGrouper` configuration","href":"kafka/streams/removepartitiongrouperconfiguration"}]}>
+<RecipeHeader.Title>Migrate to Kafka 2.4</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Kafka 2.4 release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Kafka 2.3","href":"/user-documentation/recipes/recipe-catalog/kafka/migratetokafka23/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Migrate `WindowStore.put()` to include timestamp","href":"/user-documentation/recipes/recipe-catalog/kafka/streams/migratewindowstoreputmethod/"},{"name":"Remove `PartitionGrouper` configuration","href":"/user-documentation/recipes/recipe-catalog/kafka/streams/removepartitiongrouperconfiguration/"}]}>
 
 ## Definition
 

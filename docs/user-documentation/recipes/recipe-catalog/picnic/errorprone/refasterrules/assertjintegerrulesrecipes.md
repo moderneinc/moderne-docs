@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJIntegerRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `int`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJIntegerRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJIntegerRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjintegerrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsEqualTo`","href":"picnic/errorprone/refasterrules/assertjintegerrulesrecipes$abstractintegerassertisequaltorecipe"},{"name":"Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsNotEqualTo`","href":"picnic/errorprone/refasterrules/assertjintegerrulesrecipes$abstractintegerassertisnotequaltorecipe"},{"name":"Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsZero`","href":"picnic/errorprone/refasterrules/assertjintegerrulesrecipes$abstractintegerassertiszerorecipe"},{"name":"Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsNotZero`","href":"picnic/errorprone/refasterrules/assertjintegerrulesrecipes$abstractintegerassertisnotzerorecipe"},{"name":"Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsOne`","href":"picnic/errorprone/refasterrules/assertjintegerrulesrecipes$abstractintegerassertisonerecipe"}]}>
+<RecipeHeader.Title>`AssertJIntegerRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `int`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJIntegerRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjintegerrulesrecipes$abstractintegerassertisequaltorecipe/"},{"name":"Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjintegerrulesrecipes$abstractintegerassertisnotequaltorecipe/"},{"name":"Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjintegerrulesrecipes$abstractintegerassertiszerorecipe/"},{"name":"Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsNotZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjintegerrulesrecipes$abstractintegerassertisnotzerorecipe/"},{"name":"Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsOne`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjintegerrulesrecipes$abstractintegerassertisonerecipe/"}]}>
 
 ## Definition
 

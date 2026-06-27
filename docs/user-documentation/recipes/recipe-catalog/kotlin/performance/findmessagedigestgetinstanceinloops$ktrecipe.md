@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `MessageDigest.getInstance` calls inside loops"}
-  description={"`MessageDigest.getInstance(\"MD5\")` walks the security-provider list on every call. Hoist the digest to a per-thread cache or reset it per use."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindMessageDigestGetInstanceInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findmessagedigestgetinstanceinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `MessageDigest.getInstance` calls inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>`MessageDigest.getInstance("MD5")` walks the security-provider list on every call. Hoist the digest to a per-thread cache or reset it per use.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindMessageDigestGetInstanceInLoops$KtRecipe","displayName":"Find `MessageDigest.getInstance` calls inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

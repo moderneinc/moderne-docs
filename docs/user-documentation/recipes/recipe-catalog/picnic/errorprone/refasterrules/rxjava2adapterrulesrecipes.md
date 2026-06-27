@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`RxJava2AdapterRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `RxJava2Adapter`.\n[Source](https://error-prone.picnic.tech/refasterrules/RxJava2AdapterRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.RxJava2AdapterRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `RxJava2AdapterRules.CompletableToMono`","href":"picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$completabletomonorecipe"},{"name":"Refaster template `RxJava2AdapterRules.FlowableToFlux`","href":"picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$flowabletofluxrecipe"},{"name":"Refaster template `RxJava2AdapterRules.FluxToFlowable`","href":"picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$fluxtoflowablerecipe"},{"name":"Refaster template `RxJava2AdapterRules.FluxToObservable`","href":"picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$fluxtoobservablerecipe"},{"name":"Refaster template `RxJava2AdapterRules.MaybeToMono`","href":"picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$maybetomonorecipe"},{"name":"Refaster template `RxJava2AdapterRules.MonoToCompletable`","href":"picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$monotocompletablerecipe"},{"name":"Refaster template `RxJava2AdapterRules.MonoToFlowable`","href":"picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$monotoflowablerecipe"},{"name":"Refaster template `RxJava2AdapterRules.MonoToMaybe`","href":"picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$monotomayberecipe"},{"name":"Refaster template `RxJava2AdapterRules.MonoToSingle`","href":"picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$monotosinglerecipe"},{"name":"Refaster template `RxJava2AdapterRules.ObservableToFlux`","href":"picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$observabletofluxrecipe"},{"name":"Refaster template `RxJava2AdapterRules.SingleToMono`","href":"picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$singletomonorecipe"}]}>
+<RecipeHeader.Title>`RxJava2AdapterRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `RxJava2Adapter`. [Source](https://error-prone.picnic.tech/refasterrules/RxJava2AdapterRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `RxJava2AdapterRules.CompletableToMono`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$completabletomonorecipe/"},{"name":"Refaster template `RxJava2AdapterRules.FlowableToFlux`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$flowabletofluxrecipe/"},{"name":"Refaster template `RxJava2AdapterRules.FluxToFlowable`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$fluxtoflowablerecipe/"},{"name":"Refaster template `RxJava2AdapterRules.FluxToObservable`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$fluxtoobservablerecipe/"},{"name":"Refaster template `RxJava2AdapterRules.MaybeToMono`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$maybetomonorecipe/"},{"name":"Refaster template `RxJava2AdapterRules.MonoToCompletable`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$monotocompletablerecipe/"},{"name":"Refaster template `RxJava2AdapterRules.MonoToFlowable`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$monotoflowablerecipe/"},{"name":"Refaster template `RxJava2AdapterRules.MonoToMaybe`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$monotomayberecipe/"},{"name":"Refaster template `RxJava2AdapterRules.MonoToSingle`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$monotosinglerecipe/"},{"name":"Refaster template `RxJava2AdapterRules.ObservableToFlux`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$observabletofluxrecipe/"},{"name":"Refaster template `RxJava2AdapterRules.SingleToMono`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$singletomonorecipe/"}]}>
 
 ## Definition
 

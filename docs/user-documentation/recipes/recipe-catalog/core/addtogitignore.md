@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add entries to `.gitignore`"}
-  description={"Adds entries to the project's `.gitignore` file. If no `.gitignore` file exists, one will be created. Existing entries that match will not be duplicated."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.AddToGitignore"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/addtogitignore.md"}
-/>
+>
+
+<RecipeHeader.Title>Add entries to `.gitignore`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds entries to the project's `.gitignore` file. If no `.gitignore` file exists, one will be created. Existing entries that match will not be duplicated.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"entries","required":true,"description":"Multiline text containing gitignore entries to add, each on a separate line. Comments and blank lines are preserved.","example":"*.tmp\n.DS_Store\ntarget/"},{"type":"String","name":"filePattern","required":false,"description":"A glob pattern to match `.gitignore` files to update. Defaults to only the root `.gitignore` file. Use `**/.gitignore` to update all `.gitignore` files in the repository, or specify a specific path like `src/.gitignore`.","example":".gitignore"}]}>
 

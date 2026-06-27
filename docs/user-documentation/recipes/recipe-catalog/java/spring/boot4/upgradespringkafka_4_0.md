@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Kafka 4.0"}
-  description={"Migrate applications to Spring Kafka 4.0. This includes removing deprecated configuration options that are no longer supported."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","kafka"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.UpgradeSpringKafka_4_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringkafka_4_0.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Kafka 3.3","href":"java/spring/boot3/upgradespringkafka_3_3"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Kafka 4.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to Spring Kafka 4.0. This includes removing deprecated configuration options that are no longer supported.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Kafka 3.3","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringkafka_3_3/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Struts actions"}
-  description={"Find actions and their associated definitions."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.search.FindStrutsActions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/search/findstrutsactions.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Struts actions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find actions and their associated definitions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<struts>\n    <package name=\"basicstruts2\" extends=\"struts-default\">\n        <action name=\"index\">\n            <result>/index.jsp</result>\n        </action>\n        <action name=\"hello\" class=\"org.apache.struts.helloworld.action.HelloWorldAction\" method=\"execute\">\n            <result name=\"success\">/HelloWorld.jsp</result>\n        </action>\n    </package>\n</struts>\n","after":"<struts>\n    <package name=\"basicstruts2\" extends=\"struts-default\">\n        <!--~~>--><action name=\"index\">\n            <result>/index.jsp</result>\n        </action>\n        <!--~~>--><action name=\"hello\" class=\"org.apache.struts.helloworld.action.HelloWorldAction\" method=\"execute\">\n            <result name=\"success\">/HelloWorld.jsp</result>\n        </action>\n    </package>\n</struts>\n","diff":"@@ -3,1 +3,1 @@\n<struts>\n    <package name=\"basicstruts2\" extends=\"struts-default\">\n-       <action name=\"index\">\n+       <!--~~>--><action name=\"index\">\n            <result>/index.jsp</result>\n@@ -6,1 +6,1 @@\n            <result>/index.jsp</result>\n        </action>\n-       <action name=\"hello\" class=\"org.apache.struts.helloworld.action.HelloWorldAction\" method=\"execute\">\n+       <!--~~>--><action name=\"hello\" class=\"org.apache.struts.helloworld.action.HelloWorldAction\" method=\"execute\">\n            <result name=\"success\">/HelloWorld.jsp</result>\n","newFile":false}]}]}>
 

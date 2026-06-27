@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate breaking changes in `ResponseStatusException`"}
-  description={"Migrate Spring Framework 5.3's `ResponseStatusException` method `getRawStatusCode()` to Spring Framework 6's `getStatusCode().value()` and `ResponseStatusException` method `getStatus()` to Spring Framework 6's `getStatusCode()` ."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateResponseStatusException"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateresponsestatusexception.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate `ResponseStatusException#getRawStatusCode()` to `getStatusCode().value()`","href":"java/spring/framework/migrateresponsestatusexceptiongetrawstatuscodemethod"},{"name":"Migrate `ResponseStatusException#getStatus()` to `getStatusCode()`","href":"java/spring/framework/migrateresponsestatusexceptiongetstatuscodemethod"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate breaking changes in `ResponseStatusException`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Spring Framework 5.3's `ResponseStatusException` method `getRawStatusCode()` to Spring Framework 6's `getStatusCode().value()` and `ResponseStatusException` method `getStatus()` to Spring Framework 6's `getStatusCode()` .</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate `ResponseStatusException#getRawStatusCode()` to `getStatusCode().value()`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateresponsestatusexceptiongetrawstatuscodemethod/"},{"name":"Migrate `ResponseStatusException#getStatus()` to `getStatusCode()`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateresponsestatusexceptiongetstatuscodemethod/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

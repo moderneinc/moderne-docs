@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Transform classes that extend a given Class to implement the given Interface instead"}
-  description={"As of spring-batch 5.x Listeners has default methods (made possible by a Java 8 baseline) and can be implemented directly without the need for this adapter."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.ReplaceSupportClassWithItsInterface"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/replacesupportclasswithitsinterface.md"}
-/>
+>
+
+<RecipeHeader.Title>Transform classes that extend a given Class to implement the given Interface instead</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of spring-batch 5.x Listeners has default methods (made possible by a Java 8 baseline) and can be implemented directly without the need for this adapter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fullyQualifiedClassName","required":true,"description":"A fully-qualified class name to be replaced.","example":"org.springframework.batch.core.listener.JobExecutionListenerSupport"},{"type":"String","name":"fullyQualifiedInterfaceName","required":true,"description":"A fully-qualified Interface name to replace by.","example":"org.springframework.batch.core.JobExecutionListener"}]}>
 

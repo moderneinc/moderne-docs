@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Standardize instance method first parameter to `self`"}
-  description={"Ensure instance methods use `self` as their first parameter per PEP 8 and rename all body references. Methods decorated with `@staticmethod` or `@classmethod` are not affected."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={["python","cleanup","naming","pep8"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.InstanceMethodFirstArgName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/instancemethodfirstargname.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Standardize instance method first parameter to `self`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure instance methods use `self` as their first parameter per PEP 8 and rename all body references. Methods decorated with `@staticmethod` or `@classmethod` are not affected.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.InstanceMethodFirstArgName","displayName":"Standardize instance method first parameter to `self`","pipPackage":"openrewrite-static-analysis"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `PlatformTransactionManager` to `tasklet()` and `chunk()` calls"}
-  description={"Spring Batch 5.0 requires a `PlatformTransactionManager` as the second argument to `StepBuilder.tasklet(Tasklet)` and `StepBuilder.chunk(int)` / `StepBuilder.chunk(CompletionPolicy)`. This recipe adds the `transactionManager` argument and injects it as a method parameter if needed."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.AddTransactionManagerToTaskletAndChunk"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/addtransactionmanagertotaskletandchunk.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `PlatformTransactionManager` to `tasklet()` and `chunk()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Batch 5.0 requires a `PlatformTransactionManager` as the second argument to `StepBuilder.tasklet(Tasklet)` and `StepBuilder.chunk(int)` / `StepBuilder.chunk(CompletionPolicy)`. This recipe adds the `transactionManager` argument and injects it as a method parameter if needed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.batch.core.Step;\nimport org.springframework.batch.core.configuration.annotation.StepBuilderFactory;\nimport org.springframework.batch.core.step.tasklet.Tasklet;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.context.annotation.Bean;\n\nclass MyJobConfig {\n\n    @Autowired\n    private StepBuilderFactory stepBuilderFactory;\n\n    @Bean\n    Step myStep(Tasklet myTasklet) {\n        return stepBuilderFactory.get(\"myStep\")\n                .tasklet(myTasklet)\n                .build();\n    }\n}\n","after":"import org.springframework.batch.core.Step;\nimport org.springframework.batch.core.configuration.annotation.StepBuilderFactory;\nimport org.springframework.batch.core.step.tasklet.Tasklet;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.transaction.PlatformTransactionManager;\n\nclass MyJobConfig {\n\n    @Autowired\n    private StepBuilderFactory stepBuilderFactory;\n\n    @Bean\n    Step myStep(Tasklet myTasklet, PlatformTransactionManager transactionManager) {\n        return stepBuilderFactory.get(\"myStep\")\n                .tasklet(myTasklet, transactionManager)\n                .build();\n    }\n}\n","diff":"@@ -6,0 +6,1 @@\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.context.annotation.Bean;\n+import org.springframework.transaction.PlatformTransactionManager;\n\n@@ -13,1 +14,1 @@\n\n    @Bean\n-   Step myStep(Tasklet myTasklet) {\n+   Step myStep(Tasklet myTasklet, PlatformTransactionManager transactionManager) {\n        return stepBuilderFactory.get(\"myStep\")\n@@ -15,1 +16,1 @@\n    Step myStep(Tasklet myTasklet) {\n        return stepBuilderFactory.get(\"myStep\")\n-               .tasklet(myTasklet)\n+               .tasklet(myTasklet, transactionManager)\n                .build();\n","newFile":false}]}]}>
 

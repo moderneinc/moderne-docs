@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use bean name `applicationTaskExecutor` instead of `taskExecutor`"}
-  description={"Spring Boot 3.5 removed the bean name `taskExecutor`. Where this bean name is used, the recipe replaces the bean name to `applicationTaskExecutor`. This also includes instances where the developer provided their own bean named `taskExecutor`. This also includes scenarios where JSR-250's `@Resource` annotation is used."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.ReplaceTaskExecutorNameByApplicationTaskExecutorName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacetaskexecutornamebyapplicationtaskexecutorname.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add or update annotation attribute","href":"java/addorupdateannotationattribute"},{"name":"Add or update annotation attribute","href":"java/addorupdateannotationattribute"},{"name":"Add or update annotation attribute","href":"java/addorupdateannotationattribute"},{"name":"Replace `taskExecutor` with `applicationTaskExecutor`","href":"java/spring/boot3/resolvetaskexecutorfromcontext"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use bean name `applicationTaskExecutor` instead of `taskExecutor`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot 3.5 removed the bean name `taskExecutor`. Where this bean name is used, the recipe replaces the bean name to `applicationTaskExecutor`. This also includes instances where the developer provided their own bean named `taskExecutor`. This also includes scenarios where JSR-250's `@Resource` annotation is used.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add or update annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/addorupdateannotationattribute/"},{"name":"Add or update annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/addorupdateannotationattribute/"},{"name":"Add or update annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/addorupdateannotationattribute/"},{"name":"Replace `taskExecutor` with `applicationTaskExecutor`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/resolvetaskexecutorfromcontext/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

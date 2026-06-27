@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Docker base images"}
-  description={"Find all base images (`FROM` instructions) in Dockerfiles."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.search.FindBaseImages"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/search/findbaseimages.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Docker base images</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find all base images (`FROM` instructions) in Dockerfiles.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"imageNamePattern","required":false,"description":"A glob pattern to match against base image names. If not specified, all base images are matched.","example":"ubuntu*"},{"type":"String","name":"tagPattern","required":false,"description":"A glob pattern to match against image tags. If not specified, all tags are matched.","example":"20.*"},{"type":"String","name":"digestPattern","required":false,"description":"A glob pattern to match against image digests. If not specified, all digests are matched.","example":"sha256:*"},{"type":"String","name":"platformPattern","required":false,"description":"A glob pattern to match against platform flags. If not specified, all platforms are matched.","example":"linux/amd64"}]}>
 

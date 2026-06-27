@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate script source from String to Script/ScriptSource"}
-  description={"Migrates `Script.source(String)` calls to use `ScriptSource.scriptString(String)` wrapper in Elasticsearch Java client 9.x."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["elasticsearch"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.elastic.elastic9.MigrateScriptSource"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/elastic/elastic9/migratescriptsource.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate script source from String to Script/ScriptSource</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `Script.source(String)` calls to use `ScriptSource.scriptString(String)` wrapper in Elasticsearch Java client 9.x.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import co.elastic.clients.elasticsearch.ElasticsearchClient;\n\nclass Test {\n    void putScript(ElasticsearchClient esClient) throws Exception {\n        esClient.putScript(p -> p\n            .id(\"my-script\")\n            .script(s -> s\n                .lang(\"painless\")\n                .source(\"Math.log(_score * 2) + params['my_modifier']\")\n            )\n        );\n    }\n}\n","after":"import co.elastic.clients.elasticsearch.ElasticsearchClient;\n\nclass Test {\n    void putScript(ElasticsearchClient esClient) throws Exception {\n        esClient.putScript(p -> p\n            .id(\"my-script\")\n            .script(s -> s\n                .lang(\"painless\")\n                .source(so -> so.scriptString(\"Math.log(_score * 2) + params['my_modifier']\"))\n            )\n        );\n    }\n}\n","diff":"@@ -9,1 +9,1 @@\n            .script(s -> s\n                .lang(\"painless\")\n-               .source(\"Math.log(_score * 2) + params['my_modifier']\")\n+               .source(so -> so.scriptString(\"Math.log(_score * 2) + params['my_modifier']\"))\n            )\n","newFile":false}]}]}>
 

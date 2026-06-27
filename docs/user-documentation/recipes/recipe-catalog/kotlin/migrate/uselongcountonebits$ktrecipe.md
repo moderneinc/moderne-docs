@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Long.countOneBits()` instead of `java.lang.Long.bitCount`"}
-  description={"`Long.bitCount(l)` is the JVM-only popcount; the multiplatform `l.countOneBits()` extension reads as a receiver call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseLongCountOneBits$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongcountonebits$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Long.countOneBits()` instead of `java.lang.Long.bitCount`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Long.bitCount(l)` is the JVM-only popcount; the multiplatform `l.countOneBits()` extension reads as a receiver call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseLongCountOneBits$KtRecipe","displayName":"Use `Long.countOneBits()` instead of `java.lang.Long.bitCount`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

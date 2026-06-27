@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ReactorRules.OptionalMapMonoJust`"}
-  description={"Try to avoid expressions of type `Optional<Mono<T>>`, but if you must map an `Optional` to this type, prefer using `Mono#just(Object)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$OptionalMapMonoJustRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes$optionalmapmonojustrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ReactorRules.OptionalMapMonoJust`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Try to avoid expressions of type `Optional<Mono<T>>`, but if you must map an `Optional` to this type, prefer using `Mono#just(Object)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$OptionalMapMonoJustRecipe","displayName":"Refaster template `ReactorRules.OptionalMapMonoJust`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

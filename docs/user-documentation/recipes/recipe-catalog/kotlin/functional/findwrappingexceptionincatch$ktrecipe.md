@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `throw RuntimeException(e)` inside a catch block"}
-  description={"Wrapping the caught exception in a bare `RuntimeException`/`Exception` discards the contextual message the catch site should be adding. Wrap with a domain-specific subclass and a real message (`throw FetchFailedException(\"fetch profile for $userId\", e)`), or rethrow `e` directly if there's nothing to add."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindWrappingExceptionInCatch$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findwrappingexceptionincatch$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `throw RuntimeException(e)` inside a catch block</RecipeHeader.Title>
+
+<RecipeHeader.Description>Wrapping the caught exception in a bare `RuntimeException`/`Exception` discards the contextual message the catch site should be adding. Wrap with a domain-specific subclass and a real message (`throw FetchFailedException("fetch profile for $userId", e)`), or rethrow `e` directly if there's nothing to add.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindWrappingExceptionInCatch$KtRecipe","displayName":"Find `throw RuntimeException(e)` inside a catch block","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

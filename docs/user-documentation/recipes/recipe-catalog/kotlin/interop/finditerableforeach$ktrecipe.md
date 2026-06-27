@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Java-style `iterable.forEach(Consumer)` calls"}
-  description={"`Iterable.forEach(Consumer<T>)` is the Java-8 functional terminal; Kotlin source can use the same shape but the inline `kotlin.collections.forEach` is preferred — it doesn't allocate a `Consumer` and integrates with non-local `return`/`break` inside the lambda."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindIterableForEach$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/finditerableforeach$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Java-style `iterable.forEach(Consumer)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Iterable.forEach(Consumer<T>)` is the Java-8 functional terminal; Kotlin source can use the same shape but the inline `kotlin.collections.forEach` is preferred — it doesn't allocate a `Consumer` and integrates with non-local `return`/`break` inside the lambda.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindIterableForEach$KtRecipe","displayName":"Find Java-style `iterable.forEach(Consumer)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

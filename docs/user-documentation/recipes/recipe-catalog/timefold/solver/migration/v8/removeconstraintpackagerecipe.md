@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Constraint Streams: don't use package name in the asConstraint() method"}
-  description={"Remove the use of constraint package from `asConstraint(package, name)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/ai.timefold.solver.migration.v8.RemoveConstraintPackageRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/timefold/solver/migration/v8/removeconstraintpackagerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Constraint Streams: don't use package name in the asConstraint() method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove the use of constraint package from `asConstraint(package, name)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"ai.timefold.solver.migration.v8.RemoveConstraintPackageRecipe","displayName":"Constraint Streams: don't use package name in the asConstraint() method","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

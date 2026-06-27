@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary `@Repository` annotation from Spring Data `Repository` sub-interface"}
-  description={"Removes superfluous `@Repository` annotation from Spring Data `Repository` sub-interfaces."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.NoRepoAnnotationOnRepoInterface"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/norepoannotationonrepointerface.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary `@Repository` annotation from Spring Data `Repository` sub-interface</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes superfluous `@Repository` annotation from Spring Data `Repository` sub-interfaces.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.stereotype.Repository;\n\n@Repository\npublic interface MyRepo extends org.springframework.data.repository.Repository {\n}\n","after":"\npublic interface MyRepo extends org.springframework.data.repository.Repository {\n}\n","diff":"@@ -1,1 +1,0 @@\n-import org.springframework.stereotype.Repository;\n\n@@ -3,1 +2,0 @@\nimport org.springframework.stereotype.Repository;\n\n-@Repository\npublic interface MyRepo extends org.springframework.data.repository.Repository {\n","newFile":false}]}]}>
 

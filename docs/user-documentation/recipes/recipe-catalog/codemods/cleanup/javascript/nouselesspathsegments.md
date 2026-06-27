@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Forbid unnecessary path segments in import and require statements"}
-  description={"Forbid unnecessary path segments in import and require statements\nSee rule details for [import/no-useless-path-segments](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-useless-path-segments.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.javascript.NoUselessPathSegments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/nouselesspathsegments.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Forbid unnecessary path segments in import and require statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Forbid unnecessary path segments in import and require statements See rule details for [import/no-useless-path-segments](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-useless-path-segments.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

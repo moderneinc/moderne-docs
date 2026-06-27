@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `SetUseTrailingSlashMatch()` in configuration"}
-  description={"This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping(\"/some/greeting\")` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is change the default with the global Spring MVC or Webflux configuration."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.AddSetUseTrailingSlashMatch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/addsetusetrailingslashmatch.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `SetUseTrailingSlashMatch()` in configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping("/some/greeting")` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is change the default with the global Spring MVC or Webflux configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.demo;\n\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n}\n","after":"package com.example.demo;\n\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n    @Override\n    public void configurePathMatch(PathMatchConfigurer configurer) {\n        configurer.setUseTrailingSlashMatch(true);\n    }\n}\n","diff":"@@ -4,0 +4,1 @@\n\nimport org.springframework.context.annotation.Configuration;\n+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n@@ -8,0 +9,4 @@\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n+   @Override\n+   public void configurePathMatch(PathMatchConfigurer configurer) {\n+       configurer.setUseTrailingSlashMatch(true);\n+   }\n}\n","newFile":false}]}]}>
 

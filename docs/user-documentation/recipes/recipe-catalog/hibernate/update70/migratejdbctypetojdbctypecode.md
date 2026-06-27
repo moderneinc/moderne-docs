@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `@JdbcType` and legacy `@Type` to `@JdbcTypeCode`"}
-  description={"In Hibernate 7.0, various JDBC types were moved to internal packages. Use `@JdbcTypeCode` with `SqlTypes` constants instead of `@JdbcType` with specific classes. Also rewrites `@Type(LegacyType.class)` references to deprecated Hibernate basic types (e.g. `MaterializedBlobType`, `ImageType`) into the equivalent `@JdbcTypeCode(SqlTypes.X)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.MigrateJdbcTypeToJdbcTypeCode"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/migratejdbctypetojdbctypecode.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `@JdbcType` and legacy `@Type` to `@JdbcTypeCode`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Hibernate 7.0, various JDBC types were moved to internal packages. Use `@JdbcTypeCode` with `SqlTypes` constants instead of `@JdbcType` with specific classes. Also rewrites `@Type(LegacyType.class)` references to deprecated Hibernate basic types (e.g. `MaterializedBlobType`, `ImageType`) into the equivalent `@JdbcTypeCode(SqlTypes.X)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.persistence.Column;\nimport jakarta.persistence.Entity;\nimport jakarta.persistence.Id;\nimport org.hibernate.annotations.JdbcType;\nimport org.hibernate.type.descriptor.jdbc.JsonJdbcType;\n\n@Entity\npublic class JsonExample {\n    @Id\n    private Long id;\n\n    @JdbcType(JsonJdbcType.class)\n    @Column(name = \"json_data\")\n    private String jsonData;\n}\n","after":"import jakarta.persistence.Column;\nimport jakarta.persistence.Entity;\nimport jakarta.persistence.Id;\nimport org.hibernate.annotations.JdbcTypeCode;\nimport org.hibernate.type.SqlTypes;\n\n@Entity\npublic class JsonExample {\n    @Id\n    private Long id;\n\n    @JdbcTypeCode(SqlTypes.JSON)\n    @Column(name = \"json_data\")\n    private String jsonData;\n}\n","diff":"@@ -4,2 +4,2 @@\nimport jakarta.persistence.Entity;\nimport jakarta.persistence.Id;\n-import org.hibernate.annotations.JdbcType;\n-import org.hibernate.type.descriptor.jdbc.JsonJdbcType;\n+import org.hibernate.annotations.JdbcTypeCode;\n+import org.hibernate.type.SqlTypes;\n\n@@ -12,1 +12,1 @@\n    private Long id;\n\n-   @JdbcType(JsonJdbcType.class)\n+   @JdbcTypeCode(SqlTypes.JSON)\n    @Column(name = \"json_data\")\n","newFile":false}]}]}>
 

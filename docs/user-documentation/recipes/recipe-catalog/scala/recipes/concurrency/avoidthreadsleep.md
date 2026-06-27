@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Avoid `Thread.sleep`"}
-  description={"Finds `Thread.sleep` calls which block the current thread. Consider using scheduled executors or akka scheduler instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.concurrency.AvoidThreadSleep"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/concurrency/avoidthreadsleep.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Avoid `Thread.sleep`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `Thread.sleep` calls which block the current thread. Consider using scheduled executors or akka scheduler instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Worker {\n  def poll(): Unit = {\n    Thread.sleep(1000)\n    println(\"polling\")\n  }\n}\n","after":"object Worker {\n  /*~~(Thread.sleep blocks the current thread; consider using scheduled executors or akka scheduler)~~>*/def poll(): Unit = {\n    Thread.sleep(1000)\n    println(\"polling\")\n  }\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Worker {\n- def poll(): Unit = {\n+ /*~~(Thread.sleep blocks the current thread; consider using scheduled executors or akka scheduler)~~>*/def poll(): Unit = {\n    Thread.sleep(1000)\n","newFile":false}]}]}>
 

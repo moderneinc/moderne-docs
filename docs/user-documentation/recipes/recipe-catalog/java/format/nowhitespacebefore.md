@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"No whitespace before"}
-  description={"Removes unnecessary whitespace preceding a token. A linebreak before a token will be removed unless `allowLineBreaks` is set to `true`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.format.NoWhitespaceBefore"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/format/nowhitespacebefore.md"}
-/>
+>
+
+<RecipeHeader.Title>No whitespace before</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes unnecessary whitespace preceding a token. A linebreak before a token will be removed unless `allowLineBreaks` is set to `true`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    int m;\n\n    static void method() {\n        new Test()\n                .m = 2;\n        new Test() .m = 2;\n    }\n}\n","after":"class Test {\n    int m;\n\n    static void method() {\n        new Test().m = 2;\n        new Test().m = 2;\n    }\n}\n","diff":"@@ -5,3 +5,2 @@\n\n    static void method() {\n-       new Test()\n-               .m = 2;\n-       new Test() .m = 2;\n+       new Test().m = 2;\n+       new Test().m = 2;\n    }\n","newFile":false}]}]}>
 

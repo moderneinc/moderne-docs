@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose navigation / coroutine misuse"}
-  description={"Calls that need to be wrapped in an effect handler or event handler: `navController.navigate(...)` from a composable body, `scope.launch { … }` outside `LaunchedEffect`, lifecycle-naive `collectAsState` instead of `collectAsStateWithLifecycle`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposeNavigationIssues$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposenavigationissues$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `NavController.navigate(...)` calls in a `@Composable` body","href":"kotlin/compose/findnavigateincomposablebody$ktrecipe"},{"name":"Find `scope.launch { … }` calls inside a `@Composable` body","href":"kotlin/compose/findcoroutinelaunchincomposablebody$ktrecipe"},{"name":"Find `Flow.collectAsState()` calls — prefer `collectAsStateWithLifecycle()`","href":"kotlin/compose/findflowcollectasstate$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose navigation / coroutine misuse</RecipeHeader.Title>
+
+<RecipeHeader.Description>Calls that need to be wrapped in an effect handler or event handler: `navController.navigate(...)` from a composable body, `scope.launch { … }` outside `LaunchedEffect`, lifecycle-naive `collectAsState` instead of `collectAsStateWithLifecycle`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `NavController.navigate(...)` calls in a `@Composable` body","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findnavigateincomposablebody$ktrecipe/"},{"name":"Find `scope.launch { … }` calls inside a `@Composable` body","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findcoroutinelaunchincomposablebody$ktrecipe/"},{"name":"Find `Flow.collectAsState()` calls — prefer `collectAsStateWithLifecycle()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findflowcollectasstate$ktrecipe/"}]}>
 
 ## Definition
 

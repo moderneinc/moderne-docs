@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find top-level `run { … }` whose body never uses `this`"}
-  description={"Top-level `run { … }` (no receiver) is meaningful only when the block uses the implicit `this` or executes multiple statements as an expression. If the body neither references `this` nor depends on the scoping it provides, the wrapper just adds an unnecessary lambda allocation."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindStandaloneRunWithoutThis$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstandalonerunwithoutthis$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find top-level `run { … }` whose body never uses `this`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Top-level `run { … }` (no receiver) is meaningful only when the block uses the implicit `this` or executes multiple statements as an expression. If the body neither references `this` nor depends on the scoping it provides, the wrapper just adds an unnecessary lambda allocation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindStandaloneRunWithoutThis$KtRecipe","displayName":"Find top-level `run { … }` whose body never uses `this`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

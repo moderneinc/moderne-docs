@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Char.isDigit()` instead of `Character.isDigit(c)`"}
-  description={"Java's `Character.isDigit(c)` is JVM-only; the Kotlin extension `c.isDigit()` is multiplatform and reads more naturally as a receiver call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseCharIsDigit$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharisdigit$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Char.isDigit()` instead of `Character.isDigit(c)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java's `Character.isDigit(c)` is JVM-only; the Kotlin extension `c.isDigit()` is multiplatform and reads more naturally as a receiver call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseCharIsDigit$KtRecipe","displayName":"Use `Char.isDigit()` instead of `Character.isDigit(c)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

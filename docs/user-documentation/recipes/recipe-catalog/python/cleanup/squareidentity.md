@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rewrite self-multiplication as `** 2`"}
-  description={"When an expression is multiplied by itself, rewrite it using the exponentiation operator (`** 2`) for clarity."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SquareIdentity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/squareidentity.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Rewrite self-multiplication as `** 2`</RecipeHeader.Title>
+
+<RecipeHeader.Description>When an expression is multiplied by itself, rewrite it using the exponentiation operator (`** 2`) for clarity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SquareIdentity","displayName":"Rewrite self-multiplication as `** 2`","pipPackage":"openrewrite-static-analysis"}}>
 

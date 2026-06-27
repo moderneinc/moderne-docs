@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `CollectionRules.CollectionAddAllToCollectionExpression`"}
-  description={"Don't call `Iterables#addAll(Collection, Iterable)` when the elements to be added are already part of a `Collection`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionAddAllToCollectionExpressionRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/collectionrulesrecipes$collectionaddalltocollectionexpressionrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `CollectionRules.CollectionAddAllToCollectionExpression`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Don't call `Iterables#addAll(Collection, Iterable)` when the elements to be added are already part of a `Collection`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionAddAllToCollectionExpressionRecipe","displayName":"Refaster template `CollectionRules.CollectionAddAllToCollectionExpression`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

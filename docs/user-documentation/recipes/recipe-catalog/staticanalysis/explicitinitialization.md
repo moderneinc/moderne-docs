@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Explicit initialization"}
-  description={"Checks if any class or object member is explicitly initialized to default for its type value:\n - `null` for object references\n - zero for numeric types and `char`\n - and `false` for `boolean`\nRemoves explicit initializations where they aren't necessary. Since the JVM already guarantees these defaults, restating them adds visual noise and can obscure fields that are intentionally initialized to non-default values."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S3052"]}
@@ -31,7 +29,21 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ExplicitInitialization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/explicitinitialization.md"}
-/>
+>
+
+<RecipeHeader.Title>Explicit initialization</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Checks if any class or object member is explicitly initialized to default for its type value:
+ - `null` for object references
+ - zero for numeric types and `char`
+ - and `false` for `boolean`
+Removes explicit initializations where they aren't necessary. Since the JVM already guarantees these defaults, restating them adds visual noise and can obscure fields that are intentionally initialized to non-default values.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    private int a = 0;\n    private long b = 0L;\n    private short c = 0;\n    private int d = 1;\n    private long e = 2L;\n    private int f;\n    private char g = '\\0';\n\n    private boolean h = false;\n    private boolean i = true;\n\n    private Object j = new Object();\n    private Object k = null;\n\n    int[] l = null;\n    int[] m = new int[0];\n\n    private final Long n = null;\n}\n","after":"class Test {\n    private int a;\n    private long b;\n    private short c;\n    private int d = 1;\n    private long e = 2L;\n    private int f;\n    private char g;\n\n    private boolean h;\n    private boolean i = true;\n\n    private Object j = new Object();\n    private Object k;\n\n    int[] l;\n    int[] m = new int[0];\n\n    private final Long n = null;\n}\n","diff":"@@ -2,3 +2,3 @@\nclass Test {\n-   private int a = 0;\n-   private long b = 0L;\n-   private short c = 0;\n+   private int a;\n+   private long b;\n+   private short c;\n    private int d = 1;\n@@ -8,1 +8,1 @@\n    private long e = 2L;\n    private int f;\n-   private char g = '\\0';\n+   private char g;\n\n@@ -10,1 +10,1 @@\n    private char g = '\\0';\n\n-   private boolean h = false;\n+   private boolean h;\n    private boolean i = true;\n@@ -14,1 +14,1 @@\n\n    private Object j = new Object();\n-   private Object k = null;\n+   private Object k;\n\n@@ -16,1 +16,1 @@\n    private Object k = null;\n\n-   int[] l = null;\n+   int[] l;\n    int[] m = new int[0];\n","newFile":false}]},{"variants":[{"language":"java","before":"class A {\n    // C#: int? a\n    Nullable<Integer> a = null;\n    // C#: int? a = 0\n    Nullable<Integer> a = new Nullable<>(0);\n}\n","after":"class A {\n    // C#: int? a\n    Nullable<Integer> a;\n    // C#: int? a = 0\n    Nullable<Integer> a = new Nullable<>(0);\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n    // C#: int? a\n-   Nullable<Integer> a = null;\n+   Nullable<Integer> a;\n    // C#: int? a = 0\n","newFile":false}]}]}>
 

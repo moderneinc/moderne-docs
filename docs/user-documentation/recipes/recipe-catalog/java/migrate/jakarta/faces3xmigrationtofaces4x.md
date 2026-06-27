@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Jakarta Faces 4.x"}
-  description={"Jakarta EE 10 uses Faces 4.0."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["faces","jsf","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.Faces3xMigrationToFaces4x"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces3xmigrationtofaces4x.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"JSF 2.x to Jakarta Faces 3.x","href":"java/migrate/jakarta/faces2xmigrationtojakartafaces3x"},{"name":"Update Jakarta EE Java Faces Dependencies to 4.0.x","href":"java/migrate/jakarta/updatejakartafacesapi4"},{"name":"Faces XHTML migration for Jakarta EE 10","href":"java/migrate/jakarta/jakartafacesxhtmlee10"},{"name":"Migrate xmlns entries in `faces-config.xml` files","href":"java/migrate/jakarta/jakartafacesconfigxml4"},{"name":"Migrate xmlns entries in `taglib.xml` files","href":"java/migrate/jakarta/jakartafacestaglibraryxml4"},{"name":"Migrate xmlns entries in `web-fragment.xml` files","href":"java/migrate/jakarta/jakartawebfragmentxml6"},{"name":"Migrate xmlns entries in `web.xml` files","href":"java/migrate/jakarta/jakartawebxml6"},{"name":"Substitute removed Faces Managed Beans","href":"java/migrate/jakarta/facesmanagedbeansremoved"},{"name":"Upgrade Faces open source libraries","href":"java/migrate/jakarta/upgradefaces4opensourcelibraries"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Upgrade to Jakarta Faces 4.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Jakarta EE 10 uses Faces 4.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"JSF 2.x to Jakarta Faces 3.x","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces2xmigrationtojakartafaces3x/"},{"name":"Update Jakarta EE Java Faces Dependencies to 4.0.x","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartafacesapi4/"},{"name":"Faces XHTML migration for Jakarta EE 10","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartafacesxhtmlee10/"},{"name":"Migrate xmlns entries in `faces-config.xml` files","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartafacesconfigxml4/"},{"name":"Migrate xmlns entries in `taglib.xml` files","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartafacestaglibraryxml4/"},{"name":"Migrate xmlns entries in `web-fragment.xml` files","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartawebfragmentxml6/"},{"name":"Migrate xmlns entries in `web.xml` files","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartawebxml6/"},{"name":"Substitute removed Faces Managed Beans","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/facesmanagedbeansremoved/"},{"name":"Upgrade Faces open source libraries","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradefaces4opensourcelibraries/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

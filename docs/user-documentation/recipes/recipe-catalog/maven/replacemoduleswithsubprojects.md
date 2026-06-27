@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace modules with subprojects"}
-  description={"Maven 4 model version 4.1.0 deprecates the `<modules>` element in favor of `<subprojects>` to eliminate confusion with Java's Platform Module System (JPMS). This recipe renames `<modules>` to `<subprojects>` and `<module>` children to `<subproject>`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ReplaceModulesWithSubprojects"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/replacemoduleswithsubprojects.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML tag name","href":"xml/changetagname"},{"name":"Change XML tag name","href":"xml/changetagname"}]}>
+<RecipeHeader.Title>Replace modules with subprojects</RecipeHeader.Title>
+
+<RecipeHeader.Description>Maven 4 model version 4.1.0 deprecates the `<modules>` element in favor of `<subprojects>` to eliminate confusion with Java's Platform Module System (JPMS). This recipe renames `<modules>` to `<subprojects>` and `<module>` children to `<subproject>`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"},{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"}]}>
 
 ## Definition
 

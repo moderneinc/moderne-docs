@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Embed caught exception as inner exception"}
-  description={"When rethrowing a different exception in a catch block, pass the original exception as the inner exception to preserve the stack trace."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindEmbedCaughtExceptionAsInner"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findembedcaughtexceptionasinner.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Embed caught exception as inner exception</RecipeHeader.Title>
+
+<RecipeHeader.Description>When rethrowing a different exception in a catch block, pass the original exception as the inner exception to preserve the stack trace.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindEmbedCaughtExceptionAsInner","displayName":"Embed caught exception as inner exception","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

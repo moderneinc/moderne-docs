@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find closure in GetOrAdd that could use factory argument"}
-  description={"Detect `ConcurrentDictionary.GetOrAdd` calls with lambdas that capture variables. Use the overload with a factory argument parameter to avoid allocation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindAvoidClosureByUsingFactoryArg"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findavoidclosurebyusingfactoryarg.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find closure in GetOrAdd that could use factory argument</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `ConcurrentDictionary.GetOrAdd` calls with lambdas that capture variables. Use the overload with a factory argument parameter to avoid allocation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindAvoidClosureByUsingFactoryArg","displayName":"Find closure in GetOrAdd that could use factory argument","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

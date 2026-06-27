@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `runCatching { }` smells"}
-  description={"Search-only bundle covering the most common `runCatching { }` pitfalls: swallowing `CancellationException`, collapsing failures into `null` via `.getOrNull()`, discarding the `Result` in statement context, log-only handlers that drop the failure on the floor, `.onSuccess { }` chains with no failure handler, and `.getOrThrow()` patterns that turn the `Result` round-trip into pure ceremony."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindRunCatchingSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `runCatching { }` blocks that may swallow `CancellationException`","href":"kotlin/functional/findruncatchingswallowingcancellation$ktrecipe"},{"name":"Find `runCatching { }.getOrNull()` chains","href":"kotlin/functional/findruncatchinggetornulldiscardingerror$ktrecipe"},{"name":"Find `runCatching { }` calls whose result is discarded","href":"kotlin/functional/findruncatchingwithouthandling$ktrecipe"},{"name":"Find `runCatching { }.onFailure { log… }` chains with no further handling","href":"kotlin/functional/findruncatchingforlogonly$ktrecipe"},{"name":"Find `runCatching { }.onSuccess { … }` chains with no failure handler","href":"kotlin/functional/findruncatchingonsuccessonly$ktrecipe"},{"name":"Find `.getOrThrow()` calls on a `Result<T>`","href":"kotlin/functional/findresultgetorthrow$ktrecipe"}]}>
+<RecipeHeader.Title>Find `runCatching { }` smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle covering the most common `runCatching { }` pitfalls: swallowing `CancellationException`, collapsing failures into `null` via `.getOrNull()`, discarding the `Result` in statement context, log-only handlers that drop the failure on the floor, `.onSuccess { }` chains with no failure handler, and `.getOrThrow()` patterns that turn the `Result` round-trip into pure ceremony.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `runCatching { }` blocks that may swallow `CancellationException`","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingswallowingcancellation$ktrecipe/"},{"name":"Find `runCatching { }.getOrNull()` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchinggetornulldiscardingerror$ktrecipe/"},{"name":"Find `runCatching { }` calls whose result is discarded","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingwithouthandling$ktrecipe/"},{"name":"Find `runCatching { }.onFailure { log… }` chains with no further handling","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingforlogonly$ktrecipe/"},{"name":"Find `runCatching { }.onSuccess { … }` chains with no failure handler","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingonsuccessonly$ktrecipe/"},{"name":"Find `.getOrThrow()` calls on a `Result<T>`","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultgetorthrow$ktrecipe/"}]}>
 
 ## Definition
 

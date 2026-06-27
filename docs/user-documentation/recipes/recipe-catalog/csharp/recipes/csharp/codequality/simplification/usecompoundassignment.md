@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use compound assignment"}
-  description={"Replace `x = x op y` with `x op= y` for arithmetic, bitwise, shift, and null-coalescing operators."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseCompoundAssignment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usecompoundassignment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use compound assignment</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `x = x op y` with `x op= y` for arithmetic, bitwise, shift, and null-coalescing operators.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseCompoundAssignment","displayName":"Use compound assignment","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

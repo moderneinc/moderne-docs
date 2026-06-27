@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Android Gradle Plugin 8.12"}
-  description={"Recipes to migrate to Android Gradle Plugin version 8.12."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.android.MigrateToAndroidGradlePlugin_8_12"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_12.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Android Gradle Plugin 8.11","href":"android/migratetoandroidgradleplugin_8_11"},{"name":"Upgrade Android Gradle Plugin (AGP) version","href":"android/upgradeandroidgradlepluginversion"}]}>
+<RecipeHeader.Title>Migrate to Android Gradle Plugin 8.12</RecipeHeader.Title>
+
+<RecipeHeader.Description>Recipes to migrate to Android Gradle Plugin version 8.12.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Android Gradle Plugin 8.11","href":"/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_11/"},{"name":"Upgrade Android Gradle Plugin (AGP) version","href":"/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion/"}]}>
 
 ## Definition
 

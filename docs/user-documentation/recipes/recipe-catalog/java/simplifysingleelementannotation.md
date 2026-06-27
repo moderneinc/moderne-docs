@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify single-element annotation"}
-  description={"This recipe will remove the attribute `value` on single-element annotations. According to JLS, a _single-element annotation_, is a shorthand designed for use with single-element annotation types."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.SimplifySingleElementAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/simplifysingleelementannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify single-element annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will remove the attribute `value` on single-element annotations. According to JLS, a _single-element annotation_, is a shorthand designed for use with single-element annotation types.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"@Copyright(value = \"2002 Yoyodyne Propulsion Systems, Inc.\")\nclass OscillationOverthruster {\n}\n","after":"@Copyright(\"2002 Yoyodyne Propulsion Systems, Inc.\")\nclass OscillationOverthruster {\n}\n","diff":"@@ -1,1 +1,1 @@\n-@Copyright(value = \"2002 Yoyodyne Propulsion Systems, Inc.\")\n+@Copyright(\"2002 Yoyodyne Propulsion Systems, Inc.\")\nclass OscillationOverthruster {\n","newFile":false}]}]}>
 

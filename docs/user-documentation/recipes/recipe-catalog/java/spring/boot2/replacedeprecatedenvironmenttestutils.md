@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `EnvironmentTestUtils` with `TestPropertyValues`"}
-  description={"Replaces any references to the deprecated `EnvironmentTestUtils` with `TestPropertyValues` and the appropriate functionality."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.ReplaceDeprecatedEnvironmentTestUtils"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/replacedeprecatedenvironmenttestutils.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `EnvironmentTestUtils` with `TestPropertyValues`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces any references to the deprecated `EnvironmentTestUtils` with `TestPropertyValues` and the appropriate functionality.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.mycompany;\n\nimport org.springframework.context.annotation.AnnotationConfigApplicationContext;\nimport static org.springframework.boot.test.util.EnvironmentTestUtils.addEnvironment;\n\npublic class MyClass {\n    public void myMethod() {\n        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();\n        String pair = \"pair\";\n        addEnvironment(context, pair);\n    }\n}\n","after":"package com.mycompany;\n\nimport org.springframework.boot.test.util.TestPropertyValues;\nimport org.springframework.context.annotation.AnnotationConfigApplicationContext;\n\npublic class MyClass {\n    public void myMethod() {\n        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();\n        String pair = \"pair\";\n        TestPropertyValues.of(pair).applyTo(context);\n    }\n}\n","diff":"@@ -3,0 +3,1 @@\npackage com.mycompany;\n\n+import org.springframework.boot.test.util.TestPropertyValues;\nimport org.springframework.context.annotation.AnnotationConfigApplicationContext;\n@@ -4,1 +5,0 @@\n\nimport org.springframework.context.annotation.AnnotationConfigApplicationContext;\n-import static org.springframework.boot.test.util.EnvironmentTestUtils.addEnvironment;\n\n@@ -10,1 +10,1 @@\n        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();\n        String pair = \"pair\";\n-       addEnvironment(context, pair);\n+       TestPropertyValues.of(pair).applyTo(context);\n    }\n","newFile":false}]}]}>
 

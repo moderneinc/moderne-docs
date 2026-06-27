@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `println` / `System.err.println` / `printStackTrace`"}
-  description={"Bundles the unstructured-output finders. Each call writes outside the logger pipeline, so it bypasses level filters, MDCs, and structured sinks."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindPrintAndPrintStackTrace$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findprintandprintstacktrace$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `println(...)` calls","href":"kotlin/logging/findprintln$ktrecipe"},{"name":"Find `System.err.println(...)` calls","href":"kotlin/logging/findprinterr$ktrecipe"},{"name":"Find `Throwable.printStackTrace()` calls","href":"kotlin/logging/findprintstacktrace$ktrecipe"},{"name":"Find `e.printStackTrace(out)` calls","href":"kotlin/logging/findthrowableprintstacktracewithstream$ktrecipe"}]}>
+<RecipeHeader.Title>Find `println` / `System.err.println` / `printStackTrace`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Bundles the unstructured-output finders. Each call writes outside the logger pipeline, so it bypasses level filters, MDCs, and structured sinks.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `println(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findprintln$ktrecipe/"},{"name":"Find `System.err.println(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findprinterr$ktrecipe/"},{"name":"Find `Throwable.printStackTrace()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findprintstacktrace$ktrecipe/"},{"name":"Find `e.printStackTrace(out)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findthrowableprintstacktracewithstream$ktrecipe/"}]}>
 
 ## Definition
 

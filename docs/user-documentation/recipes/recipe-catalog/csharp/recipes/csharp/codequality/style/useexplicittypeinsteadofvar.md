@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use explicit type instead of var"}
-  description={"Use explicit type instead of `var` when the type is not evident."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseExplicitTypeInsteadOfVar"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/useexplicittypeinsteadofvar.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use explicit type instead of var</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use explicit type instead of `var` when the type is not evident.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseExplicitTypeInsteadOfVar","displayName":"Use explicit type instead of var","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

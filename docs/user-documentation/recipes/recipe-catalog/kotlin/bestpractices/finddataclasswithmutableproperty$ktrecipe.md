@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `data class` declarations with `var` properties"}
-  description={"`data class` generates `equals` and `hashCode` over the primary-constructor properties. Mutating a `var` property after the instance is stored in a hash-based collection breaks the invariant — the entry can no longer be found by lookup. Prefer `val`; if mutation is needed, model it through `copy(...)`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindDataClassWithMutableProperty$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/finddataclasswithmutableproperty$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `data class` declarations with `var` properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>`data class` generates `equals` and `hashCode` over the primary-constructor properties. Mutating a `var` property after the instance is stored in a hash-based collection breaks the invariant — the entry can no longer be found by lookup. Prefer `val`; if mutation is needed, model it through `copy(...)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindDataClassWithMutableProperty$KtRecipe","displayName":"Find `data class` declarations with `var` properties","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

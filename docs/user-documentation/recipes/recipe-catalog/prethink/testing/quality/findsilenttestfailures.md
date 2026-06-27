@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find silent test failures"}
-  description={"Detect silent test failures including Java assert keyword usage, swallowed exceptions in try/catch blocks, and test methods missing assertions."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindSilentTestFailures"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findsilenttestfailures.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find silent test failures</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect silent test failures including Java assert keyword usage, swallowed exceptions in try/catch blocks, and test methods missing assertions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.junit.jupiter.api.Test;\n\nclass MyTest {\n    @Test\n    void testSomething() {\n        int result = 1 + 1;\n        assert result == 2;\n    }\n}\n"},"variants":[]}]}>
 

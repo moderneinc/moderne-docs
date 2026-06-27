@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Apache HttpAsyncClient 4.x classes to HttpClient 5.x"}
-  description={"Migrates classes from Apache HttpAsyncClient 4.x `httpasyncclient` to their equivalents in HttpClient 5.x."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","httpclient"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.UpgradeApacheHttpClient_5_AsyncClientClassMapping"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpclient_5_asyncclientclassmapping.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"},{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"},{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"},{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Changes an argument (or pair of arguments) to a `TimeValue` for matched method invocations","href":"apache/httpclient5/changeargumenttotimevalue"},{"name":"Migrate `PoolingNHttpClientConnectionManager` to `PoolingAsyncClientConnectionManager`","href":"apache/httpclient5/migratepoolingnhttpclientconnectionmanager"},{"name":"Use `PoolingAsyncClientConnectionManagerBuilder` for configuration","href":"apache/httpclient5/usepoolingasyncclientconnectionmanagerbuilder"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Migrate Apache HttpAsyncClient 4.x classes to HttpClient 5.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates classes from Apache HttpAsyncClient 4.x `httpasyncclient` to their equivalents in HttpClient 5.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"},{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"},{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"},{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Changes an argument (or pair of arguments) to a `TimeValue` for matched method invocations","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient5/changeargumenttotimevalue/"},{"name":"Migrate `PoolingNHttpClientConnectionManager` to `PoolingAsyncClientConnectionManager`","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient5/migratepoolingnhttpclientconnectionmanager/"},{"name":"Use `PoolingAsyncClientConnectionManagerBuilder` for configuration","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient5/usepoolingasyncclientconnectionmanagerbuilder/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

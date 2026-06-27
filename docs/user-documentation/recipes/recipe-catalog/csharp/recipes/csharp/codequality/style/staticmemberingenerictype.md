@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Static member in generic type should use a type parameter"}
-  description={"Find static members in generic types that do not use any of the type's type parameters."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.StaticMemberInGenericType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/staticmemberingenerictype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Static member in generic type should use a type parameter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find static members in generic types that do not use any of the type's type parameters.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.StaticMemberInGenericType","displayName":"Static member in generic type should use a type parameter","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

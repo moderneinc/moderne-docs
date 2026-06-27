@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Char.isLowerCase()` instead of `Character.isLowerCase(c)`"}
-  description={"Prefer the multiplatform Kotlin extension `c.isLowerCase()` over the JVM-only `Character.isLowerCase(c)`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseCharIsLowerCase$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecharislowercase$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Char.isLowerCase()` instead of `Character.isLowerCase(c)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the multiplatform Kotlin extension `c.isLowerCase()` over the JVM-only `Character.isLowerCase(c)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseCharIsLowerCase$KtRecipe","displayName":"Use `Char.isLowerCase()` instead of `Character.isLowerCase(c)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

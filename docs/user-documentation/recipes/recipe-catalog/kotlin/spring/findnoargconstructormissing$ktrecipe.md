@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Entity data class` declarations (verify `kotlin-jpa` plugin)"}
-  description={"A `@Entity data class X(val a: A)` only works with JPA when the `kotlin-jpa` compiler plugin synthesizes a no-arg constructor. Without the plugin, JPA's `findById` fails at runtime with `InstantiationException: No default constructor`. Flag entity data classes so reviewers can confirm the plugin is applied."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindNoArgConstructorMissing$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findnoargconstructormissing$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Entity data class` declarations (verify `kotlin-jpa` plugin)</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `@Entity data class X(val a: A)` only works with JPA when the `kotlin-jpa` compiler plugin synthesizes a no-arg constructor. Without the plugin, JPA's `findById` fails at runtime with `InstantiationException: No default constructor`. Flag entity data classes so reviewers can confirm the plugin is applied.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindNoArgConstructorMissing$KtRecipe","displayName":"Find `@Entity data class` declarations (verify `kotlin-jpa` plugin)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

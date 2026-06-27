@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename bean"}
-  description={"Renames a Spring bean, both declaration and references."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.RenameBean"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/renamebean.md"}
-/>
+>
+
+<RecipeHeader.Title>Rename bean</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames a Spring bean, both declaration and references.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"type","required":false,"description":"The fully qualified name of the bean type to rename. If omitted, beans are matched by name alone.","example":"foo.MyType"},{"type":"String","name":"oldName","required":true,"description":"The existing name of the bean to rename.","example":"fooBean"},{"type":"String","name":"newName","required":true,"description":"The new name to give the matching bean.","example":"barBean"}]}>
 

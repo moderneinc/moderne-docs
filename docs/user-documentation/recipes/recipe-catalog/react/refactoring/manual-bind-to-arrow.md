@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert manual `.bind(this)` to arrow functions"}
-  description={"Converts `this.method = this.method.bind(this)` in constructors to class field arrow function syntax."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.refactoring.manual-bind-to-arrow"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/refactoring/manual-bind-to-arrow.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert manual `.bind(this)` to arrow functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `this.method = this.method.bind(this)` in constructors to class field arrow function syntax.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.refactoring.manual-bind-to-arrow","displayName":"Convert manual `.bind(this)` to arrow functions","npmPackage":"@openrewrite/recipes-react"}}>
 

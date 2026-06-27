@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `kotlin.math.ln1p` instead of `java.lang.Math.log1p`"}
-  description={"`Math.log1p(x)` computes `ln(1 + x)`. The multiplatform `kotlin.math` package spells it `ln1p`, mirroring the `log`→`ln` rename."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseKotlinMathLn1p$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathln1p$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `kotlin.math.ln1p` instead of `java.lang.Math.log1p`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Math.log1p(x)` computes `ln(1 + x)`. The multiplatform `kotlin.math` package spells it `ln1p`, mirroring the `log`→`ln` rename.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseKotlinMathLn1p$KtRecipe","displayName":"Use `kotlin.math.ln1p` instead of `java.lang.Math.log1p`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

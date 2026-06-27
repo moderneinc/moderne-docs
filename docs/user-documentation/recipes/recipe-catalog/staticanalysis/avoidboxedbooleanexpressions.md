@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Avoid boxed boolean expressions"}
-  description={"Under certain conditions the `java.lang.Boolean` type is used as an expression, and it may throw a `NullPointerException` if the value is null. Using `Boolean.TRUE.equals(...)` guards against unboxing a `null` reference in control flow positions like `if` conditions and ternary operators."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S5411"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.AvoidBoxedBooleanExpressions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/avoidboxedbooleanexpressions.md"}
-/>
+>
+
+<RecipeHeader.Title>Avoid boxed boolean expressions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Under certain conditions the `java.lang.Boolean` type is used as an expression, and it may throw a `NullPointerException` if the value is null. Using `Boolean.TRUE.equals(...)` guards against unboxing a `null` reference in control flow positions like `if` conditions and ternary operators.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    Boolean b;\n    int test() {\n        if (b) {\n            return 1;\n        } else {\n            return 2;\n        }\n    }\n}\n","after":"class Test {\n    Boolean b;\n    int test() {\n        if (Boolean.TRUE.equals(b)) {\n            return 1;\n        } else {\n            return 2;\n        }\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\n    Boolean b;\n    int test() {\n-       if (b) {\n+       if (Boolean.TRUE.equals(b)) {\n            return 1;\n","newFile":false}]}]}>
 

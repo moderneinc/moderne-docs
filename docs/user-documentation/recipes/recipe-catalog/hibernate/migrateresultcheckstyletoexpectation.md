@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migration of `ResultCheckStyle` to `Expectation`"}
-  description={"Will migrate the usage of `org.hibernate.annotations.ResultCheckStyle` to `org.hibernate.jdbc.Expectation` in `@SQLInsert`, `@SqlUpdate`, `@SqlDelete` and `@SqlDeleteAll` annotations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-hibernate"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hibernate.MigrateResultCheckStyleToExpectation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/migrateresultcheckstyletoexpectation.md"}
-/>
+>
+
+<RecipeHeader.Title>Migration of `ResultCheckStyle` to `Expectation`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Will migrate the usage of `org.hibernate.annotations.ResultCheckStyle` to `org.hibernate.jdbc.Expectation` in `@SQLInsert`, `@SqlUpdate`, `@SqlDelete` and `@SqlDeleteAll` annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.annotations.SQLInsert;\nimport org.hibernate.annotations.ResultCheckStyle;\n\nimport static org.hibernate.annotations.ResultCheckStyle.NONE;\n\n@SQLInsert(check = NONE, sql = \"\")\nclass A {}\n","after":"import org.hibernate.annotations.SQLInsert;\nimport org.hibernate.jdbc.Expectation;\n\n@SQLInsert(verify = Expectation.None.class, sql = \"\")\nclass A {}\n","diff":"@@ -2,1 +2,1 @@\nimport org.hibernate.annotations.SQLInsert;\n-import org.hibernate.annotations.ResultCheckStyle;\n+import org.hibernate.jdbc.Expectation;\n\n@@ -4,3 +4,1 @@\nimport org.hibernate.annotations.ResultCheckStyle;\n\n-import static org.hibernate.annotations.ResultCheckStyle.NONE;\n-\n-@SQLInsert(check = NONE, sql = \"\")\n+@SQLInsert(verify = Expectation.None.class, sql = \"\")\nclass A {}\n","newFile":false}]}]}>
 

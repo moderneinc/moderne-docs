@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmEmptyInterceptor"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmEmptyInterceptor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus324/migratefromhibernateormemptyinterceptor.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `EmptyInterceptor` with `Interceptor`","href":"quarkus/updates/core/quarkus324/migratefromemptyinterceptor"}]}>
+<RecipeHeader.Title>io.quarkus.updates.core.quarkus324.MigrateFromHibernateOrmEmptyInterceptor</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `EmptyInterceptor` with `Interceptor`","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus324/migratefromemptyinterceptor/"}]}>
 
 ## Definition
 

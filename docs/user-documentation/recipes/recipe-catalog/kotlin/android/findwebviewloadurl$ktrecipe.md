@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `WebView.loadUrl(...)` calls"}
-  description={"Each `WebView.loadUrl(...)` is worth a security review: arbitrary http://-scheme URLs bypass the system browser and inherit the WebView's privileges (cookies, JS bridges). For untrusted content prefer `CustomTabsIntent` (Chrome Custom Tabs) — better security, better UX, no JS bridge."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindWebViewLoadUrl$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findwebviewloadurl$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `WebView.loadUrl(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `WebView.loadUrl(...)` is worth a security review: arbitrary http://-scheme URLs bypass the system browser and inherit the WebView's privileges (cookies, JS bridges). For untrusted content prefer `CustomTabsIntent` (Chrome Custom Tabs) — better security, better UX, no JS bridge.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindWebViewLoadUrl$KtRecipe","displayName":"Find `WebView.loadUrl(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

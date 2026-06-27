@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `X509TrustManager` implementations with empty `checkServerTrusted`"}
-  description={"An `X509TrustManager` whose `checkServerTrusted`/`checkClientTrusted` body is empty accepts any certificate chain, defeating TLS authentication. Remove the override and use the JDK default trust manager, or pin against an explicit CA."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindTrustAllX509TrustManager$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findtrustallx509trustmanager$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `X509TrustManager` implementations with empty `checkServerTrusted`</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `X509TrustManager` whose `checkServerTrusted`/`checkClientTrusted` body is empty accepts any certificate chain, defeating TLS authentication. Remove the override and use the JDK default trust manager, or pin against an explicit CA.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindTrustAllX509TrustManager$KtRecipe","displayName":"Find `X509TrustManager` implementations with empty `checkServerTrusted`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

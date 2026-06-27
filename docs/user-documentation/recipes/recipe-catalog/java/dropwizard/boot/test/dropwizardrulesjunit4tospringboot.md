@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Dropwizard rules with Spring Boot test configuration"}
-  description={"Remove Dropwizard JUnit4 rules and add Spring Boot test annotations and extensions."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.test.DropwizardRulesJUnit4ToSpringBoot"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/dropwizardrulesjunit4tospringboot.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace Dropwizard rules with Spring Boot test configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove Dropwizard JUnit4 rules and add Spring Boot test annotations and extensions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import io.dropwizard.testing.junit.DropwizardAppRule;\nimport org.junit.ClassRule;\n\nclass MyAppTest {\n    @ClassRule\n    public static final DropwizardAppRule<?> RULE = new DropwizardAppRule<>(Object.class);\n\n    // test methods...\n}\n","after":"import org.springframework.boot.test.context.SpringBootTest;\n\n@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)\nclass MyAppTest {\n\n    // test methods...\n}\n","diff":"@@ -1,2 +1,1 @@\n-import io.dropwizard.testing.junit.DropwizardAppRule;\n-import org.junit.ClassRule;\n+import org.springframework.boot.test.context.SpringBootTest;\n\n@@ -4,0 +3,1 @@\nimport org.junit.ClassRule;\n\n+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)\nclass MyAppTest {\n@@ -5,2 +5,0 @@\n\nclass MyAppTest {\n-   @ClassRule\n-   public static final DropwizardAppRule<?> RULE = new DropwizardAppRule<>(Object.class);\n\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Spring Boot 2.x best practices"}
-  description={"Applies best practices to Spring Boot 2 applications."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","boot"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.SpringBoot2BestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/springboot2bestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove `@RequestMapping` annotations","href":"java/spring/norequestmappingannotation"},{"name":"Remove `@SpringExtension`","href":"java/spring/boot2/unnecessaryspringextension"},{"name":"Remove the `@Autowired` annotation on inferred constructor","href":"java/spring/noautowiredonconstructor"},{"name":"Add missing `@Configuration` annotation","href":"java/spring/boot2/addconfigurationannotationifbeanspresent"},{"name":"Migrate `RestTemplateBuilder`","href":"java/spring/boot2/resttemplatebuilderrequestfactory"},{"name":"Replace `EnvironmentTestUtils` with `TestPropertyValues`","href":"java/spring/boot2/replacedeprecatedenvironmenttestutils"},{"name":"Separate `application.properties` by profile","href":"java/spring/separateapplicationpropertiesbyprofile"},{"name":"Separate application YAML by profile","href":"java/spring/separateapplicationyamlbyprofile"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Spring Boot 2.x best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies best practices to Spring Boot 2 applications.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove `@RequestMapping` annotations","href":"/user-documentation/recipes/recipe-catalog/java/spring/norequestmappingannotation/"},{"name":"Remove `@SpringExtension`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/unnecessaryspringextension/"},{"name":"Remove the `@Autowired` annotation on inferred constructor","href":"/user-documentation/recipes/recipe-catalog/java/spring/noautowiredonconstructor/"},{"name":"Add missing `@Configuration` annotation","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/addconfigurationannotationifbeanspresent/"},{"name":"Migrate `RestTemplateBuilder`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/resttemplatebuilderrequestfactory/"},{"name":"Replace `EnvironmentTestUtils` with `TestPropertyValues`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/replacedeprecatedenvironmenttestutils/"},{"name":"Separate `application.properties` by profile","href":"/user-documentation/recipes/recipe-catalog/java/spring/separateapplicationpropertiesbyprofile/"},{"name":"Separate application YAML by profile","href":"/user-documentation/recipes/recipe-catalog/java/spring/separateapplicationyamlbyprofile/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

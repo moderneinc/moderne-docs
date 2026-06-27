@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant casts"}
-  description={"Removes unnecessary type casts. Does not currently check casts in lambdas and class constructors. Redundant casts add visual noise and can obscure the actual type relationships in the code, making it harder to follow the data flow."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1905"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveRedundantTypeCast"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeredundanttypecast.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove redundant casts</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes unnecessary type casts. Does not currently check casts in lambdas and class constructors. Redundant casts add visual noise and can obscure the actual type relationships in the code, making it harder to follow the data flow.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\n\nclass Test {\n    Object o = (List<String>) method();\n    Object o2 = (List<? extends String>) method();\n    Object o3 = (List<? super String>) method();\n\n    List<String> method() {\n        return null;\n    }\n}\n","after":"import java.util.List;\n\nclass Test {\n    Object o = method();\n    Object o2 = method();\n    Object o3 = method();\n\n    List<String> method() {\n        return null;\n    }\n}\n","diff":"@@ -4,3 +4,3 @@\n\nclass Test {\n-   Object o = (List<String>) method();\n-   Object o2 = (List<? extends String>) method();\n-   Object o3 = (List<? super String>) method();\n+   Object o = method();\n+   Object o2 = method();\n+   Object o3 = method();\n\n","newFile":false}]}]}>
 

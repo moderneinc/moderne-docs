@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `JavaTemplate.apply()` static method"}
-  description={"Replaces `JavaTemplate.builder(template).build().apply(cursor, coordinates, args...)` with `JavaTemplate.apply(template, cursor, coordinates, args...)` when the builder chain has no intermediate configuration methods."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.UseJavaTemplateStaticApply"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/usejavatemplatestaticapply.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `JavaTemplate.apply()` static method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `JavaTemplate.builder(template).build().apply(cursor, coordinates, args...)` with `JavaTemplate.apply(template, cursor, coordinates, args...)` when the builder chain has no intermediate configuration methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.ExecutionContext;\nimport org.openrewrite.java.JavaIsoVisitor;\nimport org.openrewrite.java.JavaTemplate;\nimport org.openrewrite.java.tree.J;\n\nclass MyRecipe extends JavaIsoVisitor<ExecutionContext> {\n    @Override\n    public J.MethodInvocation visitMethodInvocation(J.MethodInvocation method, ExecutionContext ctx) {\n        return JavaTemplate.builder(\"#{any()}\")\n                .build()\n                .apply(getCursor(), method.getCoordinates().replace());\n    }\n}\n","after":"import org.openrewrite.ExecutionContext;\nimport org.openrewrite.java.JavaIsoVisitor;\nimport org.openrewrite.java.JavaTemplate;\nimport org.openrewrite.java.tree.J;\n\nclass MyRecipe extends JavaIsoVisitor<ExecutionContext> {\n    @Override\n    public J.MethodInvocation visitMethodInvocation(J.MethodInvocation method, ExecutionContext ctx) {\n        return JavaTemplate.apply(\"#{any()}\", getCursor(), method.getCoordinates().replace());\n    }\n}\n","diff":"@@ -9,3 +9,1 @@\n    @Override\n    public J.MethodInvocation visitMethodInvocation(J.MethodInvocation method, ExecutionContext ctx) {\n-       return JavaTemplate.builder(\"#{any()}\")\n-               .build()\n-               .apply(getCursor(), method.getCoordinates().replace());\n+       return JavaTemplate.apply(\"#{any()}\", getCursor(), method.getCoordinates().replace());\n    }\n","newFile":false}]}]}>
 

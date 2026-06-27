@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unwrap `@MockBeans` and `@SpyBeans` container annotations"}
-  description={"Replaces class-level `@MockBeans` and `@SpyBeans` container annotations with a single class-level `@MockBean` or `@SpyBean` annotation with a merged `types` attribute for compatibility with `@MockitoBean`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot4.UnwrapMockAndSpyBeanContainers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/unwrapmockandspybeancontainers.md"}
-/>
+>
+
+<RecipeHeader.Title>Unwrap `@MockBeans` and `@SpyBeans` container annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces class-level `@MockBeans` and `@SpyBeans` container annotations with a single class-level `@MockBean` or `@SpyBean` annotation with a merged `types` attribute for compatibility with `@MockitoBean`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.test.mock.mockito.MockBean;\nimport org.springframework.boot.test.mock.mockito.MockBeans;\n\n@MockBeans({@MockBean(Foo.class), @MockBean(Bar.class)})\nclass SomeTest {\n}\nclass Foo {}\nclass Bar {}\n","after":"import org.springframework.boot.test.mock.mockito.MockBean;\n\n@MockBean(types = {Foo.class, Bar.class})\nclass SomeTest {\n}\nclass Foo {}\nclass Bar {}\n","diff":"@@ -2,1 +2,0 @@\nimport org.springframework.boot.test.mock.mockito.MockBean;\n-import org.springframework.boot.test.mock.mockito.MockBeans;\n\n@@ -4,1 +3,1 @@\nimport org.springframework.boot.test.mock.mockito.MockBeans;\n\n-@MockBeans({@MockBean(Foo.class), @MockBean(Bar.class)})\n+@MockBean(types = {Foo.class, Bar.class})\nclass SomeTest {\n","newFile":false}]}]}>
 

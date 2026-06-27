@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer Vector or prepend for append-heavy workloads"}
-  description={"Finds usage of the `:+` operator to append to a List, which is O(n). Prefer Vector for append-heavy workloads or prepend with `::` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.performance.PreferVectorOrPrepend"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/performance/prefervectororprepend.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer Vector or prepend for append-heavy workloads</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usage of the `:+` operator to append to a List, which is O(n). Prefer Vector for append-heavy workloads or prepend with `::` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val list = List(1, 2, 3)\n    val updated = list :+ 4\n}\n","after":"class Example {\n    val list = List(1, 2, 3)\n    val updated = /*~~(List :+ is O(n); prefer Vector for append-heavy workloads or prepend with ::)~~>*/list :+ 4\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    val list = List(1, 2, 3)\n-   val updated = list :+ 4\n+   val updated = /*~~(List :+ is O(n); prefer Vector for append-heavy workloads or prepend with ::)~~>*/list :+ 4\n}\n","newFile":false}]}]}>
 

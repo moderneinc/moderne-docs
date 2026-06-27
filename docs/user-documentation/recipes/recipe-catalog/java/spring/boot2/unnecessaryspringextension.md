@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `@SpringExtension`"}
-  description={"`@SpringBootTest` and all test slice annotations already applies `@SpringExtension` as of Spring Boot 2.1.0."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.UnnecessarySpringExtension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/unnecessaryspringextension.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `@SpringExtension`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@SpringBootTest` and all test slice annotations already applies `@SpringExtension` as of Spring Boot 2.1.0.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.extension.ExtendWith;\nimport org.springframework.boot.test.context.SpringBootTest;\nimport org.springframework.test.context.junit.jupiter.SpringExtension;\n\n@SpringBootTest\n@ExtendWith(SpringExtension.class)\nclass Test {\n}\n","after":"import org.springframework.boot.test.context.SpringBootTest;\n\n@SpringBootTest\nclass Test {\n}\n","diff":"@@ -1,1 +1,0 @@\n-import org.junit.jupiter.api.extension.ExtendWith;\nimport org.springframework.boot.test.context.SpringBootTest;\n@@ -3,1 +2,0 @@\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.springframework.boot.test.context.SpringBootTest;\n-import org.springframework.test.context.junit.jupiter.SpringExtension;\n\n@@ -6,1 +4,0 @@\n\n@SpringBootTest\n-@ExtendWith(SpringExtension.class)\nclass Test {\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Module uses Flyway"}
-  description={"Precondition that marks all files in a module if Flyway usage is detected. Detection is based on having a Flyway dependency, using Flyway types, or having migration files."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.ModuleUsesFlyway"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesflyway.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"},{"name":"Module contains file","href":"java/search/modulecontainsfile"},{"name":"Module uses type","href":"java/search/moduleusestype"}]}>
+<RecipeHeader.Title>Module uses Flyway</RecipeHeader.Title>
+
+<RecipeHeader.Description>Precondition that marks all files in a module if Flyway usage is detected. Detection is based on having a Flyway dependency, using Flyway types, or having migration files.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"},{"name":"Module contains file","href":"/user-documentation/recipes/recipe-catalog/java/search/modulecontainsfile/"},{"name":"Module uses type","href":"/user-documentation/recipes/recipe-catalog/java/search/moduleusestype/"}]}>
 
 ## Definition
 

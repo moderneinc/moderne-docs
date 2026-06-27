@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Android smells"}
-  description={"Search-only Android recipe family covering the deprecated-API surface (Activity / Fragment / Handler / kotlinx.android.synthetic / parcel / Vibrator / registerReceiver), storage-layer footguns (`SharedPreferences.commit`, Room `@Query` shape, `ContentResolver.query`), lifecycle smells (`LiveData.observe(this, ...)`, public `MutableLiveData`), permissions/security (`requestPermissions`, `MODE_WORLD_*`), Android-specific performance (`findViewById` in `onDraw`, raw `BitmapFactory`, `Handler.postDelayed`, `runOnUiThread`), WebView smells (`loadUrl`, `setJavaScriptEnabled`), logging smells (`Log.*`, `System.out`), and modernization candidates (manual `Parcelable`/`Serializable`, RxJava, raw Dagger, manual `ViewModelProvider`, `ObjectAnimator`, `Runtime.exec`)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.Android$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/android$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find deprecated Android APIs","href":"kotlin/android/finddeprecatedandroidapis$ktrecipe"},{"name":"Find Android storage / data-layer smells","href":"kotlin/android/findandroidstoragesmells$ktrecipe"},{"name":"Find Android lifecycle / LiveData smells","href":"kotlin/android/findandroidlifecyclesmells$ktrecipe"},{"name":"Find Android permissions / security smells","href":"kotlin/android/findandroidpermissionssmells$ktrecipe"},{"name":"Find Android-specific performance smells","href":"kotlin/android/findandroidperformancesmells$ktrecipe"},{"name":"Find Android WebView smells","href":"kotlin/android/findandroidwebviewsmells$ktrecipe"},{"name":"Find Android logging smells","href":"kotlin/android/findandroidloggingsmells$ktrecipe"},{"name":"Find Android modernization candidates","href":"kotlin/android/findandroidmodernizationcandidates$ktrecipe"}]}>
+<RecipeHeader.Title>Find Android smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only Android recipe family covering the deprecated-API surface (Activity / Fragment / Handler / kotlinx.android.synthetic / parcel / Vibrator / registerReceiver), storage-layer footguns (`SharedPreferences.commit`, Room `@Query` shape, `ContentResolver.query`), lifecycle smells (`LiveData.observe(this, ...)`, public `MutableLiveData`), permissions/security (`requestPermissions`, `MODE_WORLD_*`), Android-specific performance (`findViewById` in `onDraw`, raw `BitmapFactory`, `Handler.postDelayed`, `runOnUiThread`), WebView smells (`loadUrl`, `setJavaScriptEnabled`), logging smells (`Log.*`, `System.out`), and modernization candidates (manual `Parcelable`/`Serializable`, RxJava, raw Dagger, manual `ViewModelProvider`, `ObjectAnimator`, `Runtime.exec`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find deprecated Android APIs","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/finddeprecatedandroidapis$ktrecipe/"},{"name":"Find Android storage / data-layer smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidstoragesmells$ktrecipe/"},{"name":"Find Android lifecycle / LiveData smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidlifecyclesmells$ktrecipe/"},{"name":"Find Android permissions / security smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidpermissionssmells$ktrecipe/"},{"name":"Find Android-specific performance smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidperformancesmells$ktrecipe/"},{"name":"Find Android WebView smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidwebviewsmells$ktrecipe/"},{"name":"Find Android logging smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidloggingsmells$ktrecipe/"},{"name":"Find Android modernization candidates","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidmodernizationcandidates$ktrecipe/"}]}>
 
 ## Definition
 

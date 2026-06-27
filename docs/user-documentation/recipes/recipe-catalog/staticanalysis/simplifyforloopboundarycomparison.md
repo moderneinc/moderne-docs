@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify for loop boundary comparisons"}
-  description={"Replace `<=` with `<` in for loop conditions by adjusting the comparison operands. For example, `i <= n - 1` simplifies to `i < n`, and `i <= n` becomes `i < n + 1`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SimplifyForLoopBoundaryComparison"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyforloopboundarycomparison.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify for loop boundary comparisons</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `<=` with `<` in for loop conditions by adjusting the comparison operands. For example, `i <= n - 1` simplifies to `i < n`, and `i <= n` becomes `i < n + 1`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test(int n) {\n        for (int i = 0; i <= n - 1; i++) {\n        }\n    }\n}\n","after":"class Test {\n    void test(int n) {\n        for (int i = 0; i < n; i++) {\n        }\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    void test(int n) {\n-       for (int i = 0; i <= n - 1; i++) {\n+       for (int i = 0; i < n; i++) {\n        }\n","newFile":false}]}]}>
 

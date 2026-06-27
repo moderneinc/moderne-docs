@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update Jakarta EE annotation Dependencies to 2.1.x"}
-  description={"Update Jakarta EE annotation Dependencies to 2.1.x."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["deprecated"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.UpdateJakartaAnnotations2"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaannotations2.md"}
-/>
+>
 
-<RecipeList recipes={[]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Update Jakarta EE annotation Dependencies to 2.1.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update Jakarta EE annotation Dependencies to 2.1.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `catch(Exception)` with specific declared exceptions thrown in the try block"}
-  description={"Replaces `catch(Exception e)` blocks with a multi-catch block (`catch (SpecificException1 | SpecificException2 e)`) containing only the exceptions declared thrown by method or constructor invocations within the `try` block that are not already caught by more specific `catch` clauses. Catching a broad `Exception` type can unintentionally swallow runtime exceptions that indicate programming errors, making bugs harder to detect and diagnose."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2221","CWE-396"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.OnlyCatchDeclaredExceptions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/onlycatchdeclaredexceptions.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `catch(Exception)` with specific declared exceptions thrown in the try block</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `catch(Exception e)` blocks with a multi-catch block (`catch (SpecificException1 | SpecificException2 e)`) containing only the exceptions declared thrown by method or constructor invocations within the `try` block that are not already caught by more specific `catch` clauses. Catching a broad `Exception` type can unintentionally swallow runtime exceptions that indicate programming errors, making bugs harder to detect and diagnose.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class MyService {\n    void doSomething() {\n        try {\n            new MockThrowingClass().throwsIOException();\n        } catch (Exception e) {\n            System.out.println(\"Caught exception: \" + e.getMessage());\n        }\n    }\n}\n","after":"import java.io.IOException;\n\nclass MyService {\n    void doSomething() {\n        try {\n            new MockThrowingClass().throwsIOException();\n        } catch (IOException e) {\n            System.out.println(\"Caught exception: \" + e.getMessage());\n        }\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import java.io.IOException;\n+\nclass MyService {\n@@ -5,1 +7,1 @@\n        try {\n            new MockThrowingClass().throwsIOException();\n-       } catch (Exception e) {\n+       } catch (IOException e) {\n            System.out.println(\"Caught exception: \" + e.getMessage());\n","newFile":false}]}]}>
 

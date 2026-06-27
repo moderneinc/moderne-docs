@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use the latest JAX-WS API and runtime for Jakarta EE 8"}
-  description={"Update build files to use the latest JAX-WS runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater. The recipe will add a JAX-WS run-time, in Gradle `compileOnly`+`testImplementation` and Maven `provided` scope, to any project that has a transitive dependency on the JAX-WS API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["javax","javaee","java11","jakarta","jaxws"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.AddJaxwsRuntime"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxwsruntime.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use the latest JAX-WS API and runtime for Jakarta EE 8","href":"java/migrate/javax/addjaxwsruntime$addjaxwsruntimegradle"},{"name":"Use the latest JAX-WS API and runtime for Jakarta EE 8","href":"java/migrate/javax/addjaxwsruntime$addjaxwsruntimemaven"}]}>
+<RecipeHeader.Title>Use the latest JAX-WS API and runtime for Jakarta EE 8</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update build files to use the latest JAX-WS runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater. The recipe will add a JAX-WS run-time, in Gradle `compileOnly`+`testImplementation` and Maven `provided` scope, to any project that has a transitive dependency on the JAX-WS API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use the latest JAX-WS API and runtime for Jakarta EE 8","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxwsruntime$addjaxwsruntimegradle/"},{"name":"Use the latest JAX-WS API and runtime for Jakarta EE 8","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxwsruntime$addjaxwsruntimemaven/"}]}>
 
 ## Definition
 

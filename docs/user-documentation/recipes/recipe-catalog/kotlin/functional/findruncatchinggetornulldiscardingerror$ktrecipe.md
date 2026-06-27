@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `runCatching { }.getOrNull()` chains"}
-  description={"`runCatching { … }.getOrNull()` silently swallows every failure and replaces it with `null`. The shape is fine for fire-and-forget side effects, but for value-producing calls you usually want at least an `onFailure { }` hook for diagnostics, or `.getOrElse { default }` so the failure is observable."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindRunCatchingGetOrNullDiscardingError$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchinggetornulldiscardingerror$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `runCatching { }.getOrNull()` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>`runCatching { … }.getOrNull()` silently swallows every failure and replaces it with `null`. The shape is fine for fire-and-forget side effects, but for value-producing calls you usually want at least an `onFailure { }` hook for diagnostics, or `.getOrElse { default }` so the failure is observable.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindRunCatchingGetOrNullDiscardingError$KtRecipe","displayName":"Find `runCatching { }.getOrNull()` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Standardize nullability annotations to JSpecify"}
-  description={"Normalize the many nullability annotation flavors found across a codebase onto [JSpecify](https://jspecify.dev) (`org.jspecify.annotations.@Nullable` / `@NonNull`), placing `@Nullable` in the `TYPE_USE` position on method return types and removing redundant annotations on primitives. This is the annotation standardization pre-pass that nullability inference recipes depend on, giving downstream analyses a single, consistent annotation flavor to reason about."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["jspecify","nullability"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.migrate.StandardizeNullabilityAnnotationsToJSpecify"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/migrate/standardizenullabilityannotationstojspecify.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove `@Nullable` and `@CheckForNull` annotations from primitives","href":"staticanalysis/unnecessaryprimitiveannotations"},{"name":"Migrate to JSpecify","href":"java/jspecify/migratetojspecify"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Move `@Nullable` method annotations to the return type","href":"staticanalysis/nullableonmethodreturntype"}]}>
+<RecipeHeader.Title>Standardize nullability annotations to JSpecify</RecipeHeader.Title>
+
+<RecipeHeader.Description>Normalize the many nullability annotation flavors found across a codebase onto [JSpecify](https://jspecify.dev) (`org.jspecify.annotations.@Nullable` / `@NonNull`), placing `@Nullable` in the `TYPE_USE` position on method return types and removing redundant annotations on primitives. This is the annotation standardization pre-pass that nullability inference recipes depend on, giving downstream analyses a single, consistent annotation flavor to reason about.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove `@Nullable` and `@CheckForNull` annotations from primitives","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryprimitiveannotations/"},{"name":"Migrate to JSpecify","href":"/user-documentation/recipes/recipe-catalog/java/jspecify/migratetojspecify/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Move `@Nullable` method annotations to the return type","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/nullableonmethodreturntype/"}]}>
 
 ## Definition
 

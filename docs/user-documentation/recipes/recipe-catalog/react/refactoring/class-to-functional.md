@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert class components to functional components"}
-  description={"Converts simple render-only class components to functional components."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.refactoring.class-to-functional"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/refactoring/class-to-functional.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert class components to functional components</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts simple render-only class components to functional components.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.refactoring.class-to-functional","displayName":"Convert class components to functional components","npmPackage":"@openrewrite/recipes-react"}}>
 

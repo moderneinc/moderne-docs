@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer specific types over `Any`"}
-  description={"Finds variable declarations whose type expression contains `Any`. Type `Any` is the Scala equivalent of `Object` and is usually too broad."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.PreferSpecificTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferspecifictypes.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer specific types over `Any`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds variable declarations whose type expression contains `Any`. Type `Any` is the Scala equivalent of `Object` and is usually too broad.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  val x: Any = 42\n}\n","after":"object Test {\n  /*~~(Type Any is too broad; consider using a more specific type)~~>*/val x: Any = 42\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Test {\n- val x: Any = 42\n+ /*~~(Type Any is too broad; consider using a more specific type)~~>*/val x: Any = 42\n}\n","newFile":false}]}]}>
 

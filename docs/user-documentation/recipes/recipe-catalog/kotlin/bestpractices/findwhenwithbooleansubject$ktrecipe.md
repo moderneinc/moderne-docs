@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `when (b: Boolean)` selectors"}
-  description={"`when (b) { true -> … false -> … }` is the long form of `if (b) …` — and the `when` reads as if it might gain a third branch, which Boolean cannot. Replace with `if`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindWhenWithBooleanSubject$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenwithbooleansubject$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `when (b: Boolean)` selectors</RecipeHeader.Title>
+
+<RecipeHeader.Description>`when (b) { true -> … false -> … }` is the long form of `if (b) …` — and the `when` reads as if it might gain a third branch, which Boolean cannot. Replace with `if`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindWhenWithBooleanSubject$KtRecipe","displayName":"Find `when (b: Boolean)` selectors","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

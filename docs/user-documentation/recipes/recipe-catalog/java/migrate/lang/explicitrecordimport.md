@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add explicit import for `Record` classes"}
-  description={"Add explicit import for `Record` classes when upgrading past Java 14+, to avoid conflicts with `java.lang.Record`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.ExplicitRecordImport"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/explicitrecordimport.md"}
-/>
+>
+
+<RecipeHeader.Title>Add explicit import for `Record` classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add explicit import for `Record` classes when upgrading past Java 14+, to avoid conflicts with `java.lang.Record`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.acme.music;\n\nclass Test {\n    Record record;\n}\n","after":"package com.acme.music;\n\nimport com.acme.music.Record;\n\nclass Test {\n    Record record;\n}\n","diff":"@@ -3,0 +3,2 @@\npackage com.acme.music;\n\n+import com.acme.music.Record;\n+\nclass Test {\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Combine 'Enumerable.Where' method chain"}
-  description={"Combine consecutive Enumerable.Where method calls into a single call with a combined predicate."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.CombineWhereMethodChain"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/combinewheremethodchain.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Combine 'Enumerable.Where' method chain</RecipeHeader.Title>
+
+<RecipeHeader.Description>Combine consecutive Enumerable.Where method calls into a single call with a combined predicate.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.CombineWhereMethodChain","displayName":"Combine 'Enumerable.Where' method chain","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `?.let { it.foo() }` that could use `?.foo()`"}
-  description={"`x?.let { it.foo() }` is the long form of `x?.foo()` — the safe call already provides the non-null receiver, and the `let` introduces an unused binding. Drop `.let { }` and call `foo()` directly."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindLetItCall$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletitcall$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `?.let { it.foo() }` that could use `?.foo()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`x?.let { it.foo() }` is the long form of `x?.foo()` — the safe call already provides the non-null receiver, and the `let` introduces an unused binding. Drop `.let { }` and call `foo()` directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindLetItCall$KtRecipe","displayName":"Find `?.let { it.foo() }` that could use `?.foo()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

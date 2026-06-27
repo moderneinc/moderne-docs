@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `RandomGenerator#nextLong(long)` over more contrived alternatives"}
-  description={"Additionally, for large bounds, the unnecessary floating point arithmetic prevents some\n `long` values from being generated."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1905"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextLongRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextlongrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `RandomGenerator#nextLong(long)` over more contrived alternatives</RecipeHeader.Title>
+
+<RecipeHeader.Description>Additionally, for large bounds, the unnecessary floating point arithmetic prevents some  `long` values from being generated.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextLongRecipe","displayName":"Prefer `RandomGenerator#nextLong(long)` over more contrived alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

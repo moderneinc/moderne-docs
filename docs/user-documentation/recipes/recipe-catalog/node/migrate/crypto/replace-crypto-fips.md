@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`"}
-  description={"Replace deprecated `crypto.fips` property access with `crypto.getFips()` for reads and `crypto.setFips(value)` for writes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0093"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.crypto.replace-crypto-fips"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/crypto/replace-crypto-fips.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated `crypto.fips` property access with `crypto.getFips()` for reads and `crypto.setFips(value)` for writes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.crypto.replace-crypto-fips","displayName":"Replace deprecated `crypto.fips` with `crypto.getFips()` and `crypto.setFips()`","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

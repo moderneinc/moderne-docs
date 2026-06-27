@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `java.lang.ref.Reference.clone()` with constructor call"}
-  description={"The recipe replaces any clone calls that may resolve to a `java.lang.ref.Reference.clone()` or any of its known subclasses: `java.lang.ref.PhantomReference`, `java.lang.ref.SoftReference`, and `java.lang.ref.WeakReference` with a constructor call passing in the referent and reference queue as parameters."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.ReferenceCloneMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/referenceclonemethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `java.lang.ref.Reference.clone()` with constructor call</RecipeHeader.Title>
+
+<RecipeHeader.Description>The recipe replaces any clone calls that may resolve to a `java.lang.ref.Reference.clone()` or any of its known subclasses: `java.lang.ref.PhantomReference`, `java.lang.ref.SoftReference`, and `java.lang.ref.WeakReference` with a constructor call passing in the referent and reference queue as parameters.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.lang.ref.WeakReference;\nimport java.lang.ref.SoftReference;\nimport java.lang.ref.PhantomReference;\n\nclass Foo {\n    void foo() throws Exception{\n        WeakReference<Object> ref = new WeakReference<Object>(null);\n        WeakReference<Object> ref1 = (WeakReference<Object>) ref.clone();\n        SoftReference<Object> ref3 = new SoftReference<Object>(null);\n        SoftReference<Object> ref4 = (SoftReference<Object>) ref3.clone();\n        PhantomReference<Object> ref5 = new PhantomReference<Object>(null,null);\n        PhantomReference<Object> ref6 = (PhantomReference<Object>) ref5.clone();\n    }\n }\n","after":"import java.lang.ref.WeakReference;\nimport java.lang.ref.SoftReference;\nimport java.lang.ref.PhantomReference;\n\nclass Foo {\n    void foo() throws Exception{\n        WeakReference<Object> ref = new WeakReference<Object>(null);\n        WeakReference<Object> ref1 = new WeakReference<Object>(ref, new ReferenceQueue<>());\n        SoftReference<Object> ref3 = new SoftReference<Object>(null);\n        SoftReference<Object> ref4 = new SoftReference<Object>(ref3, new ReferenceQueue<>());\n        PhantomReference<Object> ref5 = new PhantomReference<Object>(null,null);\n        PhantomReference<Object> ref6 = new PhantomReference<Object>(ref5, new ReferenceQueue<>());\n    }\n }\n","diff":"@@ -8,1 +8,1 @@\n    void foo() throws Exception{\n        WeakReference<Object> ref = new WeakReference<Object>(null);\n-       WeakReference<Object> ref1 = (WeakReference<Object>) ref.clone();\n+       WeakReference<Object> ref1 = new WeakReference<Object>(ref, new ReferenceQueue<>());\n        SoftReference<Object> ref3 = new SoftReference<Object>(null);\n@@ -10,1 +10,1 @@\n        WeakReference<Object> ref1 = (WeakReference<Object>) ref.clone();\n        SoftReference<Object> ref3 = new SoftReference<Object>(null);\n-       SoftReference<Object> ref4 = (SoftReference<Object>) ref3.clone();\n+       SoftReference<Object> ref4 = new SoftReference<Object>(ref3, new ReferenceQueue<>());\n        PhantomReference<Object> ref5 = new PhantomReference<Object>(null,null);\n@@ -12,1 +12,1 @@\n        SoftReference<Object> ref4 = (SoftReference<Object>) ref3.clone();\n        PhantomReference<Object> ref5 = new PhantomReference<Object>(null,null);\n-       PhantomReference<Object> ref6 = (PhantomReference<Object>) ref5.clone();\n+       PhantomReference<Object> ref6 = new PhantomReference<Object>(ref5, new ReferenceQueue<>());\n    }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer the Java 11 standard library instead of Guava"}
-  description={"Guava filled in important gaps in the Java standard library and still does. But at least some of Guava's API surface area is covered by the Java standard library now, and some projects may be able to remove Guava altogether if they migrate to standard library for these functions."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["guava","java11"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaJava11"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavajava11.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Prefer `List.of(..)` in Java 9 or higher","href":"java/migrate/guava/noguavaimmutablelistof"},{"name":"Prefer `Map.of(..)` in Java 9 or higher","href":"java/migrate/guava/noguavaimmutablemapof"},{"name":"Prefer `Set.of(..)` in Java 9 or higher","href":"java/migrate/guava/noguavaimmutablesetof"},{"name":"Prefer `List.copyOf(..)` in Java 10 or higher","href":"java/migrate/guava/noguavaimmutablelistcopyof"},{"name":"Prefer `Map.copyOf(..)` in Java 10 or higher","href":"java/migrate/guava/noguavaimmutablemapcopyof"},{"name":"Prefer `Set.copyOf(..)` in Java 10 or higher","href":"java/migrate/guava/noguavaimmutablesetcopyof"},{"name":"Prefer `java.util.Objects#requireNonNullElse`","href":"java/migrate/guava/preferjavautilobjectsrequirenonnullelse"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"java/search/hasjavaversion"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Prefer the Java 11 standard library instead of Guava</RecipeHeader.Title>
+
+<RecipeHeader.Description>Guava filled in important gaps in the Java standard library and still does. But at least some of Guava's API surface area is covered by the Java standard library now, and some projects may be able to remove Guava altogether if they migrate to standard library for these functions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Prefer `List.of(..)` in Java 9 or higher","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablelistof/"},{"name":"Prefer `Map.of(..)` in Java 9 or higher","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablemapof/"},{"name":"Prefer `Set.of(..)` in Java 9 or higher","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablesetof/"},{"name":"Prefer `List.copyOf(..)` in Java 10 or higher","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablelistcopyof/"},{"name":"Prefer `Map.copyOf(..)` in Java 10 or higher","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablemapcopyof/"},{"name":"Prefer `Set.copyOf(..)` in Java 10 or higher","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablesetcopyof/"},{"name":"Prefer `java.util.Objects#requireNonNullElse`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautilobjectsrequirenonnullelse/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

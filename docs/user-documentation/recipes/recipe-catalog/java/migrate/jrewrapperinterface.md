@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add missing `isWrapperFor` and `unwrap` methods"}
-  description={"Add method implementations stubs to classes that implement `java.sql.Wrapper`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.JREWrapperInterface"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jrewrapperinterface.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Adds missing method implementations","href":"java/migrate/addmissingmethodimplementation"},{"name":"Adds missing method implementations","href":"java/migrate/addmissingmethodimplementation"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Add missing `isWrapperFor` and `unwrap` methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add method implementations stubs to classes that implement `java.sql.Wrapper`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"},{"name":"Adds missing method implementations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

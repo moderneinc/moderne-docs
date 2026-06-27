@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from `@ApiModel` to `@Schema`"}
-  description={"Converts the `@ApiModel` annotation to `@Schema` and converts the \"value\" attribute to \"name\"."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.MigrateApiModelToSchema"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapimodeltoschema.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate from `@ApiModel` to `@Schema`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts the `@ApiModel` annotation to `@Schema` and converts the "value" attribute to "name".</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import io.swagger.annotations.ApiModel;\nimport io.swagger.annotations.ApiModelProperty;\n\n@ApiModel(value=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\nclass Example {\n  @ApiModelProperty(value = \"ApiModelPropertyExampleValue\", position = 1)\n  private String example;\n}\n","after":"import io.swagger.annotations.ApiModelProperty;\nimport io.swagger.v3.oas.annotations.media.Schema;\n\n@Schema(name=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\nclass Example {\n  @ApiModelProperty(value = \"ApiModelPropertyExampleValue\", position = 1)\n  private String example;\n}\n","diff":"@@ -1,1 +1,0 @@\n-import io.swagger.annotations.ApiModel;\nimport io.swagger.annotations.ApiModelProperty;\n@@ -3,0 +2,1 @@\nimport io.swagger.annotations.ApiModel;\nimport io.swagger.annotations.ApiModelProperty;\n+import io.swagger.v3.oas.annotations.media.Schema;\n\n@@ -4,1 +4,1 @@\nimport io.swagger.annotations.ApiModelProperty;\n\n-@ApiModel(value=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\n+@Schema(name=\"ApiModelExampleValue\", description=\"ApiModelExampleDescription\")\nclass Example {\n","newFile":false}]}]}>
 

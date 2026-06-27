@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find GraphQL endpoints"}
-  description={"Identify GraphQL endpoints exposed by the application. Supports Spring GraphQL, Netflix DGS, and GraphQL Java (graphql-java-tools)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindGraphQLEndpoints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findgraphqlendpoints.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find GraphQL endpoints</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify GraphQL endpoints exposed by the application. Supports Spring GraphQL, Netflix DGS, and GraphQL Java (graphql-java-tools).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.springframework.graphql.data.method.annotation.QueryMapping;\nimport org.springframework.stereotype.Controller;\n\n@Controller\npublic class BookController {\n    @QueryMapping\n    public String bookById() {\n        return \"book\";\n    }\n}\n"},"variants":[]}]}>
 

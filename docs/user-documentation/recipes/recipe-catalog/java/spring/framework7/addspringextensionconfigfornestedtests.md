@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@SpringExtensionConfig` for nested tests"}
-  description={"Spring Framework 7.0 changed `SpringExtension` to use test-method scoped `ExtensionContext` instead of test-class scoped. This can break `@Nested` test class hierarchies. Adding `@SpringExtensionConfig(useTestClassScopedExtensionContext = true)` restores the previous behavior."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.AddSpringExtensionConfigForNestedTests"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/addspringextensionconfigfornestedtests.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@SpringExtensionConfig` for nested tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Framework 7.0 changed `SpringExtension` to use test-method scoped `ExtensionContext` instead of test-class scoped. This can break `@Nested` test class hierarchies. Adding `@SpringExtensionConfig(useTestClassScopedExtensionContext = true)` restores the previous behavior.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Nested;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.springframework.test.context.junit.jupiter.SpringExtension;\n\n@ExtendWith(SpringExtension.class)\nclass MyTest {\n\n    @Test\n    void outerTest() {\n    }\n\n    @Nested\n    class NestedTests {\n        @Test\n        void innerTest() {\n        }\n    }\n}\n","after":"import org.junit.jupiter.api.Nested;\nimport org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.springframework.test.context.junit.jupiter.SpringExtension;\nimport org.springframework.test.context.junit.jupiter.SpringExtensionConfig;\n\n@ExtendWith(SpringExtension.class)\n@SpringExtensionConfig(useTestClassScopedExtensionContext = true)\nclass MyTest {\n\n    @Test\n    void outerTest() {\n    }\n\n    @Nested\n    class NestedTests {\n        @Test\n        void innerTest() {\n        }\n    }\n}\n","diff":"@@ -5,0 +5,1 @@\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.springframework.test.context.junit.jupiter.SpringExtension;\n+import org.springframework.test.context.junit.jupiter.SpringExtensionConfig;\n\n@@ -7,0 +8,1 @@\n\n@ExtendWith(SpringExtension.class)\n+@SpringExtensionConfig(useTestClassScopedExtensionContext = true)\nclass MyTest {\n","newFile":false}]}]}>
 

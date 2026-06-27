@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change a Gradle dependency configuration"}
-  description={"A common example is the need to change `compile` to `api`/`implementation` as [part of the move](https://docs.gradle.org/current/userguide/upgrading_version_6.html) to Gradle 7.x and later."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.ChangeDependencyConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/changedependencyconfiguration.md"}
-/>
+>
+
+<RecipeHeader.Title>Change a Gradle dependency configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>A common example is the need to change `compile` to `api`/`implementation` as [part of the move](https://docs.gradle.org/current/userguide/upgrading_version_6.html) to Gradle 7.x and later.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"com.fasterxml.jackson*"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"jackson-module*"},{"type":"String","name":"newConfiguration","required":true,"description":"A dependency configuration container.","example":"api"},{"type":"String","name":"configuration","required":false,"description":"The dependency configuration to search for dependencies in.","example":"api"}]}>
 

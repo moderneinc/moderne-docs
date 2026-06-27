@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Normalize Spring `application*.{yml,yaml}` properties to kebab-case"}
-  description={"Normalize Spring `application*.{yml,yaml}` properties to kebab-case."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.PropertiesToKebabCaseYaml"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/propertiestokebabcaseyaml.md"}
-/>
+>
+
+<RecipeHeader.Title>Normalize Spring `application*.{yml,yaml}` properties to kebab-case</RecipeHeader.Title>
+
+<RecipeHeader.Description>Normalize Spring `application*.{yml,yaml}` properties to kebab-case.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.PropertiesToKebabCaseYaml","displayName":"Normalize Spring `application*.{yml,yaml}` properties to kebab-case","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Pin GitHub Actions to commit SHAs"}
-  description={"Replaces mutable tag or branch references in GitHub Actions `uses:` declarations with immutable commit SHAs. A static mapping of well-known actions is checked first; if the action is not found, the GitHub API is used to resolve the reference at recipe run time. By default only third-party actions are pinned; set `pinOfficialActions` to include actions from the `actions` and `github` organizations. To pin only a specific allow-list of actions, set `includedActions`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["supply-chain","github","security","actions"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.PinGitHubActionsToSha"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/pingithubactionstosha.md"}
-/>
+>
+
+<RecipeHeader.Title>Pin GitHub Actions to commit SHAs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces mutable tag or branch references in GitHub Actions `uses:` declarations with immutable commit SHAs. A static mapping of well-known actions is checked first; if the action is not found, the GitHub API is used to resolve the reference at recipe run time. By default only third-party actions are pinned; set `pinOfficialActions` to include actions from the `actions` and `github` organizations. To pin only a specific allow-list of actions, set `includedActions`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"pinOfficialActions","required":false,"description":"When set to `true`, also pins actions from official GitHub organizations (e.g., `actions/*`, `github/*`). Defaults to `false`, meaning only third-party actions are pinned."},{"type":"String","name":"githubApiToken","required":false,"description":"A GitHub personal access token used to resolve tags/branches to commit SHAs via the GitHub API. Only needed for actions not found in the built-in static mapping. Without a token, unauthenticated requests are rate-limited to 60/hour.","example":"TODO Provide a usage example for the docs"},{"type":"List","name":"trustedOwners","required":false,"description":"Optional list of trusted owners/organizations, actions that belong to these organizations will not be pinned. This option overrides the 'Included actions' list.","example":"my-organization, my-other-organization"},{"type":"List","name":"includedActions","required":false,"description":"Optional allow-list of actions to pin. When provided, only `uses:` references matching one of these patterns are pinned; all other actions are left untouched. Patterns may be `owner/repo` (exact match), `owner/*` (any repo in an org), or `owner/repo/subpath` (exact match including a subpath). When omitted or empty, all third-party actions (and optionally official actions, per `pinOfficialActions`) are pinned.","example":"codecov/codecov-action"}]}>
 

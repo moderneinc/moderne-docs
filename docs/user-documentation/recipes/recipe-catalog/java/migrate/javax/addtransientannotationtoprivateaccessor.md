@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Private accessor methods must have a `@Transient` annotation"}
-  description={"According to the JPA 2.1 specification, when property access is used, the property accessor methods must be public or protected. OpenJPA ignores any private accessor methods, whereas EclipseLink persists those attributes. To ignore private accessor methods in EclipseLink, the methods must have a `@Transient` annotation."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.AddTransientAnnotationToPrivateAccessor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addtransientannotationtoprivateaccessor.md"}
-/>
+>
+
+<RecipeHeader.Title>Private accessor methods must have a `@Transient` annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>According to the JPA 2.1 specification, when property access is used, the property accessor methods must be public or protected. OpenJPA ignores any private accessor methods, whereas EclipseLink persists those attributes. To ignore private accessor methods in EclipseLink, the methods must have a `@Transient` annotation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package entities;\n\nimport javax.persistence.Entity;\nimport javax.persistence.Id;\n\n@Entity\npublic class PrivateAccessor  {\n    private int id;\n    private int nonPersistentField;\n\n    @Id\n    public int getId() {\n        return id;\n    }\n\n    private int getNonPersistentField() {\n        return nonPersistentField;\n    }\n}\n","after":"package entities;\n\nimport javax.persistence.Entity;\nimport javax.persistence.Id;\nimport javax.persistence.Transient;\n\n@Entity\npublic class PrivateAccessor  {\n    private int id;\n    private int nonPersistentField;\n\n    @Id\n    public int getId() {\n        return id;\n    }\n\n    @Transient\n    private int getNonPersistentField() {\n        return nonPersistentField;\n    }\n}\n","diff":"@@ -5,0 +5,1 @@\nimport javax.persistence.Entity;\nimport javax.persistence.Id;\n+import javax.persistence.Transient;\n\n@@ -16,0 +17,1 @@\n    }\n\n+   @Transient\n    private int getNonPersistentField() {\n","newFile":false}]}]}>
 

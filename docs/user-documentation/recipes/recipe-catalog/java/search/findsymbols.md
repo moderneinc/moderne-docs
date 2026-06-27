@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find symbols"}
-  description={"Lists all symbols (classes, methods, fields, etc.) declared in the codebase. Results are emitted into a data table with symbol kind, name, parent type, signature, and visibility."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindSymbols"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/findsymbols.md"}
-/>
+>
+
+<RecipeHeader.Title>Find symbols</RecipeHeader.Title>
+
+<RecipeHeader.Description>Lists all symbols (classes, methods, fields, etc.) declared in the codebase. Results are emitted into a data table with symbol kind, name, parent type, signature, and visibility.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"sourcePath","required":false,"description":"Optional source path to limit the search to a single file.","example":"src/main/java/com/example/MyClass.java"}]}>
 

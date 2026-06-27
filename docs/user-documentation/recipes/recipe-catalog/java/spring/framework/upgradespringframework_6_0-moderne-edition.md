@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Framework 6.0"}
-  description={"Migrate applications to the latest Spring Framework 6.0 release. Chains through `UpgradeSpringFramework_5_3` (and transitively `_5_0`/`_4_0`/`_3_0`) and layers Spring Integration XML attribute migrations on top of the OSS Spring Framework 6.0 upgrade. The OSS recipe handles the `org.springframework:*` version bump and Jakarta EE 10 package moves; this composite additionally bumps `org.springframework.security:*` to 6.0.x (Spring Security tracks Spring's major) and cleans up Spring Integration XML configurations."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","framework"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.UpgradeSpringFramework_6_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-moderne-edition.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Framework 5.3","href":"java/spring/framework/upgradespringframework_5_3-moderne-edition"},{"name":"Migrate to Spring Framework 6.0","href":"java/spring/framework/upgradespringframework_6_0-community-edition"},{"name":"Migrate `ListenableFuture` to `CompletableFuture`","href":"java/spring/framework7/migratelistenablefuture"},{"name":"Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`","href":"java/spring/framework7/migrateresponseentitygetstatuscodevaluemethod"},{"name":"Migrate `AbstractClientHttpResponse` to `ClientHttpResponse`","href":"java/spring/framework7/migrateabstractclienthttpresponse"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate Spring Integration XML attributes deprecated by Spring Integration 6.x","href":"java/spring/integration/migratespringframework6deprecatedintegrationxmlattributes"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Framework 6.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Framework 6.0 release. Chains through `UpgradeSpringFramework_5_3` (and transitively `_5_0`/`_4_0`/`_3_0`) and layers Spring Integration XML attribute migrations on top of the OSS Spring Framework 6.0 upgrade. The OSS recipe handles the `org.springframework:*` version bump and Jakarta EE 10 package moves; this composite additionally bumps `org.springframework.security:*` to 6.0.x (Spring Security tracks Spring's major) and cleans up Spring Integration XML configurations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Framework 5.3","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-moderne-edition/"},{"name":"Migrate to Spring Framework 6.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_0-community-edition/"},{"name":"Migrate `ListenableFuture` to `CompletableFuture`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratelistenablefuture/"},{"name":"Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/migrateresponseentitygetstatuscodevaluemethod/"},{"name":"Migrate `AbstractClientHttpResponse` to `ClientHttpResponse`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/migrateabstractclienthttpresponse/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Migrate Spring Integration XML attributes deprecated by Spring Integration 6.x","href":"/user-documentation/recipes/recipe-catalog/java/spring/integration/migratespringframework6deprecatedintegrationxmlattributes/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `String.contentEquals(CharSequence)` instead of `String.equals(CharSequence.toString())`"}
-  description={"Use `String.contentEquals(CharSequence)` instead of `String.equals(CharSequence.toString())`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.EqualsToContentEquals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/equalstocontentequals.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `String.contentEquals(CharSequence)` instead of `String.equals(CharSequence.toString())`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `String.contentEquals(CharSequence)` instead of `String.equals(CharSequence.toString())`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class SomeClass {\n    boolean foo(StringBuilder sb) {\n        String str = \"example string\";\n        return str.equals(sb.toString());\n    }\n}\n","after":"class SomeClass {\n    boolean foo(StringBuilder sb) {\n        String str = \"example string\";\n        return str.contentEquals(sb);\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\n    boolean foo(StringBuilder sb) {\n        String str = \"example string\";\n-       return str.equals(sb.toString());\n+       return str.contentEquals(sb);\n    }\n","newFile":false}]}]}>
 

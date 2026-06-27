@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `DoubleStreamRules.DoubleStreamAllMatch`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class DoubleStreamAllMatch {\n    \n    @BeforeTemplate\n    boolean before(DoubleStream stream, DoublePredicate predicate) {\n        return stream.noneMatch(predicate.negate());\n    }\n    \n    @AfterTemplate\n    boolean after(DoubleStream stream, DoublePredicate predicate) {\n        return stream.allMatch(predicate);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.DoubleStreamRulesRecipes$DoubleStreamAllMatchRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/doublestreamrulesrecipes$doublestreamallmatchrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `DoubleStreamRules.DoubleStreamAllMatch`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class DoubleStreamAllMatch {
+    
+    @BeforeTemplate
+    boolean before(DoubleStream stream, DoublePredicate predicate) {
+        return stream.noneMatch(predicate.negate());
+    }
+    
+    @AfterTemplate
+    boolean after(DoubleStream stream, DoublePredicate predicate) {
+        return stream.allMatch(predicate);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.DoubleStreamRulesRecipes$DoubleStreamAllMatchRecipe","displayName":"Refaster template `DoubleStreamRules.DoubleStreamAllMatch`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

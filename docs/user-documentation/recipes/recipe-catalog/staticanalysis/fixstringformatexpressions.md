@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Fix `String#format` and `String#formatted` expressions"}
-  description={"Fix `String#format` and `String#formatted` expressions by replacing `\\n` newline characters with `%n` and removing any unused arguments. Note this recipe is scoped to only transform format expressions which do not specify the argument index. Using `%n` ensures the correct platform-specific line separator, and removing unused arguments eliminates dead code that may mask a mismatch between the format string and its parameters."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S3457"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.FixStringFormatExpressions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/fixstringformatexpressions.md"}
-/>
+>
+
+<RecipeHeader.Title>Fix `String#format` and `String#formatted` expressions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Fix `String#format` and `String#formatted` expressions by replacing `\n` newline characters with `%n` and removing any unused arguments. Note this recipe is scoped to only transform format expressions which do not specify the argument index. Using `%n` ensures the correct platform-specific line separator, and removing unused arguments eliminates dead code that may mask a mismatch between the format string and its parameters.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class T {\n    static {\n        String s = String.format(\"hello world\\n%s\", \"again\");\n        String s2 = \"hello world\\n%s\".formatted(\"again\");\n    }\n}\n","after":"class T {\n    static {\n        String s = String.format(\"hello world%n%s\", \"again\");\n        String s2 = \"hello world%n%s\".formatted(\"again\");\n    }\n}\n","diff":"@@ -3,2 +3,2 @@\nclass T {\n    static {\n-       String s = String.format(\"hello world\\n%s\", \"again\");\n-       String s2 = \"hello world\\n%s\".formatted(\"again\");\n+       String s = String.format(\"hello world%n%s\", \"again\");\n+       String s2 = \"hello world%n%s\".formatted(\"again\");\n    }\n","newFile":false}]}]}>
 

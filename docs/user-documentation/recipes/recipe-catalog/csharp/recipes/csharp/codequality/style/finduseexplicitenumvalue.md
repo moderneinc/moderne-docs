@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find integer 0 used instead of named enum value"}
-  description={"Detect usage of integer literal `0` where a named enum member should be used for clarity."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseExplicitEnumValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finduseexplicitenumvalue.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find integer 0 used instead of named enum value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect usage of integer literal `0` where a named enum member should be used for clarity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseExplicitEnumValue","displayName":"Find integer 0 used instead of named enum value","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

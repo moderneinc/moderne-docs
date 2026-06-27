@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `WindowStore.put()` to include timestamp"}
-  description={"In Kafka Streams 2.4, `WindowStore.put()` requires a timestamp parameter. This recipe adds `context.timestamp()` as the third parameter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.streams.MigrateWindowStorePutMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/streams/migratewindowstoreputmethod.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `WindowStore.put()` to include timestamp</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Kafka Streams 2.4, `WindowStore.put()` requires a timestamp parameter. This recipe adds `context.timestamp()` as the third parameter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.kafka.streams.processor.ProcessorContext;\nimport org.apache.kafka.streams.state.WindowStore;\n\nclass KafkaProcessor {\n    void process(ProcessorContext context) {\n        WindowStore<String, Long> store = context.getStateStore(\"myStore\");\n        store.put(\"key\", 100L);\n    }\n}\n","after":"import org.apache.kafka.streams.processor.ProcessorContext;\nimport org.apache.kafka.streams.state.WindowStore;\n\nclass KafkaProcessor {\n    void process(ProcessorContext context) {\n        WindowStore<String, Long> store = context.getStateStore(\"myStore\");\n        store.put(\"key\", 100L, context.timestamp());\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    void process(ProcessorContext context) {\n        WindowStore<String, Long> store = context.getStateStore(\"myStore\");\n-       store.put(\"key\", 100L);\n+       store.put(\"key\", 100L, context.timestamp());\n    }\n","newFile":false}]}]}>
 

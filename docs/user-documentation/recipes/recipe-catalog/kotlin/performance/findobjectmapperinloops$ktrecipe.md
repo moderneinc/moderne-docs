@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Jackson `ObjectMapper()` allocations inside loops"}
-  description={"Jackson's `ObjectMapper` is expensive to construct — it builds the default module and serializer registries on every allocation. Hoist a single `ObjectMapper` instance to a top-level property; it is thread-safe once configured."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindObjectMapperInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findobjectmapperinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Jackson `ObjectMapper()` allocations inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>Jackson's `ObjectMapper` is expensive to construct — it builds the default module and serializer registries on every allocation. Hoist a single `ObjectMapper` instance to a top-level property; it is thread-safe once configured.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindObjectMapperInLoops$KtRecipe","displayName":"Find Jackson `ObjectMapper()` allocations inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

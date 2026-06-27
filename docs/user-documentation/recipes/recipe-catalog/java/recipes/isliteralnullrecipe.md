@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `J.Literal.isLiteralValue(expression, null)`"}
-  description={"Replace `expression instanceof J.Literal && ((J.Literal) expression).getValue() == null` with `J.Literal.isLiteralValue(expression, null)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.IsLiteralNullRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/isliteralnullrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `J.Literal.isLiteralValue(expression, null)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `expression instanceof J.Literal && ((J.Literal) expression).getValue() == null` with `J.Literal.isLiteralValue(expression, null)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.java.tree.Expression;\nimport org.openrewrite.java.tree.J;\nclass Test {\n    void test(Expression e) {\n        if (e instanceof J.Literal && ((J.Literal) e).getValue() == null) {\n            System.out.println(\"null\");\n        }\n    }\n}\n","after":"import org.openrewrite.java.tree.Expression;\nimport org.openrewrite.java.tree.J;\nclass Test {\n    void test(Expression e) {\n        if (J.Literal.isLiteralValue(e, null)) {\n            System.out.println(\"null\");\n        }\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    void test(Expression e) {\n-       if (e instanceof J.Literal && ((J.Literal) e).getValue() == null) {\n+       if (J.Literal.isLiteralValue(e, null)) {\n            System.out.println(\"null\");\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Stable` classes holding mutable-collection properties"}
-  description={"An `@Stable` class with a `MutableList`/`MutableMap`/`MutableSet` property cannot uphold the contract: the collection can mutate without `equals`/`hashCode` reflecting the change, so Compose's skip-when-equal heuristic produces stale UI. Replace with `ImmutableList`/`PersistentList` or drop the `@Stable` annotation."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindStableAnnotationOnClassWithMutableCollection$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findstableannotationonclasswithmutablecollection$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Stable` classes holding mutable-collection properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `@Stable` class with a `MutableList`/`MutableMap`/`MutableSet` property cannot uphold the contract: the collection can mutate without `equals`/`hashCode` reflecting the change, so Compose's skip-when-equal heuristic produces stale UI. Replace with `ImmutableList`/`PersistentList` or drop the `@Stable` annotation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindStableAnnotationOnClassWithMutableCollection$KtRecipe","displayName":"Find `@Stable` classes holding mutable-collection properties","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

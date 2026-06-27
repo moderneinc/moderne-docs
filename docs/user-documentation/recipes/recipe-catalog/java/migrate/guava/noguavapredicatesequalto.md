@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Predicate.isEqual(Object)`"}
-  description={"Prefer `Predicate.isEqual(Object)` over `Predicates.equalTo(Object)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaPredicatesEqualTo"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavapredicatesequalto.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Predicate.isEqual(Object)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Predicate.isEqual(Object)` over `Predicates.equalTo(Object)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.NoGuavaPredicatesEqualTo","displayName":"Prefer `Predicate.isEqual(Object)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

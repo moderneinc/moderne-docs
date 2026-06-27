@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find direct SSL configuration editing"}
-  description={"Detects direct configuration of protocols or cipher suites on SSL objects like SSLSocket, SSLServerSocket, or SSLEngine. This pattern makes SSL/TLS configuration scattered throughout the codebase and prevents centralized security policy management, hindering crypto-agility."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindDirectSSLConfigurationEditing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/finddirectsslconfigurationediting.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find direct SSL configuration editing</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects direct configuration of protocols or cipher suites on SSL objects like SSLSocket, SSLServerSocket, or SSLEngine. This pattern makes SSL/TLS configuration scattered throughout the codebase and prevents centralized security policy management, hindering crypto-agility.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.net.ssl.SSLSocket;\n\npublic class SSLSocketProtocolExample {\n    public void configureSocket(SSLSocket socket) {\n        String[] protocols = {\"TLSv1.2\", \"TLSv1.3\"};\n        socket.setEnabledProtocols(protocols);\n    }\n}\n","after":"import javax.net.ssl.SSLSocket;\n\npublic class SSLSocketProtocolExample {\n    public void configureSocket(SSLSocket socket) {\n        String[] protocols = {\"TLSv1.2\", \"TLSv1.3\"};\n        /*~~(SSL_CONFIGURATION use)~~>*/socket.setEnabledProtocols(protocols);\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n    public void configureSocket(SSLSocket socket) {\n        String[] protocols = {\"TLSv1.2\", \"TLSv1.3\"};\n-       socket.setEnabledProtocols(protocols);\n+       /*~~(SSL_CONFIGURATION use)~~>*/socket.setEnabledProtocols(protocols);\n    }\n","newFile":false}]}]}>
 

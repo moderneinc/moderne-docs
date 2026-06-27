@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Modifier.xxx().yyy()...` chains longer than five operations"}
-  description={"A `Modifier` chain with more than five operations is hard to read, hard to memoize, and often hides a hoist-into-a-named-Modifier opportunity. Extract the chain into a `val styled = Modifier…` declaration (ideally `remember`ed at the call site) so the composable body reads as intent rather than plumbing."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindLongModifierChain$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlongmodifierchain$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Modifier.xxx().yyy()...` chains longer than five operations</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `Modifier` chain with more than five operations is hard to read, hard to memoize, and often hides a hoist-into-a-named-Modifier opportunity. Extract the chain into a `val styled = Modifier…` declaration (ideally `remember`ed at the call site) so the composable body reads as intent rather than plumbing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindLongModifierChain$KtRecipe","displayName":"Find `Modifier.xxx().yyy()...` chains longer than five operations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

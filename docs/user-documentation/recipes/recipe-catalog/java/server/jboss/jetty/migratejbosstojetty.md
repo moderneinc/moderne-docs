@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JBoss to Jetty"}
-  description={"Comprehensive migration from JBoss to Jetty."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.jetty.MigrateJBossToJetty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/migratejbosstojetty.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate JBoss to Jetty","href":"java/server/jboss/jetty/createjettyfilesinpath"},{"name":"Move `web.xml` to resources","href":"java/server/jboss/movewebxml"},{"name":"Add Gradle plugin","href":"gradle/plugins/addbuildplugin"},{"name":"Configure Gradle `application` plugin main class","href":"java/server/jboss/configuregradleapplicationplugin"},{"name":"Configure Gradle `jar` task for fat JAR","href":"java/server/jboss/configuregradlefatjar"},{"name":"Add Maven plugin","href":"maven/addplugin"},{"name":"Remove Gradle plugin","href":"gradle/plugins/removebuildplugin"},{"name":"Remove Maven plugin","href":"maven/removeplugin"},{"name":"Set Maven project packaging","href":"maven/changepackaging"},{"name":"Delete files","href":"core/deletesourcefiles"},{"name":"Delete files","href":"core/deletesourcefiles"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]} preconditions={[{"name":"Module has JBoss descriptor","href":"java/server/jboss/modulehasjbossdescriptor"}]}>
+<RecipeHeader.Title>Migrate JBoss to Jetty</RecipeHeader.Title>
+
+<RecipeHeader.Description>Comprehensive migration from JBoss to Jetty.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate JBoss to Jetty","href":"/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/createjettyfilesinpath/"},{"name":"Move `web.xml` to resources","href":"/user-documentation/recipes/recipe-catalog/java/server/jboss/movewebxml/"},{"name":"Add Gradle plugin","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/addbuildplugin/"},{"name":"Configure Gradle `application` plugin main class","href":"/user-documentation/recipes/recipe-catalog/java/server/jboss/configuregradleapplicationplugin/"},{"name":"Configure Gradle `jar` task for fat JAR","href":"/user-documentation/recipes/recipe-catalog/java/server/jboss/configuregradlefatjar/"},{"name":"Add Maven plugin","href":"/user-documentation/recipes/recipe-catalog/maven/addplugin/"},{"name":"Remove Gradle plugin","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/removebuildplugin/"},{"name":"Remove Maven plugin","href":"/user-documentation/recipes/recipe-catalog/maven/removeplugin/"},{"name":"Set Maven project packaging","href":"/user-documentation/recipes/recipe-catalog/maven/changepackaging/"},{"name":"Delete files","href":"/user-documentation/recipes/recipe-catalog/core/deletesourcefiles/"},{"name":"Delete files","href":"/user-documentation/recipes/recipe-catalog/core/deletesourcefiles/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]} preconditions={[{"name":"Module has JBoss descriptor","href":"/user-documentation/recipes/recipe-catalog/java/server/jboss/modulehasjbossdescriptor/"}]}>
 
 ## Definition
 

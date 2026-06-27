@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Dagger*Component.builder().build()` patterns"}
-  description={"Calls of the form `DaggerXComponent.builder().build()` indicate the application is composing its dependency graph by hand. Hilt (`@HiltAndroidApp` / `@AndroidEntryPoint`) generates the same graph automatically and integrates with Compose, ViewModel, and WorkManager out of the box."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindManualDaggerProvision$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findmanualdaggerprovision$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Dagger*Component.builder().build()` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Calls of the form `DaggerXComponent.builder().build()` indicate the application is composing its dependency graph by hand. Hilt (`@HiltAndroidApp` / `@AndroidEntryPoint`) generates the same graph automatically and integrates with Compose, ViewModel, and WorkManager out of the box.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindManualDaggerProvision$KtRecipe","displayName":"Find `Dagger*Component.builder().build()` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

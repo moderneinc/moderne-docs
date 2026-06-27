@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (predicate(x)) x else null` patterns"}
-  description={"`if (predicate(x)) x else null` is `x.takeIf { predicate(it) }` written long-hand. The `takeIf` form keeps the value as the focal point and composes with `?.let { }` / elvis (`x.takeIf { … } ?: default`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindUseTakeIfForFilter$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findusetakeifforfilter$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (predicate(x)) x else null` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`if (predicate(x)) x else null` is `x.takeIf { predicate(it) }` written long-hand. The `takeIf` form keeps the value as the focal point and composes with `?.let { }` / elvis (`x.takeIf { … } ?: default`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindUseTakeIfForFilter$KtRecipe","displayName":"Find `if (predicate(x)) x else null` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

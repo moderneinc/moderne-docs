@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from Swagger to SpringDoc and OpenAPI"}
-  description={"Migrate from Swagger to SpringDoc and OpenAPI."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["openapi","springdoc","swagger"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.springdoc.SwaggerToSpringDoc"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/springdoc/swaggertospringdoc.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate from Swagger to OpenAPI","href":"openapi/swagger/swaggertoopenapi"},{"name":"Removes @Import(BeanValidatorPluginsConfiguration.class)","href":"java/spring/doc/removebeanvalidatorpluginsconfiguration"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Migrate `Docket` to `GroupedOpenAPI`","href":"java/spring/doc/migratedocketbeantogroupedopenapibean"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate from Swagger to SpringDoc and OpenAPI</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from Swagger to SpringDoc and OpenAPI.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate from Swagger to OpenAPI","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/swaggertoopenapi/"},{"name":"Removes @Import(BeanValidatorPluginsConfiguration.class)","href":"/user-documentation/recipes/recipe-catalog/java/spring/doc/removebeanvalidatorpluginsconfiguration/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Migrate `Docket` to `GroupedOpenAPI`","href":"/user-documentation/recipes/recipe-catalog/java/spring/doc/migratedocketbeantogroupedopenapibean/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

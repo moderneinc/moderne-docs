@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Next.js Codemods for API Updates"}
-  description={"Next.js provides Codemod transformations to help upgrade your [Next.js](https://nextjs.org/) codebase when an API is updated or deprecated."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["nextjs","codemods"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.migrate.nextjs.NextJsCodemods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/nextjscodemods.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `withRouter`","href":"codemods/migrate/nextjs/v6/urltowithrouter"},{"name":"Transform AMP HOC into page config","href":"codemods/migrate/nextjs/v8/withamptoconfig"},{"name":"Transform Anonymous Components into Named Components","href":"codemods/migrate/nextjs/v9/namedefaultcomponent"},{"name":"Add React imports","href":"codemods/migrate/nextjs/v10/addmissingreactimport"},{"name":"Rename Next Image Imports","href":"codemods/migrate/nextjs/v11/cratonext"},{"name":"Rename Next Image Imports","href":"codemods/migrate/nextjs/v13_0/nextimagetolegacyimage"},{"name":"Migrate to the New Image Component","href":"codemods/migrate/nextjs/v13_0/nextimageexperimental"},{"name":"Remove `<a>` Tags From Link Components","href":"codemods/migrate/nextjs/v13_0/newlink"},{"name":"Use Built-in Font","href":"codemods/migrate/nextjs/v13_2/builtinnextfont"},{"name":"Migrate `ImageResponse` imports","href":"codemods/migrate/nextjs/v14_0/nextogimport"},{"name":"Use `viewport` export","href":"codemods/migrate/nextjs/v14_0/metadatatoviewportexport"}]}>
+<RecipeHeader.Title>Next.js Codemods for API Updates</RecipeHeader.Title>
+
+<RecipeHeader.Description>Next.js provides Codemod transformations to help upgrade your [Next.js](https://nextjs.org/) codebase when an API is updated or deprecated.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `withRouter`","href":"/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v6/urltowithrouter/"},{"name":"Transform AMP HOC into page config","href":"/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v8/withamptoconfig/"},{"name":"Transform Anonymous Components into Named Components","href":"/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v9/namedefaultcomponent/"},{"name":"Add React imports","href":"/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v10/addmissingreactimport/"},{"name":"Rename Next Image Imports","href":"/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v11/cratonext/"},{"name":"Rename Next Image Imports","href":"/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v13_0/nextimagetolegacyimage/"},{"name":"Migrate to the New Image Component","href":"/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v13_0/nextimageexperimental/"},{"name":"Remove `<a>` Tags From Link Components","href":"/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v13_0/newlink/"},{"name":"Use Built-in Font","href":"/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v13_2/builtinnextfont/"},{"name":"Migrate `ImageResponse` imports","href":"/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v14_0/nextogimport/"},{"name":"Use `viewport` export","href":"/user-documentation/recipes/recipe-catalog/codemods/migrate/nextjs/v14_0/metadatatoviewportexport/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `map` then `flatten` with `flatMap`"}
-  description={"Replaces `.map(f).flatten` chains with `.flatMap(f)` for clarity and to avoid creating an unnecessary intermediate collection."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.performance.UseFlatMap"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/performance/useflatmap.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `map` then `flatten` with `flatMap`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `.map(f).flatten` chains with `.flatMap(f)` for clarity and to avoid creating an unnecessary intermediate collection.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val list = List(\"a b\", \"c d\")\n    val result = list.map(s => s.split(\" \")).flatten\n}\n","after":"class Example {\n    val list = List(\"a b\", \"c d\")\n    val result = list.flatMap(s => s.split(\" \"))\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    val list = List(\"a b\", \"c d\")\n-   val result = list.map(s => s.split(\" \")).flatten\n+   val result = list.flatMap(s => s.split(\" \"))\n}\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUnit `assertFalse(a.equals(b))` to `assertNotEquals(a,b)`"}
-  description={"Using `assertNotEquals(a,b)` is simpler and more clear."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.AssertFalseEqualsToAssertNotEquals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertfalseequalstoassertnotequals.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace JUnit `assertFalse(a.equals(b))` to `assertNotEquals(a,b)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using `assertNotEquals(a,b)` is simpler and more clear.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.cleanup.AssertFalseEqualsToAssertNotEquals","displayName":"Replace JUnit `assertFalse(a.equals(b))` to `assertNotEquals(a,b)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

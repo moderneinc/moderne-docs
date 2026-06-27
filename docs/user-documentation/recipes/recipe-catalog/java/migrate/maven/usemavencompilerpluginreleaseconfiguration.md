@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Maven compiler plugin release configuration"}
-  description={"Replaces any explicit `source` or `target` configuration (if present) on the `maven-compiler-plugin` with `release`, and updates the `release` value if needed. Will not downgrade the Java version if the current version is higher."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.maven.UseMavenCompilerPluginReleaseConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/maven/usemavencompilerpluginreleaseconfiguration.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use Maven compiler plugin release configuration","href":"maven/usemavencompilerpluginreleaseconfiguration"}]}>
+<RecipeHeader.Title>Use Maven compiler plugin release configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces any explicit `source` or `target` configuration (if present) on the `maven-compiler-plugin` with `release`, and updates the `release` value if needed. Will not downgrade the Java version if the current version is higher.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use Maven compiler plugin release configuration","href":"/user-documentation/recipes/recipe-catalog/maven/usemavencompilerpluginreleaseconfiguration/"}]}>
 
 ## Definition
 

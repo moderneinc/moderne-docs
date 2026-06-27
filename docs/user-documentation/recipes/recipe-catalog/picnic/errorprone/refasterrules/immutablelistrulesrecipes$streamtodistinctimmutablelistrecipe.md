@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ImmutableListRules.StreamToDistinctImmutableList`"}
-  description={"Collecting to an `ImmutableSet` and converting the result to an `ImmutableList` may be more efficient than deduplicating a stream and collecting the result to an `ImmutableList`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableListRulesRecipes$StreamToDistinctImmutableListRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablelistrulesrecipes$streamtodistinctimmutablelistrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ImmutableListRules.StreamToDistinctImmutableList`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Collecting to an `ImmutableSet` and converting the result to an `ImmutableList` may be more efficient than deduplicating a stream and collecting the result to an `ImmutableList`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableListRulesRecipes$StreamToDistinctImmutableListRecipe","displayName":"Refaster template `ImmutableListRules.StreamToDistinctImmutableList`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

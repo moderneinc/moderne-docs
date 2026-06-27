@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `let { }` ergonomics"}
-  description={"`?.let { it }`, `?.let { it.foo() }` (including property reads), nested `let` ladders, `let` blocks at statement position, and the `?.let { } ?: y` pattern — all cases where `let { }` adds shape without clarity."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindLetIdioms$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletidioms$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `?.let { it }` no-ops","href":"kotlin/idiom/findletitidentity$ktrecipe"},{"name":"Find `?.let { it.foo() }` that could use `?.foo()`","href":"kotlin/idiom/findletitcall$ktrecipe"},{"name":"Find `obj.let { fn(it) }` where `obj` is non-null","href":"kotlin/idiom/findletwithfnofit$ktrecipe"},{"name":"Find `x?.let { } ?: y` patterns","href":"kotlin/idiom/findletelvis$ktrecipe"},{"name":"Find nested `let { }` chains","href":"kotlin/idiom/findnestedlet$ktrecipe"},{"name":"Find `?.let { }` calls at statement position","href":"kotlin/idiom/findletatstatementposition$ktrecipe"}]}>
+<RecipeHeader.Title>Find `let { }` ergonomics</RecipeHeader.Title>
+
+<RecipeHeader.Description>`?.let { it }`, `?.let { it.foo() }` (including property reads), nested `let` ladders, `let` blocks at statement position, and the `?.let { } ?: y` pattern — all cases where `let { }` adds shape without clarity.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `?.let { it }` no-ops","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletitidentity$ktrecipe/"},{"name":"Find `?.let { it.foo() }` that could use `?.foo()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletitcall$ktrecipe/"},{"name":"Find `obj.let { fn(it) }` where `obj` is non-null","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletwithfnofit$ktrecipe/"},{"name":"Find `x?.let { } ?: y` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletelvis$ktrecipe/"},{"name":"Find nested `let { }` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnestedlet$ktrecipe/"},{"name":"Find `?.let { }` calls at statement position","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletatstatementposition$ktrecipe/"}]}>
 
 ## Definition
 

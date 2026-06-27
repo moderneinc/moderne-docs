@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use block body or expression body"}
-  description={"Convert between block body and expression body for members."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseBlockBodyOrExpressionBody"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/useblockbodyorexpressionbody.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use block body or expression body</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert between block body and expression body for members.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"AllowMultiLine","required":false,"description":"When true, also flags methods with multi-line return expressions (e.g., switch expressions, multi-line conditionals). Default is false, matching Roslyn's default RCS1016 behavior."}]}>
 

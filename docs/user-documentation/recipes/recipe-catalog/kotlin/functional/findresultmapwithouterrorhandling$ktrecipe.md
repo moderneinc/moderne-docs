@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Result.map { }.getOrThrow()` chains"}
-  description={"`result.map { transform(it) }.getOrThrow()` is `result.fold(::transform, { throw it })` written long-hand — and `.fold(...)` keeps the transformation and the failure handling next to each other. If the failure branch really is 'rethrow', drop the `Result` wrapper entirely and put the transformation inside `runCatching { }`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindResultMapWithoutErrorHandling$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultmapwithouterrorhandling$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Result.map { }.getOrThrow()` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>`result.map { transform(it) }.getOrThrow()` is `result.fold(::transform, { throw it })` written long-hand — and `.fold(...)` keeps the transformation and the failure handling next to each other. If the failure branch really is 'rethrow', drop the `Result` wrapper entirely and put the transformation inside `runCatching { }`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindResultMapWithoutErrorHandling$KtRecipe","displayName":"Find `Result.map { }.getOrThrow()` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

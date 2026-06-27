@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert JAX-RS annotations to Spring Web"}
-  description={"Converts JAX-RS annotations such as `@Path`, `@GET`, `@POST`, etc., to their Spring Web equivalents like `@RestController`, `@RequestMapping`, `@GetMapping`, etc."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.JaxRsToSpringWeb"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/jaxrstospringweb.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate JAX-RS MediaType to Spring MVC MediaType","href":"java/spring/mvc/jaxrstospringmvcmediatype"},{"name":"Migrate JAX-RS Response to Spring MVC ResponseEntity","href":"java/spring/mvc/jaxrstospringmvcresponseentity"}]}>
+<RecipeHeader.Title>Convert JAX-RS annotations to Spring Web</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts JAX-RS annotations such as `@Path`, `@GET`, `@POST`, etc., to their Spring Web equivalents like `@RestController`, `@RequestMapping`, `@GetMapping`, etc.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate JAX-RS MediaType to Spring MVC MediaType","href":"/user-documentation/recipes/recipe-catalog/java/spring/mvc/jaxrstospringmvcmediatype/"},{"name":"Migrate JAX-RS Response to Spring MVC ResponseEntity","href":"/user-documentation/recipes/recipe-catalog/java/spring/mvc/jaxrstospringmvcresponseentity/"}]}>
 
 ## Definition
 

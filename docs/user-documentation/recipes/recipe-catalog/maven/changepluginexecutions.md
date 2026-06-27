@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Maven plugin executions"}
-  description={"Apply the specified executions to a Maven plugin. Will not add the plugin if it does not already exist in the pom."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ChangePluginExecutions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/changepluginexecutions.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Maven plugin executions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply the specified executions to a Maven plugin. Will not add the plugin if it does not already exist in the pom.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate 'org.openrewrite.maven:rewrite-maven-plugin:VERSION'.","example":"org.openrewrite.maven"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate 'org.openrewrite.maven:rewrite-maven-plugin:VERSION'.","example":"rewrite-maven-plugin"},{"type":"String","name":"executions","required":false,"description":"Plugin goal executions provided as raw XML. Supplying `null` will remove any existing executions.","example":"<execution><phase>validate</phase><goals><goal>dryRun</goal></goals></execution>"}]}>
 

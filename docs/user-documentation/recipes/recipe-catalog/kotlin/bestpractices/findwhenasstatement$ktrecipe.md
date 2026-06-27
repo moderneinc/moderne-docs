@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `when (x) { … }` used as a statement"}
-  description={"A `when` used as a statement (its result is discarded) often obscures intent — either the writer expected an expression value or each branch is a side-effecting block that would read more clearly as `if`/`else if`. Flag for review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindWhenAsStatement$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenasstatement$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `when (x) { … }` used as a statement</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `when` used as a statement (its result is discarded) often obscures intent — either the writer expected an expression value or each branch is a side-effecting block that would read more clearly as `if`/`else if`. Flag for review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindWhenAsStatement$KtRecipe","displayName":"Find `when (x) { … }` used as a statement","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

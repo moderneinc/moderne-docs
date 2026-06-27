@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `for (...) { LaunchedEffect(...) { … } }` patterns"}
-  description={"A `LaunchedEffect` inside a loop creates a separate coroutine per iteration. That is rarely the intended structure — it is usually a mis-placement of effect logic. Prefer a single `LaunchedEffect(keys = arrayOf(...)) { for (...) { … } }` or restructure the loop to live inside the effect."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindCoroutineLaunchInsideLaunchedEffectInLoop$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcoroutinelaunchinsidelaunchedeffectinloop$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `for (...) { LaunchedEffect(...) { … } }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `LaunchedEffect` inside a loop creates a separate coroutine per iteration. That is rarely the intended structure — it is usually a mis-placement of effect logic. Prefer a single `LaunchedEffect(keys = arrayOf(...)) { for (...) { … } }` or restructure the loop to live inside the effect.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindCoroutineLaunchInsideLaunchedEffectInLoop$KtRecipe","displayName":"Find `for (...) { LaunchedEffect(...) { … } }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

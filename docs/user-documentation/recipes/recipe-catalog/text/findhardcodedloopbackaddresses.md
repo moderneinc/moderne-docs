@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hard-coded loopback IPv4 addresses"}
-  description={"Locates mentions of hard-coded IPv4 addresses from the loopback IP range. The loopback IP range includes `127.0.0.0` to `127.255.255.255`. This detects the entire localhost/loopback subnet range, not just the commonly used `127.0.0.1`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.text.FindHardcodedLoopbackAddresses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/text/findhardcodedloopbackaddresses.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find hard-coded loopback IPv4 addresses</RecipeHeader.Title>
+
+<RecipeHeader.Description>Locates mentions of hard-coded IPv4 addresses from the loopback IP range. The loopback IP range includes `127.0.0.0` to `127.255.255.255`. This detects the entire localhost/loopback subnet range, not just the commonly used `127.0.0.1`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void ipTest() {\n        String localhost = \"127.0.0.1\";\n        String loopback1 = \"127.1.1.1\";\n        String loopback2 = \"127.255.255.255\";\n        String loopback3 = \"127.0.0.0\";\n        String nonLoopback = \"128.0.0.1\";\n        String privateAddress = \"192.168.1.1\";\n        String publicAddress = \"8.8.8.8\";\n        String invalidAddress = \"256.0.0.0\";\n        String springVersion = \"5.2.2\";\n        String adding = \"4.3+4.5\";\n        // address in a comment: 127.100.200.50\n        // address in a comment: 127.0.0.1\n        String date = \"30.11.2017\";\n        String ikeaProduct = \"805.721.99\";\n    }\n}\n","after":"class Test {\n    void ipTest() {\n        String localhost = \"~~>127.0.0.1\";\n        String loopback1 = \"~~>127.1.1.1\";\n        String loopback2 = \"~~>127.255.255.255\";\n        String loopback3 = \"~~>127.0.0.0\";\n        String nonLoopback = \"128.0.0.1\";\n        String privateAddress = \"192.168.1.1\";\n        String publicAddress = \"8.8.8.8\";\n        String invalidAddress = \"256.0.0.0\";\n        String springVersion = \"5.2.2\";\n        String adding = \"4.3+4.5\";\n        // address in a comment: ~~>127.100.200.50\n        // address in a comment: ~~>127.0.0.1\n        String date = \"30.11.2017\";\n        String ikeaProduct = \"805.721.99\";\n    }\n}\n","diff":"--- src/main/java/A.java\n+++ src/main/java/A.java\n@@ -3,4 +3,4 @@\nclass Test {\n    void ipTest() {\n-       String localhost = \"127.0.0.1\";\n-       String loopback1 = \"127.1.1.1\";\n-       String loopback2 = \"127.255.255.255\";\n-       String loopback3 = \"127.0.0.0\";\n+       String localhost = \"~~>127.0.0.1\";\n+       String loopback1 = \"~~>127.1.1.1\";\n+       String loopback2 = \"~~>127.255.255.255\";\n+       String loopback3 = \"~~>127.0.0.0\";\n        String nonLoopback = \"128.0.0.1\";\n@@ -13,2 +13,2 @@\n        String springVersion = \"5.2.2\";\n        String adding = \"4.3+4.5\";\n-       // address in a comment: 127.100.200.50\n-       // address in a comment: 127.0.0.1\n+       // address in a comment: ~~>127.100.200.50\n+       // address in a comment: ~~>127.0.0.1\n        String date = \"30.11.2017\";\n","newFile":false}]}]}>
 

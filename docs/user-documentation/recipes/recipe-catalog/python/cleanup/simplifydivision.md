@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `int(a / b)` to floor division"}
-  description={"Replace ``int(a / b)`` with Python's floor-division operator ``a // b`` for a more concise expression."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifyDivision"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifydivision.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert `int(a / b)` to floor division</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace ``int(a / b)`` with Python's floor-division operator ``a // b`` for a more concise expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyDivision","displayName":"Convert `int(a / b)` to floor division","pipPackage":"openrewrite-static-analysis"}}>
 

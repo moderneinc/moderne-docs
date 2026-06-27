@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `RestTemplate` allocations"}
-  description={"`RestTemplate` was placed in maintenance mode in Spring 5 — Spring's docs explicitly steer new code to `WebClient` (reactive) or `RestClient` (Spring 6.1+, synchronous). Each `RestTemplate()` allocation is a candidate for migration."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindRestTemplateUsage$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findresttemplateusage$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `RestTemplate` allocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`RestTemplate` was placed in maintenance mode in Spring 5 — Spring's docs explicitly steer new code to `WebClient` (reactive) or `RestClient` (Spring 6.1+, synchronous). Each `RestTemplate()` allocation is a candidate for migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindRestTemplateUsage$KtRecipe","displayName":"Find `RestTemplate` allocations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

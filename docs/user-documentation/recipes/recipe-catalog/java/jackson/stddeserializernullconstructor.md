@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `null` type in `StdDeserializer` constructor with actual type"}
-  description={"In Jackson 3, `StdDeserializer` no longer accepts `null` for the handled type parameter. This recipe replaces `this(null)` and `super((Class<?>) null)` in `StdDeserializer` subclass constructors with the actual type parameter from the class declaration."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.StdDeserializerNullConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/stddeserializernullconstructor.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `null` type in `StdDeserializer` constructor with actual type</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Jackson 3, `StdDeserializer` no longer accepts `null` for the handled type parameter. This recipe replaces `this(null)` and `super((Class<?>) null)` in `StdDeserializer` subclass constructors with the actual type parameter from the class declaration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.jackson.StdDeserializerNullConstructor","displayName":"Replace `null` type in `StdDeserializer` constructor with actual type","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
 

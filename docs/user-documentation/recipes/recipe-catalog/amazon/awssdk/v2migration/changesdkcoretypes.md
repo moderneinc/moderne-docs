@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change SDK core types from v1 to v2"}
-  description={"Change SDK core types from v1 to v2."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/software.amazon.awssdk.v2migration.ChangeSdkCoreTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/changesdkcoretypes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change region related classes","href":"amazon/awssdk/v2migration/changeregiontypes"},{"name":"Change auth related classes from v1 to v2","href":"amazon/awssdk/v2migration/changeauthtypes"},{"name":"Change config related classes from v1 to v2","href":"amazon/awssdk/v2migration/changeconfigtypes"},{"name":"Change SDK Exception types from v1 to v2","href":"amazon/awssdk/v2migration/changeexceptiontypes"}]}>
+<RecipeHeader.Title>Change SDK core types from v1 to v2</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change SDK core types from v1 to v2.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change region related classes","href":"/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/changeregiontypes/"},{"name":"Change auth related classes from v1 to v2","href":"/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/changeauthtypes/"},{"name":"Change config related classes from v1 to v2","href":"/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/changeconfigtypes/"},{"name":"Change SDK Exception types from v1 to v2","href":"/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/changeexceptiontypes/"}]}>
 
 ## Definition
 

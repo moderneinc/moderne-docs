@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add explicit JAX-WS dependencies"}
-  description={"This recipe will add explicit dependencies for Jakarta EE 8 when a Java 8 application is using JAX-WS. Any existing dependencies will be upgraded to the latest version of Jakarta EE 8. The artifacts are moved to Jakarta EE 8 but the application can continue to use the `javax.xml.bind` namespace."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jaxb","glassfish","javax","java11","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.AddJaxwsDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxwsdependencies.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove Maven managed dependency","href":"maven/removemanageddependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Use the latest JAX-WS API and runtime for Jakarta EE 8","href":"java/migrate/javax/addjaxwsruntime"},{"name":"Remove redundant explicit dependency and plugin versions","href":"maven/removeredundantdependencyversions"},{"name":"Remove redundant explicit dependency and plugin versions","href":"maven/removeredundantdependencyversions"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Add explicit JAX-WS dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will add explicit dependencies for Jakarta EE 8 when a Java 8 application is using JAX-WS. Any existing dependencies will be upgraded to the latest version of Jakarta EE 8. The artifacts are moved to Jakarta EE 8 but the application can continue to use the `javax.xml.bind` namespace.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove Maven managed dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removemanageddependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Use the latest JAX-WS API and runtime for Jakarta EE 8","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxwsruntime/"},{"name":"Remove redundant explicit dependency and plugin versions","href":"/user-documentation/recipes/recipe-catalog/maven/removeredundantdependencyversions/"},{"name":"Remove redundant explicit dependency and plugin versions","href":"/user-documentation/recipes/recipe-catalog/maven/removeredundantdependencyversions/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

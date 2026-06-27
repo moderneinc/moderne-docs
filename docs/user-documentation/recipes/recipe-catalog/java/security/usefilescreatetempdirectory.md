@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Files#createTempDirectory`"}
-  description={"Use `Files#createTempDirectory` when the sequence `File#createTempFile(..)`->`File#delete()`->`File#mkdir()` is used for creating a temp directory."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-379","RSPEC-S5445","CWE-377"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.UseFilesCreateTempDirectory"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/usefilescreatetempdirectory.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Files#createTempDirectory`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `Files#createTempDirectory` when the sequence `File#createTempFile(..)`->`File#delete()`->`File#mkdir()` is used for creating a temp directory.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.File;\nimport java.io.IOException;\n\nclass A {\n    void b() throws IOException {\n        File tempDir;\n        tempDir = File.createTempFile(\"OverridesTest\", \"dir\");\n        tempDir.delete();\n        tempDir.mkdir();\n        System.out.println(tempDir.getAbsolutePath());\n    }\n}\n","after":"import java.io.File;\nimport java.io.IOException;\nimport java.nio.file.Files;\n\nclass A {\n    void b() throws IOException {\n        File tempDir;\n        tempDir = Files.createTempDirectory(\"OverridesTest\" + \"dir\").toFile();\n        System.out.println(tempDir.getAbsolutePath());\n    }\n}\n","diff":"@@ -3,0 +3,1 @@\nimport java.io.File;\nimport java.io.IOException;\n+import java.nio.file.Files;\n\n@@ -7,3 +8,1 @@\n    void b() throws IOException {\n        File tempDir;\n-       tempDir = File.createTempFile(\"OverridesTest\", \"dir\");\n-       tempDir.delete();\n-       tempDir.mkdir();\n+       tempDir = Files.createTempDirectory(\"OverridesTest\" + \"dir\").toFile();\n        System.out.println(tempDir.getAbsolutePath());\n","newFile":false}]}]}>
 

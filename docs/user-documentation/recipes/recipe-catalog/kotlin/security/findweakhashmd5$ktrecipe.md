@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `MessageDigest.getInstance(\"MD5\")` calls"}
-  description={"MD5 is cryptographically broken; collisions are computable in seconds on commodity hardware. Use SHA-256 for non-secret hashing or HMAC-SHA-256 / Argon2id for authenticated or derived secrets."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindWeakHashMd5$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findweakhashmd5$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `MessageDigest.getInstance("MD5")` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>MD5 is cryptographically broken; collisions are computable in seconds on commodity hardware. Use SHA-256 for non-secret hashing or HMAC-SHA-256 / Argon2id for authenticated or derived secrets.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindWeakHashMd5$KtRecipe","displayName":"Find `MessageDigest.getInstance(\"MD5\")` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

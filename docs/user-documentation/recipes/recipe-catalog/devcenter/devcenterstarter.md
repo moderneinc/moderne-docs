@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"DevCenter"}
-  description={"This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration. It includes a combination of upgrades, migrations, and security fixes. You can customize this configuration to suit your needs.\nFor more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter-beta/)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.DevCenterStarter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/devcenterstarter.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Library upgrade","href":"devcenter/libraryupgrade"},{"name":"Move to a later Java version","href":"devcenter/javaversionupgrade"},{"name":"Move to JUnit 6","href":"devcenter/junitjupiterupgrade"},{"name":"OWASP top ten","href":"devcenter/securitystarter"},{"name":"Find organization statistics","href":"devcenter/findorganizationstatistics"},{"name":"Find committers on repositories","href":"search/findcommitters"}]}>
+<RecipeHeader.Title>DevCenter</RecipeHeader.Title>
+
+<RecipeHeader.Description>This is a default DevCenter configuration that can be used as a starting point for your own DevCenter configuration. It includes a combination of upgrades, migrations, and security fixes. You can customize this configuration to suit your needs. For more information on how to customize your DevCenter configuration, see the [DevCenter documentation](https://docs.moderne.io/administrator-documentation/moderne-platform/how-to-guides/recipe-based-devcenter-beta/).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Library upgrade","href":"/user-documentation/recipes/recipe-catalog/devcenter/libraryupgrade/"},{"name":"Move to a later Java version","href":"/user-documentation/recipes/recipe-catalog/devcenter/javaversionupgrade/"},{"name":"Move to JUnit 6","href":"/user-documentation/recipes/recipe-catalog/devcenter/junitjupiterupgrade/"},{"name":"OWASP top ten","href":"/user-documentation/recipes/recipe-catalog/devcenter/securitystarter/"},{"name":"Find organization statistics","href":"/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics/"},{"name":"Find committers on repositories","href":"/user-documentation/recipes/recipe-catalog/search/findcommitters/"}]}>
 
 ## Definition
 

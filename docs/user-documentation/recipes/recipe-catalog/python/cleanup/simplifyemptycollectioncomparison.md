@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use truthiness instead of empty-container equality"}
-  description={"Convert ``== \"\"``/``== []``/``== {}``/``== ()`` into ``not var`` and the corresponding ``!=`` forms into ``var``, relying on Python's truthiness semantics for empty collections."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifyEmptyCollectionComparison"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifyemptycollectioncomparison.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use truthiness instead of empty-container equality</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert ``== ""``/``== []``/``== &#123;}``/``== ()`` into ``not var`` and the corresponding ``!=`` forms into ``var``, relying on Python's truthiness semantics for empty collections.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyEmptyCollectionComparison","displayName":"Use truthiness instead of empty-container equality","pipPackage":"openrewrite-static-analysis"}}>
 

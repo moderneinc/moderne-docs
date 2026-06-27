@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert Javadoc to Markdown documentation comments"}
-  description={"Convert traditional Javadoc comments (`/** ... */`) to Markdown documentation comments (`///`) as supported by JEP 467 in Java 23+. Transforms HTML constructs like `<pre>`, `<code>`, `<em>`, `<p>`, and lists to their Markdown equivalents, and converts inline tags like `{@code}` and `{@link}` to Markdown syntax."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.JavadocToMarkdownDocComment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/javadoctomarkdowndoccomment.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert Javadoc to Markdown documentation comments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert traditional Javadoc comments (`/** ... */`) to Markdown documentation comments (`///`) as supported by JEP 467 in Java 23+. Transforms HTML constructs like `<pre>`, `<code>`, `<em>`, `<p>`, and lists to their Markdown equivalents, and converts inline tags like `{@code}` and `{@link}` to Markdown syntax.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n    /**\n     * Computes the sum of two numbers.\n     *\n     * @param a the first number\n     * @param b the second number\n     * @return the sum of a and b\n     */\n    public int add(int a, int b) {\n        return a + b;\n    }\n}\n","after":"public class A {\n    /// Computes the sum of two numbers.\n    ///\n    /// @param a the first number\n    /// @param b the second number\n    /// @return the sum of a and b\n    public int add(int a, int b) {\n        return a + b;\n    }\n}\n","diff":"@@ -2,7 +2,5 @@\npublic class A {\n-   /**\n-    * Computes the sum of two numbers.\n-    *\n-    * @param a the first number\n-    * @param b the second number\n-    * @return the sum of a and b\n-    */\n+   /// Computes the sum of two numbers.\n+   ///\n+   /// @param a the first number\n+   /// @param b the second number\n+   /// @return the sum of a and b\n    public int add(int a, int b) {\n","newFile":false}]}]}>
 

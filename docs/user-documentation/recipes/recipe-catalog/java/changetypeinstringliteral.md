@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change type in String literals"}
-  description={"Change a given type to another when used in a String literal."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.ChangeTypeInStringLiteral"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/changetypeinstringliteral.md"}
-/>
+>
+
+<RecipeHeader.Title>Change type in String literals</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change a given type to another when used in a String literal.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldFullyQualifiedTypeName","required":true,"description":"Fully-qualified class name of the original type.","example":"org.junit.Assume"},{"type":"String","name":"newFullyQualifiedTypeName","required":true,"description":"Fully-qualified class name of the replacement type, or the name of a primitive such as \"int\". The `OuterClassName$NestedClassName` naming convention should be used for nested classes.","example":"org.junit.jupiter.api.Assumptions"}]}>
 

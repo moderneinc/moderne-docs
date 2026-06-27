@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `mutableMapOf<K, V>()` allocations inside loops"}
-  description={"A `mutableMapOf<K, V>()` allocated per iteration produces garbage proportional to the loop count. If the map is filled and consumed each pass, consider `clear()`-and-reuse on a single hoisted map."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindMutableMapOfInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findmutablemapofinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `mutableMapOf<K, V>()` allocations inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `mutableMapOf<K, V>()` allocated per iteration produces garbage proportional to the loop count. If the map is filled and consumed each pass, consider `clear()`-and-reuse on a single hoisted map.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindMutableMapOfInLoops$KtRecipe","displayName":"Find `mutableMapOf<K, V>()` allocations inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

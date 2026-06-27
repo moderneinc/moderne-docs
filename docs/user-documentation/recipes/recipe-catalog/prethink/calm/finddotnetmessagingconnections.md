@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET messaging connections"}
-  description={"Detect MassTransit IConsumer<T>, NServiceBus IHandleMessages<T>, MediatR IRequestHandler/INotificationHandler, Confluent.Kafka producers/consumers, Azure Service Bus, and RabbitMQ.Client usage."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDotnetMessagingConnections"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetmessagingconnections.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET messaging connections</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect MassTransit IConsumer&lt;T>, NServiceBus IHandleMessages&lt;T>, MediatR IRequestHandler/INotificationHandler, Confluent.Kafka producers/consumers, Azure Service Bus, and RabbitMQ.Client usage.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindDotnetMessagingConnections","displayName":"Find .NET messaging connections","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

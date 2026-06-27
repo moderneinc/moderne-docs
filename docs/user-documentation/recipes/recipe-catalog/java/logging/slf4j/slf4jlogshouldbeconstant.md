@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"SLF4J logging statements should begin with constants"}
-  description={"Logging statements shouldn't begin with `String#format`, calls to `toString()`, etc."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["slf4j","logging"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.Slf4jLogShouldBeConstant"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/slf4jlogshouldbeconstant.md"}
-/>
+>
+
+<RecipeHeader.Title>SLF4J logging statements should begin with constants</RecipeHeader.Title>
+
+<RecipeHeader.Description>Logging statements shouldn't begin with `String#format`, calls to `toString()`, etc.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"import org.slf4j.Logger;\nclass A {\n    Logger log;\n    void method() {\n        log.info(String.format(\"The first argument is '%d', and the second argument is '%.2f'.\", 1, 2.3333));\n    }\n}\n"},"variants":[]}]}>
 

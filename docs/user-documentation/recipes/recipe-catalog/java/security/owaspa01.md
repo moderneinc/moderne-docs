@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remediate OWASP A01:2021 Broken access control"}
-  description={"OWASP [A01:2021](https://owasp.org/Top10/A01_2021-Broken_Access_Control/) describes failures related to broken access control."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspA01"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/owaspa01.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Finds uses of `Encryptors.queryableText()`","href":"java/spring/security5/search/findencryptorsqueryabletextuses"},{"name":"Zip slip","href":"java/security/zipslip"},{"name":"Partial path traversal vulnerability","href":"java/security/partialpathtraversalvulnerability"},{"name":"Find Spring MVC handlers missing authorization","href":"java/security/search/findmissingspringauthorization"}]}>
+<RecipeHeader.Title>Remediate OWASP A01:2021 Broken access control</RecipeHeader.Title>
+
+<RecipeHeader.Description>OWASP [A01:2021](https://owasp.org/Top10/A01_2021-Broken_Access_Control/) describes failures related to broken access control.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Finds uses of `Encryptors.queryableText()`","href":"/user-documentation/recipes/recipe-catalog/java/spring/security5/search/findencryptorsqueryabletextuses/"},{"name":"Zip slip","href":"/user-documentation/recipes/recipe-catalog/java/security/zipslip/"},{"name":"Partial path traversal vulnerability","href":"/user-documentation/recipes/recipe-catalog/java/security/partialpathtraversalvulnerability/"},{"name":"Find Spring MVC handlers missing authorization","href":"/user-documentation/recipes/recipe-catalog/java/security/search/findmissingspringauthorization/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Jackson Scala module imports"}
-  description={"Removes imports of the Jackson Scala module (`com.fasterxml.jackson.module.scala.*`). Jackson is a Java-centric library and its Scala module can cause issues with Scala types. Consider using a Scala-native JSON library such as circe or zio-json. Removing the imports causes the compiler to highlight all usage sites that need updating."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.json.MigrateJacksonScala"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/json/migratejacksonscala.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove Jackson Scala module imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes imports of the Jackson Scala module (`com.fasterxml.jackson.module.scala.*`). Jackson is a Java-centric library and its Scala module can cause issues with Scala types. Consider using a Scala-native JSON library such as circe or zio-json. Removing the imports causes the compiler to highlight all usage sites that need updating.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import com.fasterxml.jackson.module.scala.DefaultScalaModule\n\nclass Mapper {\n    val name = \"mapper\"\n}\n","after":"\n\n\nclass Mapper {\n    val name = \"mapper\"\n}\n","diff":"@@ -1,1 +1,0 @@\n-import com.fasterxml.jackson.module.scala.DefaultScalaModule\n\n@@ -3,0 +2,2 @@\nimport com.fasterxml.jackson.module.scala.DefaultScalaModule\n\n+\n+\nclass Mapper {\n","newFile":false}]}]}>
 

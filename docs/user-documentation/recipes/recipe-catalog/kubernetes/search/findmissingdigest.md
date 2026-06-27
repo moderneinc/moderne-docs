@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find missing image digest"}
-  description={"Find instances of a container name that fails to specify a digest."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.search.FindMissingDigest"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/search/findmissingdigest.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find missing image digest</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find instances of a container name that fails to specify a digest.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"boolean","name":"includeInitContainers","required":false,"description":"Boolean to indicate whether or not to treat initContainers/image identically to containers/image.","example":"false"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

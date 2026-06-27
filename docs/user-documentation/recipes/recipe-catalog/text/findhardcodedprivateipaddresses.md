@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hard-coded private IPv4 addresses"}
-  description={"Locates mentions of hard-coded IPv4 addresses from private IP ranges. Private IP ranges include: \n * `192.168.0.0` to `192.168.255.255`\n * `10.0.0.0` to `10.255.255.255`\n * `172.16.0.0` to `172.31.255.255`\n\nIt is not detecting the localhost subnet `127.0.0.0` to `127.255.255.255`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,22 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.text.FindHardcodedPrivateIPAddresses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/text/findhardcodedprivateipaddresses.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find hard-coded private IPv4 addresses</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Locates mentions of hard-coded IPv4 addresses from private IP ranges. Private IP ranges include: 
+ * `192.168.0.0` to `192.168.255.255`
+ * `10.0.0.0` to `10.255.255.255`
+ * `172.16.0.0` to `172.31.255.255`
+
+It is not detecting the localhost subnet `127.0.0.0` to `127.255.255.255`.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void ipTest() {\n        String privateAddress1 = \"10.10.20.20\";\n        String privateAddress2 = \"192.168.20.20\";\n        String privateAddress3 = \"172.16.20.20\";\n        String wordBoundaries = \"1000000192.168.1.1aaa\";\n        String nonPrivate = \"1.1.1.1\";\n        String nonAddress = \"256.0.0.0\";\n        String springVersion = \"5.2.2\";\n        String adding = \"4.3+4.5\";\n        // address in a comment: 10.1.2.3\n        // address in a comment: 192.168.2.3\n        // address in a comment: 172.16.2.3\n        String date = \"30.11.2017\";\n        String ikeaProduct = \"805.721.99\";\n    }\n}\n","after":"class Test {\n    void ipTest() {\n        String privateAddress1 = \"~~>10.10.20.20\";\n        String privateAddress2 = \"~~>192.168.20.20\";\n        String privateAddress3 = \"~~>172.16.20.20\";\n        String wordBoundaries = \"1000000192.168.1.1aaa\";\n        String nonPrivate = \"1.1.1.1\";\n        String nonAddress = \"256.0.0.0\";\n        String springVersion = \"5.2.2\";\n        String adding = \"4.3+4.5\";\n        // address in a comment: ~~>10.1.2.3\n        // address in a comment: ~~>192.168.2.3\n        // address in a comment: ~~>172.16.2.3\n        String date = \"30.11.2017\";\n        String ikeaProduct = \"805.721.99\";\n    }\n}\n","diff":"--- src/main/java/A.java\n+++ src/main/java/A.java\n@@ -3,3 +3,3 @@\nclass Test {\n    void ipTest() {\n-       String privateAddress1 = \"10.10.20.20\";\n-       String privateAddress2 = \"192.168.20.20\";\n-       String privateAddress3 = \"172.16.20.20\";\n+       String privateAddress1 = \"~~>10.10.20.20\";\n+       String privateAddress2 = \"~~>192.168.20.20\";\n+       String privateAddress3 = \"~~>172.16.20.20\";\n        String wordBoundaries = \"1000000192.168.1.1aaa\";\n@@ -11,3 +11,3 @@\n        String springVersion = \"5.2.2\";\n        String adding = \"4.3+4.5\";\n-       // address in a comment: 10.1.2.3\n-       // address in a comment: 192.168.2.3\n-       // address in a comment: 172.16.2.3\n+       // address in a comment: ~~>10.1.2.3\n+       // address in a comment: ~~>192.168.2.3\n+       // address in a comment: ~~>172.16.2.3\n        String date = \"30.11.2017\";\n","newFile":false}]}]}>
 

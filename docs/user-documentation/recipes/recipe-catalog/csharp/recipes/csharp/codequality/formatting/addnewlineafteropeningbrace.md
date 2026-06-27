@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add newline after opening brace"}
-  description={"Add newline after opening brace so the first statement starts on its own line."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.AddNewLineAfterOpeningBrace"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/formatting/addnewlineafteropeningbrace.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add newline after opening brace</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add newline after opening brace so the first statement starts on its own line.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.AddNewLineAfterOpeningBrace","displayName":"Add newline after opening brace","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@ValueSource(strings = [...])` annotations"}
-  description={"`@ValueSource(strings = [...])` is the simplest `@ParameterizedTest` data source. For tests where each row drives multiple parameters, `@CsvSource(...)` or `@MethodSource(...)` carry more information per case and read more like a table."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindParameterizedTestWithValueSourceStrings$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findparameterizedtestwithvaluesourcestrings$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@ValueSource(strings = [...])` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@ValueSource(strings = [...])` is the simplest `@ParameterizedTest` data source. For tests where each row drives multiple parameters, `@CsvSource(...)` or `@MethodSource(...)` carry more information per case and read more like a table.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindParameterizedTestWithValueSourceStrings$KtRecipe","displayName":"Find `@ValueSource(strings = [...])` annotations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

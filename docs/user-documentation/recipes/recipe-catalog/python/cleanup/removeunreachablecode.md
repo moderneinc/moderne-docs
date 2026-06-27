@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Strip dead code after terminal statements"}
-  description={"Delete statements that follow a `return`, `raise`, `continue`, or `break` in the same block, since they can never execute."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveUnreachableCode"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeunreachablecode.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Strip dead code after terminal statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Delete statements that follow a `return`, `raise`, `continue`, or `break` in the same block, since they can never execute.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveUnreachableCode","displayName":"Strip dead code after terminal statements","pipPackage":"openrewrite-static-analysis"}}>
 

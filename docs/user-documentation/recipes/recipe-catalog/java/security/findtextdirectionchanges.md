@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find text-direction changes"}
-  description={"Finds unicode control characters which can change the direction text is displayed in. These control characters can alter how source code is presented to a human reader without affecting its interpretation by tools like compilers. So a malicious patch could pass code review while introducing vulnerabilities. Note that text direction-changing unicode control characters aren't inherently malicious. These characters can appear for legitimate reasons in code written in or dealing with right-to-left languages. See: https://trojansource.codes/ for more information."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CVE-2021-42574"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.FindTextDirectionChanges"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/findtextdirectionchanges.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find text-direction changes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds unicode control characters which can change the direction text is displayed in. These control characters can alter how source code is presented to a human reader without affecting its interpretation by tools like compilers. So a malicious patch could pass code review while introducing vulnerabilities. Note that text direction-changing unicode control characters aren't inherently malicious. These characters can appear for legitimate reasons in code written in or dealing with right-to-left languages. See: https://trojansource.codes/ for more information.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void foo() {\n        boolean isAdmin = false;\n        /*‮ } ⁦ if(isAdmin) ⁩ ⁦ begin admins only */\n            System.out.println(\"You are an admin.\");\n        /* end admins only ‮ { ⁦ */\n    }\n}\n","after":"class A {\n    void foo() {\n        boolean isAdmin = false;\n        /*‮ } ⁦ if(isAdmin) ⁩ ⁦ begin admins only */\n            System.out./*~~(Found text-direction altering unicode control characters: LRI,RLO,PDI)~~>*/println(\"You are an admin.\");\n        /* end admins only ‮ { ⁦ */\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\n        boolean isAdmin = false;\n        /*‮ } ⁦ if(isAdmin) ⁩ ⁦ begin admins only */\n-           System.out.println(\"You are an admin.\");\n+           System.out./*~~(Found text-direction altering unicode control characters: LRI,RLO,PDI)~~>*/println(\"You are an admin.\");\n        /* end admins only ‮ { ⁦ */\n","newFile":false}]}]}>
 

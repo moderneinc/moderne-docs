@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Delete TOML table row"}
-  description={"Delete a TOML table row when one of its values matches the specified matcher."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-toml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.toml.DeleteTableRow"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/toml/deletetablerow.md"}
-/>
+>
+
+<RecipeHeader.Title>Delete TOML table row</RecipeHeader.Title>
+
+<RecipeHeader.Description>Delete a TOML table row when one of its values matches the specified matcher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"tableName","required":true,"description":"The name of the TOML array table to delete (e.g., 'package.contributors').","example":"package.contributors"},{"type":"String","name":"identifyingKey","required":true,"description":"The key within a table row to match on.","example":"name"},{"type":"String","name":"identifyingValue","required":true,"description":"The value to match. Can be a regular expression if useRegex is true.","example":"example-*"},{"type":"Boolean","name":"useRegex","required":false,"description":"Whether to interpret the value as a regular expression. Default is false."}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update to Micronaut 4.x platform BOM"}
-  description={"This recipe will update a Gradle or Maven build to reference the Micronaut 4 platform BOM."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.UpdateMicronautPlatformBom"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautplatformbom.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Maven parent","href":"maven/changeparentpom"}]}>
+<RecipeHeader.Title>Update to Micronaut 4.x platform BOM</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will update a Gradle or Maven build to reference the Micronaut 4 platform BOM.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Maven parent","href":"/user-documentation/recipes/recipe-catalog/maven/changeparentpom/"}]}>
 
 ## Definition
 

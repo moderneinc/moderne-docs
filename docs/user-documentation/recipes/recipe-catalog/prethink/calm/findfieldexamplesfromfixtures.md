@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find field examples from JSON fixtures"}
-  description={"Walk JSON and YAML fixture files under src/test/resources and emit raw (fixturePath, jsonPath, value, valueType) rows so that an LLM can mine realistic example values for OpenAPI specs and contract tests."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindFieldExamplesFromFixtures"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findfieldexamplesfromfixtures.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find field examples from JSON fixtures</RecipeHeader.Title>
+
+<RecipeHeader.Description>Walk JSON and YAML fixture files under src/test/resources and emit raw (fixturePath, jsonPath, value, valueType) rows so that an LLM can mine realistic example values for OpenAPI specs and contract tests.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindFieldExamplesFromFixtures","displayName":"Find field examples from JSON fixtures","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose `Modifier` smells"}
-  description={"Modifier-chain shapes that allocate per recomposition (`Modifier.padding(...)` inline), branch with structurally distinct chains (`if (x) Modifier.foo() else Modifier`), or stack `fillMax`/`padding` in a layout-changing order. Each match needs the author's intent to fix correctly."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposeModifierIssues$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposemodifierissues$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Modifier.xxx()` allocations inside a `@Composable` body","href":"kotlin/compose/findinlinemodifierconstruction$ktrecipe"},{"name":"Find `if (x) Modifier.foo() else Modifier` patterns","href":"kotlin/compose/findconditionalmodifier$ktrecipe"},{"name":"Find `Modifier.fillMaxXxx().padding(...)` chains","href":"kotlin/compose/findmodifierfillmaxandpaddingordersmell$ktrecipe"},{"name":"Find `Canvas { … }` blocks inside a `@Composable`","href":"kotlin/compose/findcanvasincomposable$ktrecipe"},{"name":"Find `n.dp` allocations inside a `@Composable` body","href":"kotlin/compose/finddpallocationincomposablebody$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose `Modifier` smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Modifier-chain shapes that allocate per recomposition (`Modifier.padding(...)` inline), branch with structurally distinct chains (`if (x) Modifier.foo() else Modifier`), or stack `fillMax`/`padding` in a layout-changing order. Each match needs the author's intent to fix correctly.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Modifier.xxx()` allocations inside a `@Composable` body","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findinlinemodifierconstruction$ktrecipe/"},{"name":"Find `if (x) Modifier.foo() else Modifier` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findconditionalmodifier$ktrecipe/"},{"name":"Find `Modifier.fillMaxXxx().padding(...)` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierfillmaxandpaddingordersmell$ktrecipe/"},{"name":"Find `Canvas { … }` blocks inside a `@Composable`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findcanvasincomposable$ktrecipe/"},{"name":"Find `n.dp` allocations inside a `@Composable` body","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/finddpallocationincomposablebody$ktrecipe/"}]}>
 
 ## Definition
 

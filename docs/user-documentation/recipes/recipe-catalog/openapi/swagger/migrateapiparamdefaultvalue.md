@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `@ApiParam(defaultValue)` to `@Parameter(schema)`"}
-  description={"Migrate `@ApiParam(defaultValue)` to `@Parameter(schema = @Schema(defaultValue))`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.MigrateApiParamDefaultValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiparamdefaultvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `@ApiParam(defaultValue)` to `@Parameter(schema)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate `@ApiParam(defaultValue)` to `@Parameter(schema = @Schema(defaultValue))`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.openapi.swagger.MigrateApiParamDefaultValue","displayName":"Migrate `@ApiParam(defaultValue)` to `@Parameter(schema)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-openapi","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_OPENAPI","requiresConfiguration":false}}>
 

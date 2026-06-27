@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Jetty `AbstractHandler` to Jetty 12 `Handler.Abstract`"}
-  description={"Migrates custom Jetty handler implementations from Jetty 11's `AbstractHandler` (used in Dropwizard 4.x) to Jetty 12's `Handler.Abstract` (used in Dropwizard 5.x). This changes the `handle` method signature and updates `baseRequest.setHandled(true)` to use `Callback` and return `true`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.dw5.MigrateJettyHandlerSignature"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/dw5/migratejettyhandlersignature.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Jetty `AbstractHandler` to Jetty 12 `Handler.Abstract`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates custom Jetty handler implementations from Jetty 11's `AbstractHandler` (used in Dropwizard 4.x) to Jetty 12's `Handler.Abstract` (used in Dropwizard 5.x). This changes the `handle` method signature and updates `baseRequest.setHandled(true)` to use `Callback` and return `true`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.eclipse.jetty.server.Request;\nimport org.eclipse.jetty.server.handler.AbstractHandler;\nimport jakarta.servlet.http.HttpServletRequest;\nimport jakarta.servlet.http.HttpServletResponse;\n\nclass MyHandler extends AbstractHandler {\n    @Override\n    public void handle(String target, Request baseRequest,\n                       HttpServletRequest request, HttpServletResponse response) throws Exception {\n        response.setStatus(200);\n        baseRequest.setHandled(true);\n    }\n}\n","after":"import org.eclipse.jetty.server.Handler;\nimport org.eclipse.jetty.server.Request;\nimport org.eclipse.jetty.server.Response;\nimport org.eclipse.jetty.util.Callback;\nimport jakarta.servlet.http.HttpServletResponse;\n\nclass MyHandler extends Handler.Abstract {\n    @Override\n    public boolean handle(Request request, Response response, Callback callback) throws Exception {\n        response.setStatus(200);\n        callback.succeeded();\n        return true;\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.eclipse.jetty.server.Handler;\nimport org.eclipse.jetty.server.Request;\n@@ -2,2 +3,2 @@\nimport org.eclipse.jetty.server.Request;\n-import org.eclipse.jetty.server.handler.AbstractHandler;\n-import jakarta.servlet.http.HttpServletRequest;\n+import org.eclipse.jetty.server.Response;\n+import org.eclipse.jetty.util.Callback;\nimport jakarta.servlet.http.HttpServletResponse;\n@@ -6,1 +7,1 @@\nimport jakarta.servlet.http.HttpServletResponse;\n\n-class MyHandler extends AbstractHandler {\n+class MyHandler extends Handler.Abstract {\n    @Override\n@@ -8,2 +9,1 @@\nclass MyHandler extends AbstractHandler {\n    @Override\n-   public void handle(String target, Request baseRequest,\n-                      HttpServletRequest request, HttpServletResponse response) throws Exception {\n+   public boolean handle(Request request, Response response, Callback callback) throws Exception {\n        response.setStatus(200);\n@@ -11,1 +11,2 @@\n                       HttpServletRequest request, HttpServletResponse response) throws Exception {\n        response.setStatus(200);\n-       baseRequest.setHandled(true);\n+       callback.succeeded();\n+       return true;\n    }\n","newFile":false}]}]}>
 

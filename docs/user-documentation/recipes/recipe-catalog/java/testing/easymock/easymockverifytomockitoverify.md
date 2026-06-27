@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace EasyMock `verify` calls with Mockito `verify` calls"}
-  description={"Replace `EasyMock.verify(dependency)` with individual `Mockito.verify(dependency).method()` calls based on expected methods."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.easymock.EasyMockVerifyToMockitoVerify"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/easymock/easymockverifytomockitoverify.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace EasyMock `verify` calls with Mockito `verify` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `EasyMock.verify(dependency)` with individual `Mockito.verify(dependency).method()` calls based on expected methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.easymock.EasyMock.*;\n\npublic class ExampleTest {\n    public void testServiceMethod() {\n        Dependency dependency = createNiceMock(Dependency.class);\n        expect(dependency.action(\"\", 2)).andReturn(\"result\");\n\n        Dependency dependency2 = createNiceMock(Dependency.class);\n        expect(dependency2.action(\"\", 2)).andReturn(\"result\");\n        expect(dependency2.action2());\n\n        Dependency dependency3 = createNiceMock(Dependency.class);\n        expect(dependency3.action(\"A\", 1)).andReturn(\"result\");\n        expect(dependency3.action2()).andReturn(\"result\");\n        expect(dependency3.action3(3.3)).andReturn(\"result\");\n\n        verify(dependency);\n        verify(dependency2);\n        verify(dependency3);\n    }\n\n    interface Dependency {\n        String action(String s, int i);\n        String action2();\n        String action3(double d);\n    }\n}\n","after":"import static org.easymock.EasyMock.expect;\nimport static org.mockito.Mockito.verify;\nimport static org.easymock.EasyMock.createNiceMock;\n\npublic class ExampleTest {\n    public void testServiceMethod() {\n        Dependency dependency = createNiceMock(Dependency.class);\n        expect(dependency.action(\"\", 2)).andReturn(\"result\");\n\n        Dependency dependency2 = createNiceMock(Dependency.class);\n        expect(dependency2.action(\"\", 2)).andReturn(\"result\");\n        expect(dependency2.action2());\n\n        Dependency dependency3 = createNiceMock(Dependency.class);\n        expect(dependency3.action(\"A\", 1)).andReturn(\"result\");\n        expect(dependency3.action2()).andReturn(\"result\");\n        expect(dependency3.action3(3.3)).andReturn(\"result\");\n\n        verify(dependency).action(\"\", 2);\n        verify(dependency2).action(\"\", 2);\n        verify(dependency2).action2();\n        verify(dependency3).action(\"A\", 1);\n        verify(dependency3).action2();\n        verify(dependency3).action3(3.3);\n    }\n\n    interface Dependency {\n        String action(String s, int i);\n        String action2();\n        String action3(double d);\n    }\n}\n","diff":"@@ -1,1 +1,3 @@\n-import static org.easymock.EasyMock.*;\n+import static org.easymock.EasyMock.expect;\n+import static org.mockito.Mockito.verify;\n+import static org.easymock.EasyMock.createNiceMock;\n\n@@ -17,3 +19,6 @@\n        expect(dependency3.action3(3.3)).andReturn(\"result\");\n\n-       verify(dependency);\n-       verify(dependency2);\n-       verify(dependency3);\n+       verify(dependency).action(\"\", 2);\n+       verify(dependency2).action(\"\", 2);\n+       verify(dependency2).action2();\n+       verify(dependency3).action(\"A\", 1);\n+       verify(dependency3).action2();\n+       verify(dependency3).action3(3.3);\n    }\n","newFile":false}]}]}>
 

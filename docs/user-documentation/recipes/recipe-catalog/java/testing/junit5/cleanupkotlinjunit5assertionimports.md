@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove JUnit 5 static Assertions imports in Kotlin when wildcard import is present"}
-  description={"In Kotlin, when both `import org.junit.jupiter.api.*` and static imports from `org.junit.jupiter.api.Assertions` are present, there is overload resolution ambiguity between the Java static methods and the Kotlin extension functions. This recipe removes the static Assertions imports when the wildcard import is present, allowing the Kotlin extension functions to be used instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.CleanupKotlinJUnit5AssertionImports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/cleanupkotlinjunit5assertionimports.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove JUnit 5 static Assertions imports in Kotlin when wildcard import is present</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Kotlin, when both `import org.junit.jupiter.api.*` and static imports from `org.junit.jupiter.api.Assertions` are present, there is overload resolution ambiguity between the Java static methods and the Kotlin extension functions. This recipe removes the static Assertions imports when the wildcard import is present, allowing the Kotlin extension functions to be used instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"import org.junit.jupiter.api.*\nimport org.junit.jupiter.api.Assertions.*\n\nclass ATest {\n    @Test\n    fun testSomething() {\n        assertNull(null)\n        assertNotNull(\"test\")\n    }\n}\n","after":"import org.junit.jupiter.api.*\n\nclass ATest {\n    @Test\n    fun testSomething() {\n        assertNull(null)\n        assertNotNull(\"test\")\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport org.junit.jupiter.api.*\n-import org.junit.jupiter.api.Assertions.*\n\n","newFile":false}]}]}>
 

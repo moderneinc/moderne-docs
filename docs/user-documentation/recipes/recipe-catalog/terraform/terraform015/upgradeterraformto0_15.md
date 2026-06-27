@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Terraform to 0.15"}
-  description={"Migrate Terraform configuration from 0.14 to 0.15. Finds usage of provisioners that were removed in Terraform 0.15: `chef`, `habitat`, `puppet`, and `salt-masterless`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["terraform"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.terraform015.UpgradeTerraformTo0_15"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/terraform015/upgradeterraformto0_15.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Terraform to 0.14","href":"terraform/upgradeterraformto0_14"},{"name":"Find removed provisioners","href":"terraform/terraform015/findremovedprovisioners"}]}>
+<RecipeHeader.Title>Upgrade Terraform to 0.15</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Terraform configuration from 0.14 to 0.15. Finds usage of provisioners that were removed in Terraform 0.15: `chef`, `habitat`, `puppet`, and `salt-masterless`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Terraform to 0.14","href":"/user-documentation/recipes/recipe-catalog/terraform/upgradeterraformto0_14/"},{"name":"Find removed provisioners","href":"/user-documentation/recipes/recipe-catalog/terraform/terraform015/findremovedprovisioners/"}]}>
 
 ## Definition
 

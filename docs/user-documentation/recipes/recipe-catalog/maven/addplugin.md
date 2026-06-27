@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Maven plugin"}
-  description={"Add the specified Maven plugin to the pom.xml."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.AddPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/addplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Add Maven plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add the specified Maven plugin to the pom.xml.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate 'org.openrewrite.maven:rewrite-maven-plugin:VERSION'.","example":"org.openrewrite.maven"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate 'org.openrewrite.maven:rewrite-maven-plugin:VERSION'.","example":"rewrite-maven-plugin"},{"type":"String","name":"version","required":false,"description":"A fixed version of the plugin to add.","example":"1.0.0"},{"type":"String","name":"configuration","required":false,"description":"Optional plugin configuration provided as raw XML","example":"<configuration><foo>foo</foo></configuration>"},{"type":"String","name":"dependencies","required":false,"description":"Optional plugin dependencies provided as raw XML.","example":"<dependencies><dependency><groupId>com.yourorg</groupId><artifactId>core-lib</artifactId><version>1.0.0</version></dependency></dependencies>"},{"type":"String","name":"executions","required":false,"description":"Optional executions provided as raw XML.","example":"<executions><execution><phase>generate-sources</phase><goals><goal>add-source</goal></goals></execution></executions>"},{"type":"String","name":"filePattern","required":false,"description":"A glob expression that can be used to constrain which directories or source files should be searched. Multiple patterns may be specified, separated by a semicolon `;`. If multiple patterns are supplied any of the patterns matching will be interpreted as a match. When not set, all source files are searched. ","example":"**/*-parent/grpc-*/pom.xml"}]}>
 

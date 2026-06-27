@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find nested `withContext` calls"}
-  description={"A `withContext(...)` nested inside another `withContext(...)` rarely makes sense — the inner switch only matters if the dispatchers differ, and in either case the redundancy is worth a second look."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindWithContextInsideSameDispatcher$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findwithcontextinsidesamedispatcher$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find nested `withContext` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `withContext(...)` nested inside another `withContext(...)` rarely makes sense — the inner switch only matters if the dispatchers differ, and in either case the redundancy is worth a second look.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindWithContextInsideSameDispatcher$KtRecipe","displayName":"Find nested `withContext` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

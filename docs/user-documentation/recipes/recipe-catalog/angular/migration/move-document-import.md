@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move `DOCUMENT` import to `@angular/core`"}
-  description={"Moves the `DOCUMENT` import from older Angular modules to `@angular/core`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.move-document-import"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/move-document-import.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change import","href":"javascript/change-import"},{"name":"Change import","href":"javascript/change-import"}]}>
+<RecipeHeader.Title>Move `DOCUMENT` import to `@angular/core`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Moves the `DOCUMENT` import from older Angular modules to `@angular/core`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/javascript/change-import/"},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/javascript/change-import/"}]}>
 
 ## Definition
 

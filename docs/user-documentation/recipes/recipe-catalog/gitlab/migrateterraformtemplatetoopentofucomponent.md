@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate GitLab Terraform template to OpenTofu component"}
-  description={"Replace the deprecated `Terraform/Base.latest.gitlab-ci.yml` template include with the OpenTofu CI/CD component, per the GitLab catalog migration guide."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ci","gitlab","terraform","opentofu"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.MigrateTerraformTemplateToOpenTofuComponent"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/migrateterraformtemplatetoopentofucomponent.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate GitLab template to component","href":"gitlab/migratetemplatetocomponent"}]}>
+<RecipeHeader.Title>Migrate GitLab Terraform template to OpenTofu component</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace the deprecated `Terraform/Base.latest.gitlab-ci.yml` template include with the OpenTofu CI/CD component, per the GitLab catalog migration guide.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate GitLab template to component","href":"/user-documentation/recipes/recipe-catalog/gitlab/migratetemplatetocomponent/"}]}>
 
 ## Definition
 

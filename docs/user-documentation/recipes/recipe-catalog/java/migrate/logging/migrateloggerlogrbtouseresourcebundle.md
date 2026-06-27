@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Logger#logrb(.., ResourceBundle bundleName, ..)`"}
-  description={"Use `Logger#logrb(.., ResourceBundle bundleName, ..)` instead of the deprecated `java.util.logging.Logger#logrb(.., String bundleName, ..)` in Java 8 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["deprecated"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.logging.MigrateLoggerLogrbToUseResourceBundle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/logging/migrateloggerlogrbtouseresourcebundle.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Logger#logrb(.., ResourceBundle bundleName, ..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `Logger#logrb(.., ResourceBundle bundleName, ..)` instead of the deprecated `java.util.logging.Logger#logrb(.., String bundleName, ..)` in Java 8 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.example;\n\nimport java.util.logging.Level;\nimport java.util.logging.Logger;\n\npublic class Test {\n    Logger logger = Logger.getLogger(\"myLogger\");\n\n    public void method() {\n        logger.logrb(Level.parse(\"0\"), \"sourceClass\", \"sourceMethod\", \"bundleName\", \"msg\");\n    }\n}\n","after":"package org.openrewrite.example;\n\nimport java.util.ResourceBundle;\nimport java.util.logging.Level;\nimport java.util.logging.Logger;\n\npublic class Test {\n    Logger logger = Logger.getLogger(\"myLogger\");\n\n    public void method() {\n        logger.logrb(Level.parse(\"0\"), \"sourceClass\", \"sourceMethod\", ResourceBundle.getBundle(\"bundleName\"), \"msg\");\n    }\n}\n","diff":"@@ -3,0 +3,1 @@\npackage org.openrewrite.example;\n\n+import java.util.ResourceBundle;\nimport java.util.logging.Level;\n@@ -10,1 +11,1 @@\n\n    public void method() {\n-       logger.logrb(Level.parse(\"0\"), \"sourceClass\", \"sourceMethod\", \"bundleName\", \"msg\");\n+       logger.logrb(Level.parse(\"0\"), \"sourceClass\", \"sourceMethod\", ResourceBundle.getBundle(\"bundleName\"), \"msg\");\n    }\n","newFile":false}]}]}>
 

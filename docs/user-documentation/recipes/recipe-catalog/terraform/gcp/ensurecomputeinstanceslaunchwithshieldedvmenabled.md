@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure compute instances launch with shielded VM enabled"}
-  description={"Ensure compute instances launch with shielded VM enabled."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["GCP","terraform","CKV_GCP_39"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.gcp.EnsureComputeInstancesLaunchWithShieldedVMEnabled"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/gcp/ensurecomputeinstanceslaunchwithshieldedvmenabled.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Ensure compute instances launch with shielded VM enabled</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure compute instances launch with shielded VM enabled.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `providedIn` values"}
-  description={"Finds usages of `providedIn: 'any'` and `providedIn: NgModule` in `@Injectable` and `InjectionToken` declarations. These were deprecated in Angular 15. Use `providedIn: 'root'` or add the service to `NgModule.providers` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-provided-in-deprecated-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-provided-in-deprecated-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated `providedIn` values</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of `providedIn: 'any'` and `providedIn: NgModule` in `@Injectable` and `InjectionToken` declarations. These were deprecated in Angular 15. Use `providedIn: 'root'` or add the service to `NgModule.providers` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-provided-in-deprecated-usage","displayName":"Find deprecated `providedIn` values","npmPackage":"@openrewrite/recipes-angular"}}>
 

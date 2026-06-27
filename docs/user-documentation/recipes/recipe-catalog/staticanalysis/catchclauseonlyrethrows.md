@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Catch clause should do more than just rethrow"}
-  description={"A `catch` clause that only rethrows the caught exception is unnecessary. Letting the exception bubble up as normal achieves the same result with less code. Such catch blocks add visual noise and indentation without changing program behavior."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2737"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CatchClauseOnlyRethrows"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/catchclauseonlyrethrows.md"}
-/>
+>
+
+<RecipeHeader.Title>Catch clause should do more than just rethrow</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `catch` clause that only rethrows the caught exception is unnecessary. Letting the exception bubble up as normal achieves the same result with less code. Such catch blocks add visual noise and indentation without changing program behavior.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void foo() throws IllegalAccessException {\n        try {\n            throw new IllegalAccessException();\n        } catch (Exception e) {\n            throw e; // `e` is removed below\n        }\n    }\n}\n","after":"class A {\n    void foo() throws IllegalAccessException {\n        throw new IllegalAccessException();\n    }\n}\n","diff":"@@ -3,5 +3,1 @@\nclass A {\n    void foo() throws IllegalAccessException {\n-       try {\n-           throw new IllegalAccessException();\n-       } catch (Exception e) {\n-           throw e; // `e` is removed below\n-       }\n+       throw new IllegalAccessException();\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import java.io.FileReader;\nimport java.io.IOException;\n\nclass A {\n    void foo() throws IOException {\n        try {\n            new FileReader(\"\").read();\n        } catch (IOException e) {\n            throw e;\n        }\n    }\n}\n","after":"import java.io.FileReader;\nimport java.io.IOException;\n\nclass A {\n    void foo() throws IOException {\n        new FileReader(\"\").read();\n    }\n}\n","diff":"@@ -6,5 +6,1 @@\nclass A {\n    void foo() throws IOException {\n-       try {\n-           new FileReader(\"\").read();\n-       } catch (IOException e) {\n-           throw e;\n-       }\n+       new FileReader(\"\").read();\n    }\n","newFile":false}]}]}>
 

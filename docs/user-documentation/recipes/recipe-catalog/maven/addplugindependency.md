@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Maven plugin dependencies"}
-  description={"Adds the specified dependencies to a Maven plugin. Will not add the plugin if it does not already exist in the pom."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.AddPluginDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/addplugindependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Add Maven plugin dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the specified dependencies to a Maven plugin. Will not add the plugin if it does not already exist in the pom.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"pluginGroupId","required":true,"description":"Group ID of the plugin to which the dependency will be added. A group ID is the first part of a dependency coordinate `org.openrewrite.maven:rewrite-maven-plugin:VERSION`.","example":"org.openrewrite.maven"},{"type":"String","name":"pluginArtifactId","required":true,"description":"Artifact ID of the plugin to which the dependency will be added.The second part of a dependency coordinate `org.openrewrite.maven:rewrite-maven-plugin:VERSION`.","example":"rewrite-maven-plugin"},{"type":"String","name":"groupId","required":true,"description":"The group ID of the dependency to add.","example":"org.openrewrite.recipe"},{"type":"String","name":"artifactId","required":true,"description":"The artifact ID of the dependency to add.","example":"org.openrewrite.recipe"},{"type":"String","name":"version","required":true,"description":"The version of the dependency to add.","example":"org.openrewrite.recipe"}]}>
 

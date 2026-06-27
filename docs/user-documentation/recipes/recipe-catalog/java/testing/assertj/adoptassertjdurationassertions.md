@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adopt AssertJ Duration assertions"}
-  description={"Adopt AssertJ `DurationAssert` assertions for more expressive messages."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.AdoptAssertJDurationAssertions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/adoptassertjdurationassertions.md"}
-/>
+>
+
+<RecipeHeader.Title>Adopt AssertJ Duration assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adopt AssertJ `DurationAssert` assertions for more expressive messages.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.time.Duration;\nimport java.time.temporal.Temporal;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass Foo {\n    void testMethod(Temporal timestampA, Temporal timestampB) {\n        assertThat(Duration.between(timestampA, timestampB).getSeconds()).isEqualTo(1);\n    }\n}\n","after":"import java.time.Duration;\nimport java.time.temporal.Temporal;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass Foo {\n    void testMethod(Temporal timestampA, Temporal timestampB) {\n        assertThat(Duration.between(timestampA, timestampB)).hasSeconds(1);\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\nclass Foo {\n    void testMethod(Temporal timestampA, Temporal timestampB) {\n-       assertThat(Duration.between(timestampA, timestampB).getSeconds()).isEqualTo(1);\n+       assertThat(Duration.between(timestampA, timestampB)).hasSeconds(1);\n    }\n","newFile":false}]}]}>
 

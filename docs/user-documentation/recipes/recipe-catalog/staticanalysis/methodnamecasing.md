@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Standardize method name casing"}
-  description={"Fixes method names that do not follow standard naming conventions. For example, `String getFoo_bar()` would be adjusted to `String getFooBar()` and `int DoSomething()` would be adjusted to `int doSomething()`. Following a consistent casing convention for method names improves code readability and helps developers quickly distinguish methods from classes or constants."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S100"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.MethodNameCasing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/methodnamecasing.md"}
-/>
+>
+
+<RecipeHeader.Title>Standardize method name casing</RecipeHeader.Title>
+
+<RecipeHeader.Description>Fixes method names that do not follow standard naming conventions. For example, `String getFoo_bar()` would be adjusted to `String getFooBar()` and `int DoSomething()` would be adjusted to `int doSomething()`. Following a consistent casing convention for method names improves code readability and helps developers quickly distinguish methods from classes or constants.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"includeTestSources","required":false,"description":"Changes only apply to main by default. `includeTestSources` will apply the recipe to `test` source files."},{"type":"Boolean","name":"renamePublicMethods","required":false,"description":"Changes are not applied to public methods unless specified."}]}>
 

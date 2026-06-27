@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adopt `@Container` and add `@Testcontainers`"}
-  description={"Convert Testcontainers `@Rule`/`@ClassRule` to JUnit 5 `@Container` and add `@Testcontainers`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testcontainers.AddTestcontainersAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/addtestcontainersannotations.md"}
-/>
+>
+
+<RecipeHeader.Title>Adopt `@Container` and add `@Testcontainers`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert Testcontainers `@Rule`/`@ClassRule` to JUnit 5 `@Container` and add `@Testcontainers`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Rule;\nimport org.junit.Test;\nimport org.testcontainers.containers.GenericContainer;\n\nclass MyTest {\n    @Rule\n    public GenericContainer<?> myContainer = new GenericContainer<>(\"redis:latest\");\n}\n","after":"import org.junit.Test;\nimport org.testcontainers.containers.GenericContainer;\nimport org.testcontainers.junit.jupiter.Container;\nimport org.testcontainers.junit.jupiter.Testcontainers;\n\n@Testcontainers\nclass MyTest {\n    @Container\n    public GenericContainer<?> myContainer = new GenericContainer<>(\"redis:latest\");\n}\n","diff":"@@ -1,1 +1,0 @@\n-import org.junit.Rule;\nimport org.junit.Test;\n@@ -4,0 +3,2 @@\nimport org.junit.Test;\nimport org.testcontainers.containers.GenericContainer;\n+import org.testcontainers.junit.jupiter.Container;\n+import org.testcontainers.junit.jupiter.Testcontainers;\n\n@@ -5,0 +6,1 @@\nimport org.testcontainers.containers.GenericContainer;\n\n+@Testcontainers\nclass MyTest {\n@@ -6,1 +8,1 @@\n\nclass MyTest {\n-   @Rule\n+   @Container\n    public GenericContainer<?> myContainer = new GenericContainer<>(\"redis:latest\");\n","newFile":false}]}]}>
 

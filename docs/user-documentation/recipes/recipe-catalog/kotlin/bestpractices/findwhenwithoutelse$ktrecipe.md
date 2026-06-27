@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `when (x)` expressions without an `else` branch"}
-  description={"A `when (x)` used as an expression requires exhaustiveness — without an `else`, the compiler can only prove it for sealed/`enum` selectors. Used as a statement, the missing `else` is a tripwire: any new variant silently falls through. Flag for review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindWhenWithoutElse$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenwithoutelse$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `when (x)` expressions without an `else` branch</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `when (x)` used as an expression requires exhaustiveness — without an `else`, the compiler can only prove it for sealed/`enum` selectors. Used as a statement, the missing `else` is a tripwire: any new variant silently falls through. Flag for review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindWhenWithoutElse$KtRecipe","displayName":"Find `when (x)` expressions without an `else` branch","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

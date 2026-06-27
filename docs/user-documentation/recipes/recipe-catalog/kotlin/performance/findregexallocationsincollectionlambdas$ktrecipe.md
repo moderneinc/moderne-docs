@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Regex` allocations inside collection lambdas"}
-  description={"A `Regex` allocated inside the lambda passed to `map`, `filter`, `forEach`, `flatMap`, etc. is compiled once per element. Hoist the regex to a top-level property — collection-pipeline lambdas run on every element, just like a loop body."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindRegexAllocationsInCollectionLambdas$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findregexallocationsincollectionlambdas$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Regex` allocations inside collection lambdas</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `Regex` allocated inside the lambda passed to `map`, `filter`, `forEach`, `flatMap`, etc. is compiled once per element. Hoist the regex to a top-level property — collection-pipeline lambdas run on every element, just like a loop body.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindRegexAllocationsInCollectionLambdas$KtRecipe","displayName":"Find `Regex` allocations inside collection lambdas","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

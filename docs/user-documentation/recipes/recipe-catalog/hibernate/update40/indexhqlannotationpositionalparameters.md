@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Index HQL/JPQL positional parameters in annotations"}
-  description={"Replaces unindexed `?` positional parameters with indexed `?1`, `?2`, etc. in an HQL/JPQL query string held in an annotation attribute matching the given pattern."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update40.IndexHqlAnnotationPositionalParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update40/indexhqlannotationpositionalparameters.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Index HQL/JPQL positional parameters in annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces unindexed `?` positional parameters with indexed `?1`, `?2`, etc. in an HQL/JPQL query string held in an annotation attribute matching the given pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"annotationPattern","required":true,"description":"An annotation pattern whose HQL/JPQL query string attribute should be indexed. Use `attributeName` to specify which attribute holds the query if it is not `value`.","example":"@jakarta.persistence.NamedQuery"},{"type":"String","name":"attributeName","required":false,"description":"The annotation attribute that holds the HQL/JPQL query string. Defaults to `value`.","example":"value"}]}>
 

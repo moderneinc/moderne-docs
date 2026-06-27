@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find missing type information on Java LSTs"}
-  description={"This is a diagnostic recipe to highlight where LSTs are missing type attribution information."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindMissingTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/findmissingtypes.md"}
-/>
+>
+
+<RecipeHeader.Title>Find missing type information on Java LSTs</RecipeHeader.Title>
+
+<RecipeHeader.Description>This is a diagnostic recipe to highlight where LSTs are missing type attribution information.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"boolean","name":"checkDocumentation","required":false,"description":"When set to `true` any references in documentation (i.e. Javadoc for Java) will also be checked. Default is `false`."}]}>
 

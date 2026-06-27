@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Session Hazelcast to Hazelcast Spring Session"}
-  description={"Spring Boot 4.0 removed direct support for Spring Session Hazelcast. The Hazelcast team now maintains their own Spring Session integration. This recipe changes the dependency from `org.springframework.session:spring-session-hazelcast` to `com.hazelcast.spring:hazelcast-spring-session` and updates the package from `org.springframework.session.hazelcast` to `com.hazelcast.spring.session`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","hazelcast","session","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.MigrateHazelcastSpringSession"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratehazelcastspringsession.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Rename package name","href":"java/changepackage"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate Spring Session Hazelcast to Hazelcast Spring Session</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot 4.0 removed direct support for Spring Session Hazelcast. The Hazelcast team now maintains their own Spring Session integration. This recipe changes the dependency from `org.springframework.session:spring-session-hazelcast` to `com.hazelcast.spring:hazelcast-spring-session` and updates the package from `org.springframework.session.hazelcast` to `com.hazelcast.spring.session`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

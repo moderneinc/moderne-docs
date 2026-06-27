@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"The syntax for retrieving a single field of a secret has been changed"}
-  description={"The syntax for retrieving a single field of a secret has been changed.."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel49.GcpSecretRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel49/gcpsecretrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replaces a literal matching an expression","href":"apache/camel/upgrade/customrecipes/literalregexpconverterrecipe"}]}>
+<RecipeHeader.Title>The syntax for retrieving a single field of a secret has been changed</RecipeHeader.Title>
+
+<RecipeHeader.Description>The syntax for retrieving a single field of a secret has been changed..</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replaces a literal matching an expression","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/literalregexpconverterrecipe/"}]}>
 
 ## Definition
 

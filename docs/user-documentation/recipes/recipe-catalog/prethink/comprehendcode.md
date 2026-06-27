@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Comprehend code with AI"}
-  description={"Use an LLM to generate descriptions for classes and methods in the codebase. Descriptions are cached based on source code checksums to avoid regenerating descriptions for unchanged code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.ComprehendCode"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Comprehend code with AI</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use an LLM to generate descriptions for classes and methods in the codebase. Descriptions are cached based on source code checksums to avoid regenerating descriptions for unchanged code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"provider","required":false,"description":"LLM provider: openai, gemini, or poolside.","example":"poolside"},{"type":"String","name":"apiKey","required":false,"description":"API key for the LLM provider.","example":"sk-..."},{"type":"String","name":"model","required":false,"description":"Model name to use.","example":"malibu"},{"type":"String","name":"baseUrl","required":false,"description":"Custom base URL for the LLM provider (for self-hosted instances).","example":"https://divers.poolsi.de/openai/v1/"},{"type":"Integer","name":"requestsPerMinute","required":false,"description":"Rate limit for LLM requests.","example":"60"}]}>
 

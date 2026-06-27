@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `runCatching { }.onSuccess { … }` chains with no failure handler"}
-  description={"`runCatching { }.onSuccess { … }` with nothing after it discards the failure side of the `Result`. The success block runs only on success; the failure case vanishes silently. Add a paired `.onFailure { }` for diagnostics, or `.fold(::onSuccess, ::onFailure)` to make both cases explicit."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindRunCatchingOnSuccessOnly$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingonsuccessonly$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `runCatching { }.onSuccess { … }` chains with no failure handler</RecipeHeader.Title>
+
+<RecipeHeader.Description>`runCatching { }.onSuccess { … }` with nothing after it discards the failure side of the `Result`. The success block runs only on success; the failure case vanishes silently. Add a paired `.onFailure { }` for diagnostics, or `.fold(::onSuccess, ::onFailure)` to make both cases explicit.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindRunCatchingOnSuccessOnly$KtRecipe","displayName":"Find `runCatching { }.onSuccess { … }` chains with no failure handler","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

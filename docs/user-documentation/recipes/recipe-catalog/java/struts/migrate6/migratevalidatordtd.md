@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `xwork-validator` DTD to 1.0.4"}
-  description={"Update `xwork-validator` DTD from 1.0.3 to 1.0.4 for Struts 6 compatibility."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate6.MigrateValidatorDtd"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratevalidatordtd.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `xwork-validator` DTD to 1.0.4</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update `xwork-validator` DTD from 1.0.3 to 1.0.4 for Struts 6 compatibility.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE validators PUBLIC\n        \"-//Apache Struts//XWork Validator 1.0.3//EN\"\n        \"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd\">\n<validators>\n    <field name=\"username\">\n        <field-validator type=\"requiredstring\">\n            <message>Username is required</message>\n        </field-validator>\n    </field>\n</validators>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE validators PUBLIC\n        \"-//Apache Struts//XWork Validator 1.0.4//EN\"\n        \"http://struts.apache.org/dtds/xwork-validator-1.0.4.dtd\">\n<validators>\n    <field name=\"username\">\n        <field-validator type=\"requiredstring\">\n            <message>Username is required</message>\n        </field-validator>\n    </field>\n</validators>\n","diff":"--- UserAction-validation.xml\n+++ UserAction-validation.xml\n@@ -3,2 +3,2 @@\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE validators PUBLIC\n-       \"-//Apache Struts//XWork Validator 1.0.3//EN\"\n-       \"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd\">\n+       \"-//Apache Struts//XWork Validator 1.0.4//EN\"\n+       \"http://struts.apache.org/dtds/xwork-validator-1.0.4.dtd\">\n<validators>\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replaces a literal matching an expression"}
-  description={"Replaces literal, groups from regexp can be used as ${0}, ${1}, ..."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.customRecipes.LiteralRegexpConverterRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/literalregexpconverterrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replaces a literal matching an expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces literal, groups from regexp can be used as $&#123;0}, $&#123;1}, ...</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"regexp","required":true,"description":"Regexp for matching a literal.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"replacement","required":true,"description":"Replacement to use.","example":"TODO Provide a usage example for the docs"}]}>
 

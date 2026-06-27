@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsNotEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractDoubleAssertIsNotEqualTo {\n    \n    @BeforeTemplate\n    AbstractDoubleAssert<?> before(AbstractDoubleAssert<?> doubleAssert, double n) {\n        return Refaster.anyOf(doubleAssert.isNotCloseTo(n, offset(0.0)), doubleAssert.isNotCloseTo(n, withPercentage(0.0)));\n    }\n    \n    @AfterTemplate\n    AbstractDoubleAssert<?> after(AbstractDoubleAssert<?> doubleAssert, double n) {\n        return doubleAssert.isNotEqualTo(n);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJDoubleRulesRecipes$AbstractDoubleAssertIsNotEqualToRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisnotequaltorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsNotEqualTo`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractDoubleAssertIsNotEqualTo {
+    
+    @BeforeTemplate
+    AbstractDoubleAssert<?> before(AbstractDoubleAssert<?> doubleAssert, double n) {
+        return Refaster.anyOf(doubleAssert.isNotCloseTo(n, offset(0.0)), doubleAssert.isNotCloseTo(n, withPercentage(0.0)));
+    }
+    
+    @AfterTemplate
+    AbstractDoubleAssert<?> after(AbstractDoubleAssert<?> doubleAssert, double n) {
+        return doubleAssert.isNotEqualTo(n);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJDoubleRulesRecipes$AbstractDoubleAssertIsNotEqualToRecipe","displayName":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsNotEqualTo`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

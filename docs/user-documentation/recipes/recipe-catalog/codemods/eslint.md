@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Lint source code with ESLint"}
-  description={"Run [ESLint](https://eslint.org/) across the code to fix common static analysis issues in the code.\n\nThis requires the code to have an existing ESLint configuration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.ESLint"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/eslint.md"}
-/>
+>
+
+<RecipeHeader.Title>Lint source code with ESLint</RecipeHeader.Title>
+
+<RecipeHeader.Description>Run [ESLint](https://eslint.org/) across the code to fix common static analysis issues in the code.  This requires the code to have an existing ESLint configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"patterns","required":false,"description":"The lint target files. This can contain any of file paths, directory paths, and glob patterns.","example":"lib/**/*.js"},{"type":"String","name":"parser","required":false,"description":"Parser used by ESLint to parse the source files. Defaults to `@typescript-eslint/parser`. See [ESLint documentation](https://eslint.org/docs/latest/use/configure/parsers) for more details.","example":"esprima"},{"type":"List","name":"parserOptions","required":false,"description":"A list of parser options for ESLint. The format is `key: value`. Defaults to `ecmaVersion: \"latest\", ecmaFeatures: { jsx: true }, sourceType: \"module\"`. See [ESLint documentation](https://eslint.org/docs/latest/use/configure/language-options#specifying-parser-options) for more details.","example":"ecmaVersion: 6, ecmaFeatures: { jsx: true }"},{"type":"Boolean","name":"allowInlineConfig","required":false,"description":"Whether inline config comments are allowed. Defaults to `false`. See [ESLint documentation](https://eslint.org/docs/latest/use/configure/rules#disabling-inline-comments) for more details.","example":"true"},{"type":"List","name":"envs","required":false,"description":"A list of `env` mappings for ESLint. The format is `key: value`.","example":"browser: true"},{"type":"List","name":"globals","required":false,"description":"Define global variables for rules that require knowledge of these.","example":"var1, var2: writable"},{"type":"List","name":"plugins","required":false,"description":"A list of plugins for ESLint.","example":"@typescript-eslint, prettier"},{"type":"List","name":"extend","required":false,"description":"A list of extends for ESLint.","example":"eslint:recommended, prettier"},{"type":"List","name":"rules","required":false,"description":"List of rules to be checked by ESLint. Optionally, the severity and other rule options can also be specified as e.g. `off`, `warn` or `[\"error\", \"always\"]`. The severity `off` is useful when the rule is declared by an extended [shareable config](https://eslint.org/docs/latest/extend/ways-to-extend#shareable-configs). For more information, see the [ESLint documentation](https://eslint.org/docs/latest/use/configure/rules)","example":"eqeqeq: warn, multiline-comment-style: [\"error\", \"starred-block\"], prettier/prettier"},{"type":"Boolean","name":"fix","required":false,"description":"Automatically fix violations when possible. Defaults to `true`.","example":"false"},{"type":"String","name":"configFile","required":false,"description":"Allows specifying the full ESLint configuration file contents as multiline JSON. See [ESLint documentation](https://eslint.org/docs/latest/use/configure/configuration-files) for more details.\n\nNote that this will override any other configuration options.","example":"{}"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"If-else-if-else to switch"}
-  description={"Replace if-else-if-else with switch statements. In order to be replaced with a switch, all conditions must be on the same variable and there must be at least three cases."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.IfElseIfConstructToSwitch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/ifelseifconstructtoswitch.md"}
-/>
+>
+
+<RecipeHeader.Title>If-else-if-else to switch</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace if-else-if-else with switch statements. In order to be replaced with a switch, all conditions must be on the same variable and there must be at least three cases.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    static String formatter(Object obj) {\n        String formatted = \"initialValue\";\n        if (obj == null) {\n            formatted = \"null\";\n        } else if (obj instanceof Integer i)\n            formatted = String.format(\"int %d\", i);\n        else if (obj instanceof Long l) {\n            formatted = String.format(\"long %d\", l);\n        } else if (obj instanceof Double d) {\n            formatted = String.format(\"double %f\", d);\n        } else if (obj instanceof String s) {\n            String str = \"String\";\n            formatted = String.format(\"%s %s\", str, s);\n        } else {\n            formatted = \"unknown\";\n        }\n        return formatted;\n    }\n}\n","after":"class Test {\n    static String formatter(Object obj) {\n        String formatted = \"initialValue\";\n        switch (obj) {\n            case null -> formatted = \"null\";\n            case Integer i -> formatted = String.format(\"int %d\", i);\n            case Long l -> formatted = String.format(\"long %d\", l);\n            case Double d -> formatted = String.format(\"double %f\", d);\n            case String s -> {\n                String str = \"String\";\n                formatted = String.format(\"%s %s\", str, s);\n            }\n            default -> formatted = \"unknown\";\n        }\n        return formatted;\n    }\n}\n","diff":"@@ -4,13 +4,10 @@\n    static String formatter(Object obj) {\n        String formatted = \"initialValue\";\n-       if (obj == null) {\n-           formatted = \"null\";\n-       } else if (obj instanceof Integer i)\n-           formatted = String.format(\"int %d\", i);\n-       else if (obj instanceof Long l) {\n-           formatted = String.format(\"long %d\", l);\n-       } else if (obj instanceof Double d) {\n-           formatted = String.format(\"double %f\", d);\n-       } else if (obj instanceof String s) {\n-           String str = \"String\";\n-           formatted = String.format(\"%s %s\", str, s);\n-       } else {\n-           formatted = \"unknown\";\n+       switch (obj) {\n+           case null -> formatted = \"null\";\n+           case Integer i -> formatted = String.format(\"int %d\", i);\n+           case Long l -> formatted = String.format(\"long %d\", l);\n+           case Double d -> formatted = String.format(\"double %f\", d);\n+           case String s -> {\n+               String str = \"String\";\n+               formatted = String.format(\"%s %s\", str, s);\n+           }\n+           default -> formatted = \"unknown\";\n        }\n","newFile":false}]}]}>
 

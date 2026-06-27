@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Camel component URI across all DSLs"}
-  description={"Transforms component URIs using regular expressions with capturing groups. Automatically handles Java, XML DSL, and YAML DSL."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.customRecipes.ChangeComponentUriRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/changecomponenturirecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Camel component URI in Java","href":"apache/camel/upgrade/customrecipes/internal/changejavacomponenturirecipe"},{"name":"Change Camel component URI in XML DSL","href":"apache/camel/upgrade/customrecipes/internal/changexmlcomponenturirecipe"},{"name":"Change Camel component URI in YAML DSL","href":"apache/camel/upgrade/customrecipes/internal/changeyamlcomponenturirecipe"}]}>
+<RecipeHeader.Title>Change Camel component URI across all DSLs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms component URIs using regular expressions with capturing groups. Automatically handles Java, XML DSL, and YAML DSL.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Camel component URI in Java","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/internal/changejavacomponenturirecipe/"},{"name":"Change Camel component URI in XML DSL","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/internal/changexmlcomponenturirecipe/"},{"name":"Change Camel component URI in YAML DSL","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/internal/changeyamlcomponenturirecipe/"}]}>
 
 ## Definition
 

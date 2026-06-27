@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find raw `Job()` allocations"}
-  description={"Raw `Job()` calls usually feed a `CoroutineScope(...)` context, where they signal an intent to manage coroutine lifecycle manually. That manual lifecycle is easy to forget to cancel; prefer `SupervisorJob()` paired with a scope tied to the surrounding lifecycle (e.g. `viewModelScope`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindJobAsContext$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findjobascontext$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find raw `Job()` allocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Raw `Job()` calls usually feed a `CoroutineScope(...)` context, where they signal an intent to manage coroutine lifecycle manually. That manual lifecycle is easy to forget to cancel; prefer `SupervisorJob()` paired with a scope tied to the surrounding lifecycle (e.g. `viewModelScope`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindJobAsContext$KtRecipe","displayName":"Find raw `Job()` allocations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

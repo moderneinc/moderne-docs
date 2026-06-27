@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"DevCenter for Vulnerability Management"}
-  description={"Recipes to analyze and manage dependency vulnerabilities using Moderne DevCenter."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.VulnerabilitiesDevCenter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/vulnerabilitiesdevcenter.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Vulnerabilities status","href":"devcenter/dependencyvulnerabilitycheck"},{"name":"Vulnerabilities status","href":"devcenter/dependencyvulnerabilitycheck"},{"name":"Vulnerabilities status","href":"devcenter/dependencyvulnerabilitycheck"}]}>
+<RecipeHeader.Title>DevCenter for Vulnerability Management</RecipeHeader.Title>
+
+<RecipeHeader.Description>Recipes to analyze and manage dependency vulnerabilities using Moderne DevCenter.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Vulnerabilities status","href":"/user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck/"},{"name":"Vulnerabilities status","href":"/user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck/"},{"name":"Vulnerabilities status","href":"/user-documentation/recipes/recipe-catalog/devcenter/dependencyvulnerabilitycheck/"}]}>
 
 ## Definition
 

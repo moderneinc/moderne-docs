@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Removes invalid JNDI properties"}
-  description={"Remove the use of invalid JNDI properties from Hashtable."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-liberty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.liberty.RemoveWas2LibertyNonPortableJndiLookup"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/liberty/removewas2libertynonportablejndilookup.md"}
-/>
+>
+
+<RecipeHeader.Title>Removes invalid JNDI properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove the use of invalid JNDI properties from Hashtable.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.ibm;\n\nimport java.util.Hashtable;\nimport javax.naming.InitialContext;\n\npublic class ServerNameUsage {\n\n    public void doX() {\n        Hashtable ht = new Hashtable();\n        ht.put(\"java.naming.factory.initial\", \"com.ibm.websphere.naming.WsnInitialContextFactory\");\n        ht.put(\"java.naming.provider.url\", \"corbaloc:iiop:localhost:2809\");\n        ht.put(\"valid\", \"valid\");\n\n        InitialContext ctx = new InitialContext(ht);\n    }\n\n}\n","after":"package com.ibm;\n\nimport java.util.Hashtable;\nimport javax.naming.InitialContext;\n\npublic class ServerNameUsage {\n\n    public void doX() {\n        Hashtable ht = new Hashtable();\n        ht.put(\"valid\", \"valid\");\n\n        InitialContext ctx = new InitialContext(ht);\n    }\n\n}\n","diff":"@@ -10,2 +10,0 @@\n    public void doX() {\n        Hashtable ht = new Hashtable();\n-       ht.put(\"java.naming.factory.initial\", \"com.ibm.websphere.naming.WsnInitialContextFactory\");\n-       ht.put(\"java.naming.provider.url\", \"corbaloc:iiop:localhost:2809\");\n        ht.put(\"valid\", \"valid\");\n","newFile":false}]}]}>
 

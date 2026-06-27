@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Map.copyOf(..)` in Java 10 or higher"}
-  description={"Replaces `.common.collect.ImmutableMap.copyOf(..)` if the returned type is immediately down-cast."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaImmutableMapCopyOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablemapcopyof.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Map.copyOf(..)` in Java 10 or higher</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `.common.collect.ImmutableMap.copyOf(..)` if the returned type is immediately down-cast.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.HashMap;\nimport java.util.Map;\nimport com.google.common.collect.ImmutableMap;\n\nclass Test {\n    Map<String, String> m = ImmutableMap.copyOf(new HashMap<>());\n}\n","after":"import java.util.HashMap;\nimport java.util.Map;\n\nclass Test {\n    Map<String, String> m = Map.copyOf(new HashMap<>());\n}\n","diff":"@@ -3,1 +3,0 @@\nimport java.util.HashMap;\nimport java.util.Map;\n-import com.google.common.collect.ImmutableMap;\n\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   Map<String, String> m = ImmutableMap.copyOf(new HashMap<>());\n+   Map<String, String> m = Map.copyOf(new HashMap<>());\n}\n","newFile":false}]}]}>
 

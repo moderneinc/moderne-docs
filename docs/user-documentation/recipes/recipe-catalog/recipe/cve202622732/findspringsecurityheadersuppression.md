@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find CVE-2026-22732 (Spring Security header suppression)"}
-  description={"Detects code susceptible to CVE-2026-22732, where setting `Content-Length` via `HttpServletResponse.setHeader` / `setIntHeader` / `addIntHeader` (or the WebFlux equivalents) bypasses Spring Security's `OnCommittedResponseWrapper`, letting the container commit the response before the lazy header-writing filter runs and silently dropping security headers (X-Frame-Options, X-Content-Type-Options, Cache-Control, etc.). Also emits one data-table row per project recording the resolved Spring Security version."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.recipe.cve202622732.FindSpringSecurityHeaderSuppression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/recipe/cve202622732/findspringsecurityheadersuppression.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find unconditional WebFlux response commit calls (CVE-2026-22732)","href":"recipe/cve202622732/findhttpresponsecontentlengthorflushbuffer"},{"name":"Find `Content-Length` header writes on `HttpServletResponse` (CVE-2026-22732)","href":"recipe/cve202622732/findhttpresponsecontentlengthheader"}]}>
+<RecipeHeader.Title>Find CVE-2026-22732 (Spring Security header suppression)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects code susceptible to CVE-2026-22732, where setting `Content-Length` via `HttpServletResponse.setHeader` / `setIntHeader` / `addIntHeader` (or the WebFlux equivalents) bypasses Spring Security's `OnCommittedResponseWrapper`, letting the container commit the response before the lazy header-writing filter runs and silently dropping security headers (X-Frame-Options, X-Content-Type-Options, Cache-Control, etc.). Also emits one data-table row per project recording the resolved Spring Security version.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find unconditional WebFlux response commit calls (CVE-2026-22732)","href":"/user-documentation/recipes/recipe-catalog/recipe/cve202622732/findhttpresponsecontentlengthorflushbuffer/"},{"name":"Find `Content-Length` header writes on `HttpServletResponse` (CVE-2026-22732)","href":"/user-documentation/recipes/recipe-catalog/recipe/cve202622732/findhttpresponsecontentlengthheader/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit `assertArrayEquals` to assertJ"}
-  description={"Convert JUnit-style `assertArrayEquals()` to AssertJ's `assertThat().contains()` equivalents."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.JUnitAssertArrayEqualsToAssertThat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/junitassertarrayequalstoassertthat.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit `assertArrayEquals` to assertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert JUnit-style `assertArrayEquals()` to AssertJ's `assertThat().contains()` equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertArrayEquals;\n\npublic class MyTest {\n\n    @Test\n    public void test() {\n        Integer[] expected = new Integer[] {1, 2, 3};\n        assertArrayEquals(expected, notification());\n    }\n    private Integer[] notification() {\n        return new Integer[] {1, 2, 3};\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\npublic class MyTest {\n\n    @Test\n    public void test() {\n        Integer[] expected = new Integer[] {1, 2, 3};\n        assertThat(notification()).containsExactly(expected);\n    }\n    private Integer[] notification() {\n        return new Integer[] {1, 2, 3};\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport org.junit.jupiter.api.Test;\n\n-import static org.junit.jupiter.api.Assertions.assertArrayEquals;\n+import static org.assertj.core.api.Assertions.assertThat;\n\n@@ -10,1 +10,1 @@\n    public void test() {\n        Integer[] expected = new Integer[] {1, 2, 3};\n-       assertArrayEquals(expected, notification());\n+       assertThat(notification()).containsExactly(expected);\n    }\n","newFile":false}]}]}>
 

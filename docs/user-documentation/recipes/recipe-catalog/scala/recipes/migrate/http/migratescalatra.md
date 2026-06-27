@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Scalatra to http4s, tapir, or Play"}
-  description={"Removes imports starting with `org.scalatra`. Scalatra is a servlet-based framework with declining activity; consider migrating to http4s, tapir, or Play Framework."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.http.MigrateScalatra"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/http/migratescalatra.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Scalatra to http4s, tapir, or Play</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes imports starting with `org.scalatra`. Scalatra is a servlet-based framework with declining activity; consider migrating to http4s, tapir, or Play Framework.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import org.scalatra.ScalatraServlet\n\nclass MyServlet {\n    val name = \"servlet\"\n}\n","after":"\n\n\nclass MyServlet {\n    val name = \"servlet\"\n}\n","diff":"@@ -1,1 +1,0 @@\n-import org.scalatra.ScalatraServlet\n\n@@ -3,0 +2,2 @@\nimport org.scalatra.ScalatraServlet\n\n+\n+\nclass MyServlet {\n","newFile":false}]}]}>
 

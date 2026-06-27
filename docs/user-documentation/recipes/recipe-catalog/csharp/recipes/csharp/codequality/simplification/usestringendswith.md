@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use string.EndsWith"}
-  description={"Detect substring comparison patterns that could use EndsWith."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringEndsWith"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usestringendswith.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use string.EndsWith</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect substring comparison patterns that could use EndsWith.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringEndsWith","displayName":"Use string.EndsWith","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

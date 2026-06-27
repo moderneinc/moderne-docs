@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `assertNotNull(...)` calls — Kotest migration candidate"}
-  description={"Kotest's `actual.shouldNotBeNull()` is a contract function: after it returns, the compiler smart-casts `actual` to its non-nullable type, so the chained matcher can call methods without `!!`. JUnit's `assertNotNull` does not smart-cast."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindAssertNotNullCandidateForKotest$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertnotnullcandidateforkotest$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `assertNotNull(...)` calls — Kotest migration candidate</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotest's `actual.shouldNotBeNull()` is a contract function: after it returns, the compiler smart-casts `actual` to its non-nullable type, so the chained matcher can call methods without `!!`. JUnit's `assertNotNull` does not smart-cast.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindAssertNotNullCandidateForKotest$KtRecipe","displayName":"Find `assertNotNull(...)` calls — Kotest migration candidate","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

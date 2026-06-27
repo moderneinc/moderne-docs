@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Narrow catch clauses that catch `Throwable`"}
-  description={"Finds catch blocks that catch `Throwable` and should be narrowed to specific exception types. Catching `Throwable` also catches fatal errors like `OutOfMemoryError` and `StackOverflowError`. Prefer catching specific exception types."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.safety.NarrowCatchClause"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/safety/narrowcatchclause.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Narrow catch clauses that catch `Throwable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds catch blocks that catch `Throwable` and should be narrowed to specific exception types. Catching `Throwable` also catches fatal errors like `OutOfMemoryError` and `StackOverflowError`. Prefer catching specific exception types.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  try {\n    println(\"risky\")\n  } catch {\n    case e: Throwable => println(\"caught\")\n  }\n}\n","after":"object Test {\n  /*~~(Catching Throwable is too broad; consider catching specific exceptions)~~>*/try {\n    println(\"risky\")\n  } catch {\n    case e: Throwable => println(\"caught\")\n  }\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Test {\n- try {\n+ /*~~(Catching Throwable is too broad; consider catching specific exceptions)~~>*/try {\n    println(\"risky\")\n","newFile":false}]}]}>
 

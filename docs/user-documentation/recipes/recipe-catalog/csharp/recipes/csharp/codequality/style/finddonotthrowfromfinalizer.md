@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find throw statements in finalizer"}
-  description={"Detect `throw` statements inside finalizer/destructor methods. Throwing from a finalizer can terminate the process."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotThrowFromFinalizer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finddonotthrowfromfinalizer.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find throw statements in finalizer</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `throw` statements inside finalizer/destructor methods. Throwing from a finalizer can terminate the process.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotThrowFromFinalizer","displayName":"Find throw statements in finalizer","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

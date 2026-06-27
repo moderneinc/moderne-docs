@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJFloatRules.AbstractFloatAssertIsNotZero`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractFloatAssertIsNotZero {\n    \n    @BeforeTemplate\n    AbstractFloatAssert<?> before(AbstractFloatAssert<?> floatAssert) {\n        return floatAssert.isNotZero();\n    }\n    \n    @AfterTemplate\n    AbstractFloatAssert<?> after(AbstractFloatAssert<?> floatAssert) {\n        return floatAssert.isNotEqualTo(0);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJFloatRulesRecipes$AbstractFloatAssertIsNotZeroRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertisnotzerorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJFloatRules.AbstractFloatAssertIsNotZero`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractFloatAssertIsNotZero {
+    
+    @BeforeTemplate
+    AbstractFloatAssert<?> before(AbstractFloatAssert<?> floatAssert) {
+        return floatAssert.isNotZero();
+    }
+    
+    @AfterTemplate
+    AbstractFloatAssert<?> after(AbstractFloatAssert<?> floatAssert) {
+        return floatAssert.isNotEqualTo(0);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJFloatRulesRecipes$AbstractFloatAssertIsNotZeroRecipe","displayName":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsNotZero`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

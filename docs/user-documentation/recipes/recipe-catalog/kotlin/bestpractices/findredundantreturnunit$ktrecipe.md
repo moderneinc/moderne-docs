@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `return Unit` / `return kotlin.Unit` statements"}
-  description={"Functions that return `Unit` don't need an explicit return at all — `return` (no expression) or simply falling off the end is the conventional shape. Writing `return Unit` repeats the implicit value."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindRedundantReturnUnit$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findredundantreturnunit$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `return Unit` / `return kotlin.Unit` statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Functions that return `Unit` don't need an explicit return at all — `return` (no expression) or simply falling off the end is the conventional shape. Writing `return Unit` repeats the implicit value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindRedundantReturnUnit$KtRecipe","displayName":"Find `return Unit` / `return kotlin.Unit` statements","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

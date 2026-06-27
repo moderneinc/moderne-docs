@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `akka.actor.ActorSystem` to `akka.actor.typed.ActorSystem`"}
-  description={"Replaces the import `akka.actor.ActorSystem` with `akka.actor.typed.ActorSystem` to migrate from the classic untyped actor system to Akka Typed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.akka.MigrateToTypedActorSystem"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/akka/migratetotypedactorsystem.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `akka.actor.ActorSystem` to `akka.actor.typed.ActorSystem`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces the import `akka.actor.ActorSystem` with `akka.actor.typed.ActorSystem` to migrate from the classic untyped actor system to Akka Typed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import akka.actor.ActorSystem\n\nclass Main {\n    val system = ActorSystem(\"MySystem\")\n}\n","after":"import akka.actor.typed.ActorSystem\n\nclass Main {\n    val system = ActorSystem(\"MySystem\")\n}\n","diff":"@@ -1,1 +1,1 @@\n-import akka.actor.ActorSystem\n+import akka.actor.typed.ActorSystem\n\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@Nullable` to optional Spring web parameters"}
-  description={"In Spring Boot 4, JSpecify's `@Nullable` annotation should be used to indicate that a parameter can be null. This recipe adds `@Nullable` to parameters annotated with `@PathVariable(required = false)` or `@RequestParam(required = false)` and removes the now-redundant `required = false` attribute."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.NullableSpringWebParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/nullablespringwebparameters.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@Nullable` to optional Spring web parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Boot 4, JSpecify's `@Nullable` annotation should be used to indicate that a parameter can be null. This recipe adds `@Nullable` to parameters annotated with `@PathVariable(required = false)` or `@RequestParam(required = false)` and removes the now-redundant `required = false` attribute.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.PathVariable;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\npublic class UserController {\n    @GetMapping(\"/users/{id}\")\n    public String getUser(@PathVariable(required = false) String id) {\n        return \"User: \" + id;\n    }\n}\n","after":"import org.jspecify.annotations.Nullable;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.PathVariable;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\npublic class UserController {\n    @GetMapping(\"/users/{id}\")\n    public String getUser(@Nullable @PathVariable String id) {\n        return \"User: \" + id;\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.jspecify.annotations.Nullable;\nimport org.springframework.web.bind.annotation.GetMapping;\n@@ -8,1 +9,1 @@\npublic class UserController {\n    @GetMapping(\"/users/{id}\")\n-   public String getUser(@PathVariable(required = false) String id) {\n+   public String getUser(@Nullable @PathVariable String id) {\n        return \"User: \" + id;\n","newFile":false}]}]}>
 

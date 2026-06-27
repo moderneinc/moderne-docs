@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@RetryableTopic` without `@DltHandler`"}
-  description={"Flags classes that use `@RetryableTopic` without a corresponding `@DltHandler` method. A DLT handler should be defined to process messages that have exhausted all retries."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.kafka.consumer.FindMissingDltHandler"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/kafka/consumer/findmissingdlthandler.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@RetryableTopic` without `@DltHandler`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flags classes that use `@RetryableTopic` without a corresponding `@DltHandler` method. A DLT handler should be defined to process messages that have exhausted all retries.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"flagNoDltStrategy","required":false,"description":"When enabled, also flags `@RetryableTopic` methods configured with `dltProcessingFailureStrategy = DltStrategy.NO_DLT`, which disables the Dead Letter Topic entirely."}]}>
 

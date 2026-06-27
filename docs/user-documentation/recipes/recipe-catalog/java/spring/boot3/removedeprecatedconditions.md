@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Spring Boot 3.5 deprecated conditions"}
-  description={"Replace Spring Boot 3.5 deprecated condition classes with their corresponding conditional annotations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.RemoveDeprecatedConditions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/removedeprecatedconditions.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove Spring Boot 3.5 deprecated conditions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace Spring Boot 3.5 deprecated condition classes with their corresponding conditional annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Conditional;\nimport org.springframework.boot.autoconfigure.security.oauth2.client.ClientsConfiguredCondition;\n\n@Conditional(ClientsConfiguredCondition.class)\npublic class MyConfiguration {\n}\n","after":"import org.springframework.boot.autoconfigure.security.oauth2.client.ConditionalOnOAuth2ClientRegistrationProperties;\n\n@ConditionalOnOAuth2ClientRegistrationProperties\npublic class MyConfiguration {\n}\n","diff":"@@ -1,2 +1,1 @@\n-import org.springframework.context.annotation.Conditional;\n-import org.springframework.boot.autoconfigure.security.oauth2.client.ClientsConfiguredCondition;\n+import org.springframework.boot.autoconfigure.security.oauth2.client.ConditionalOnOAuth2ClientRegistrationProperties;\n\n@@ -4,1 +3,1 @@\nimport org.springframework.boot.autoconfigure.security.oauth2.client.ClientsConfiguredCondition;\n\n-@Conditional(ClientsConfiguredCondition.class)\n+@ConditionalOnOAuth2ClientRegistrationProperties\npublic class MyConfiguration {\n","newFile":false}]}]}>
 

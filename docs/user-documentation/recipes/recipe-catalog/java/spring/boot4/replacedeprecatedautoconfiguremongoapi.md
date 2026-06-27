@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `org.springframework.boot.autoconfigure.mongo` API"}
-  description={"Replace deprecated `org.springframework.boot.autoconfigure.mongo` API."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.ReplaceDeprecatedAutoconfigureMongoApi"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacedeprecatedautoconfiguremongoapi.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename package name","href":"java/changepackage"}]}>
+<RecipeHeader.Title>Replace deprecated `org.springframework.boot.autoconfigure.mongo` API</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated `org.springframework.boot.autoconfigure.mongo` API.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]}>
 
 ## Definition
 

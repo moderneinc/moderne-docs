@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert Spring `ResponseEntity` to JAX-RS `Response`"}
-  description={"Transforms Spring `ResponseEntity` patterns to JAX-RS `Response` API equivalents."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.ResponseEntityToJaxRsResponse"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/responseentitytojaxrsresponse.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert Spring `ResponseEntity` to JAX-RS `Response`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms Spring `ResponseEntity` patterns to JAX-RS `Response` API equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\nclass ProductController {\n    @GetMapping(\"/products/{id}\")\n    ResponseEntity<Product> getProduct() {\n        Product product = new Product();\n        return ResponseEntity.ok(product);\n    }\n}\n\nclass Product {\n    String name;\n}\n","after":"import jakarta.ws.rs.core.Response;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\nclass ProductController {\n    @GetMapping(\"/products/{id}\")\n    Response<Product> getProduct() {\n        Product product = new Product();\n        return Response.ok(product);\n    }\n}\n\nclass Product {\n    String name;\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.http.ResponseEntity;\n+import jakarta.ws.rs.core.Response;\nimport org.springframework.web.bind.annotation.GetMapping;\n@@ -8,1 +8,1 @@\nclass ProductController {\n    @GetMapping(\"/products/{id}\")\n-   ResponseEntity<Product> getProduct() {\n+   Response<Product> getProduct() {\n        Product product = new Product();\n@@ -10,1 +10,1 @@\n    ResponseEntity<Product> getProduct() {\n        Product product = new Product();\n-       return ResponseEntity.ok(product);\n+       return Response.ok(product);\n    }\n","newFile":false}]}]}>
 

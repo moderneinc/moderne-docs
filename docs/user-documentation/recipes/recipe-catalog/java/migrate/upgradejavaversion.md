@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Java version"}
-  description={"Upgrade build plugin configuration to use the specified Java version. This recipe changes `java.toolchain.languageVersion` in `build.gradle(.kts)` of gradle projects, or maven-compiler-plugin target version and related settings. Will not downgrade if the version is newer than the specified version."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeJavaVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use Maven compiler plugin release configuration","href":"maven/usemavencompilerpluginreleaseconfiguration"},{"name":"Update Maven Java project properties","href":"maven/updatemavenprojectpropertyjavaversion"},{"name":"Upgrade jenkins java version","href":"jenkins/upgradejavaversion"},{"name":"Update Gradle project Java compatibility","href":"gradle/updatejavacompatibility"},{"name":"Update SDKMan Java version","href":"java/migrate/updatesdkman"},{"name":"Upgrade Docker image Java version","href":"java/migrate/upgradedockerimageversion"},{"name":"Upgrade Kotlin `jvmTarget` to match the Java version","href":"java/migrate/upgradekotlinjvmtargetversion"}]}>
+<RecipeHeader.Title>Upgrade Java version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade build plugin configuration to use the specified Java version. This recipe changes `java.toolchain.languageVersion` in `build.gradle(.kts)` of gradle projects, or maven-compiler-plugin target version and related settings. Will not downgrade if the version is newer than the specified version.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use Maven compiler plugin release configuration","href":"/user-documentation/recipes/recipe-catalog/maven/usemavencompilerpluginreleaseconfiguration/"},{"name":"Update Maven Java project properties","href":"/user-documentation/recipes/recipe-catalog/maven/updatemavenprojectpropertyjavaversion/"},{"name":"Upgrade jenkins java version","href":"/user-documentation/recipes/recipe-catalog/jenkins/upgradejavaversion/"},{"name":"Update Gradle project Java compatibility","href":"/user-documentation/recipes/recipe-catalog/gradle/updatejavacompatibility/"},{"name":"Update SDKMan Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/updatesdkman/"},{"name":"Upgrade Docker image Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradedockerimageversion/"},{"name":"Upgrade Kotlin `jvmTarget` to match the Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradekotlinjvmtargetversion/"}]}>
 
 ## Definition
 

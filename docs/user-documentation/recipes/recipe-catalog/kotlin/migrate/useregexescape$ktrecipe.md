@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Regex.escape(s)` instead of `Pattern.quote(s)`"}
-  description={"`java.util.regex.Pattern.quote(s)` migrates to `kotlin.text.Regex.escape(s)` — same behavior, multiplatform."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseRegexEscape$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useregexescape$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Regex.escape(s)` instead of `Pattern.quote(s)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.regex.Pattern.quote(s)` migrates to `kotlin.text.Regex.escape(s)` — same behavior, multiplatform.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseRegexEscape$KtRecipe","displayName":"Use `Regex.escape(s)` instead of `Pattern.quote(s)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

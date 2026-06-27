@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Log4j 2.x dependency version"}
-  description={"Upgrades the Log4j 2.x dependencies to the latest 2.x version.\nMitigates the [Log4Shell and other Log4j2-related vulnerabilities](https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-356a)."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security","log4shell","logging","CVE-2021-44228","log4j"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.log4j.UpgradeLog4J2DependencyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/log4j/upgradelog4j2dependencyversion.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Upgrade Log4j 2.x dependency version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrades the Log4j 2.x dependencies to the latest 2.x version. Mitigates the [Log4Shell and other Log4j2-related vulnerabilities](https://www.cisa.gov/news-events/cybersecurity-advisories/aa21-356a).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `MockMvcBuilders.standaloneSetup(...)` calls"}
-  description={"`standaloneSetup` wires a single controller into a minimal MockMvc — fast, but misses any application-level configuration (interceptors, exception handlers, argument resolvers). `@AutoConfigureMockMvc` produces a MockMvc that mirrors the running application; flag standalone setups as candidates for replacement."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindMockMvcStandalone$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findmockmvcstandalone$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `MockMvcBuilders.standaloneSetup(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`standaloneSetup` wires a single controller into a minimal MockMvc — fast, but misses any application-level configuration (interceptors, exception handlers, argument resolvers). `@AutoConfigureMockMvc` produces a MockMvc that mirrors the running application; flag standalone setups as candidates for replacement.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindMockMvcStandalone$KtRecipe","displayName":"Find `MockMvcBuilders.standaloneSetup(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

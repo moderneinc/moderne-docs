@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adds missing method implementations"}
-  description={"Check for missing methods required by interfaces and adds them."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.AddMissingMethodImplementation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/addmissingmethodimplementation.md"}
-/>
+>
+
+<RecipeHeader.Title>Adds missing method implementations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Check for missing methods required by interfaces and adds them.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fullyQualifiedClassName","required":true,"description":"A fully qualified class being implemented with missing method.","example":"com.yourorg.FooBar"},{"type":"String","name":"methodPattern","required":true,"description":"A method pattern for matching required method definition.","example":"*..* hello(..)"},{"type":"String","name":"methodTemplateString","required":true,"description":"Template of method to add","example":"public String hello() { return \\\"Hello from #{}!\\\"; }"}]}>
 

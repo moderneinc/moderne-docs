@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"End files with a single newline"}
-  description={"Some tools work better when files end with an empty line."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S113"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.format.EmptyNewlineAtEndOfFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/format/emptynewlineatendoffile.md"}
-/>
+>
+
+<RecipeHeader.Title>End files with a single newline</RecipeHeader.Title>
+
+<RecipeHeader.Description>Some tools work better when files end with an empty line.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.format.EmptyNewlineAtEndOfFile","displayName":"End files with a single newline","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByNullPointerExceptionHasMessageContaining`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatThrownByNullPointerExceptionHasMessageContaining {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatThrownByNullPointerException\")\n    AbstractObjectAssert<?, ?> before(ThrowingCallable throwingCallable, String message) {\n        return assertThatNullPointerException().isThrownBy(throwingCallable).withMessageContaining(message);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractObjectAssert<?, ?> after(ThrowingCallable throwingCallable, String message) {\n        return assertThatThrownBy(throwingCallable).isInstanceOf(NullPointerException.class).hasMessageContaining(message);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,34 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByNullPointerExceptionHasMessageContainingRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbynullpointerexceptionhasmessagecontainingrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AssertThatThrownByNullPointerExceptionHasMessageContaining`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatThrownByNullPointerExceptionHasMessageContaining {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "AssertThatThrownByNullPointerException")
+    AbstractObjectAssert<?, ?> before(ThrowingCallable throwingCallable, String message) {
+        return assertThatNullPointerException().isThrownBy(throwingCallable).withMessageContaining(message);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractObjectAssert<?, ?> after(ThrowingCallable throwingCallable, String message) {
+        return assertThatThrownBy(throwingCallable).isInstanceOf(NullPointerException.class).hasMessageContaining(message);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByNullPointerExceptionHasMessageContainingRecipe","displayName":"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByNullPointerExceptionHasMessageContaining`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

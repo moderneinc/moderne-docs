@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Camel API changes in application.properties"}
-  description={"Apache Camel API migration from version 3.20 or higher to 4.0. Removal of deprecated APIs, which could be part of the application.properties."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel40.properties.rejectedPolicy"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/properties/rejectedpolicy.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change property value","href":"properties/changepropertyvalue"},{"name":"Change property value","href":"properties/changepropertyvalue"}]}>
+<RecipeHeader.Title>Camel API changes in application.properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apache Camel API migration from version 3.20 or higher to 4.0. Removal of deprecated APIs, which could be part of the application.properties.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change property value","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertyvalue/"},{"name":"Change property value","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertyvalue/"}]}>
 
 ## Definition
 

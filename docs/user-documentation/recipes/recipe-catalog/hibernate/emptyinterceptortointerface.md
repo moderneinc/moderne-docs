@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `extends EmptyInterceptor` with `implements Interceptor` and potentially `StatementInspector`"}
-  description={"In Hibernate 6.0 the `Interceptor` interface received default implementations therefore the NOOP implementation that could be extended was no longer needed. This recipe migrates 5.x `Interceptor#onPrepareStatement(String)` to 6.0 `StatementInspector#inspect()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-hibernate"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hibernate.EmptyInterceptorToInterface"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/emptyinterceptortointerface.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `extends EmptyInterceptor` with `implements Interceptor` and potentially `StatementInspector`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Hibernate 6.0 the `Interceptor` interface received default implementations therefore the NOOP implementation that could be extended was no longer needed. This recipe migrates 5.x `Interceptor#onPrepareStatement(String)` to 6.0 `StatementInspector#inspect()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.EmptyInterceptor;\n\nclass MyInterceptor extends EmptyInterceptor {\n\n    @Override\n    public String onPrepareStatement(String sql) {\n        return sql;\n    }\n}\n","after":"import org.hibernate.Interceptor;\nimport org.hibernate.resource.jdbc.spi.StatementInspector;\n\nclass MyInterceptor implements Interceptor, StatementInspector {\n\n    @Override\n    public String inspect(String sql) {\n        return sql;\n    }\n}\n","diff":"@@ -1,1 +1,2 @@\n-import org.hibernate.EmptyInterceptor;\n+import org.hibernate.Interceptor;\n+import org.hibernate.resource.jdbc.spi.StatementInspector;\n\n@@ -3,1 +4,1 @@\nimport org.hibernate.EmptyInterceptor;\n\n-class MyInterceptor extends EmptyInterceptor {\n+class MyInterceptor implements Interceptor, StatementInspector {\n\n@@ -6,1 +7,1 @@\n\n    @Override\n-   public String onPrepareStatement(String sql) {\n+   public String inspect(String sql) {\n        return sql;\n","newFile":false}]}]}>
 

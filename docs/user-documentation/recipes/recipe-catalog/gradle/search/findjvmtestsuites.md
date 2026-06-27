@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Gradle JVMTestSuite plugin configuration"}
-  description={"Find Gradle JVMTestSuite plugin configurations and produce a data table."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.search.FindJVMTestSuites"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/search/findjvmtestsuites.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Gradle JVMTestSuite plugin configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find Gradle JVMTestSuite plugin configurations and produce a data table.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"insertRows","required":true,"description":"Whether to insert rows into the table. Defaults to true."}]}>
 

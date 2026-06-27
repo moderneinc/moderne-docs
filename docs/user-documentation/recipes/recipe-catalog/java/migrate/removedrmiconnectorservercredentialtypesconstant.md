@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `RMIConnectorServer.CREDENTIAL_TYPES` constant"}
-  description={"This recipe replaces the `RMIConnectorServer.CREDENTIAL_TYPES` constant with the `RMIConnectorServer.CREDENTIALS_FILTER_PATTERN` constant."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java17"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.RemovedRMIConnectorServerCredentialTypesConstant"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/removedrmiconnectorservercredentialtypesconstant.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Replace `RMIConnectorServer.CREDENTIAL_TYPES` constant</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe replaces the `RMIConnectorServer.CREDENTIAL_TYPES` constant with the `RMIConnectorServer.CREDENTIALS_FILTER_PATTERN` constant.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

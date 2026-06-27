@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `FormattedArgumentsToVMethod.WarnToVWarnWithThrowable`"}
-  description={"Recipe created for the following Refaster template:\n```java\npublic static class WarnToVWarnWithThrowable {\n    \n    @BeforeTemplate\n    void before(Logger logger, String message, Object[] args, Throwable t) {\n        logger.warn((Object)message, args, t);\n    }\n    \n    @AfterTemplate\n    void after(Logger logger, String message, Object[] args, Throwable t) {\n        logger.warnv(message, args, t);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.jboss.FormattedArgumentsToVMethodRecipes$WarnToVWarnWithThrowableRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/jboss/formattedargumentstovmethodrecipes$warntovwarnwiththrowablerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `FormattedArgumentsToVMethod.WarnToVWarnWithThrowable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+public static class WarnToVWarnWithThrowable {
+    
+    @BeforeTemplate
+    void before(Logger logger, String message, Object[] args, Throwable t) {
+        logger.warn((Object)message, args, t);
+    }
+    
+    @AfterTemplate
+    void after(Logger logger, String message, Object[] args, Throwable t) {
+        logger.warnv(message, args, t);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.logging.jboss.FormattedArgumentsToVMethodRecipes$WarnToVWarnWithThrowableRecipe","displayName":"Refaster template `FormattedArgumentsToVMethod.WarnToVWarnWithThrowable`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 

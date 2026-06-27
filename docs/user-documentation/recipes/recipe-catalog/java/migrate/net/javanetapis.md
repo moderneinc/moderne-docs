@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use modernized `java.net` APIs"}
-  description={"Certain Java networking APIs have become deprecated and their usages changed, necessitating usage changes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["networking"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.net.JavaNetAPIs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/net/javanetapis.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `java.net.MulticastSocket#setTimeToLive(int)`","href":"java/migrate/net/migratemulticastsocketsetttltosettimetolive"},{"name":"Use `java.net.MulticastSocket#getTimeToLive()`","href":"java/migrate/net/migratemulticastsocketgetttltogettimetolive"},{"name":"Use `java.net.HttpURLConnection.HTTP_INTERNAL_ERROR`","href":"java/migrate/net/migratehttpurlconnectionhttpservererrortohttpinternalerror"},{"name":"Use `java.net.URLDecoder#decode(String, StandardCharsets.UTF_8)`","href":"java/migrate/net/migrateurldecoderdecode"},{"name":"Use `java.net.URLEncoder#encode(String, StandardCharsets.UTF_8)`","href":"java/migrate/net/migrateurlencoderencode"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use modernized `java.net` APIs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Certain Java networking APIs have become deprecated and their usages changed, necessitating usage changes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `java.net.MulticastSocket#setTimeToLive(int)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/net/migratemulticastsocketsetttltosettimetolive/"},{"name":"Use `java.net.MulticastSocket#getTimeToLive()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/net/migratemulticastsocketgetttltogettimetolive/"},{"name":"Use `java.net.HttpURLConnection.HTTP_INTERNAL_ERROR`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/net/migratehttpurlconnectionhttpservererrortohttpinternalerror/"},{"name":"Use `java.net.URLDecoder#decode(String, StandardCharsets.UTF_8)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/net/migrateurldecoderdecode/"},{"name":"Use `java.net.URLEncoder#encode(String, StandardCharsets.UTF_8)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/net/migrateurlencoderencode/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `only` keyword"}
-  description={"Find usages of the deprecated `only` keyword in `.gitlab-ci.yml`. The `only` keyword is deprecated in favor of `rules`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.search.FindDeprecatedOnly"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/search/finddeprecatedonly.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find YAML entries","href":"yaml/search/findkey"}]}>
+<RecipeHeader.Title>Find deprecated `only` keyword</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find usages of the deprecated `only` keyword in `.gitlab-ci.yml`. The `only` keyword is deprecated in favor of `rules`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find YAML entries","href":"/user-documentation/recipes/recipe-catalog/yaml/search/findkey/"}]}>
 
 ## Definition
 

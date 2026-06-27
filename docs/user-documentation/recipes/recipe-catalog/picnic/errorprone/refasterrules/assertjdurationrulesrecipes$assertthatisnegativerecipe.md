@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJDurationRules.AssertThatIsNegative`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsNegative {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Duration duration) {\n        return assertThat(duration.isNegative()).isTrue();\n    }\n    \n    @BeforeTemplate\n    AbstractDurationAssert<?> before2(Duration duration) {\n        return assertThat(duration).isLessThan(Duration.ZERO);\n    }\n    \n    @AfterTemplate\n    AbstractDurationAssert<?> after(Duration duration) {\n        return assertThat(duration).isNegative();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,37 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatIsNegativeRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthatisnegativerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJDurationRules.AssertThatIsNegative`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIsNegative {
+    
+    @BeforeTemplate
+    AbstractBooleanAssert<?> before(Duration duration) {
+        return assertThat(duration.isNegative()).isTrue();
+    }
+    
+    @BeforeTemplate
+    AbstractDurationAssert<?> before2(Duration duration) {
+        return assertThat(duration).isLessThan(Duration.ZERO);
+    }
+    
+    @AfterTemplate
+    AbstractDurationAssert<?> after(Duration duration) {
+        return assertThat(duration).isNegative();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatIsNegativeRecipe","displayName":"Refaster template `AssertJDurationRules.AssertThatIsNegative`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

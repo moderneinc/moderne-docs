@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Collection.stream().anyMatch(Predicate)`"}
-  description={"Prefer `Collection.stream().anyMatch(Predicate)` over `Iterables.any(Collection, Predicate)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaIterablesAnyFilter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaiterablesanyfilter.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Collection.stream().anyMatch(Predicate)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Collection.stream().anyMatch(Predicate)` over `Iterables.any(Collection, Predicate)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.ArrayList;\nimport java.util.Collection;\nimport java.util.Objects;\n\nimport com.google.common.base.Predicate;\nimport com.google.common.collect.Iterables;\n\nclass Test {\n    boolean test(Collection<Object> collection, Predicate<Object> isNotNull) {\n        return Iterables.any(collection, isNotNull);\n    }\n}\n","after":"import java.util.ArrayList;\nimport java.util.Collection;\nimport java.util.Objects;\n\nimport com.google.common.base.Predicate;\n\nclass Test {\n    boolean test(Collection<Object> collection, Predicate<Object> isNotNull) {\n        return collection.stream().anyMatch(isNotNull);\n    }\n}\n","diff":"@@ -6,1 +6,0 @@\n\nimport com.google.common.base.Predicate;\n-import com.google.common.collect.Iterables;\n\n@@ -10,1 +9,1 @@\nclass Test {\n    boolean test(Collection<Object> collection, Predicate<Object> isNotNull) {\n-       return Iterables.any(collection, isNotNull);\n+       return collection.stream().anyMatch(isNotNull);\n    }\n","newFile":false}]}]}>
 

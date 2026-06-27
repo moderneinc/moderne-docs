@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace PowerMock `Whitebox.invokeConstructor()` with Java reflection"}
-  description={"Replace `Whitebox.invokeConstructor(..)` with `java.lang.reflect.Constructor` lookup and `newInstance()` on the named class. Constructor parameter types are taken from the unambiguously resolved constructor, falling back to each argument's compile-time class; arrays passed to the `Object...` varargs overload are left unchanged for manual migration."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.PowerMockWhiteboxInvokeConstructorToJavaReflection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxinvokeconstructortojavareflection.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace PowerMock `Whitebox.invokeConstructor()` with Java reflection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `Whitebox.invokeConstructor(..)` with `java.lang.reflect.Constructor` lookup and `newInstance()` on the named class. Constructor parameter types are taken from the unambiguously resolved constructor, falling back to each argument's compile-time class; arrays passed to the `Object...` varargs overload are left unchanged for manual migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.PowerMockWhiteboxInvokeConstructorToJavaReflection","displayName":"Replace PowerMock `Whitebox.invokeConstructor()` with Java reflection","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

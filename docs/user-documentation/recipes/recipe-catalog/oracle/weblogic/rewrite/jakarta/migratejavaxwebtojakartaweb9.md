@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate javax.javaee-web-api to jakarta.jakartaee-web-api (Jakarta EE 9)"}
-  description={"Update Java EE Web API dependency to Jakarta EE Web Profile API 9.1"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["web-api","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.MigrateJavaxWebToJakartaWeb9"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/migratejavaxwebtojakartaweb9.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"}]}>
+<RecipeHeader.Title>Migrate javax.javaee-web-api to jakarta.jakartaee-web-api (Jakarta EE 9)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update Java EE Web API dependency to Jakarta EE Web Profile API 9.1</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"}]}>
 
 ## Definition
 

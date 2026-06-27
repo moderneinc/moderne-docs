@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TestNGToAssertJRules.AssertEqualArrayIterationOrderWithMessage`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertEqualArrayIterationOrderWithMessage {\n    \n    @BeforeTemplate\n    void before(boolean[] actual, String message, boolean[] expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(byte[] actual, String message, byte[] expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(char[] actual, String message, char[] expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(short[] actual, String message, short[] expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(int[] actual, String message, int[] expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(long[] actual, String message, long[] expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(float[] actual, String message, float[] expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(double[] actual, String message, double[] expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Object[] actual, String message, Object[] expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Object[] actual, String message, Object[] expected) {\n        assertThat(actual).withFailMessage(message).containsExactly(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,73 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualArrayIterationOrderWithMessageRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalarrayiterationorderwithmessagerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TestNGToAssertJRules.AssertEqualArrayIterationOrderWithMessage`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertEqualArrayIterationOrderWithMessage {
+    
+    @BeforeTemplate
+    void before(boolean[] actual, String message, boolean[] expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(byte[] actual, String message, byte[] expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(char[] actual, String message, char[] expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(short[] actual, String message, short[] expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(int[] actual, String message, int[] expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(long[] actual, String message, long[] expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(float[] actual, String message, float[] expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(double[] actual, String message, double[] expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Object[] actual, String message, Object[] expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(Object[] actual, String message, Object[] expected) {
+        assertThat(actual).withFailMessage(message).containsExactly(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualArrayIterationOrderWithMessageRecipe","displayName":"Refaster template `TestNGToAssertJRules.AssertEqualArrayIterationOrderWithMessage`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

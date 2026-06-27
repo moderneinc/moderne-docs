@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find recursive functions not marked `tailrec`"}
-  description={"A self-recursive function that doesn't carry the `tailrec` modifier won't get the Kotlin compiler's stack-elimination transform. Each match is a candidate to either annotate (if the recursive call is in tail position) or rewrite to an iterative form."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindRecursionWithoutTailrec$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findrecursionwithouttailrec$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find recursive functions not marked `tailrec`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A self-recursive function that doesn't carry the `tailrec` modifier won't get the Kotlin compiler's stack-elimination transform. Each match is a candidate to either annotate (if the recursive call is in tail position) or rewrite to an iterative form.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindRecursionWithoutTailrec$KtRecipe","displayName":"Find recursive functions not marked `tailrec`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

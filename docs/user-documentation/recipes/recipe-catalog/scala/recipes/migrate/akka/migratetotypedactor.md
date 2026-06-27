@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate classic Actor to Akka Typed Behavior"}
-  description={"Removes `akka.actor.Actor` imports and marks classes extending `Actor` or `UntypedActor` from classic Akka for migration to Akka Typed `Behavior`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.akka.MigrateToTypedActor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/akka/migratetotypedactor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate classic Actor to Akka Typed Behavior</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `akka.actor.Actor` imports and marks classes extending `Actor` or `UntypedActor` from classic Akka for migration to Akka Typed `Behavior`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import akka.actor.Actor\n\nclass MyActor extends Actor {\n    def receive = {\n      case msg: String => println(msg)\n    }\n}\n","after":"\n\n/*~~(Classic untyped Actor; consider migrating to Akka Typed Behavior)~~>*/class MyActor extends Actor {\n    def receive = {\n      case msg: String => println(msg)\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import akka.actor.Actor\n\n@@ -3,1 +2,2 @@\nimport akka.actor.Actor\n\n-class MyActor extends Actor {\n+\n+/*~~(Classic untyped Actor; consider migrating to Akka Typed Behavior)~~>*/class MyActor extends Actor {\n    def receive = {\n","newFile":false}]}]}>
 

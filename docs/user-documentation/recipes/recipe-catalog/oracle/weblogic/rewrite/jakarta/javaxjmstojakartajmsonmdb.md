@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate javax.jms to jakarta.jms on MDB"}
-  description={"Migrate javax.jms to jakarta.jms on MDB"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["jms","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.JavaxJmsToJakartaJmsOnMdb"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/javaxjmstojakartajmsonmdb.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find and replace","href":"text/findandreplace"}]}>
+<RecipeHeader.Title>Migrate javax.jms to jakarta.jms on MDB</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate javax.jms to jakarta.jms on MDB</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"}]}>
 
 ## Definition
 

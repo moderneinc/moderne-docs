@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJFloatRules.AbstractFloatAssertIsCloseToWithOffset`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractFloatAssertIsCloseToWithOffset {\n    \n    @BeforeTemplate\n    AbstractFloatAssert<?> before(AbstractFloatAssert<?> floatAssert, float n, Offset<Float> offset) {\n        return floatAssert.isEqualTo(n, offset);\n    }\n    \n    @BeforeTemplate\n    AbstractFloatAssert<?> before(AbstractFloatAssert<?> floatAssert, Float n, Offset<Float> offset) {\n        return floatAssert.isEqualTo(n, offset);\n    }\n    \n    @AfterTemplate\n    AbstractFloatAssert<?> after(AbstractFloatAssert<?> floatAssert, float n, Offset<Float> offset) {\n        return floatAssert.isCloseTo(n, offset);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,37 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJFloatRulesRecipes$AbstractFloatAssertIsCloseToWithOffsetRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjfloatrulesrecipes$abstractfloatassertisclosetowithoffsetrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJFloatRules.AbstractFloatAssertIsCloseToWithOffset`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractFloatAssertIsCloseToWithOffset {
+    
+    @BeforeTemplate
+    AbstractFloatAssert<?> before(AbstractFloatAssert<?> floatAssert, float n, Offset<Float> offset) {
+        return floatAssert.isEqualTo(n, offset);
+    }
+    
+    @BeforeTemplate
+    AbstractFloatAssert<?> before(AbstractFloatAssert<?> floatAssert, Float n, Offset<Float> offset) {
+        return floatAssert.isEqualTo(n, offset);
+    }
+    
+    @AfterTemplate
+    AbstractFloatAssert<?> after(AbstractFloatAssert<?> floatAssert, float n, Offset<Float> offset) {
+        return floatAssert.isCloseTo(n, offset);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJFloatRulesRecipes$AbstractFloatAssertIsCloseToWithOffsetRecipe","displayName":"Refaster template `AssertJFloatRules.AbstractFloatAssertIsCloseToWithOffset`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

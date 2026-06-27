@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `node:_stream_*` with `node:stream`"}
-  description={"Replace deprecated internal stream module imports like `require('node:_stream_readable')` with the public `node:stream` module."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0193"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.stream.replace-internal-modules"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/stream/replace-internal-modules.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated `node:_stream_*` with `node:stream`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated internal stream module imports like `require('node:_stream_readable')` with the public `node:stream` module.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.stream.replace-internal-modules","displayName":"Replace deprecated `node:_stream_*` with `node:stream`","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

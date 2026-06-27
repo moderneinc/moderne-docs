@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJOptionalRules.AbstractOptionalAssertContainsSame`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractOptionalAssertContainsSame<T> {\n    \n    @BeforeTemplate\n    AbstractAssert<?, ?> before(AbstractOptionalAssert<?, T> optionalAssert, T value) {\n        return Refaster.anyOf(optionalAssert.get().isSameAs(value), optionalAssert.isPresent().isSameAs(value));\n    }\n    \n    @AfterTemplate\n    AbstractOptionalAssert<?, T> after(AbstractOptionalAssert<?, T> optionalAssert, T value) {\n        return optionalAssert.containsSame(value);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes$AbstractOptionalAssertContainsSameRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$abstractoptionalassertcontainssamerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJOptionalRules.AbstractOptionalAssertContainsSame`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractOptionalAssertContainsSame<T> {
+    
+    @BeforeTemplate
+    AbstractAssert<?, ?> before(AbstractOptionalAssert<?, T> optionalAssert, T value) {
+        return Refaster.anyOf(optionalAssert.get().isSameAs(value), optionalAssert.isPresent().isSameAs(value));
+    }
+    
+    @AfterTemplate
+    AbstractOptionalAssert<?, T> after(AbstractOptionalAssert<?, T> optionalAssert, T value) {
+        return optionalAssert.containsSame(value);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes$AbstractOptionalAssertContainsSameRecipe","displayName":"Refaster template `AssertJOptionalRules.AbstractOptionalAssertContainsSame`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

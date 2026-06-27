@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `remember { mutableStateOf(expensiveCall()) }` patterns"}
-  description={"`remember { mutableStateOf(expensiveCall()) }` evaluates the expression once and stores it — but if the expression depends on snapshot state, you want it to recompute when that state changes. `derivedStateOf { expensiveCall() }` (inside a `remember { }`) recomputes lazily only when its tracked reads invalidate, instead of either staling out or recomputing on every recomposition."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindDerivedStateOfCandidate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findderivedstateofcandidate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `remember { mutableStateOf(expensiveCall()) }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`remember { mutableStateOf(expensiveCall()) }` evaluates the expression once and stores it — but if the expression depends on snapshot state, you want it to recompute when that state changes. `derivedStateOf { expensiveCall() }` (inside a `remember { }`) recomputes lazily only when its tracked reads invalidate, instead of either staling out or recomputing on every recomposition.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindDerivedStateOfCandidate$KtRecipe","displayName":"Find `remember { mutableStateOf(expensiveCall()) }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

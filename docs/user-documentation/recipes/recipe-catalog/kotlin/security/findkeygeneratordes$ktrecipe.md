@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `KeyGenerator.getInstance(\"DES\")` calls"}
-  description={"Generating a DES key feeds a known-broken cipher. Use `KeyGenerator.getInstance(\"AES\").apply { init(256) }` instead."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindKeyGeneratorDes$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findkeygeneratordes$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `KeyGenerator.getInstance("DES")` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Generating a DES key feeds a known-broken cipher. Use `KeyGenerator.getInstance("AES").apply { init(256) }` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindKeyGeneratorDes$KtRecipe","displayName":"Find `KeyGenerator.getInstance(\"DES\")` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

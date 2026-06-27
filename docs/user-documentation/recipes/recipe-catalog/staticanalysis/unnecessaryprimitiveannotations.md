@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `@Nullable` and `@CheckForNull` annotations from primitives"}
-  description={"Primitives can't be null anyway, so these annotations are not useful in this context. Leaving them in place gives the false impression that a null value is possible, which can confuse readers and static analysis tools alike."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4682"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UnnecessaryPrimitiveAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryprimitiveannotations.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `@Nullable` and `@CheckForNull` annotations from primitives</RecipeHeader.Title>
+
+<RecipeHeader.Description>Primitives can't be null anyway, so these annotations are not useful in this context. Leaving them in place gives the false impression that a null value is possible, which can confuse readers and static analysis tools alike.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.annotation.CheckForNull;\nimport javax.annotation.Nullable;\nclass A {\n    @CheckForNull\n    public int getCount(@Nullable int val) {\n        return val;\n    }\n}\n","after":"class A {\n    public int getCount(int val) {\n        return val;\n    }\n}\n","diff":"@@ -1,2 +1,0 @@\n-import javax.annotation.CheckForNull;\n-import javax.annotation.Nullable;\nclass A {\n@@ -4,2 +2,1 @@\nimport javax.annotation.Nullable;\nclass A {\n-   @CheckForNull\n-   public int getCount(@Nullable int val) {\n+   public int getCount(int val) {\n        return val;\n","newFile":false}]}]}>
 

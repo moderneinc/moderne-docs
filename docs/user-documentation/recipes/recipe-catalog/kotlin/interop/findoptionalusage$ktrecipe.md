@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `java.util.Optional` usage in Kotlin"}
-  description={"Kotlin already models the absent-value case with the nullable type system (`T?`). `Optional<T>` is a JVM-only crutch that's worth keeping at the Java boundary only — converting Kotlin-internal `Optional` usage to `T?` improves null-safety and removes one wrapper allocation per call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindOptionalUsage$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalusage$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `java.util.Optional` usage in Kotlin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotlin already models the absent-value case with the nullable type system (`T?`). `Optional<T>` is a JVM-only crutch that's worth keeping at the Java boundary only — converting Kotlin-internal `Optional` usage to `T?` improves null-safety and removes one wrapper allocation per call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindOptionalUsage$KtRecipe","displayName":"Find `java.util.Optional` usage in Kotlin","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates from Netty 4.1.x to Netty 4.2.x"}
-  description={"Migrate applications to the latest Netty 4.2.x release."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["netty"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-netty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.netty.UpgradeNetty_4_1_to_4_2"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/netty/upgradenetty_4_1_to_4_2.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change type","href":"java/changetype"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Replace all `EventLoopGroup`s with `MultiThreadIoEventLoopGroup`","href":"java/netty/eventloopgrouptomultithreadioeventloopgrouprecipes"}]}>
+<RecipeHeader.Title>Migrates from Netty 4.1.x to Netty 4.2.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Netty 4.2.x release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Replace all `EventLoopGroup`s with `MultiThreadIoEventLoopGroup`","href":"/user-documentation/recipes/recipe-catalog/java/netty/eventloopgrouptomultithreadioeventloopgrouprecipes/"}]}>
 
 ## Definition
 

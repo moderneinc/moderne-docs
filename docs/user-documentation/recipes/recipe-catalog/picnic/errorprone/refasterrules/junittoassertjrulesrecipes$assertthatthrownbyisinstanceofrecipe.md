@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `JUnitToAssertJRules.AssertThatThrownByIsInstanceOf`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatThrownByIsInstanceOf<T extends Throwable> {\n    \n    @BeforeTemplate\n    void before(Executable throwingCallable, Class<T> clazz) {\n        assertThrows(clazz, throwingCallable);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(ThrowingCallable throwingCallable, Class<T> clazz) {\n        assertThatThrownBy(throwingCallable).isInstanceOf(clazz);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatThrownByIsInstanceOfRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatthrownbyisinstanceofrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatThrownByIsInstanceOf`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatThrownByIsInstanceOf<T extends Throwable> {
+    
+    @BeforeTemplate
+    void before(Executable throwingCallable, Class<T> clazz) {
+        assertThrows(clazz, throwingCallable);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(ThrowingCallable throwingCallable, Class<T> clazz) {
+        assertThatThrownBy(throwingCallable).isInstanceOf(clazz);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatThrownByIsInstanceOfRecipe","displayName":"Refaster template `JUnitToAssertJRules.AssertThatThrownByIsInstanceOf`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

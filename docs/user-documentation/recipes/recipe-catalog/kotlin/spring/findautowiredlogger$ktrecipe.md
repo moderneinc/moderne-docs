@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Autowired lateinit var` Logger fields"}
-  description={"Injecting a `Logger` through Spring is unnecessarily exotic — the Logger isn't a Spring bean in any standard configuration, and `LoggerFactory.getLogger(MyClass::class.java)` produces an identical instance with zero container plumbing. Move the declaration into a companion object: `companion object { private val log = LoggerFactory.getLogger(MyClass::class.java) }`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindAutowiredLogger$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredlogger$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Autowired lateinit var` Logger fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>Injecting a `Logger` through Spring is unnecessarily exotic — the Logger isn't a Spring bean in any standard configuration, and `LoggerFactory.getLogger(MyClass::class.java)` produces an identical instance with zero container plumbing. Move the declaration into a companion object: `companion object { private val log = LoggerFactory.getLogger(MyClass::class.java) }`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindAutowiredLogger$KtRecipe","displayName":"Find `@Autowired lateinit var` Logger fields","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

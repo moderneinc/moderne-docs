@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find data used on DTOs"}
-  description={"Find data elements used on DTOs. This is useful to provide information where data over-fetching may be a problem."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.search.FindDataUsedOnDto"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/search/finddatausedondto.md"}
-/>
+>
+
+<RecipeHeader.Title>Find data used on DTOs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find data elements used on DTOs. This is useful to provide information where data over-fetching may be a problem.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"dtoType","required":true,"description":"The fully qualified name of the DTO.","example":"com.example.dto.*"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find implicit culture-sensitive string methods"}
-  description={"Detect calls to `ToLower()` and `ToUpper()` without culture parameters. These methods use the current thread culture, which may cause unexpected behavior."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindImplicitCultureSensitiveMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findimplicitculturesensitivemethods.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find implicit culture-sensitive string methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect calls to `ToLower()` and `ToUpper()` without culture parameters. These methods use the current thread culture, which may cause unexpected behavior.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindImplicitCultureSensitiveMethods","displayName":"Find implicit culture-sensitive string methods","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

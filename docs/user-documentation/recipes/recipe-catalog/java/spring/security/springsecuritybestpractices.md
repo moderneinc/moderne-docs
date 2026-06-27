@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Spring security best practices"}
-  description={"Applies security best practices to Spring applications, including TLS for database and message broker connections."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","security"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security.SpringSecurityBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security/springsecuritybestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use TLS for AMQP connection strings","href":"java/spring/amqp/usetlsamqpconnectionstring"},{"name":"Use TLS for JDBC connection strings","href":"java/spring/data/usetlsjdbcconnectionstring"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Spring security best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies security best practices to Spring applications, including TLS for database and message broker connections.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use TLS for AMQP connection strings","href":"/user-documentation/recipes/recipe-catalog/java/spring/amqp/usetlsamqpconnectionstring/"},{"name":"Use TLS for JDBC connection strings","href":"/user-documentation/recipes/recipe-catalog/java/spring/data/usetlsjdbcconnectionstring/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

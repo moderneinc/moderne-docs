@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"DevCenter for Quarkus"}
-  description={"A DevCenter that tracks the latest Quarkus framework versions and applies best practices. This DevCenter includes recipes to upgrade Quarkus versions, migrate from deprecated APIs, and ensure compatibility with the latest Java versions and testing frameworks."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.QuarkusDevCenter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/quarkusdevcenter.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Library upgrade","href":"devcenter/libraryupgrade"},{"name":"Parent POM upgrade","href":"devcenter/parentpomupgrade"},{"name":"Move to a later Java version","href":"devcenter/javaversionupgrade"},{"name":"OWASP top ten","href":"devcenter/securitystarter"}]}>
+<RecipeHeader.Title>DevCenter for Quarkus</RecipeHeader.Title>
+
+<RecipeHeader.Description>A DevCenter that tracks the latest Quarkus framework versions and applies best practices. This DevCenter includes recipes to upgrade Quarkus versions, migrate from deprecated APIs, and ensure compatibility with the latest Java versions and testing frameworks.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Library upgrade","href":"/user-documentation/recipes/recipe-catalog/devcenter/libraryupgrade/"},{"name":"Parent POM upgrade","href":"/user-documentation/recipes/recipe-catalog/devcenter/parentpomupgrade/"},{"name":"Move to a later Java version","href":"/user-documentation/recipes/recipe-catalog/devcenter/javaversionupgrade/"},{"name":"OWASP top ten","href":"/user-documentation/recipes/recipe-catalog/devcenter/securitystarter/"}]}>
 
 ## Definition
 

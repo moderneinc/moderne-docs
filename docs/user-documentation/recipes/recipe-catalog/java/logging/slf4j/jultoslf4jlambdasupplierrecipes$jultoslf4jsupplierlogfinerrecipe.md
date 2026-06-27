@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUL `Logger.log(Level.FINER, Supplier<String>)` with SLF4J's `Logger.atInfo().log(Supplier<String>)`"}
-  description={"Replace calls to `java.util.logging.Logger.log(Level.FINER, Supplier<String>)` with `org.slf4j.Logger.atTrace().log(Supplier<String>)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.JulToSlf4jLambdaSupplierRecipes$JulToSlf4jSupplierLogFinerRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jlambdasupplierrecipes$jultoslf4jsupplierlogfinerrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace JUL `Logger.log(Level.FINER, Supplier<String>)` with SLF4J's `Logger.atInfo().log(Supplier<String>)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace calls to `java.util.logging.Logger.log(Level.FINER, Supplier<String>)` with `org.slf4j.Logger.atTrace().log(Supplier<String>)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.logging.slf4j.JulToSlf4jLambdaSupplierRecipes$JulToSlf4jSupplierLogFinerRecipe","displayName":"Replace JUL `Logger.log(Level.FINER, Supplier<String>)` with SLF4J's `Logger.atInfo().log(Supplier<String>)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Renamed BasicAuthenticationHttpClientConfigurer to  DefaultAuthenticationHttpClientConfigurer"}
-  description={"BasicAuthenticationHttpClientConfigurer is renamed to DefaultAuthenticationHttpClientConfigurer."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel413.furyJava"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel413/furyjava.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Renamed BasicAuthenticationHttpClientConfigurer to  DefaultAuthenticationHttpClientConfigurer</RecipeHeader.Title>
+
+<RecipeHeader.Description>BasicAuthenticationHttpClientConfigurer is renamed to DefaultAuthenticationHttpClientConfigurer.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

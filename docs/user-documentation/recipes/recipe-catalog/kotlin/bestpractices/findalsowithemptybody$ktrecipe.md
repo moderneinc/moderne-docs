@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `x.also { }` calls with an empty body"}
-  description={"`x.also { }` with an empty block is a no-op that returns `x`. Drop the call — it adds an allocation for the captured lambda and obscures the value flow."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindAlsoWithEmptyBody$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findalsowithemptybody$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `x.also { }` calls with an empty body</RecipeHeader.Title>
+
+<RecipeHeader.Description>`x.also { }` with an empty block is a no-op that returns `x`. Drop the call — it adds an allocation for the captured lambda and obscures the value flow.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindAlsoWithEmptyBody$KtRecipe","displayName":"Find `x.also { }` calls with an empty body","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

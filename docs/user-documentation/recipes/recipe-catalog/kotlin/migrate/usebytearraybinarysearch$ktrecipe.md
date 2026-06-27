@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `ByteArray.binarySearch()` instead of `Arrays.binarySearch(arr, key)`"}
-  description={"`java.util.Arrays.binarySearch(arr: byte[], key: Byte)` is JVM-only; `arr.binarySearch(key)` is the multiplatform Kotlin extension."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseByteArrayBinarySearch$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebytearraybinarysearch$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `ByteArray.binarySearch()` instead of `Arrays.binarySearch(arr, key)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Arrays.binarySearch(arr: byte[], key: Byte)` is JVM-only; `arr.binarySearch(key)` is the multiplatform Kotlin extension.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseByteArrayBinarySearch$KtRecipe","displayName":"Use `ByteArray.binarySearch()` instead of `Arrays.binarySearch(arr, key)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

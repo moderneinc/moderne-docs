@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `synchronized(lock) { ... }` calls"}
-  description={"Each `synchronized` block is a JVM monitor-acquire/release — incompatible with coroutine cancellation and a candidate for `Mutex`/`withLock` in suspend code. Flag for review of contention and cancellation semantics."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindSynchronizedBlocks$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findsynchronizedblocks$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `synchronized(lock) { ... }` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `synchronized` block is a JVM monitor-acquire/release — incompatible with coroutine cancellation and a candidate for `Mutex`/`withLock` in suspend code. Flag for review of contention and cancellation semantics.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindSynchronizedBlocks$KtRecipe","displayName":"Find `synchronized(lock) { ... }` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

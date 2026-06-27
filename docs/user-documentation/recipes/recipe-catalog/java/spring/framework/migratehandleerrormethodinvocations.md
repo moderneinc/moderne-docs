@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `handleError` method invocations to new signature"}
-  description={"Updates invocations of `handleError(ClientHttpResponse)` to the new `handleError(URI, HttpMethod, ClientHttpResponse)` signature introduced in Spring Framework 7.0. In test sources, example values are used. In main sources, `null` is passed with a TODO comment."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.MigrateHandleErrorMethodInvocations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratehandleerrormethodinvocations.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `handleError` method invocations to new signature</RecipeHeader.Title>
+
+<RecipeHeader.Description>Updates invocations of `handleError(ClientHttpResponse)` to the new `handleError(URI, HttpMethod, ClientHttpResponse)` signature introduced in Spring Framework 7.0. In test sources, example values are used. In main sources, `null` is passed with a TODO comment.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.http.client.ClientHttpResponse;\nimport org.springframework.web.client.DefaultResponseErrorHandler;\n\nclass MyTest {\n    void test(DefaultResponseErrorHandler handler, ClientHttpResponse response) throws Exception {\n        handler.handleError(response);\n    }\n}\n","after":"import org.springframework.http.HttpMethod;\nimport org.springframework.http.client.ClientHttpResponse;\nimport org.springframework.web.client.DefaultResponseErrorHandler;\n\nimport java.net.URI;\n\nclass MyTest {\n    void test(DefaultResponseErrorHandler handler, ClientHttpResponse response) throws Exception {\n        handler.handleError(URI.create(\"http://example.com\"), HttpMethod.GET, response);\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.springframework.http.HttpMethod;\nimport org.springframework.http.client.ClientHttpResponse;\n@@ -4,0 +5,2 @@\nimport org.springframework.web.client.DefaultResponseErrorHandler;\n\n+import java.net.URI;\n+\nclass MyTest {\n@@ -6,1 +9,1 @@\nclass MyTest {\n    void test(DefaultResponseErrorHandler handler, ClientHttpResponse response) throws Exception {\n-       handler.handleError(response);\n+       handler.handleError(URI.create(\"http://example.com\"), HttpMethod.GET, response);\n    }\n","newFile":false}]}]}>
 

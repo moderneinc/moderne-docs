@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove ignoral of files or directories from .gitignore"}
-  description={"This recipe will remove a file or directory from the .gitignore file. If the file or directory is already in the .gitignore file, it will be removed or negated. If the file or directory is not in the .gitignore file, no action will be taken."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.ExcludeFileFromGitignore"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/excludefilefromgitignore.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove ignoral of files or directories from .gitignore</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will remove a file or directory from the .gitignore file. If the file or directory is already in the .gitignore file, it will be removed or negated. If the file or directory is not in the .gitignore file, no action will be taken.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"paths","required":true,"description":"The paths to find and remove from the gitignore files.","example":"/folder/file.txt"}]}>
 

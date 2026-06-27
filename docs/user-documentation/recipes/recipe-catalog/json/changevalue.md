@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change value"}
-  description={"Change a JSON mapping entry value leaving the key intact."}
   type={"Single recipe"}
   languages={["JSON"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-json"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.json.ChangeValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/json/changevalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Change value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change a JSON mapping entry value leaving the key intact.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldKeyPath","required":true,"description":"A [JsonPath](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expression to locate a JSON entry.","example":"$.subjects.kind"},{"type":"String","name":"value","required":true,"description":"The new JSON value to set for the key identified by oldKeyPath.","example":"'Deployment'"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `delay(...)` calls inside test methods running on a real dispatcher"}
-  description={"`delay(ms)` inside a test that uses `runBlocking` (not `runTest`) waits the literal duration in real time — a fast suite slows to a crawl. Inside `runTest { }`, `delay` advances virtual time instantly; the call shape is identical but the runner makes the difference."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindDelayInTest$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/finddelayintest$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `delay(...)` calls inside test methods running on a real dispatcher</RecipeHeader.Title>
+
+<RecipeHeader.Description>`delay(ms)` inside a test that uses `runBlocking` (not `runTest`) waits the literal duration in real time — a fast suite slows to a crawl. Inside `runTest { }`, `delay` advances virtual time instantly; the call shape is identical but the runner makes the difference.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindDelayInTest$KtRecipe","displayName":"Find `delay(...)` calls inside test methods running on a real dispatcher","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

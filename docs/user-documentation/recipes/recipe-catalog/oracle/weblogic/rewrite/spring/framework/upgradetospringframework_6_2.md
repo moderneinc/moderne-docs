@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Framework 6.2 for WebLogic 15.1.1"}
-  description={"Migrate applications to the Spring Framework 6.2 release and compatibility with WebLogic 15.1.1."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["weblogic","springframework"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.spring.framework.UpgradeToSpringFramework_6_2"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/upgradetospringframework_6_2.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Framework 6.1","href":"java/spring/framework/upgradespringframework_6_1"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Update Default Servlet Handler for Spring Framework if empty","href":"oracle/weblogic/rewrite/spring/framework/defaultservlethandler"},{"name":"Replace Removed WebLogicJtaTransactionManager from Spring Framework 5.3.x to 6.2.x","href":"oracle/weblogic/rewrite/spring/framework/replaceweblogicjtatransactionmanager"},{"name":"Replace Removed WebLogicLoadTimeWeaver from Spring Framework 5.3.x to 6.2.x","href":"oracle/weblogic/rewrite/spring/framework/replaceweblogicloadtimeweaver"},{"name":"Upgrade Spring Data BOM to 2024.1.x","href":"oracle/weblogic/rewrite/spring/data/upgradespringdatabom"},{"name":"Upgrade Spring Data JPA to 3.4.6","href":"oracle/weblogic/rewrite/spring/data/upgradespringdatajpa"}]}>
+<RecipeHeader.Title>Migrate to Spring Framework 6.2 for WebLogic 15.1.1</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the Spring Framework 6.2 release and compatibility with WebLogic 15.1.1.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Framework 6.1","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_6_1/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Update Default Servlet Handler for Spring Framework if empty","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/defaultservlethandler/"},{"name":"Replace Removed WebLogicJtaTransactionManager from Spring Framework 5.3.x to 6.2.x","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/replaceweblogicjtatransactionmanager/"},{"name":"Replace Removed WebLogicLoadTimeWeaver from Spring Framework 5.3.x to 6.2.x","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/replaceweblogicloadtimeweaver/"},{"name":"Upgrade Spring Data BOM to 2024.1.x","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/data/upgradespringdatabom/"},{"name":"Upgrade Spring Data JPA to 3.4.6","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/data/upgradespringdatajpa/"}]}>
 
 ## Definition
 

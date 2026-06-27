@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `disable(MapperFeature.AUTO_DETECT_*)` with `changeDefaultVisibility()` for Jackson 3"}
-  description={"In Jackson 3, auto-detection `MapperFeature` flags like `AUTO_DETECT_FIELDS` are removed. Use `changeDefaultVisibility()` on the builder instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.UpdateAutoDetectVisibilityConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/updateautodetectvisibilityconfiguration.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `disable(MapperFeature.AUTO_DETECT_*)` with `changeDefaultVisibility()` for Jackson 3</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Jackson 3, auto-detection `MapperFeature` flags like `AUTO_DETECT_FIELDS` are removed. Use `changeDefaultVisibility()` on the builder instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.databind.MapperFeature;\nimport com.fasterxml.jackson.databind.json.JsonMapper;\n\nclass Test {\n    void configure() {\n        JsonMapper.builder()\n          .disable(MapperFeature.AUTO_DETECT_FIELDS)\n          .build();\n    }\n}\n","after":"import com.fasterxml.jackson.annotation.JsonAutoDetect;\nimport com.fasterxml.jackson.databind.json.JsonMapper;\n\nclass Test {\n    void configure() {\n        JsonMapper.builder()\n          .changeDefaultVisibility(vc -> vc.withFieldVisibility(JsonAutoDetect.Visibility.NONE))\n          .build();\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import com.fasterxml.jackson.databind.MapperFeature;\n+import com.fasterxml.jackson.annotation.JsonAutoDetect;\nimport com.fasterxml.jackson.databind.json.JsonMapper;\n@@ -7,1 +7,1 @@\n    void configure() {\n        JsonMapper.builder()\n-         .disable(MapperFeature.AUTO_DETECT_FIELDS)\n+         .changeDefaultVisibility(vc -> vc.withFieldVisibility(JsonAutoDetect.Visibility.NONE))\n          .build();\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `getDOMNode()` with `React.findDOMNode()`"}
-  description={"Migrates deprecated `getDOMNode()` calls to `React.findDOMNode()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.16.find-dom-node"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/16/find-dom-node.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `getDOMNode()` with `React.findDOMNode()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates deprecated `getDOMNode()` calls to `React.findDOMNode()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.16.find-dom-node","displayName":"Replace `getDOMNode()` with `React.findDOMNode()`","npmPackage":"@openrewrite/recipes-react"}}>
 

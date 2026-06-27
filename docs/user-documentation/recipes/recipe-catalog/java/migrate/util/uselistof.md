@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `List.of(..)`"}
-  description={"Prefer `List.of(..)` instead of using `java.util.List#add(..)` in anonymous ArrayList initializers in Java 10 or higher. This recipe will not modify code where the List is later mutated since `List.of` returns an immutable list."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.UseListOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/uselistof.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `List.of(..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `List.of(..)` instead of using `java.util.List#add(..)` in anonymous ArrayList initializers in Java 10 or higher. This recipe will not modify code where the List is later mutated since `List.of` returns an immutable list.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.ArrayList;\nimport java.util.List;\n\nclass Test {\n    List<String> l = new ArrayList<>() {{\n        add(\"a\");\n        add(\"b\");\n    }};\n}\n","after":"import java.util.List;\n\nclass Test {\n    List<String> l = List.of(\"a\", \"b\");\n}\n","diff":"@@ -1,1 +1,0 @@\n-import java.util.ArrayList;\nimport java.util.List;\n@@ -5,4 +4,1 @@\n\nclass Test {\n-   List<String> l = new ArrayList<>() {{\n-       add(\"a\");\n-       add(\"b\");\n-   }};\n+   List<String> l = List.of(\"a\", \"b\");\n}\n","newFile":false}]}]}>
 

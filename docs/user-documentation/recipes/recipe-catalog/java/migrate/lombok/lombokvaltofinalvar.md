@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `final var` over `lombok.val`"}
-  description={"Prefer the Java standard library's `final var` and `var` over third-party usage of Lombok's `lombok.val` and `lombok.var` in Java 10 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["lombok"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lombok.LombokValToFinalVar"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokvaltofinalvar.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `final var` over `lombok.val`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Java standard library's `final var` and `var` over third-party usage of Lombok's `lombok.val` and `lombok.var` in Java 10 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import lombok.val;\nclass A {\n    void bar() {\n        val foo = \"foo\";\n    }\n}\n","after":"class A {\n    void bar() {\n        final var foo = \"foo\";\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import lombok.val;\nclass A {\n@@ -4,1 +3,1 @@\nclass A {\n    void bar() {\n-       val foo = \"foo\";\n+       final var foo = \"foo\";\n    }\n","newFile":false}]}]}>
 

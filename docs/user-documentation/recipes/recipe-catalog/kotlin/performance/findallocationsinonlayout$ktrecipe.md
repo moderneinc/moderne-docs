@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find graphics allocations inside `View.onLayout`"}
-  description={"`onLayout` runs whenever a view's children are repositioned. Allocating `Paint`, `Path`, `Rect`, `RectF`, `Region`, `Matrix`, or `Bitmap` instances per layout causes per-frame GC pressure — hoist them to fields."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindAllocationsInOnLayout$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findallocationsinonlayout$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find graphics allocations inside `View.onLayout`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`onLayout` runs whenever a view's children are repositioned. Allocating `Paint`, `Path`, `Rect`, `RectF`, `Region`, `Matrix`, or `Bitmap` instances per layout causes per-frame GC pressure — hoist them to fields.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindAllocationsInOnLayout$KtRecipe","displayName":"Find graphics allocations inside `View.onLayout`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

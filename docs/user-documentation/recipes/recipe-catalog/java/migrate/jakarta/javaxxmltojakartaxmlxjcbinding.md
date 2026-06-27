@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate XJC Bindings to Jakata XML"}
-  description={"Java EE has been rebranded to Jakarta EE, migrates the namespace and version in XJC bindings."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jaxb","javax","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.JavaxXmlToJakartaXmlXJCBinding"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxxmltojakartaxmlxjcbinding.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"}]} preconditions={[{"name":"Find files without Namespace URI","href":"xml/search/doesnotusenamespaceuri"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate XJC Bindings to Jakata XML</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java EE has been rebranded to Jakarta EE, migrates the namespace and version in XJC bindings.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"}]} preconditions={[{"name":"Find files without Namespace URI","href":"/user-documentation/recipes/recipe-catalog/xml/search/doesnotusenamespaceuri/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Class.forName(...)` calls"}
-  description={"`Class.forName` is the entrypoint to runtime reflection — the receiver type isn't known at compile time, so type-safety analyses can't follow what happens next. Each match is a position an LLM agent should single out when reasoning about what a function can touch."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindClassForName$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findclassforname$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Class.forName(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Class.forName` is the entrypoint to runtime reflection — the receiver type isn't known at compile time, so type-safety analyses can't follow what happens next. Each match is a position an LLM agent should single out when reasoning about what a function can touch.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindClassForName$KtRecipe","displayName":"Find `Class.forName(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

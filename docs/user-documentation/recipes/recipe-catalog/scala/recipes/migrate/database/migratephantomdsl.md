@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Phantom DSL to Datastax driver or quill-cassandra"}
-  description={"Removes imports of the Phantom DSL library (`com.outworkers.phantom.*`). Consider migrating to the direct Datastax driver or quill-cassandra."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.database.MigratePhantomDsl"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/database/migratephantomdsl.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Phantom DSL to Datastax driver or quill-cassandra</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes imports of the Phantom DSL library (`com.outworkers.phantom.*`). Consider migrating to the direct Datastax driver or quill-cassandra.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import com.outworkers.phantom.dsl._\n\nobject CassandraDao {\n    val name = \"cassandra\"\n}\n","after":"\n\n\nobject CassandraDao {\n    val name = \"cassandra\"\n}\n","diff":"@@ -1,1 +1,0 @@\n-import com.outworkers.phantom.dsl._\n\n@@ -3,0 +2,2 @@\nimport com.outworkers.phantom.dsl._\n\n+\n+\nobject CassandraDao {\n","newFile":false}]}]}>
 

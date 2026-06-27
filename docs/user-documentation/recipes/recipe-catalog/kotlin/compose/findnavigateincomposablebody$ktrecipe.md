@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `NavController.navigate(...)` calls in a `@Composable` body"}
-  description={"`navController.navigate(...)` called directly in the body fires on every recomposition, leading to navigation loops or back-stack corruption. Wrap in a `LaunchedEffect(key) { … }` keyed by the condition that should trigger the navigation, or move the call into an event handler (`onClick = { … }`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindNavigateInComposableBody$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findnavigateincomposablebody$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `NavController.navigate(...)` calls in a `@Composable` body</RecipeHeader.Title>
+
+<RecipeHeader.Description>`navController.navigate(...)` called directly in the body fires on every recomposition, leading to navigation loops or back-stack corruption. Wrap in a `LaunchedEffect(key) { … }` keyed by the condition that should trigger the navigation, or move the call into an event handler (`onClick = { … }`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindNavigateInComposableBody$KtRecipe","displayName":"Find `NavController.navigate(...)` calls in a `@Composable` body","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

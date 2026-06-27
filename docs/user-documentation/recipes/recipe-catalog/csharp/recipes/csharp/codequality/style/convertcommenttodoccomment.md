@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert comment to documentation comment"}
-  description={"Convert single-line or multi-line comments above declarations to XML documentation comments."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.ConvertCommentToDocComment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/convertcommenttodoccomment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert comment to documentation comment</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert single-line or multi-line comments above declarations to XML documentation comments.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.ConvertCommentToDocComment","displayName":"Convert comment to documentation comment","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

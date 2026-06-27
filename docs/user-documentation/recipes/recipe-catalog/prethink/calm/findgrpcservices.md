@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find gRPC services"}
-  description={"Identify gRPC service implementations in the application. Detects classes extending generated ImplBase classes and @GrpcService annotations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindGrpcServices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findgrpcservices.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find gRPC services</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify gRPC service implementations in the application. Detects classes extending generated ImplBase classes and @GrpcService annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindGrpcServices","displayName":"Find gRPC services","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

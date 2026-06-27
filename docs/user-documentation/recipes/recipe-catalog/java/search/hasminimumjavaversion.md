@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find the oldest Java version in use"}
-  description={"The oldest Java version in use is the lowest Java version in use in any source set of any subproject of a repository. It is possible that, for example, the main source set of a project uses Java 8, but a test source set uses Java 17. In this case, the oldest Java version in use is Java 8."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.HasMinimumJavaVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/hasminimumjavaversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Find the oldest Java version in use</RecipeHeader.Title>
+
+<RecipeHeader.Description>The oldest Java version in use is the lowest Java version in use in any source set of any subproject of a repository. It is possible that, for example, the main source set of a project uses Java 8, but a test source set uses Java 17. In this case, the oldest Java version in use is Java 8.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"version","required":true,"description":"An exact version number or node-style semver selector used to select the version number.","example":"17.X"},{"type":"Boolean","name":"checkTargetCompatibility","required":false,"description":"The source and target compatibility versions can be different. This option allows you to check against the target compatibility version instead of the source compatibility version.","example":"17.X"}]}>
 

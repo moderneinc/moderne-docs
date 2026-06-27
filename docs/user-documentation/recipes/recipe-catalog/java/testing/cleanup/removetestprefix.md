@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `test` prefix from JUnit 5 tests"}
-  description={"Remove `test` from methods with `@Test`, `@ParameterizedTest`, `@RepeatedTest` or `@TestFactory`. They no longer have to prefix test to be usable by JUnit 5."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.RemoveTestPrefix"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/removetestprefix.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `test` prefix from JUnit 5 tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `test` from methods with `@Test`, `@ParameterizedTest`, `@RepeatedTest` or `@TestFactory`. They no longer have to prefix test to be usable by JUnit 5.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Nested;\nimport org.junit.jupiter.api.Test;\n\nclass ATest {\n    @Test\n    void testMethod() {\n    }\n\n    @Test\n    void test_snake_case() {\n    }\n\n    @Test\n    void testRTFCharacters() {\n    }\n\n    @Nested\n    class NestedTestClass {\n        @Test\n        void testAnotherTestMethod() {\n        }\n    }\n\n    @Nested\n    class AnotherNestedTestClass {\n        @Test\n        void testYetAnotherTestMethod() {\n        }\n    }\n}\n","after":"import org.junit.jupiter.api.Nested;\nimport org.junit.jupiter.api.Test;\n\nclass ATest {\n    @Test\n    void method() {\n    }\n\n    @Test\n    void snake_case() {\n    }\n\n    @Test\n    void rtfCharacters() {\n    }\n\n    @Nested\n    class NestedTestClass {\n        @Test\n        void anotherTestMethod() {\n        }\n    }\n\n    @Nested\n    class AnotherNestedTestClass {\n        @Test\n        void yetAnotherTestMethod() {\n        }\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass ATest {\n    @Test\n-   void testMethod() {\n+   void method() {\n    }\n@@ -10,1 +10,1 @@\n\n    @Test\n-   void test_snake_case() {\n+   void snake_case() {\n    }\n@@ -14,1 +14,1 @@\n\n    @Test\n-   void testRTFCharacters() {\n+   void rtfCharacters() {\n    }\n@@ -20,1 +20,1 @@\n    class NestedTestClass {\n        @Test\n-       void testAnotherTestMethod() {\n+       void anotherTestMethod() {\n        }\n@@ -27,1 +27,1 @@\n    class AnotherNestedTestClass {\n        @Test\n-       void testYetAnotherTestMethod() {\n+       void yetAnotherTestMethod() {\n        }\n","newFile":false}]}]}>
 

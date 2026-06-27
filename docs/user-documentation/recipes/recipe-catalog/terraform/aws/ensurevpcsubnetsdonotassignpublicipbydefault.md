@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure VPC subnets do not assign public IP by default"}
-  description={"Ensure VPC subnets do not assign public IP by default."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["terraform","AWS","CKV_AWS_130"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.aws.EnsureVPCSubnetsDoNotAssignPublicIPByDefault"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/aws/ensurevpcsubnetsdonotassignpublicipbydefault.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Ensure VPC subnets do not assign public IP by default</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure VPC subnets do not assign public IP by default.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

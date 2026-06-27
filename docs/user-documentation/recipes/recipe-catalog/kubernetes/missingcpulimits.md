@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure CPU limits are set"}
-  description={"A system without managed quotas could eventually collapse due to inadequate resources for the tasks it bares."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kubernetes"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.MissingCpuLimits"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/missingcpulimits.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find missing configuration","href":"kubernetes/search/findresourcemissingconfiguration"}]}>
+<RecipeHeader.Title>Ensure CPU limits are set</RecipeHeader.Title>
+
+<RecipeHeader.Description>A system without managed quotas could eventually collapse due to inadequate resources for the tasks it bares.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find missing configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/search/findresourcemissingconfiguration/"}]}>
 
 ## Definition
 

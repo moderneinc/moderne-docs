@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `JSONNode` field iterator for Jackson 3"}
-  description={"`JSONNode` fields are using `Collections` instead of `Iterator` singe Jackson 3. To mimic Jackson 2s behavior an additional call to `Collection#iterator()`is needed."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.Jackson3JsonNodeFieldIterators"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/jackson3jsonnodefielditerators.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `JSONNode` field iterator for Jackson 3</RecipeHeader.Title>
+
+<RecipeHeader.Description>`JSONNode` fields are using `Collections` instead of `Iterator` singe Jackson 3. To mimic Jackson 2s behavior an additional call to `Collection#iterator()`is needed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.jackson.Jackson3JsonNodeFieldIterators","displayName":"Migrate `JSONNode` field iterator for Jackson 3","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
 

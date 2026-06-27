@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary cast to `Session` for `SessionFactory.createEntityManager()`"}
-  description={"In Hibernate 7.0, `SessionFactory.createEntityManager()` explicitly returns Session, making casts to Session unnecessary."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.RemoveUnnecessaryCastToSession"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/removeunnecessarycasttosession.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary cast to `Session` for `SessionFactory.createEntityManager()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Hibernate 7.0, `SessionFactory.createEntityManager()` explicitly returns Session, making casts to Session unnecessary.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.Session;\nimport org.hibernate.SessionFactory;\n\nclass SomeClass {\n    void doSomething(SessionFactory sessionFactory) {\n        Session session = (Session) sessionFactory.createEntityManager();\n    }\n}\n","after":"import org.hibernate.Session;\nimport org.hibernate.SessionFactory;\n\nclass SomeClass {\n    void doSomething(SessionFactory sessionFactory) {\n        Session session = sessionFactory.createEntityManager();\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass SomeClass {\n    void doSomething(SessionFactory sessionFactory) {\n-       Session session = (Session) sessionFactory.createEntityManager();\n+       Session session = sessionFactory.createEntityManager();\n    }\n","newFile":false}]}]}>
 

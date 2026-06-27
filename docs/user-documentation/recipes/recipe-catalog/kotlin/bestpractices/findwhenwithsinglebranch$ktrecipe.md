@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `when (x) { A -> … }` with a single branch"}
-  description={"A single-branch `when (x) { A -> … }` is the long form of `if (x == A) …`. The `if` reads more directly and doesn't suggest the branch list will grow."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindWhenWithSingleBranch$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenwithsinglebranch$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `when (x) { A -> … }` with a single branch</RecipeHeader.Title>
+
+<RecipeHeader.Description>A single-branch `when (x) { A -> … }` is the long form of `if (x == A) …`. The `if` reads more directly and doesn't suggest the branch list will grow.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindWhenWithSingleBranch$KtRecipe","displayName":"Find `when (x) { A -> … }` with a single branch","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

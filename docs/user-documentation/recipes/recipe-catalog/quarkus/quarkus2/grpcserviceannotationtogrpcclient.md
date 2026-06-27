@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `@GrpcClient`"}
-  description={"The `@GrpcService` annotation is replaced with `@GrpcClient` in Quarkus 2.x. Removes the optional `@GrpcClient.value()` unless the service name is different from the name of annotated element."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.quarkus2.GrpcServiceAnnotationToGrpcClient"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/grpcserviceannotationtogrpcclient.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `@GrpcClient`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `@GrpcService` annotation is replaced with `@GrpcClient` in Quarkus 2.x. Removes the optional `@GrpcClient.value()` unless the service name is different from the name of annotated element.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.example;\n\nimport io.quarkus.grpc.runtime.annotations.GrpcService;\n\nimport javax.inject.Inject;\n\nclass ExampleResource {\n    @Inject\n    @GrpcService(\"client\")\n    GreeterGrpc.GreeterBlockingStub client;\n}\n","after":"package org.openrewrite.example;\n\nimport io.quarkus.grpc.GrpcClient;\n\nimport javax.inject.Inject;\n\nclass ExampleResource {\n    @Inject\n    @GrpcClient\n    GreeterGrpc.GreeterBlockingStub client;\n}\n","diff":"@@ -3,1 +3,1 @@\npackage org.openrewrite.example;\n\n-import io.quarkus.grpc.runtime.annotations.GrpcService;\n+import io.quarkus.grpc.GrpcClient;\n\n@@ -9,1 +9,1 @@\nclass ExampleResource {\n    @Inject\n-   @GrpcService(\"client\")\n+   @GrpcClient\n    GreeterGrpc.GreeterBlockingStub client;\n","newFile":false}]}]}>
 

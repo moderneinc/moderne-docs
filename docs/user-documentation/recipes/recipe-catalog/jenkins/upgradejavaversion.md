@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade jenkins java version"}
-  description={"Upgrades the version of java specified in Jenkins groovy scripts. Will not downgrade if the version is newer than the specified version."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.UpgradeJavaVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/upgradejavaversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade jenkins java version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrades the version of java specified in Jenkins groovy scripts. Will not downgrade if the version is newer than the specified version.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Integer","name":"version","required":true,"description":"The Java version to upgrade to.","example":"17"},{"type":"String","name":"distribution","required":true,"description":"The distribution of Java to use. When omitted the current distribution is maintained.","example":"openjdk"}]}>
 

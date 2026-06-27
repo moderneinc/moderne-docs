@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `mockk<X>()` / `mockk(...)` calls"}
-  description={"Each `mockk` allocation is a test-time fake — the production type it stands in for is the seam under test. Flagging them helps a reviewer or LLM agent see what is real and what is faked inside a test."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindMockkAllocations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findmockkallocations$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `mockk<X>()` / `mockk(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `mockk` allocation is a test-time fake — the production type it stands in for is the seam under test. Flagging them helps a reviewer or LLM agent see what is real and what is faked inside a test.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindMockkAllocations$KtRecipe","displayName":"Find `mockk<X>()` / `mockk(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

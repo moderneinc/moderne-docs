@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JUL to SLF4J"}
-  description={"Migrates usage of Java Util Logging (JUL) to using SLF4J directly."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["slf4j","java-util-logging","logging"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.JulToSlf4j"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4j.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace JUL Logger creation with SLF4J LoggerFactory","href":"java/logging/slf4j/julgetloggertologgerfactory"},{"name":"Replace JUL active Level check with corresponding SLF4J method calls","href":"java/logging/slf4j/julisloggabletoisenabledrecipes"},{"name":"Replace parameterized JUL level call with corresponding SLF4J method calls","href":"java/logging/slf4j/julparameterizedarguments"},{"name":"Replace JUL active Level check with corresponding SLF4J method calls","href":"java/logging/slf4j/jultoslf4jlambdasupplierrecipes"},{"name":"Replace JUL `log(Level, Throwable, Supplier<String>)` with corresponding SLF4J method calls","href":"java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes"},{"name":"Replace JUL `log(Level, String, Throwable)` with corresponding SLF4J method calls","href":"java/logging/slf4j/jultoslf4jsimplecallswiththrowablerecipes"},{"name":"Replace JUL `Level.ALL` logging with SLF4J's trace level","href":"java/logging/slf4j/jullevelalltotracerecipe"},{"name":"Migrate JUL to Log4j 2.x API","href":"java/logging/log4j/jultolog4j"},{"name":"Migrate Log4j 2.x to SLF4J 1.x","href":"java/logging/slf4j/log4j2toslf4j1"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate JUL to SLF4J</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates usage of Java Util Logging (JUL) to using SLF4J directly.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace JUL Logger creation with SLF4J LoggerFactory","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julgetloggertologgerfactory/"},{"name":"Replace JUL active Level check with corresponding SLF4J method calls","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julisloggabletoisenabledrecipes/"},{"name":"Replace parameterized JUL level call with corresponding SLF4J method calls","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julparameterizedarguments/"},{"name":"Replace JUL active Level check with corresponding SLF4J method calls","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jlambdasupplierrecipes/"},{"name":"Replace JUL `log(Level, Throwable, Supplier<String>)` with corresponding SLF4J method calls","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes/"},{"name":"Replace JUL `log(Level, String, Throwable)` with corresponding SLF4J method calls","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jsimplecallswiththrowablerecipes/"},{"name":"Replace JUL `Level.ALL` logging with SLF4J's trace level","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jullevelalltotracerecipe/"},{"name":"Migrate JUL to Log4j 2.x API","href":"/user-documentation/recipes/recipe-catalog/java/logging/log4j/jultolog4j/"},{"name":"Migrate Log4j 2.x to SLF4J 1.x","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2toslf4j1/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

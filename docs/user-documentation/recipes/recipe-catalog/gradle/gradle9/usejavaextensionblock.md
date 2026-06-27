@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move `sourceCompatibility` and `targetCompatibility` into the `java { }` extension block"}
-  description={"Gradle 9 removed the `JavaPluginConvention` (deprecated in 8.2). Top-level `sourceCompatibility` and `targetCompatibility` assignments in a Groovy build script previously delegated to that convention object and stop working in Gradle 9. Move them into the `java { }` extension block, normalizing values to `JavaVersion.VERSION_<n>` and adding the missing counterpart so both properties are set explicitly. See the [Gradle upgrade guide](https://docs.gradle.org/9.0.0/userguide/upgrading_major_version_9.html) for more information."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.gradle9.UseJavaExtensionBlock"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/gradle9/usejavaextensionblock.md"}
-/>
+>
+
+<RecipeHeader.Title>Move `sourceCompatibility` and `targetCompatibility` into the `java { }` extension block</RecipeHeader.Title>
+
+<RecipeHeader.Description>Gradle 9 removed the `JavaPluginConvention` (deprecated in 8.2). Top-level `sourceCompatibility` and `targetCompatibility` assignments in a Groovy build script previously delegated to that convention object and stop working in Gradle 9. Move them into the `java { }` extension block, normalizing values to `JavaVersion.VERSION_<n>` and adding the missing counterpart so both properties are set explicitly. See the [Gradle upgrade guide](https://docs.gradle.org/9.0.0/userguide/upgrading_major_version_9.html) for more information.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins {\n    id 'java'\n}\n\nsourceCompatibility = '17'\ntargetCompatibility = '17'\n","after":"plugins {\n    id 'java'\n}\n\njava {\n    sourceCompatibility = JavaVersion.VERSION_17\n    targetCompatibility = JavaVersion.VERSION_17\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -5,2 +5,4 @@\n}\n\n-sourceCompatibility = '17'\n-targetCompatibility = '17'\n+java {\n+   sourceCompatibility = JavaVersion.VERSION_17\n+   targetCompatibility = JavaVersion.VERSION_17\n+}\n\n","newFile":false}]}]}>
 

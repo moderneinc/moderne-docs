@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify redundant logical expression"}
-  description={"Simplify `x && x` to `x`, `x || x` to `x`, and similarly for `&` and `|`, where both sides of a logical or bitwise operator are identical."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","simplification","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyRedundantLogicalExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifyredundantlogicalexpression.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify redundant logical expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify `x && x` to `x`, `x || x` to `x`, and similarly for `&` and `|`, where both sides of a logical or bitwise operator are identical.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyRedundantLogicalExpression","displayName":"Simplify redundant logical expression","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

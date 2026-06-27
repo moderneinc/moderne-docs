@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.8` application to `camel 4.9`"}
-  description={"Migrates `camel 4.8` application to `camel 4.9`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel49.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel49/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Renamed classes for API","href":"apache/camel/upgrade/camel49/renamedapis"},{"name":"The syntax for retrieving a single field of a secret has been changed","href":"apache/camel/upgrade/camel49/hashicorpsecretrecipe"},{"name":"The syntax for retrieving a single field of a secret has been changed","href":"apache/camel/upgrade/camel49/gcpsecretrecipe"},{"name":"The syntax for retrieving a single field of a secret has been changed","href":"apache/camel/upgrade/camel49/awssecretrecipe"},{"name":"The syntax for retrieving a single field of a secret has been changed","href":"apache/camel/upgrade/camel49/azuresecretrecipe"},{"name":"Each camel-debezium module has its own subpackage corresponding to the database type","href":"apache/camel/upgrade/camel49/debeziumchangetypes"},{"name":"Removed deprecated components","href":"apache/camel/upgrade/camel49/removeddependencies"}]}>
+<RecipeHeader.Title>Migrates `camel 4.8` application to `camel 4.9`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.8` application to `camel 4.9`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Renamed classes for API","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel49/renamedapis/"},{"name":"The syntax for retrieving a single field of a secret has been changed","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel49/hashicorpsecretrecipe/"},{"name":"The syntax for retrieving a single field of a secret has been changed","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel49/gcpsecretrecipe/"},{"name":"The syntax for retrieving a single field of a secret has been changed","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel49/awssecretrecipe/"},{"name":"The syntax for retrieving a single field of a secret has been changed","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel49/azuresecretrecipe/"},{"name":"Each camel-debezium module has its own subpackage corresponding to the database type","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel49/debeziumchangetypes/"},{"name":"Removed deprecated components","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel49/removeddependencies/"}]}>
 
 ## Definition
 

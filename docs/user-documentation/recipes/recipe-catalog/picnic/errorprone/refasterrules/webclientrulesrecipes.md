@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`WebClientRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `org.springframework.web.reactive.function.client.WebClient` and related types.\n[Source](https://error-prone.picnic.tech/refasterrules/WebClientRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.WebClientRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/webclientrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `WebClientRules.BodyValue`","href":"picnic/errorprone/refasterrules/webclientrulesrecipes$bodyvaluerecipe"},{"name":"Refaster template `WebClientRules.WebClientGet`","href":"picnic/errorprone/refasterrules/webclientrulesrecipes$webclientgetrecipe"},{"name":"Refaster template `WebClientRules.WebClientHead`","href":"picnic/errorprone/refasterrules/webclientrulesrecipes$webclientheadrecipe"},{"name":"Refaster template `WebClientRules.WebClientOptions`","href":"picnic/errorprone/refasterrules/webclientrulesrecipes$webclientoptionsrecipe"},{"name":"Refaster template `WebClientRules.WebClientPatch`","href":"picnic/errorprone/refasterrules/webclientrulesrecipes$webclientpatchrecipe"},{"name":"Refaster template `WebClientRules.WebClientPost`","href":"picnic/errorprone/refasterrules/webclientrulesrecipes$webclientpostrecipe"},{"name":"Refaster template `WebClientRules.WebClientPut`","href":"picnic/errorprone/refasterrules/webclientrulesrecipes$webclientputrecipe"},{"name":"Refaster template `WebClientRules.RequestHeadersUriSpecUri`","href":"picnic/errorprone/refasterrules/webclientrulesrecipes$requestheadersurispecurirecipe"}]}>
+<RecipeHeader.Title>`WebClientRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `org.springframework.web.reactive.function.client.WebClient` and related types. [Source](https://error-prone.picnic.tech/refasterrules/WebClientRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `WebClientRules.BodyValue`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/webclientrulesrecipes$bodyvaluerecipe/"},{"name":"Refaster template `WebClientRules.WebClientGet`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/webclientrulesrecipes$webclientgetrecipe/"},{"name":"Refaster template `WebClientRules.WebClientHead`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/webclientrulesrecipes$webclientheadrecipe/"},{"name":"Refaster template `WebClientRules.WebClientOptions`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/webclientrulesrecipes$webclientoptionsrecipe/"},{"name":"Refaster template `WebClientRules.WebClientPatch`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/webclientrulesrecipes$webclientpatchrecipe/"},{"name":"Refaster template `WebClientRules.WebClientPost`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/webclientrulesrecipes$webclientpostrecipe/"},{"name":"Refaster template `WebClientRules.WebClientPut`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/webclientrulesrecipes$webclientputrecipe/"},{"name":"Refaster template `WebClientRules.RequestHeadersUriSpecUri`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/webclientrulesrecipes$requestheadersurispecurirecipe/"}]}>
 
 ## Definition
 

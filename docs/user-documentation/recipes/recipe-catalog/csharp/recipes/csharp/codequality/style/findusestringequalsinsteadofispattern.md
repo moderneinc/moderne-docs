@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find 'is' pattern with string literal"}
-  description={"Detect `x is \"literal\"` patterns that should use `string.Equals` with explicit `StringComparison` for culture-aware or case-insensitive comparisons."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseStringEqualsInsteadOfIsPattern"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findusestringequalsinsteadofispattern.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find 'is' pattern with string literal</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `x is "literal"` patterns that should use `string.Equals` with explicit `StringComparison` for culture-aware or case-insensitive comparisons.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseStringEqualsInsteadOfIsPattern","displayName":"Find 'is' pattern with string literal","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

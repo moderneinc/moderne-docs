@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `x.isNotEmpty()` on `String` where `isNotBlank()` might be wanted"}
-  description={"`String.isNotEmpty()` returns true for whitespace-only strings. When the check exists to guard against missing user input, `isNotBlank()` is usually closer to the intent."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindIsNotEmptyOnString$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findisnotemptyonstring$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `x.isNotEmpty()` on `String` where `isNotBlank()` might be wanted</RecipeHeader.Title>
+
+<RecipeHeader.Description>`String.isNotEmpty()` returns true for whitespace-only strings. When the check exists to guard against missing user input, `isNotBlank()` is usually closer to the intent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindIsNotEmptyOnString$KtRecipe","displayName":"Find `x.isNotEmpty()` on `String` where `isNotBlank()` might be wanted","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

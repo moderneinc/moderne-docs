@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `PowerMockito.whenNew` with Mockito counterpart"}
-  description={"Replaces `PowerMockito.whenNew` calls with respective `Mockito.whenConstructed` calls."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.PowerMockitoWhenNewToMockito"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockitowhennewtomockito.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `PowerMockito.whenNew` with Mockito counterpart</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `PowerMockito.whenNew` calls with respective `Mockito.whenConstructed` calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.PowerMockitoWhenNewToMockito","displayName":"Replace `PowerMockito.whenNew` with Mockito counterpart","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

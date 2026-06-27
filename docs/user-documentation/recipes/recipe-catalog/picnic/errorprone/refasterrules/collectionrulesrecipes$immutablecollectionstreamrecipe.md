@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `CollectionRules.ImmutableCollectionStream`"}
-  description={"Don't call `ImmutableCollection#asList()` if the result is going to be streamed; stream directly."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$ImmutableCollectionStreamRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/collectionrulesrecipes$immutablecollectionstreamrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `CollectionRules.ImmutableCollectionStream`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Don't call `ImmutableCollection#asList()` if the result is going to be streamed; stream directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$ImmutableCollectionStreamRecipe","displayName":"Refaster template `CollectionRules.ImmutableCollectionStream`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

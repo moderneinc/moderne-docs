@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Javascript linting & formatting library insights"}
-  description={"Discover which popular javascript linting and formatting libraries (ESLint, Prettier, Stylelint, etc.) are being used in your projects."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.nodejs.search.LintingFormattingInsights"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nodejs/search/lintingformattinginsights.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"},{"name":"Node.js dependency insight","href":"nodejs/search/dependencyinsight"}]}>
+<RecipeHeader.Title>Javascript linting & formatting library insights</RecipeHeader.Title>
+
+<RecipeHeader.Description>Discover which popular javascript linting and formatting libraries (ESLint, Prettier, Stylelint, etc.) are being used in your projects.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"},{"name":"Node.js dependency insight","href":"/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight/"}]}>
 
 ## Definition
 

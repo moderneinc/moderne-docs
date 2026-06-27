@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `ReactDOM.render` with `createRoot`"}
-  description={"Migrates from the legacy `ReactDOM.render()` API to the `createRoot()` API from `react-dom/client` introduced in React 18."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.18.replace-reactdom-render"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/18/replace-reactdom-render.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `ReactDOM.render` with `createRoot`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates from the legacy `ReactDOM.render()` API to the `createRoot()` API from `react-dom/client` introduced in React 18.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.18.replace-reactdom-render","displayName":"Replace `ReactDOM.render` with `createRoot`","npmPackage":"@openrewrite/recipes-react"}}>
 

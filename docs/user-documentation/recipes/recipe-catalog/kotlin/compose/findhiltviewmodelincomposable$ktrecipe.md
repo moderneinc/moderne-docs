@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `hiltViewModel<X>()` calls inside `@Composable`"}
-  description={"`hiltViewModel<MyViewModel>()` inside a `@Composable` couples the screen-level dependency injection to that composable. That is the recommended pattern at navigation entry points, but flagged for review when the same ViewModel is injected from multiple composables (you'll get distinct instances per nav graph entry)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindHiltViewModelInComposable$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findhiltviewmodelincomposable$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `hiltViewModel<X>()` calls inside `@Composable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`hiltViewModel<MyViewModel>()` inside a `@Composable` couples the screen-level dependency injection to that composable. That is the recommended pattern at navigation entry points, but flagged for review when the same ViewModel is injected from multiple composables (you'll get distinct instances per nav graph entry).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindHiltViewModelInComposable$KtRecipe","displayName":"Find `hiltViewModel<X>()` calls inside `@Composable`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

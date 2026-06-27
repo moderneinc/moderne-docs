@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `android.content.Context` parameters on `@Composable` functions"}
-  description={"Passing a `Context` into a composable couples it to the activity instance and makes the function harder to preview/test. Use `LocalContext.current` inside the composable instead — it works through the composition tree and is preview-safe."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindContextParameterOnComposable$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcontextparameteroncomposable$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `android.content.Context` parameters on `@Composable` functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Passing a `Context` into a composable couples it to the activity instance and makes the function harder to preview/test. Use `LocalContext.current` inside the composable instead — it works through the composition tree and is preview-safe.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindContextParameterOnComposable$KtRecipe","displayName":"Find `android.content.Context` parameters on `@Composable` functions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

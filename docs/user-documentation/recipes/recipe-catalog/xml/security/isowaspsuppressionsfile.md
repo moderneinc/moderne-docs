@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find OWASP vulnerability suppression XML files"}
-  description={"These files are used to suppress false positives in OWASP [Dependency Check](https://jeremylong.github.io/DependencyCheck)."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.security.IsOwaspSuppressionsFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/security/isowaspsuppressionsfile.md"}
-/>
+>
+
+<RecipeHeader.Title>Find OWASP vulnerability suppression XML files</RecipeHeader.Title>
+
+<RecipeHeader.Description>These files are used to suppress false positives in OWASP [Dependency Check](https://jeremylong.github.io/DependencyCheck).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<suppressions xmlns=\"https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd\">\n    <suppress>\n        <notes>\n        </notes>\n    </suppress>\n</suppressions>","after":"<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<!--~~>--><suppressions xmlns=\"https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd\">\n    <suppress>\n        <notes>\n        </notes>\n    </suppress>\n</suppressions>\n","diff":"--- suppressions.xml\n+++ suppressions.xml\n@@ -2,1 +2,1 @@\n<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n-<suppressions xmlns=\"https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd\">\n+<!--~~>--><suppressions xmlns=\"https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd\">\n    <suppress>\n@@ -8,0 +8,1 @@\n    </suppress>\n</suppressions>\n+\n","newFile":false}]}]}>
 

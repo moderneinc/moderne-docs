@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.12` application to `camel 4.13`"}
-  description={"Migrates `camel 4.12` application to `camel 4.13`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel413.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel413/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Camel YML DSL changes","href":"apache/camel/upgrade/camel413/yamldsl413recipe"},{"name":"Renamed BasicAuthenticationHttpClientConfigurer to  DefaultAuthenticationHttpClientConfigurer","href":"apache/camel/upgrade/camel413/authenticationhttpclientconfigurer"},{"name":"Change Maven dependency example","href":"apache/camel/upgrade/camel413/furydependency"},{"name":"Renamed BasicAuthenticationHttpClientConfigurer to  DefaultAuthenticationHttpClientConfigurer","href":"apache/camel/upgrade/camel413/furyjava"},{"name":"Change dataformat fury to fury in xml/java dsl.","href":"apache/camel/upgrade/camel413/furydsl"}]}>
+<RecipeHeader.Title>Migrates `camel 4.12` application to `camel 4.13`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.12` application to `camel 4.13`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Camel YML DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel413/yamldsl413recipe/"},{"name":"Renamed BasicAuthenticationHttpClientConfigurer to  DefaultAuthenticationHttpClientConfigurer","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel413/authenticationhttpclientconfigurer/"},{"name":"Change Maven dependency example","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel413/furydependency/"},{"name":"Renamed BasicAuthenticationHttpClientConfigurer to  DefaultAuthenticationHttpClientConfigurer","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel413/furyjava/"},{"name":"Change dataformat fury to fury in xml/java dsl.","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel413/furydsl/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Camel XML DSL Saga EIP restructuring"}
-  description={"Apache Camel XML DSL migration from version 4.18 to 4.19. Converts saga compensation and completion child elements to attributes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel419.XmlDsl419SagaRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/xmldsl419sagarecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Camel XML DSL Saga EIP restructuring</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apache Camel XML DSL migration from version 4.18 to 4.19. Converts saga compensation and completion child elements to attributes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.apache.camel.upgrade.camel419.XmlDsl419SagaRecipe","displayName":"Camel XML DSL Saga EIP restructuring","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

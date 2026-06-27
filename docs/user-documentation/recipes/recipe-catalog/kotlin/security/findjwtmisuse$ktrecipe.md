@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find JWT misuse"}
-  description={"Hard-coded JJWT signing keys, `signWith(NONE)` patterns that produce unsigned tokens, and literal `\"alg\":\"none\"` strings that show up in headers and test fixtures alike."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindJwtMisuse$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findjwtmisuse$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `JwtBuilder.setSigningKey(\"literal\".toByteArray())` patterns","href":"kotlin/security/findjjwtsetsigningkeyliteral$ktrecipe"},{"name":"Find `JwtBuilder.signWith(SignatureAlgorithm.NONE, ...)` patterns","href":"kotlin/security/findjjwtsignwithnone$ktrecipe"},{"name":"Find `\"alg\":\"none\"` literal strings","href":"kotlin/security/findjwtalgnoneliteral$ktrecipe"}]}>
+<RecipeHeader.Title>Find JWT misuse</RecipeHeader.Title>
+
+<RecipeHeader.Description>Hard-coded JJWT signing keys, `signWith(NONE)` patterns that produce unsigned tokens, and literal `"alg":"none"` strings that show up in headers and test fixtures alike.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `JwtBuilder.setSigningKey(\"literal\".toByteArray())` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findjjwtsetsigningkeyliteral$ktrecipe/"},{"name":"Find `JwtBuilder.signWith(SignatureAlgorithm.NONE, ...)` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findjjwtsignwithnone$ktrecipe/"},{"name":"Find `\"alg\":\"none\"` literal strings","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findjwtalgnoneliteral$ktrecipe/"}]}>
 
 ## Definition
 

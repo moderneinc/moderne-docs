@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIOExceptionHasMessageStartingWith`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatThrownByIOExceptionHasMessageStartingWith {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatThrownByIOException\")\n    AbstractObjectAssert<?, ?> before(ThrowingCallable throwingCallable, String message) {\n        return assertThatIOException().isThrownBy(throwingCallable).withMessageStartingWith(message);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractObjectAssert<?, ?> after(ThrowingCallable throwingCallable, String message) {\n        return assertThatThrownBy(throwingCallable).isInstanceOf(IOException.class).hasMessageStartingWith(message);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,34 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIOExceptionHasMessageStartingWithRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyioexceptionhasmessagestartingwithrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIOExceptionHasMessageStartingWith`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatThrownByIOExceptionHasMessageStartingWith {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "AssertThatThrownByIOException")
+    AbstractObjectAssert<?, ?> before(ThrowingCallable throwingCallable, String message) {
+        return assertThatIOException().isThrownBy(throwingCallable).withMessageStartingWith(message);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractObjectAssert<?, ?> after(ThrowingCallable throwingCallable, String message) {
+        return assertThatThrownBy(throwingCallable).isInstanceOf(IOException.class).hasMessageStartingWith(message);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIOExceptionHasMessageStartingWithRecipe","displayName":"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIOExceptionHasMessageStartingWith`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

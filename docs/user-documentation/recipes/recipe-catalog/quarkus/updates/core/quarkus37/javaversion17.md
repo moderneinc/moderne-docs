@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Maven and Gradle Java version property values to 17"}
-  description={"Change maven.compiler.source and maven.compiler.target values to 17."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["java17","compiler"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus37.JavaVersion17"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/javaversion17.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Java version","href":"quarkus/updates/core/quarkus37/upgradejavaversion"},{"name":"Use Maven compiler plugin release configuration","href":"maven/usemavencompilerpluginreleaseconfiguration"}]}>
+<RecipeHeader.Title>Change Maven and Gradle Java version property values to 17</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change maven.compiler.source and maven.compiler.target values to 17.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Java version","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/upgradejavaversion/"},{"name":"Use Maven compiler plugin release configuration","href":"/user-documentation/recipes/recipe-catalog/maven/usemavencompilerpluginreleaseconfiguration/"}]}>
 
 ## Definition
 

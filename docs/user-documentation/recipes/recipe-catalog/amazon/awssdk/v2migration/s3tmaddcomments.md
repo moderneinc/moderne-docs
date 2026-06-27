@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add imports and comments to unsupported S3 transfer manager transforms."}
-  description={"Add imports and comments to unsupported S3 transfer manager transforms."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/software.amazon.awssdk.v2migration.S3TmAddComments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/s3tmaddcomments.md"}
-/>
+>
+
+<RecipeHeader.Title>Add imports and comments to unsupported S3 transfer manager transforms.</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add imports and comments to unsupported S3 transfer manager transforms.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"software.amazon.awssdk.v2migration.S3TmAddComments","displayName":"Add imports and comments to unsupported S3 transfer manager transforms.","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

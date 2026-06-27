@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove trailing slash from `jakarta.ws.rs.ApplicationPath` values"}
-  description={"Remove trailing `/*` from `jakarta.ws.rs.ApplicationPath` values."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.ApplicationPathWildcardNoLongerAccepted"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/applicationpathwildcardnolongeraccepted.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove trailing slash from `jakarta.ws.rs.ApplicationPath` values</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove trailing `/*` from `jakarta.ws.rs.ApplicationPath` values.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.ws.rs.ApplicationPath;\nimport jakarta.ws.rs.core.Application;\n@ApplicationPath(\"should-flag/*\")\npublic class ApplicationPathWithWildcard extends Application {\n}\n","after":"import jakarta.ws.rs.ApplicationPath;\nimport jakarta.ws.rs.core.Application;\n@ApplicationPath(\"should-flag\")\npublic class ApplicationPathWithWildcard extends Application {\n}\n","diff":"@@ -3,1 +3,1 @@\nimport jakarta.ws.rs.ApplicationPath;\nimport jakarta.ws.rs.core.Application;\n-@ApplicationPath(\"should-flag/*\")\n+@ApplicationPath(\"should-flag\")\npublic class ApplicationPathWithWildcard extends Application {\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Static members should be accessed via the class name"}
-  description={"Accessing static fields or calling static methods on an instance reference is misleading. Static members should be accessed using the declaring class name instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2209","RSPEC-S3252"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.StaticAccessViaInstance"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/staticaccessviainstance.md"}
-/>
+>
+
+<RecipeHeader.Title>Static members should be accessed via the class name</RecipeHeader.Title>
+
+<RecipeHeader.Description>Accessing static fields or calling static methods on an instance reference is misleading. Static members should be accessed using the declaring class name instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class MyClass {\n    static int COUNT = 0;\n    void foo(MyClass instance) {\n        int x = instance.COUNT;\n    }\n}\n","after":"class MyClass {\n    static int COUNT = 0;\n    void foo(MyClass instance) {\n        int x = MyClass.COUNT;\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\n    static int COUNT = 0;\n    void foo(MyClass instance) {\n-       int x = instance.COUNT;\n+       int x = MyClass.COUNT;\n    }\n","newFile":false}]}]}>
 

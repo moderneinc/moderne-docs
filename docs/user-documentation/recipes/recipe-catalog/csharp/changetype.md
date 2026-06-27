@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change type"}
-  description={"Change a given type to another."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.ChangeType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/changetype.md"}
-/>
+>
+
+<RecipeHeader.Title>Change type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change a given type to another.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldFullyQualifiedTypeName","required":true,"description":"Fully-qualified class name of the original type.","example":"org.junit.Assume"},{"type":"String","name":"newFullyQualifiedTypeName","required":true,"description":"Fully-qualified class name of the replacement type, or the name of a primitive such as \"int\". The `OuterClassName$NestedClassName` naming convention should be used for nested classes.","example":"org.junit.jupiter.api.Assumptions"},{"type":"Boolean","name":"ignoreDefinition","required":false,"description":"When set to `true` the definition of the old type will be left untouched. This is useful when you're replacing usage of a class but don't want to rename it."}]}>
 

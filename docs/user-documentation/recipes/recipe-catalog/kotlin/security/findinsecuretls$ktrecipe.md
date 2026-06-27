@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find insecure TLS configuration"}
-  description={"Trust-everything `X509TrustManager` implementations, allow-all `HostnameVerifier` lambdas / setters, deprecated SSL/TLS protocol versions, and plain-HTTP URL literals."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindInsecureTls$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findinsecuretls$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `HostnameVerifier { _, _ -> true }` lambdas","href":"kotlin/security/findallowallhostnameverifierlambda$ktrecipe"},{"name":"Find `setHostnameVerifier(ALLOW_ALL)` calls","href":"kotlin/security/findsetallhostnameverifier$ktrecipe"},{"name":"Find `X509TrustManager` implementations with empty `checkServerTrusted`","href":"kotlin/security/findtrustallx509trustmanager$ktrecipe"},{"name":"Find `SSLContext.getInstance(\"SSL\"/\"TLSv1\"/\"TLSv1.1\")` calls","href":"kotlin/security/findweaksslprotocol$ktrecipe"},{"name":"Find `URL(\"http://...\")` literal constructions","href":"kotlin/security/findhttpurlliteral$ktrecipe"}]}>
+<RecipeHeader.Title>Find insecure TLS configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Trust-everything `X509TrustManager` implementations, allow-all `HostnameVerifier` lambdas / setters, deprecated SSL/TLS protocol versions, and plain-HTTP URL literals.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `HostnameVerifier { _, _ -> true }` lambdas","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findallowallhostnameverifierlambda$ktrecipe/"},{"name":"Find `setHostnameVerifier(ALLOW_ALL)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findsetallhostnameverifier$ktrecipe/"},{"name":"Find `X509TrustManager` implementations with empty `checkServerTrusted`","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findtrustallx509trustmanager$ktrecipe/"},{"name":"Find `SSLContext.getInstance(\"SSL\"/\"TLSv1\"/\"TLSv1.1\")` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findweaksslprotocol$ktrecipe/"},{"name":"Find `URL(\"http://...\")` literal constructions","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findhttpurlliteral$ktrecipe/"}]}>
 
 ## Definition
 

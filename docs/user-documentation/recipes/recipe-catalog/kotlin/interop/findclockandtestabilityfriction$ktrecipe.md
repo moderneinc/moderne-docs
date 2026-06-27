@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find non-injected clock / I/O calls (testability)"}
-  description={"`System.currentTimeMillis()` / `System.nanoTime()` / `LocalDateTime.now()` and friends read the system clock implicitly. Each flagged call site is a candidate to receive a `Clock` (or the JDK `java.time.Clock`) so tests can advance time deterministically. Also flags `BufferedReader.lines()` — usually a `lineSequence`/`useLines` migration."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindClockAndTestabilityFriction$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findclockandtestabilityfriction$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `System.currentTimeMillis()` calls","href":"kotlin/interop/findsystemcurrenttimemillis$ktrecipe"},{"name":"Find `LocalDateTime.now()` / `Instant.now()` calls","href":"kotlin/interop/findlocaldatetimenow$ktrecipe"},{"name":"Find `bufferedReader().lines()` calls","href":"kotlin/interop/findbufferedreaderlines$ktrecipe"}]}>
+<RecipeHeader.Title>Find non-injected clock / I/O calls (testability)</RecipeHeader.Title>
+
+<RecipeHeader.Description>`System.currentTimeMillis()` / `System.nanoTime()` / `LocalDateTime.now()` and friends read the system clock implicitly. Each flagged call site is a candidate to receive a `Clock` (or the JDK `java.time.Clock`) so tests can advance time deterministically. Also flags `BufferedReader.lines()` — usually a `lineSequence`/`useLines` migration.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `System.currentTimeMillis()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findsystemcurrenttimemillis$ktrecipe/"},{"name":"Find `LocalDateTime.now()` / `Instant.now()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findlocaldatetimenow$ktrecipe/"},{"name":"Find `bufferedReader().lines()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findbufferedreaderlines$ktrecipe/"}]}>
 
 ## Definition
 

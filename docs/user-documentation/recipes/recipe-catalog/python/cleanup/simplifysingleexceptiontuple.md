@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unwrap one-element exception tuple in `except`"}
-  description={"A tuple containing only one exception type is needlessly verbose. This unwraps it to the plain `except ExcType:` form."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifySingleExceptionTuple"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifysingleexceptiontuple.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Unwrap one-element exception tuple in `except`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A tuple containing only one exception type is needlessly verbose. This unwraps it to the plain `except ExcType:` form.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifySingleExceptionTuple","displayName":"Unwrap one-element exception tuple in `except`","pipPackage":"openrewrite-static-analysis"}}>
 

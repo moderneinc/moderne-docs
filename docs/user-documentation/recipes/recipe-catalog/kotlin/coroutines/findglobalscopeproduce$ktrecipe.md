@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `GlobalScope.produce` calls"}
-  description={"`GlobalScope.produce { }` returns an unscoped `ReceiveChannel` that keeps running until its producer block returns. Anchor the channel to a scope owned by the surrounding lifecycle."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindGlobalScopeProduce$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findglobalscopeproduce$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `GlobalScope.produce` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`GlobalScope.produce { }` returns an unscoped `ReceiveChannel` that keeps running until its producer block returns. Anchor the channel to a scope owned by the surrounding lifecycle.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindGlobalScopeProduce$KtRecipe","displayName":"Find `GlobalScope.produce` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

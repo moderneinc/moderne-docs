@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant null checks before literal equals"}
-  description={"Removes redundant null checks before `equals()` comparisons when the receiver is a literal string, since literals can never be null and `equals()` returns false for null arguments."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveRedundantNullCheckBeforeLiteralEquals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeredundantnullcheckbeforeliteralequals.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove redundant null checks before literal equals</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes redundant null checks before `equals()` comparisons when the receiver is a literal string, since literals can never be null and `equals()` returns false for null arguments.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void foo(String s) {\n        if (s != null && \"test\".equals(s)) {\n            System.out.println(\"String matches\");\n        }\n    }\n}\n","after":"class A {\n    void foo(String s) {\n        if (\"test\".equals(s)) {\n            System.out.println(\"String matches\");\n        }\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n    void foo(String s) {\n-       if (s != null && \"test\".equals(s)) {\n+       if (\"test\".equals(s)) {\n            System.out.println(\"String matches\");\n","newFile":false}]}]}>
 

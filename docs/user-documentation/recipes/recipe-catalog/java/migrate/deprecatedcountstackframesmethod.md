@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `Thread.countStackFrames()` method"}
-  description={"`Thread.countStackFrames()` has been removed in Java SE 14 and has been changed in this release to unconditionally throw `UnsupportedOperationException`\n This recipe removes the usage of this method in your application as long as the method is not assigned to a variable.\n For more information on the Java SE 14 deprecation of this method, see https://bugs.java.com/bugdatabase/view_bug?bug_id=8205132."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java17"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.DeprecatedCountStackFramesMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/deprecatedcountstackframesmethod.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove method invocations","href":"java/removemethodinvocations"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove `Thread.countStackFrames()` method</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Thread.countStackFrames()` has been removed in Java SE 14 and has been changed in this release to unconditionally throw `UnsupportedOperationException`  This recipe removes the usage of this method in your application as long as the method is not assigned to a variable.  For more information on the Java SE 14 deprecation of this method, see https://bugs.java.com/bugdatabase/view_bug?bug_id=8205132.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

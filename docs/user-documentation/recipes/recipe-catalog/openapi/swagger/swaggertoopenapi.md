@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from Swagger to OpenAPI"}
-  description={"Migrate from Swagger to OpenAPI."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["openapi","swagger"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.SwaggerToOpenAPI"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/swaggertoopenapi.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change type","href":"java/changetype"},{"name":"Replace springfox `@ApiIgnore` on method parameters with `@Parameter(hidden = true)`","href":"openapi/swagger/migrateapiignoreparametertoparameterhidden"},{"name":"Change type","href":"java/changetype"},{"name":"Migrate from `@ApiOperation` to `@Operation`","href":"openapi/swagger/migrateapioperationtooperation"},{"name":"Migrate from `@ApiResponses` to `@ApiResponses`","href":"openapi/swagger/migrateapiresponsestoapiresponses"},{"name":"Migrate from `@ApiImplicitParams`  to `@Parameters`","href":"openapi/swagger/migrateapiimplicitparamstoparameters"},{"name":"Migrate from `@Api` to `@Tag`","href":"openapi/swagger/migrateapitotag"},{"name":"Migrate from `@ApiParam` to `@Parameter`","href":"openapi/swagger/migrateapiparamtoparameter"},{"name":"Migrate from `@ApiModelProperty` to `@Schema`","href":"openapi/swagger/migrateapimodelpropertytoschema"},{"name":"Migrate from `@ApiModel` to `@Schema`","href":"openapi/swagger/migrateapimodeltoschema"},{"name":"Migrate from `@SwaggerDefinition` to `@OpenAPIDefinition`","href":"openapi/swagger/migrateswaggerdefinitiontoopenapidefinition"}]}>
+<RecipeHeader.Title>Migrate from Swagger to OpenAPI</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from Swagger to OpenAPI.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Replace springfox `@ApiIgnore` on method parameters with `@Parameter(hidden = true)`","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiignoreparametertoparameterhidden/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Migrate from `@ApiOperation` to `@Operation`","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapioperationtooperation/"},{"name":"Migrate from `@ApiResponses` to `@ApiResponses`","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiresponsestoapiresponses/"},{"name":"Migrate from `@ApiImplicitParams`  to `@Parameters`","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiimplicitparamstoparameters/"},{"name":"Migrate from `@Api` to `@Tag`","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapitotag/"},{"name":"Migrate from `@ApiParam` to `@Parameter`","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiparamtoparameter/"},{"name":"Migrate from `@ApiModelProperty` to `@Schema`","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapimodelpropertytoschema/"},{"name":"Migrate from `@ApiModel` to `@Schema`","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapimodeltoschema/"},{"name":"Migrate from `@SwaggerDefinition` to `@OpenAPIDefinition`","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateswaggerdefinitiontoopenapidefinition/"}]}>
 
 ## Definition
 

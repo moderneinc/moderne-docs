@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find IComparable without comparison operators"}
-  description={"Detect classes that implement `IComparable<T>` but do not override comparison operators (`<`, `>`, `<=`, `>=`)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindIComparableWithoutComparisonOperators"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findicomparablewithoutcomparisonoperators.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find IComparable without comparison operators</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect classes that implement `IComparable<T>` but do not override comparison operators (`<`, `>`, `<=`, `>=`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindIComparableWithoutComparisonOperators","displayName":"Find IComparable without comparison operators","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

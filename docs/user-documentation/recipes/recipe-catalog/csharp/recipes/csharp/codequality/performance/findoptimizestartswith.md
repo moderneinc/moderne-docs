@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use char overload for single-character string methods"}
-  description={"Convert string methods with single-character string literals to use char overloads for better performance."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindOptimizeStartsWith"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findoptimizestartswith.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use char overload for single-character string methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert string methods with single-character string literals to use char overloads for better performance.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindOptimizeStartsWith","displayName":"Use char overload for single-character string methods","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `BigDecimalRules.BigDecimalValueOf`"}
-  description={"Prefer `BigDecimal#valueOf(double)` over the associated constructor."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2111"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalValueOfRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalvalueofrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `BigDecimalRules.BigDecimalValueOf`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `BigDecimal#valueOf(double)` over the associated constructor.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalValueOfRecipe","displayName":"Refaster template `BigDecimalRules.BigDecimalValueOf`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

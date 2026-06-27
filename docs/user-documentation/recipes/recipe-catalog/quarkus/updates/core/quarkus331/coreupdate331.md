@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"io.quarkus.updates.core.quarkus331.CoreUpdate331"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus331.CoreUpdate331"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus331/coreupdate331.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add <extensions>true</extensions> to quarkus-maven-plugin","href":"quarkus/updates/core/quarkus331/addextensionstruetoquarkusmavenplugin"},{"name":"Add @{argLine} to maven-surefire-plugin and maven-failsafe-plugin","href":"quarkus/updates/core/quarkus331/addarglinetosurefirefailsafeplugins"}]}>
+<RecipeHeader.Title>io.quarkus.updates.core.quarkus331.CoreUpdate331</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add <extensions>true</extensions> to quarkus-maven-plugin","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus331/addextensionstruetoquarkusmavenplugin/"},{"name":"Add @{argLine} to maven-surefire-plugin and maven-failsafe-plugin","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus331/addarglinetosurefirefailsafeplugins/"}]}>
 
 ## Definition
 

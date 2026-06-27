@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `MockMvc` to `MockMvcTester`"}
-  description={"Converts `MockMvc` fields and initialization to `MockMvcTester`. Changes field types, renames fields from `mockMvc` to `mockMvcTester`, and converts `MockMvcBuilders.standaloneSetup().build()` to `MockMvcTester.of()` and `MockMvcBuilders.webAppContextSetup().build()` to `MockMvcTester.from()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.MockMvcToMockMvcTester"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvctomockmvctester.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `MockMvc` to `MockMvcTester`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `MockMvc` fields and initialization to `MockMvcTester`. Changes field types, renames fields from `mockMvc` to `mockMvcTester`, and converts `MockMvcBuilders.standaloneSetup().build()` to `MockMvcTester.of()` and `MockMvcBuilders.webAppContextSetup().build()` to `MockMvcTester.from()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.test.web.servlet.MockMvc;\n\nclass MyTest {\n    @Autowired\n    private MockMvc mockMvc;\n}\n","after":"import org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.test.web.servlet.assertj.MockMvcTester;\n\nclass MyTest {\n    @Autowired\n    private MockMvcTester mockMvcTester;\n}\n","diff":"@@ -2,1 +2,1 @@\nimport org.springframework.beans.factory.annotation.Autowired;\n-import org.springframework.test.web.servlet.MockMvc;\n+import org.springframework.test.web.servlet.assertj.MockMvcTester;\n\n@@ -6,1 +6,1 @@\nclass MyTest {\n    @Autowired\n-   private MockMvc mockMvc;\n+   private MockMvcTester mockMvcTester;\n}\n","newFile":false}]}]}>
 

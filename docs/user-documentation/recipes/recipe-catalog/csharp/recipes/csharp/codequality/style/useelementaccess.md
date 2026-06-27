@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use element access"}
-  description={"Use indexer instead of First()/Last()/ElementAt() when the collection supports indexer access."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseElementAccess"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/useelementaccess.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use element access</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use indexer instead of First()/Last()/ElementAt() when the collection supports indexer access.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseElementAccess","displayName":"Use element access","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

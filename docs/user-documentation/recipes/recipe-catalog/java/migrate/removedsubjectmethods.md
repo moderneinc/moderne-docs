@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods`"}
-  description={"Replaces the `javax.security.auth.Subject.getSubject()` and `javax.security.auth.Subject.doAs()` methods with `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java21"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.RemovedSubjectMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/removedsubjectmethods.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Adopt `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()` methods`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces the `javax.security.auth.Subject.getSubject()` and `javax.security.auth.Subject.doAs()` methods with `javax.security.auth.Subject.current()` and `javax.security.auth.Subject.callAs()`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

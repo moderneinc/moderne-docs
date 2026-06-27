@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Delete Quarkus configuration property"}
-  description={"Delete a property from Quarkus configuration files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.DeleteQuarkusProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/deletequarkusproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Delete Quarkus configuration property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Delete a property from Quarkus configuration files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The name of the property key whose value is to be deleted.","example":"quarkus.hibernate-search-orm.indexing.plan.synchronization.strategy"},{"type":"String","name":"oldValue","required":false,"description":"Only delete the property value if it matches the configured `oldValue`.","example":"read-sync"},{"type":"String","name":"profile","required":false,"description":"The profile where the property should be deleted. If not specified, the property will be deleted from all profiles by default.","example":"dev"},{"type":"Boolean","name":"deleteFromAllProfiles","required":false,"description":"If set to true, the property will be removed from all available profiles. Defaults to `true`.","example":"false"},{"type":"List","name":"pathExpressions","required":false,"description":"Each value in this list represents a glob expression that is used to match which files will be modified. If this value is not present, this recipe will query the execution context for reasonable defaults. (\"**/application.yml\", \"**/application.yaml\", \"**/application.properties\" and \"**/META-INF/microprofile-config.properties\".","example":"[\"**/application.yaml\"]"}]}>
 

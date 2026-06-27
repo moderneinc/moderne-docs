@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace H2 driver with Quarkus JDBC H2"}
-  description={"Migrates `com.h2database:h2` to `io.quarkus:quarkus-jdbc-h2` (excludes test scope)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","database","quarkus","h2"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.H2DriverToQuarkus"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/h2drivertoquarkus.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change Maven dependency scope","href":"maven/changedependencyscope"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"java/dependencies/dependencyinsight"}]}>
+<RecipeHeader.Title>Replace H2 driver with Quarkus JDBC H2</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `com.h2database:h2` to `io.quarkus:quarkus-jdbc-h2` (excludes test scope).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change Maven dependency scope","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencyscope/"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyinsight/"}]}>
 
 ## Definition
 

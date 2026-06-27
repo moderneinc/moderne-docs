@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `\"alg\":\"none\"` literal strings"}
-  description={"Any literal containing `alg=none` is suspicious — even in tests, copy-paste tends to leak these into production assertions. Replace with HS256/RS256/ES256."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindJwtAlgNoneLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findjwtalgnoneliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `"alg":"none"` literal strings</RecipeHeader.Title>
+
+<RecipeHeader.Description>Any literal containing `alg=none` is suspicious — even in tests, copy-paste tends to leak these into production assertions. Replace with HS256/RS256/ES256.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindJwtAlgNoneLiteral$KtRecipe","displayName":"Find `\"alg\":\"none\"` literal strings","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `react-test-renderer/shallow` import"}
-  description={"Changes import of shallow renderer from `react-test-renderer/shallow` to the standalone `react-shallow-renderer` package, as it was removed from React 19."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.replace-react-shallow-renderer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/replace-react-shallow-renderer.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `react-test-renderer/shallow` import</RecipeHeader.Title>
+
+<RecipeHeader.Description>Changes import of shallow renderer from `react-test-renderer/shallow` to the standalone `react-shallow-renderer` package, as it was removed from React 19.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.19.replace-react-shallow-renderer","displayName":"Replace `react-test-renderer/shallow` import","npmPackage":"@openrewrite/recipes-react"}}>
 

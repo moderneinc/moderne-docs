@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Modernize `BufferedWriter` creation & prevent file descriptor leaks"}
-  description={"The code `new BufferedWriter(new FileWriter(f))` creates a `BufferedWriter` that does not close the underlying `FileWriter` when it is closed. This can lead to file descriptor leaks as per [CWE-755](https://cwe.mitre.org/data/definitions/755.html). Use `Files.newBufferedWriter` to create a `BufferedWriter` that closes the underlying file descriptor when it is closed."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.BufferedWriterCreationRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/bufferedwritercreationrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Convert `new BufferedWriter(new FileWriter(File))` to `Files.newBufferedWriter(Path)`","href":"staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithfileargumentrecipe"},{"name":"Convert `new BufferedWriter(new FileWriter(String))` to `Files.newBufferedWriter(Path)`","href":"staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithstringargumentrecipe"},{"name":"Convert `new BufferedWriter(new FileWriter(File, boolean))` to `Files.newBufferedWriter(Path, StandardOpenOption)`","href":"staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithfileandbooleanargumentsrecipe"},{"name":"Convert `new BufferedWriter(new FileWriter(String, boolean))` to `Files.newBufferedWriter(Path, StandardOpenOption)`","href":"staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithstringandbooleanargumentsrecipe"}]}>
+<RecipeHeader.Title>Modernize `BufferedWriter` creation & prevent file descriptor leaks</RecipeHeader.Title>
+
+<RecipeHeader.Description>The code `new BufferedWriter(new FileWriter(f))` creates a `BufferedWriter` that does not close the underlying `FileWriter` when it is closed. This can lead to file descriptor leaks as per [CWE-755](https://cwe.mitre.org/data/definitions/755.html). Use `Files.newBufferedWriter` to create a `BufferedWriter` that closes the underlying file descriptor when it is closed.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Convert `new BufferedWriter(new FileWriter(File))` to `Files.newBufferedWriter(Path)`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithfileargumentrecipe/"},{"name":"Convert `new BufferedWriter(new FileWriter(String))` to `Files.newBufferedWriter(Path)`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithstringargumentrecipe/"},{"name":"Convert `new BufferedWriter(new FileWriter(File, boolean))` to `Files.newBufferedWriter(Path, StandardOpenOption)`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithfileandbooleanargumentsrecipe/"},{"name":"Convert `new BufferedWriter(new FileWriter(String, boolean))` to `Files.newBufferedWriter(Path, StandardOpenOption)`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/bufferedwritercreationrecipes$bufferedwriterfromnewfilewriterwithstringandbooleanargumentsrecipe/"}]}>
 
 ## Definition
 

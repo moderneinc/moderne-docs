@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant kotlin-stdlib dependencies"}
-  description={"Remove explicit `kotlin-stdlib`, `kotlin-stdlib-jdk7`, `kotlin-stdlib-jdk8`, and `kotlin-stdlib-common` dependencies. The Kotlin Gradle plugin has automatically included the stdlib since Kotlin 1.4, making explicit declarations redundant."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={["gradle","kotlin"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.RemoveRedundantKotlinStdlib"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/removeredundantkotlinstdlib.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a Gradle dependency","href":"gradle/removedependency"},{"name":"Remove a Gradle dependency","href":"gradle/removedependency"},{"name":"Remove a Gradle dependency","href":"gradle/removedependency"},{"name":"Remove a Gradle dependency","href":"gradle/removedependency"}]}>
+<RecipeHeader.Title>Remove redundant kotlin-stdlib dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove explicit `kotlin-stdlib`, `kotlin-stdlib-jdk7`, `kotlin-stdlib-jdk8`, and `kotlin-stdlib-common` dependencies. The Kotlin Gradle plugin has automatically included the stdlib since Kotlin 1.4, making explicit declarations redundant.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a Gradle dependency","href":"/user-documentation/recipes/recipe-catalog/gradle/removedependency/"},{"name":"Remove a Gradle dependency","href":"/user-documentation/recipes/recipe-catalog/gradle/removedependency/"},{"name":"Remove a Gradle dependency","href":"/user-documentation/recipes/recipe-catalog/gradle/removedependency/"},{"name":"Remove a Gradle dependency","href":"/user-documentation/recipes/recipe-catalog/gradle/removedependency/"}]}>
 
 ## Definition
 

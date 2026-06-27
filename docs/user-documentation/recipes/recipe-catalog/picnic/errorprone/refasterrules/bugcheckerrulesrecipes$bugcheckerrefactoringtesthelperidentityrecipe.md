@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `BugCheckerRules.BugCheckerRefactoringTestHelperIdentity`"}
-  description={"Avoid calling `BugCheckerRefactoringTestHelper#setFixChooser(FixChooser)` or `BugCheckerRefactoringTestHelper#setImportOrder(String)` with their respective default values."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.BugCheckerRulesRecipes$BugCheckerRefactoringTestHelperIdentityRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bugcheckerrulesrecipes$bugcheckerrefactoringtesthelperidentityrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `BugCheckerRules.BugCheckerRefactoringTestHelperIdentity`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Avoid calling `BugCheckerRefactoringTestHelper#setFixChooser(FixChooser)` or `BugCheckerRefactoringTestHelper#setImportOrder(String)` with their respective default values.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.BugCheckerRulesRecipes$BugCheckerRefactoringTestHelperIdentityRecipe","displayName":"Refaster template `BugCheckerRules.BugCheckerRefactoringTestHelperIdentity`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

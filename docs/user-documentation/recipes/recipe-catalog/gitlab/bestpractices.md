@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"GitLab CI best practices"}
-  description={"Apply GitLab CI/CD best practices to `.gitlab-ci.yml`. This includes adding `workflow:rules` to prevent duplicate pipelines, setting `interruptible: true` and `retry` in the `default` section, configuring `artifacts:expire_in`, and setting a job `timeout`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ci","gitlab"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.BestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/bestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate `only`/`except` to `rules`","href":"gitlab/migratetorules"},{"name":"Add workflow rules","href":"gitlab/addworkflowrules"},{"name":"Add interruptible","href":"gitlab/addinterruptible"},{"name":"Add retry configuration","href":"gitlab/addretry"},{"name":"Add artifacts expire_in","href":"gitlab/addartifactsexpirein"},{"name":"Add job timeout","href":"gitlab/addtimeout"}]}>
+<RecipeHeader.Title>GitLab CI best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply GitLab CI/CD best practices to `.gitlab-ci.yml`. This includes adding `workflow:rules` to prevent duplicate pipelines, setting `interruptible: true` and `retry` in the `default` section, configuring `artifacts:expire_in`, and setting a job `timeout`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate `only`/`except` to `rules`","href":"/user-documentation/recipes/recipe-catalog/gitlab/migratetorules/"},{"name":"Add workflow rules","href":"/user-documentation/recipes/recipe-catalog/gitlab/addworkflowrules/"},{"name":"Add interruptible","href":"/user-documentation/recipes/recipe-catalog/gitlab/addinterruptible/"},{"name":"Add retry configuration","href":"/user-documentation/recipes/recipe-catalog/gitlab/addretry/"},{"name":"Add artifacts expire_in","href":"/user-documentation/recipes/recipe-catalog/gitlab/addartifactsexpirein/"},{"name":"Add job timeout","href":"/user-documentation/recipes/recipe-catalog/gitlab/addtimeout/"}]}>
 
 ## Definition
 

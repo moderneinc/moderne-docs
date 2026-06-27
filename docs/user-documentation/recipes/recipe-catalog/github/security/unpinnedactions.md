@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Pin GitHub Actions to specific commits"}
-  description={"Pin GitHub Actions to specific commit SHAs for security and reproducibility. Actions pinned to tags or branches can be changed by the action author, while SHA pins are immutable. Based on [zizmor's unpinned-uses audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/unpinned_uses.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.UnpinnedActions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/unpinnedactions.md"}
-/>
+>
+
+<RecipeHeader.Title>Pin GitHub Actions to specific commits</RecipeHeader.Title>
+
+<RecipeHeader.Description>Pin GitHub Actions to specific commit SHAs for security and reproducibility. Actions pinned to tags or branches can be changed by the action author, while SHA pins are immutable. Based on [zizmor's unpinned-uses audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/unpinned_uses.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Test Workflow\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n        name: Checkout code\n","after":"name: Test Workflow\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - ~~(Action 'actions/checkout@v4' is not pinned to a commit SHA. Consider pinning to a specific commit for security and reproducibility.)~~>uses: actions/checkout@v4\n        name: Checkout code\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -7,1 +7,1 @@\n    runs-on: ubuntu-latest\n    steps:\n-     - uses: actions/checkout@v4\n+     - ~~(Action 'actions/checkout@v4' is not pinned to a commit SHA. Consider pinning to a specific commit for security and reproducibility.)~~>uses: actions/checkout@v4\n        name: Checkout code\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Security 6.0"}
-  description={"Migrate applications to the latest Spring Security 6.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","security"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security6.UpgradeSpringSecurity_6_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Security 5.8","href":"java/spring/security5/upgradespringsecurity_5_8"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Remove explicit configuration of SHA-256 as encoding and matching algorithm for `TokenBasedRememberMeServices`","href":"java/spring/security6/usesha256inrememberme"},{"name":"Remove calls matching `AuthenticationEntryPointFailureHandler.setRethrowAuthenticationServiceException(true)`","href":"java/spring/security6/propagateauthenticationserviceexceptions"},{"name":"Remove explicit `SecurityContextConfigurer.requireExplicitSave(true)` opt-in","href":"java/spring/security6/requireexplicitsavingofsecuritycontextrepository"},{"name":"Keep the default RequestCache querying behavior in Spring Security 5","href":"java/spring/security6/updaterequestcache"},{"name":"Remove unnecessary `use-authorization-manager` for message security in Spring security 6","href":"java/spring/security6/removeuseauthorizationmanager"},{"name":"Remove the `useAuthorizationManager=true` attribute from `@EnableReactiveMethodSecurity`","href":"java/spring/security6/updateenablereactivemethodsecurity"},{"name":"Remove unnecessary `filterSecurityInterceptorOncePerRequest(false)` when upgrading to Spring Security 6","href":"java/spring/security6/removefiltersecurityinterceptoronceperrequest"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Security 6.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Security 6.0 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Security 5.8","href":"/user-documentation/recipes/recipe-catalog/java/spring/security5/upgradespringsecurity_5_8/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Remove explicit configuration of SHA-256 as encoding and matching algorithm for `TokenBasedRememberMeServices`","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/usesha256inrememberme/"},{"name":"Remove calls matching `AuthenticationEntryPointFailureHandler.setRethrowAuthenticationServiceException(true)`","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/propagateauthenticationserviceexceptions/"},{"name":"Remove explicit `SecurityContextConfigurer.requireExplicitSave(true)` opt-in","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/requireexplicitsavingofsecuritycontextrepository/"},{"name":"Keep the default RequestCache querying behavior in Spring Security 5","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/updaterequestcache/"},{"name":"Remove unnecessary `use-authorization-manager` for message security in Spring security 6","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/removeuseauthorizationmanager/"},{"name":"Remove the `useAuthorizationManager=true` attribute from `@EnableReactiveMethodSecurity`","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/updateenablereactivemethodsecurity/"},{"name":"Remove unnecessary `filterSecurityInterceptorOncePerRequest(false)` when upgrading to Spring Security 6","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/removefiltersecurityinterceptoronceperrequest/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

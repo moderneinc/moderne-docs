@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit 4 `@Category` to JUnit Jupiter `@Tag`"}
-  description={"Transforms the JUnit 4 `@Category`, which can list multiple categories, into one `@Tag` annotation per category listed."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.CategoryToTag"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/categorytotag.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit 4 `@Category` to JUnit Jupiter `@Tag`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms the JUnit 4 `@Category`, which can list multiple categories, into one `@Tag` annotation per category listed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"public interface FastTests {}"},"variants":[{"language":"java","before":"import org.junit.experimental.categories.Category;\n\n@Category(value = SlowTests.class)\npublic class B {\n\n}\n@Category(value = {SlowTests.class, FastTests.class})\npublic class C {\n\n}\n","after":"import org.junit.jupiter.api.Tag;\n\n@Tag(\"SlowTests\")\npublic class B {\n\n}\n\n@Tag(\"SlowTests\")\n@Tag(\"FastTests\")\npublic class C {\n\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.junit.experimental.categories.Category;\n+import org.junit.jupiter.api.Tag;\n\n@@ -3,1 +3,1 @@\nimport org.junit.experimental.categories.Category;\n\n-@Category(value = SlowTests.class)\n+@Tag(\"SlowTests\")\npublic class B {\n@@ -7,1 +7,3 @@\n\n}\n-@Category(value = {SlowTests.class, FastTests.class})\n+\n+@Tag(\"SlowTests\")\n+@Tag(\"FastTests\")\npublic class C {\n","newFile":false}]}]}>
 

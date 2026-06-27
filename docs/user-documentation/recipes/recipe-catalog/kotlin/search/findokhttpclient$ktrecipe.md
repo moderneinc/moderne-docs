@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `okhttp3.OkHttpClient` constructions"}
-  description={"Each `OkHttpClient` allocation commits a set of timeouts, interceptors, and connection-pool settings for outbound HTTP. Flag as an outbound-network seed and a configuration-policy review point."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindOkHttpClient$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findokhttpclient$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `okhttp3.OkHttpClient` constructions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `OkHttpClient` allocation commits a set of timeouts, interceptors, and connection-pool settings for outbound HTTP. Flag as an outbound-network seed and a configuration-policy review point.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindOkHttpClient$KtRecipe","displayName":"Find `okhttp3.OkHttpClient` constructions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

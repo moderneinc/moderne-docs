@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Hibernate 6.6.x"}
-  description={"This recipe will apply changes commonly needed when migrating to Hibernate 6.6.x."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.MigrateToHibernate66"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate66-moderne-edition.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Hibernate 6.0.x","href":"hibernate/migratetohibernate60-moderne-edition"},{"name":"Migrate to Hibernate 6.6.x","href":"hibernate/migratetohibernate66-community-edition"},{"name":"Change type","href":"java/changetype"},{"name":"Fix conflicting class type annotation Hibernate 6.6","href":"hibernate/update66/fixconflictingclasstypeannotations"},{"name":"Remove table from single table inherited entity","href":"hibernate/update66/removetablefrominheritedentity"},{"name":"Migrate Hibernate CascadeType constants","href":"hibernate/update66/migratecascadetypes"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Hibernate 6.6.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when migrating to Hibernate 6.6.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Hibernate 6.0.x","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60-moderne-edition/"},{"name":"Migrate to Hibernate 6.6.x","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate66-community-edition/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Fix conflicting class type annotation Hibernate 6.6","href":"/user-documentation/recipes/recipe-catalog/hibernate/update66/fixconflictingclasstypeannotations/"},{"name":"Remove table from single table inherited entity","href":"/user-documentation/recipes/recipe-catalog/hibernate/update66/removetablefrominheritedentity/"},{"name":"Migrate Hibernate CascadeType constants","href":"/user-documentation/recipes/recipe-catalog/hibernate/update66/migratecascadetypes/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

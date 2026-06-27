@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `@MonotonicNonNull` for lazily-initialized fields"}
-  description={"Annotates a lazily-initialized field with the Checker Framework `@org.checkerframework.checker.nullness.qual.MonotonicNonNull` annotation, which NullAway recognises as the idiomatic contract for a field that is set the first time it is needed and never reset to null afterward. NullAway flags a non-null instance field that is not assigned in the constructor; for such a lazily-initialized field `@MonotonicNonNull` is the correct fix rather than `@Nullable`, because the field is non-null after first use, so readers should not be forced to handle null. A field qualifies when at least one assignment to it is guarded by a `f == null` (or `this.f == null`) check, it is never assigned null anywhere except an explicit `= null` declaration initializer, and it is not assigned a non-null value at its declaration or unconditionally in a constructor. Conservative by design: it skips primitive, `final`, `static`, and already-annotated fields, fields assigned null outside their initializer (genuinely `@Nullable` — left for `AddNullableToField`), and fields assigned non-null unconditionally. Kotlin and Groovy express field nullability in the type system, which their compilers already enforce, so those sources are generally left unchanged."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.cleanup.UseMonotonicNonNullForLazyInitializedField"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/cleanup/usemonotonicnonnullforlazyinitializedfield.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `@MonotonicNonNull` for lazily-initialized fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>Annotates a lazily-initialized field with the Checker Framework `@org.checkerframework.checker.nullness.qual.MonotonicNonNull` annotation, which NullAway recognises as the idiomatic contract for a field that is set the first time it is needed and never reset to null afterward. NullAway flags a non-null instance field that is not assigned in the constructor; for such a lazily-initialized field `@MonotonicNonNull` is the correct fix rather than `@Nullable`, because the field is non-null after first use, so readers should not be forced to handle null. A field qualifies when at least one assignment to it is guarded by a `f == null` (or `this.f == null`) check, it is never assigned null anywhere except an explicit `= null` declaration initializer, and it is not assigned a non-null value at its declaration or unconditionally in a constructor. Conservative by design: it skips primitive, `final`, `static`, and already-annotated fields, fields assigned null outside their initializer (genuinely `@Nullable` — left for `AddNullableToField`), and fields assigned non-null unconditionally. Kotlin and Groovy express field nullability in the type system, which their compilers already enforce, so those sources are generally left unchanged.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    private String cache;\n\n    String get() {\n        if (cache == null) {\n            cache = compute();\n        }\n        return cache;\n    }\n\n    String compute() {\n        return \"x\";\n    }\n}\n","after":"import org.checkerframework.checker.nullness.qual.MonotonicNonNull;\n\nclass Test {\n    @MonotonicNonNull\n    private String cache;\n\n    String get() {\n        if (cache == null) {\n            cache = compute();\n        }\n        return cache;\n    }\n\n    String compute() {\n        return \"x\";\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.checkerframework.checker.nullness.qual.MonotonicNonNull;\n+\nclass Test {\n@@ -2,0 +4,1 @@\nclass Test {\n+   @MonotonicNonNull\n    private String cache;\n","newFile":false}]}]}>
 

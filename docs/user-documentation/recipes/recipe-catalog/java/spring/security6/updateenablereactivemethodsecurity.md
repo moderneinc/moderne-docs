@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove the `useAuthorizationManager=true` attribute from `@EnableReactiveMethodSecurity`"}
-  description={"In Spring security 6.0, `@EnableReactiveMethodSecurity` defaults `useAuthorizationManager` to true. So, to complete migration, `@EnableReactiveMethodSecurity` remove the `useAuthorizationManager` attribute."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security6.UpdateEnableReactiveMethodSecurity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/updateenablereactivemethodsecurity.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove the `useAuthorizationManager=true` attribute from `@EnableReactiveMethodSecurity`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring security 6.0, `@EnableReactiveMethodSecurity` defaults `useAuthorizationManager` to true. So, to complete migration, `@EnableReactiveMethodSecurity` remove the `useAuthorizationManager` attribute.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;\n\n@EnableReactiveMethodSecurity(useAuthorizationManager = true)\nclass SecurityConfig {\n}\n","after":"import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;\n\n@EnableReactiveMethodSecurity\nclass SecurityConfig {\n}\n","diff":"@@ -3,1 +3,1 @@\nimport org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;\n\n-@EnableReactiveMethodSecurity(useAuthorizationManager = true)\n+@EnableReactiveMethodSecurity\nclass SecurityConfig {\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Set.copyOf(..)` in Java 10 or higher"}
-  description={"Replaces `.common.collect.ImmutableSet.copyOf(..)` if the returned type is immediately down-cast."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaImmutableSetCopyOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaimmutablesetcopyof.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Set.copyOf(..)` in Java 10 or higher</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `.common.collect.ImmutableSet.copyOf(..)` if the returned type is immediately down-cast.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.HashSet;\nimport java.util.Set;\nimport com.google.common.collect.ImmutableSet;\n\nclass Test {\n    Set<String> m = ImmutableSet.copyOf(new HashSet<>());\n}\n","after":"import java.util.HashSet;\nimport java.util.Set;\n\nclass Test {\n    Set<String> m = Set.copyOf(new HashSet<>());\n}\n","diff":"@@ -3,1 +3,0 @@\nimport java.util.HashSet;\nimport java.util.Set;\n-import com.google.common.collect.ImmutableSet;\n\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   Set<String> m = ImmutableSet.copyOf(new HashSet<>());\n+   Set<String> m = Set.copyOf(new HashSet<>());\n}\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `remember { mutableStateOf(emptyList/Map()) }` candidates for snapshot-aware containers"}
-  description={"Patterns like `remember { mutableStateOf(emptyList()) }` box the collection in a `MutableState` — direct `add`/`put` calls bypass the snapshot system. `mutableStateListOf<T>()` / `mutableStateMapOf<K, V>()` are snapshot-aware containers whose mutations register as snapshot writes and notify readers."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.UseSpecializedComposeStateContainers$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/usespecializedcomposestatecontainers$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `remember { mutableStateOf(emptyList<T>()) }` candidates for `mutableStateListOf`","href":"kotlin/compose/usemutablestatelistof$ktrecipe"},{"name":"Find `remember { mutableStateOf(emptyMap<K, V>()) }` candidates for `mutableStateMapOf`","href":"kotlin/compose/usemutablestatemapof$ktrecipe"}]}>
+<RecipeHeader.Title>Find `remember { mutableStateOf(emptyList/Map()) }` candidates for snapshot-aware containers</RecipeHeader.Title>
+
+<RecipeHeader.Description>Patterns like `remember { mutableStateOf(emptyList()) }` box the collection in a `MutableState` — direct `add`/`put` calls bypass the snapshot system. `mutableStateListOf<T>()` / `mutableStateMapOf<K, V>()` are snapshot-aware containers whose mutations register as snapshot writes and notify readers.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `remember { mutableStateOf(emptyList<T>()) }` candidates for `mutableStateListOf`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/usemutablestatelistof$ktrecipe/"},{"name":"Find `remember { mutableStateOf(emptyMap<K, V>()) }` candidates for `mutableStateMapOf`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/usemutablestatemapof$ktrecipe/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unnecessary `String#toString`"}
-  description={"Remove unnecessary `String#toString` invocations on objects which are already a string. Calling `toString()` on something that is already a `String` is redundant and clutters the code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1858"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.NoToStringOnStringType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/notostringonstringtype.md"}
-/>
+>
+
+<RecipeHeader.Title>Unnecessary `String#toString`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unnecessary `String#toString` invocations on objects which are already a string. Calling `toString()` on something that is already a `String` is redundant and clutters the code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    static String method() {\n        return \"hello\".toString();\n    }\n}\n","after":"class Test {\n    static String method() {\n        return \"hello\";\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    static String method() {\n-       return \"hello\".toString();\n+       return \"hello\";\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find top-level functions missing `@JvmName`"}
-  description={"Top-level Kotlin functions (including extension functions) compile to static methods on a `<FileName>Kt` facade — Java callers see `MyKotlinUtilsKt.bar(...)` with a name the source file doesn't suggest. `@JvmName(\"bar\")` on the function (or `@file:JvmName(\"...\")` on the file) gives Java callers a name to bind against."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindMissingJvmNameOnExtensionFunction$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmnameonextensionfunction$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find top-level functions missing `@JvmName`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Top-level Kotlin functions (including extension functions) compile to static methods on a `<FileName>Kt` facade — Java callers see `MyKotlinUtilsKt.bar(...)` with a name the source file doesn't suggest. `@JvmName("bar")` on the function (or `@file:JvmName("...")` on the file) gives Java callers a name to bind against.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindMissingJvmNameOnExtensionFunction$KtRecipe","displayName":"Find top-level functions missing `@JvmName`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

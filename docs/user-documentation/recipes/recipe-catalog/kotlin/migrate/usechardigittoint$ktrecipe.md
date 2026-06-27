@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Char.digitToInt(radix)` instead of `Character.digit(c, radix)`"}
-  description={"`Character.digit(c, radix)` returns -1 for non-digits; the Kotlin extension `c.digitToInt(radix)` throws `IllegalArgumentException` instead. Use `c.digitToIntOrNull(radix)` if the JVM null-on-failure semantic is required."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseCharDigitToInt$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechardigittoint$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Char.digitToInt(radix)` instead of `Character.digit(c, radix)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Character.digit(c, radix)` returns -1 for non-digits; the Kotlin extension `c.digitToInt(radix)` throws `IllegalArgumentException` instead. Use `c.digitToIntOrNull(radix)` if the JVM null-on-failure semantic is required.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseCharDigitToInt$KtRecipe","displayName":"Use `Char.digitToInt(radix)` instead of `Character.digit(c, radix)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

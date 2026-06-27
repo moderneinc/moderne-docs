@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated `org.glassfish.javax.el` packages to `jakarta.el`"}
-  description={"Package relocation for rebranded Javax to Jakarta EE."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.OrgGlassfishJavaxElToJakartaEl"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/orgglassfishjavaxeltojakartael.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename package name","href":"java/changepackage"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"}]}>
+<RecipeHeader.Title>Migrate deprecated `org.glassfish.javax.el` packages to `jakarta.el`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Package relocation for rebranded Javax to Jakarta EE.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"}]}>
 
 ## Definition
 

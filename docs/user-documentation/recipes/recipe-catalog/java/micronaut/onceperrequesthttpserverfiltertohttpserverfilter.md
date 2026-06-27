@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `OncePerRequestServerFilter` extensions to `HttpServerFilter`"}
-  description={"Starting in Micronaut 3.0 all filters are executed once per request. Directly implement `HttpServerFilter` instead of extending `OncePerRequestHttpServerFilter` and replace any usages of `micronaut.once` attributes with a custom attribute name."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.OncePerRequestHttpServerFilterToHttpServerFilter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/onceperrequesthttpserverfiltertohttpserverfilter.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `OncePerRequestServerFilter` extensions to `HttpServerFilter`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Starting in Micronaut 3.0 all filters are executed once per request. Directly implement `HttpServerFilter` instead of extending `OncePerRequestHttpServerFilter` and replace any usages of `micronaut.once` attributes with a custom attribute name.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package a.b;\n\nimport io.micronaut.core.order.Ordered;\nimport io.micronaut.http.HttpRequest;\nimport io.micronaut.http.MutableHttpResponse;\nimport io.micronaut.http.filter.OncePerRequestHttpServerFilter;\nimport io.micronaut.http.filter.ServerFilterChain;\nimport org.reactivestreams.Publisher;\n\npublic class MyServerFilter extends OncePerRequestHttpServerFilter {\n    @Override\n    public int getOrder() {\n        return Ordered.LOWEST_PRECEDENCE;\n    }\n\n    @Override\n    public Publisher<MutableHttpResponse<?>> doFilterOnce(HttpRequest<?> request, ServerFilterChain chain) {\n        getKey(MyServerFilter.class);\n    }\n\n    @Override\n    public String getCName() {\n        return \"cname\";\n    }\n}\n","after":"package a.b;\n\nimport io.micronaut.core.order.Ordered;\nimport io.micronaut.http.HttpRequest;\nimport io.micronaut.http.MutableHttpResponse;\nimport io.micronaut.http.filter.HttpServerFilter;\nimport io.micronaut.http.filter.ServerFilterChain;\nimport org.reactivestreams.Publisher;\n\npublic class MyServerFilter implements HttpServerFilter {\n    @Override\n    public int getOrder() {\n        return Ordered.LOWEST_PRECEDENCE;\n    }\n\n    @Override\n    public Publisher<MutableHttpResponse<?>> doFilter(HttpRequest<?> request, ServerFilterChain chain) {\n        /*TODO: See `Server Filter Behavior` in https://docs.micronaut.io/3.0.x/guide/#breaks for details*/ getKey(MyServerFilter.class);\n    }\n\n    @Override\n    public String getCName() {\n        return \"cname\";\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nimport io.micronaut.http.HttpRequest;\nimport io.micronaut.http.MutableHttpResponse;\n-import io.micronaut.http.filter.OncePerRequestHttpServerFilter;\n+import io.micronaut.http.filter.HttpServerFilter;\nimport io.micronaut.http.filter.ServerFilterChain;\n@@ -10,1 +10,1 @@\nimport org.reactivestreams.Publisher;\n\n-public class MyServerFilter extends OncePerRequestHttpServerFilter {\n+public class MyServerFilter implements HttpServerFilter {\n    @Override\n@@ -17,2 +17,2 @@\n\n    @Override\n-   public Publisher<MutableHttpResponse<?>> doFilterOnce(HttpRequest<?> request, ServerFilterChain chain) {\n-       getKey(MyServerFilter.class);\n+   public Publisher<MutableHttpResponse<?>> doFilter(HttpRequest<?> request, ServerFilterChain chain) {\n+       /*TODO: See `Server Filter Behavior` in https://docs.micronaut.io/3.0.x/guide/#breaks for details*/ getKey(MyServerFilter.class);\n    }\n","newFile":false}]}]}>
 

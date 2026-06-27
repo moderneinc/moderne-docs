@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use TimeSpan.Zero"}
-  description={"Replace `new TimeSpan(0)` and `TimeSpan.FromX(0)` with `TimeSpan.Zero`. The static `TimeSpan.Zero` field is more readable and avoids unnecessary object creation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseTimeSpanZero"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usetimespanzero.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use TimeSpan.Zero</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `new TimeSpan(0)` and `TimeSpan.FromX(0)` with `TimeSpan.Zero`. The static `TimeSpan.Zero` field is more readable and avoids unnecessary object creation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseTimeSpanZero","displayName":"Use TimeSpan.Zero","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

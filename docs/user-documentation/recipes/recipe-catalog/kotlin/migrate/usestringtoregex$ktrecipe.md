@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `String.toRegex()` instead of `Pattern.compile(s)`"}
-  description={"`java.util.regex.Pattern.compile(s)` migrates to the Kotlin extension `s.toRegex()`, which returns a `kotlin.text.Regex` and reads more naturally."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseStringToRegex$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtoregex$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `String.toRegex()` instead of `Pattern.compile(s)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.regex.Pattern.compile(s)` migrates to the Kotlin extension `s.toRegex()`, which returns a `kotlin.text.Regex` and reads more naturally.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseStringToRegex$KtRecipe","displayName":"Use `String.toRegex()` instead of `Pattern.compile(s)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

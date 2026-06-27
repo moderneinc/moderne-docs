@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.0` application to `camel 4.4`"}
-  description={"Migrates `camel 4.0` application to `camel 4.4`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel44.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel44/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Camel Core changes","href":"apache/camel/upgrade/camel41/camelcorerecipe"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/camel41/xmldslrecipe"},{"name":"Changes for creation of inlined beans.","href":"apache/camel/upgrade/camel41/yamldslrecipe"},{"name":"Tag Enum has been deprecated","href":"apache/camel/upgrade/camel41/tracingtag"},{"name":"The option camel.main.debugger has been renamed","href":"apache/camel/upgrade/camel42/camelmaindebugger"},{"name":"Camel Core changes","href":"apache/camel/upgrade/camel42/camelsagarecipe"},{"name":"MemoryStateRepository and FileStateRepository were moved to another package and library","href":"apache/camel/upgrade/camel43/staterepository"},{"name":"Camel Resequence DSL changes","href":"apache/camel/upgrade/camel43/camelresequenceeipxmlrecipe"},{"name":"Camel Core changes","href":"apache/camel/upgrade/camel43/camelthrottleeiprecipe"},{"name":"The header name for the List metadata has changed","href":"apache/camel/upgrade/camel43/kafkametadata"},{"name":"Camel Core changes","href":"apache/camel/upgrade/camel44/camelcorerecipe"},{"name":"Replace 'camel.main.routeController' with `camel.routecontroller'","href":"apache/camel/upgrade/camel44/routecontrollerproperties"},{"name":"Replace deprecated DefaultJsonSchemaLoader with DefaultJsonUriSchemaLoader","href":"apache/camel/upgrade/camel44/defaultjsonschemaloader"}]}>
+<RecipeHeader.Title>Migrates `camel 4.0` application to `camel 4.4`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.0` application to `camel 4.4`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Camel Core changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel41/camelcorerecipe/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel41/xmldslrecipe/"},{"name":"Changes for creation of inlined beans.","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel41/yamldslrecipe/"},{"name":"Tag Enum has been deprecated","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel41/tracingtag/"},{"name":"The option camel.main.debugger has been renamed","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel42/camelmaindebugger/"},{"name":"Camel Core changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel42/camelsagarecipe/"},{"name":"MemoryStateRepository and FileStateRepository were moved to another package and library","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel43/staterepository/"},{"name":"Camel Resequence DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel43/camelresequenceeipxmlrecipe/"},{"name":"Camel Core changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel43/camelthrottleeiprecipe/"},{"name":"The header name for the List metadata has changed","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel43/kafkametadata/"},{"name":"Camel Core changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel44/camelcorerecipe/"},{"name":"Replace 'camel.main.routeController' with `camel.routecontroller'","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel44/routecontrollerproperties/"},{"name":"Replace deprecated DefaultJsonSchemaLoader with DefaultJsonUriSchemaLoader","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel44/defaultjsonschemaloader/"}]}>
 
 ## Definition
 

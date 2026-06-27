@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Optimize LINQ Select().Average()"}
-  description={"Replace `items.Select(selector).Average()` with `items.Average(selector)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqSelectAverage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/optimizelinqselectaverage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Optimize LINQ Select().Average()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `items.Select(selector).Average()` with `items.Average(selector)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqSelectAverage","displayName":"Optimize LINQ Select().Average()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

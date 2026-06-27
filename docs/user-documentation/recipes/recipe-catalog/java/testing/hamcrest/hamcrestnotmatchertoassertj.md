@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Hamcrest `not(Matcher)` to AssertJ"}
-  description={"Migrate from Hamcrest `not(Matcher)` to AssertJ assertions."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.hamcrest.HamcrestNotMatcherToAssertJ"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/hamcrestnotmatchertoassertj.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Hamcrest `not(Matcher)` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from Hamcrest `not(Matcher)` to AssertJ assertions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"notMatcher","required":false,"description":"The Hamcrest `not(Matcher)` to migrate to JUnit5.","example":"equalTo"},{"type":"String","name":"assertion","required":false,"description":"The AssertJ method to migrate to.","example":"isNotEqualTo"}]}>
 

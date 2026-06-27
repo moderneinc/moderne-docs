@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use method group conversion"}
-  description={"Replace `x => Foo(x)` with `Foo` where method group conversion applies."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseMethodGroupConversion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/usemethodgroupconversion.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use method group conversion</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `x => Foo(x)` with `Foo` where method group conversion applies.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseMethodGroupConversion","displayName":"Use method group conversion","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

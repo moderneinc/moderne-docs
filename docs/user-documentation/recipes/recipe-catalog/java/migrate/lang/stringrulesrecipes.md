@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"A collection of `String` rules"}
-  description={"A collection of rules for refactoring methods called on `String` instances in Java code."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.StringRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/stringrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace redundant `String` method calls with self","href":"java/migrate/lang/stringrulesrecipes$redundantcallrecipe"},{"name":"Replace `String.indexOf(String, 0)` with `String.indexOf(String)`","href":"java/migrate/lang/stringrulesrecipes$indexofstringrecipe"},{"name":"Replace `String.indexOf(char, 0)` with `String.indexOf(char)`","href":"java/migrate/lang/stringrulesrecipes$indexofcharrecipe"},{"name":"Replace lower and upper case `String` comparisons with `String.equalsIgnoreCase(String)`","href":"java/migrate/lang/stringrulesrecipes$useequalsignorecaserecipe"}]}>
+<RecipeHeader.Title>A collection of `String` rules</RecipeHeader.Title>
+
+<RecipeHeader.Description>A collection of rules for refactoring methods called on `String` instances in Java code.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace redundant `String` method calls with self","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/stringrulesrecipes$redundantcallrecipe/"},{"name":"Replace `String.indexOf(String, 0)` with `String.indexOf(String)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/stringrulesrecipes$indexofstringrecipe/"},{"name":"Replace `String.indexOf(char, 0)` with `String.indexOf(char)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/stringrulesrecipes$indexofcharrecipe/"},{"name":"Replace lower and upper case `String` comparisons with `String.equalsIgnoreCase(String)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lang/stringrulesrecipes$useequalsignorecaserecipe/"}]}>
 
 ## Definition
 

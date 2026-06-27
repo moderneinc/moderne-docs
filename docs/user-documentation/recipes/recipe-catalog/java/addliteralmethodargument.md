@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add a literal method argument"}
-  description={"Add a literal `String` or primitive argument to method invocations."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.AddLiteralMethodArgument"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument.md"}
-/>
+>
+
+<RecipeHeader.Title>Add a literal method argument</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a literal `String` or primitive argument to method invocations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A [method pattern](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method invocations. For example, to find all method invocations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results.","example":"com.yourorg.A foo(int, int)"},{"type":"int","name":"argumentIndex","required":true,"description":"A zero-based index indicating where to insert the new argument.","example":"0"},{"type":"Object","name":"literal","required":true,"description":"The literal value to add as an argument.","example":"abc"},{"type":"String","name":"primitiveType","required":false,"description":"The parameter type for the added argument. Defaults to `String`.","example":"String"}]}>
 

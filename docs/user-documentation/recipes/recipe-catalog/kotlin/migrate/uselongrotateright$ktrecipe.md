@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Long.rotateRight(n)` instead of `Long.rotateRight(l, n)`"}
-  description={"`java.lang.Long.rotateRight(l, n)` is JVM-only; the multiplatform `l.rotateRight(n)` extension reads as a receiver call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseLongRotateRight$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongrotateright$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Long.rotateRight(n)` instead of `Long.rotateRight(l, n)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.lang.Long.rotateRight(l, n)` is JVM-only; the multiplatform `l.rotateRight(n)` extension reads as a receiver call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseLongRotateRight$KtRecipe","displayName":"Use `Long.rotateRight(n)` instead of `Long.rotateRight(l, n)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

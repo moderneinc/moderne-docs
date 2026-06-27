@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalStateExceptionHasMessageContaining`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatThrownByIllegalStateExceptionHasMessageContaining {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatThrownByIllegalStateException\")\n    AbstractObjectAssert<?, ?> before(ThrowingCallable throwingCallable, String message) {\n        return assertThatIllegalStateException().isThrownBy(throwingCallable).withMessageContaining(message);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractObjectAssert<?, ?> after(ThrowingCallable throwingCallable, String message) {\n        return assertThatThrownBy(throwingCallable).isInstanceOf(IllegalStateException.class).hasMessageContaining(message);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,34 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIllegalStateExceptionHasMessageContainingRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyillegalstateexceptionhasmessagecontainingrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalStateExceptionHasMessageContaining`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatThrownByIllegalStateExceptionHasMessageContaining {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "AssertThatThrownByIllegalStateException")
+    AbstractObjectAssert<?, ?> before(ThrowingCallable throwingCallable, String message) {
+        return assertThatIllegalStateException().isThrownBy(throwingCallable).withMessageContaining(message);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractObjectAssert<?, ?> after(ThrowingCallable throwingCallable, String message) {
+        return assertThatThrownBy(throwingCallable).isInstanceOf(IllegalStateException.class).hasMessageContaining(message);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIllegalStateExceptionHasMessageContainingRecipe","displayName":"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalStateExceptionHasMessageContaining`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

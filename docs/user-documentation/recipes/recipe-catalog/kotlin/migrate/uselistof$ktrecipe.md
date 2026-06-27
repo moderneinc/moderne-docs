@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `listOf(x)` instead of `Collections.singletonList(x)`"}
-  description={"`java.util.Collections.singletonList(x)` is JVM-only; Kotlin's multiplatform `listOf(x)` produces an immutable single-element list."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseListOf$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselistof$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `listOf(x)` instead of `Collections.singletonList(x)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Collections.singletonList(x)` is JVM-only; Kotlin's multiplatform `listOf(x)` produces an immutable single-element list.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseListOf$KtRecipe","displayName":"Use `listOf(x)` instead of `Collections.singletonList(x)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

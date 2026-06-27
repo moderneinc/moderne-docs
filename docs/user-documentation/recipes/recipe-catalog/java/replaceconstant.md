@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace constant with literal value"}
-  description={"Replace a named constant with a literal value when you wish to remove the old constant. A `String` literal must include escaped quotes."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.ReplaceConstant"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/replaceconstant.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace constant with literal value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace a named constant with a literal value when you wish to remove the old constant. A `String` literal must include escaped quotes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"owningType","required":true,"description":"The target type in which the constant to be replaced is defined.","example":"com.google.common.base.Charsets"},{"type":"String","name":"constantName","required":true,"description":"The name of the constant field to replace.","example":"UTF_8"},{"type":"String","name":"literalValue","required":true,"description":"The literal value to replace.","example":"UTF_8"}]}>
 

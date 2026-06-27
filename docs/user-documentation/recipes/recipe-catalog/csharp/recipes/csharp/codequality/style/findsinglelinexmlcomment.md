@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find multi-line XML doc comment style"}
-  description={"Detect `/** ... */` style XML doc comments. Use `///` single-line style instead for consistency."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindSingleLineXmlComment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findsinglelinexmlcomment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find multi-line XML doc comment style</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `/** ... */` style XML doc comments. Use `///` single-line style instead for consistency.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindSingleLineXmlComment","displayName":"Find multi-line XML doc comment style","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

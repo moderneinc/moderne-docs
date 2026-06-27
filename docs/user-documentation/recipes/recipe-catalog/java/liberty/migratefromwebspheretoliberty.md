@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from WebSphere traditional to Liberty"}
-  description={"Use this category of rules to identify code changes needed when migrating from WebSphere Application Server traditional to Liberty."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-liberty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.liberty.MigrateFromWebSphereToLiberty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/liberty/migratefromwebspheretoliberty.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Removes invalid JNDI properties","href":"java/liberty/removewas2libertynonportablejndilookup"},{"name":"Use `getProperty(\"wlp.server.name\")`","href":"java/liberty/servername"},{"name":"Use `getSSOCookieFromSSOToken` and `logout`","href":"java/liberty/websphereunavailablessomethods"},{"name":"Use correct application namespace values","href":"xml/liberty/appddnamespacerule"},{"name":"Use correct connector namespace values","href":"xml/liberty/connectorddnamespacerule"},{"name":"Use correct ejb-jar namespace values","href":"xml/liberty/ejbddnamespacerule"},{"name":"Move persistence.xml file","href":"xml/liberty/persistencexmllocationrule"},{"name":"Use correct web-app namespace values","href":"xml/liberty/webddnamespacerule"},{"name":"Add Liberty Maven plugin","href":"maven/liberty/addopenlibertyplugin"}]}>
+<RecipeHeader.Title>Migrate from WebSphere traditional to Liberty</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use this category of rules to identify code changes needed when migrating from WebSphere Application Server traditional to Liberty.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Removes invalid JNDI properties","href":"/user-documentation/recipes/recipe-catalog/java/liberty/removewas2libertynonportablejndilookup/"},{"name":"Use `getProperty(\"wlp.server.name\")`","href":"/user-documentation/recipes/recipe-catalog/java/liberty/servername/"},{"name":"Use `getSSOCookieFromSSOToken` and `logout`","href":"/user-documentation/recipes/recipe-catalog/java/liberty/websphereunavailablessomethods/"},{"name":"Use correct application namespace values","href":"/user-documentation/recipes/recipe-catalog/xml/liberty/appddnamespacerule/"},{"name":"Use correct connector namespace values","href":"/user-documentation/recipes/recipe-catalog/xml/liberty/connectorddnamespacerule/"},{"name":"Use correct ejb-jar namespace values","href":"/user-documentation/recipes/recipe-catalog/xml/liberty/ejbddnamespacerule/"},{"name":"Move persistence.xml file","href":"/user-documentation/recipes/recipe-catalog/xml/liberty/persistencexmllocationrule/"},{"name":"Use correct web-app namespace values","href":"/user-documentation/recipes/recipe-catalog/xml/liberty/webddnamespacerule/"},{"name":"Add Liberty Maven plugin","href":"/user-documentation/recipes/recipe-catalog/maven/liberty/addopenlibertyplugin/"}]}>
 
 ## Definition
 

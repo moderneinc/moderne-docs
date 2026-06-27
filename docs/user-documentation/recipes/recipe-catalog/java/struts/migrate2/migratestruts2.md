@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Struts 2.x from Struts 1.x"}
-  description={"Comprehensive migration from Struts 1.x to Struts 2.x framework."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate2.MigrateStruts2"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratestruts2.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Migrate Struts 1 Action to Struts 2 ActionSupport","href":"java/struts/migrate2/migrateactionclass"},{"name":"Migrate `struts-config.xml` to `struts.xml`","href":"java/struts/migrate2/migratestrutsconfig"},{"name":"Migrate web.xml from Struts 1 to Struts 2","href":"java/struts/migrate2/migratewebxml"},{"name":"Migrate Struts 1 JSP tags to Struts 2","href":"java/struts/migrate2/migratejsptags"},{"name":"Migrate JSP taglib directives for Struts 2","href":"java/struts/migrate2/migratejsptaglib"}]}>
+<RecipeHeader.Title>Migrate to Struts 2.x from Struts 1.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Comprehensive migration from Struts 1.x to Struts 2.x framework.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Migrate Struts 1 Action to Struts 2 ActionSupport","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migrateactionclass/"},{"name":"Migrate `struts-config.xml` to `struts.xml`","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratestrutsconfig/"},{"name":"Migrate web.xml from Struts 1 to Struts 2","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratewebxml/"},{"name":"Migrate Struts 1 JSP tags to Struts 2","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratejsptags/"},{"name":"Migrate JSP taglib directives for Struts 2","href":"/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratejsptaglib/"}]}>
 
 ## Definition
 

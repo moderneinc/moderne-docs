@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Python dependency version"}
-  description={"Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.UpgradeDependencyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/upgradedependencyversion.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Upgrade Python dependency version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade the version constraint for a dependency. Supports `pyproject.toml` (with scope/group targeting), `requirements.txt`, and `Pipfile`. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageName","required":true,"description":"The PyPI package name to update.","example":"requests"},{"type":"String","name":"newVersion","required":true,"description":"The new PEP 508 version constraint (e.g., `>=2.31.0`).","example":">=2.31.0"},{"type":"String","name":"scope","required":false,"description":"The dependency scope to update in. All scopes are searched by default.","example":"project.dependencies"},{"type":"String","name":"groupName","required":false,"description":"The group name, required when scope is `project.optional-dependencies` or `dependency-groups`.","example":"dev"}]}>
 

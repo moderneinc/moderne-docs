@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"URL Hash Code"}
-  description={"Uses of `hashCode()` cause `java.net.URL` to make blocking internet connections. Instead, use `java.net.URI`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-2112"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes$URLHashCodeRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/urlequalshashcoderecipes$urlhashcoderecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>URL Hash Code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Uses of `hashCode()` cause `java.net.URL` to make blocking internet connections. Instead, use `java.net.URI`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.URLEqualsHashCodeRecipes$URLHashCodeRecipe","displayName":"URL Hash Code","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 

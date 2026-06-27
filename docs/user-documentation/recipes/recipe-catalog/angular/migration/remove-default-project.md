@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `defaultProject` from `angular.json`"}
-  description={"Removes the deprecated `defaultProject` property from `angular.json`. The `defaultProject` option was deprecated in Angular 13 and the CLI infers the default project from the workspace."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-default-project"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-default-project.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `defaultProject` from `angular.json`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the deprecated `defaultProject` property from `angular.json`. The `defaultProject` option was deprecated in Angular 13 and the CLI infers the default project from the workspace.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.remove-default-project","displayName":"Remove `defaultProject` from `angular.json`","npmPackage":"@openrewrite/recipes-angular"}}>
 

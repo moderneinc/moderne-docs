@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find inner `class Builder` classes — default-args candidate"}
-  description={"A Java-style nested `class Builder` mirrors the outer class fields with setters that return `this`, then a terminal `build()`. In Kotlin, a `data class` with default arguments composes with named-argument call syntax to express the same intent — usually with less code and no double maintenance."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindBuilderClass$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findbuilderclass$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find inner `class Builder` classes — default-args candidate</RecipeHeader.Title>
+
+<RecipeHeader.Description>A Java-style nested `class Builder` mirrors the outer class fields with setters that return `this`, then a terminal `build()`. In Kotlin, a `data class` with default arguments composes with named-argument call syntax to express the same intent — usually with less code and no double maintenance.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindBuilderClass$KtRecipe","displayName":"Find inner `class Builder` classes — default-args candidate","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace runners for a job"}
-  description={"Replaces the runners of a given job."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.ReplaceRunners"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/replacerunners.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace runners for a job</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces the runners of a given job.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"jobName","required":true,"description":"The name of the job to update, use * to affect all the workflow jobs","example":"build"},{"type":"List","name":"runners","required":true,"description":"The new list of runners to set","example":"ubuntu-latest"}]}>
 

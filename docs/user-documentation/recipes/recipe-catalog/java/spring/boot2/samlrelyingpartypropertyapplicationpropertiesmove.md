@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move SAML relying party identity provider property to asserting party"}
-  description={"Renames spring.security.saml2.relyingparty.registration.(any).identityprovider to spring.security.saml2.relyingparty.registration.(any).assertingparty."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.SamlRelyingPartyPropertyApplicationPropertiesMove"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/samlrelyingpartypropertyapplicationpropertiesmove.md"}
-/>
+>
+
+<RecipeHeader.Title>Move SAML relying party identity provider property to asserting party</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames spring.security.saml2.relyingparty.registration.(any).identityprovider to spring.security.saml2.relyingparty.registration.(any).assertingparty.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"properties","before":"spring.security.saml2.relyingparty.registration.idpone.identityprovider.entity-id=https://idpone.com\nspring.security.saml2.relyingparty.registration.idpone.identityprovider.sso-url=https://idpone.com\nspring.security.saml2.relyingparty.registration.idpone.identityprovider.verification.credentials.certificate-location=classpath:saml/idpone.crt\n","after":"spring.security.saml2.relyingparty.registration.idpone.assertingparty.entity-id=https://idpone.com\nspring.security.saml2.relyingparty.registration.idpone.assertingparty.sso-url=https://idpone.com\nspring.security.saml2.relyingparty.registration.idpone.assertingparty.verification.credentials.certificate-location=classpath:saml/idpone.crt\n","diff":"--- application.properties\n+++ application.properties\n@@ -1,3 +1,3 @@\n-spring.security.saml2.relyingparty.registration.idpone.identityprovider.entity-id=https://idpone.com\n-spring.security.saml2.relyingparty.registration.idpone.identityprovider.sso-url=https://idpone.com\n-spring.security.saml2.relyingparty.registration.idpone.identityprovider.verification.credentials.certificate-location=classpath:saml/idpone.crt\n+spring.security.saml2.relyingparty.registration.idpone.assertingparty.entity-id=https://idpone.com\n+spring.security.saml2.relyingparty.registration.idpone.assertingparty.sso-url=https://idpone.com\n+spring.security.saml2.relyingparty.registration.idpone.assertingparty.verification.credentials.certificate-location=classpath:saml/idpone.crt\n\n","newFile":false}]}]}>
 

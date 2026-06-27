@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Constructors of an `abstract` class should not be declared `public`"}
-  description={"Constructors of `abstract` classes can only be called in constructors of their subclasses. Therefore the visibility of `public` constructors are reduced to `protected`. Declaring them `public` is misleading since it implies they could be invoked directly, which is never possible."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S5993"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.AbstractClassPublicConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/abstractclasspublicconstructor.md"}
-/>
+>
+
+<RecipeHeader.Title>Constructors of an `abstract` class should not be declared `public`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Constructors of `abstract` classes can only be called in constructors of their subclasses. Therefore the visibility of `public` constructors are reduced to `protected`. Declaring them `public` is misleading since it implies they could be invoked directly, which is never possible.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"abstract class Test {\n    public Test() {\n    }\n}\n","after":"abstract class Test {\n    protected Test() {\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nabstract class Test {\n-   public Test() {\n+   protected Test() {\n    }\n","newFile":false}]}]}>
 

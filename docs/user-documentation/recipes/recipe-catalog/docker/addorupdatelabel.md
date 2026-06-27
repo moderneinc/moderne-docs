@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Docker LABEL instruction"}
-  description={"Adds or updates a LABEL instruction in a Dockerfile. By default, adds to the final stage only."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.AddOrUpdateLabel"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/addorupdatelabel.md"}
-/>
+>
+
+<RecipeHeader.Title>Add Docker LABEL instruction</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds or updates a LABEL instruction in a Dockerfile. By default, adds to the final stage only.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"key","required":true,"description":"The key of the label to add.","example":"org.opencontainers.image.version"},{"type":"String","name":"value","required":true,"description":"The value of the label.","example":"1.0.0"},{"type":"Boolean","name":"overwriteExisting","required":false,"description":"If true, overwrite the label if it already exists. If false, skip if exists. Defaults to true."},{"type":"String","name":"stageName","required":false,"description":"Only add the label to this build stage. If null, adds to the final stage only.","example":"final"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `firstOrNull { } ?: error(...)` patterns"}
-  description={"`firstOrNull { p }.let { it ?: error(\"missing\") }` (or the `?: error` form) is a manual `single { p }` — `single` throws when there's no match or more than one, which is usually the intended precondition."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindFirstOrNullElvisError$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findfirstornullelviserror$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `firstOrNull { } ?: error(...)` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`firstOrNull { p }.let { it ?: error("missing") }` (or the `?: error` form) is a manual `single { p }` — `single` throws when there's no match or more than one, which is usually the intended precondition.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindFirstOrNullElvisError$KtRecipe","displayName":"Find `firstOrNull { } ?: error(...)` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace secret key names in GitHub Actions"}
-  description={"Replace key names used for secrets in GitHub Actions workflow files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.ReplaceSecretKeys"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/replacesecretkeys.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace secret key names in GitHub Actions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace key names used for secrets in GitHub Actions workflow files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldKeyName","required":true,"description":"The name of the key to be replaced","example":"ossrh_username"},{"type":"String","name":"newKeyName","required":true,"description":"The new key name to use","example":"sonatype_username"},{"type":"String","name":"fileMatcher","required":false,"description":"Optional file path matcher","example":".github/workflows/*.{yml,yaml}"}]}>
 

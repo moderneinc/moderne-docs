@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `MvcRequestMatcher` to `PathPatternRequestMatcher`"}
-  description={"In Spring Security 7.0, `MvcRequestMatcher` which depends on the deprecated `HandlerMappingIntrospector` is removed in favor of `PathPatternRequestMatcher`. This recipe migrates constructor and builder usage to the new pattern."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.security7.MigrateMvcRequestMatcher"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security7/migratemvcrequestmatcher.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `MvcRequestMatcher` to `PathPatternRequestMatcher`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Security 7.0, `MvcRequestMatcher` which depends on the deprecated `HandlerMappingIntrospector` is removed in favor of `PathPatternRequestMatcher`. This recipe migrates constructor and builder usage to the new pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\nimport org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;\nimport org.springframework.web.servlet.handler.HandlerMappingIntrospector;\n\nclass SecurityConfig {\n    SecurityFilterChain filterChain(HttpSecurity http, HandlerMappingIntrospector introspector) throws Exception {\n        http.authorizeHttpRequests(auth ->\n            auth.requestMatchers(new MvcRequestMatcher(introspector, \"/api/**\")).authenticated());\n        return http.build();\n    }\n}\n","after":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\nimport org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;\nimport org.springframework.web.servlet.handler.HandlerMappingIntrospector;\n\nclass SecurityConfig {\n    SecurityFilterChain filterChain(HttpSecurity http, HandlerMappingIntrospector introspector) throws Exception {\n        http.authorizeHttpRequests(auth ->\n            auth.requestMatchers(PathPatternRequestMatcher.withDefaults().matcher(\"/api/**\")).authenticated());\n        return http.build();\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\n-import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;\n+import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;\nimport org.springframework.web.servlet.handler.HandlerMappingIntrospector;\n@@ -9,1 +9,1 @@\n    SecurityFilterChain filterChain(HttpSecurity http, HandlerMappingIntrospector introspector) throws Exception {\n        http.authorizeHttpRequests(auth ->\n-           auth.requestMatchers(new MvcRequestMatcher(introspector, \"/api/**\")).authenticated());\n+           auth.requestMatchers(PathPatternRequestMatcher.withDefaults().matcher(\"/api/**\")).authenticated());\n        return http.build();\n","newFile":false}]}]}>
 

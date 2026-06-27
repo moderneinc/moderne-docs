@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Sorted set stream should be collected to LinkedHashSet"}
-  description={"Converts `set.stream().sorted().collect(Collectors.toSet())` to `set.stream().sorted().collect(LinkedHashSet::new)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SortedSetStreamToLinkedHashSet"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/sortedsetstreamtolinkedhashset.md"}
-/>
+>
+
+<RecipeHeader.Title>Sorted set stream should be collected to LinkedHashSet</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `set.stream().sorted().collect(Collectors.toSet())` to `set.stream().sorted().collect(LinkedHashSet::new)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Set;\nimport java.util.stream.Collectors;\n\nclass A {\n  void method(Set<Integer> set) {\n      Set<Integer> sorted = set.stream().sorted().collect(Collectors.toSet());\n  }\n}\n","after":"import java.util.LinkedHashSet;\nimport java.util.Set;\nimport java.util.stream.Collectors;\n\nclass A {\n  void method(Set<Integer> set) {\n      Set<Integer> sorted = set.stream().sorted().collect(Collectors.toCollection(LinkedHashSet::new));\n  }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import java.util.LinkedHashSet;\nimport java.util.Set;\n@@ -6,1 +7,1 @@\nclass A {\n  void method(Set<Integer> set) {\n-     Set<Integer> sorted = set.stream().sorted().collect(Collectors.toSet());\n+     Set<Integer> sorted = set.stream().sorted().collect(Collectors.toCollection(LinkedHashSet::new));\n  }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find potential SQL injection"}
-  description={"Finds SQL query methods where the query string is constructed via string concatenation, which may indicate SQL injection vulnerabilities. Use parameterized queries or prepared statements instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-89"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindSqlInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findsqlinjection.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find potential SQL injection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds SQL query methods where the query string is constructed via string concatenation, which may indicate SQL injection vulnerabilities. Use parameterized queries or prepared statements instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.sql.*;\n\nclass A {\n    void query(Connection conn, String userInput) throws SQLException {\n        Statement stmt = conn.createStatement();\n        stmt.executeQuery(\"SELECT * FROM users WHERE name = '\" + userInput + \"'\");\n    }\n}\n","after":"import java.sql.*;\n\nclass A {\n    void query(Connection conn, String userInput) throws SQLException {\n        Statement stmt = conn.createStatement();\n        /*~~(SQL query built with string concatenation. Use parameterized queries to prevent SQL injection.)~~>*/stmt.executeQuery(\"SELECT * FROM users WHERE name = '\" + userInput + \"'\");\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n    void query(Connection conn, String userInput) throws SQLException {\n        Statement stmt = conn.createStatement();\n-       stmt.executeQuery(\"SELECT * FROM users WHERE name = '\" + userInput + \"'\");\n+       /*~~(SQL query built with string concatenation. Use parameterized queries to prevent SQL injection.)~~>*/stmt.executeQuery(\"SELECT * FROM users WHERE name = '\" + userInput + \"'\");\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use coalesce expression instead of 'if'"}
-  description={"Replace `if (x == null) x = y;` with `x ??= y`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseCoalesceExpressionInsteadOfIf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usecoalesceexpressioninsteadofif.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use coalesce expression instead of 'if'</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `if (x == null) x = y;` with `x ??= y`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseCoalesceExpressionInsteadOfIf","displayName":"Use coalesce expression instead of 'if'","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

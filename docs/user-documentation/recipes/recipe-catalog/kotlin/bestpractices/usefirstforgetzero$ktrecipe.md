@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `first()` instead of `get(0)`"}
-  description={"`first()` reads more naturally than `get(0)` and gives the same compile-time bounds guarantees — both throw `NoSuchElementException`/`IndexOutOfBoundsException` on an empty list."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.UseFirstForGetZero$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usefirstforgetzero$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `first()` instead of `get(0)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`first()` reads more naturally than `get(0)` and gives the same compile-time bounds guarantees — both throw `NoSuchElementException`/`IndexOutOfBoundsException` on an empty list.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.UseFirstForGetZero$KtRecipe","displayName":"Use `first()` instead of `get(0)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

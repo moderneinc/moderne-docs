@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `async { ... }.await()` patterns"}
-  description={"`async { … }.await()` on its own is structurally identical to `withContext { … }` plus an extra `Deferred` allocation. Use `withContext(ctx) { … }` (or just inline the body) — `async` is for concurrency, not sequencing."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindAsyncImmediatelyAwait$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findasyncimmediatelyawait$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `async { ... }.await()` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`async { … }.await()` on its own is structurally identical to `withContext { … }` plus an extra `Deferred` allocation. Use `withContext(ctx) { … }` (or just inline the body) — `async` is for concurrency, not sequencing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindAsyncImmediatelyAwait$KtRecipe","displayName":"Find `async { ... }.await()` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

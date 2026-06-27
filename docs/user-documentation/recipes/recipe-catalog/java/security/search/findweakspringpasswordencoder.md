@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find weak Spring Security password encoders"}
-  description={"Finds uses of Spring Security password encoders that are unsuitable for production password storage: `NoOpPasswordEncoder` (plaintext), `StandardPasswordEncoder` (deprecated SHA-256), `MessageDigestPasswordEncoder` (raw message digest), `Md4PasswordEncoder` (MD4, broken), and `LdapShaPasswordEncoder` (deprecated). Use an adaptive function such as `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, `Pbkdf2PasswordEncoder`, or `SCryptPasswordEncoder` instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["security","CWE-327","CWE-916"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindWeakSpringPasswordEncoder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findweakspringpasswordencoder.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find weak Spring Security password encoders</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds uses of Spring Security password encoders that are unsuitable for production password storage: `NoOpPasswordEncoder` (plaintext), `StandardPasswordEncoder` (deprecated SHA-256), `MessageDigestPasswordEncoder` (raw message digest), `Md4PasswordEncoder` (MD4, broken), and `LdapShaPasswordEncoder` (deprecated). Use an adaptive function such as `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, `Pbkdf2PasswordEncoder`, or `SCryptPasswordEncoder` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.crypto.password.NoOpPasswordEncoder;\nimport org.springframework.security.crypto.password.PasswordEncoder;\n\nclass Config {\n    @SuppressWarnings(\"deprecation\")\n    PasswordEncoder encoder() {\n        return NoOpPasswordEncoder.getInstance();\n    }\n}\n","after":"import org.springframework.security.crypto.password.NoOpPasswordEncoder;\nimport org.springframework.security.crypto.password.PasswordEncoder;\n\nclass Config {\n    @SuppressWarnings(\"deprecation\")\n    PasswordEncoder encoder() {\n        return /*~~(NoOpPasswordEncoder stores passwords in plaintext and is for testing only (CWE-327))~~>*/NoOpPasswordEncoder.getInstance();\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    @SuppressWarnings(\"deprecation\")\n    PasswordEncoder encoder() {\n-       return NoOpPasswordEncoder.getInstance();\n+       return /*~~(NoOpPasswordEncoder stores passwords in plaintext and is for testing only (CWE-327))~~>*/NoOpPasswordEncoder.getInstance();\n    }\n","newFile":false}]}]}>
 

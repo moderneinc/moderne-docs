@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find files that have at least one use of a type"}
-  description={"Marks files that have at least one occurrence of a type, even if the name of that type doesn't appear in the source code."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.HasType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/hastype.md"}
-/>
+>
+
+<RecipeHeader.Title>Find files that have at least one use of a type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Marks files that have at least one occurrence of a type, even if the name of that type doesn't appear in the source code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fullyQualifiedTypeName","required":true,"description":"A fully-qualified type name, that is used to find matching type references. Supports glob expressions. `java..*` finds every type from every subpackage of the `java` package.","example":"java.util.List"},{"type":"Boolean","name":"checkAssignability","required":false,"description":"When enabled, find type references that are assignable to the provided type."}]}>
 

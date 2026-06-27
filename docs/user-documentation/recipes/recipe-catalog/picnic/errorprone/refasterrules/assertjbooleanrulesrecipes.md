@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJBooleanRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `boolean`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJBooleanRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJBooleanRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbooleanrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJBooleanRules.AbstractBooleanAssertIsEqualTo`","href":"picnic/errorprone/refasterrules/assertjbooleanrulesrecipes$abstractbooleanassertisequaltorecipe"},{"name":"Refaster template `AssertJBooleanRules.AbstractBooleanAssertIsNotEqualTo`","href":"picnic/errorprone/refasterrules/assertjbooleanrulesrecipes$abstractbooleanassertisnotequaltorecipe"},{"name":"Refaster template `AssertJBooleanRules.AbstractBooleanAssertIsTrue`","href":"picnic/errorprone/refasterrules/assertjbooleanrulesrecipes$abstractbooleanassertistruerecipe"},{"name":"Refaster template `AssertJBooleanRules.AssertThatBooleanIsTrue`","href":"picnic/errorprone/refasterrules/assertjbooleanrulesrecipes$assertthatbooleanistruerecipe"},{"name":"Refaster template `AssertJBooleanRules.AbstractBooleanAssertIsFalse`","href":"picnic/errorprone/refasterrules/assertjbooleanrulesrecipes$abstractbooleanassertisfalserecipe"},{"name":"Refaster template `AssertJBooleanRules.AssertThatBooleanIsFalse`","href":"picnic/errorprone/refasterrules/assertjbooleanrulesrecipes$assertthatbooleanisfalserecipe"}]}>
+<RecipeHeader.Title>`AssertJBooleanRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `boolean`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJBooleanRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJBooleanRules.AbstractBooleanAssertIsEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbooleanrulesrecipes$abstractbooleanassertisequaltorecipe/"},{"name":"Refaster template `AssertJBooleanRules.AbstractBooleanAssertIsNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbooleanrulesrecipes$abstractbooleanassertisnotequaltorecipe/"},{"name":"Refaster template `AssertJBooleanRules.AbstractBooleanAssertIsTrue`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbooleanrulesrecipes$abstractbooleanassertistruerecipe/"},{"name":"Refaster template `AssertJBooleanRules.AssertThatBooleanIsTrue`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbooleanrulesrecipes$assertthatbooleanistruerecipe/"},{"name":"Refaster template `AssertJBooleanRules.AbstractBooleanAssertIsFalse`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbooleanrulesrecipes$abstractbooleanassertisfalserecipe/"},{"name":"Refaster template `AssertJBooleanRules.AssertThatBooleanIsFalse`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbooleanrulesrecipes$assertthatbooleanisfalserecipe/"}]}>
 
 ## Definition
 

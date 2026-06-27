@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Executors.newXxxThreadPool` factory calls"}
-  description={"Each `Executors.newXxx` call allocates a thread pool that needs explicit lifecycle (`shutdown` on teardown). For services that need bounded resources, each allocation is a candidate for review — and for an LLM agent, the call site reveals where the application's parallelism budget lives."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindExecutorServiceFactories$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findexecutorservicefactories$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Executors.newXxxThreadPool` factory calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `Executors.newXxx` call allocates a thread pool that needs explicit lifecycle (`shutdown` on teardown). For services that need bounded resources, each allocation is a candidate for review — and for an LLM agent, the call site reveals where the application's parallelism budget lives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindExecutorServiceFactories$KtRecipe","displayName":"Find `Executors.newXxxThreadPool` factory calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

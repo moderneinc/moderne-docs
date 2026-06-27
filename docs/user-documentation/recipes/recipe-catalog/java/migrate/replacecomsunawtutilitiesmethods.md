@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `com.sun.awt.AWTUtilities` static method invocations"}
-  description={"This recipe replaces several static calls  in `com.sun.awt.AWTUtilities` with the JavaSE 11 equivalent. The methods replaced are `AWTUtilities.isTranslucencySupported()`, `AWTUtilities.setWindowOpacity()`, `AWTUtilities.getWindowOpacity()`, `AWTUtilities.getWindowShape()`, `AWTUtilities.isWindowOpaque()`, `AWTUtilities.isTranslucencyCapable()` and `AWTUtilities.setComponentMixingCutoutShape()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.ReplaceComSunAWTUtilitiesMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/replacecomsunawtutilitiesmethods.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `com.sun.awt.AWTUtilities` static method invocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe replaces several static calls  in `com.sun.awt.AWTUtilities` with the JavaSE 11 equivalent. The methods replaced are `AWTUtilities.isTranslucencySupported()`, `AWTUtilities.setWindowOpacity()`, `AWTUtilities.getWindowOpacity()`, `AWTUtilities.getWindowShape()`, `AWTUtilities.isWindowOpaque()`, `AWTUtilities.isTranslucencyCapable()` and `AWTUtilities.setComponentMixingCutoutShape()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"getAWTIsWindowsTranslucencyPattern","required":false,"description":"The method pattern to match and replace.","example":"com.sun.awt.AWTUtilities isTranslucencySupported(com.sun.awt.AWTUtilities.Translucency)"},{"type":"String","name":"isWindowOpaquePattern","required":false,"description":"The method pattern to match and replace.","example":"com.test.AWTUtilities isWindowOpaque(java.awt.Window)"},{"type":"String","name":"isTranslucencyCapablePattern","required":false,"description":"The method pattern to match and replace.","example":"com.test.AWTUtilities isTranslucencyCapable(java.awt.GraphicsConfiguration)"},{"type":"String","name":"setWindowOpacityPattern","required":false,"description":"The method pattern to match and replace.","example":"com.test.AWTUtilities setWindowOpacity(java.awt.Window, float)"},{"type":"String","name":"getWindowOpacityPattern","required":false,"description":"The method pattern to match and replace.","example":"com.test.AWTUtilities getWindowOpacity(java.awt.Window)"},{"type":"String","name":"getWindowShapePattern","required":false,"description":"The method pattern to match and replace.","example":"com.test.AWTUtilitiesTest getWindowShape(java.awt.Window)"},{"type":"String","name":"setComponentMixingCutoutShapePattern","required":false,"description":"The method pattern to match and replace.","example":"com.test.AWTUtilities setComponentMixingCutoutShape(java.awt.Component,java.awt.Shape)"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use one dependency declaration per statement"}
-  description={"The Gradle Groovy DSL accepts multiple coordinates in a single configuration call (e.g. `implementation 'a:b:1.0', 'c:d:2.0'`), but the Kotlin DSL does not. Gradle's best practices recommend declaring a single dependency per statement; see the [Gradle dependency best practices](https://docs.gradle.org/current/userguide/best_practices_dependencies.html). This recipe splits multi-coordinate Groovy DSL configuration calls into one call per coordinate. Run this as a cleanup pass before other dependency-aware recipes (e.g. `UpgradeDependencyVersion`, `ChangeDependency`, `RemoveDependency`): those recipes use the `GradleDependency` trait, which only inspects the first argument of a configuration call. Coordinates in later positions are invisible to them until this recipe reshapes the source into one declaration per statement."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.gradle9.OneDependencyDeclarationPerStatement"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/gradle9/onedependencydeclarationperstatement.md"}
-/>
+>
+
+<RecipeHeader.Title>Use one dependency declaration per statement</RecipeHeader.Title>
+
+<RecipeHeader.Description>The Gradle Groovy DSL accepts multiple coordinates in a single configuration call (e.g. `implementation 'a:b:1.0', 'c:d:2.0'`), but the Kotlin DSL does not. Gradle's best practices recommend declaring a single dependency per statement; see the [Gradle dependency best practices](https://docs.gradle.org/current/userguide/best_practices_dependencies.html). This recipe splits multi-coordinate Groovy DSL configuration calls into one call per coordinate. Run this as a cleanup pass before other dependency-aware recipes (e.g. `UpgradeDependencyVersion`, `ChangeDependency`, `RemoveDependency`): those recipes use the `GradleDependency` trait, which only inspects the first argument of a configuration call. Coordinates in later positions are invisible to them until this recipe reshapes the source into one declaration per statement.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.gradle.gradle9.OneDependencyDeclarationPerStatement","displayName":"Use one dependency declaration per statement","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false}}>
 

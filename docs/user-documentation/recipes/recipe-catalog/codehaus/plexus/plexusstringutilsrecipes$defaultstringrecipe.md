@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `StringUtils.defaultString(Object)` with JDK provided API"}
-  description={"Replace Plexus `StringUtils.defaultString(Object obj)` with JDK provided API."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$DefaultStringRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codehaus/plexus/plexusstringutilsrecipes$defaultstringrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `StringUtils.defaultString(Object)` with JDK provided API</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace Plexus `StringUtils.defaultString(Object obj)` with JDK provided API.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.codehaus.plexus.PlexusStringUtilsRecipes$DefaultStringRecipe","displayName":"Replace `StringUtils.defaultString(Object)` with JDK provided API","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 

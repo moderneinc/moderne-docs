@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `.p-fluid` to `<p-fluid>` wrapper"}
-  description={"Rewrites `<div class=\"…p-fluid…\">…</div>` to `<p-fluid class=\"…\">…</p-fluid>` and adds a `FluidModule` import from `primeng/fluid` to the corresponding component file. PrimeNG 18 removed the `.p-fluid` CSS class; the `<p-fluid>` wrapper component is its replacement."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.MigratePFluidToWrapper"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/migratepfluidtowrapper.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `.p-fluid` to `<p-fluid>` wrapper</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rewrites `<div class="…p-fluid…">…</div>` to `<p-fluid class="…">…</p-fluid>` and adds a `FluidModule` import from `primeng/fluid` to the corresponding component file. PrimeNG 18 removed the `.p-fluid` CSS class; the `<p-fluid>` wrapper component is its replacement.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <RecipeList recipes={[{"name":"Rewrite `.p-fluid` divs to `<p-fluid>` wrappers","href":""},{"name":"Add `FluidModule` import to components using `<p-fluid>`","href":""}]}>
 

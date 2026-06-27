@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unused local variables"}
-  description={"If a local variable is declared but not used, it is dead code and should be removed. Unused variables increase cognitive load for readers who must determine whether the variable matters, and they may signal incomplete implementations or missed refactoring."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1481"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveUnusedLocalVariables"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedlocalvariables.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unused local variables</RecipeHeader.Title>
+
+<RecipeHeader.Description>If a local variable is declared but not used, it is dead code and should be removed. Unused variables increase cognitive load for readers who must determine whether the variable matters, and they may signal incomplete implementations or missed refactoring.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String[]","name":"ignoreVariablesNamed","required":false,"description":"An array of variable identifier names for local variables to ignore, even if the local variable is unused.","example":"[unused, notUsed, IGNORE_ME]"},{"type":"String","name":"withType","required":false,"description":"A fully qualified class name. Only unused local variables whose type matches this will be removed. If empty or not set, all unused local variables are considered for removal.","example":"java.lang.String"},{"type":"Boolean","name":"withSideEffects","required":false,"description":"Whether to remove unused local variables despite side effects in the initializer. Default false."}]}>
 

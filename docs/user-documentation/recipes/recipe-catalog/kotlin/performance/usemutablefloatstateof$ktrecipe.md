@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `mutableFloatStateOf` instead of `mutableStateOf<Float>` in Compose"}
-  description={"Compose's `mutableFloatStateOf` keeps the wrapped value as a primitive `Float`, avoiding the autobox-and-unbox cost that `mutableStateOf<Float>` pays on every read and write inside a recomposition."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseMutableFloatStateOf$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/usemutablefloatstateof$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `mutableFloatStateOf` instead of `mutableStateOf<Float>` in Compose</RecipeHeader.Title>
+
+<RecipeHeader.Description>Compose's `mutableFloatStateOf` keeps the wrapped value as a primitive `Float`, avoiding the autobox-and-unbox cost that `mutableStateOf<Float>` pays on every read and write inside a recomposition.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseMutableFloatStateOf$KtRecipe","displayName":"Use `mutableFloatStateOf` instead of `mutableStateOf<Float>` in Compose","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

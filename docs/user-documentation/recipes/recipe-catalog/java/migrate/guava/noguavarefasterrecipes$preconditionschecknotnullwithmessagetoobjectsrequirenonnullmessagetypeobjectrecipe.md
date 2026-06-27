@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`Preconditions.checkNotNull` with `Object` message to `Objects.requireNonNull` with `String.valueOf`"}
-  description={"Migrate from Guava `Preconditions.checkNotNull` to Java 8 `java.util.Objects.requireNonNull`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaRefasterRecipes$PreconditionsCheckNotNullWithMessageToObjectsRequireNonNullMessageTypeObjectRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavarefasterrecipes$preconditionschecknotnullwithmessagetoobjectsrequirenonnullmessagetypeobjectrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>`Preconditions.checkNotNull` with `Object` message to `Objects.requireNonNull` with `String.valueOf`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from Guava `Preconditions.checkNotNull` to Java 8 `java.util.Objects.requireNonNull`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.NoGuavaRefasterRecipes$PreconditionsCheckNotNullWithMessageToObjectsRequireNonNullMessageTypeObjectRecipe","displayName":"`Preconditions.checkNotNull` with `Object` message to `Objects.requireNonNull` with `String.valueOf`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

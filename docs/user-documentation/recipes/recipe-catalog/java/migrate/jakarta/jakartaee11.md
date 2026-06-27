@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Jakarta EE 11"}
-  description={"These recipes help with the Migration to Jakarta EE 11, flagging and updating deprecated methods."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.JakartaEE11"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee11.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Jakarta EE 10","href":"java/migrate/jakarta/jakartaee10"},{"name":"Jakarta Faces 4.0 to 4.1","href":"java/migrate/jakarta/faces4xmigrationtofaces41x"},{"name":"Update Jakarta EE Platform Dependencies to 11.0.x","href":"java/migrate/jakarta/updatejakartaplatform11"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Jakarta EE 11</RecipeHeader.Title>
+
+<RecipeHeader.Description>These recipes help with the Migration to Jakarta EE 11, flagging and updating deprecated methods.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Jakarta EE 10","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee10/"},{"name":"Jakarta Faces 4.0 to 4.1","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces4xmigrationtofaces41x/"},{"name":"Update Jakarta EE Platform Dependencies to 11.0.x","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaplatform11/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"TestNG `assertNotSame` to AssertJ"}
-  description={"Convert TestNG-style `assertNotSame()` to AssertJ's `assertThat().isNotSameAs()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testng.TestNgAssertNotSameToAssertThat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertnotsametoassertthat.md"}
-/>
+>
+
+<RecipeHeader.Title>TestNG `assertNotSame` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert TestNG-style `assertNotSame()` to AssertJ's `assertThat().isNotSameAs()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.testng.TestNgAssertNotSameToAssertThat","displayName":"TestNG `assertNotSame` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change text"}
-  description={"Completely replaces the contents of the text file with other text. Use together with a `FindSourceFiles` precondition to limit which files are changed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["plain text"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.text.ChangeText"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/text/changetext.md"}
-/>
+>
+
+<RecipeHeader.Title>Change text</RecipeHeader.Title>
+
+<RecipeHeader.Description>Completely replaces the contents of the text file with other text. Use together with a `FindSourceFiles` precondition to limit which files are changed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"toText","required":true,"description":"The text file will have only this text after the change. The snippet provided here can be multiline.","example":"Some text."}]}>
 

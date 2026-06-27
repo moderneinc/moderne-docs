@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find dangerous workflow triggers"}
-  description={"Detects use of fundamentally insecure workflow triggers like `pull_request_target` and `workflow_run`. These triggers run with elevated privileges and are almost always used insecurely, potentially allowing code injection from untrusted sources. Based on [zizmor's dangerous-triggers audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/dangerous_triggers.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.DangerousTriggers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/dangeroustriggers.md"}
-/>
+>
+
+<RecipeHeader.Title>Find dangerous workflow triggers</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects use of fundamentally insecure workflow triggers like `pull_request_target` and `workflow_run`. These triggers run with elevated privileges and are almost always used insecurely, potentially allowing code injection from untrusted sources. Based on [zizmor's dangerous-triggers audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/dangerous_triggers.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"on: pull_request_target\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo \"test\"\n","after":"~~(The 'pull_request_target' trigger is almost always used insecurely. It runs with write permissions in the context of the target repository, potentially allowing code injection from pull requests. Consider using 'pull_request' instead, or implement proper isolation.)~~>on: pull_request_target\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo \"test\"\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -1,1 +1,1 @@\n-on: pull_request_target\n+~~(The 'pull_request_target' trigger is almost always used insecurely. It runs with write permissions in the context of the target repository, potentially allowing code injection from pull requests. Consider using 'pull_request' instead, or implement proper isolation.)~~>on: pull_request_target\njobs:\n","newFile":false}]}]}>
 

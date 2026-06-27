@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find missing `HEALTHCHECK`"}
-  description={"Finds Dockerfiles where the final stage is missing a `HEALTHCHECK` instruction (CIS Docker Benchmark 4.6). Health checks help container orchestrators determine if a container is healthy and ready to receive traffic."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.search.FindMissingHealthcheck"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/search/findmissinghealthcheck.md"}
-/>
+>
+
+<RecipeHeader.Title>Find missing `HEALTHCHECK`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds Dockerfiles where the final stage is missing a `HEALTHCHECK` instruction (CIS Docker Benchmark 4.6). Health checks help container orchestrators determine if a container is healthy and ready to receive traffic.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"docker","before":"FROM alpine:3.18\nCMD [\"./app\"]\n","after":"~~(Missing HEALTHCHECK instruction)~~>FROM alpine:3.18\nCMD [\"./app\"]\n","diff":"@@ -1,1 +1,1 @@\n-FROM alpine:3.18\n+~~(Missing HEALTHCHECK instruction)~~>FROM alpine:3.18\nCMD [\"./app\"]\n","newFile":false}]}]}>
 

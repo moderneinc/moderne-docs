@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `when`-statement smells"}
-  description={"`when` expressions that read awkwardly: missing `else`, single-branch, used as statement, with duplicate branch bodies that should collapse to comma-separated labels, or with a Boolean selector that should be `if`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindWhenSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhensmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `when (x)` expressions without an `else` branch","href":"kotlin/bestpractices/findwhenwithoutelse$ktrecipe"},{"name":"Find `when (x) { A -> … }` with a single branch","href":"kotlin/bestpractices/findwhenwithsinglebranch$ktrecipe"},{"name":"Find `when (x) { … }` used as a statement","href":"kotlin/bestpractices/findwhenasstatement$ktrecipe"},{"name":"Find `when` with two or more branches having identical bodies","href":"kotlin/bestpractices/findwhenwithidenticalbranches$ktrecipe"},{"name":"Find `when (b: Boolean)` selectors","href":"kotlin/bestpractices/findwhenwithbooleansubject$ktrecipe"}]}>
+<RecipeHeader.Title>Find `when`-statement smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>`when` expressions that read awkwardly: missing `else`, single-branch, used as statement, with duplicate branch bodies that should collapse to comma-separated labels, or with a Boolean selector that should be `if`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `when (x)` expressions without an `else` branch","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenwithoutelse$ktrecipe/"},{"name":"Find `when (x) { A -> … }` with a single branch","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenwithsinglebranch$ktrecipe/"},{"name":"Find `when (x) { … }` used as a statement","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenasstatement$ktrecipe/"},{"name":"Find `when` with two or more branches having identical bodies","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenwithidenticalbranches$ktrecipe/"},{"name":"Find `when (b: Boolean)` selectors","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwhenwithbooleansubject$ktrecipe/"}]}>
 
 ## Definition
 

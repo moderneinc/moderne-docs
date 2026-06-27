@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Hibernate 6.0.x"}
-  description={"This recipe will apply changes commonly needed when migrating to Hibernate 6.0.x. The hibernate dependencies will be updated to use the new `org.hibernate.orm` group ID and the recipe will make changes necessary to use Hibernate with Jakarta EE 9.0."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-hibernate"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hibernate.MigrateToHibernate60"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate60-community-edition.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate Hibernate dependencies to 6.0.x","href":"hibernate/migratetohibernatedependencies60"},{"name":"AddScalarPreferStandardBasicTypesForHibernate5","href":"hibernate/addscalarpreferstandardbasictypes"},{"name":"Replace `extends EmptyInterceptor` with `implements Interceptor` and potentially `StatementInspector`","href":"hibernate/emptyinterceptortointerface"},{"name":"Replace boolean type mappings with converters","href":"hibernate/migratebooleanmappings"},{"name":"`@Type` annotation type parameter migration","href":"hibernate/typeannotationparameter"},{"name":"Rename `JavaTypeDescriptor` and `SqlTypeDescriptor` to `JavaType` and `SqlType`","href":"hibernate/typedescriptortotype"},{"name":"Migrate deprecated `javax.persistence` packages to `jakarta.persistence`","href":"java/migrate/jakarta/javaxpersistencetojakartapersistence"},{"name":"Migrate xmlns entries in `persistence.xml` files","href":"java/migrate/jakarta/javaxpersistencexmltojakartapersistencexml"},{"name":"Migrate Hibernate Types to Hypersistence Utils 6.0","href":"hibernate/migratetohypersistenceutilshibernate60"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Hibernate 6.0.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when migrating to Hibernate 6.0.x. The hibernate dependencies will be updated to use the new `org.hibernate.orm` group ID and the recipe will make changes necessary to use Hibernate with Jakarta EE 9.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate Hibernate dependencies to 6.0.x","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernatedependencies60/"},{"name":"AddScalarPreferStandardBasicTypesForHibernate5","href":"/user-documentation/recipes/recipe-catalog/hibernate/addscalarpreferstandardbasictypes/"},{"name":"Replace `extends EmptyInterceptor` with `implements Interceptor` and potentially `StatementInspector`","href":"/user-documentation/recipes/recipe-catalog/hibernate/emptyinterceptortointerface/"},{"name":"Replace boolean type mappings with converters","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratebooleanmappings/"},{"name":"`@Type` annotation type parameter migration","href":"/user-documentation/recipes/recipe-catalog/hibernate/typeannotationparameter/"},{"name":"Rename `JavaTypeDescriptor` and `SqlTypeDescriptor` to `JavaType` and `SqlType`","href":"/user-documentation/recipes/recipe-catalog/hibernate/typedescriptortotype/"},{"name":"Migrate deprecated `javax.persistence` packages to `jakarta.persistence`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxpersistencetojakartapersistence/"},{"name":"Migrate xmlns entries in `persistence.xml` files","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxpersistencexmltojakartapersistencexml/"},{"name":"Migrate Hibernate Types to Hypersistence Utils 6.0","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate60/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

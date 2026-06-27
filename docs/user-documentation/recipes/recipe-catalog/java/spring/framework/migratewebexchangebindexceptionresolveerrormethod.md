@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `WebExchangeBindException.resolveErrorMessages`"}
-  description={"`org.springframework.web.bind.support.WebExchangeBindException.resolveErrorMessages` was deprecated, in favor of `BindErrorUtils`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateWebExchangeBindExceptionResolveErrorMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratewebexchangebindexceptionresolveerrormethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `WebExchangeBindException.resolveErrorMessages`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`org.springframework.web.bind.support.WebExchangeBindException.resolveErrorMessages` was deprecated, in favor of `BindErrorUtils`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.MessageSource;\nimport java.util.Locale;\nimport org.springframework.web.bind.support.WebExchangeBindException;\nimport java.util.Map;\nimport org.springframework.validation.ObjectError;\n\nclass A {\n    public void handleValidationError(WebExchangeBindException ex, MessageSource messageSource, Locale locale) {\n        Map<ObjectError, String> errorMessages = ex.resolveErrorMessages(messageSource, locale);\n    }\n}\n","after":"import org.springframework.context.MessageSource;\nimport java.util.Locale;\nimport org.springframework.web.bind.support.WebExchangeBindException;\nimport org.springframework.web.util.BindErrorUtils;\n\nimport java.util.Map;\nimport org.springframework.validation.ObjectError;\n\nclass A {\n    public void handleValidationError(WebExchangeBindException ex, MessageSource messageSource, Locale locale) {\n        Map<ObjectError, String> errorMessages = BindErrorUtils.resolve(ex.getAllErrors(), messageSource, locale);\n    }\n}\n","diff":"@@ -4,0 +4,2 @@\nimport java.util.Locale;\nimport org.springframework.web.bind.support.WebExchangeBindException;\n+import org.springframework.web.util.BindErrorUtils;\n+\nimport java.util.Map;\n@@ -9,1 +11,1 @@\nclass A {\n    public void handleValidationError(WebExchangeBindException ex, MessageSource messageSource, Locale locale) {\n-       Map<ObjectError, String> errorMessages = ex.resolveErrorMessages(messageSource, locale);\n+       Map<ObjectError, String> errorMessages = BindErrorUtils.resolve(ex.getAllErrors(), messageSource, locale);\n    }\n","newFile":false}]}]}>
 

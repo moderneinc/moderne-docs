@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Docker image Java version"}
-  description={"Upgrade Docker image tags to use the specified Java version. Updates common Java Docker images including eclipse-temurin, amazoncorretto, azul/zulu-openjdk, and others. Also migrates deprecated images (openjdk, adoptopenjdk) to eclipse-temurin. Uses a single `ChangeFrom` glob capture per (image, oldVersion) to preserve any tag suffix."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeDockerImageVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/upgradedockerimageversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade Docker image Java version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade Docker image tags to use the specified Java version. Updates common Java Docker images including eclipse-temurin, amazoncorretto, azul/zulu-openjdk, and others. Also migrates deprecated images (openjdk, adoptopenjdk) to eclipse-temurin. Uses a single `ChangeFrom` glob capture per (image, oldVersion) to preserve any tag suffix.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Integer","name":"version","required":true,"description":"The Java version to upgrade to.","example":"11"}]}>
 

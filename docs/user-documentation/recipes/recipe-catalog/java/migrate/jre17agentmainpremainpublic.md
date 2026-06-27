@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Set visibility of `premain` and `agentmain` methods to `public`"}
-  description={"Check for a behavior change in Java agents."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java17"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.Jre17AgentMainPreMainPublic"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jre17agentmainpremainpublic.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method access level","href":"java/changemethodaccesslevel"},{"name":"Change method access level","href":"java/changemethodaccesslevel"},{"name":"Change method access level","href":"java/changemethodaccesslevel"},{"name":"Change method access level","href":"java/changemethodaccesslevel"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Set visibility of `premain` and `agentmain` methods to `public`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Check for a behavior change in Java agents.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method access level","href":"/user-documentation/recipes/recipe-catalog/java/changemethodaccesslevel/"},{"name":"Change method access level","href":"/user-documentation/recipes/recipe-catalog/java/changemethodaccesslevel/"},{"name":"Change method access level","href":"/user-documentation/recipes/recipe-catalog/java/changemethodaccesslevel/"},{"name":"Change method access level","href":"/user-documentation/recipes/recipe-catalog/java/changemethodaccesslevel/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

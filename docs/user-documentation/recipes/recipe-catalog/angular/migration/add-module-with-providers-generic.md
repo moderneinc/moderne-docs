@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add generic type to `ModuleWithProviders`"}
-  description={"Adds the required generic type parameter to bare `ModuleWithProviders` return types. Angular 10 requires `ModuleWithProviders<T>` where `T` is the NgModule type. The module type is inferred from the `ngModule` property in the return statement."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.add-module-with-providers-generic"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/add-module-with-providers-generic.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add generic type to `ModuleWithProviders`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the required generic type parameter to bare `ModuleWithProviders` return types. Angular 10 requires `ModuleWithProviders<T>` where `T` is the NgModule type. The module type is inferred from the `ngModule` property in the return statement.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.add-module-with-providers-generic","displayName":"Add generic type to `ModuleWithProviders`","npmPackage":"@openrewrite/recipes-angular"}}>
 

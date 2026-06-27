@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@RequestMapping(...)` without an HTTP method"}
-  description={"`@RequestMapping(\"/x\")` matches every HTTP verb, which is rarely the intent. The verb-specific shortcuts (`@GetMapping`/`@PostMapping`/...) are clearer at a glance and prevent accidental dual-method routes."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindRequestMappingWithoutVerb$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findrequestmappingwithoutverb$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@RequestMapping(...)` without an HTTP method</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@RequestMapping("/x")` matches every HTTP verb, which is rarely the intent. The verb-specific shortcuts (`@GetMapping`/`@PostMapping`/...) are clearer at a glance and prevent accidental dual-method routes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindRequestMappingWithoutVerb$KtRecipe","displayName":"Find `@RequestMapping(...)` without an HTTP method","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

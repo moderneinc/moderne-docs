@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `ArgumentCaptor.forClass(X::class.java)` allocations"}
-  description={"`ArgumentCaptor.forClass(X::class.java)` plus a later `verify(mock).method(captor.capture())` is the Mockito idiom for asserting on the actual argument passed in. mockk's `slot<X>()` + `every { mock.method(capture(slot)) } answers { … }` records the value as part of the recording block."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindMockitoArgumentCaptor$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitoargumentcaptor$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `ArgumentCaptor.forClass(X::class.java)` allocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`ArgumentCaptor.forClass(X::class.java)` plus a later `verify(mock).method(captor.capture())` is the Mockito idiom for asserting on the actual argument passed in. mockk's `slot<X>()` + `every { mock.method(capture(slot)) } answers { … }` records the value as part of the recording block.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindMockitoArgumentCaptor$KtRecipe","displayName":"Find `ArgumentCaptor.forClass(X::class.java)` allocations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `public` from `@Bean` methods"}
-  description={"Remove public modifier from `@Bean` methods. They no longer have to be public visibility to be usable by Spring."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.BeanMethodsNotPublic"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/beanmethodsnotpublic.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `public` from `@Bean` methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove public modifier from `@Bean` methods. They no longer have to be public visibility to be usable by Spring.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package a.b.c;\npublic class DataSource {}\n"},"variants":[{"language":"java","before":"import a.b.c.DataSource;\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Primary;\n\npublic class DatabaseConfiguration {\n\n    // primary comments\n    @Primary\n    @Bean\n    public DataSource dataSource() {\n        return new DataSource();\n    }\n\n    @Bean // comments\n    public final DataSource dataSource2() {\n        return new DataSource();\n    }\n\n    @Bean\n    // comments\n    public static DataSource dataSource3() {\n        return new DataSource();\n    }\n}\n","after":"import a.b.c.DataSource;\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Primary;\n\npublic class DatabaseConfiguration {\n\n    // primary comments\n    @Primary\n    @Bean\n    DataSource dataSource() {\n        return new DataSource();\n    }\n\n    @Bean // comments\n    final DataSource dataSource2() {\n        return new DataSource();\n    }\n\n    @Bean\n    // comments\n    static DataSource dataSource3() {\n        return new DataSource();\n    }\n}\n","diff":"@@ -10,1 +10,1 @@\n    @Primary\n    @Bean\n-   public DataSource dataSource() {\n+   DataSource dataSource() {\n        return new DataSource();\n@@ -15,1 +15,1 @@\n\n    @Bean // comments\n-   public final DataSource dataSource2() {\n+   final DataSource dataSource2() {\n        return new DataSource();\n@@ -21,1 +21,1 @@\n    @Bean\n    // comments\n-   public static DataSource dataSource3() {\n+   static DataSource dataSource3() {\n        return new DataSource();\n","newFile":false}]}]}>
 

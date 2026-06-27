@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`"}
-  description={"Replaces calls to `ResponseEntity#getStatusCodeValue()` which was deprecated in Spring Framework 6.0 and removed in Spring Framework 7.0 with `getStatusCode().value()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.MigrateResponseEntityGetStatusCodeValueMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/migrateresponseentitygetstatuscodevaluemethod.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `ResponseEntity#getStatusCodeValue()` to `getStatusCode().value()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces calls to `ResponseEntity#getStatusCodeValue()` which was deprecated in Spring Framework 6.0 and removed in Spring Framework 7.0 with `getStatusCode().value()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.http.ResponseEntity;\n\nclass MyController {\n    int getStatus(ResponseEntity<String> entity) {\n        return entity.getStatusCodeValue();\n    }\n}\n","after":"import org.springframework.http.ResponseEntity;\n\nclass MyController {\n    int getStatus(ResponseEntity<String> entity) {\n        return entity.getStatusCode().value();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass MyController {\n    int getStatus(ResponseEntity<String> entity) {\n-       return entity.getStatusCodeValue();\n+       return entity.getStatusCode().value();\n    }\n","newFile":false}]}]}>
 

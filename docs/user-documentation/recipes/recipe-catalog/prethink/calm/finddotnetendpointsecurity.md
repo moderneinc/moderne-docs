@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET endpoint security"}
-  description={"Per-endpoint security requirements derived from ASP.NET Core [Authorize] (Policy/Roles/AuthenticationSchemes) and [AllowAnonymous]."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDotnetEndpointSecurity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetendpointsecurity.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET endpoint security</RecipeHeader.Title>
+
+<RecipeHeader.Description>Per-endpoint security requirements derived from ASP.NET Core [Authorize] (Policy/Roles/AuthenticationSchemes) and [AllowAnonymous].</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindDotnetEndpointSecurity","displayName":"Find .NET endpoint security","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

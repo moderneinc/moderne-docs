@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `LogRecord#setInstant(Instant)`"}
-  description={"Use `LogRecord#setInstant(Instant)` instead of the deprecated `LogRecord#setMillis(long)` in Java 9 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["deprecated"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.logging.MigrateLogRecordSetMillisToSetInstant"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/logging/migratelogrecordsetmillistosetinstant.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `LogRecord#setInstant(Instant)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `LogRecord#setInstant(Instant)` instead of the deprecated `LogRecord#setMillis(long)` in Java 9 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.example;\n\nimport java.util.logging.Level;\nimport java.util.logging.LogRecord;\n\npublic class Test {\n    public static void method(long millis) {\n        LogRecord logRecord = new LogRecord(Level.parse(\"0\"), \"msg\");\n        logRecord.setMillis(millis);\n    }\n}\n","after":"package org.openrewrite.example;\n\nimport java.time.Instant;\nimport java.util.logging.Level;\nimport java.util.logging.LogRecord;\n\npublic class Test {\n    public static void method(long millis) {\n        LogRecord logRecord = new LogRecord(Level.parse(\"0\"), \"msg\");\n        logRecord.setInstant(Instant.ofEpochMilli(millis));\n    }\n}\n","diff":"@@ -3,0 +3,1 @@\npackage org.openrewrite.example;\n\n+import java.time.Instant;\nimport java.util.logging.Level;\n@@ -9,1 +10,1 @@\n    public static void method(long millis) {\n        LogRecord logRecord = new LogRecord(Level.parse(\"0\"), \"msg\");\n-       logRecord.setMillis(millis);\n+       logRecord.setInstant(Instant.ofEpochMilli(millis));\n    }\n","newFile":false}]}]}>
 

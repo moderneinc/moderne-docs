@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Modernize octal escape sequences"}
-  description={"Convert old-style octal escape sequences (e.g., `\\0`, `\\123`) to modern hex escape sequences (e.g., `\\x00`, `\\x53`) or Unicode escape sequences (e.g., `\\u0000`, `\\u0053`)."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.migrate.es6.modernize-octal-escape-sequences"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/modernize-octal-escape-sequences.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Modernize octal escape sequences</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert old-style octal escape sequences (e.g., `\0`, `\123`) to modern hex escape sequences (e.g., `\x00`, `\x53`) or Unicode escape sequences (e.g., `\u0000`, `\u0053`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"useUnicodeEscapes","required":false,"description":"Use Unicode escape sequences (`\\uXXXX`) instead of hex escape sequences (`\\xXX`). Default is `false`.","example":"true"}]}>
 

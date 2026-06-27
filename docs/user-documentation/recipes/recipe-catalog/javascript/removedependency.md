@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove npm dependency"}
-  description={"Remove an npm dependency from `package.json` and regenerate the lock file. If the dependency does not exist in any scope, the recipe is a no-op."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-javascript"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.RemoveDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/removedependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove npm dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove an npm dependency from `package.json` and regenerate the lock file. If the dependency does not exist in any scope, the recipe is a no-op.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageName","required":true,"description":"The name of the npm package to remove (e.g., `lodash`, `@types/node`).","example":"lodash"},{"type":"String","name":"scope","required":false,"description":"The dependency scope to remove from: `dependencies`, `devDependencies`, `peerDependencies`, `optionalDependencies`, or `bundledDependencies`. If not specified, removes from all scopes.","example":"dependencies"}]}>
 

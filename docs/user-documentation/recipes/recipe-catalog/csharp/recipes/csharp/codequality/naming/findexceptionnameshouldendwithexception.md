@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Exception name should end with 'Exception'"}
-  description={"Classes that inherit from `System.Exception` should have names ending with 'Exception' by convention."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","naming","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Naming.FindExceptionNameShouldEndWithException"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/naming/findexceptionnameshouldendwithexception.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Exception name should end with 'Exception'</RecipeHeader.Title>
+
+<RecipeHeader.Description>Classes that inherit from `System.Exception` should have names ending with 'Exception' by convention.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Naming.FindExceptionNameShouldEndWithException","displayName":"Exception name should end with 'Exception'","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Process#waitFor(Duration)`"}
-  description={"Use `Process#waitFor(Duration)` instead of `Process#waitFor(long, TimeUnit)` in Java 25 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.MigrateProcessWaitForDuration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/migrateprocesswaitforduration.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Process#waitFor(Duration)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `Process#waitFor(Duration)` instead of `Process#waitFor(long, TimeUnit)` in Java 25 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static java.util.concurrent.TimeUnit.SECONDS;\nimport static java.util.concurrent.TimeUnit.MILLISECONDS;\n\nclass Test {\n    void test(Process process) throws Exception {\n        process.waitFor(5, SECONDS);\n        process.waitFor(100, MILLISECONDS);\n    }\n}\n","after":"import java.time.Duration;\n\nclass Test {\n    void test(Process process) throws Exception {\n        process.waitFor(Duration.ofSeconds(5));\n        process.waitFor(Duration.ofMillis(100));\n    }\n}\n","diff":"@@ -1,2 +1,1 @@\n-import static java.util.concurrent.TimeUnit.SECONDS;\n-import static java.util.concurrent.TimeUnit.MILLISECONDS;\n+import java.time.Duration;\n\n@@ -6,2 +5,2 @@\nclass Test {\n    void test(Process process) throws Exception {\n-       process.waitFor(5, SECONDS);\n-       process.waitFor(100, MILLISECONDS);\n+       process.waitFor(Duration.ofSeconds(5));\n+       process.waitFor(Duration.ofMillis(100));\n    }\n","newFile":false}]}]}>
 

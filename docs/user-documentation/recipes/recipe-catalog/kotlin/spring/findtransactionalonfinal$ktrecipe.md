@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Transactional` methods on classes that aren't `open`"}
-  description={"Spring proxies a `@Transactional` bean by subclassing it (CGLIB); for the subclass to override the method, both the class and the method must be non-final. Kotlin's default `final` defeats this — either apply the `kotlin-spring` compiler plugin or mark the class and method `open`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindTransactionalOnFinal$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findtransactionalonfinal$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Transactional` methods on classes that aren't `open`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring proxies a `@Transactional` bean by subclassing it (CGLIB); for the subclass to override the method, both the class and the method must be non-final. Kotlin's default `final` defeats this — either apply the `kotlin-spring` compiler plugin or mark the class and method `open`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindTransactionalOnFinal$KtRecipe","displayName":"Find `@Transactional` methods on classes that aren't `open`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

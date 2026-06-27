@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`hashCode()` should not be called on array instances"}
-  description={"Replace `hashCode()` calls on arrays with `Arrays.hashCode()` because the results from `hashCode()` are not helpful. Arrays inherit `hashCode()` from `Object`, which returns an identity-based value unrelated to the array contents, so two arrays with identical elements will produce different hash codes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2116"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveHashCodeCallsFromArrayInstances"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removehashcodecallsfromarrayinstances.md"}
-/>
+>
+
+<RecipeHeader.Title>`hashCode()` should not be called on array instances</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `hashCode()` calls on arrays with `Arrays.hashCode()` because the results from `hashCode()` are not helpful. Arrays inherit `hashCode()` from `Object`, which returns an identity-based value unrelated to the array contents, so two arrays with identical elements will produce different hash codes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class SomeClass {\n  public static void main(String[] args) {\n    int argHash = args.hashCode();\n  }\n}\n","after":"import java.util.Arrays;\n\nclass SomeClass {\n  public static void main(String[] args) {\n    int argHash = Arrays.hashCode(args);\n  }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import java.util.Arrays;\n+\nclass SomeClass {\n@@ -3,1 +5,1 @@\nclass SomeClass {\n  public static void main(String[] args) {\n-   int argHash = args.hashCode();\n+   int argHash = Arrays.hashCode(args);\n  }\n","newFile":false}]}]}>
 

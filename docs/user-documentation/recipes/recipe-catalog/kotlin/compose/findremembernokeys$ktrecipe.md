@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `remember { … }` calls with no keys"}
-  description={"`remember { … }` with no key arguments caches once per call site forever. If the block references variables that vary between recompositions, the cache holds a stale value. Either pass the referenced variables as keys (`remember(input) { … }`) or — if the value really is invariant — leave a comment justifying it."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindRememberNoKeys$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findremembernokeys$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `remember { … }` calls with no keys</RecipeHeader.Title>
+
+<RecipeHeader.Description>`remember { … }` with no key arguments caches once per call site forever. If the block references variables that vary between recompositions, the cache holds a stale value. Either pass the referenced variables as keys (`remember(input) { … }`) or — if the value really is invariant — leave a comment justifying it.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindRememberNoKeys$KtRecipe","displayName":"Find `remember { … }` calls with no keys","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

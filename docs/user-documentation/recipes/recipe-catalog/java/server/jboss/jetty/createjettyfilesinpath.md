@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JBoss to Jetty"}
-  description={"Comprehensive migration from JBoss to Jetty."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.jetty.CreateJettyFilesInPath"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/createjettyfilesinpath.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Create Jetty environment XML","href":"java/server/jboss/jetty/createjettyenvxml"},{"name":"Create Jetty server source file","href":"java/server/jboss/jetty/createjettysourcefile"}]}>
+<RecipeHeader.Title>Migrate JBoss to Jetty</RecipeHeader.Title>
+
+<RecipeHeader.Description>Comprehensive migration from JBoss to Jetty.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Create Jetty environment XML","href":"/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/createjettyenvxml/"},{"name":"Create Jetty server source file","href":"/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/createjettysourcefile/"}]}>
 
 ## Definition
 

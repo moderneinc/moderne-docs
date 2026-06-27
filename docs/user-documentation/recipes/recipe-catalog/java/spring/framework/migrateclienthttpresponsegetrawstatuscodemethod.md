@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replaces deprecated `ClientHttpResponse#getRawStatusCode()`"}
-  description={"`ClientHttpResponse#getRawStatusCode()` was deprecated, so we replace it with `getStatusCode()`, though the return type has changed from `int` to `HttpStatusCode`, so we must account for that as well."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateClientHttpResponseGetRawStatusCodeMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateclienthttpresponsegetrawstatuscodemethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Replaces deprecated `ClientHttpResponse#getRawStatusCode()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`ClientHttpResponse#getRawStatusCode()` was deprecated, so we replace it with `getStatusCode()`, though the return type has changed from `int` to `HttpStatusCode`, so we must account for that as well.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.http.client.ClientHttpResponse;\n\nclass A {\n    public int someMethod(ClientHttpResponse response) {\n        return response.getRawStatusCode();\n    }\n}\n","after":"import org.springframework.http.client.ClientHttpResponse;\n\nclass A {\n    public int someMethod(ClientHttpResponse response) {\n        return response.getStatusCode().value();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass A {\n    public int someMethod(ClientHttpResponse response) {\n-       return response.getRawStatusCode();\n+       return response.getStatusCode().value();\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@Nullable` to method parameters that can receive null"}
-  description={"Adds the JSpecify `@Nullable` annotation to a Java method parameter when some call site anywhere in the project provably passes a nullable argument in that position: the `null` literal (directly, through a cast or parentheses, or via either branch of a ternary), or a call to a method whose return is itself nullable. Nullability therefore propagates from the call site to the callee's declaration across the whole project. This prepares the code for NullAway. Conservative by design: it skips primitive parameters, parameters that already carry a nullability annotation, varargs parameters, and `@Override` methods (where widening a parameter would break override consistency). Kotlin and Groovy express parameter nullability in the type system (`T?`), which the compiler already enforces, so those sources are generally left unchanged."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.infer.AddNullableToParameterCrossFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/infer/addnullabletoparametercrossfile.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@Nullable` to method parameters that can receive null</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the JSpecify `@Nullable` annotation to a Java method parameter when some call site anywhere in the project provably passes a nullable argument in that position: the `null` literal (directly, through a cast or parentheses, or via either branch of a ternary), or a call to a method whose return is itself nullable. Nullability therefore propagates from the call site to the callee's declaration across the whole project. This prepares the code for NullAway. Conservative by design: it skips primitive parameters, parameters that already carry a nullability annotation, varargs parameters, and `@Override` methods (where widening a parameter would break override consistency). Kotlin and Groovy express parameter nullability in the type system (`T?`), which the compiler already enforces, so those sources are generally left unchanged.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void use(String name) {\n    }\n\n    void caller() {\n        use(null);\n    }\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nclass Test {\n    void use(@Nullable String name) {\n    }\n\n    void caller() {\n        use(null);\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.jspecify.annotations.Nullable;\n+\nclass Test {\n@@ -2,1 +4,1 @@\nclass Test {\n-   void use(String name) {\n+   void use(@Nullable String name) {\n    }\n","newFile":false}]}]}>
 

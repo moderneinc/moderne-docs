@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find EqualityComparer<string>.Default usage"}
-  description={"Detect `EqualityComparer<string>.Default` which uses ordinal comparison. Consider using an explicit `StringComparer` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindEqualityComparerDefaultOfString"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findequalitycomparerdefaultofstring.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find EqualityComparer&lt;string>.Default usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `EqualityComparer<string>.Default` which uses ordinal comparison. Consider using an explicit `StringComparer` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindEqualityComparerDefaultOfString","displayName":"Find EqualityComparer<string>.Default usage","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

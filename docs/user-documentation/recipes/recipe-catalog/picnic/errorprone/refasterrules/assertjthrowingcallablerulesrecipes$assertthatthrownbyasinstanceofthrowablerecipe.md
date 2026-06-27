@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByAsInstanceOfThrowable`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatThrownByAsInstanceOfThrowable<T extends Throwable> {\n    \n    @BeforeTemplate\n    ThrowableAssertAlternative<T> before(ThrowingCallable throwingCallable, Class<T> exceptionType) {\n        return assertThatExceptionOfType(exceptionType).isThrownBy(throwingCallable);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractThrowableAssert<?, T> after(ThrowingCallable throwingCallable, Class<T> exceptionType) {\n        return assertThatThrownBy(throwingCallable).asInstanceOf(throwable(exceptionType));\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByAsInstanceOfThrowableRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyasinstanceofthrowablerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AssertThatThrownByAsInstanceOfThrowable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatThrownByAsInstanceOfThrowable<T extends Throwable> {
+    
+    @BeforeTemplate
+    ThrowableAssertAlternative<T> before(ThrowingCallable throwingCallable, Class<T> exceptionType) {
+        return assertThatExceptionOfType(exceptionType).isThrownBy(throwingCallable);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractThrowableAssert<?, T> after(ThrowingCallable throwingCallable, Class<T> exceptionType) {
+        return assertThatThrownBy(throwingCallable).asInstanceOf(throwable(exceptionType));
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByAsInstanceOfThrowableRecipe","displayName":"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByAsInstanceOfThrowable`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

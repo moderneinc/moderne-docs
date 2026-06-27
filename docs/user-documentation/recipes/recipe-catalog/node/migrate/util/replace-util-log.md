@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `util.log()` with `console.log()`"}
-  description={"Replace deprecated `util.log()` calls with `console.log()`. Note: `util.log()` included timestamps, but `console.log()` does not."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0059"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.util.replace-util-log"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-log.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated `util.log()` with `console.log()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated `util.log()` calls with `console.log()`. Note: `util.log()` included timestamps, but `console.log()` does not.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.util.replace-util-log","displayName":"Replace deprecated `util.log()` with `console.log()`","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

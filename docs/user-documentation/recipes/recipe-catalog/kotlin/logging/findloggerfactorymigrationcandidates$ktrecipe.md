@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LoggerFactory.getLogger` migration candidates"}
-  description={"Bundles the SLF4J `LoggerFactory.getLogger` shapes — class-literal, `this::class.java`, and string-name. Each is a candidate for kotlin-logging's `KotlinLogging.logger { }`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindLoggerFactoryMigrationCandidates$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfactorymigrationcandidates$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `LoggerFactory.getLogger(SomeClass::class.java)` calls","href":"kotlin/logging/findloggerfactorygetlogger$ktrecipe"},{"name":"Find `LoggerFactory.getLogger(this::class.java)` calls","href":"kotlin/logging/findloggerfactorygetloggerwiththisclass$ktrecipe"},{"name":"Find `LoggerFactory.getLogger(\"some-name\")` calls","href":"kotlin/logging/findloggerfactorygetloggerwithstringname$ktrecipe"}]}>
+<RecipeHeader.Title>Find `LoggerFactory.getLogger` migration candidates</RecipeHeader.Title>
+
+<RecipeHeader.Description>Bundles the SLF4J `LoggerFactory.getLogger` shapes — class-literal, `this::class.java`, and string-name. Each is a candidate for kotlin-logging's `KotlinLogging.logger { }`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `LoggerFactory.getLogger(SomeClass::class.java)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfactorygetlogger$ktrecipe/"},{"name":"Find `LoggerFactory.getLogger(this::class.java)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfactorygetloggerwiththisclass$ktrecipe/"},{"name":"Find `LoggerFactory.getLogger(\"some-name\")` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfactorygetloggerwithstringname$ktrecipe/"}]}>
 
 ## Definition
 

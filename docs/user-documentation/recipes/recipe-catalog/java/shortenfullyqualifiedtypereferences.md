@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add imports for fully qualified references to types"}
-  description={"Any fully qualified references to Java types will be replaced with corresponding simple names and import statements, provided that it doesn't result in any conflicts with other imports or types declared in the local compilation unit."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.ShortenFullyQualifiedTypeReferences"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/shortenfullyqualifiedtypereferences.md"}
-/>
+>
+
+<RecipeHeader.Title>Add imports for fully qualified references to types</RecipeHeader.Title>
+
+<RecipeHeader.Description>Any fully qualified references to Java types will be replaced with corresponding simple names and import statements, provided that it doesn't result in any conflicts with other imports or types declared in the local compilation unit.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\n\nclass T {\n    java.util.List<String> list;\n}\n","after":"import java.util.List;\n\nclass T {\n    List<String> list;\n}\n","diff":"@@ -4,1 +4,1 @@\n\nclass T {\n-   java.util.List<String> list;\n+   List<String> list;\n}\n","newFile":false}]}]}>
 

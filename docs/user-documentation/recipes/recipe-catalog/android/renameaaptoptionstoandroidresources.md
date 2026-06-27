@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename `aaptOptions` to `androidResources`"}
-  description={"The `aaptOptions { ... }` DSL block was renamed to `androidResources { ... }` in Android Gradle Plugin 7.0 and may be removed in AGP 9.x. This is a pure block rename with no semantic change."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.android.RenameAaptOptionsToAndroidResources"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/android/renameaaptoptionstoandroidresources.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Rename `aaptOptions` to `androidResources`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `aaptOptions { ... }` DSL block was renamed to `androidResources { ... }` in Android Gradle Plugin 7.0 and may be removed in AGP 9.x. This is a pure block rename with no semantic change.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"apply plugin: 'com.android.application'\nandroid {\n    aaptOptions {\n        ignoreAssetsPattern \"!.svn:!.git\"\n        noCompress 'foo'\n    }\n}\n","after":"apply plugin: 'com.android.application'\nandroid {\n    androidResources {\n        ignoreAssetsPattern \"!.svn:!.git\"\n        noCompress 'foo'\n    }\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -3,1 +3,1 @@\napply plugin: 'com.android.application'\nandroid {\n-   aaptOptions {\n+   androidResources {\n        ignoreAssetsPattern \"!.svn:!.git\"\n","newFile":false}]}]}>
 

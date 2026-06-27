@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LaunchedEffect(true) { … }` blocks"}
-  description={"`LaunchedEffect(true)` (or any literal `true`/`false` key) is a one-shot effect dressed up to look like it has a key. It is structurally identical to `LaunchedEffect(Unit)` but reads as if the author meant to pass a variable. Switch to `Unit` for clarity or pass the real dependency."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindLaunchedEffectWithTrueKey$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlaunchedeffectwithtruekey$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LaunchedEffect(true) { … }` blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>`LaunchedEffect(true)` (or any literal `true`/`false` key) is a one-shot effect dressed up to look like it has a key. It is structurally identical to `LaunchedEffect(Unit)` but reads as if the author meant to pass a variable. Switch to `Unit` for clarity or pass the real dependency.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindLaunchedEffectWithTrueKey$KtRecipe","displayName":"Find `LaunchedEffect(true) { … }` blocks","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

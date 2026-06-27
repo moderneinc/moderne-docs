@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `struts-config.xml` to `struts.xml`"}
-  description={"Transforms Struts 1.x `struts-config.xml` to Struts 2.x `struts.xml` format."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate2.MigrateStrutsConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratestrutsconfig.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `struts-config.xml` to `struts.xml`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms Struts 1.x `struts-config.xml` to Struts 2.x `struts.xml` format.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE struts-config PUBLIC\n    \"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN\"\n    \"http://struts.apache.org/dtds/struts-config_1_2.dtd\">\n<struts-config>\n    <action-mappings>\n        <action path=\"/login\" type=\"com.example.LoginAction\">\n            <forward name=\"success\" path=\"/welcome.jsp\"/>\n        </action>\n    </action-mappings>\n</struts-config>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE struts-config PUBLIC\n    \"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN\"\n    \"http://struts.apache.org/dtds/struts-config_1_2.dtd\">\n<struts>\n    <package name=\"default\" extends=\"struts-default\">\n        <action name=\"login\" class=\"com.example.LoginAction\">\n            <result name=\"success\">/welcome.jsp</result>\n        </action>\n    </package>\n</struts>\n","diff":"@@ -5,4 +5,4 @@\n    \"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN\"\n    \"http://struts.apache.org/dtds/struts-config_1_2.dtd\">\n-<struts-config>\n-   <action-mappings>\n-       <action path=\"/login\" type=\"com.example.LoginAction\">\n-           <forward name=\"success\" path=\"/welcome.jsp\"/>\n+<struts>\n+   <package name=\"default\" extends=\"struts-default\">\n+       <action name=\"login\" class=\"com.example.LoginAction\">\n+           <result name=\"success\">/welcome.jsp</result>\n        </action>\n@@ -10,2 +10,2 @@\n            <forward name=\"success\" path=\"/welcome.jsp\"/>\n        </action>\n-   </action-mappings>\n-</struts-config>\n+   </package>\n+</struts>\n\n","newFile":false}]}]}>
 

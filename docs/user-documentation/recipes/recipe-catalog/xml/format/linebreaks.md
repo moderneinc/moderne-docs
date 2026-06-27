@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Blank lines"}
-  description={"Add line breaks at appropriate places between XML syntax elements."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.format.LineBreaks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/format/linebreaks.md"}
-/>
+>
+
+<RecipeHeader.Title>Blank lines</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add line breaks at appropriate places between XML syntax elements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n  <dependencies><dependency></dependency><dependency/>\n  </dependencies>\n</project>\n","after":"<project>\n  <dependencies>\n<dependency></dependency>\n<dependency/>\n  </dependencies>\n</project>\n","diff":"@@ -2,1 +2,3 @@\n<project>\n- <dependencies><dependency></dependency><dependency/>\n+ <dependencies>\n+<dependency></dependency>\n+<dependency/>\n  </dependencies>\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Inventory Typesafe Config usage"}
-  description={"Finds imports of the Typesafe Config library (`com.typesafe.config`). Use this recipe to inventory configuration library usage across a codebase."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.InventoryTypesafeConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/inventorytypesafeconfig.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Inventory Typesafe Config usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of the Typesafe Config library (`com.typesafe.config`). Use this recipe to inventory configuration library usage across a codebase.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import com.typesafe.config.ConfigFactory\n\nobject AppConfig {\n  val config = ConfigFactory.load()\n}\n","after":"/*~~(Typesafe Config detected)~~>*/import com.typesafe.config.ConfigFactory\n\nobject AppConfig {\n  val config = ConfigFactory.load()\n}\n","diff":"@@ -1,1 +1,1 @@\n-import com.typesafe.config.ConfigFactory\n+/*~~(Typesafe Config detected)~~>*/import com.typesafe.config.ConfigFactory\n\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find exceeds resource ratio"}
-  description={"Find resource manifests that have requests to limits ratios beyond a specific maximum."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.resource.FindExceedsResourceRatio"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/resource/findexceedsresourceratio.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find exceeds resource ratio</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find resource manifests that have requests to limits ratios beyond a specific maximum.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"resourceType","required":true,"description":"The type of resource limit to search for.","example":"memory"},{"type":"String","name":"ratioLimit","required":true,"description":"The maximum ratio allowed between requests and limits.","example":"2"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

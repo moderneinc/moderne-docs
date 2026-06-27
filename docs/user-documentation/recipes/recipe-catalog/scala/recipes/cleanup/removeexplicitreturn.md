@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove explicit `return` statements"}
-  description={"Removes explicit `return` statements in Scala code. In Scala, the last expression in a method is automatically the return value, so explicit `return` is not idiomatic."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.RemoveExplicitReturn"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/removeexplicitreturn.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove explicit `return` statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes explicit `return` statements in Scala code. In Scala, the last expression in a method is automatically the return value, so explicit `return` is not idiomatic.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    def add(a: Int, b: Int): Int = {\n        return a + b\n    }\n}\n","after":"class Example {\n    def add(a: Int, b: Int): Int = {\n        a + b\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    def add(a: Int, b: Int): Int = {\n-       return a + b\n+       a + b\n    }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJOptionalRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `Optional`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJOptionalRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJOptionalRules.AssertThatOptional`","href":"picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$assertthatoptionalrecipe"},{"name":"Refaster template `AssertJOptionalRules.AbstractOptionalAssertIsPresent`","href":"picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$abstractoptionalassertispresentrecipe"},{"name":"Refaster template `AssertJOptionalRules.AssertThatOptionalIsPresent`","href":"picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$assertthatoptionalispresentrecipe"},{"name":"Refaster template `AssertJOptionalRules.AbstractOptionalAssertIsEmpty`","href":"picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$abstractoptionalassertisemptyrecipe"},{"name":"Refaster template `AssertJOptionalRules.AssertThatOptionalIsEmpty`","href":"picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$assertthatoptionalisemptyrecipe"},{"name":"Refaster template `AssertJOptionalRules.AbstractOptionalAssertHasValue`","href":"picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$abstractoptionalasserthasvaluerecipe"},{"name":"Refaster template `AssertJOptionalRules.AbstractOptionalAssertContainsSame`","href":"picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$abstractoptionalassertcontainssamerecipe"},{"name":"Refaster template `AssertJOptionalRules.AssertThatOptionalHasValueMatching`","href":"picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$assertthatoptionalhasvaluematchingrecipe"}]}>
+<RecipeHeader.Title>`AssertJOptionalRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `Optional`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJOptionalRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJOptionalRules.AssertThatOptional`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$assertthatoptionalrecipe/"},{"name":"Refaster template `AssertJOptionalRules.AbstractOptionalAssertIsPresent`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$abstractoptionalassertispresentrecipe/"},{"name":"Refaster template `AssertJOptionalRules.AssertThatOptionalIsPresent`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$assertthatoptionalispresentrecipe/"},{"name":"Refaster template `AssertJOptionalRules.AbstractOptionalAssertIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$abstractoptionalassertisemptyrecipe/"},{"name":"Refaster template `AssertJOptionalRules.AssertThatOptionalIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$assertthatoptionalisemptyrecipe/"},{"name":"Refaster template `AssertJOptionalRules.AbstractOptionalAssertHasValue`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$abstractoptionalasserthasvaluerecipe/"},{"name":"Refaster template `AssertJOptionalRules.AbstractOptionalAssertContainsSame`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$abstractoptionalassertcontainssamerecipe/"},{"name":"Refaster template `AssertJOptionalRules.AssertThatOptionalHasValueMatching`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$assertthatoptionalhasvaluematchingrecipe/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `Char#toInt()` with `Char#code`"}
-  description={"Replace the usage of the deprecated `Char#toInt()` with `Char#code`. Please ensure that your Kotlin version is 1.5 or later to support the `Char#code` property. Note that the current implementation does not perform a Kotlin version check."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-kotlin"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.cleanup.ReplaceCharToIntWithCode"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/cleanup/replacechartointwithcode.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `Char#toInt()` with `Char#code`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace the usage of the deprecated `Char#toInt()` with `Char#code`. Please ensure that your Kotlin version is 1.5 or later to support the `Char#code` property. Note that the current implementation does not perform a Kotlin version check.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"fun decimalDigitalNumber(c : Char) : Int? {\n    if (c in '0'..'9') {\n        return c.toInt() - '0'.toInt()\n    }\n    return null\n}\n","after":"fun decimalDigitalNumber(c : Char) : Int? {\n    if (c in '0'..'9') {\n        return c.code - '0'.code\n    }\n    return null\n}\n","diff":"@@ -3,1 +3,1 @@\nfun decimalDigitalNumber(c : Char) : Int? {\n    if (c in '0'..'9') {\n-       return c.toInt() - '0'.toInt()\n+       return c.code - '0'.code\n    }\n","newFile":false}]}]}>
 

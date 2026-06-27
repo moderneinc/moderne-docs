@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit `assertNotNull` to AssertJ"}
-  description={"Convert JUnit-style `assertNotNull()` to AssertJ's `assertThat().isNotNull()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.JUnitAssertNotNullToAssertThat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/junitassertnotnulltoassertthat.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit `assertNotNull` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert JUnit-style `assertNotNull()` to AssertJ's `assertThat().isNotNull()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\n\npublic class MyTest {\n    @Test\n    public void test() {\n        assertNotNull(notification());\n    }\n    private String notification() {\n        return \"\";\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\npublic class MyTest {\n    @Test\n    public void test() {\n        assertThat(notification()).isNotNull();\n    }\n    private String notification() {\n        return \"\";\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport org.junit.jupiter.api.Test;\n\n-import static org.junit.jupiter.api.Assertions.assertNotNull;\n+import static org.assertj.core.api.Assertions.assertThat;\n\n@@ -8,1 +8,1 @@\n    @Test\n    public void test() {\n-       assertNotNull(notification());\n+       assertThat(notification()).isNotNull();\n    }\n","newFile":false}]}]}>
 

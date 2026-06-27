@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `HttpMessageConvertersAutoConfiguration` references"}
-  description={"Removes references to the deprecated `HttpMessageConvertersAutoConfiguration` class which was removed in Spring Boot 4.0. For `@AutoConfigureAfter` and `@AutoConfigureBefore` annotations, the reference is removed. For `@Import` annotations, a TODO comment is added since manual migration may be required."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.RemoveHttpMessageConvertersAutoConfigurationReferences"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/removehttpmessageconvertersautoconfigurationreferences.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `HttpMessageConvertersAutoConfiguration` references</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes references to the deprecated `HttpMessageConvertersAutoConfiguration` class which was removed in Spring Boot 4.0. For `@AutoConfigureAfter` and `@AutoConfigureBefore` annotations, the reference is removed. For `@Import` annotations, a TODO comment is added since manual migration may be required.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.autoconfigure.AutoConfigureAfter;\nimport org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration;\nimport org.springframework.context.annotation.Configuration;\n\n@Configuration\n@AutoConfigureAfter(HttpMessageConvertersAutoConfiguration.class)\npublic class MyAutoConfiguration {\n}\n","after":"import org.springframework.context.annotation.Configuration;\n\n@Configuration\npublic class MyAutoConfiguration {\n}\n","diff":"@@ -1,2 +1,0 @@\n-import org.springframework.boot.autoconfigure.AutoConfigureAfter;\n-import org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration;\nimport org.springframework.context.annotation.Configuration;\n@@ -6,1 +4,0 @@\n\n@Configuration\n-@AutoConfigureAfter(HttpMessageConvertersAutoConfiguration.class)\npublic class MyAutoConfiguration {\n","newFile":false}]}]}>
 

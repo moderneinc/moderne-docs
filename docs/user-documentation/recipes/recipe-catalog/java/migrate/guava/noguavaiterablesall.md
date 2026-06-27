@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Collection.stream().allMatch(Predicate)`"}
-  description={"Prefer `Collection.stream().allMatch(Predicate)` over `Iterables.all(Collection, Predicate)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaIterablesAll"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaiterablesall.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Collection.stream().allMatch(Predicate)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Collection.stream().allMatch(Predicate)` over `Iterables.all(Collection, Predicate)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Collection;\n\nimport com.google.common.base.Predicate;\nimport com.google.common.collect.Iterables;\n\nclass Test {\n    boolean test(Collection<String> collection, Predicate<String> aPredicate) {\n        return Iterables.all(collection, aPredicate);\n    }\n}\n","after":"import java.util.Collection;\n\nimport com.google.common.base.Predicate;\n\nclass Test {\n    boolean test(Collection<String> collection, Predicate<String> aPredicate) {\n        return collection.stream().allMatch(aPredicate);\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\n\nimport com.google.common.base.Predicate;\n-import com.google.common.collect.Iterables;\n\n@@ -8,1 +7,1 @@\nclass Test {\n    boolean test(Collection<String> collection, Predicate<String> aPredicate) {\n-       return Iterables.all(collection, aPredicate);\n+       return collection.stream().allMatch(aPredicate);\n    }\n","newFile":false}]}]}>
 

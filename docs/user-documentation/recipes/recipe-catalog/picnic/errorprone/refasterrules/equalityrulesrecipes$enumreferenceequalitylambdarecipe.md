@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `EqualityRules.EnumReferenceEqualityLambda`"}
-  description={"Prefer reference-based equality for enums."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.EqualityRulesRecipes$EnumReferenceEqualityLambdaRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/equalityrulesrecipes$enumreferenceequalitylambdarecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `EqualityRules.EnumReferenceEqualityLambda`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer reference-based equality for enums.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.EqualityRulesRecipes$EnumReferenceEqualityLambdaRecipe","displayName":"Refaster template `EqualityRules.EnumReferenceEqualityLambda`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

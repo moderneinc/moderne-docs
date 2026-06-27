@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Match `if (is*Enabled())` with logging statements"}
-  description={"Change any `if (is*Enabled())` statements that do not match the maximum log level used in the `then` part to use the matching `is*Enabled()` method for that log level. This ensures that the logging condition is consistent with the actual logging statements."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.MatchIsLogLevelEnabledWithLogStatements"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/matchisloglevelenabledwithlogstatements.md"}
-/>
+>
+
+<RecipeHeader.Title>Match `if (is*Enabled())` with logging statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change any `if (is*Enabled())` statements that do not match the maximum log level used in the `then` part to use the matching `is*Enabled()` method for that log level. This ensures that the logging condition is consistent with the actual logging statements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test(org.slf4j.Logger logger) {\n        if (logger.isDebugEnabled()) {\n            logger.info(\"message\");\n        }\n    }\n}\n","after":"class Test {\n    void test(org.slf4j.Logger logger) {\n        if (logger.isInfoEnabled()) {\n            logger.info(\"message\");\n        }\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    void test(org.slf4j.Logger logger) {\n-       if (logger.isDebugEnabled()) {\n+       if (logger.isInfoEnabled()) {\n            logger.info(\"message\");\n","newFile":false}]}]}>
 

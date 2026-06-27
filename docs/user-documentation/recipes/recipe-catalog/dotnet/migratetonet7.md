@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to .NET 7.0 using upgrade-assistant"}
-  description={"Run [upgrade-assistant upgrade](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview) across a repository to upgrade projects to .NET 7.0."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.dotnet.MigrateToNet7"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/dotnet/migratetonet7.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade a .NET project using upgrade-assistant","href":"dotnet/upgradeassistant"}]}>
+<RecipeHeader.Title>Upgrade to .NET 7.0 using upgrade-assistant</RecipeHeader.Title>
+
+<RecipeHeader.Description>Run [upgrade-assistant upgrade](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview) across a repository to upgrade projects to .NET 7.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade a .NET project using upgrade-assistant","href":"/user-documentation/recipes/recipe-catalog/dotnet/upgradeassistant/"}]}>
 
 ## Definition
 

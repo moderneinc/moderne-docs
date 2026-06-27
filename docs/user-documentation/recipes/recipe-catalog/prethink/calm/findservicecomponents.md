@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find service components"}
-  description={"Identify service layer components (@Service, @Component, @Named) in the application. Excludes controllers and repositories which are handled by dedicated recipes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindServiceComponents"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findservicecomponents.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find service components</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify service layer components (@Service, @Component, @Named) in the application. Excludes controllers and repositories which are handled by dedicated recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindServiceComponents","displayName":"Find service components","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

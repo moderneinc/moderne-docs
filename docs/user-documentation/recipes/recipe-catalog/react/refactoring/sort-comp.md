@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Sort React component methods"}
-  description={"Reorders React component methods to follow the recommended lifecycle ordering convention."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.refactoring.sort-comp"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/refactoring/sort-comp.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Sort React component methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reorders React component methods to follow the recommended lifecycle ordering convention.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.refactoring.sort-comp","displayName":"Sort React component methods","npmPackage":"@openrewrite/recipes-react"}}>
 

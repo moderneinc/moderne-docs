@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find cryptographic vulnerability chains"}
-  description={"Detects cryptographic vulnerabilities that span multiple operations, tracking flow from hardcoded algorithms through key material to encryption operations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindCryptoVulnerabilitiesPipeline"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findcryptovulnerabilitiespipeline.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find cryptographic vulnerability chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects cryptographic vulnerabilities that span multiple operations, tracking flow from hardcoded algorithms through key material to encryption operations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.crypto.Cipher;\nimport javax.crypto.SecretKey;\nimport javax.crypto.SecretKeyFactory;\nimport javax.crypto.spec.SecretKeySpec;\n\npublic class SimpleCrypto {\n    public byte[] encrypt(byte[] data, byte[] keyBytes) throws Exception {\n        // Hardcoded algorithm flows through the entire pipeline\n        SecretKeySpec keySpec = new SecretKeySpec(keyBytes, \"AES\");\n        SecretKeyFactory factory = SecretKeyFactory.getInstance(\"AES\");\n        SecretKey key = factory.generateSecret(keySpec);\n        Cipher cipher = Cipher.getInstance(\"AES/ECB/PKCS5Padding\");\n        cipher.init(Cipher.ENCRYPT_MODE, key);\n        return cipher.doFinal(data);\n    }\n}\n","after":"import javax.crypto.Cipher;\nimport javax.crypto.SecretKey;\nimport javax.crypto.SecretKeyFactory;\nimport javax.crypto.spec.SecretKeySpec;\n\npublic class SimpleCrypto {\n    public byte[] encrypt(byte[] data, byte[] keyBytes) throws Exception {\n        // Hardcoded algorithm flows through the entire pipeline\n        SecretKeySpec keySpec = new SecretKeySpec(keyBytes, /*~~(ALGORITHM source)~~>*/\"AES\");\n        SecretKeyFactory factory = SecretKeyFactory.getInstance(\"AES\");\n        SecretKey key = factory.generateSecret(keySpec);\n        Cipher cipher = Cipher.getInstance(\"AES/ECB/PKCS5Padding\");\n        cipher.init(Cipher.ENCRYPT_MODE, key);\n        return /*~~(ALGORITHM use)~~>*/cipher.doFinal(data);\n    }\n}\n","diff":"@@ -9,1 +9,1 @@\n    public byte[] encrypt(byte[] data, byte[] keyBytes) throws Exception {\n        // Hardcoded algorithm flows through the entire pipeline\n-       SecretKeySpec keySpec = new SecretKeySpec(keyBytes, \"AES\");\n+       SecretKeySpec keySpec = new SecretKeySpec(keyBytes, /*~~(ALGORITHM source)~~>*/\"AES\");\n        SecretKeyFactory factory = SecretKeyFactory.getInstance(\"AES\");\n@@ -14,1 +14,1 @@\n        Cipher cipher = Cipher.getInstance(\"AES/ECB/PKCS5Padding\");\n        cipher.init(Cipher.ENCRYPT_MODE, key);\n-       return cipher.doFinal(data);\n+       return /*~~(ALGORITHM use)~~>*/cipher.doFinal(data);\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Karma test runner usage"}
-  description={"Finds Karma test runner configuration in package.json dependencies and angular.json test builder. Angular 21 replaces Karma with Vitest as the default test runner."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-karma-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-karma-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Karma test runner usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds Karma test runner configuration in package.json dependencies and angular.json test builder. Angular 21 replaces Karma with Vitest as the default test runner.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-karma-usage","displayName":"Find Karma test runner usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

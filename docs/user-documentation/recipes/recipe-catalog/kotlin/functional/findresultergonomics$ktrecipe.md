@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Result<T>` API ergonomics opportunities"}
-  description={"Search-only bundle for `Result<T>` call sites where a different operator would be clearer: `if (result.isSuccess) … else …` (use `.fold(...)`), `Result.map { … }.getOrThrow()` (drop the Result wrapper or use `.fold(...)`), and `getOrElse { default }` whose lambda ignores the failure (use `getOrDefault(default)`)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindResultErgonomics$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultergonomics$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `if (result.isSuccess) … else …` patterns","href":"kotlin/functional/findresultfoldimperative$ktrecipe"},{"name":"Find `Result.map { }.getOrThrow()` chains","href":"kotlin/functional/findresultmapwithouterrorhandling$ktrecipe"},{"name":"Find `Result.getOrElse { }` whose lambda ignores the failure parameter","href":"kotlin/functional/findresultgetorelseignoringfailure$ktrecipe"}]}>
+<RecipeHeader.Title>Find `Result<T>` API ergonomics opportunities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle for `Result<T>` call sites where a different operator would be clearer: `if (result.isSuccess) … else …` (use `.fold(...)`), `Result.map { … }.getOrThrow()` (drop the Result wrapper or use `.fold(...)`), and `getOrElse { default }` whose lambda ignores the failure (use `getOrDefault(default)`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `if (result.isSuccess) … else …` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultfoldimperative$ktrecipe/"},{"name":"Find `Result.map { }.getOrThrow()` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultmapwithouterrorhandling$ktrecipe/"},{"name":"Find `Result.getOrElse { }` whose lambda ignores the failure parameter","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultgetorelseignoringfailure$ktrecipe/"}]}>
 
 ## Definition
 

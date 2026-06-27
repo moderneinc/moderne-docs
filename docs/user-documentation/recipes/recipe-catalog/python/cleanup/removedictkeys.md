@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Drop redundant `.keys()` on dict iteration"}
-  description={"Dictionaries iterate over their keys by default, making explicit `.keys()` calls unnecessary in for-loops and `in` expressions."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveDictKeys"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removedictkeys.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Drop redundant `.keys()` on dict iteration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Dictionaries iterate over their keys by default, making explicit `.keys()` calls unnecessary in for-loops and `in` expressions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveDictKeys","displayName":"Drop redundant `.keys()` on dict iteration","pipPackage":"openrewrite-static-analysis"}}>
 

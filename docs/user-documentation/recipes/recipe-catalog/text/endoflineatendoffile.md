@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"End of Line @ End of File (EOL @ EOF)"}
-  description={"Ensure that the file ends with the newline character.\n\n*Note*: If this recipe modifies a file, it converts the file into plain text. As such, this recipe should be run after any recipe that modifies the language-specific LST."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.text.EndOfLineAtEndOfFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/text/endoflineatendoffile.md"}
-/>
+>
+
+<RecipeHeader.Title>End of Line @ End of File (EOL @ EOF)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure that the file ends with the newline character.  *Note*: If this recipe modifies a file, it converts the file into plain text. As such, this recipe should be run after any recipe that modifies the language-specific LST.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.text.EndOfLineAtEndOfFile","displayName":"End of Line @ End of File (EOL @ EOF)","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":false}}>
 

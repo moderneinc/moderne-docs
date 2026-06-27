@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated procedure syntax"}
-  description={"Finds method declarations that use deprecated Scala procedure syntax (methods with a body block but no explicit return type or `=` sign). Procedure syntax was deprecated in Scala 2.13 and removed in Scala 3."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.MigrateProcedureSyntax"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/migrateproceduresyntax.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate deprecated procedure syntax</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds method declarations that use deprecated Scala procedure syntax (methods with a body block but no explicit return type or `=` sign). Procedure syntax was deprecated in Scala 2.13 and removed in Scala 3.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  def hello() {\n    println(\"hello\")\n  }\n}\n","after":"object Test {\n  /*~~(Procedure syntax is deprecated in Scala 2.13+)~~>*/def hello() {\n    println(\"hello\")\n  }\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Test {\n- def hello() {\n+ /*~~(Procedure syntax is deprecated in Scala 2.13+)~~>*/def hello() {\n    println(\"hello\")\n","newFile":false}]}]}>
 

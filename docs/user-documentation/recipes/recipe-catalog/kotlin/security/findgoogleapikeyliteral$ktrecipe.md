@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Google API key literals (`AIza…`)"}
-  description={"Google Cloud / Firebase / Maps API keys follow the `AIza…` 39-char pattern. Even when client-restricted, a leaked literal lets attackers fingerprint your project and run up bills via unrestricted endpoints."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindGoogleApiKeyLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findgoogleapikeyliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Google API key literals (`AIza…`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Google Cloud / Firebase / Maps API keys follow the `AIza…` 39-char pattern. Even when client-restricted, a leaked literal lets attackers fingerprint your project and run up bills via unrestricted endpoints.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindGoogleApiKeyLiteral$KtRecipe","displayName":"Find Google API key literals (`AIza…`)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant Dispose/Close call"}
-  description={"Remove Dispose/Close calls on objects already in a using block."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantDisposeOrClose"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeredundantdisposeorclose.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant Dispose/Close call</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove Dispose/Close calls on objects already in a using block.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantDisposeOrClose","displayName":"Remove redundant Dispose/Close call","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

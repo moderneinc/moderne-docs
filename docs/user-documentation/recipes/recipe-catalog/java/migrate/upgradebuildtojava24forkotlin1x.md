@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade build to Java 24 for Kotlin 1.x"}
-  description={"Kotlin versions before 2.3 only support up to Java 24, and Kotlin 1.x cannot be safely upgraded automatically because crossing the K2 compiler default introduced in Kotlin 2.0 is a source-breaking change. Such modules are therefore capped at Java 24 and annotated with an explanation. Modules already on Kotlin 2.0-2.2 are instead bumped to Kotlin 2.3 by `UpgradeKotlinForJava25` so they can reach Java 25. Applies only to modules that actually compile Kotlin (i.e. contain `.kt` source files), so transitive `kotlin-stdlib` dependencies do not trigger the cap."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeBuildToJava24ForKotlin1x"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/upgradebuildtojava24forkotlin1x.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Java version","href":"java/migrate/upgradejavaversion"}]} preconditions={[{"name":"Module has Kotlin source files","href":"java/migrate/search/modulehaskotlinsource"},{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
+<RecipeHeader.Title>Upgrade build to Java 24 for Kotlin 1.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotlin versions before 2.3 only support up to Java 24, and Kotlin 1.x cannot be safely upgraded automatically because crossing the K2 compiler default introduced in Kotlin 2.0 is a source-breaking change. Such modules are therefore capped at Java 24 and annotated with an explanation. Modules already on Kotlin 2.0-2.2 are instead bumped to Kotlin 2.3 by `UpgradeKotlinForJava25` so they can reach Java 25. Applies only to modules that actually compile Kotlin (i.e. contain `.kt` source files), so transitive `kotlin-stdlib` dependencies do not trigger the cap.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion/"}]} preconditions={[{"name":"Module has Kotlin source files","href":"/user-documentation/recipes/recipe-catalog/java/migrate/search/modulehaskotlinsource/"},{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Cacheable` on `private` functions"}
-  description={"`@Cacheable` works through the same proxy mechanism as `@Transactional` and `@Async` — invisible on `private` (and `internal`) methods. Either widen visibility or move the caching boundary up the call chain."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindCacheableOnPrivate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findcacheableonprivate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Cacheable` on `private` functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@Cacheable` works through the same proxy mechanism as `@Transactional` and `@Async` — invisible on `private` (and `internal`) methods. Either widen visibility or move the caching boundary up the call chain.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindCacheableOnPrivate$KtRecipe","displayName":"Find `@Cacheable` on `private` functions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find async void method"}
-  description={"Detect `async void` methods. Use `async Task` instead so callers can await and exceptions propagate correctly."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindAsyncMethodReturnsNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findasyncmethodreturnsnull.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find async void method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `async void` methods. Use `async Task` instead so callers can await and exceptions propagate correctly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindAsyncMethodReturnsNull","displayName":"Find async void method","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

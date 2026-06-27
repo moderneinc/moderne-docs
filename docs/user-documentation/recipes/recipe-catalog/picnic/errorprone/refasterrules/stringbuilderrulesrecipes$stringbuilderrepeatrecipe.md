@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `StringBuilder#repeat(CharSequence, int)` over less efficient alternatives"}
-  description={"<strong>Warning:</strong> this rule is not behavior preserving: while the original code\n throws a `NullPointerException` if the repeated string is `null`, the replacement\n code will repeat the literal string `\"null\"`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StringBuilderRulesRecipes$StringBuilderRepeatRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/stringbuilderrulesrecipes$stringbuilderrepeatrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `StringBuilder#repeat(CharSequence, int)` over less efficient alternatives</RecipeHeader.Title>
+
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rule is not behavior preserving: while the original code  throws a `NullPointerException` if the repeated string is `null`, the replacement  code will repeat the literal string `"null"`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StringBuilderRulesRecipes$StringBuilderRepeatRecipe","displayName":"Prefer `StringBuilder#repeat(CharSequence, int)` over less efficient alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

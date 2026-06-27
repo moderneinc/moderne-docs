@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Delete `if` blocks whose body is only `pass`"}
-  description={"Delete `if` statements that contain nothing but `pass` and have no `else` branch. `for`/`while` loops are left alone because iterating may have side effects."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveEmptyNestedBlock"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeemptynestedblock.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Delete `if` blocks whose body is only `pass`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Delete `if` statements that contain nothing but `pass` and have no `else` branch. `for`/`while` loops are left alone because iterating may have side effects.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveEmptyNestedBlock","displayName":"Delete `if` blocks whose body is only `pass`","pipPackage":"openrewrite-static-analysis"}}>
 

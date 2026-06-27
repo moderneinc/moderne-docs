@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use pattern matching for null check"}
-  description={"Replace `x == null` with `x is null` and `x != null` with `x is not null`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UsePatternMatchingNullCheck"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usepatternmatchingnullcheck.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use pattern matching for null check</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `x == null` with `x is null` and `x != null` with `x is not null`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UsePatternMatchingNullCheck","displayName":"Use pattern matching for null check","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

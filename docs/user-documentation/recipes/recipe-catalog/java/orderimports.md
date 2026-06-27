@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Order imports"}
-  description={"Groups and orders import statements. If a [style has been defined](https://docs.openrewrite.org/concepts-and-explanations/styles), this recipe will order the imports according to that style. If no style is detected, this recipe will default to ordering imports in the same way that IntelliJ IDEA does."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.OrderImports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/orderimports.md"}
-/>
+>
+
+<RecipeHeader.Title>Order imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Groups and orders import statements. If a [style has been defined](https://docs.openrewrite.org/concepts-and-explanations/styles), this recipe will order the imports according to that style. If no style is detected, this recipe will default to ordering imports in the same way that IntelliJ IDEA does.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"removeUnused","required":false,"description":"Remove unnecessary imports."},{"type":"String","name":"style","required":false,"description":"An OpenRewrite [style](https://docs.openrewrite.org/concepts-and-explanations/styles) formatted in YAML.","example":"type: specs.openrewrite.org/v1beta/style\nname: com.yourorg.CustomImportLayout\nstyleConfigs:\n  - org.openrewrite.java.style.ImportLayoutStyle:\n      classCountToUseStarImport: 999\n      nameCountToUseStarImport: 999\n      layout:\n        - 'import java.*'\n        - 'import javax.*'\n        - '<blank line>'\n        - 'import all other imports'\n        - '<blank line>'\n        - 'import static all other imports'\n      packagesToFold:\n        - 'import java.awt.*'\n        - 'import static org.junit.jupiter.api.Assertions.*"}]}>
 

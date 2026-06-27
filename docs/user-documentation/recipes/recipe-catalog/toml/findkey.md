@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find TOML keys"}
-  description={"Find TOML keys matching a path expression."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-toml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.toml.FindKey"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/toml/findkey.md"}
-/>
+>
+
+<RecipeHeader.Title>Find TOML keys</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find TOML keys matching a path expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"keyPath","required":true,"description":"A TOML path expression to locate keys. Wildcards are supported.","example":"**.name"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Boot Actuator to Quarkus Health and Metrics"}
-  description={"Migrates Spring Boot Actuator to Quarkus SmallRye Health and Metrics extensions. Converts HealthIndicator implementations to Quarkus HealthCheck pattern."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","actuator","quarkus","migration","health","metrics"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.MigrateSpringActuator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringactuator.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Convert Spring HealthIndicator to Quarkus HealthCheck","href":"quarkus/spring/springhealthindicatortoquarkus"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Delete property by key","href":"properties/deleteproperty"},{"name":"Delete property by key","href":"properties/deleteproperty"}]}>
+<RecipeHeader.Title>Migrate Spring Boot Actuator to Quarkus Health and Metrics</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Spring Boot Actuator to Quarkus SmallRye Health and Metrics extensions. Converts HealthIndicator implementations to Quarkus HealthCheck pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Convert Spring HealthIndicator to Quarkus HealthCheck","href":"/user-documentation/recipes/recipe-catalog/quarkus/spring/springhealthindicatortoquarkus/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Delete property by key","href":"/user-documentation/recipes/recipe-catalog/properties/deleteproperty/"},{"name":"Delete property by key","href":"/user-documentation/recipes/recipe-catalog/properties/deleteproperty/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates to ApacheHttpClient 4.5.x"}
-  description={"Migrate applications to the latest Apache HttpClient 4.5.x release. This recipe modifies application's build files, make changes to deprecated/preferred APIs, and migrates configuration settings that have changes between versions."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","httpclient"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient4.UpgradeApacheHttpClient_4_5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient4/upgradeapachehttpclient_4_5.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Maps deprecated classes from Apache HttpClient 4.5.x to suggested replacements","href":"apache/httpclient4/mappingdeprecatedclasses"}]}>
+<RecipeHeader.Title>Migrates to ApacheHttpClient 4.5.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Apache HttpClient 4.5.x release. This recipe modifies application's build files, make changes to deprecated/preferred APIs, and migrates configuration settings that have changes between versions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Maps deprecated classes from Apache HttpClient 4.5.x to suggested replacements","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient4/mappingdeprecatedclasses/"}]}>
 
 ## Definition
 

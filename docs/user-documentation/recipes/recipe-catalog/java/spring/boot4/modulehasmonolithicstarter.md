@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Module has monolithic Spring Boot starter"}
-  description={"Precondition that matches modules with the monolithic Spring Boot starters that need to be migrated to modular starters. Matches the production monolithic spring-boot-starter and spring-boot-starter-classic, but not specific modular starters like spring-boot-starter-test or spring-boot-starter-ldap."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.ModuleHasMonolithicStarter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/modulehasmonolithicstarter.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"},{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
+<RecipeHeader.Title>Module has monolithic Spring Boot starter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Precondition that matches modules with the monolithic Spring Boot starters that need to be migrated to modular starters. Matches the production monolithic spring-boot-starter and spring-boot-starter-classic, but not specific modular starters like spring-boot-starter-test or spring-boot-starter-ldap.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"},{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

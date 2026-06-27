@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TestNGToAssertJRules.AssertEqualArraysIrrespectiveOfOrderWithMessage`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertEqualArraysIrrespectiveOfOrderWithMessage {\n    \n    @BeforeTemplate\n    void before(Object[] actual, String message, Object[] expected) {\n        assertEqualsNoOrder(actual, expected, message);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Object[] actual, String message, Object[] expected) {\n        assertThat(actual).withFailMessage(message).containsExactlyInAnyOrder(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualArraysIrrespectiveOfOrderWithMessageRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalarraysirrespectiveoforderwithmessagerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TestNGToAssertJRules.AssertEqualArraysIrrespectiveOfOrderWithMessage`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertEqualArraysIrrespectiveOfOrderWithMessage {
+    
+    @BeforeTemplate
+    void before(Object[] actual, String message, Object[] expected) {
+        assertEqualsNoOrder(actual, expected, message);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(Object[] actual, String message, Object[] expected) {
+        assertThat(actual).withFailMessage(message).containsExactlyInAnyOrder(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualArraysIrrespectiveOfOrderWithMessageRecipe","displayName":"Refaster template `TestNGToAssertJRules.AssertEqualArraysIrrespectiveOfOrderWithMessage`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

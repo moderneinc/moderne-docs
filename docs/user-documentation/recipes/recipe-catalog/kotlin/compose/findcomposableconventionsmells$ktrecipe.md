@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose function-naming conventions"}
-  description={"Function-naming patterns the Compose API guide calls out: non-`@Composable` functions that use composable APIs (`remember`/`LaunchedEffect`/`rememberCoroutineScope`) without the annotation."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposableConventionSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposableconventionsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find non-`@Composable` functions calling `@Composable`-only APIs","href":"kotlin/compose/findnoncomposableusingcomposableapis$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose function-naming conventions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Function-naming patterns the Compose API guide calls out: non-`@Composable` functions that use composable APIs (`remember`/`LaunchedEffect`/`rememberCoroutineScope`) without the annotation.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find non-`@Composable` functions calling `@Composable`-only APIs","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findnoncomposableusingcomposableapis$ktrecipe/"}]}>
 
 ## Definition
 

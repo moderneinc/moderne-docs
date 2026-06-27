@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `take(n)` instead of `substring(0, n)` on a `String`"}
-  description={"`take(n)` is the named form on `CharSequence` and uniformly returns the empty string when `n` is larger than `length`. `substring(0, n)` throws on that case — the named form is both clearer and friendlier."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.UseStringTakeForSubstringFromZero$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usestringtakeforsubstringfromzero$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `take(n)` instead of `substring(0, n)` on a `String`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`take(n)` is the named form on `CharSequence` and uniformly returns the empty string when `n` is larger than `length`. `substring(0, n)` throws on that case — the named form is both clearer and friendlier.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.stdlib.UseStringTakeForSubstringFromZero$KtRecipe","displayName":"Use `take(n)` instead of `substring(0, n)` on a `String`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

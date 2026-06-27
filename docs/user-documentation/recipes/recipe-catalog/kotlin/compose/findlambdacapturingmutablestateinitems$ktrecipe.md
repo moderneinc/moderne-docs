@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find lazy-list `items(...) { … }` content lambdas that read a `MutableState` from the enclosing scope"}
-  description={"When a `LazyColumn`/`LazyRow` content lambda reads a `MutableState`/`State` from the enclosing scope, every change to that state invalidates the entire item composition. Hoist the state into a per-item `remember`, or read it inside a child composable so only the affected item recomposes."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindLambdaCapturingMutableStateInItems$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlambdacapturingmutablestateinitems$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find lazy-list `items(...) { … }` content lambdas that read a `MutableState` from the enclosing scope</RecipeHeader.Title>
+
+<RecipeHeader.Description>When a `LazyColumn`/`LazyRow` content lambda reads a `MutableState`/`State` from the enclosing scope, every change to that state invalidates the entire item composition. Hoist the state into a per-item `remember`, or read it inside a child composable so only the affected item recomposes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindLambdaCapturingMutableStateInItems$KtRecipe","displayName":"Find lazy-list `items(...) { … }` content lambdas that read a `MutableState` from the enclosing scope","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

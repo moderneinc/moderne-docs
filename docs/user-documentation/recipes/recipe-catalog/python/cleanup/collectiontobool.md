@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Substitute constant collection condition with boolean"}
-  description={"When a list, tuple, dict, or set literal is used as an ``if`` or ``while`` condition, replace it with ``True`` (non-empty) or ``False`` (empty) to state the intent directly."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.CollectionToBool"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/collectiontobool.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Substitute constant collection condition with boolean</RecipeHeader.Title>
+
+<RecipeHeader.Description>When a list, tuple, dict, or set literal is used as an ``if`` or ``while`` condition, replace it with ``True`` (non-empty) or ``False`` (empty) to state the intent directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.CollectionToBool","displayName":"Substitute constant collection condition with boolean","pipPackage":"openrewrite-static-analysis"}}>
 

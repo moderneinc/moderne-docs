@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change method name"}
-  description={"Rename method invocations matching a pattern."}
   type={"Composite recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.ChangeMethodName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/changemethodname.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"org.openrewrite.java.ChangeMethodName","href":"java/changemethodname"}]}>
+<RecipeHeader.Title>Change method name</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rename method invocations matching a pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"org.openrewrite.java.ChangeMethodName","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]}>
 
 ## Definition
 

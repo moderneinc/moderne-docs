@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsCloseToWithOffset`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractDoubleAssertIsCloseToWithOffset {\n    \n    @BeforeTemplate\n    AbstractDoubleAssert<?> before(AbstractDoubleAssert<?> doubleAssert, double n, Offset<Double> offset) {\n        return doubleAssert.isEqualTo(n, offset);\n    }\n    \n    @BeforeTemplate\n    AbstractDoubleAssert<?> before(AbstractDoubleAssert<?> doubleAssert, Double n, Offset<Double> offset) {\n        return doubleAssert.isEqualTo(n, offset);\n    }\n    \n    @AfterTemplate\n    AbstractDoubleAssert<?> after(AbstractDoubleAssert<?> doubleAssert, double n, Offset<Double> offset) {\n        return doubleAssert.isCloseTo(n, offset);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,37 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJDoubleRulesRecipes$AbstractDoubleAssertIsCloseToWithOffsetRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisclosetowithoffsetrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsCloseToWithOffset`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractDoubleAssertIsCloseToWithOffset {
+    
+    @BeforeTemplate
+    AbstractDoubleAssert<?> before(AbstractDoubleAssert<?> doubleAssert, double n, Offset<Double> offset) {
+        return doubleAssert.isEqualTo(n, offset);
+    }
+    
+    @BeforeTemplate
+    AbstractDoubleAssert<?> before(AbstractDoubleAssert<?> doubleAssert, Double n, Offset<Double> offset) {
+        return doubleAssert.isEqualTo(n, offset);
+    }
+    
+    @AfterTemplate
+    AbstractDoubleAssert<?> after(AbstractDoubleAssert<?> doubleAssert, double n, Offset<Double> offset) {
+        return doubleAssert.isCloseTo(n, offset);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJDoubleRulesRecipes$AbstractDoubleAssertIsCloseToWithOffsetRecipe","displayName":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsCloseToWithOffset`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

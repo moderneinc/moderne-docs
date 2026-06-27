@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace lodash and underscore function functions with native JavaScript"}
-  description={"- `_.bind(fn, obj, ...x)` -> `fn.bind(obj, ...x)`\n- `_.partial(fn, a, b);` -> `(...args) => fn(a, b, ...args)`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["codemods","lodash","underscore"]}
@@ -31,9 +29,20 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.migrate.lodash.LodashUnderscoreFunction"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/migrate/lodash/lodashunderscorefunction.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"codemods/applycodemod"}]}>
+<RecipeHeader.Title>Replace lodash and underscore function functions with native JavaScript</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+- `_.bind(fn, obj, ...x)` -> `fn.bind(obj, ...x)`
+- `_.partial(fn, a, b);` -> `(...args) => fn(a, b, ...args)`.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"/user-documentation/recipes/recipe-catalog/codemods/applycodemod/"}]}>
 
 ## Definition
 

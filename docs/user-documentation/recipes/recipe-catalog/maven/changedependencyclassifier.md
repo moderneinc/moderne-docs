@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Maven dependency classifier"}
-  description={"Add or alter the classifier of the specified dependency."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ChangeDependencyClassifier"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/changedependencyclassifier.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Maven dependency classifier</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add or alter the classifier of the specified dependency.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"com.google.guava"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"guava"},{"type":"String","name":"newClassifier","required":false,"description":"Classifier to apply to specified Maven dependency. May be omitted, which indicates that no classifier should be added and any existing scope be removed from the dependency.","example":"jar"},{"type":"Boolean","name":"changeManagedDependency","required":false,"description":"This flag can be set to explicitly change the classifier in Maven management dependency section. Default `false`.","example":"true"}]}>
 

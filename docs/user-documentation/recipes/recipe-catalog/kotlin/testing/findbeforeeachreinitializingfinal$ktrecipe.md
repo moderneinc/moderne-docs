@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@BeforeEach` methods that reassign `val` properties"}
-  description={"`@BeforeEach` runs before every test, but `val` property assignment only happens at construction. If `setUp` looks like `value = ...` against a `val`, it doesn't compile — but the related anti-pattern (reassigning a `lateinit var` per test where the type-safe shape would be a `val` initialized in the constructor) is worth surfacing."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindBeforeEachReinitializingFinal$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findbeforeeachreinitializingfinal$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@BeforeEach` methods that reassign `val` properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@BeforeEach` runs before every test, but `val` property assignment only happens at construction. If `setUp` looks like `value = ...` against a `val`, it doesn't compile — but the related anti-pattern (reassigning a `lateinit var` per test where the type-safe shape would be a `val` initialized in the constructor) is worth surfacing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindBeforeEachReinitializingFinal$KtRecipe","displayName":"Find `@BeforeEach` methods that reassign `val` properties","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

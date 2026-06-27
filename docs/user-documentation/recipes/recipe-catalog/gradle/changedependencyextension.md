@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change a Gradle dependency extension"}
-  description={"Changes extension of an existing dependency declared in `build.gradle` files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.ChangeDependencyExtension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/changedependencyextension.md"}
-/>
+>
+
+<RecipeHeader.Title>Change a Gradle dependency extension</RecipeHeader.Title>
+
+<RecipeHeader.Description>Changes extension of an existing dependency declared in `build.gradle` files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"com.fasterxml.jackson*"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"jackson-module*"},{"type":"String","name":"newExtension","required":true,"description":"An artifact extension.","example":"jar"},{"type":"String","name":"configuration","required":false,"description":"The dependency configuration to search for dependencies in.","example":"api"}]}>
 

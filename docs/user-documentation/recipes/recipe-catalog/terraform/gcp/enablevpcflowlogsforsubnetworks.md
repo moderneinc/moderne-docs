@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enable VPC Flow Logs for subnetworks"}
-  description={"Ensure GCP VPC flow logs for subnets are enabled. Flow Logs capture information on IP traffic moving through network interfaces. This information can be used to monitor anomalous traffic and provide security insights."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["GCP","CKV_GCP_26","terraform"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.gcp.EnableVPCFlowLogsForSubnetworks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/gcp/enablevpcflowlogsforsubnetworks.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Enable VPC Flow Logs for subnetworks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure GCP VPC flow logs for subnets are enabled. Flow Logs capture information on IP traffic moving through network interfaces. This information can be used to monitor anomalous traffic and provide security insights.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

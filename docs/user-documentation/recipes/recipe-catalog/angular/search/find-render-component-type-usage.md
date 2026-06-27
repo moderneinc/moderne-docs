@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `RenderComponentType` usage"}
-  description={"Finds imports of the deprecated `RenderComponentType` from `@angular/core`. `RenderComponentType` was part of the View Engine API, deprecated in Angular 4, and removed in Angular 9."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-render-component-type-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-render-component-type-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated `RenderComponentType` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of the deprecated `RenderComponentType` from `@angular/core`. `RenderComponentType` was part of the View Engine API, deprecated in Angular 4, and removed in Angular 9.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-render-component-type-usage","displayName":"Find deprecated `RenderComponentType` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `InputStreamRules.InputStreamTransferTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class InputStreamTransferTo {\n    \n    @BeforeTemplate\n    long before(InputStream in, OutputStream out) throws IOException {\n        return ByteStreams.copy(in, out);\n    }\n    \n    @AfterTemplate\n    long after(InputStream in, OutputStream out) throws IOException {\n        return in.transferTo(out);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.InputStreamRulesRecipes$InputStreamTransferToRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/inputstreamrulesrecipes$inputstreamtransfertorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `InputStreamRules.InputStreamTransferTo`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class InputStreamTransferTo {
+    
+    @BeforeTemplate
+    long before(InputStream in, OutputStream out) throws IOException {
+        return ByteStreams.copy(in, out);
+    }
+    
+    @AfterTemplate
+    long after(InputStream in, OutputStream out) throws IOException {
+        return in.transferTo(out);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.InputStreamRulesRecipes$InputStreamTransferToRecipe","displayName":"Refaster template `InputStreamRules.InputStreamTransferTo`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

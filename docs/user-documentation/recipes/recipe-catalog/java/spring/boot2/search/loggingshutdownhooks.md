@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Applications using logging shutdown hooks"}
-  description={"Spring Boot registers a logging shutdown hook by default for JAR-based applications to ensure that logging resources are released when the JVM exits. If your application is deployed as a WAR then the shutdown hook is not registered since the servlet container usually handles logging concerns. \n\nMost applications will want the shutdown hook. However, if your application has complex context hierarchies, then you may need to disable it. You can use the `logging.register-shutdown-hook` property to do that."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.search.LoggingShutdownHooks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/loggingshutdownhooks.md"}
-/>
+>
+
+<RecipeHeader.Title>Applications using logging shutdown hooks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot registers a logging shutdown hook by default for JAR-based applications to ensure that logging resources are released when the JVM exits. If your application is deployed as a WAR then the shutdown hook is not registered since the servlet container usually handles logging concerns.   Most applications will want the shutdown hook. However, if your application has complex context hierarchies, then you may need to disable it. You can use the `logging.register-shutdown-hook` property to do that.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot2.search.LoggingShutdownHooks","displayName":"Applications using logging shutdown hooks","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

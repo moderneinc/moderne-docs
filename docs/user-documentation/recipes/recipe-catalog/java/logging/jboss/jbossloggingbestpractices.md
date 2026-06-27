@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JBoss Logging Best Practices"}
-  description={"This recipe applies best practices for logging in JBoss applications.\nIt includes converting argument arrays to varargs for better readability and performance."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jboss","logging"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.jboss.JBossLoggingBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/jboss/jbossloggingbestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace JBoss Logging Level arguments with the corresponding eponymous level method calls","href":"java/logging/jboss/loggerlevelargumenttomethod"},{"name":"Replace deprecated JBoss Logging Logger formatted message invocations with the v-version of methods","href":"java/logging/jboss/formattedargumentstovmethodrecipes"},{"name":"Unpack Logger method `new Object[] {...}` into varargs","href":"java/logging/argumentarraytovarargs"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>JBoss Logging Best Practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe applies best practices for logging in JBoss applications. It includes converting argument arrays to varargs for better readability and performance.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace JBoss Logging Level arguments with the corresponding eponymous level method calls","href":"/user-documentation/recipes/recipe-catalog/java/logging/jboss/loggerlevelargumenttomethod/"},{"name":"Replace deprecated JBoss Logging Logger formatted message invocations with the v-version of methods","href":"/user-documentation/recipes/recipe-catalog/java/logging/jboss/formattedargumentstovmethodrecipes/"},{"name":"Unpack Logger method `new Object[] {...}` into varargs","href":"/user-documentation/recipes/recipe-catalog/java/logging/argumentarraytovarargs/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

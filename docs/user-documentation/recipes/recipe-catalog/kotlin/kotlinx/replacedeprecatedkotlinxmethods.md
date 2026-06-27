@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `kotlinx` methods"}
-  description={"Replace deprecated Kotlin extension library method calls with their recommended replacements, based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={["kotlin","kotlinx"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.kotlinx.ReplaceDeprecatedKotlinxMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/kotlinx/replacedeprecatedkotlinxmethods.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace deprecated `kotlinx-collections-immutable` methods","href":"jetbrains/kotlinx/replacedeprecatedkotlinxcollectionsimmutable0methods"},{"name":"Upgrade to `kotlinx-coroutines` 1.10","href":"kotlin/migrate/upgradekotlinxcoroutines_1_10"},{"name":"Migrate to `kotlinx-datetime` 0.7","href":"kotlin/migrate/upgradekotlinxdatetime_0_7"},{"name":"Replace deprecated `kotlinx-io-core` methods","href":"jetbrains/kotlinx/replacedeprecatedkotlinxiocore0methods"},{"name":"Upgrade to `kotlinx-serialization` 1.8","href":"kotlin/migrate/upgradekotlinxserialization_1_8"}]}>
+<RecipeHeader.Title>Replace deprecated `kotlinx` methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated Kotlin extension library method calls with their recommended replacements, based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace deprecated `kotlinx-collections-immutable` methods","href":"/user-documentation/recipes/recipe-catalog/jetbrains/kotlinx/replacedeprecatedkotlinxcollectionsimmutable0methods/"},{"name":"Upgrade to `kotlinx-coroutines` 1.10","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxcoroutines_1_10/"},{"name":"Migrate to `kotlinx-datetime` 0.7","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxdatetime_0_7/"},{"name":"Replace deprecated `kotlinx-io-core` methods","href":"/user-documentation/recipes/recipe-catalog/jetbrains/kotlinx/replacedeprecatedkotlinxiocore0methods/"},{"name":"Upgrade to `kotlinx-serialization` 1.8","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxserialization_1_8/"}]}>
 
 ## Definition
 

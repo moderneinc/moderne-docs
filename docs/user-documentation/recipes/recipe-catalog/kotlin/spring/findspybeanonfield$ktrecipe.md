@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@SpyBean` on `lateinit var` fields"}
-  description={"`@SpyBean` carries the same coupling to the Spring container as `@MockBean`, plus the extra surprise of partially mocking real implementation code. Where possible, exercise the unit under test directly with `mockk<X>(relaxed = true)` and verify against a spy of a single dependency."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpyBeanOnField$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspybeanonfield$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@SpyBean` on `lateinit var` fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@SpyBean` carries the same coupling to the Spring container as `@MockBean`, plus the extra surprise of partially mocking real implementation code. Where possible, exercise the unit under test directly with `mockk<X>(relaxed = true)` and verify against a spy of a single dependency.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindSpyBeanOnField$KtRecipe","displayName":"Find `@SpyBean` on `lateinit var` fields","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

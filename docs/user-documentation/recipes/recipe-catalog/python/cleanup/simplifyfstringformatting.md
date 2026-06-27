@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Fold constants and flatten nested f-strings"}
-  description={"Inline constant values directly into f-string text and unwrap nested f-strings into their enclosing string."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifyFstringFormatting"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifyfstringformatting.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Fold constants and flatten nested f-strings</RecipeHeader.Title>
+
+<RecipeHeader.Description>Inline constant values directly into f-string text and unwrap nested f-strings into their enclosing string.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyFstringFormatting","displayName":"Fold constants and flatten nested f-strings","pipPackage":"openrewrite-static-analysis"}}>
 

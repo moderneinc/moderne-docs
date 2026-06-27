@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Content-Length` header writes on `HttpServletResponse` (CVE-2026-22732)"}
-  description={"Detects `HttpServletResponse.setHeader`, `setIntHeader`, or `addIntHeader` calls whose first argument resolves (directly or via local variable) to the literal `Content-Length` (case-insensitive). These three overloads are NOT overridden by Spring Security's `OnCommittedResponseWrapper`, so `onResponseCommitted()` never fires and the lazy-added security headers (X-Frame-Options, X-Content-Type-Options, Cache-Control, etc.) are silently dropped — CVE-2026-22732. `addHeader` is intentionally excluded: the wrapper special-cases it. Also covers WebFlux `HttpHeaders.set` / `add` for `Content-Length`. In addition to marking Java sinks, attaches a {@code SearchResult} marker to every source file in the affected project so this recipe can be used as a declarative precondition for build-level recipes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.recipe.cve202622732.FindHttpResponseContentLengthHeader"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/recipe/cve202622732/findhttpresponsecontentlengthheader.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Content-Length` header writes on `HttpServletResponse` (CVE-2026-22732)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects `HttpServletResponse.setHeader`, `setIntHeader`, or `addIntHeader` calls whose first argument resolves (directly or via local variable) to the literal `Content-Length` (case-insensitive). These three overloads are NOT overridden by Spring Security's `OnCommittedResponseWrapper`, so `onResponseCommitted()` never fires and the lazy-added security headers (X-Frame-Options, X-Content-Type-Options, Cache-Control, etc.) are silently dropped — CVE-2026-22732. `addHeader` is intentionally excluded: the wrapper special-cases it. Also covers WebFlux `HttpHeaders.set` / `add` for `Content-Length`. In addition to marking Java sinks, attaches a &#123;@code SearchResult} marker to every source file in the affected project so this recipe can be used as a declarative precondition for build-level recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.recipe.cve202622732.FindHttpResponseContentLengthHeader","displayName":"Find `Content-Length` header writes on `HttpServletResponse` (CVE-2026-22732)","groupId":"io.moderne.recipe","artifactId":"rewrite-cve-2026-22732","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CVE_2026_22732","requiresConfiguration":false}}>
 

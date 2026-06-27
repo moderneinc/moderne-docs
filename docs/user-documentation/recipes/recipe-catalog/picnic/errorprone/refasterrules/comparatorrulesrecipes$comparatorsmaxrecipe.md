@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ComparatorRules.ComparatorsMax`"}
-  description={"Prefer a method reference to `Comparators#max(Comparable, Comparable)` over calling `BinaryOperator#minBy(Comparator)` with `Comparator#naturalOrder()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ComparatorsMaxRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/comparatorrulesrecipes$comparatorsmaxrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ComparatorRules.ComparatorsMax`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer a method reference to `Comparators#max(Comparable, Comparable)` over calling `BinaryOperator#minBy(Comparator)` with `Comparator#naturalOrder()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$ComparatorsMaxRecipe","displayName":"Refaster template `ComparatorRules.ComparatorsMax`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

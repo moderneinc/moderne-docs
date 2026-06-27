@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Log4j 2.x active Level check with corresponding SLF4J method calls"}
-  description={"Replace calls to `Logger.isEnabled(Level)` with the corresponding SLF4J method calls."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.Log4j2IsEnabledToSlf4jRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace Log4j 2.x `Logger.isEnabled(Level.TRACE)` with SLF4J's `Logger.isTraceEnabled()`","href":"java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledleveltracerecipe"},{"name":"Replace Log4j 2.x `Logger.isEnabled(Level.DEBUG)` with SLF4J's `Logger.isDebugEnabled()`","href":"java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledleveldebugrecipe"},{"name":"Replace Log4j 2.x `Logger.isEnabled(Level.INFO)` with SLF4J's `Logger.isInfoEnabled()`","href":"java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledlevelinforecipe"},{"name":"Replace Log4j 2.x `Logger.isEnabled(Level.WARN)` with SLF4J's `Logger.isWarnEnabled()`","href":"java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledlevelwarnrecipe"},{"name":"Replace Log4j 2.x `Logger.isEnabled(Level.ERROR)` with SLF4J's `Logger.isErrorEnabled()`","href":"java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledlevelerrorrecipe"}]}>
+<RecipeHeader.Title>Replace Log4j 2.x active Level check with corresponding SLF4J method calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace calls to `Logger.isEnabled(Level)` with the corresponding SLF4J method calls.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace Log4j 2.x `Logger.isEnabled(Level.TRACE)` with SLF4J's `Logger.isTraceEnabled()`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledleveltracerecipe/"},{"name":"Replace Log4j 2.x `Logger.isEnabled(Level.DEBUG)` with SLF4J's `Logger.isDebugEnabled()`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledleveldebugrecipe/"},{"name":"Replace Log4j 2.x `Logger.isEnabled(Level.INFO)` with SLF4J's `Logger.isInfoEnabled()`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledlevelinforecipe/"},{"name":"Replace Log4j 2.x `Logger.isEnabled(Level.WARN)` with SLF4J's `Logger.isWarnEnabled()`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledlevelwarnrecipe/"},{"name":"Replace Log4j 2.x `Logger.isEnabled(Level.ERROR)` with SLF4J's `Logger.isErrorEnabled()`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledlevelerrorrecipe/"}]}>
 
 ## Definition
 

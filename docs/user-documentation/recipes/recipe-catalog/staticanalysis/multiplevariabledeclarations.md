@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"No multiple variable declarations"}
-  description={"Places each variable declaration in its own statement and on its own line. Using one variable declaration per line encourages commenting and can increase readability. Multi-variable declarations also make it harder to track individual types and initializers, increasing the risk of subtle errors."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1659"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.MultipleVariableDeclarations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/multiplevariabledeclarations.md"}
-/>
+>
+
+<RecipeHeader.Title>No multiple variable declarations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Places each variable declaration in its own statement and on its own line. Using one variable declaration per line encourages commenting and can increase readability. Multi-variable declarations also make it harder to track individual types and initializers, increasing the risk of subtle errors.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    int n = 0, m = 0;\n    int o = 0, p;\n    int s, t = 0;\n\n    public void method() {\n        for (int i = 0, j = 0; ; ) ;\n    }\n}\n","after":"class Test {\n    int n = 0;\n    int m = 0;\n    int o = 0;\n    int p;\n    int s;\n    int t = 0;\n\n    public void method() {\n        for (int i = 0, j = 0; ; ) ;\n    }\n}\n","diff":"@@ -2,3 +2,6 @@\nclass Test {\n-   int n = 0, m = 0;\n-   int o = 0, p;\n-   int s, t = 0;\n+   int n = 0;\n+   int m = 0;\n+   int o = 0;\n+   int p;\n+   int s;\n+   int t = 0;\n\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Inline variable"}
-  description={"Inline variables when they are immediately used to return or throw. Supports both variable declarations and assignments to local variables. A variable that is declared only to be returned or thrown on the very next line adds an unnecessary level of indirection without improving readability."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1488"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.InlineVariable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/inlinevariable.md"}
-/>
+>
+
+<RecipeHeader.Title>Inline variable</RecipeHeader.Title>
+
+<RecipeHeader.Description>Inline variables when they are immediately used to return or throw. Supports both variable declarations and assignments to local variables. A variable that is declared only to be returned or thrown on the very next line adds an unnecessary level of indirection without improving readability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\nimport java.util.stream.Collectors;\n\nclass Test {\n    int test() {\n        int n = 0;\n        return n;\n    }\n\n    int test2() {\n        int n = 0;\n        System.out.println(n);\n        return n;\n    }\n\n    void test3() {}\n\n    void test4(String arg) throws IllegalArgumentException {\n        if (arg == null || arg.isEmpty()) {\n            IllegalArgumentException e = new IllegalArgumentException(\"arg should not be empty or null\");\n            throw e;\n        }\n    }\n\n    List<String> testLambda(List<String> names) {\n        return names.stream().map(n -> {\n            String un = n.toLowerCase();\n            return un;\n        }).collect(Collectors.toList());\n    }\n}\n","after":"import java.util.List;\nimport java.util.stream.Collectors;\n\nclass Test {\n    int test() {\n        return 0;\n    }\n\n    int test2() {\n        int n = 0;\n        System.out.println(n);\n        return n;\n    }\n\n    void test3() {}\n\n    void test4(String arg) throws IllegalArgumentException {\n        if (arg == null || arg.isEmpty()) {\n            throw new IllegalArgumentException(\"arg should not be empty or null\");\n        }\n    }\n\n    List<String> testLambda(List<String> names) {\n        return names.stream().map(n -> {\n            return n.toLowerCase();\n        }).collect(Collectors.toList());\n    }\n}\n","diff":"@@ -6,2 +6,1 @@\nclass Test {\n    int test() {\n-       int n = 0;\n-       return n;\n+       return 0;\n    }\n@@ -20,2 +19,1 @@\n    void test4(String arg) throws IllegalArgumentException {\n        if (arg == null || arg.isEmpty()) {\n-           IllegalArgumentException e = new IllegalArgumentException(\"arg should not be empty or null\");\n-           throw e;\n+           throw new IllegalArgumentException(\"arg should not be empty or null\");\n        }\n@@ -27,2 +25,1 @@\n    List<String> testLambda(List<String> names) {\n        return names.stream().map(n -> {\n-           String un = n.toLowerCase();\n-           return un;\n+           return n.toLowerCase();\n        }).collect(Collectors.toList());\n","newFile":false}]}]}>
 

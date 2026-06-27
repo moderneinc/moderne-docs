@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`ImmutableSortedSetRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `ImmutableSortedSet`s.\n[Source](https://error-prone.picnic.tech/refasterrules/ImmutableSortedSetRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableSortedSetRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `ImmutableSortedSetRules.ImmutableSortedSetBuilder`","href":"picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$immutablesortedsetbuilderrecipe"},{"name":"Refaster template `ImmutableSortedSetRules.ImmutableSortedSetNaturalOrderBuilder`","href":"picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$immutablesortedsetnaturalorderbuilderrecipe"},{"name":"Refaster template `ImmutableSortedSetRules.ImmutableSortedSetReverseOrderBuilder`","href":"picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$immutablesortedsetreverseorderbuilderrecipe"},{"name":"Refaster template `ImmutableSortedSetRules.EmptyImmutableSortedSet`","href":"picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$emptyimmutablesortedsetrecipe"},{"name":"Refaster template `ImmutableSortedSetRules.IterableToImmutableSortedSet`","href":"picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$iterabletoimmutablesortedsetrecipe"},{"name":"Refaster template `ImmutableSortedSetRules.StreamToImmutableSortedSet`","href":"picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$streamtoimmutablesortedsetrecipe"}]}>
+<RecipeHeader.Title>`ImmutableSortedSetRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `ImmutableSortedSet`s. [Source](https://error-prone.picnic.tech/refasterrules/ImmutableSortedSetRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `ImmutableSortedSetRules.ImmutableSortedSetBuilder`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$immutablesortedsetbuilderrecipe/"},{"name":"Refaster template `ImmutableSortedSetRules.ImmutableSortedSetNaturalOrderBuilder`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$immutablesortedsetnaturalorderbuilderrecipe/"},{"name":"Refaster template `ImmutableSortedSetRules.ImmutableSortedSetReverseOrderBuilder`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$immutablesortedsetreverseorderbuilderrecipe/"},{"name":"Refaster template `ImmutableSortedSetRules.EmptyImmutableSortedSet`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$emptyimmutablesortedsetrecipe/"},{"name":"Refaster template `ImmutableSortedSetRules.IterableToImmutableSortedSet`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$iterabletoimmutablesortedsetrecipe/"},{"name":"Refaster template `ImmutableSortedSetRules.StreamToImmutableSortedSet`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedsetrulesrecipes$streamtoimmutablesortedsetrecipe/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit TestName @Rule to JUnit Jupiter TestInfo"}
-  description={"Replace usages of JUnit 4's `@Rule TestName` with JUnit 5's TestInfo."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.TestRuleToTestInfo"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/testruletotestinfo.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit TestName @Rule to JUnit Jupiter TestInfo</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace usages of JUnit 4's `@Rule TestName` with JUnit 5's TestInfo.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Rule;\nimport org.junit.rules.TestName;\n\npublic class SomeTest {\n    @Rule\n    public TestName name = new TestName();\n    protected String randomName() {\n        return name.getMethodName();\n    }\n\n    private static class SomeInnerClass {\n    }\n}\n","after":"import org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.TestInfo;\n\nimport java.lang.reflect.Method;\nimport java.util.Optional;\n\npublic class SomeTest {\n    \n    public String name;\n    protected String randomName() {\n        return name;\n    }\n\n    private static class SomeInnerClass {\n    }\n\n    @BeforeEach\n    public void setup(TestInfo testInfo) {\n        Optional<Method> testMethod = testInfo.getTestMethod();\n        if (testMethod.isPresent()) {\n            this.name = testMethod.get().getName();\n        }\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.junit.Rule;\n-import org.junit.rules.TestName;\n+import org.junit.jupiter.api.BeforeEach;\n+import org.junit.jupiter.api.TestInfo;\n\n@@ -4,0 +4,3 @@\nimport org.junit.rules.TestName;\n\n+import java.lang.reflect.Method;\n+import java.util.Optional;\n+\npublic class SomeTest {\n@@ -5,2 +8,2 @@\n\npublic class SomeTest {\n-   @Rule\n-   public TestName name = new TestName();\n+   \n+   public String name;\n    protected String randomName() {\n@@ -8,1 +11,1 @@\n    public TestName name = new TestName();\n    protected String randomName() {\n-       return name.getMethodName();\n+       return name;\n    }\n@@ -13,0 +16,8 @@\n    private static class SomeInnerClass {\n    }\n+\n+   @BeforeEach\n+   public void setup(TestInfo testInfo) {\n+       Optional<Method> testMethod = testInfo.getTestMethod();\n+       if (testMethod.isPresent()) {\n+           this.name = testMethod.get().getName();\n+       }\n+   }\n}\n","newFile":false}]}]}>
 

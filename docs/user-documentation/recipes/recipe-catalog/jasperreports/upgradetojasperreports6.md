@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to JasperReports 6"}
-  description={"Migrates JasperReports from 5.x to 6.x with the new exporter API, XLS to XLSX move, and removal of Spring JasperReports views."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["jasperreports"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.jasperreports.UpgradeToJasperReports6"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports6.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to JasperReports 5.6.x","href":"jasperreports/upgradetojasperreports5"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate JRXlsExporter to JRXlsxExporter","href":"jasperreports/migratexlstoxlsxexporter"},{"name":"Update JasperReports exporter configuration","href":"jasperreports/migrateexporterconfigtojasper6"}]}>
+<RecipeHeader.Title>Migrate to JasperReports 6</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates JasperReports from 5.x to 6.x with the new exporter API, XLS to XLSX move, and removal of Spring JasperReports views.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to JasperReports 5.6.x","href":"/user-documentation/recipes/recipe-catalog/jasperreports/upgradetojasperreports5/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Migrate JRXlsExporter to JRXlsxExporter","href":"/user-documentation/recipes/recipe-catalog/jasperreports/migratexlstoxlsxexporter/"},{"name":"Update JasperReports exporter configuration","href":"/user-documentation/recipes/recipe-catalog/jasperreports/migrateexporterconfigtojasper6/"}]}>
 
 ## Definition
 

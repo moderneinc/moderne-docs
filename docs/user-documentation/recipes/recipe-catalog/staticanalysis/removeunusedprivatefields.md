@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unused private fields"}
-  description={"If a private field is declared but not used in the program, it can be considered dead code and should therefore be removed. Dead fields clutter the class, increase its memory footprint, and can mislead developers into thinking they are part of the class's behavior."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1068"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveUnusedPrivateFields"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedprivatefields.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unused private fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>If a private field is declared but not used in the program, it can be considered dead code and should therefore be removed. Dead fields clutter the class, increase its memory footprint, and can mislead developers into thinking they are part of the class's behavior.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    private String notUsed;\n}\n","after":"class Test {\n}\n","diff":"@@ -2,1 +2,0 @@\nclass Test {\n-   private String notUsed;\n}\n","newFile":false}]}]}>
 

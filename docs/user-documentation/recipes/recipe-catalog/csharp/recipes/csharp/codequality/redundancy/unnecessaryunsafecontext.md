@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary unsafe context"}
-  description={"Remove unsafe blocks that do not contain unsafe code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UnnecessaryUnsafeContext"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/unnecessaryunsafecontext.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary unsafe context</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unsafe blocks that do not contain unsafe code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UnnecessaryUnsafeContext","displayName":"Remove unnecessary unsafe context","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

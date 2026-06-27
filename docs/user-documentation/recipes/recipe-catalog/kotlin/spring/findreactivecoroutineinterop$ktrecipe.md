@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find reactive / coroutine interop hazards"}
-  description={"Bridges between Reactor and coroutines that usually point at a missed opportunity: `WebClient.bodyToMono(...).block()` (use `awaitBody<T>()`), `Mono.deferContextual { }` inside a `suspend fun` (context propagation goes through `coroutineContext`), and `awaitSingle()` patterns worth a review."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindReactiveCoroutineInterop$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findreactivecoroutineinterop$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `webClient...bodyToMono(X::class).block()` chains","href":"kotlin/spring/findwebclientblockonresponse$ktrecipe"},{"name":"Find `Mono.deferContextual { ... }` inside `suspend fun`","href":"kotlin/spring/findreactorcontextinsidesuspendfun$ktrecipe"},{"name":"Find `mono.awaitSingle()` calls inside Flux/Flow collectors","href":"kotlin/spring/findmonoawaitsingle$ktrecipe"}]}>
+<RecipeHeader.Title>Find reactive / coroutine interop hazards</RecipeHeader.Title>
+
+<RecipeHeader.Description>Bridges between Reactor and coroutines that usually point at a missed opportunity: `WebClient.bodyToMono(...).block()` (use `awaitBody<T>()`), `Mono.deferContextual { }` inside a `suspend fun` (context propagation goes through `coroutineContext`), and `awaitSingle()` patterns worth a review.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `webClient...bodyToMono(X::class).block()` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebclientblockonresponse$ktrecipe/"},{"name":"Find `Mono.deferContextual { ... }` inside `suspend fun`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findreactorcontextinsidesuspendfun$ktrecipe/"},{"name":"Find `mono.awaitSingle()` calls inside Flux/Flow collectors","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoawaitsingle$ktrecipe/"}]}>
 
 ## Definition
 

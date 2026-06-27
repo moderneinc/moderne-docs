@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add parameter name to documentation comment"}
-  description={"Add missing param elements to XML documentation comments."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.AddParameterToDocComment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/formatting/addparametertodoccomment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add parameter name to documentation comment</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add missing param elements to XML documentation comments.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.AddParameterToDocComment","displayName":"Add parameter name to documentation comment","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

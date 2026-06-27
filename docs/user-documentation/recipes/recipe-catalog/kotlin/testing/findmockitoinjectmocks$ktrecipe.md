@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Mockito `@InjectMocks` fields"}
-  description={"`@InjectMocks` asks Mockito to wire `@Mock`-annotated fields into the target's constructor / setters / fields by reflection. In Kotlin code with constructor injection, the cleaner equivalent is to declare the target inside `@BeforeEach`: `val target = Service(mockA, mockB)`. mockk has no analogous annotation — the explicit constructor call is the convention."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindMockitoInjectMocks$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitoinjectmocks$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Mockito `@InjectMocks` fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@InjectMocks` asks Mockito to wire `@Mock`-annotated fields into the target's constructor / setters / fields by reflection. In Kotlin code with constructor injection, the cleaner equivalent is to declare the target inside `@BeforeEach`: `val target = Service(mockA, mockB)`. mockk has no analogous annotation — the explicit constructor call is the convention.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindMockitoInjectMocks$KtRecipe","displayName":"Find Mockito `@InjectMocks` fields","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

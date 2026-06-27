@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Print Maven dependency hierarchy in DOT format"}
-  description={"The DOT language format is specified [here](https://graphviz.org/doc/info/lang.html)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.utilities.PrintMavenAsDot"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/utilities/printmavenasdot.md"}
-/>
+>
+
+<RecipeHeader.Title>Print Maven dependency hierarchy in DOT format</RecipeHeader.Title>
+
+<RecipeHeader.Description>The DOT language format is specified [here](https://graphviz.org/doc/info/lang.html).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <dependencies>\n    <dependency>\n        <groupId>org.yaml</groupId>\n        <artifactId>snakeyaml</artifactId>\n        <version>1.27</version>\n    </dependency>\n    <dependency>\n      <groupId>org.junit.jupiter</groupId>\n      <artifactId>junit-jupiter</artifactId>\n      <version>5.7.0</version>\n      <scope>test</scope>\n    </dependency>\n  </dependencies>\n</project>\n","after":"<!--~~(digraph main {\n0 [label=\"com.mycompany.app:my-app:1\"];\n1 [label=\"org.yaml:snakeyaml:1.27\"];\n2 [label=\"org.junit.jupiter:junit-jupiter:5.7.0\"];\n3 [label=\"org.junit.jupiter:junit-jupiter-api:5.7.0\"];\n4 [label=\"org.junit.jupiter:junit-jupiter-params:5.7.0\"];\n5 [label=\"org.junit.jupiter:junit-jupiter-engine:5.7.0\"];\n6 [label=\"org.apiguardian:apiguardian-api:1.1.0\"];\n7 [label=\"org.opentest4j:opentest4j:1.2.0\"];\n8 [label=\"org.junit.platform:junit-platform-commons:1.7.0\"];\n9 [label=\"org.junit.platform:junit-platform-engine:1.7.0\"];\n0 -> 1 [taillabel=\"Compile\"];\n0 -> 2 [taillabel=\"Test\"];\n2 -> 3 [taillabel=\"Test\"];\n3 -> 6 [taillabel=\"Test\"];\n3 -> 7 [taillabel=\"Test\"];\n3 -> 8 [taillabel=\"Test\"];\n2 -> 4 [taillabel=\"Test\"];\n2 -> 5 [taillabel=\"Test\"];\n5 -> 9 [taillabel=\"Test\"];\n})~~>--><project>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <dependencies>\n    <dependency>\n        <groupId>org.yaml</groupId>\n        <artifactId>snakeyaml</artifactId>\n        <version>1.27</version>\n    </dependency>\n    <dependency>\n      <groupId>org.junit.jupiter</groupId>\n      <artifactId>junit-jupiter</artifactId>\n      <version>5.7.0</version>\n      <scope>test</scope>\n    </dependency>\n  </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -1,1 +1,21 @@\n-<project>\n+<!--~~(digraph main {\n+0 [label=\"com.mycompany.app:my-app:1\"];\n+1 [label=\"org.yaml:snakeyaml:1.27\"];\n+2 [label=\"org.junit.jupiter:junit-jupiter:5.7.0\"];\n+3 [label=\"org.junit.jupiter:junit-jupiter-api:5.7.0\"];\n+4 [label=\"org.junit.jupiter:junit-jupiter-params:5.7.0\"];\n+5 [label=\"org.junit.jupiter:junit-jupiter-engine:5.7.0\"];\n+6 [label=\"org.apiguardian:apiguardian-api:1.1.0\"];\n+7 [label=\"org.opentest4j:opentest4j:1.2.0\"];\n+8 [label=\"org.junit.platform:junit-platform-commons:1.7.0\"];\n+9 [label=\"org.junit.platform:junit-platform-engine:1.7.0\"];\n+0 -> 1 [taillabel=\"Compile\"];\n+0 -> 2 [taillabel=\"Test\"];\n+2 -> 3 [taillabel=\"Test\"];\n+3 -> 6 [taillabel=\"Test\"];\n+3 -> 7 [taillabel=\"Test\"];\n+3 -> 8 [taillabel=\"Test\"];\n+2 -> 4 [taillabel=\"Test\"];\n+2 -> 5 [taillabel=\"Test\"];\n+5 -> 9 [taillabel=\"Test\"];\n+})~~>--><project>\n  <groupId>com.mycompany.app</groupId>\n","newFile":false}]}]}>
 

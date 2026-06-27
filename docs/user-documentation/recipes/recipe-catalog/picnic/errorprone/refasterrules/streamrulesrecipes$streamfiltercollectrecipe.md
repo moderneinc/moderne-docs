@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StreamRules.StreamFilterCollect`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamFilterCollect<T, R> {\n    \n    @BeforeTemplate\n    R before(Stream<T> stream, Predicate<? super T> predicate, Collector<? super T, ?, R> collector) {\n        return stream.collect(filtering(predicate, collector));\n    }\n    \n    @AfterTemplate\n    R after(Stream<T> stream, Predicate<? super T> predicate, Collector<? super T, ?, R> collector) {\n        return stream.filter(predicate).collect(collector);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFilterCollectRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/streamrulesrecipes$streamfiltercollectrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StreamRules.StreamFilterCollect`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class StreamFilterCollect<T, R> {
+    
+    @BeforeTemplate
+    R before(Stream<T> stream, Predicate<? super T> predicate, Collector<? super T, ?, R> collector) {
+        return stream.collect(filtering(predicate, collector));
+    }
+    
+    @AfterTemplate
+    R after(Stream<T> stream, Predicate<? super T> predicate, Collector<? super T, ?, R> collector) {
+        return stream.filter(predicate).collect(collector);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFilterCollectRecipe","displayName":"Refaster template `StreamRules.StreamFilterCollect`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

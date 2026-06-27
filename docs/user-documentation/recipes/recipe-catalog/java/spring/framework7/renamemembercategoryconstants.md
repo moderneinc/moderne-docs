@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename MemberCategory field constants for Spring Framework 7.0"}
-  description={"Renames deprecated `MemberCategory` constants to their new names in Spring Framework 7.0. `MemberCategory.PUBLIC_FIELDS` is renamed to `MemberCategory.INVOKE_PUBLIC_FIELDS` and `MemberCategory.DECLARED_FIELDS` is renamed to `MemberCategory.INVOKE_DECLARED_FIELDS`. These renames clarify the original intent of these categories and align with the rest of the API."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","framework","native","graalvm"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.RenameMemberCategoryConstants"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/renamemembercategoryconstants.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Rename MemberCategory field constants for Spring Framework 7.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames deprecated `MemberCategory` constants to their new names in Spring Framework 7.0. `MemberCategory.PUBLIC_FIELDS` is renamed to `MemberCategory.INVOKE_PUBLIC_FIELDS` and `MemberCategory.DECLARED_FIELDS` is renamed to `MemberCategory.INVOKE_DECLARED_FIELDS`. These renames clarify the original intent of these categories and align with the rest of the API.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `MessageDigest.getInstance(\"SHA-1\")` calls"}
-  description={"SHA-1 collisions are computationally feasible (SHAttered, 2017). NIST has deprecated SHA-1 for signature use; migrate to SHA-256 or a SHA-3 variant."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindWeakHashSha1$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findweakhashsha1$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `MessageDigest.getInstance("SHA-1")` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>SHA-1 collisions are computationally feasible (SHAttered, 2017). NIST has deprecated SHA-1 for signature use; migrate to SHA-256 or a SHA-3 variant.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindWeakHashSha1$KtRecipe","displayName":"Find `MessageDigest.getInstance(\"SHA-1\")` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

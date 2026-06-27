@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJDurationRules.AssertThatIsPositive`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsPositive {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Duration duration) {\n        return assertThat(duration.isPositive()).isTrue();\n    }\n    \n    @BeforeTemplate\n    AbstractDurationAssert<?> before2(Duration duration) {\n        return assertThat(duration).isGreaterThan(Duration.ZERO);\n    }\n    \n    @AfterTemplate\n    AbstractDurationAssert<?> after(Duration duration) {\n        return assertThat(duration).isPositive();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,37 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatIsPositiveRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthatispositiverecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJDurationRules.AssertThatIsPositive`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIsPositive {
+    
+    @BeforeTemplate
+    AbstractBooleanAssert<?> before(Duration duration) {
+        return assertThat(duration.isPositive()).isTrue();
+    }
+    
+    @BeforeTemplate
+    AbstractDurationAssert<?> before2(Duration duration) {
+        return assertThat(duration).isGreaterThan(Duration.ZERO);
+    }
+    
+    @AfterTemplate
+    AbstractDurationAssert<?> after(Duration duration) {
+        return assertThat(duration).isPositive();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatIsPositiveRecipe","displayName":"Refaster template `AssertJDurationRules.AssertThatIsPositive`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

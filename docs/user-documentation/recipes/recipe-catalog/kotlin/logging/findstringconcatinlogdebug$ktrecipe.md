@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find string concatenation in `log.debug(...)`"}
-  description={"`log.debug(\"x=\" + x)` performs the concatenation eagerly. Use kotlin-logging's `log.debug { \"x=$x\" }` lambda form or SLF4J's `log.debug(\"x={}\", x)` placeholder form."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindStringConcatInLogDebug$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinlogdebug$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find string concatenation in `log.debug(...)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`log.debug("x=" + x)` performs the concatenation eagerly. Use kotlin-logging's `log.debug { "x=$x" }` lambda form or SLF4J's `log.debug("x={}", x)` placeholder form.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindStringConcatInLogDebug$KtRecipe","displayName":"Find string concatenation in `log.debug(...)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

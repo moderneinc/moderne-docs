@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Terraform to 0.14"}
-  description={"Migrate Terraform configuration from 0.13 to 0.14. Moves version constraints from `provider` blocks to `terraform { required_providers { ... } }`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["terraform"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.UpgradeTerraformTo0_14"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/upgradeterraformto0_14.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Terraform to 0.13","href":"terraform/terraform013/upgradeterraformto0_13"},{"name":"Move provider version to `required_providers`","href":"terraform/moveproviderversiontorequiredproviders"}]}>
+<RecipeHeader.Title>Upgrade Terraform to 0.14</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Terraform configuration from 0.13 to 0.14. Moves version constraints from `provider` blocks to `terraform { required_providers { ... } }`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Terraform to 0.13","href":"/user-documentation/recipes/recipe-catalog/terraform/terraform013/upgradeterraformto0_13/"},{"name":"Move provider version to `required_providers`","href":"/user-documentation/recipes/recipe-catalog/terraform/moveproviderversiontorequiredproviders/"}]}>
 
 ## Definition
 

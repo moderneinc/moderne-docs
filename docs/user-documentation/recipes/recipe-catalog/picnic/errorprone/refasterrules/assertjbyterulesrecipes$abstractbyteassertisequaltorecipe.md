@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJByteRules.AbstractByteAssertIsEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractByteAssertIsEqualTo {\n    \n    @BeforeTemplate\n    AbstractByteAssert<?> before(AbstractByteAssert<?> byteAssert, byte n) {\n        return Refaster.anyOf(byteAssert.isCloseTo(n, offset((byte)0)), byteAssert.isCloseTo(n, withPercentage(0)));\n    }\n    \n    @AfterTemplate\n    AbstractByteAssert<?> after(AbstractByteAssert<?> byteAssert, byte n) {\n        return byteAssert.isEqualTo(n);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJByteRulesRecipes$AbstractByteAssertIsEqualToRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertisequaltorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJByteRules.AbstractByteAssertIsEqualTo`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractByteAssertIsEqualTo {
+    
+    @BeforeTemplate
+    AbstractByteAssert<?> before(AbstractByteAssert<?> byteAssert, byte n) {
+        return Refaster.anyOf(byteAssert.isCloseTo(n, offset((byte)0)), byteAssert.isCloseTo(n, withPercentage(0)));
+    }
+    
+    @AfterTemplate
+    AbstractByteAssert<?> after(AbstractByteAssert<?> byteAssert, byte n) {
+        return byteAssert.isEqualTo(n);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJByteRulesRecipes$AbstractByteAssertIsEqualToRecipe","displayName":"Refaster template `AssertJByteRules.AbstractByteAssertIsEqualTo`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

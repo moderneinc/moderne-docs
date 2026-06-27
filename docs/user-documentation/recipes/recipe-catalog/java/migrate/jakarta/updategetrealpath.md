@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Updates `getRealPath()` to call `getContext()` followed by `getRealPath()`"}
-  description={"Updates `getRealPath()` for `jakarta.servlet.ServletRequest` and `jakarta.servlet.ServletRequestWrapper` to use `ServletContext.getRealPath(String)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.UpdateGetRealPath"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updategetrealpath.md"}
-/>
+>
+
+<RecipeHeader.Title>Updates `getRealPath()` to call `getContext()` followed by `getRealPath()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Updates `getRealPath()` for `jakarta.servlet.ServletRequest` and `jakarta.servlet.ServletRequestWrapper` to use `ServletContext.getRealPath(String)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.servlet.http.HttpServletRequest;\nimport jakarta.servlet.http.HttpServletRequestWrapper;\nclass Foo {\n    void bar(HttpServletRequest request, HttpServletRequestWrapper wrapper) throws Exception {\n        request.getRealPath(\"\");\n        wrapper.getRealPath(\"\");\n    }\n}\n","after":"import jakarta.servlet.http.HttpServletRequest;\nimport jakarta.servlet.http.HttpServletRequestWrapper;\nclass Foo {\n    void bar(HttpServletRequest request, HttpServletRequestWrapper wrapper) throws Exception {\n        request.getServletContext().getRealPath(\"\");\n        wrapper.getServletContext().getRealPath(\"\");\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass Foo {\n    void bar(HttpServletRequest request, HttpServletRequestWrapper wrapper) throws Exception {\n-       request.getRealPath(\"\");\n-       wrapper.getRealPath(\"\");\n+       request.getServletContext().getRealPath(\"\");\n+       wrapper.getServletContext().getRealPath(\"\");\n    }\n","newFile":false}]}]}>
 

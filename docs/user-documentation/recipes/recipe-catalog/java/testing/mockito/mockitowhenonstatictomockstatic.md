@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `Mockito.when` on static (non mock) with try-with-resource with MockedStatic"}
-  description={"Replace `Mockito.when` on static (non mock) with try-with-resource with MockedStatic as Mockito4 no longer allows this. For JUnit 4/5 & TestNG: When `@Before*` is used, a `close` call is added to the corresponding `@After*` method. This change moves away from implicit bytecode manipulation for static method stubbing, making mocking behavior more explicit and scoped to avoid unintended side effects."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.MockitoWhenOnStaticToMockStatic"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitowhenonstatictomockstatic.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `Mockito.when` on static (non mock) with try-with-resource with MockedStatic</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `Mockito.when` on static (non mock) with try-with-resource with MockedStatic as Mockito4 no longer allows this. For JUnit 4/5 & TestNG: When `@Before*` is used, a `close` call is added to the corresponding `@After*` method. This change moves away from implicit bytecode manipulation for static method stubbing, making mocking behavior more explicit and scoped to avoid unintended side effects.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.example.A;\n\nimport static org.junit.Assert.assertEquals;\nimport static org.mockito.Mockito.*;\n\nclass Test {\n    void test() {\n        System.out.println(\"some statement\");\n        when(A.getNumber()).thenReturn(-1);\n        assertEquals(A.getNumber(), -1);\n    }\n}\n","after":"import org.example.A;\nimport org.mockito.MockedStatic;\n\nimport static org.junit.Assert.assertEquals;\nimport static org.mockito.Mockito.*;\n\nclass Test {\n    void test() {\n        System.out.println(\"some statement\");\n        try (MockedStatic<A> mockA1 = mockStatic(A.class)) {\n            mockA1.when(() -> A.getNumber()).thenReturn(-1);\n            assertEquals(A.getNumber(), -1);\n        }\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.example.A;\n+import org.mockito.MockedStatic;\n\n@@ -9,2 +10,4 @@\n    void test() {\n        System.out.println(\"some statement\");\n-       when(A.getNumber()).thenReturn(-1);\n-       assertEquals(A.getNumber(), -1);\n+       try (MockedStatic<A> mockA1 = mockStatic(A.class)) {\n+           mockA1.when(() -> A.getNumber()).thenReturn(-1);\n+           assertEquals(A.getNumber(), -1);\n+       }\n    }\n","newFile":false}]}]}>
 

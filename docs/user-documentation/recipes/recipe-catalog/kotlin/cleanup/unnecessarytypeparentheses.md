@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary parentheses on Kotlin types"}
-  description={"In Kotlin, it's possible to add redundant nested parentheses in type definitions. This recipe is designed to remove those unnecessary parentheses."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-kotlin"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.cleanup.UnnecessaryTypeParentheses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/cleanup/unnecessarytypeparentheses.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary parentheses on Kotlin types</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Kotlin, it's possible to add redundant nested parentheses in type definitions. This recipe is designed to remove those unnecessary parentheses.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"val x : (Int) = 42\nval y : (((Int))) = 42\n","after":"val x : Int = 42\nval y : Int = 42\n","diff":"@@ -1,2 +1,2 @@\n-val x : (Int) = 42\n-val y : (((Int))) = 42\n+val x : Int = 42\n+val y : Int = 42\n\n","newFile":false}]}]}>
 

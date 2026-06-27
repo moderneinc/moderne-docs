@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `prefer-application-packages` for SLF4J in `weblogic.xml`"}
-  description={"This recipe will add a `prefer-application-packages` entry for SLF4J in `weblogic.xml` if it does not already exist."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["web-app","schemas","weblogic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.WebLogicXmlPreferApplicationPackagesSlf4j"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/weblogicxmlpreferapplicationpackagesslf4j.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add or update child tag","href":"xml/addorupdatechildtag"},{"name":"Add or update child tag","href":"xml/addorupdatechildtag"},{"name":"Add or update child tag","href":"xml/addorupdatechildtag"}]} preconditions={[{"name":"Find files","href":"core/findsourcefiles"}]}>
+<RecipeHeader.Title>Add `prefer-application-packages` for SLF4J in `weblogic.xml`</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will add a `prefer-application-packages` entry for SLF4J in `weblogic.xml` if it does not already exist.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add or update child tag","href":"/user-documentation/recipes/recipe-catalog/xml/addorupdatechildtag/"},{"name":"Add or update child tag","href":"/user-documentation/recipes/recipe-catalog/xml/addorupdatechildtag/"},{"name":"Add or update child tag","href":"/user-documentation/recipes/recipe-catalog/xml/addorupdatechildtag/"}]} preconditions={[{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"}]}>
 
 ## Definition
 

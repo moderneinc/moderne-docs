@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find minimum JUnit version"}
-  description={"A recipe to find the minimum version of JUnit dependencies. This recipe is designed to return the minimum version of JUnit in a project. It will search for JUnit 4 and JUnit 5 dependencies in the project. If both versions are found, it will return the minimum version of JUnit 4.\nIf a minimumVersion is provided, the recipe will search to see if the minimum version of JUnit used by the project is no lower than the minimumVersion.\nFor example: if the minimumVersion is 4, and the project has JUnit 4.12 and JUnit 5.7, the recipe will return JUnit 4.12. If the project has only JUnit 5.7, the recipe will return JUnit 5.7.\nAnother example: if the minimumVersion is 5, and the project has JUnit 4.12 and JUnit 5.7, the recipe will not return any results."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-java-dependencies"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.search.FindMinimumJUnitVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/search/findminimumjunitversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Find minimum JUnit version</RecipeHeader.Title>
+
+<RecipeHeader.Description>A recipe to find the minimum version of JUnit dependencies. This recipe is designed to return the minimum version of JUnit in a project. It will search for JUnit 4 and JUnit 5 dependencies in the project. If both versions are found, it will return the minimum version of JUnit 4. If a minimumVersion is provided, the recipe will search to see if the minimum version of JUnit used by the project is no lower than the minimumVersion. For example: if the minimumVersion is 4, and the project has JUnit 4.12 and JUnit 5.7, the recipe will return JUnit 4.12. If the project has only JUnit 5.7, the recipe will return JUnit 5.7. Another example: if the minimumVersion is 5, and the project has JUnit 4.12 and JUnit 5.7, the recipe will not return any results.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"minimumVersion","required":false,"description":"Determine if the provided version is the minimum JUnit version. If both JUnit 4 and JUnit 5 are present, the minimum version is JUnit 4. If only one version is present, that version is the minimum version.","example":"4"}]}>
 

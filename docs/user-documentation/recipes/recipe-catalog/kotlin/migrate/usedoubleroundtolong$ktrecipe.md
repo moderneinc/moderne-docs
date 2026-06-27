@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Double.roundToLong()` instead of `java.lang.Math.round`"}
-  description={"`Math.round(d: Double): Long` becomes `d.roundToLong()` as a multiplatform Kotlin extension."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseDoubleRoundToLong$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoubleroundtolong$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Double.roundToLong()` instead of `java.lang.Math.round`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Math.round(d: Double): Long` becomes `d.roundToLong()` as a multiplatform Kotlin extension.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseDoubleRoundToLong$KtRecipe","displayName":"Use `Double.roundToLong()` instead of `java.lang.Math.round`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

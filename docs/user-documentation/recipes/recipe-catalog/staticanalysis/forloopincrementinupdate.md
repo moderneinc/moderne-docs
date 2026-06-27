@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`for` loop counters incremented in update"}
-  description={"The increment should be moved to the loop's increment clause if possible. Placing the counter update in the loop body rather than the update clause obscures the loop's control flow and makes it harder to reason about termination."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1994"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ForLoopIncrementInUpdate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/forloopincrementinupdate.md"}
-/>
+>
+
+<RecipeHeader.Title>`for` loop counters incremented in update</RecipeHeader.Title>
+
+<RecipeHeader.Description>The increment should be moved to the loop's increment clause if possible. Placing the counter update in the loop body rather than the update clause obscures the loop's control flow and makes it harder to reason about termination.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test() {\n        int h, j;\n        for (int i = 0; i < 10; h++, j++) {\n            i++;\n        }\n    }\n}\n","after":"class Test {\n    void test() {\n        int h, j;\n        for (int i = 0; i < 10; h++, i++, j++) {\n        }\n    }\n}\n","diff":"@@ -4,2 +4,1 @@\n    void test() {\n        int h, j;\n-       for (int i = 0; i < 10; h++, j++) {\n-           i++;\n+       for (int i = 0; i < 10; h++, i++, j++) {\n        }\n","newFile":false}]}]}>
 

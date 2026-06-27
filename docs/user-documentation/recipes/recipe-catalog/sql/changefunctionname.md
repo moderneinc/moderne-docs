@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change a SQL function name"}
-  description={"When migrating between dialects, often one name can be substituted for another. For example, Oracle's `NVL` function can be replaced with Postgres `COALESCE`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.sql.ChangeFunctionName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/sql/changefunctionname.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Change a SQL function name</RecipeHeader.Title>
+
+<RecipeHeader.Description>When migrating between dialects, often one name can be substituted for another. For example, Oracle's `NVL` function can be replaced with Postgres `COALESCE`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldFunctionName","required":true,"description":"The name of the function to find, case insensitive.","example":"NVL"},{"type":"String","name":"newFunctionName","required":true,"description":"The new name to use. This will match the casing of the original method when a replacement is made.","example":"COALESCE"}]}>
 

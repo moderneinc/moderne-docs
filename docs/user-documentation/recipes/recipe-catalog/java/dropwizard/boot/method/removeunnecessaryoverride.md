@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary `@Override` annotations"}
-  description={"Removes `@Override` annotations from methods that don't actually override or implement any method. This helps maintain clean code by removing incorrect annotations that could be misleading."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.method.RemoveUnnecessaryOverride"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/method/removeunnecessaryoverride.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary `@Override` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `@Override` annotations from methods that don't actually override or implement any method. This helps maintain clean code by removing incorrect annotations that could be misleading.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"ignoreAnonymousClassMethods","required":false,"description":"When enabled, ignore @Override annotations on methods in anonymous classes."}]}>
 

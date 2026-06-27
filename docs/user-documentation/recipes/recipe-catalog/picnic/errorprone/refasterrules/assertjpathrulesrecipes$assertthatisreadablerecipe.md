@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJPathRules.AssertThatIsReadable`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsReadable {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Path actual) {\n        return assertThat(Files.isReadable(actual)).isTrue();\n    }\n    \n    @AfterTemplate\n    AbstractPathAssert<?> after(Path actual) {\n        return assertThat(actual).isReadable();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatIsReadableRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjpathrulesrecipes$assertthatisreadablerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJPathRules.AssertThatIsReadable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIsReadable {
+    
+    @BeforeTemplate
+    AbstractBooleanAssert<?> before(Path actual) {
+        return assertThat(Files.isReadable(actual)).isTrue();
+    }
+    
+    @AfterTemplate
+    AbstractPathAssert<?> after(Path actual) {
+        return assertThat(actual).isReadable();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatIsReadableRecipe","displayName":"Refaster template `AssertJPathRules.AssertThatIsReadable`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJMapRules.AbstractMapAssertContainsExactlyEntriesOf`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractMapAssertContainsExactlyEntriesOf<K, V> {\n    \n    @BeforeTemplate\n    AbstractMapAssert<?, ?, K, V> before(AbstractMapAssert<?, ?, K, V> mapAssert, K key, V value) {\n        return mapAssert.containsExactlyInAnyOrderEntriesOf(ImmutableMap.of(key, value));\n    }\n    \n    @AfterTemplate\n    AbstractMapAssert<?, ?, K, V> after(AbstractMapAssert<?, ?, K, V> mapAssert, K key, V value) {\n        return mapAssert.containsExactlyEntriesOf(ImmutableMap.of(key, value));\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AbstractMapAssertContainsExactlyEntriesOfRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$abstractmapassertcontainsexactlyentriesofrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJMapRules.AbstractMapAssertContainsExactlyEntriesOf`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractMapAssertContainsExactlyEntriesOf<K, V> {
+    
+    @BeforeTemplate
+    AbstractMapAssert<?, ?, K, V> before(AbstractMapAssert<?, ?, K, V> mapAssert, K key, V value) {
+        return mapAssert.containsExactlyInAnyOrderEntriesOf(ImmutableMap.of(key, value));
+    }
+    
+    @AfterTemplate
+    AbstractMapAssert<?, ?, K, V> after(AbstractMapAssert<?, ?, K, V> mapAssert, K key, V value) {
+        return mapAssert.containsExactlyEntriesOf(ImmutableMap.of(key, value));
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AbstractMapAssertContainsExactlyEntriesOfRecipe","displayName":"Refaster template `AssertJMapRules.AbstractMapAssertContainsExactlyEntriesOf`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade group, artifact ID and version of an artifactItem, of a maven plugin execution configuration"}
-  description={"Change the groupId and the artifactId of an artifactItem in the configuration section of a plugin's execution. This recipe does not perform any validation and assumes all values passed are valid."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.UpgradeMavenPluginArtifactItems"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/upgrademavenpluginartifactitems.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade group, artifact ID and version of an artifactItem, of a maven plugin execution configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the groupId and the artifactId of an artifactItem in the configuration section of a plugin's execution. This recipe does not perform any validation and assumes all values passed are valid.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldGroupId","required":true,"description":"The old group ID to replace.","example":"javax"},{"type":"String","name":"oldArtifactId","required":true,"description":"The old artifact ID to replace.","example":"javax"},{"type":"String","name":"newGroupId","required":true,"description":"The new group ID to use.","example":"jakarta.platform"},{"type":"String","name":"newArtifactId","required":true,"description":"The new artifact ID to use.","example":"javaee-api"},{"type":"String","name":"newVersion","required":false,"description":"An exact version number.","example":"9.1"}]}>
 

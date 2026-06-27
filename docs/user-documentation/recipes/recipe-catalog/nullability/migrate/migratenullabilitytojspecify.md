@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate existing nullability annotations to JSpecify"}
-  description={"Convert a codebase's existing nullability annotations and conventions onto [JSpecify](https://jspecify.dev) so that NullAway and the inference recipes have a single, consistent vocabulary to reason about. Runs every migration sub-recipe: standardize the per-element `@Nullable`/`@NonNull` flavors (JSR-305, JetBrains, Checker, Android, Eclipse, SpotBugs, ...), and convert package-level \"non-null by default\" conventions (Spring `@NonNullApi`/`@NonNullFields`, JSR-305/Jakarta `@ParametersAreNonnullByDefault`) to `@NullMarked`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["jspecify","nullability"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.migrate.MigrateNullabilityToJSpecify"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/migrate/migratenullabilitytojspecify.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Standardize nullability annotations to JSpecify","href":"nullability/migrate/standardizenullabilityannotationstojspecify"},{"name":"Migrate `@NonNullApi`/`ParametersAreNonnullByDefault` to JSpecify `@NullMarked`","href":"nullability/migrate/migratenonnullapitonullmarked"}]}>
+<RecipeHeader.Title>Migrate existing nullability annotations to JSpecify</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert a codebase's existing nullability annotations and conventions onto [JSpecify](https://jspecify.dev) so that NullAway and the inference recipes have a single, consistent vocabulary to reason about. Runs every migration sub-recipe: standardize the per-element `@Nullable`/`@NonNull` flavors (JSR-305, JetBrains, Checker, Android, Eclipse, SpotBugs, ...), and convert package-level "non-null by default" conventions (Spring `@NonNullApi`/`@NonNullFields`, JSR-305/Jakarta `@ParametersAreNonnullByDefault`) to `@NullMarked`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Standardize nullability annotations to JSpecify","href":"/user-documentation/recipes/recipe-catalog/nullability/migrate/standardizenullabilityannotationstojspecify/"},{"name":"Migrate `@NonNullApi`/`ParametersAreNonnullByDefault` to JSpecify `@NullMarked`","href":"/user-documentation/recipes/recipe-catalog/nullability/migrate/migratenonnullapitonullmarked/"}]}>
 
 ## Definition
 

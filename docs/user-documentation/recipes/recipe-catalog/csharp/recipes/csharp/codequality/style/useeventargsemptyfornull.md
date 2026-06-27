@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use EventArgs.Empty instead of null"}
-  description={"Replace `null` with `EventArgs.Empty` when raising events. Passing `null` for EventArgs can cause NullReferenceException in event handlers."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseEventArgsEmptyForNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/useeventargsemptyfornull.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use EventArgs.Empty instead of null</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `null` with `EventArgs.Empty` when raising events. Passing `null` for EventArgs can cause NullReferenceException in event handlers.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseEventArgsEmptyForNull","displayName":"Use EventArgs.Empty instead of null","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert switch expression yield to arrow"}
-  description={"Convert switch expressions with colon cases and yield statements to arrow syntax. This recipe is only applicable for Java 21 and later."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.SwitchExpressionYieldToArrow"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/switchexpressionyieldtoarrow.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert switch expression yield to arrow</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert switch expressions with colon cases and yield statements to arrow syntax. This recipe is only applicable for Java 21 and later.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    String format(String str) {\n        String formatted = switch (str) {\n            case \"foo\", \"bar\": yield \"FooBar\";\n            case \"baz\": yield \"Baz\";\n            default: yield \"unknown\";\n        };\n        return formatted;\n    }\n}\n","after":"class Test {\n    String format(String str) {\n        String formatted = switch (str) {\n            case \"foo\", \"bar\" -> \"FooBar\";\n            case \"baz\" -> \"Baz\";\n            default -> \"unknown\";\n        };\n        return formatted;\n    }\n}\n","diff":"@@ -4,3 +4,3 @@\n    String format(String str) {\n        String formatted = switch (str) {\n-           case \"foo\", \"bar\": yield \"FooBar\";\n-           case \"baz\": yield \"Baz\";\n-           default: yield \"unknown\";\n+           case \"foo\", \"bar\" -> \"FooBar\";\n+           case \"baz\" -> \"Baz\";\n+           default -> \"unknown\";\n        };\n","newFile":false}]}]}>
 

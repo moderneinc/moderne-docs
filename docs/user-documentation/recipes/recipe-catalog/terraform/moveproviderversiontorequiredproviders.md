@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move provider version to `required_providers`"}
-  description={"In Terraform 0.13+, version constraints should be specified in the `terraform { required_providers { ... } }` block instead of the `provider` block. This recipe removes the `version` attribute from `provider` blocks and adds it to `required_providers`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.MoveProviderVersionToRequiredProviders"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/moveproviderversiontorequiredproviders.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Move provider version to `required_providers`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Terraform 0.13+, version constraints should be specified in the `terraform { required_providers { ... } }` block instead of the `provider` block. This recipe removes the `version` attribute from `provider` blocks and adds it to `required_providers`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"defaultNamespace","required":false,"description":"The default registry namespace to use for provider source addresses. Defaults to `hashicorp`.","example":"hashicorp"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring coroutine-migration candidates"}
-  description={"Controllers and clients that work today with `Mono`/`Flux` chaining but read more naturally as suspending Kotlin: `Mono<T>` returns from mapping methods (could be `suspend fun foo(): T`) and `bodyToMono(X::class.java)` patterns (`awaitBody<X>()`)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringCoroutineCandidates$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringcoroutinecandidates$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `@GetMapping`/`@PostMapping`/... methods returning `Mono<T>`","href":"kotlin/spring/findcoroutinecontrollercandidate$ktrecipe"},{"name":"Find `WebClient.bodyToMono(X::class.java)` calls","href":"kotlin/spring/findwebclientwithoutawait$ktrecipe"}]}>
+<RecipeHeader.Title>Find Spring coroutine-migration candidates</RecipeHeader.Title>
+
+<RecipeHeader.Description>Controllers and clients that work today with `Mono`/`Flux` chaining but read more naturally as suspending Kotlin: `Mono<T>` returns from mapping methods (could be `suspend fun foo(): T`) and `bodyToMono(X::class.java)` patterns (`awaitBody<X>()`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `@GetMapping`/`@PostMapping`/... methods returning `Mono<T>`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findcoroutinecontrollercandidate$ktrecipe/"},{"name":"Find `WebClient.bodyToMono(X::class.java)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebclientwithoutawait$ktrecipe/"}]}>
 
 ## Definition
 

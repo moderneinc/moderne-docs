@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace annotation"}
-  description={"Replace an Annotation with another one if the annotation pattern matches. Only fixed parameters can be set in the replacement."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.ReplaceAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/replaceannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace an Annotation with another one if the annotation pattern matches. Only fixed parameters can be set in the replacement.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"annotationPatternToReplace","required":true,"description":"An annotation matcher, expressed as a method pattern to replace.","example":"@org.jetbrains.annotations.NotNull(\"Test\")"},{"type":"String","name":"annotationTemplateToInsert","required":true,"description":"An annotation template to add instead of original one, will be parsed with `JavaTemplate`.","example":"@org.jetbrains.annotations.NotNull(\"Null not permitted\")"},{"type":"String","name":"classpathResourceName","required":false,"description":"If the annotation's type is defined by a jar within the META-INF/rewrite/classpath directory provide its name here so that it can be loaded. When this parameter is not passed the runtime classpath of the recipe is provided to the parser producing the new annotation. This is necessary when the annotation is not on the runtime classpath of the recipe and isn't in the Java standard library.","example":"annotations"}]}>
 

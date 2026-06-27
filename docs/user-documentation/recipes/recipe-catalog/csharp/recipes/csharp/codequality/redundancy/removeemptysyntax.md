@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find empty syntax"}
-  description={"Find empty namespace, class, struct, interface, and enum declarations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEmptySyntax"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeemptysyntax.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find empty syntax</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find empty namespace, class, struct, interface, and enum declarations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEmptySyntax","displayName":"Find empty syntax","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

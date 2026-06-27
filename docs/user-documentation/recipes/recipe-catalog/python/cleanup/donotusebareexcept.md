@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Narrow bare `except:` to `except Exception:`"}
-  description={"An unqualified `except:` intercepts every exception, including `SystemExit` and `KeyboardInterrupt`. Specifying `Exception` restricts the handler to ordinary runtime errors."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.DoNotUseBareExcept"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/donotusebareexcept.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Narrow bare `except:` to `except Exception:`</RecipeHeader.Title>
+
+<RecipeHeader.Description>An unqualified `except:` intercepts every exception, including `SystemExit` and `KeyboardInterrupt`. Specifying `Exception` restricts the handler to ordinary runtime errors.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.DoNotUseBareExcept","displayName":"Narrow bare `except:` to `except Exception:`","pipPackage":"openrewrite-static-analysis"}}>
 

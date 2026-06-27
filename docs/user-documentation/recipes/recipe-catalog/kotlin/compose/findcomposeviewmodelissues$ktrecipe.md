@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose ViewModel wiring issues"}
-  description={"ViewModel acquisition inside composables — `hiltViewModel<X>()` and `viewModel<X>()` — and StateFlow exposure: `MutableStateFlow` without an `asStateFlow()` read-only view."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposeViewModelIssues$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposeviewmodelissues$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `hiltViewModel<X>()` calls inside `@Composable`","href":"kotlin/compose/findhiltviewmodelincomposable$ktrecipe"},{"name":"Find `viewModel<X>()` calls inside `@Composable`","href":"kotlin/compose/findviewmodelincomposable$ktrecipe"},{"name":"Find non-`private` `MutableStateFlow` properties","href":"kotlin/compose/findpublicmutablestateflowproperty$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose ViewModel wiring issues</RecipeHeader.Title>
+
+<RecipeHeader.Description>ViewModel acquisition inside composables — `hiltViewModel<X>()` and `viewModel<X>()` — and StateFlow exposure: `MutableStateFlow` without an `asStateFlow()` read-only view.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `hiltViewModel<X>()` calls inside `@Composable`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findhiltviewmodelincomposable$ktrecipe/"},{"name":"Find `viewModel<X>()` calls inside `@Composable`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findviewmodelincomposable$ktrecipe/"},{"name":"Find non-`private` `MutableStateFlow` properties","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findpublicmutablestateflowproperty$ktrecipe/"}]}>
 
 ## Definition
 

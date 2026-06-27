@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `JUnitToAssertJRules.AssertThatByteArrayWithFailMessageSupplierContainsExactly`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatByteArrayWithFailMessageSupplierContainsExactly {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4449\")\n    void before(byte[] actual, Supplier<@Nullable String> message, byte[] expected) {\n        assertArrayEquals(expected, actual, message);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(byte[] actual, Supplier<@Nullable String> message, byte[] expected) {\n        assertThat(actual).withFailMessage(message).containsExactly(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4449"]}
@@ -31,7 +29,34 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatByteArrayWithFailMessageSupplierContainsExactlyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatbytearraywithfailmessagesuppliercontainsexactlyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatByteArrayWithFailMessageSupplierContainsExactly`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatByteArrayWithFailMessageSupplierContainsExactly {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "java:S4449")
+    void before(byte[] actual, Supplier<@Nullable String> message, byte[] expected) {
+        assertArrayEquals(expected, actual, message);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(byte[] actual, Supplier<@Nullable String> message, byte[] expected) {
+        assertThat(actual).withFailMessage(message).containsExactly(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatByteArrayWithFailMessageSupplierContainsExactlyRecipe","displayName":"Refaster template `JUnitToAssertJRules.AssertThatByteArrayWithFailMessageSupplierContainsExactly`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

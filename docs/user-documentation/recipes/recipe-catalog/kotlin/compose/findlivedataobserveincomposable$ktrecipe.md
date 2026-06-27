@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LiveData.observe(...)` calls inside `@Composable`"}
-  description={"`LiveData.observe(lifecycleOwner, observer)` is for `Activity`/`Fragment` code; inside a `@Composable` it registers a brand-new observer on every recomposition and never removes it. Use `observeAsState()` (or migrate to `StateFlow` and `collectAsStateWithLifecycle()`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindLiveDataObserveInComposable$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlivedataobserveincomposable$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LiveData.observe(...)` calls inside `@Composable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`LiveData.observe(lifecycleOwner, observer)` is for `Activity`/`Fragment` code; inside a `@Composable` it registers a brand-new observer on every recomposition and never removes it. Use `observeAsState()` (or migrate to `StateFlow` and `collectAsStateWithLifecycle()`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindLiveDataObserveInComposable$KtRecipe","displayName":"Find `LiveData.observe(...)` calls inside `@Composable`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

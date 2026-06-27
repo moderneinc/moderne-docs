@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove explicit casts on `Arrays.asList(..).toArray()`"}
-  description={"Convert code like `(Integer[]) Arrays.asList(1, 2, 3).toArray()` to `Arrays.asList(1, 2, 3).toArray(new Integer[0])`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.CastArraysAsListToList"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/castarraysaslisttolist.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove explicit casts on `Arrays.asList(..).toArray()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert code like `(Integer[]) Arrays.asList(1, 2, 3).toArray()` to `Arrays.asList(1, 2, 3).toArray(new Integer[0])`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Arrays;\n\nclass Foo {\n    void bar() {\n        Integer[] array1 = (Integer[]) Arrays.asList(1, 2, 3).toArray();\n        Integer[][] array2 = (Integer[][]) Arrays.asList(new Integer[]{1}, new Integer[]{2}).toArray();\n        Object[][] array3 = (Object[][]) Arrays.asList(new Object[]{}, new Object[]{}).toArray();\n    }\n}\n","after":"import java.util.Arrays;\n\nclass Foo {\n    void bar() {\n        Integer[] array1 = Arrays.asList(1, 2, 3).toArray(new Integer[0]);\n        Integer[][] array2 = Arrays.asList(new Integer[]{1}, new Integer[]{2}).toArray(new Integer[0][]);\n        Object[][] array3 = Arrays.asList(new Object[]{}, new Object[]{}).toArray(new Object[0][]);\n    }\n}\n","diff":"@@ -5,3 +5,3 @@\nclass Foo {\n    void bar() {\n-       Integer[] array1 = (Integer[]) Arrays.asList(1, 2, 3).toArray();\n-       Integer[][] array2 = (Integer[][]) Arrays.asList(new Integer[]{1}, new Integer[]{2}).toArray();\n-       Object[][] array3 = (Object[][]) Arrays.asList(new Object[]{}, new Object[]{}).toArray();\n+       Integer[] array1 = Arrays.asList(1, 2, 3).toArray(new Integer[0]);\n+       Integer[][] array2 = Arrays.asList(new Integer[]{1}, new Integer[]{2}).toArray(new Integer[0][]);\n+       Object[][] array3 = Arrays.asList(new Object[]{}, new Object[]{}).toArray(new Object[0][]);\n    }\n","newFile":false}]}]}>
 

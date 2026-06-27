@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Cloud Gateway Webflux Properties"}
-  description={"Migrate Spring Cloud Gateway Webflux properties for Spring Cloud 2025 release."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","cloud"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.cloud2025.SpringCloudGatewayWebfluxProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/springcloudgatewaywebfluxproperties.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change the key of a Spring application property","href":"java/spring/changespringpropertykey"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate Spring Cloud Gateway Webflux Properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Spring Cloud Gateway Webflux properties for Spring Cloud 2025 release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change the key of a Spring application property","href":"/user-documentation/recipes/recipe-catalog/java/spring/changespringpropertykey/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

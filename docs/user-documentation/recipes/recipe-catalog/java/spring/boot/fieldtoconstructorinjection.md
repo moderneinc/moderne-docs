@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert field injection to constructor injection"}
-  description={"Converts `@Autowired` field injection to constructor injection pattern. For non-final classes, adds both a no-args constructor and the autowired constructor to maintain compatibility with extending classes. Moves `@Qualifier` annotations to constructor parameters."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot.FieldToConstructorInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot/fieldtoconstructorinjection.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert field injection to constructor injection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `@Autowired` field injection to constructor injection pattern. For non-final classes, adds both a no-args constructor and the autowired constructor to maintain compatibility with extending classes. Moves `@Qualifier` annotations to constructor parameters.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example;\n\nimport org.springframework.beans.factory.annotation.Autowired;\n\nclass MyService {\n    @Autowired\n    private MyRepository repository;\n}\n","after":"package com.example;\n\nimport org.springframework.beans.factory.annotation.Autowired;\n\nclass MyService {\n    private MyRepository repository;\n\n    public MyService() {\n    }\n\n    @Autowired\n    public MyService(MyRepository repository) {\n        this.repository = repository;\n    }\n}\n","diff":"@@ -6,1 +6,0 @@\n\nclass MyService {\n-   @Autowired\n    private MyRepository repository;\n@@ -8,0 +7,8 @@\n    @Autowired\n    private MyRepository repository;\n+\n+   public MyService() {\n+   }\n+\n+   @Autowired\n+   public MyService(MyRepository repository) {\n+       this.repository = repository;\n+   }\n}\n","newFile":false}]}]}>
 

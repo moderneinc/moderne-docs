@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Set.of(..)`"}
-  description={"Prefer `Set.of(..)` instead of using `Collections.singleton()` in Java 9 or higher. Note that the resulting `Set` is not behaviorally equivalent: `Set.of(..)` throws `NullPointerException` when probed with `contains(null)`, whereas `Collections.singleton(..)` returns `false`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.MigrateCollectionsSingletonSet"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/migratecollectionssingletonset.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Set.of(..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Set.of(..)` instead of using `Collections.singleton()` in Java 9 or higher. Note that the resulting `Set` is not behaviorally equivalent: `Set.of(..)` throws `NullPointerException` when probed with `contains(null)`, whereas `Collections.singleton(..)` returns `false`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.*;\n\nclass Test {\n    Set<String> set = Collections.singleton(\"Hello\");\n}\n","after":"import java.util.Set;\n\nclass Test {\n    Set<String> set = Set.of(\"Hello\");\n}\n","diff":"@@ -1,1 +1,1 @@\n-import java.util.*;\n+import java.util.Set;\n\n@@ -4,1 +4,1 @@\n\nclass Test {\n-   Set<String> set = Collections.singleton(\"Hello\");\n+   Set<String> set = Set.of(\"Hello\");\n}\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `setJobRegistry(..)` to manually configured `TaskExecutorJobOperator`"}
-  description={"Spring Batch 6 replaced `TaskExecutorJobLauncher` with `TaskExecutorJobOperator`, which requires both `setJobRepository(..)` and `setJobRegistry(..)` to be called before `afterPropertiesSet()`. When a `TaskExecutorJobOperator` is constructed and initialized manually (typically in a `@Bean` factory method) without a `setJobRegistry(..)` call, add a `JobRegistry` parameter to the enclosing method and call `setJobRegistry(..)` so the operator is fully configured."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.batch.AddJobRegistryToTaskExecutorJobOperator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/addjobregistrytotaskexecutorjoboperator.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `setJobRegistry(..)` to manually configured `TaskExecutorJobOperator`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Batch 6 replaced `TaskExecutorJobLauncher` with `TaskExecutorJobOperator`, which requires both `setJobRepository(..)` and `setJobRegistry(..)` to be called before `afterPropertiesSet()`. When a `TaskExecutorJobOperator` is constructed and initialized manually (typically in a `@Bean` factory method) without a `setJobRegistry(..)` call, add a `JobRegistry` parameter to the enclosing method and call `setJobRegistry(..)` so the operator is fully configured.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.java.spring.batch.AddJobRegistryToTaskExecutorJobOperator","displayName":"Add `setJobRegistry(..)` to manually configured `TaskExecutorJobOperator`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

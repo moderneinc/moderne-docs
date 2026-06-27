@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Terraform resource"}
-  description={"Find a Terraform resource by resource type."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.search.FindResource"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/search/findresource.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Terraform resource</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find a Terraform resource by resource type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"resourceName","required":true,"description":"A Terraform resource name, without the quotes.","example":"aws_ebs_volume"}]}>
 

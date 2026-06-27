@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use chained comparison syntax"}
-  description={"Merge two relational tests that share a middle operand into a single chained comparison, e.g. ``0 < idx and idx < size`` becomes ``0 < idx < size``."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.ChainCompares"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/chaincompares.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use chained comparison syntax</RecipeHeader.Title>
+
+<RecipeHeader.Description>Merge two relational tests that share a middle operand into a single chained comparison, e.g. ``0 &lt; idx and idx &lt; size`` becomes ``0 &lt; idx &lt; size``.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.ChainCompares","displayName":"Use chained comparison syntax","pipPackage":"openrewrite-static-analysis"}}>
 

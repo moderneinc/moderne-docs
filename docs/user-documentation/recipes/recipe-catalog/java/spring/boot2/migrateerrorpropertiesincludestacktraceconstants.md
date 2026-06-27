@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `ErrorProperties#IncludeStacktrace.ON_PARAM`"}
-  description={"`ErrorProperties#IncludeStacktrace.ON_TRACE_PARAM` was deprecated in 2.3.x and removed in 2.5.0."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateErrorPropertiesIncludeStackTraceConstants"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateerrorpropertiesincludestacktraceconstants.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `ErrorProperties#IncludeStacktrace.ON_PARAM`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`ErrorProperties#IncludeStacktrace.ON_TRACE_PARAM` was deprecated in 2.3.x and removed in 2.5.0.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.test;\n\nimport org.springframework.boot.autoconfigure.web.ErrorProperties;\n\nclass Test {\n    void methodA() {\n        ErrorProperties.IncludeStacktrace value = ErrorProperties.IncludeStacktrace.ON_TRACE_PARAM;\n    }\n}\n","after":"package org.test;\n\nimport org.springframework.boot.autoconfigure.web.ErrorProperties;\n\nclass Test {\n    void methodA() {\n        ErrorProperties.IncludeStacktrace value = ErrorProperties.IncludeStacktrace.ON_PARAM;\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass Test {\n    void methodA() {\n-       ErrorProperties.IncludeStacktrace value = ErrorProperties.IncludeStacktrace.ON_TRACE_PARAM;\n+       ErrorProperties.IncludeStacktrace value = ErrorProperties.IncludeStacktrace.ON_PARAM;\n    }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change GitHub Action"}
-  description={"Change a GitHub Action in any workflow."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.ChangeAction"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/changeaction.md"}
-/>
+>
+
+<RecipeHeader.Title>Change GitHub Action</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change a GitHub Action in any workflow.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldAction","required":true,"description":"Name of the action to match.","example":"gradle/wrapper-validation-action"},{"type":"String","name":"newAction","required":true,"description":"Name of the action to use instead.","example":"gradle/actions/wrapper-validation"},{"type":"String","name":"newVersion","required":true,"description":"New version to use.","example":"v3"}]}>
 

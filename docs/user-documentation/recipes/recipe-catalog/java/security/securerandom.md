@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Secure random"}
-  description={"Use cryptographically secure Pseudo Random Number Generation in the \"main\" source set. Replaces instantiation of `java.util.Random` with `java.security.SecureRandom`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S2245"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.SecureRandom"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/securerandom.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Secure random</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use cryptographically secure Pseudo Random Number Generation in the "main" source set. Replaces instantiation of `java.util.Random` with `java.security.SecureRandom`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Random;\n\npublic class A {\n    String generateSecretToken() {\n        Random r = new Random();\n        return Long.toHexString(r.nextLong());\n    }\n}\n","after":"import java.security.SecureRandom;\nimport java.util.Random;\n\npublic class A {\n    String generateSecretToken() {\n        Random r = new SecureRandom();\n        return Long.toHexString(r.nextLong());\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import java.security.SecureRandom;\nimport java.util.Random;\n@@ -5,1 +6,1 @@\npublic class A {\n    String generateSecretToken() {\n-       Random r = new Random();\n+       Random r = new SecureRandom();\n        return Long.toHexString(r.nextLong());\n","newFile":false}]}]}>
 

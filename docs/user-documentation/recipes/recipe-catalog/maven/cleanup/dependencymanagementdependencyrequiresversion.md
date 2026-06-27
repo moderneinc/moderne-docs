@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Dependency management dependencies should have a version"}
-  description={"If they don't have a version, they can't possibly affect dependency resolution anywhere, and can be safely removed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.cleanup.DependencyManagementDependencyRequiresVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/cleanup/dependencymanagementdependencyrequiresversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Dependency management dependencies should have a version</RecipeHeader.Title>
+
+<RecipeHeader.Description>If they don't have a version, they can't possibly affect dependency resolution anywhere, and can be safely removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.maven.cleanup.DependencyManagementDependencyRequiresVersion","displayName":"Dependency management dependencies should have a version","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":false}}>
 

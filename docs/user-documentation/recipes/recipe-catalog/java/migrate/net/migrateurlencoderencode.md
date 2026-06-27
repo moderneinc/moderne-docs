@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `java.net.URLEncoder#encode(String, StandardCharsets.UTF_8)`"}
-  description={"Use `java.net.URLEncoder#encode(String, StandardCharsets.UTF_8)` instead of the deprecated `java.net.URLEncoder#encode(String)` in Java 10 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["deprecated"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.net.MigrateURLEncoderEncode"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/net/migrateurlencoderencode.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `java.net.URLEncoder#encode(String, StandardCharsets.UTF_8)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `java.net.URLEncoder#encode(String, StandardCharsets.UTF_8)` instead of the deprecated `java.net.URLEncoder#encode(String)` in Java 10 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.example;\n\nimport java.net.URLEncoder;\n\nclass Test {\n    public static void method(String url) {\n        String message = URLEncoder.encode(url);\n    }\n}\n","after":"package org.openrewrite.example;\n\nimport java.net.URLEncoder;\nimport java.nio.charset.StandardCharsets;\n\nclass Test {\n    public static void method(String url) {\n        String message = URLEncoder.encode(url, StandardCharsets.UTF_8);\n    }\n}\n","diff":"@@ -4,0 +4,1 @@\n\nimport java.net.URLEncoder;\n+import java.nio.charset.StandardCharsets;\n\n@@ -7,1 +8,1 @@\nclass Test {\n    public static void method(String url) {\n-       String message = URLEncoder.encode(url);\n+       String message = URLEncoder.encode(url, StandardCharsets.UTF_8);\n    }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Faces XHTML migration for Jakarta EE 10"}
-  description={"Find and replace legacy JSF namespace URIs with Jakarta Faces URNs in XHTML files."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["faces","jsf","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.JakartaFacesXhtmlEE10"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartafacesxhtmlee10.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Find and replace","href":"text/findandreplace"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Faces XHTML migration for Jakarta EE 10</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find and replace legacy JSF namespace URIs with Jakarta Faces URNs in XHTML files.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

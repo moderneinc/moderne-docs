@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJRules.ObjectEnumerableDoesNotContainOneElement`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class ObjectEnumerableDoesNotContainOneElement<S, T extends S> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"unchecked\")\n    ObjectEnumerableAssert<?, S> before(ObjectEnumerableAssert<?, S> iterAssert, T element) {\n        return iterAssert.doesNotContainSequence(element);\n    }\n    \n    @AfterTemplate\n    @SuppressWarnings(value = \"unchecked\")\n    ObjectEnumerableAssert<?, S> after(ObjectEnumerableAssert<?, S> iterAssert, T element) {\n        return iterAssert.doesNotContain(element);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,34 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$ObjectEnumerableDoesNotContainOneElementRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjrulesrecipes$objectenumerabledoesnotcontainoneelementrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJRules.ObjectEnumerableDoesNotContainOneElement`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class ObjectEnumerableDoesNotContainOneElement<S, T extends S> {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "unchecked")
+    ObjectEnumerableAssert<?, S> before(ObjectEnumerableAssert<?, S> iterAssert, T element) {
+        return iterAssert.doesNotContainSequence(element);
+    }
+    
+    @AfterTemplate
+    @SuppressWarnings(value = "unchecked")
+    ObjectEnumerableAssert<?, S> after(ObjectEnumerableAssert<?, S> iterAssert, T element) {
+        return iterAssert.doesNotContain(element);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$ObjectEnumerableDoesNotContainOneElementRecipe","displayName":"Refaster template `AssertJRules.ObjectEnumerableDoesNotContainOneElement`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `JdbcTemplate.queryForLong(..)` to `queryForObject(..)`"}
-  description={"Replaces calls to `JdbcTemplate.queryForLong(..)` with `queryForObject(String, Class, Object...)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.data.JdbcTemplateQueryForLongMigration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/data/jdbctemplatequeryforlongmigration.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `JdbcTemplate.queryForLong(..)` to `queryForObject(..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces calls to `JdbcTemplate.queryForLong(..)` with `queryForObject(String, Class, Object...)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.jdbc.core.JdbcTemplate;\n\nclass Test {\n    void test(JdbcTemplate jdbcTemplate) {\n        String query = \"SELECT COUNT(*) FROM table\";\n        Long count = jdbcTemplate.queryForLong(query);\n    }\n}\n","after":"import org.springframework.jdbc.core.JdbcTemplate;\n\nclass Test {\n    void test(JdbcTemplate jdbcTemplate) {\n        String query = \"SELECT COUNT(*) FROM table\";\n        Long count = jdbcTemplate.queryForObject(query, Long.class);\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n    void test(JdbcTemplate jdbcTemplate) {\n        String query = \"SELECT COUNT(*) FROM table\";\n-       Long count = jdbcTemplate.queryForLong(query);\n+       Long count = jdbcTemplate.queryForObject(query, Long.class);\n    }\n","newFile":false}]}]}>
 

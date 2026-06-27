@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJRules.AssertThatMultisetsAreEqual`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatMultisetsAreEqual<S, T extends S> {\n    \n    @BeforeTemplate\n    AbstractCollectionAssert<?, ?, S, ?> before(Multiset<S> multiset1, Iterable<T> multiset2) {\n        return assertThat(multiset1).isEqualTo(multiset2);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractCollectionAssert<?, ?, S, ?> after(Multiset<S> multiset1, Iterable<T> multiset2) {\n        return assertThat(multiset1).containsExactlyInAnyOrderElementsOf(multiset2);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatMultisetsAreEqualRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatmultisetsareequalrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJRules.AssertThatMultisetsAreEqual`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatMultisetsAreEqual<S, T extends S> {
+    
+    @BeforeTemplate
+    AbstractCollectionAssert<?, ?, S, ?> before(Multiset<S> multiset1, Iterable<T> multiset2) {
+        return assertThat(multiset1).isEqualTo(multiset2);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractCollectionAssert<?, ?, S, ?> after(Multiset<S> multiset1, Iterable<T> multiset2) {
+        return assertThat(multiset1).containsExactlyInAnyOrderElementsOf(multiset2);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatMultisetsAreEqualRecipe","displayName":"Refaster template `AssertJRules.AssertThatMultisetsAreEqual`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find collection null-safety idioms"}
-  description={"`listOf(...).filterNotNull()` vs `listOfNotNull(...)`, `map { }.filterNotNull()` vs `mapNotNull { }`, `filter { it != null }.map { it!! }` chains, `firstOrNull` patterns where `single` is intended, `?.x.orEmpty()` mixed-call shapes."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindCollectionNullSafety$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findcollectionnullsafety$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `listOf(a, b, c).filterNotNull()` patterns","href":"kotlin/idiom/findlistoffilternotnull$ktrecipe"},{"name":"Find `setOf(a, b, c).filterNotNull()` patterns","href":"kotlin/idiom/findsetoffilternotnull$ktrecipe"},{"name":"Find `map { ... }.filterNotNull()` chains","href":"kotlin/idiom/findmapthenfilternotnull$ktrecipe"},{"name":"Find `filter { it != null }.map { it!! }` chains","href":"kotlin/idiom/findfiltermaptomapnotnull$ktrecipe"},{"name":"Find `firstOrNull { } ?: error(...)` patterns","href":"kotlin/idiom/findfirstornullelviserror$ktrecipe"},{"name":"Find `x?.firstOrNull()` calls","href":"kotlin/idiom/findfirstornullonnullablereceiver$ktrecipe"},{"name":"Find `x?.something.orEmpty()` patterns","href":"kotlin/idiom/findoremptyaftersafecall$ktrecipe"}]}>
+<RecipeHeader.Title>Find collection null-safety idioms</RecipeHeader.Title>
+
+<RecipeHeader.Description>`listOf(...).filterNotNull()` vs `listOfNotNull(...)`, `map { }.filterNotNull()` vs `mapNotNull { }`, `filter { it != null }.map { it!! }` chains, `firstOrNull` patterns where `single` is intended, `?.x.orEmpty()` mixed-call shapes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `listOf(a, b, c).filterNotNull()` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findlistoffilternotnull$ktrecipe/"},{"name":"Find `setOf(a, b, c).filterNotNull()` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findsetoffilternotnull$ktrecipe/"},{"name":"Find `map { ... }.filterNotNull()` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findmapthenfilternotnull$ktrecipe/"},{"name":"Find `filter { it != null }.map { it!! }` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findfiltermaptomapnotnull$ktrecipe/"},{"name":"Find `firstOrNull { } ?: error(...)` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findfirstornullelviserror$ktrecipe/"},{"name":"Find `x?.firstOrNull()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findfirstornullonnullablereceiver$ktrecipe/"},{"name":"Find `x?.something.orEmpty()` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findoremptyaftersafecall$ktrecipe/"}]}>
 
 ## Definition
 

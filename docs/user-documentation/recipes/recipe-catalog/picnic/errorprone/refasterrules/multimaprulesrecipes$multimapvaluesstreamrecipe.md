@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `MultimapRules.MultimapValuesStream`"}
-  description={"Don't unnecessarily use `Multimap#entries()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.MultimapRulesRecipes$MultimapValuesStreamRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/multimaprulesrecipes$multimapvaluesstreamrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `MultimapRules.MultimapValuesStream`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Don't unnecessarily use `Multimap#entries()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.MultimapRulesRecipes$MultimapValuesStreamRecipe","displayName":"Refaster template `MultimapRules.MultimapValuesStream`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

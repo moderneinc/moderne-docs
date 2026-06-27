@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `@NonNullApi`/`ParametersAreNonnullByDefault` to JSpecify `@NullMarked`"}
-  description={"Migrates an existing package-level \"non-null by default\" convention to the JSpecify `@org.jspecify.annotations.NullMarked` annotation so that NullAway and other JSpecify-aware checkers recognize the null-marked scope. Replaces `@org.springframework.lang.NonNullApi`, `@org.springframework.lang.NonNullFields`, `@javax.annotation.ParametersAreNonnullByDefault`, and `@jakarta.annotation.ParametersAreNonnullByDefault` (on `package-info.java` package declarations and on type declarations) with a single `@NullMarked`, removing the old annotations and their imports and adding the `@NullMarked` import. When both Spring `@NonNullApi` and `@NonNullFields` are present they collapse to one `@NullMarked` rather than two. Idempotent and conservative: a scope already marked `@NullMarked` and unrelated packages or types are left unchanged. Java only."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.migrate.MigrateNonNullApiToNullMarked"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/migrate/migratenonnullapitonullmarked.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `@NonNullApi`/`ParametersAreNonnullByDefault` to JSpecify `@NullMarked`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates an existing package-level "non-null by default" convention to the JSpecify `@org.jspecify.annotations.NullMarked` annotation so that NullAway and other JSpecify-aware checkers recognize the null-marked scope. Replaces `@org.springframework.lang.NonNullApi`, `@org.springframework.lang.NonNullFields`, `@javax.annotation.ParametersAreNonnullByDefault`, and `@jakarta.annotation.ParametersAreNonnullByDefault` (on `package-info.java` package declarations and on type declarations) with a single `@NullMarked`, removing the old annotations and their imports and adding the `@NullMarked` import. When both Spring `@NonNullApi` and `@NonNullFields` are present they collapse to one `@NullMarked` rather than two. Idempotent and conservative: a scope already marked `@NullMarked` and unrelated packages or types are left unchanged. Java only.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"@NonNullApi\n@NonNullFields\npackage com.example.app;\n\nimport org.springframework.lang.NonNullApi;\nimport org.springframework.lang.NonNullFields;\n","after":"@NullMarked\npackage com.example.app;\n\nimport org.jspecify.annotations.NullMarked;\n","diff":"--- com/example/app/package-info.java\n+++ com/example/app/package-info.java\n@@ -1,2 +1,1 @@\n-@NonNullApi\n-@NonNullFields\n+@NullMarked\npackage com.example.app;\n@@ -5,2 +4,1 @@\npackage com.example.app;\n\n-import org.springframework.lang.NonNullApi;\n-import org.springframework.lang.NonNullFields;\n+import org.jspecify.annotations.NullMarked;\n\n","newFile":false}]}]}>
 

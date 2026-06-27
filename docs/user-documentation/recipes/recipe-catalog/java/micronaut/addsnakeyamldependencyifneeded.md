@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `snakeyaml` dependency if needed"}
-  description={"This recipe will add the `snakeyaml` dependency to a Micronaut 4 application that uses yaml configuration."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.AddSnakeYamlDependencyIfNeeded"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/addsnakeyamldependencyifneeded.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `snakeyaml` dependency if needed</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will add the `snakeyaml` dependency to a Micronaut 4 application that uses yaml configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.micronaut.AddSnakeYamlDependencyIfNeeded","displayName":"Add `snakeyaml` dependency if needed","groupId":"org.openrewrite.recipe","artifactId":"rewrite-micronaut","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MICRONAUT","requiresConfiguration":false}}>
 

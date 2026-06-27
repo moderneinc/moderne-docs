@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET project metadata"}
-  description={"Extract project metadata (SDK, target framework(s), package list) from MSBuild project files. Reads the MSBuildProject marker which captures values resolved across the project file, Directory.Build.props, Directory.Packages.props, global.json and nuget.config."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDotnetProjectMetadata"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetprojectmetadata.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET project metadata</RecipeHeader.Title>
+
+<RecipeHeader.Description>Extract project metadata (SDK, target framework(s), package list) from MSBuild project files. Reads the MSBuildProject marker which captures values resolved across the project file, Directory.Build.props, Directory.Packages.props, global.json and nuget.config.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"csproj","code":"<Project Sdk=\"Microsoft.NET.Sdk.Web\">\n  <PropertyGroup>\n    <TargetFramework>net8.0</TargetFramework>\n  </PropertyGroup>\n  <ItemGroup>\n    <PackageReference Include=\"Newtonsoft.Json\" Version=\"13.0.3\" />\n  </ItemGroup>\n</Project>\n"},"variants":[]}]}>
 

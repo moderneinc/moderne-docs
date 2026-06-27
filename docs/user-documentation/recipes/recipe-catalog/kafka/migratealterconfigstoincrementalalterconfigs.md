@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `AdminClient.alterConfigs()` to `incrementalAlterConfigs()`"}
-  description={"Migrates the removed `AdminClient.alterConfigs()` method to `incrementalAlterConfigs()` for Kafka 4.0 compatibility."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.MigrateAlterConfigsToIncrementalAlterConfigs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/migratealterconfigstoincrementalalterconfigs.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `AdminClient.alterConfigs()` to `incrementalAlterConfigs()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates the removed `AdminClient.alterConfigs()` method to `incrementalAlterConfigs()` for Kafka 4.0 compatibility.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.kafka.clients.admin.AdminClient;\nimport org.apache.kafka.clients.admin.Config;\nimport org.apache.kafka.clients.admin.ConfigEntry;\nimport org.apache.kafka.common.config.ConfigResource;\nimport java.util.Map;\nimport java.util.HashMap;\nimport java.util.Collections;\n\nclass KafkaAdminExample {\n    void updateConfig(AdminClient adminClient) {\n        ConfigResource resource = new ConfigResource(ConfigResource.Type.TOPIC, \"my-topic\");\n        Config config = new Config(Collections.singleton(\n            new ConfigEntry(\"retention.ms\", \"86400000\")));\n        Map<ConfigResource, Config> configs = new HashMap<>();\n        configs.put(resource, config);\n        adminClient.alterConfigs(configs);\n    }\n}\n","after":"import org.apache.kafka.clients.admin.AdminClient;\nimport org.apache.kafka.clients.admin.AlterConfigOp;\nimport org.apache.kafka.clients.admin.Config;\nimport org.apache.kafka.clients.admin.ConfigEntry;\nimport org.apache.kafka.common.config.ConfigResource;\n\nimport java.util.Collection;\nimport java.util.Map;\nimport java.util.HashMap;\nimport java.util.Collections;\n\nclass KafkaAdminExample {\n    void updateConfig(AdminClient adminClient) {\n        ConfigResource resource = new ConfigResource(ConfigResource.Type.TOPIC, \"my-topic\");\n        Collection<AlterConfigOp> config = Collections.singleton(new AlterConfigOp(new ConfigEntry(\"retention.ms\", \"86400000\"), AlterConfigOp.OpType.SET));\n        Map<ConfigResource, Collection<AlterConfigOp>> configs = new HashMap<>();\n        configs.put(resource, config);\n        adminClient.incrementalAlterConfigs(configs);\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.apache.kafka.clients.admin.AdminClient;\n+import org.apache.kafka.clients.admin.AlterConfigOp;\nimport org.apache.kafka.clients.admin.Config;\n@@ -5,0 +6,2 @@\nimport org.apache.kafka.clients.admin.ConfigEntry;\nimport org.apache.kafka.common.config.ConfigResource;\n+\n+import java.util.Collection;\nimport java.util.Map;\n@@ -12,3 +15,2 @@\n    void updateConfig(AdminClient adminClient) {\n        ConfigResource resource = new ConfigResource(ConfigResource.Type.TOPIC, \"my-topic\");\n-       Config config = new Config(Collections.singleton(\n-           new ConfigEntry(\"retention.ms\", \"86400000\")));\n-       Map<ConfigResource, Config> configs = new HashMap<>();\n+       Collection<AlterConfigOp> config = Collections.singleton(new AlterConfigOp(new ConfigEntry(\"retention.ms\", \"86400000\"), AlterConfigOp.OpType.SET));\n+       Map<ConfigResource, Collection<AlterConfigOp>> configs = new HashMap<>();\n        configs.put(resource, config);\n@@ -16,1 +18,1 @@\n        Map<ConfigResource, Config> configs = new HashMap<>();\n        configs.put(resource, config);\n-       adminClient.alterConfigs(configs);\n+       adminClient.incrementalAlterConfigs(configs);\n    }\n","newFile":false}]}]}>
 

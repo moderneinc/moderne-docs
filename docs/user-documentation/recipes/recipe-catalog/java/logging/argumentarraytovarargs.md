@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unpack Logger method `new Object[] {...}` into varargs"}
-  description={"For Logger methods that support varargs, convert any final explicit `Object[]` arguments into their unpacked values."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.ArgumentArrayToVarargs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/argumentarraytovarargs.md"}
-/>
+>
+
+<RecipeHeader.Title>Unpack Logger method `new Object[] {...}` into varargs</RecipeHeader.Title>
+
+<RecipeHeader.Description>For Logger methods that support varargs, convert any final explicit `Object[]` arguments into their unpacked values.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.slf4j.Logger;\nclass Test {\n    Logger logger;\n    void method() {\n        logger.info(\"Message {} {} {}\", new Object[]{\"old\", \"style\", \"args\"});\n    }\n}\n","after":"import org.slf4j.Logger;\nclass Test {\n    Logger logger;\n    void method() {\n        logger.info(\"Message {} {} {}\", \"old\", \"style\", \"args\");\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\n    Logger logger;\n    void method() {\n-       logger.info(\"Message {} {} {}\", new Object[]{\"old\", \"style\", \"args\"});\n+       logger.info(\"Message {} {} {}\", \"old\", \"style\", \"args\");\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Go coding conventions"}
-  description={"Detect Go naming patterns (package names, exported vs unexported, interface -er suffix, error variable prefix, test prefix)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.FindGoCodingConventions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/findgocodingconventions.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Go coding conventions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect Go naming patterns (package names, exported vs unexported, interface -er suffix, error variable prefix, test prefix).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.FindGoCodingConventions","displayName":"Find Go coding conventions","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

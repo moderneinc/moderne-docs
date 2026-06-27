@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Make class static"}
-  description={"Make classes that contain only static members static."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.MakeClassStatic"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/makeclassstatic.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Make class static</RecipeHeader.Title>
+
+<RecipeHeader.Description>Make classes that contain only static members static.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.MakeClassStatic","displayName":"Make class static","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

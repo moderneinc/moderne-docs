@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change `beans.xml` `schemaLocation` to match XML namespace"}
-  description={"Set the `schemaLocation` that corresponds to the `xmlns` set in `beans.xml` files."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.BeansXmlNamespace"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/beansxmlnamespace.md"}
-/>
+>
+
+<RecipeHeader.Title>Change `beans.xml` `schemaLocation` to match XML namespace</RecipeHeader.Title>
+
+<RecipeHeader.Description>Set the `schemaLocation` that corresponds to the `xmlns` set in `beans.xml` files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<beans xmlns=\"http://java.sun.com/xml/ns/javaee\"\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xsi:schemaLocation=\"https://jakarta.ee/xml/ns/jakarXXtaee https://jakarta.ee/xml/ns/jakartaee/beans111_3_0.xsd\">\n</beans>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<beans xmlns=\"http://java.sun.com/xml/ns/javaee\"\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/beans_1_0.xsd\">\n</beans>\n","diff":"--- beans.xml\n+++ beans.xml\n@@ -4,1 +4,1 @@\n<beans xmlns=\"http://java.sun.com/xml/ns/javaee\"\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n-   xsi:schemaLocation=\"https://jakarta.ee/xml/ns/jakarXXtaee https://jakarta.ee/xml/ns/jakartaee/beans111_3_0.xsd\">\n+   xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/beans_1_0.xsd\">\n</beans>\n","newFile":false}]}]}>
 

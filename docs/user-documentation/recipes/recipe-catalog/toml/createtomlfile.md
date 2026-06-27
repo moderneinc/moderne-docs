@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create TOML file"}
-  description={"Create a new TOML file."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-toml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.toml.CreateTomlFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/toml/createtomlfile.md"}
-/>
+>
+
+<RecipeHeader.Title>Create TOML file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Create a new TOML file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"relativeFileName","required":true,"description":"File path of the new file.","example":"pyproject.toml"},{"type":"String","name":"fileContents","required":false,"description":"Multiline text content for the file.","example":"[tool.poetry]\nname = \"my-project\"\nversion = \"0.1.0\""},{"type":"String","name":"fileContentsUrl","required":false,"description":"URL to fetch the TOML file contents from a remote source.","example":"https://raw.githubusercontent.com/example/repo/main/pyproject.toml"},{"type":"Boolean","name":"overwriteExisting","required":false,"description":"If there is an existing file, should it be overwritten?"}]}>
 

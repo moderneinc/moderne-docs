@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `findByIdOrNull(id!!)` calls"}
-  description={"Calling `findByIdOrNull(id!!)` says two contradictory things at once: the caller insists the id is non-null (`!!`) but is willing to accept a null result if no row matches. If the id is genuinely non-null, the `!!` is dead weight; if it might be null, the call should branch before the lookup."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindFindByIdOrNullWithNonNullableId$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findfindbyidornullwithnonnullableid$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `findByIdOrNull(id!!)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Calling `findByIdOrNull(id!!)` says two contradictory things at once: the caller insists the id is non-null (`!!`) but is willing to accept a null result if no row matches. If the id is genuinely non-null, the `!!` is dead weight; if it might be null, the call should branch before the lookup.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindFindByIdOrNullWithNonNullableId$KtRecipe","displayName":"Find `findByIdOrNull(id!!)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

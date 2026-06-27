@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Gson()` allocations inside collection lambdas"}
-  description={"Gson's default constructor builds the type-adapter registry up front. Allocating a fresh `Gson` per element repeats that work — hoist one `Gson` instance to a top-level property."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindGsonInCollectionLambdas$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findgsonincollectionlambdas$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Gson()` allocations inside collection lambdas</RecipeHeader.Title>
+
+<RecipeHeader.Description>Gson's default constructor builds the type-adapter registry up front. Allocating a fresh `Gson` per element repeats that work — hoist one `Gson` instance to a top-level property.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindGsonInCollectionLambdas$KtRecipe","displayName":"Find `Gson()` allocations inside collection lambdas","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

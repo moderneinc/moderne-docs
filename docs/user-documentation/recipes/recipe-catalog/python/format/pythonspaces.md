@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Formats spaces in Python code"}
-  description={"Standardizes spaces in Python code. Currently limited to formatting method arguments."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.format.PythonSpaces"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/format/pythonspaces.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Formats spaces in Python code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Standardizes spaces in Python code. Currently limited to formatting method arguments.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"python","before":"class Foo:\n    def foo(\n        a ,\n        b ,\n        c\n    ):\n        pass\n","after":"class Foo:\n    def foo(\n        a,\n        b,\n        c\n    ):\n        pass\n","diff":"@@ -3,2 +3,2 @@\nclass Foo:\n    def foo(\n-       a ,\n-       b ,\n+       a,\n+       b,\n        c\n","newFile":false}]}]}>
 

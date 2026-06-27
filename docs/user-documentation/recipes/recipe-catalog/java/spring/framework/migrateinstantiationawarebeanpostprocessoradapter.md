@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `InstantiationAwareBeanPostProcessorAdapter` to `SmartInstantiationAwareBeanPostProcessor`"}
-  description={"As of Spring-Framework 5.3 `InstantiationAwareBeanPostProcessorAdapter` is deprecated in favor of the existing default methods in `SmartInstantiationAwareBeanPostProcessor`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateInstantiationAwareBeanPostProcessorAdapter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateinstantiationawarebeanpostprocessoradapter.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `InstantiationAwareBeanPostProcessorAdapter` to `SmartInstantiationAwareBeanPostProcessor`</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of Spring-Framework 5.3 `InstantiationAwareBeanPostProcessorAdapter` is deprecated in favor of the existing default methods in `SmartInstantiationAwareBeanPostProcessor`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;\n\nclass A extends InstantiationAwareBeanPostProcessorAdapter {\n}\n","after":"import org.springframework.beans.factory.config.SmartInstantiationAwareBeanPostProcessor;\n\nclass A implements SmartInstantiationAwareBeanPostProcessor {\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;\n+import org.springframework.beans.factory.config.SmartInstantiationAwareBeanPostProcessor;\n\n@@ -3,1 +3,1 @@\nimport org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;\n\n-class A extends InstantiationAwareBeanPostProcessorAdapter {\n+class A implements SmartInstantiationAwareBeanPostProcessor {\n}\n","newFile":false}]}]}>
 

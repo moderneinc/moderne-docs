@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert JMockit `@Mocked` and `@Injectable` annotated arguments"}
-  description={"Convert JMockit `@Mocked` and `@Injectable` annotated arguments into Mockito statements."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.jmockit.JMockitAnnotatedArgumentToMockito"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/jmockit/jmockitannotatedargumenttomockito.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert JMockit `@Mocked` and `@Injectable` annotated arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert JMockit `@Mocked` and `@Injectable` annotated arguments into Mockito statements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.jmockit.JMockitAnnotatedArgumentToMockito","displayName":"Convert JMockit `@Mocked` and `@Injectable` annotated arguments","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

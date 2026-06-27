@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Format JSON"}
-  description={"Format JSON code using a standard comprehensive set of JSON formatting recipes."}
   type={"Single recipe"}
   languages={["JSON"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-json"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.json.format.AutoFormat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/json/format/autoformat.md"}
-/>
+>
+
+<RecipeHeader.Title>Format JSON</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format JSON code using a standard comprehensive set of JSON formatting recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"json","before":"{   \"a\": 3,\n\"b\": 5,\n    \"c\": 7}\n","after":"{\n    \"a\": 3,\n    \"b\": 5,\n    \"c\": 7\n}\n","diff":"@@ -1,3 +1,5 @@\n-{   \"a\": 3,\n-\"b\": 5,\n-   \"c\": 7}\n+{\n+   \"a\": 3,\n+   \"b\": 5,\n+   \"c\": 7\n+}\n\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Quarkus property"}
-  description={"Finds occurrences of a Quarkus property key."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.search.FindQuarkusProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/search/findquarkusproperties.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Quarkus property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds occurrences of a Quarkus property key.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The property key to look for.","example":"quarkus.http.port"},{"type":"String","name":"profile","required":false,"description":"The profile where the property is defined. If not specified, the property will be searched on all profiles.","example":"dev"},{"type":"Boolean","name":"searchAllProfiles","required":false,"description":"If set, the property will be searched on all available profiles. Defaults to `true` if the profile is not defined.","example":"false"},{"type":"List","name":"pathExpressions","required":false,"description":"Each value in this list represents a glob expression that is used to match which files will be modified. If this value is not present, this recipe will query the execution context for reasonable defaults. (\"**/application.yml\", \"**/application.yaml\", \"**/application.properties\" and \"**/META-INF/microprofile-config.properties\".","example":"[\"**/application.yaml\"]"}]}>
 

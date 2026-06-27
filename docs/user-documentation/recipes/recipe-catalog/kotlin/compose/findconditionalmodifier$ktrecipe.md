@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (x) Modifier.foo() else Modifier` patterns"}
-  description={"`if (cond) Modifier.foo() else Modifier` returns two structurally different `Modifier` chains, breaking memoization on the consumer. Use `Modifier.then(if (cond) Modifier.foo() else Modifier)` or `Modifier.composed { if (cond) padding(8.dp) else this }` so the consumer sees a single stable reference."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindConditionalModifier$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findconditionalmodifier$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (x) Modifier.foo() else Modifier` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`if (cond) Modifier.foo() else Modifier` returns two structurally different `Modifier` chains, breaking memoization on the consumer. Use `Modifier.then(if (cond) Modifier.foo() else Modifier)` or `Modifier.composed { if (cond) padding(8.dp) else this }` so the consumer sees a single stable reference.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindConditionalModifier$KtRecipe","displayName":"Find `if (x) Modifier.foo() else Modifier` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

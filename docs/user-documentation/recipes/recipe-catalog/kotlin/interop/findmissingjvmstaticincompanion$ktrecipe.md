@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `companion object` functions missing `@JvmStatic`"}
-  description={"Without `@JvmStatic`, Java callers must reach companion-object functions through the synthetic `Companion` holder: `Outer.Companion.foo(...)`. Adding `@JvmStatic` lifts the function to `Outer.foo(...)`, matching what a Java reader expects from a class with static methods. Flag-only — sometimes the wrapper is intentional."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindMissingJvmStaticInCompanion$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmstaticincompanion$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `companion object` functions missing `@JvmStatic`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Without `@JvmStatic`, Java callers must reach companion-object functions through the synthetic `Companion` holder: `Outer.Companion.foo(...)`. Adding `@JvmStatic` lifts the function to `Outer.foo(...)`, matching what a Java reader expects from a class with static methods. Flag-only — sometimes the wrapper is intentional.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindMissingJvmStaticInCompanion$KtRecipe","displayName":"Find `companion object` functions missing `@JvmStatic`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

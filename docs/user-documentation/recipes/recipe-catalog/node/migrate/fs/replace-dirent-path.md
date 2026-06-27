@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `dirent.path` with `dirent.parentPath`"}
-  description={"Replaces deprecated `dirent.path` property access with `dirent.parentPath` on `fs.Dirent` instances to address DEP0178 deprecation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0178"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.fs.replace-dirent-path"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-dirent-path.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `dirent.path` with `dirent.parentPath`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces deprecated `dirent.path` property access with `dirent.parentPath` on `fs.Dirent` instances to address DEP0178 deprecation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.fs.replace-dirent-path","displayName":"Replace `dirent.path` with `dirent.parentPath`","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

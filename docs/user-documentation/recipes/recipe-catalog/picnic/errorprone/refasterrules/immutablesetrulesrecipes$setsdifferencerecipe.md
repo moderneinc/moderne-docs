@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ImmutableSetRules.SetsDifference`"}
-  description={"Prefer an immutable copy of `Sets#difference(Set, Set)` over more contrived alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableSetRulesRecipes$SetsDifferenceRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesetrulesrecipes$setsdifferencerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ImmutableSetRules.SetsDifference`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer an immutable copy of `Sets#difference(Set, Set)` over more contrived alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableSetRulesRecipes$SetsDifferenceRecipe","displayName":"Refaster template `ImmutableSetRules.SetsDifference`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

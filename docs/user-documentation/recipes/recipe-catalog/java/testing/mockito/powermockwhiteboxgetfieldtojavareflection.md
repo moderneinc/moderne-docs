@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace PowerMock `Whitebox.getField()` with Java reflection"}
-  description={"Replace `Whitebox.getField(Class, String)` with `Class.getDeclaredField(String)` plus `setAccessible(true)`. Unlike PowerMock, `getDeclaredField` does not traverse the class hierarchy for fields inherited from a superclass."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.PowerMockWhiteboxGetFieldToJavaReflection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxgetfieldtojavareflection.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace PowerMock `Whitebox.getField()` with Java reflection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `Whitebox.getField(Class, String)` with `Class.getDeclaredField(String)` plus `setAccessible(true)`. Unlike PowerMock, `getDeclaredField` does not traverse the class hierarchy for fields inherited from a superclass.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.PowerMockWhiteboxGetFieldToJavaReflection","displayName":"Replace PowerMock `Whitebox.getField()` with Java reflection","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

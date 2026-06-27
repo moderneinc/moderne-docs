@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"CaseInsensitive comparisons do not alter case"}
-  description={"Remove `String#toLowerCase()` or `String#toUpperCase()` from `String#equalsIgnoreCase(..)` comparisons. Changing case before a case-insensitive comparison is redundant and allocates unnecessary intermediate `String` objects."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1157"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CaseInsensitiveComparisonsDoNotChangeCase"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/caseinsensitivecomparisonsdonotchangecase.md"}
-/>
+>
+
+<RecipeHeader.Title>CaseInsensitive comparisons do not alter case</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `String#toLowerCase()` or `String#toUpperCase()` from `String#equalsIgnoreCase(..)` comparisons. Changing case before a case-insensitive comparison is redundant and allocates unnecessary intermediate `String` objects.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    boolean isSame(String arg1, String arg2) {\n        return arg1.equalsIgnoreCase(arg2.toLowerCase());\n    }\n}\n","after":"class A {\n    boolean isSame(String arg1, String arg2) {\n        return arg1.equalsIgnoreCase(arg2);\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n    boolean isSame(String arg1, String arg2) {\n-       return arg1.equalsIgnoreCase(arg2.toLowerCase());\n+       return arg1.equalsIgnoreCase(arg2);\n    }\n","newFile":false}]}]}>
 

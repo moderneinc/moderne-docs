@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Maven 4"}
-  description={"Migrates Maven POMs from Maven 3 to Maven 4, addressing breaking changes and deprecations. This recipe updates property expressions, lifecycle phases, removes duplicate plugin declarations, and replaces removed properties to ensure compatibility with Maven 4."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.MigrateToMaven4"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/migratetomaven4.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Drop prefixless expressions in POM","href":"maven/cleanup/prefixlessexpressions"},{"name":"Replace removed root directory properties","href":"maven/replaceremovedrootdirectoryproperties"},{"name":"Replace deprecated lifecycle phases","href":"maven/replacedeprecatedlifecyclephases"},{"name":"Remove duplicate plugin declarations","href":"maven/removeduplicateplugindeclarations"},{"name":"Upgrade to Maven model version 4.1.0","href":"maven/upgradetomodelversion410"},{"name":"Replace modules with subprojects","href":"maven/replacemoduleswithsubprojects"},{"name":"Use Maven 4 parent inference","href":"maven/useparentinference"}]}>
+<RecipeHeader.Title>Migrate to Maven 4</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Maven POMs from Maven 3 to Maven 4, addressing breaking changes and deprecations. This recipe updates property expressions, lifecycle phases, removes duplicate plugin declarations, and replaces removed properties to ensure compatibility with Maven 4.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Drop prefixless expressions in POM","href":"/user-documentation/recipes/recipe-catalog/maven/cleanup/prefixlessexpressions/"},{"name":"Replace removed root directory properties","href":"/user-documentation/recipes/recipe-catalog/maven/replaceremovedrootdirectoryproperties/"},{"name":"Replace deprecated lifecycle phases","href":"/user-documentation/recipes/recipe-catalog/maven/replacedeprecatedlifecyclephases/"},{"name":"Remove duplicate plugin declarations","href":"/user-documentation/recipes/recipe-catalog/maven/removeduplicateplugindeclarations/"},{"name":"Upgrade to Maven model version 4.1.0","href":"/user-documentation/recipes/recipe-catalog/maven/upgradetomodelversion410/"},{"name":"Replace modules with subprojects","href":"/user-documentation/recipes/recipe-catalog/maven/replacemoduleswithsubprojects/"},{"name":"Use Maven 4 parent inference","href":"/user-documentation/recipes/recipe-catalog/maven/useparentinference/"}]}>
 
 ## Definition
 

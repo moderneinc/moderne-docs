@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from `@ApiParam` to `@Parameter`"}
-  description={"Converts the `@ApiParam` annotation to `@Parameter` and converts the directly mappable attributes."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["openapi","swagger"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.MigrateApiParamToParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiparamtoparameter.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change annotation attribute name","href":"java/changeannotationattributename"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Migrate `@ApiParam(defaultValue)` to `@Parameter(schema)`","href":"openapi/swagger/migrateapiparamdefaultvalue"},{"name":"Migrate `@ApiParam(allowableValues)` to `@Parameter(schema)`","href":"openapi/swagger/migrateapiparamallowablevalues"}]}>
+<RecipeHeader.Title>Migrate from `@ApiParam` to `@Parameter`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts the `@ApiParam` annotation to `@Parameter` and converts the directly mappable attributes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change annotation attribute name","href":"/user-documentation/recipes/recipe-catalog/java/changeannotationattributename/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Migrate `@ApiParam(defaultValue)` to `@Parameter(schema)`","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiparamdefaultvalue/"},{"name":"Migrate `@ApiParam(allowableValues)` to `@Parameter(schema)`","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiparamallowablevalues/"}]}>
 
 ## Definition
 

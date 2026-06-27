@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use explicit types on lambda arguments"}
-  description={"Adds explicit types on lambda arguments, which are otherwise optional. This can make the code clearer and easier to read. This does not add explicit types on arguments when the lambda has one or two parameters and does not have a block body, as things are considered more readable in those cases. For example, `stream.map((a, b) -> a.length);` will not have explicit types added."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2211"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ExplicitLambdaArgumentTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/explicitlambdaargumenttypes.md"}
-/>
+>
+
+<RecipeHeader.Title>Use explicit types on lambda arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds explicit types on lambda arguments, which are otherwise optional. This can make the code clearer and easier to read. This does not add explicit types on arguments when the lambda has one or two parameters and does not have a block body, as things are considered more readable in those cases. For example, `stream.map((a, b) -> a.length);` will not have explicit types added.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.function.BiPredicate;\n\nclass Test {\n    static void run(BiPredicate<String, Object> bc) {\n    }\n\n    static void method() {\n        run((a, b) -> {\n            return a.isEmpty();\n        });\n    }\n}\n","after":"import java.util.function.BiPredicate;\n\nclass Test {\n    static void run(BiPredicate<String, Object> bc) {\n    }\n\n    static void method() {\n        run((String a, Object b) -> {\n            return a.isEmpty();\n        });\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\n\n    static void method() {\n-       run((a, b) -> {\n+       run((String a, Object b) -> {\n            return a.isEmpty();\n","newFile":false}]}]}>
 

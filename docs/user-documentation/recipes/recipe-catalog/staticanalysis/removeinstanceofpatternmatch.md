@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Removes from code Java 14's `instanceof` pattern matching"}
-  description={"Adds an explicit variable declaration at the beginning of `if` statement instead of `instanceof` pattern matching."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveInstanceOfPatternMatch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeinstanceofpatternmatch.md"}
-/>
+>
+
+<RecipeHeader.Title>Removes from code Java 14's `instanceof` pattern matching</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds an explicit variable declaration at the beginning of `if` statement instead of `instanceof` pattern matching.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example;\n\nclass Example {\n    public void test(Object obj) {\n        if (obj instanceof String str) {\n            System.out.println(str);\n        }\n    }\n}\n","after":"package com.example;\n\nclass Example {\n    public void test(Object obj) {\n        if (obj instanceof String) {\n            String str = (String) obj;\n            System.out.println(str);\n        }\n    }\n}\n","diff":"@@ -5,1 +5,2 @@\nclass Example {\n    public void test(Object obj) {\n-       if (obj instanceof String str) {\n+       if (obj instanceof String) {\n+           String str = (String) obj;\n            System.out.println(str);\n","newFile":false}]}]}>
 

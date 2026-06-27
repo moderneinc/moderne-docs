@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove explicit `SecurityContextConfigurer.requireExplicitSave(true)` opt-in"}
-  description={"Remove explicit `SecurityContextConfigurer.requireExplicitSave(true)` opt-in as that is the new default in Spring Security 6. See the corresponding [Sprint Security 6.0 migration step](https://docs.spring.io/spring-security/reference/6.0.0/migration/servlet/session-management.html#_require_explicit_saving_of_securitycontextrepository) for details."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security6.RequireExplicitSavingOfSecurityContextRepository"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/requireexplicitsavingofsecuritycontextrepository.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove explicit `SecurityContextConfigurer.requireExplicitSave(true)` opt-in</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove explicit `SecurityContextConfigurer.requireExplicitSave(true)` opt-in as that is the new default in Spring Security 6. See the corresponding [Sprint Security 6.0 migration step](https://docs.spring.io/spring-security/reference/6.0.0/migration/servlet/session-management.html#_require_explicit_saving_of_securitycontextrepository) for details.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\n\nclass T {\n    public SecurityFilterChain chain(HttpSecurity http) {\n        http.securityContext((securityContext) -> securityContext\n                .requireExplicitSave(true)\n                .requireExplicitSave(false)\n            );\n        return http.build();\n    }\n}\n","after":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\n\nclass T {\n    public SecurityFilterChain chain(HttpSecurity http) {\n        http.securityContext((securityContext) -> securityContext\n                .requireExplicitSave(false)\n            );\n        return http.build();\n    }\n}\n","diff":"@@ -7,1 +7,0 @@\n    public SecurityFilterChain chain(HttpSecurity http) {\n        http.securityContext((securityContext) -> securityContext\n-               .requireExplicitSave(true)\n                .requireExplicitSave(false)\n","newFile":false}]}]}>
 

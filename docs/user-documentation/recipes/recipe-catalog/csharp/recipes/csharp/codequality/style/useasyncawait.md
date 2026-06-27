@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use async/await when necessary"}
-  description={"Add async/await to methods that return Task but don't use await."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseAsyncAwait"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/useasyncawait.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use async/await when necessary</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add async/await to methods that return Task but don't use await.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseAsyncAwait","displayName":"Use async/await when necessary","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

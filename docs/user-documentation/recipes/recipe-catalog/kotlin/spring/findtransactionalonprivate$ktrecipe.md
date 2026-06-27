@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Transactional` on `private` functions"}
-  description={"Spring's transaction proxy intercepts calls through the bean's public interface — `private` (and `internal`) methods are invoked directly on the target instance, bypassing the proxy entirely. The annotation is silently no-op. Make the method `public` or move the transaction boundary up the call chain."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindTransactionalOnPrivate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findtransactionalonprivate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Transactional` on `private` functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring's transaction proxy intercepts calls through the bean's public interface — `private` (and `internal`) methods are invoked directly on the target instance, bypassing the proxy entirely. The annotation is silently no-op. Make the method `public` or move the transaction boundary up the call chain.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindTransactionalOnPrivate$KtRecipe","displayName":"Find `@Transactional` on `private` functions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

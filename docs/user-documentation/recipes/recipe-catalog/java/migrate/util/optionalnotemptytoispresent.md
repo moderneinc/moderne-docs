@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Optional.isPresent()`"}
-  description={"Prefer `Optional.isPresent()` instead of using `!Optional.isEmpty()` in Java 11 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.OptionalNotEmptyToIsPresent"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/optionalnotemptytoispresent.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Optional.isPresent()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Optional.isPresent()` instead of using `!Optional.isEmpty()` in Java 11 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.app;\nimport java.util.Optional;\nclass App {\n    boolean notEmpty(Optional<String> bar){\n        return !bar.isEmpty();\n    }\n}\n","after":"package com.example.app;\nimport java.util.Optional;\nclass App {\n    boolean notEmpty(Optional<String> bar){\n        return bar.isPresent();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass App {\n    boolean notEmpty(Optional<String> bar){\n-       return !bar.isEmpty();\n+       return bar.isPresent();\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `.also { println(it) }` debug patterns"}
-  description={"`.also { println(it) }` is a side-channel print left over from debugging. It survives compilation, runs in production, and is invisible at the call site — remove it or route the value through a logger."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindAlsoPrintln$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findalsoprintln$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `.also { println(it) }` debug patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`.also { println(it) }` is a side-channel print left over from debugging. It survives compilation, runs in production, and is invisible at the call site — remove it or route the value through a logger.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindAlsoPrintln$KtRecipe","displayName":"Find `.also { println(it) }` debug patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

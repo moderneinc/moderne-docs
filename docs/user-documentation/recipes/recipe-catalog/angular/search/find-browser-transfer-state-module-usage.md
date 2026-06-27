@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `BrowserTransferStateModule` usage"}
-  description={"Finds usages of `BrowserTransferStateModule` from `@angular/platform-browser` which was removed in Angular 16. `TransferState` can be used directly without this module."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-browser-transfer-state-module-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-browser-transfer-state-module-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `BrowserTransferStateModule` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of `BrowserTransferStateModule` from `@angular/platform-browser` which was removed in Angular 16. `TransferState` can be used directly without this module.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-browser-transfer-state-module-usage","displayName":"Find `BrowserTransferStateModule` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

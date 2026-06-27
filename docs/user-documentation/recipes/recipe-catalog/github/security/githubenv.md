@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find dangerous GITHUB_ENV usage"}
-  description={"Detects dangerous usage of `GITHUB_ENV` and `GITHUB_PATH` environment files in workflows with risky triggers like `pull_request_target` or `workflow_run`. Writing to these files can allow code injection when the content includes user-controlled data. Based on [zizmor's github-env audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/github_env.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.GitHubEnv"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/githubenv.md"}
-/>
+>
+
+<RecipeHeader.Title>Find dangerous GITHUB_ENV usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects dangerous usage of `GITHUB_ENV` and `GITHUB_PATH` environment files in workflows with risky triggers like `pull_request_target` or `workflow_run`. Writing to these files can allow code injection when the content includes user-controlled data. Based on [zizmor's github-env audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/github_env.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"on: pull_request_target\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - name: Set environment\n        run: |\n          echo \"BRANCH_NAME=${{ github.head_ref }}\" >> $GITHUB_ENV\n          echo \"Building branch: $BRANCH_NAME\"\n","after":"on: pull_request_target\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - name: Set environment\n        ~~(Write to GITHUB_ENV may allow code execution in a workflow with dangerous triggers. This can lead to code injection when the written content includes user-controlled data. Ensure any dynamic content is properly sanitized or avoid writing to environment files in workflows triggered by untrusted events.)~~>run: |\n          echo \"BRANCH_NAME=${{ github.head_ref }}\" >> $GITHUB_ENV\n          echo \"Building branch: $BRANCH_NAME\"\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -8,1 +8,1 @@\n      - uses: actions/checkout@v4\n      - name: Set environment\n-       run: |\n+       ~~(Write to GITHUB_ENV may allow code execution in a workflow with dangerous triggers. This can lead to code injection when the written content includes user-controlled data. Ensure any dynamic content is properly sanitized or avoid writing to environment files in workflows triggered by untrusted events.)~~>run: |\n          echo \"BRANCH_NAME=${{ github.head_ref }}\" >> $GITHUB_ENV\n","newFile":false}]}]}>
 

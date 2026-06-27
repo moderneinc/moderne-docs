@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find matching identifiers in COBOL, copybooks, and JCL"}
-  description={"Finds an identifier by an exact match or regex pattern in COBOL, copybooks, and/or JCL."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-cobol"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.cobol.search.FindReference"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cobol/search/findreference.md"}
-/>
+>
+
+<RecipeHeader.Title>Find matching identifiers in COBOL, copybooks, and JCL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds an identifier by an exact match or regex pattern in COBOL, copybooks, and/or JCL.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"searchTerm","required":true,"description":"A word or regex pattern to find. By default the search term is case insensitive.","example":"CM102M or cm1.*"},{"type":"Boolean","name":"exactMatch","required":true,"description":"Search for a word based on an exact match of the search term.","example":"true"}]}>
 

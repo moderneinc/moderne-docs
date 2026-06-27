@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use logging framework instead of `printStackTrace`"}
-  description={"Finds `.printStackTrace` calls. Use a logging framework instead of writing directly to `System.err`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.UseLoggerForExceptions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/useloggerforexceptions.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use logging framework instead of `printStackTrace`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `.printStackTrace` calls. Use a logging framework instead of writing directly to `System.err`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Service {\n  def process(ex: Exception): Unit = {\n    ex.printStackTrace()\n  }\n}\n","after":"class Service {\n  /*~~(printStackTrace found; use a logging framework instead)~~>*/def process(ex: Exception): Unit = {\n    ex.printStackTrace()\n  }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Service {\n- def process(ex: Exception): Unit = {\n+ /*~~(printStackTrace found; use a logging framework instead)~~>*/def process(ex: Exception): Unit = {\n    ex.printStackTrace()\n","newFile":false}]}]}>
 

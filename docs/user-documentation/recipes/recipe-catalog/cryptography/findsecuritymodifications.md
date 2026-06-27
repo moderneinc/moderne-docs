@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Security class modifications"}
-  description={"Finds invocations of java.security.Security methods that modify security configuration such as removeProvider, addProvider, insertProviderAt, setProperty, and removeProperty."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindSecurityModifications"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findsecuritymodifications.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Security class modifications</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds invocations of java.security.Security methods that modify security configuration such as removeProvider, addProvider, insertProviderAt, setProperty, and removeProperty.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.security.Security;\n\npublic class SecurityExample {\n    public void removeBouncyCastle() {\n        // Remove the BouncyCastle provider\n        Security.removeProvider(\"BouncyCastleProvider\");\n    }\n}\n","after":"import java.security.Security;\n\npublic class SecurityExample {\n    public void removeBouncyCastle() {\n        // Remove the BouncyCastle provider\n        /*~~>*/Security.removeProvider(\"BouncyCastleProvider\");\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n    public void removeBouncyCastle() {\n        // Remove the BouncyCastle provider\n-       Security.removeProvider(\"BouncyCastleProvider\");\n+       /*~~>*/Security.removeProvider(\"BouncyCastleProvider\");\n    }\n","newFile":false}]}]}>
 

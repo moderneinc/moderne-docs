@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find which Java version is in use"}
-  description={"A diagnostic for studying the distribution of Java language version levels (both source and target compatibility across files and source sets)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.search.AboutJavaVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/search/aboutjavaversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Find which Java version is in use</RecipeHeader.Title>
+
+<RecipeHeader.Description>A diagnostic for studying the distribution of Java language version levels (both source and target compatibility across files and source sets).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"whenUsesType","required":false,"description":"Only mark the Java version when this type is in use.","example":"lombok.val"}]}>
 

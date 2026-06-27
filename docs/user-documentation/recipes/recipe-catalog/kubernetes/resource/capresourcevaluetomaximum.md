@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Cap exceeds resource value"}
-  description={"Cap resource values that exceed a specific maximum."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.resource.CapResourceValueToMaximum"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/resource/capresourcevaluetomaximum.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Cap exceeds resource value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Cap resource values that exceed a specific maximum.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"resourceValueType","required":true,"description":"The type of resource to search for.","example":"limits"},{"type":"String","name":"resourceType","required":true,"description":"The type of resource value to search for.","example":"memory"},{"type":"String","name":"resourceLimit","required":true,"description":"The resource maximum to search for to find resources that request more than the maximum.","example":"2Gi"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

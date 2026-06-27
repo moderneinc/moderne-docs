@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `KafkaOperations.usingCompletableFuture()`"}
-  description={"Remove the `KafkaOperations.usingCompletableFuture()` bridge during Spring Kafka 2.9 to 3.0 migration."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.kafka.RemoveUsingCompletableFuture"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/kafka/removeusingcompletablefuture.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `KafkaOperations.usingCompletableFuture()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove the `KafkaOperations.usingCompletableFuture()` bridge during Spring Kafka 2.9 to 3.0 migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.kafka.RemoveUsingCompletableFuture","displayName":"Remove `KafkaOperations.usingCompletableFuture()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

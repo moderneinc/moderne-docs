@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit 4 MockitoJUnitRunner.Silent to JUnit Jupiter MockitoExtension with LENIENT settings"}
-  description={"Replace `@RunWith(MockitoJUnitRunner.Silent.class)` with `@ExtendWith(MockitoExtension.class)` and `@MockitoSettings(strictness = Strictness.LENIENT)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.MockitoJUnitRunnerSilentToExtension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitojunitrunnersilenttoextension.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit 4 MockitoJUnitRunner.Silent to JUnit Jupiter MockitoExtension with LENIENT settings</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `@RunWith(MockitoJUnitRunner.Silent.class)` with `@ExtendWith(MockitoExtension.class)` and `@MockitoSettings(strictness = Strictness.LENIENT)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.runner.RunWith;\nimport org.mockito.junit.MockitoJUnitRunner;\n\n@RunWith(MockitoJUnitRunner.Silent.class)\npublic class ExternalAPIServiceTest {\n}\n","after":"import org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.junit.jupiter.MockitoExtension;\nimport org.mockito.junit.jupiter.MockitoSettings;\nimport org.mockito.quality.Strictness;\n\n@MockitoSettings(strictness = Strictness.LENIENT)\n@ExtendWith(MockitoExtension.class)\npublic class ExternalAPIServiceTest {\n}\n","diff":"@@ -1,2 +1,4 @@\n-import org.junit.runner.RunWith;\n-import org.mockito.junit.MockitoJUnitRunner;\n+import org.junit.jupiter.api.extension.ExtendWith;\n+import org.mockito.junit.jupiter.MockitoExtension;\n+import org.mockito.junit.jupiter.MockitoSettings;\n+import org.mockito.quality.Strictness;\n\n@@ -4,1 +6,2 @@\nimport org.mockito.junit.MockitoJUnitRunner;\n\n-@RunWith(MockitoJUnitRunner.Silent.class)\n+@MockitoSettings(strictness = Strictness.LENIENT)\n+@ExtendWith(MockitoExtension.class)\npublic class ExternalAPIServiceTest {\n","newFile":false}]}]}>
 

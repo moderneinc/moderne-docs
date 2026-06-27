@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `PrimitiveRules.MathClampInt`"}
-  description={"Prefer `Math#clamp(long, int, int)` over more verbose alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S6885"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$MathClampIntRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/primitiverulesrecipes$mathclampintrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `PrimitiveRules.MathClampInt`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Math#clamp(long, int, int)` over more verbose alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$MathClampIntRecipe","displayName":"Refaster template `PrimitiveRules.MathClampInt`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

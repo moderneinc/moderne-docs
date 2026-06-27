@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `trim()` instead of `trimStart().trimEnd()`"}
-  description={"`trim()` strips whitespace from both ends in a single pass with no intermediate allocation. `trimStart().trimEnd()` builds a temporary `String` for the left-trimmed value before the second pass."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.UseTrimForTrimStartThenTrimEnd$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetrimfortrimstartthentrimend$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `trim()` instead of `trimStart().trimEnd()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`trim()` strips whitespace from both ends in a single pass with no intermediate allocation. `trimStart().trimEnd()` builds a temporary `String` for the left-trimmed value before the second pass.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.UseTrimForTrimStartThenTrimEnd$KtRecipe","displayName":"Use `trim()` instead of `trimStart().trimEnd()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

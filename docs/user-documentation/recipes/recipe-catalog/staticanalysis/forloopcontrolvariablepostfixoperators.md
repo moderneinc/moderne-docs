@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`for` loop counters should use postfix operators"}
-  description={"Replace `for` loop control variables using pre-increment (`++i`) or pre-decrement (`--i`) operators with their post-increment (`i++`) or post-decrement (`i++`) notation equivalents."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ForLoopControlVariablePostfixOperators"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/forloopcontrolvariablepostfixoperators.md"}
-/>
+>
+
+<RecipeHeader.Title>`for` loop counters should use postfix operators</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `for` loop control variables using pre-increment (`++i`) or pre-decrement (`--i`) operators with their post-increment (`i++`) or post-decrement (`i++`) notation equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    static void method(int n) {\n        for (int i = 0; i < n; ++i) {\n            // empty\n        }\n    }\n}\n","after":"class Test {\n    static void method(int n) {\n        for (int i = 0; i < n; i++) {\n            // empty\n        }\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    static void method(int n) {\n-       for (int i = 0; i < n; ++i) {\n+       for (int i = 0; i < n; i++) {\n            // empty\n","newFile":false}]}]}>
 

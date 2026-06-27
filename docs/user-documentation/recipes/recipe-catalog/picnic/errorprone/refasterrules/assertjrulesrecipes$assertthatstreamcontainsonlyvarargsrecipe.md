@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJRules.AssertThatStreamContainsOnlyVarArgs`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatStreamContainsOnlyVarArgs<S, T extends S, U extends T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatStreamContainsOnly\")\n    IterableAssert<T> before(Stream<S> stream, @Repeated\n    U elements, Collector<S, ?, ? extends Iterable<T>> collector) {\n        return assertThat(stream.collect(collector)).containsOnly(Refaster.asVarargs(elements));\n    }\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatStreamContainsOnly\")\n    AbstractCollectionAssert<?, Collection<? extends T>, T, ObjectAssert<T>> before2(Stream<S> stream, @Repeated\n    U elements, Collector<S, ?, ? extends Collection<T>> collector) {\n        return assertThat(stream.collect(collector)).containsOnly(Refaster.asVarargs(elements));\n    }\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatStreamContainsOnly\")\n    ListAssert<T> before3(Stream<S> stream, @Repeated\n    U elements, Collector<S, ?, ? extends List<T>> collector) {\n        return assertThat(stream.collect(collector)).containsOnly(Refaster.asVarargs(elements));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ListAssert<S> after(Stream<S> stream, @Repeated\n    U elements) {\n        return assertThat(stream).containsOnly(elements);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,50 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsOnlyVarArgsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsonlyvarargsrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJRules.AssertThatStreamContainsOnlyVarArgs`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatStreamContainsOnlyVarArgs<S, T extends S, U extends T> {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "AssertThatStreamContainsOnly")
+    IterableAssert<T> before(Stream<S> stream, @Repeated
+    U elements, Collector<S, ?, ? extends Iterable<T>> collector) {
+        return assertThat(stream.collect(collector)).containsOnly(Refaster.asVarargs(elements));
+    }
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "AssertThatStreamContainsOnly")
+    AbstractCollectionAssert<?, Collection<? extends T>, T, ObjectAssert<T>> before2(Stream<S> stream, @Repeated
+    U elements, Collector<S, ?, ? extends Collection<T>> collector) {
+        return assertThat(stream.collect(collector)).containsOnly(Refaster.asVarargs(elements));
+    }
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "AssertThatStreamContainsOnly")
+    ListAssert<T> before3(Stream<S> stream, @Repeated
+    U elements, Collector<S, ?, ? extends List<T>> collector) {
+        return assertThat(stream.collect(collector)).containsOnly(Refaster.asVarargs(elements));
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    ListAssert<S> after(Stream<S> stream, @Repeated
+    U elements) {
+        return assertThat(stream).containsOnly(elements);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsOnlyVarArgsRecipe","displayName":"Refaster template `AssertJRules.AssertThatStreamContainsOnlyVarArgs`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

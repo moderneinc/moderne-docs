@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Android `ClipboardManager` access"}
-  description={"Clipboard reads and writes carry user data into and out of a process boundary the user typically does not associate with the app. Each call is a candidate for review of secret-leak and accidental-paste scenarios."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindClipboardAccess$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findclipboardaccess$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Android `ClipboardManager` access</RecipeHeader.Title>
+
+<RecipeHeader.Description>Clipboard reads and writes carry user data into and out of a process boundary the user typically does not associate with the app. Each call is a candidate for review of secret-leak and accidental-paste scenarios.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindClipboardAccess$KtRecipe","displayName":"Find Android `ClipboardManager` access","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

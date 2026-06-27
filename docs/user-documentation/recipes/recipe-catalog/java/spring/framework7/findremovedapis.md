@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find removed APIs in Spring Framework 7.0"}
-  description={"Finds usages of APIs that were removed in Spring Framework 7.0 and require manual intervention. This includes Theme support, OkHttp3 integration, and servlet view document/feed classes which have no direct automated replacement."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","search","framework"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.FindRemovedAPIs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/findremovedapis.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find Spring Theme support usage","href":"java/spring/framework7/findthemesupportusage"},{"name":"Find Spring OkHttp3 integration usage","href":"java/spring/framework7/findokhttp3integrationusage"},{"name":"Find removed Spring servlet view classes","href":"java/spring/framework7/findservletviewsupportusage"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Find removed APIs in Spring Framework 7.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of APIs that were removed in Spring Framework 7.0 and require manual intervention. This includes Theme support, OkHttp3 integration, and servlet view document/feed classes which have no direct automated replacement.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find Spring Theme support usage","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/findthemesupportusage/"},{"name":"Find Spring OkHttp3 integration usage","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/findokhttp3integrationusage/"},{"name":"Find removed Spring servlet view classes","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/findservletviewsupportusage/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

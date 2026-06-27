@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `createElement` to JSX"}
-  description={"Converts `React.createElement()` calls to JSX syntax for improved readability."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.refactoring.create-element-to-jsx"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/refactoring/create-element-to-jsx.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert `createElement` to JSX</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `React.createElement()` calls to JSX syntax for improved readability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.refactoring.create-element-to-jsx","displayName":"Convert `createElement` to JSX","npmPackage":"@openrewrite/recipes-react"}}>
 

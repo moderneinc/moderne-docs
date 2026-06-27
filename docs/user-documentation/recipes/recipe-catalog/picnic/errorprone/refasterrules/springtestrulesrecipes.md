@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`SpringTestRules` Refaster recipes"}
-  description={"Refaster rules related to Spring Test expressions and statements.\n[Source](https://error-prone.picnic.tech/refasterrules/SpringTestRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.SpringTestRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/springtestrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `SpringTestRules.BodyContentSpecJsonLenient`","href":"picnic/errorprone/refasterrules/springtestrulesrecipes$bodycontentspecjsonlenientrecipe"},{"name":"Refaster template `SpringTestRules.BodyContentSpecJsonStrict`","href":"picnic/errorprone/refasterrules/springtestrulesrecipes$bodycontentspecjsonstrictrecipe"}]}>
+<RecipeHeader.Title>`SpringTestRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to Spring Test expressions and statements. [Source](https://error-prone.picnic.tech/refasterrules/SpringTestRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `SpringTestRules.BodyContentSpecJsonLenient`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/springtestrulesrecipes$bodycontentspecjsonlenientrecipe/"},{"name":"Refaster template `SpringTestRules.BodyContentSpecJsonStrict`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/springtestrulesrecipes$bodycontentspecjsonstrictrecipe/"}]}>
 
 ## Definition
 

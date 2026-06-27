@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find test fixture / setup smells"}
-  description={"Search-only bundle for test-method shape issues: empty `@Test` bodies, `@Test` methods without any recognized assertion call, `@Test` methods with many assertions (consider parameterized), and `@BeforeEach`/`@Before` methods reassigning instance state (lateinit var hint)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindTestFixtureSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findtestfixturesmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `@Test` methods with empty bodies","href":"kotlin/testing/findemptytestbody$ktrecipe"},{"name":"Find `@Test` methods with no recognized assertion calls","href":"kotlin/testing/findtestnoassertions$ktrecipe"},{"name":"Find `@Test` methods with many assertions","href":"kotlin/testing/findtoomanyassertions$ktrecipe"},{"name":"Find `@BeforeEach` methods that reassign `val` properties","href":"kotlin/testing/findbeforeeachreinitializingfinal$ktrecipe"}]}>
+<RecipeHeader.Title>Find test fixture / setup smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle for test-method shape issues: empty `@Test` bodies, `@Test` methods without any recognized assertion call, `@Test` methods with many assertions (consider parameterized), and `@BeforeEach`/`@Before` methods reassigning instance state (lateinit var hint).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `@Test` methods with empty bodies","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findemptytestbody$ktrecipe/"},{"name":"Find `@Test` methods with no recognized assertion calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findtestnoassertions$ktrecipe/"},{"name":"Find `@Test` methods with many assertions","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findtoomanyassertions$ktrecipe/"},{"name":"Find `@BeforeEach` methods that reassign `val` properties","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findbeforeeachreinitializingfinal$ktrecipe/"}]}>
 
 ## Definition
 

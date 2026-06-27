@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Camel Yaml changes regarding route-configuration children"}
-  description={"Camel YAML changes. route-configuration children sequence is replaced with  mappingEntry (with special migration of \"on-exception\")."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel40.yaml.CamelYamlRouteConfigurationSequenceRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel40/yaml/camelyamlrouteconfigurationsequencerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Camel Yaml changes regarding route-configuration children</RecipeHeader.Title>
+
+<RecipeHeader.Description>Camel YAML changes. route-configuration children sequence is replaced with  mappingEntry (with special migration of "on-exception").</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.apache.camel.upgrade.camel40.yaml.CamelYamlRouteConfigurationSequenceRecipe","displayName":"Camel Yaml changes regarding route-configuration children","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

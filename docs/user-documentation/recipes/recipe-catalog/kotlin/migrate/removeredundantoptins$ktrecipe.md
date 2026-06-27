@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant `@OptIn` annotations"}
-  description={"Removes `@OptIn` annotations for stdlib experimental markers that have since graduated to stable (`ExperimentalStdlibApi`, `ExperimentalTime`, `ExperimentalUnsignedTypes`, `ExperimentalPathApi`). The annotations no longer suppress anything and just add noise."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.RemoveRedundantOptIns$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/removeredundantoptins$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Remove annotation","href":"java/removeannotation"}]}>
+<RecipeHeader.Title>Remove redundant `@OptIn` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `@OptIn` annotations for stdlib experimental markers that have since graduated to stable (`ExperimentalStdlibApi`, `ExperimentalTime`, `ExperimentalUnsignedTypes`, `ExperimentalPathApi`). The annotations no longer suppress anything and just add noise.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"}]}>
 
 ## Definition
 

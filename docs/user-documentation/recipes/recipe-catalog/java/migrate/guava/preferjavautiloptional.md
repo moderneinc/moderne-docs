@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `java.util.Optional`"}
-  description={"Prefer `java.util.Optional` instead of using `com.google.common.base.Optional`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["RSPEC-S4738","guava"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.PreferJavaUtilOptional"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautiloptional.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)`","href":"java/migrate/guava/preferjavautiloptionalorsupplier"},{"name":"Prefer `java.util.Optional#orElse(null)` over `com.google.common.base.Optional#orNull()`","href":"java/migrate/guava/preferjavautiloptionalorelsenull"},{"name":"Replace `com.google.common.base.Optional#fromJavaUtil(java.util.Optional)` with argument","href":"java/migrate/guava/noguavaoptionalfromjavautil"},{"name":"Remove `com.google.common.base.Optional#toJavaUtil()`","href":"java/migrate/guava/noguavaoptionaltojavautil"},{"name":"Prefer `Optional.stream().collect(Collectors.toSet())`","href":"java/migrate/guava/noguavaoptionalasset"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Prefer `java.util.Optional`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `java.util.Optional` instead of using `com.google.common.base.Optional`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautiloptionalorsupplier/"},{"name":"Prefer `java.util.Optional#orElse(null)` over `com.google.common.base.Optional#orNull()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautiloptionalorelsenull/"},{"name":"Replace `com.google.common.base.Optional#fromJavaUtil(java.util.Optional)` with argument","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaoptionalfromjavautil/"},{"name":"Remove `com.google.common.base.Optional#toJavaUtil()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaoptionaltojavautil/"},{"name":"Prefer `Optional.stream().collect(Collectors.toSet())`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaoptionalasset/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

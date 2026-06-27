@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Catch block log level"}
-  description={"Sometimes exceptions are caught and logged at the wrong log level. This will set the log level of logging statements within a catch block not containing an exception to \"warn\", and the log level of logging statements containing an exception to \"error\". This supports SLF4J, Log4J1, Log4j2, and Logback."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.CatchBlockLogLevel"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/catchblockloglevel.md"}
-/>
+>
+
+<RecipeHeader.Title>Catch block log level</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sometimes exceptions are caught and logged at the wrong log level. This will set the log level of logging statements within a catch block not containing an exception to "warn", and the log level of logging statements containing an exception to "error". This supports SLF4J, Log4J1, Log4j2, and Logback.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.log4j.Logger;\n\nclass A {\n    Logger log = Logger.getLogger(A.class);\n    void test() {\n        try {\n            log.info(\"unchanged\");\n            throw new RuntimeException();\n        } catch (Exception e) {\n            log.info(\"Some context\");\n            log.info(\"Caught exception\", e);\n        }\n    }\n}\n","after":"import org.apache.log4j.Logger;\n\nclass A {\n    Logger log = Logger.getLogger(A.class);\n    void test() {\n        try {\n            log.info(\"unchanged\");\n            throw new RuntimeException();\n        } catch (Exception e) {\n            log.warn(\"Some context\");\n            log.error(\"Caught exception\", e);\n        }\n    }\n}\n","diff":"@@ -10,2 +10,2 @@\n            throw new RuntimeException();\n        } catch (Exception e) {\n-           log.info(\"Some context\");\n-           log.info(\"Caught exception\", e);\n+           log.warn(\"Some context\");\n+           log.error(\"Caught exception\", e);\n        }\n","newFile":false}]}]}>
 

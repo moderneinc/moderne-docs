@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Pad empty `for` loop components"}
-  description={"Fixes padding on empty `for` loop iterators and initializers to match Checkstyle policies."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.format.PadEmptyForLoopComponents"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/format/pademptyforloopcomponents.md"}
-/>
+>
+
+<RecipeHeader.Title>Pad empty `for` loop components</RecipeHeader.Title>
+
+<RecipeHeader.Description>Fixes padding on empty `for` loop iterators and initializers to match Checkstyle policies.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n    {\n        int i = 0;\n        int j = 10;\n        for (; i < j; i++, j--) { }\n    }\n}\n","after":"public class A {\n    {\n        int i = 0;\n        int j = 10;\n        for ( ; i < j; i++, j--) { }\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\n        int i = 0;\n        int j = 10;\n-       for (; i < j; i++, j--) { }\n+       for ( ; i < j; i++, j--) { }\n    }\n","newFile":false}]}]}>
 

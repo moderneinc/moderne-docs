@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Is likely a Spring Framework project"}
-  description={"Marks the project if it's likely a Spring Framework project."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.IsLikelySpringFramework"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/islikelyspringframework.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Is likely a Spring Framework project</RecipeHeader.Title>
+
+<RecipeHeader.Description>Marks the project if it's likely a Spring Framework project.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"java","before":"package org.example;\n\nclass Main {}\n","after":"/*~~(Module is likely a Spring Framework Project)~~>*/package org.example;\n\nclass Main {}\n","diff":"@@ -1,1 +1,1 @@\n-package org.example;\n+/*~~(Module is likely a Spring Framework Project)~~>*/package org.example;\n\n","newFile":false},{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>fooservice</artifactId>\n    <version>1.0-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.springframework</groupId>\n            <artifactId>spring-core</artifactId>\n            <version>6.2.8</version>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<!--~~(Module is likely a Spring Framework Project)~~>--><project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>fooservice</artifactId>\n    <version>1.0-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>org.springframework</groupId>\n            <artifactId>spring-core</artifactId>\n            <version>6.2.8</version>\n        </dependency>\n    </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -1,1 +1,1 @@\n-<project>\n+<!--~~(Module is likely a Spring Framework Project)~~>--><project>\n    <modelVersion>4.0.0</modelVersion>\n","newFile":false}]}]}>
 

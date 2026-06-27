@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find GitHub action secret references"}
-  description={"Help identify and inventory your GitHub secrets that are being used in GitHub actions."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.FindGitHubActionSecretReferences"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/findgithubactionsecretreferences.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find text","href":"text/find"}]}>
+<RecipeHeader.Title>Find GitHub action secret references</RecipeHeader.Title>
+
+<RecipeHeader.Description>Help identify and inventory your GitHub secrets that are being used in GitHub actions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find text","href":"/user-documentation/recipes/recipe-catalog/text/find/"}]}>
 
 ## Definition
 

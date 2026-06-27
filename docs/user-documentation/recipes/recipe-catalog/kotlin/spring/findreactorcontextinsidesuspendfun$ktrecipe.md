@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Mono.deferContextual { ... }` inside `suspend fun`"}
-  description={"Reactor's `deferContextual` reads context from a reactive Subscriber. Inside a `suspend fun`, that subscriber isn't the active continuation — context propagation should go through `kotlin.coroutines.coroutineContext` or `kotlinx.coroutines.reactor.ReactorContext` instead. Flag for review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindReactorContextInsideSuspendFun$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findreactorcontextinsidesuspendfun$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Mono.deferContextual { ... }` inside `suspend fun`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reactor's `deferContextual` reads context from a reactive Subscriber. Inside a `suspend fun`, that subscriber isn't the active continuation — context propagation should go through `kotlin.coroutines.coroutineContext` or `kotlinx.coroutines.reactor.ReactorContext` instead. Flag for review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindReactorContextInsideSuspendFun$KtRecipe","displayName":"Find `Mono.deferContextual { ... }` inside `suspend fun`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

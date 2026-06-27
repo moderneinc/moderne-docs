@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `java.util.Optional#orElse(null)` over `com.google.common.base.Optional#orNull()`"}
-  description={"Replaces `com.google.common.base.Optional#orNull()` with `java.util.Optional#orElse(null)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S4738","guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.PreferJavaUtilOptionalOrElseNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautiloptionalorelsenull.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `java.util.Optional#orElse(null)` over `com.google.common.base.Optional#orNull()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `com.google.common.base.Optional#orNull()` with `java.util.Optional#orElse(null)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.PreferJavaUtilOptionalOrElseNull","displayName":"Prefer `java.util.Optional#orElse(null)` over `com.google.common.base.Optional#orNull()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

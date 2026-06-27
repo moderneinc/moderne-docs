@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `Joined.named()` to `Joined.as()`"}
-  description={"In Kafka Streams 2.3, `Joined.named()` was deprecated in favor of `Joined.as()`. Additionally, the `name()` method was deprecated for removal and should not be used."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kafka"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.streams.MigrateJoinedNameMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/streams/migratejoinednamemethod.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"},{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"}]}>
+<RecipeHeader.Title>Migrate `Joined.named()` to `Joined.as()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Kafka Streams 2.3, `Joined.named()` was deprecated in favor of `Joined.as()`. Additionally, the `name()` method was deprecated for removal and should not be used.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"}]}>
 
 ## Definition
 

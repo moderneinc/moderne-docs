@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find improper validation of array index"}
-  description={"Detects when user-controlled input flows into array or collection index expressions without proper bounds validation, which could allow out-of-bounds access or denial of service (CWE-129)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["CWE-129"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.security.FindArrayIndexInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/security/findarrayindexinjection.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find improper validation of array index</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects when user-controlled input flows into array or collection index expressions without proper bounds validation, which could allow out-of-bounds access or denial of service (CWE-129).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.http.HttpServletRequest;\nimport java.util.List;\n\nclass DataLookup {\n    private final List<String> items = List.of(\"a\", \"b\", \"c\");\n\n    String lookup(HttpServletRequest request) {\n        String idx = request.getParameter(\"index\");\n        return items.get(Integer.parseInt(idx));\n    }\n}\n","after":"import javax.servlet.http.HttpServletRequest;\nimport java.util.List;\n\nclass DataLookup {\n    private final List<String> items = List.of(\"a\", \"b\", \"c\");\n\n    String lookup(HttpServletRequest request) {\n        String idx = request.getParameter(\"index\");\n        return /*~~(ARRAY_INDEX use)~~>*/items.get(Integer.parseInt(idx));\n    }\n}\n","diff":"@@ -9,1 +9,1 @@\n    String lookup(HttpServletRequest request) {\n        String idx = request.getParameter(\"index\");\n-       return items.get(Integer.parseInt(idx));\n+       return /*~~(ARRAY_INDEX use)~~>*/items.get(Integer.parseInt(idx));\n    }\n","newFile":false}]}]}>
 

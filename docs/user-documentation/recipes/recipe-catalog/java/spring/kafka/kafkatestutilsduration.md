@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Duration` in `KafkaTestUtils`"}
-  description={"Replace `KafkaTestUtils` methods that take a `long` argument with methods that take a `Duration`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.kafka.KafkaTestUtilsDuration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/kafka/kafkatestutilsduration.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Duration` in `KafkaTestUtils`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `KafkaTestUtils` methods that take a `long` argument with methods that take a `Duration`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.kafka.clients.consumer.Consumer;\nimport org.springframework.kafka.test.utils.KafkaTestUtils;\n\nclass Foo {\n    void bar(Consumer<String, String> consumer) {\n        KafkaTestUtils.getRecords(consumer, 1000L);\n        KafkaTestUtils.getRecords(consumer, 1000L, 1);\n        KafkaTestUtils.getSingleRecord(consumer, \"topic\", 1000L);\n        KafkaTestUtils.getOneRecord(\"topic\", \"key\", \"value\", 1, true, true, 1000L);\n    }\n}\n","after":"import org.apache.kafka.clients.consumer.Consumer;\nimport org.springframework.kafka.test.utils.KafkaTestUtils;\n\nimport java.time.Duration;\n\nclass Foo {\n    void bar(Consumer<String, String> consumer) {\n        KafkaTestUtils.getRecords(consumer, Duration.ofMillis(1000L));\n        KafkaTestUtils.getRecords(consumer, Duration.ofMillis(1000L), 1);\n        KafkaTestUtils.getSingleRecord(consumer, \"topic\", Duration.ofMillis(1000L));\n        KafkaTestUtils.getOneRecord(\"topic\", \"key\", \"value\", 1, true, true, Duration.ofMillis(1000L));\n    }\n}\n","diff":"@@ -4,0 +4,2 @@\nimport org.springframework.kafka.test.utils.KafkaTestUtils;\n\n+import java.time.Duration;\n+\nclass Foo {\n@@ -6,4 +8,4 @@\nclass Foo {\n    void bar(Consumer<String, String> consumer) {\n-       KafkaTestUtils.getRecords(consumer, 1000L);\n-       KafkaTestUtils.getRecords(consumer, 1000L, 1);\n-       KafkaTestUtils.getSingleRecord(consumer, \"topic\", 1000L);\n-       KafkaTestUtils.getOneRecord(\"topic\", \"key\", \"value\", 1, true, true, 1000L);\n+       KafkaTestUtils.getRecords(consumer, Duration.ofMillis(1000L));\n+       KafkaTestUtils.getRecords(consumer, Duration.ofMillis(1000L), 1);\n+       KafkaTestUtils.getSingleRecord(consumer, \"topic\", Duration.ofMillis(1000L));\n+       KafkaTestUtils.getOneRecord(\"topic\", \"key\", \"value\", 1, true, true, Duration.ofMillis(1000L));\n    }\n","newFile":false}]}]}>
 

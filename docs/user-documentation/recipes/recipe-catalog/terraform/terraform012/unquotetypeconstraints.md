@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unquote variable type constraints"}
-  description={"In Terraform 0.12+, variable type constraints should be bare types instead of quoted strings. For example, `type = \"string\"` becomes `type = string`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.terraform012.UnquoteTypeConstraints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/terraform012/unquotetypeconstraints.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Unquote variable type constraints</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Terraform 0.12+, variable type constraints should be bare types instead of quoted strings. For example, `type = "string"` becomes `type = string`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"hcl","before":"variable \"name\" {\n  type = \"string\"\n}\n","after":"variable \"name\" {\n  type = string\n}\n","diff":"@@ -2,1 +2,1 @@\nvariable \"name\" {\n- type = \"string\"\n+ type = string\n}\n","newFile":false}]}]}>
 

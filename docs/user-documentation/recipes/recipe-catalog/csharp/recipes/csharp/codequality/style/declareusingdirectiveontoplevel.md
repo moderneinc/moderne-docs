@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Declare using directive on top level"}
-  description={"Move using directives outside of namespace declarations to the top level of the file."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.DeclareUsingDirectiveOnTopLevel"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/declareusingdirectiveontoplevel.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Declare using directive on top level</RecipeHeader.Title>
+
+<RecipeHeader.Description>Move using directives outside of namespace declarations to the top level of the file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.DeclareUsingDirectiveOnTopLevel","displayName":"Declare using directive on top level","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

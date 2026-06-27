@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Groovy GString curly braces"}
-  description={"In Groovy [GStrings](https://docs.groovy-lang.org/latest/html/api/groovy/lang/GString.html), curly braces are optional for single variable expressions. This recipe adds them, so that the expression is always surrounded by curly braces."}
   type={"Single recipe"}
   languages={["Groovy"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-groovy"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.groovy.format.GStringCurlyBraces"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/groovy/format/gstringcurlybraces.md"}
-/>
+>
+
+<RecipeHeader.Title>Groovy GString curly braces</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Groovy [GStrings](https://docs.groovy-lang.org/latest/html/api/groovy/lang/GString.html), curly braces are optional for single variable expressions. This recipe adds them, so that the expression is always surrounded by curly braces.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"def name = 'world'\n\"Hello $name!\"\n","after":"def name = 'world'\n\"Hello ${name}!\"\n","diff":"@@ -2,1 +2,1 @@\ndef name = 'world'\n-\"Hello $name!\"\n+\"Hello ${name}!\"\n\n","newFile":false}]}]}>
 

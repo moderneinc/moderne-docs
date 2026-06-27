@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Paths.get(\"...\" + input)` calls"}
-  description={"Same path-traversal risk as `File(...)` concatenation. Resolve against a fixed base with `Path.resolve(name)` plus an explicit `normalize().startsWith(base)` check."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindPathsGetWithConcat$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findpathsgetwithconcat$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Paths.get("..." + input)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Same path-traversal risk as `File(...)` concatenation. Resolve against a fixed base with `Path.resolve(name)` plus an explicit `normalize().startsWith(base)` check.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindPathsGetWithConcat$KtRecipe","displayName":"Find `Paths.get(\"...\" + input)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

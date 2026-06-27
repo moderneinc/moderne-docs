@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply Kotlin collection shorthands"}
-  description={"Replaces round-trip conversions (`asSequence().toList()`, `toList().toSet()`, `toSet().toList()`, …) with the dedicated stdlib operator they're imitating."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.CollectionShorthands$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/collectionshorthands$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `take(n)` instead of `subList(0, n)`","href":"kotlin/stdlib/usetakeforsublistfromzero$ktrecipe"},{"name":"Use `toList()` instead of `asSequence().toList()`","href":"kotlin/stdlib/useassequencetolistidentity$ktrecipe"},{"name":"Use `toSet()` instead of `toList().toSet()`","href":"kotlin/stdlib/usetosetfortolisttoset$ktrecipe"},{"name":"Use `distinct()` instead of `toSet().toList()`","href":"kotlin/stdlib/usedistinctfortosettolist$ktrecipe"},{"name":"Use `distinct()` instead of `toHashSet().toList()`","href":"kotlin/stdlib/usedistinctfortohashsettolist$ktrecipe"},{"name":"Use `toList()` instead of `toMutableList().toList()`","href":"kotlin/stdlib/usetolistforlisttolist$ktrecipe"},{"name":"Use `toSet()` instead of `toMutableSet().toSet()`","href":"kotlin/stdlib/usesetformutablesettoset$ktrecipe"},{"name":"Use `distinct().toMutableList()` instead of `toSet().toMutableList()`","href":"kotlin/stdlib/usedistinctfortosettomutablelist$ktrecipe"}]}>
+<RecipeHeader.Title>Apply Kotlin collection shorthands</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces round-trip conversions (`asSequence().toList()`, `toList().toSet()`, `toSet().toList()`, …) with the dedicated stdlib operator they're imitating.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `take(n)` instead of `subList(0, n)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usetakeforsublistfromzero$ktrecipe/"},{"name":"Use `toList()` instead of `asSequence().toList()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/useassequencetolistidentity$ktrecipe/"},{"name":"Use `toSet()` instead of `toList().toSet()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usetosetfortolisttoset$ktrecipe/"},{"name":"Use `distinct()` instead of `toSet().toList()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usedistinctfortosettolist$ktrecipe/"},{"name":"Use `distinct()` instead of `toHashSet().toList()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usedistinctfortohashsettolist$ktrecipe/"},{"name":"Use `toList()` instead of `toMutableList().toList()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usetolistforlisttolist$ktrecipe/"},{"name":"Use `toSet()` instead of `toMutableSet().toSet()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usesetformutablesettoset$ktrecipe/"},{"name":"Use `distinct().toMutableList()` instead of `toSet().toMutableList()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usedistinctfortosettomutablelist$ktrecipe/"}]}>
 
 ## Definition
 

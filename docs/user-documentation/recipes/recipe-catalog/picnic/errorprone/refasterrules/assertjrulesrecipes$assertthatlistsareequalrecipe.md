@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJRules.AssertThatListsAreEqual`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatListsAreEqual<S, T extends S> {\n    \n    @BeforeTemplate\n    ListAssert<S> before(List<S> list1, Iterable<T> list2) {\n        return assertThat(list1).isEqualTo(list2);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ListAssert<S> after(List<S> list1, Iterable<T> list2) {\n        return assertThat(list1).containsExactlyElementsOf(list2);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatListsAreEqualRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatlistsareequalrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJRules.AssertThatListsAreEqual`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatListsAreEqual<S, T extends S> {
+    
+    @BeforeTemplate
+    ListAssert<S> before(List<S> list1, Iterable<T> list2) {
+        return assertThat(list1).isEqualTo(list2);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    ListAssert<S> after(List<S> list1, Iterable<T> list2) {
+        return assertThat(list1).containsExactlyElementsOf(list2);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatListsAreEqualRecipe","displayName":"Refaster template `AssertJRules.AssertThatListsAreEqual`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

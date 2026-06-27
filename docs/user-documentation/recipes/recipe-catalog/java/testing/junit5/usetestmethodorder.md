@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from JUnit 4 `@FixedMethodOrder` to JUnit 5 `@TestMethodOrder`"}
-  description={"JUnit optionally allows test method execution order to be specified. This replaces JUnit 4 test execution ordering annotations with JUnit 5 replacements."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.UseTestMethodOrder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/usetestmethodorder.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate from JUnit 4 `@FixedMethodOrder` to JUnit 5 `@TestMethodOrder`</RecipeHeader.Title>
+
+<RecipeHeader.Description>JUnit optionally allows test method execution order to be specified. This replaces JUnit 4 test execution ordering annotations with JUnit 5 replacements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.UseTestMethodOrder","displayName":"Migrate from JUnit 4 `@FixedMethodOrder` to JUnit 5 `@TestMethodOrder`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

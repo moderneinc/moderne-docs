@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Randomize tree IDs"}
-  description={"Scramble the IDs. This was intended as a utility to test _en masse_ different techniques for UUID generation and compare their relative performance outside a microbenchmark."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.RandomizeId"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/randomizeid.md"}
-/>
+>
+
+<RecipeHeader.Title>Randomize tree IDs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Scramble the IDs. This was intended as a utility to test _en masse_ different techniques for UUID generation and compare their relative performance outside a microbenchmark.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.RandomizeId","displayName":"Randomize tree IDs","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":false}}>
 

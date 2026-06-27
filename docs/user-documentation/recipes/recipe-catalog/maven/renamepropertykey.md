@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename Maven property key"}
-  description={"Rename the specified Maven project property key leaving the value unchanged."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.RenamePropertyKey"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/renamepropertykey.md"}
-/>
+>
+
+<RecipeHeader.Title>Rename Maven property key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rename the specified Maven project property key leaving the value unchanged.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldKey","required":true,"description":"The old name of the property key to be replaced.","example":"junit.version"},{"type":"String","name":"newKey","required":true,"description":"The new property name to use.","example":"version.org.junit"}]}>
 

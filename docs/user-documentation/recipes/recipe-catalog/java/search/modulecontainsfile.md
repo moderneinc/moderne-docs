@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Module contains file"}
-  description={"Intended to be used primarily as a precondition for other recipes, this recipe checks if a module contains a specific file or files matching a pattern. Only files belonging to modules containing the specified file are marked with a `SearchResult` marker. This is more specific than `RepositoryContainsFile` which marks all files in the repository if any file matches."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.ModuleContainsFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/modulecontainsfile.md"}
-/>
+>
+
+<RecipeHeader.Title>Module contains file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Intended to be used primarily as a precondition for other recipes, this recipe checks if a module contains a specific file or files matching a pattern. Only files belonging to modules containing the specified file are marked with a `SearchResult` marker. This is more specific than `RepositoryContainsFile` which marks all files in the repository if any file matches.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"filePattern","required":false,"description":"A glob expression representing a file path to search for (relative to the project root). Blank/null matches all. Multiple patterns may be specified, separated by a semicolon `;`. If multiple patterns are supplied any of the patterns matching will be interpreted as a match.","example":".github/workflows/*.yml"}]}>
 

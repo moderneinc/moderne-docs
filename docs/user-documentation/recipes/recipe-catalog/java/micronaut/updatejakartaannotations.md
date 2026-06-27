@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update jakarta annotations dependency"}
-  description={"This recipe will remove jakarta annotations dependency as it is a transitive dependency of micronaut-inject, and migrate from javax.annotation if needed."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.UpdateJakartaAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/updatejakartaannotations.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate deprecated `javax.annotation` to `jakarta.annotation`","href":"java/migrate/jakarta/javaxannotationmigrationtojakartaannotation"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"}]}>
+<RecipeHeader.Title>Update jakarta annotations dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will remove jakarta annotations dependency as it is a transitive dependency of micronaut-inject, and migrate from javax.annotation if needed.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate deprecated `javax.annotation` to `jakarta.annotation`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxannotationmigrationtojakartaannotation/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"}]}>
 
 ## Definition
 

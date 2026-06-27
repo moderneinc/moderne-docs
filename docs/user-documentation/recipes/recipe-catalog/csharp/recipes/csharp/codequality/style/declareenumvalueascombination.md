@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Declare enum value as combination of names"}
-  description={"Declare Flags enum values as combinations of named values."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.DeclareEnumValueAsCombination"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/declareenumvalueascombination.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Declare enum value as combination of names</RecipeHeader.Title>
+
+<RecipeHeader.Description>Declare Flags enum values as combinations of named values.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.DeclareEnumValueAsCombination","displayName":"Declare enum value as combination of names","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

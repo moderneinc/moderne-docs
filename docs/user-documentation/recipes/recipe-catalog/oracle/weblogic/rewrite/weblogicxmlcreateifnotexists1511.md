@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create `weblogic.xml` if it does not exist"}
-  description={"This recipe will create a `weblogic.xml` file with the WebLogic 15.1.1 namespace if it does not already exist."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["web-app","schemas","weblogic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.WebLogicXmlCreateIfNotExists1511"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/weblogicxmlcreateifnotexists1511.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Create XML file","href":"xml/createxmlfile"}]}>
+<RecipeHeader.Title>Create `weblogic.xml` if it does not exist</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will create a `weblogic.xml` file with the WebLogic 15.1.1 namespace if it does not already exist.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Create XML file","href":"/user-documentation/recipes/recipe-catalog/xml/createxmlfile/"}]}>
 
 ## Definition
 

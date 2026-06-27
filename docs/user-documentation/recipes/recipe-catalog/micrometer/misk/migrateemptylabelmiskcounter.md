@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Misk counter to Micrometer"}
-  description={"Convert a Misk (Prometheus) counter to a Micrometer counter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micrometer"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.micrometer.misk.MigrateEmptyLabelMiskCounter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/micrometer/misk/migrateemptylabelmiskcounter.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Misk counter to Micrometer</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert a Misk (Prometheus) counter to a Micrometer counter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import misk.metrics.v2.Metrics;\nimport static kotlin.collections.CollectionsKt.listOf;\n\nclass Test {\n  void test(Metrics metrics) {\n      metrics.counter(\"counter\", \"description\", listOf());\n  }\n}\n","after":"import io.micrometer.core.instrument.Counter;\nimport misk.metrics.v2.Metrics;\nimport static kotlin.collections.CollectionsKt.listOf;\n\nclass Test {\n  void test(Metrics metrics) {\n      Counter.builder(\"counter\").description(\"description\").register(Metrics.globalRegistry);\n  }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import io.micrometer.core.instrument.Counter;\nimport misk.metrics.v2.Metrics;\n@@ -6,1 +7,1 @@\nclass Test {\n  void test(Metrics metrics) {\n-     metrics.counter(\"counter\", \"description\", listOf());\n+     Counter.builder(\"counter\").description(\"description\").register(Metrics.globalRegistry);\n  }\n","newFile":false}]}]}>
 

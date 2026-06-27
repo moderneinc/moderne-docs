@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove JavaDoc `@param`, `@return`, and `@throws` with no description"}
-  description={"Removes `@param`, `@return`, and `@throws` with no description from JavaDocs."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveEmptyJavaDocParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeemptyjavadocparameters.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove JavaDoc `@param`, `@return`, and `@throws` with no description</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `@param`, `@return`, and `@throws` with no description from JavaDocs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    /**\n     * @param arg0\n     */\n    void method(int arg0) {\n    }\n}\n","after":"class Test {\n    void method(int arg0) {\n    }\n}\n","diff":"@@ -2,3 +2,0 @@\nclass Test {\n-   /**\n-    * @param arg0\n-    */\n    void method(int arg0) {\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move annotation to type instead of field"}
-  description={"Annotations that could be applied to either a field or a type are better applied to the type, because similar annotations may be more restrictive, leading to compile errors like 'scoping construct cannot be annotated with type-use annotation' when migrating later."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.java.MoveFieldAnnotationToType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/java/movefieldannotationtotype.md"}
-/>
+>
+
+<RecipeHeader.Title>Move annotation to type instead of field</RecipeHeader.Title>
+
+<RecipeHeader.Description>Annotations that could be applied to either a field or a type are better applied to the type, because similar annotations may be more restrictive, leading to compile errors like 'scoping construct cannot be annotated with type-use annotation' when migrating later.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"annotationType","required":false,"description":"The type of annotation to move.","example":"org.openrewrite..*"}]}>
 

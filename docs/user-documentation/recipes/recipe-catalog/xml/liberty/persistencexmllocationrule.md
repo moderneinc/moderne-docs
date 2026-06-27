@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move persistence.xml file"}
-  description={"This recipes moves persistence.xml files into the root META-INF directory in source folder."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-liberty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.liberty.PersistenceXmlLocationRule"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/liberty/persistencexmllocationrule.md"}
-/>
+>
+
+<RecipeHeader.Title>Move persistence.xml file</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipes moves persistence.xml files into the root META-INF directory in source folder.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"project","before":"","after":"testEjbWithJpa","newFile":true}]}]}>
 

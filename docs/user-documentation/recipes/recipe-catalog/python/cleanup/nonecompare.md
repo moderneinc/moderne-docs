@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Compare to `None` with identity operators (`is` / `is not`)"}
-  description={"Switch `== None` to `is None` and `!= None` to `is not None`, following PEP 8 singleton comparison guidance."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.NoneCompare"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/nonecompare.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Compare to `None` with identity operators (`is` / `is not`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Switch `== None` to `is None` and `!= None` to `is not None`, following PEP 8 singleton comparison guidance.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.NoneCompare","displayName":"Compare to `None` with identity operators (`is` / `is not`)","pipPackage":"openrewrite-static-analysis"}}>
 

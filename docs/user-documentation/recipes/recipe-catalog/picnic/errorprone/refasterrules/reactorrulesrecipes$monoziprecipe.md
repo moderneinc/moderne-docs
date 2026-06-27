@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ReactorRules.MonoZip`"}
-  description={"Prefer `Mono#zip(Mono, Mono)` over a chained `Mono#zipWith(Mono)`, as the former better conveys that the `Mono`s may be subscribed to concurrently, and generalizes to combining three or more reactive streams."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoZipRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes$monoziprecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ReactorRules.MonoZip`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Mono#zip(Mono, Mono)` over a chained `Mono#zipWith(Mono)`, as the former better conveys that the `Mono`s may be subscribed to concurrently, and generalizes to combining three or more reactive streams.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoZipRecipe","displayName":"Refaster template `ReactorRules.MonoZip`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

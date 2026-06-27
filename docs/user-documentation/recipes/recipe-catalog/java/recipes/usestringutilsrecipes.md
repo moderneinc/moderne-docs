@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `StringUtils` utility methods"}
-  description={"Replaces common string null and empty checks with `org.openrewrite.internal.StringUtils` utility methods."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.UseStringUtilsRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/usestringutilsrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `StringUtils#isBlank(String)`","href":"java/recipes/usestringutilsrecipes$stringutilsisblankrecipe"},{"name":"Use `!StringUtils#isBlank(String)`","href":"java/recipes/usestringutilsrecipes$stringutilsisnotblankrecipe"},{"name":"Use `StringUtils#isNotEmpty(String)`","href":"java/recipes/usestringutilsrecipes$stringutilsisnotemptyrecipe"},{"name":"Use `StringUtils#isNullOrEmpty(String)`","href":"java/recipes/usestringutilsrecipes$stringutilsisnulloremptyrecipe"}]}>
+<RecipeHeader.Title>Use `StringUtils` utility methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces common string null and empty checks with `org.openrewrite.internal.StringUtils` utility methods.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `StringUtils#isBlank(String)`","href":"/user-documentation/recipes/recipe-catalog/java/recipes/usestringutilsrecipes$stringutilsisblankrecipe/"},{"name":"Use `!StringUtils#isBlank(String)`","href":"/user-documentation/recipes/recipe-catalog/java/recipes/usestringutilsrecipes$stringutilsisnotblankrecipe/"},{"name":"Use `StringUtils#isNotEmpty(String)`","href":"/user-documentation/recipes/recipe-catalog/java/recipes/usestringutilsrecipes$stringutilsisnotemptyrecipe/"},{"name":"Use `StringUtils#isNullOrEmpty(String)`","href":"/user-documentation/recipes/recipe-catalog/java/recipes/usestringutilsrecipes$stringutilsisnulloremptyrecipe/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find LINQ Count() on materialized collection"}
-  description={"Detect LINQ `Count()` or `Any()` on types that have a `Count` or `Length` property. Use the property directly for O(1) performance."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindOptimizeEnumerableCountVsAny"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findoptimizeenumerablecountvsany.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find LINQ Count() on materialized collection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect LINQ `Count()` or `Any()` on types that have a `Count` or `Length` property. Use the property directly for O(1) performance.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindOptimizeEnumerableCountVsAny","displayName":"Find LINQ Count() on materialized collection","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

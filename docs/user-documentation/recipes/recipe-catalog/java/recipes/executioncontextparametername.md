@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use a standard name for `ExecutionContext`"}
-  description={"Visitors that are parameterized with `ExecutionContext` should use the parameter name `ctx`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.ExecutionContextParameterName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/executioncontextparametername.md"}
-/>
+>
+
+<RecipeHeader.Title>Use a standard name for `ExecutionContext`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Visitors that are parameterized with `ExecutionContext` should use the parameter name `ctx`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"parameterName","required":false,"description":"The name or prefix to use for the `ExecutionContext` parameter.","example":"ctx"}]}>
 

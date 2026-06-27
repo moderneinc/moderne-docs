@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Lazy` annotations on `@Autowired` properties"}
-  description={"`@Lazy @Autowired` is Spring's escape hatch for circular bean references. It works, but each one is a hint that the dependency graph has a cycle that should be untangled by extracting a third bean or reorganising responsibilities. Flag every occurrence for design review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindCircularDependencyHint$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findcirculardependencyhint$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Lazy` annotations on `@Autowired` properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@Lazy @Autowired` is Spring's escape hatch for circular bean references. It works, but each one is a hint that the dependency graph has a cycle that should be untangled by extracting a third bean or reorganising responsibilities. Flag every occurrence for design review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindCircularDependencyHint$KtRecipe","displayName":"Find `@Lazy` annotations on `@Autowired` properties","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

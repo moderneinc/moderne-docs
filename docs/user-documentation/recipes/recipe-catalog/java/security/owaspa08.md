@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remediate OWASP A08:2021 Software and data integrity failures"}
-  description={"OWASP [A08:2021](https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/) software and data integrity failures."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspA08"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/owaspa08.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Insecure JMS deserialization","href":"java/security/marshalling/insecurejmsdeserialization"},{"name":"Restrict deserialized classes for JMS `ObjectMessage`","href":"java/security/marshalling/fixinsecurejmsdeserialization"},{"name":"Secure the use of SnakeYAML's constructor","href":"java/security/marshalling/securesnakeyamlconstructor"},{"name":"Secure the use of Jackson default typing","href":"java/security/marshalling/securejacksondefaulttyping"},{"name":"Find Jackson default type mapping enablement","href":"java/security/search/findjacksondefaulttypemapping"},{"name":"Find vulnerable uses of Jackson `@JsonTypeInfo`","href":"java/security/search/findvulnerablejacksonjsontypeinfo"},{"name":"Use secure temporary file creation","href":"java/security/securetempfilecreation"},{"name":"Find text-direction changes","href":"java/security/findtextdirectionchanges"},{"name":"Use `Files#createTempDirectory`","href":"java/security/usefilescreatetempdirectory"},{"name":"Enable CSRF attack prevention","href":"java/security/spring/csrfprotection"}]}>
+<RecipeHeader.Title>Remediate OWASP A08:2021 Software and data integrity failures</RecipeHeader.Title>
+
+<RecipeHeader.Description>OWASP [A08:2021](https://owasp.org/Top10/A08_2021-Software_and_Data_Integrity_Failures/) software and data integrity failures.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Insecure JMS deserialization","href":"/user-documentation/recipes/recipe-catalog/java/security/marshalling/insecurejmsdeserialization/"},{"name":"Restrict deserialized classes for JMS `ObjectMessage`","href":"/user-documentation/recipes/recipe-catalog/java/security/marshalling/fixinsecurejmsdeserialization/"},{"name":"Secure the use of SnakeYAML's constructor","href":"/user-documentation/recipes/recipe-catalog/java/security/marshalling/securesnakeyamlconstructor/"},{"name":"Secure the use of Jackson default typing","href":"/user-documentation/recipes/recipe-catalog/java/security/marshalling/securejacksondefaulttyping/"},{"name":"Find Jackson default type mapping enablement","href":"/user-documentation/recipes/recipe-catalog/java/security/search/findjacksondefaulttypemapping/"},{"name":"Find vulnerable uses of Jackson `@JsonTypeInfo`","href":"/user-documentation/recipes/recipe-catalog/java/security/search/findvulnerablejacksonjsontypeinfo/"},{"name":"Use secure temporary file creation","href":"/user-documentation/recipes/recipe-catalog/java/security/securetempfilecreation/"},{"name":"Find text-direction changes","href":"/user-documentation/recipes/recipe-catalog/java/security/findtextdirectionchanges/"},{"name":"Use `Files#createTempDirectory`","href":"/user-documentation/recipes/recipe-catalog/java/security/usefilescreatetempdirectory/"},{"name":"Enable CSRF attack prevention","href":"/user-documentation/recipes/recipe-catalog/java/security/spring/csrfprotection/"}]}>
 
 ## Definition
 

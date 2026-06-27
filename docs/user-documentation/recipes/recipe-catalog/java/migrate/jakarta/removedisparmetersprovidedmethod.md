@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `isParametersProvided()`"}
-  description={"Expression Language prior to 5.0 provides the deprecated MethodExpression.isParmetersProvided() method, with the word 'parameter' misspelled in the method name. This method is unavailable in Jakarta Expression Language 5.0. Use the correctly spelled MethodExpression.isParametersProvided() method instead."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.RemovedIsParmetersProvidedMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removedisparmetersprovidedmethod.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use `isParametersProvided()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Expression Language prior to 5.0 provides the deprecated MethodExpression.isParmetersProvided() method, with the word 'parameter' misspelled in the method name. This method is unavailable in Jakarta Expression Language 5.0. Use the correctly spelled MethodExpression.isParametersProvided() method instead.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

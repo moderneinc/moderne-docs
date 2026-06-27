@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `setOf(a, b, c).filterNotNull()` patterns"}
-  description={"Same shape as `listOf(...).filterNotNull()` — building a set with `null`s and filtering them out. `setOfNotNull(a, b, c)` exists for exactly this case."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindSetOfFilterNotNull$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findsetoffilternotnull$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `setOf(a, b, c).filterNotNull()` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Same shape as `listOf(...).filterNotNull()` — building a set with `null`s and filtering them out. `setOfNotNull(a, b, c)` exists for exactly this case.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindSetOfFilterNotNull$KtRecipe","displayName":"Find `setOf(a, b, c).filterNotNull()` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

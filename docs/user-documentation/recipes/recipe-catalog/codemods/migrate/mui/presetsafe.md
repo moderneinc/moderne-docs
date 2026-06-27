@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensures presets are safe to use"}
-  description={"See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#preset-safe)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["mui","codemods","material-ui"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.migrate.mui.PresetSafe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/migrate/mui/presetsafe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"codemods/applycodemod"}]}>
+<RecipeHeader.Title>Ensures presets are safe to use</RecipeHeader.Title>
+
+<RecipeHeader.Description>See Material UI codemod projects for more [details](https://github.com/mui/material-ui/tree/master/packages/mui-codemod#preset-safe).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"/user-documentation/recipes/recipe-catalog/codemods/applycodemod/"}]}>
 
 ## Definition
 

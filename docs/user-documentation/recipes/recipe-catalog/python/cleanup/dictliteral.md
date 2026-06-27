@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `{}` literal instead of `dict()` constructor"}
-  description={"Convert no-argument `dict()` calls to the `{}` literal, which is more concise and avoids a function call."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.DictLiteral"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/dictliteral.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `{}` literal instead of `dict()` constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert no-argument `dict()` calls to the `{}` literal, which is more concise and avoids a function call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.DictLiteral","displayName":"Use `{}` literal instead of `dict()` constructor","pipPackage":"openrewrite-static-analysis"}}>
 

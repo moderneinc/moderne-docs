@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Jenkins API plugin instead of libraries"}
-  description={"Prefer Jenkins API plugins over bundling libraries for slimmer plugins."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.ReplaceLibrariesWithApiPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/replacelibrarieswithapiplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Use Jenkins API plugin instead of libraries</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer Jenkins API plugins over bundling libraries for slimmer plugins.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"pluginGroupId","required":true,"description":"The first part of a dependency coordinate 'io.jenkins.plugins:ARTIFACT_ID:VERSION'.","example":"io.jenkins.plugins"},{"type":"String","name":"pluginArtifactId","required":true,"description":"The second part of a dependency coordinate 'GROUP_ID:jackson2-api:VERSION'.","example":"jackson2-api"},{"type":"String","name":"pluginVersion","required":true,"description":"An exact version number.","example":"1981.v17df70e84a_a_1"},{"type":"Set","name":"replaces","required":true,"description":"The set of library coordinates replaced by this API Plugin.","example":"groupId: org.apache.commons\nartifactId: commons-text"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Tabs and indents"}
-  description={"Format tabs and indents in Java code."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.format.TabsAndIndents"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/format/tabsandindents.md"}
-/>
+>
+
+<RecipeHeader.Title>Tabs and indents</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format tabs and indents in Java code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    @Deprecated\n    public void method(Test t) {\n    }\n}\n","after":"class Test {\n\n    public void method(Test t) {\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Test {\n-   @Deprecated\n+\n    public void method(Test t) {\n","newFile":false}]}]}>
 

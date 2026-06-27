@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `sumOf` instead of `sumBy`"}
-  description={"`Iterable.sumBy { … }` was deprecated in Kotlin 1.5 in favor of the type-inferred `sumOf { … }` (which avoids the unchecked Int return)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseSumOf$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usesumof$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `sumOf` instead of `sumBy`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Iterable.sumBy { … }` was deprecated in Kotlin 1.5 in favor of the type-inferred `sumOf { … }` (which avoids the unchecked Int return).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseSumOf$KtRecipe","displayName":"Use `sumOf` instead of `sumBy`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

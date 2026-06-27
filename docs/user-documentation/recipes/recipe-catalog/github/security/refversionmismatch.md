@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find commit SHAs with potentially mismatched version comments"}
-  description={"Find GitHub Actions that are pinned to commit SHAs but have version comments that may not match the actual pinned version. This can lead to confusion about which version is actually being used and potential security issues if the comment misleads developers about the pinned version. Based on [zizmor's `ref-version-mismatch` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/ref_version_mismatch.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.RefVersionMismatch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/refversionmismatch.md"}
-/>
+>
+
+<RecipeHeader.Title>Find commit SHAs with potentially mismatched version comments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find GitHub Actions that are pinned to commit SHAs but have version comments that may not match the actual pinned version. This can lead to confusion about which version is actually being used and potential security issues if the comment misleads developers about the pinned version. Based on [zizmor's `ref-version-mismatch` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/ref_version_mismatch.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Test Workflow\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      # tag=v3\n      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608\n","after":"name: Test Workflow\non: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      # tag=v3\n      - ~~(Action is pinned to a commit SHA but has a version comment that may not match. Verify the comment reflects the actual pinned version.)~~>uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -8,1 +8,1 @@\n    steps:\n      # tag=v3\n-     - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608\n+     - ~~(Action is pinned to a commit SHA but has a version comment that may not match. Verify the comment reflects the actual pinned version.)~~>uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608\n\n","newFile":false}]}]}>
 

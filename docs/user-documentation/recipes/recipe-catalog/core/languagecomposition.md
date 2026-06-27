@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Language composition report"}
-  description={"Counts the number of lines of the various kinds of source code and data formats parsed by OpenRewrite. Comments are not included in line counts. This recipe emits its results as two data tables, making no changes to any source file. One data table is per-file, the other is per-repository."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-all"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.LanguageComposition"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/languagecomposition.md"}
-/>
+>
+
+<RecipeHeader.Title>Language composition report</RecipeHeader.Title>
+
+<RecipeHeader.Description>Counts the number of lines of the various kinds of source code and data formats parsed by OpenRewrite. Comments are not included in line counts. This recipe emits its results as two data tables, making no changes to any source file. One data table is per-file, the other is per-repository.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.LanguageComposition","displayName":"Language composition report","groupId":"org.openrewrite.recipe","artifactId":"rewrite-all","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_ALL","requiresConfiguration":false}}>
 

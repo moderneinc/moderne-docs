@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace legacy attribute index syntax"}
-  description={"Replace legacy attribute index syntax (`.0`) with the new syntax (`[0]`)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-hcl"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hcl.ReplaceLegacyAttributeIndexSyntax"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hcl/replacelegacyattributeindexsyntax.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace legacy attribute index syntax</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace legacy attribute index syntax (`.0`) with the new syntax (`[0]`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"hcl","before":"locals {\n  dns_record = aws_acm_certificate.google_dot_com.0.resource_record_name\n}\n","after":"locals {\n  dns_record = aws_acm_certificate.google_dot_com[0].resource_record_name\n}\n","diff":"@@ -2,1 +2,1 @@\nlocals {\n- dns_record = aws_acm_certificate.google_dot_com.0.resource_record_name\n+ dns_record = aws_acm_certificate.google_dot_com[0].resource_record_name\n}\n","newFile":false}]}]}>
 

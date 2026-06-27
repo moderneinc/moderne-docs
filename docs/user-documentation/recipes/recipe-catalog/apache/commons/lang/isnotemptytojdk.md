@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace any StringUtils#isEmpty(String) and #isNotEmpty(String)"}
-  description={"Replace any `StringUtils#isEmpty(String)` and `#isNotEmpty(String)` with `s == null || s.isEmpty()` and `s != null && !s.isEmpty()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","commons"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.lang.IsNotEmptyToJdk"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/lang/isnotemptytojdk.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace any StringUtils#isEmpty(String) and #isNotEmpty(String)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace any `StringUtils#isEmpty(String)` and `#isNotEmpty(String)` with `s == null || s.isEmpty()` and `s != null && !s.isEmpty()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.commons.lang3.StringUtils;\n\nclass A {\n    boolean test(String first) {\n        return StringUtils.isEmpty(first);\n    }\n}\n","after":"class A {\n    boolean test(String first) {\n        return first == null || first.isEmpty();\n    }\n}\n","diff":"@@ -1,2 +1,0 @@\n-import org.apache.commons.lang3.StringUtils;\n-\nclass A {\n@@ -5,1 +3,1 @@\nclass A {\n    boolean test(String first) {\n-       return StringUtils.isEmpty(first);\n+       return first == null || first.isEmpty();\n    }\n","newFile":false}]}]}>
 

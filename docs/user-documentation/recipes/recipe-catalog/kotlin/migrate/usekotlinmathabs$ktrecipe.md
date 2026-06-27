@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `kotlin.math.abs` instead of `java.lang.Math.abs`"}
-  description={"`kotlin.math.abs` is the multiplatform-friendly form. Java's `Math.abs` only works on the JVM and is a thin pass-through; the Kotlin call site reads more naturally in shared modules."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseKotlinMathAbs$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmathabs$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `kotlin.math.abs` instead of `java.lang.Math.abs`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`kotlin.math.abs` is the multiplatform-friendly form. Java's `Math.abs` only works on the JVM and is a thin pass-through; the Kotlin call site reads more naturally in shared modules.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseKotlinMathAbs$KtRecipe","displayName":"Use `kotlin.math.abs` instead of `java.lang.Math.abs`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

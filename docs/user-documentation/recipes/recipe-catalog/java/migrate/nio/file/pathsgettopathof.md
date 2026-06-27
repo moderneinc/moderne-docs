@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `Paths.get` with `Path.of`"}
-  description={"The `java.nio.file.Paths.get` method was introduced in Java SE 7. The `java.nio.file.Path.of` method was introduced in Java SE 11. This recipe replaces all usages of `Paths.get` with `Path.of` for consistency."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java11"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.nio.file.PathsGetToPathOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/nio/file/pathsgettopathof.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Change method name","href":"java/changemethodname"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Replace `Paths.get` with `Path.of`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `java.nio.file.Paths.get` method was introduced in Java SE 7. The `java.nio.file.Path.of` method was introduced in Java SE 11. This recipe replaces all usages of `Paths.get` with `Path.of` for consistency.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

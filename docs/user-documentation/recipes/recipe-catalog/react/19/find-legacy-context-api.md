@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find legacy Context API usage"}
-  description={"Finds usage of the legacy Context API (`contextTypes`, `childContextTypes`, `getChildContext`) that was removed in React 19. These must be migrated to `React.createContext()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.find-legacy-context-api"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/find-legacy-context-api.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find legacy Context API usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usage of the legacy Context API (`contextTypes`, `childContextTypes`, `getChildContext`) that was removed in React 19. These must be migrated to `React.createContext()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.19.find-legacy-context-api","displayName":"Find legacy Context API usage","npmPackage":"@openrewrite/recipes-react"}}>
 

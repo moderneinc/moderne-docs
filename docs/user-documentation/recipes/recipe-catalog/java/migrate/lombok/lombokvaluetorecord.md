@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `@lombok.Value` class to Record"}
-  description={"Convert Lombok `@Value` annotated classes to standard Java Records."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["lombok"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lombok.LombokValueToRecord"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokvaluetorecord.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `@lombok.Value` class to Record</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert Lombok `@Value` annotated classes to standard Java Records.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"useExactToString","required":false,"description":"When set the `toString` format from Lombok is used in the migrated record."}]}>
 

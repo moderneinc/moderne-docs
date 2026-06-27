@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant explicit dependencies"}
-  description={"Remove explicit dependencies that are already provided transitively by a specified dependency. This recipe downloads and resolves the parent dependency's POM to determine its true transitive dependencies, allowing it to detect redundancies even when both dependencies are explicitly declared."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-java-dependencies"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.RemoveRedundantDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/removeredundantdependencies.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove redundant explicit dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove explicit dependencies that are already provided transitively by a specified dependency. This recipe downloads and resolves the parent dependency's POM to determine its true transitive dependencies, allowing it to detect redundancies even when both dependencies are explicitly declared.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION` of the parent dependency. This can be a glob expression.","example":"com.fasterxml.jackson.core"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION` of the parent dependency. This can be a glob expression.","example":"jackson-databind"}]}>
 

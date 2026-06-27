@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Optimize LINQ Where().SingleOrDefault()"}
-  description={"Replace `items.Where(predicate).SingleOrDefault()` with `items.SingleOrDefault(predicate)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereSingleOrDefault"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/optimizelinqwheresingleordefault.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Optimize LINQ Where().SingleOrDefault()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `items.Where(predicate).SingleOrDefault()` with `items.SingleOrDefault(predicate)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereSingleOrDefault","displayName":"Optimize LINQ Where().SingleOrDefault()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

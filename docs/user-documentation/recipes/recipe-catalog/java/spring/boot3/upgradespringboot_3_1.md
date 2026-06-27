@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Boot 3.1"}
-  description={"Migrate applications to the latest Spring Boot 3.1 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.0."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","boot"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_1.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Boot 3.0","href":"java/spring/boot3/upgradespringboot_3_0-community-edition"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"},{"name":"Upgrade Maven parent project version","href":"maven/upgradeparentversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Migrate to Spring Security 6.1","href":"java/spring/security6/upgradespringsecurity_6_1"},{"name":"Migrate Spring Boot properties to 3.1","href":"java/spring/boot3/springbootproperties_3_1"},{"name":"Replace `RepositoryRestConfigurerAdapter` with `RepositoryRestConfigurer`","href":"java/spring/data/migraterepositoryrestconfigureradapter"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate to Hibernate 6.2.x","href":"hibernate/migratetohibernate62"},{"name":"Mockito 4 to 5.x upgrade only","href":"java/testing/mockito/mockito4to5only"},{"name":"Upgrade to SpringDoc 2.2","href":"java/springdoc/upgradespringdoc_2_2"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Boot 3.1</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Boot 3.1 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 3.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Boot 3.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringboot_3_0-community-edition/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"},{"name":"Upgrade Maven parent project version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradeparentversion/"},{"name":"Update a Gradle plugin by id","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/upgradepluginversion/"},{"name":"Migrate to Spring Security 6.1","href":"/user-documentation/recipes/recipe-catalog/java/spring/security6/upgradespringsecurity_6_1/"},{"name":"Migrate Spring Boot properties to 3.1","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_1/"},{"name":"Replace `RepositoryRestConfigurerAdapter` with `RepositoryRestConfigurer`","href":"/user-documentation/recipes/recipe-catalog/java/spring/data/migraterepositoryrestconfigureradapter/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Migrate to Hibernate 6.2.x","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate62/"},{"name":"Mockito 4 to 5.x upgrade only","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito4to5only/"},{"name":"Upgrade to SpringDoc 2.2","href":"/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2_2/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

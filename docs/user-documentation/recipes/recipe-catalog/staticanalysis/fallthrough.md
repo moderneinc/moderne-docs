@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Fall through"}
-  description={"Checks for fall-through in switch statements, adding `break` statements in locations where a case contains Java code but does not have a `break`, `return`, `throw`, or `continue` statement. Unintentional fall-through is a common source of bugs, as execution silently continues into the next case branch."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S128"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.FallThrough"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/fallthrough.md"}
-/>
+>
+
+<RecipeHeader.Title>Fall through</RecipeHeader.Title>
+
+<RecipeHeader.Description>Checks for fall-through in switch statements, adding `break` statements in locations where a case contains Java code but does not have a `break`, `return`, `throw`, or `continue` statement. Unintentional fall-through is a common source of bugs, as execution silently continues into the next case branch.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n    int i;\n    {\n        switch (i) {\n        case 0:\n            i++;\n        case 99:\n            i++;\n        }\n    }\n}\n","after":"public class A {\n    int i;\n    {\n        switch (i) {\n        case 0:\n            i++;\n            break;\n        case 99:\n            i++;\n        }\n    }\n}\n","diff":"@@ -7,0 +7,1 @@\n        case 0:\n            i++;\n+           break;\n        case 99:\n","newFile":false}]}]}>
 

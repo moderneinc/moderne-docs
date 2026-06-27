@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move annotation to array type"}
-  description={"When an annotation like `@Nullable` is applied to an array type in declaration position, this recipe moves it to the array brackets. For example, `@Nullable byte[]` becomes `byte @Nullable[]`. Best used before `ChangeType` in a migration pipeline, targeting the pre-migration annotation type."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jspecify.MoveAnnotationToArrayType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jspecify/moveannotationtoarraytype.md"}
-/>
+>
+
+<RecipeHeader.Title>Move annotation to array type</RecipeHeader.Title>
+
+<RecipeHeader.Description>When an annotation like `@Nullable` is applied to an array type in declaration position, this recipe moves it to the array brackets. For example, `@Nullable byte[]` becomes `byte @Nullable[]`. Best used before `ChangeType` in a migration pipeline, targeting the pre-migration annotation type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"annotationType","required":true,"description":"The type of annotation to move to the array type. Should target the pre-migration annotation type to avoid changing the semantics of pre-existing type-use annotations on object arrays.","example":"javax.annotation.*ull*"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJPrimitiveRules.AssertThatIsNotEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsNotEqualTo {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(boolean actual, boolean expected) {\n        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractByteAssert<?> before(byte actual, byte expected) {\n        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractCharacterAssert<?> before(char actual, char expected) {\n        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractShortAssert<?> before(short actual, short expected) {\n        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractIntegerAssert<?> before(int actual, int expected) {\n        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractLongAssert<?> before(long actual, long expected) {\n        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractFloatAssert<?> before(float actual, float expected) {\n        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));\n    }\n    \n    @BeforeTemplate\n    AbstractDoubleAssert<? extends AbstractDoubleAssert<?>> before(double actual, double expected) {\n        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractBooleanAssert<?> after(boolean actual, boolean expected) {\n        return assertThat(actual).isNotEqualTo(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,68 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJPrimitiveRulesRecipes$AssertThatIsNotEqualToRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatisnotequaltorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJPrimitiveRules.AssertThatIsNotEqualTo`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIsNotEqualTo {
+    
+    @BeforeTemplate
+    AbstractBooleanAssert<?> before(boolean actual, boolean expected) {
+        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));
+    }
+    
+    @BeforeTemplate
+    AbstractByteAssert<?> before(byte actual, byte expected) {
+        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));
+    }
+    
+    @BeforeTemplate
+    AbstractCharacterAssert<?> before(char actual, char expected) {
+        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));
+    }
+    
+    @BeforeTemplate
+    AbstractShortAssert<?> before(short actual, short expected) {
+        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));
+    }
+    
+    @BeforeTemplate
+    AbstractIntegerAssert<?> before(int actual, int expected) {
+        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));
+    }
+    
+    @BeforeTemplate
+    AbstractLongAssert<?> before(long actual, long expected) {
+        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));
+    }
+    
+    @BeforeTemplate
+    AbstractFloatAssert<?> before(float actual, float expected) {
+        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));
+    }
+    
+    @BeforeTemplate
+    AbstractDoubleAssert<? extends AbstractDoubleAssert<?>> before(double actual, double expected) {
+        return Refaster.anyOf(assertThat(actual).isNotSameAs(expected), assertThat(actual).isNotSameAs(expected));
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractBooleanAssert<?> after(boolean actual, boolean expected) {
+        return assertThat(actual).isNotEqualTo(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJPrimitiveRulesRecipes$AssertThatIsNotEqualToRecipe","displayName":"Refaster template `AssertJPrimitiveRules.AssertThatIsNotEqualTo`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

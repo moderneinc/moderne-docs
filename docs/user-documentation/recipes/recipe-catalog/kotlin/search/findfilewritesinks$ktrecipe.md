@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find filesystem write calls (`File.writeText`, `Files.write`, etc.)"}
-  description={"Filesystem writes are persistent side effects — each call is data crossing a trust boundary in the other direction. Useful as a seed for reasoning about what the application persists and where path-traversal vulnerabilities can land."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindFileWriteSinks$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findfilewritesinks$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find filesystem write calls (`File.writeText`, `Files.write`, etc.)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Filesystem writes are persistent side effects — each call is data crossing a trust boundary in the other direction. Useful as a seed for reasoning about what the application persists and where path-traversal vulnerabilities can land.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindFileWriteSinks$KtRecipe","displayName":"Find filesystem write calls (`File.writeText`, `Files.write`, etc.)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

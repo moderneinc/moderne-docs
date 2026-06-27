@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find copybook usage"}
-  description={"Find all copy statements with the copybook name."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-cobol"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.cobol.search.FindCopybook"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cobol/search/findcopybook.md"}
-/>
+>
+
+<RecipeHeader.Title>Find copybook usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find all copy statements with the copybook name.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"copybookName","required":false,"description":"The copybook name to search for. If not provided, all copy statements will be returned.","example":"KP008"},{"type":"Boolean","name":"onlyMissingCopybooks","required":false,"description":"Only find copy statements and exec sql include statements that are missing copybooks.","example":"True"}]}>
 

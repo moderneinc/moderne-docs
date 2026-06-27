@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unneeded block"}
-  description={"Flatten blocks into inline statements when possible. Unnecessary nested blocks add indentation and scope boundaries that obscure the control flow, often indicating code that should be extracted into its own method."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1199"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveUnneededBlock"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeunneededblock.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unneeded block</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flatten blocks into inline statements when possible. Unnecessary nested blocks add indentation and scope boundaries that obscure the control flow, often indicating code that should be extracted into its own method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n    void test() {\n        {\n            System.out.println(\"hello!\");\n        }\n    }\n}\n","after":"public class A {\n    void test() {\n        System.out.println(\"hello!\");\n    }\n}\n","diff":"@@ -3,3 +3,1 @@\npublic class A {\n    void test() {\n-       {\n-           System.out.println(\"hello!\");\n-       }\n+       System.out.println(\"hello!\");\n    }\n","newFile":false}]}]}>
 

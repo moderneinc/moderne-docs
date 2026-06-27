@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace String literal with constant"}
-  description={"Replace String literal with constant, adding import on class if needed."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.ReplaceStringLiteralWithConstant"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/replacestringliteralwithconstant.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace String literal with constant</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace String literal with constant, adding import on class if needed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"literalValue","required":false,"description":"The literal that is to be replaced. If not configured, the value of the specified constant will be used by default.","example":"application/json"},{"type":"String","name":"fullyQualifiedConstantName","required":true,"description":"","example":"org.springframework.http.MediaType.APPLICATION_JSON_VALUE"}]}>
 

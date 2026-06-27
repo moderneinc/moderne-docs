@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Int.rotateRight(n)` instead of `Integer.rotateRight(i, n)`"}
-  description={"`Integer.rotateRight(i, n)` is JVM-only; the multiplatform `i.rotateRight(n)` extension reads as a receiver call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseIntRotateRight$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintrotateright$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Int.rotateRight(n)` instead of `Integer.rotateRight(i, n)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Integer.rotateRight(i, n)` is JVM-only; the multiplatform `i.rotateRight(n)` extension reads as a receiver call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseIntRotateRight$KtRecipe","displayName":"Use `Int.rotateRight(n)` instead of `Integer.rotateRight(i, n)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert switch cases where every case returns into a returned switch expression"}
-  description={"Switch statements where each case returns a value can be converted to a switch expression that returns the value directly. This recipe is only applicable for Java 21 and later."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.SwitchCaseReturnsToSwitchExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/switchcasereturnstoswitchexpression.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert switch cases where every case returns into a returned switch expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>Switch statements where each case returns a value can be converted to a switch expression that returns the value directly. This recipe is only applicable for Java 21 and later.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    String doFormat(String str) {\n        switch (str) {\n            case \"foo\", \"bar\": return \"FooBar\";\n            case \"baz\": return \"Baz\";\n            default: return \"Other\";\n        }\n    }\n}\n","after":"class Test {\n    String doFormat(String str) {\n        return switch (str) {\n            case \"foo\", \"bar\" -> \"FooBar\";\n            case \"baz\" -> \"Baz\";\n            default -> \"Other\";\n        };\n    }\n}\n","diff":"@@ -3,5 +3,5 @@\nclass Test {\n    String doFormat(String str) {\n-       switch (str) {\n-           case \"foo\", \"bar\": return \"FooBar\";\n-           case \"baz\": return \"Baz\";\n-           default: return \"Other\";\n-       }\n+       return switch (str) {\n+           case \"foo\", \"bar\" -> \"FooBar\";\n+           case \"baz\" -> \"Baz\";\n+           default -> \"Other\";\n+       };\n    }\n","newFile":false}]}]}>
 

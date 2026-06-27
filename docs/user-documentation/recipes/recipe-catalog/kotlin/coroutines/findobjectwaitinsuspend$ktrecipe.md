@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Object.wait` calls inside `suspend` functions"}
-  description={"`Object.wait()` blocks the dispatcher thread on a monitor and cannot be interrupted by coroutine cancellation. Migrate to `Channel`/`Flow`/`Mutex` or a `CompletableDeferred` for cross-coroutine signaling."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindObjectWaitInSuspend$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findobjectwaitinsuspend$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Object.wait` calls inside `suspend` functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Object.wait()` blocks the dispatcher thread on a monitor and cannot be interrupted by coroutine cancellation. Migrate to `Channel`/`Flow`/`Mutex` or a `CompletableDeferred` for cross-coroutine signaling.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindObjectWaitInSuspend$KtRecipe","displayName":"Find `Object.wait` calls inside `suspend` functions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

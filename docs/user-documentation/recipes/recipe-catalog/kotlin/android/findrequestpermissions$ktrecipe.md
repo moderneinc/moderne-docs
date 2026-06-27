@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find direct `requestPermissions(...)` calls"}
-  description={"Calling `requestPermissions(...)` directly couples the request to a screen and a request code that has to be matched in `onRequestPermissionsResult`. The modern shape is `registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted -> … }` — the result lands in a lambda next to the launcher."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindRequestPermissions$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findrequestpermissions$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find direct `requestPermissions(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Calling `requestPermissions(...)` directly couples the request to a screen and a request code that has to be matched in `onRequestPermissionsResult`. The modern shape is `registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted -> … }` — the result lands in a lambda next to the launcher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindRequestPermissions$KtRecipe","displayName":"Find direct `requestPermissions(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

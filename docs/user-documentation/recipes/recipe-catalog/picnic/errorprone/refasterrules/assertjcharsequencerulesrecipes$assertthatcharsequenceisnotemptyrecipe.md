@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceIsNotEmpty`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatCharSequenceIsNotEmpty {\n    \n    @BeforeTemplate\n    AbstractAssert<?, ?> before(CharSequence charSequence) {\n        return Refaster.anyOf(assertThat(charSequence.isEmpty()).isFalse(), assertThat(charSequence.length()).isNotEqualTo(0), assertThat(charSequence.length()).isPositive());\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractAssert<?, ?> after(CharSequence charSequence) {\n        return assertThat(charSequence).isNotEmpty();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJCharSequenceRulesRecipes$AssertThatCharSequenceIsNotEmptyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatcharsequenceisnotemptyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceIsNotEmpty`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatCharSequenceIsNotEmpty {
+    
+    @BeforeTemplate
+    AbstractAssert<?, ?> before(CharSequence charSequence) {
+        return Refaster.anyOf(assertThat(charSequence.isEmpty()).isFalse(), assertThat(charSequence.length()).isNotEqualTo(0), assertThat(charSequence.length()).isPositive());
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractAssert<?, ?> after(CharSequence charSequence) {
+        return assertThat(charSequence).isNotEmpty();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJCharSequenceRulesRecipes$AssertThatCharSequenceIsNotEmptyRecipe","displayName":"Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceIsNotEmpty`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

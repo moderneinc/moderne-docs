@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Regular Expression Denial of Service (ReDOS)"}
-  description={"ReDoS is a Denial of Service attack that exploits the fact that most Regular Expression implementations may reach extreme situations that cause them to work very slowly (exponentially related to input size). See the OWASP description of this attack [here](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS) for more details."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.RegularExpressionDenialOfService"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/regularexpressiondenialofservice.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Regular Expression Denial of Service (ReDOS)</RecipeHeader.Title>
+
+<RecipeHeader.Description>ReDoS is a Denial of Service attack that exploits the fact that most Regular Expression implementations may reach extreme situations that cause them to work very slowly (exponentially related to input size). See the OWASP description of this attack [here](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS) for more details.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.regex.Pattern;\nclass Test {\n    private static final Pattern testRe = Pattern.compile(\"(\\\\?.)*\");\n}\n","after":"import java.util.regex.Pattern;\nclass Test {\n    private static final Pattern testRe = Pattern.compile(\".*\");\n}\n","diff":"@@ -3,1 +3,1 @@\nimport java.util.regex.Pattern;\nclass Test {\n-   private static final Pattern testRe = Pattern.compile(\"(\\\\?.)*\");\n+   private static final Pattern testRe = Pattern.compile(\".*\");\n}\n","newFile":false}]}]}>
 

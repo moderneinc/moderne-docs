@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `while` over `for` loops"}
-  description={"When only the condition expression is defined in a for loop, and the initialization and increment expressions are missing, a while loop should be used instead to increase readability. A `for` loop with empty init and update sections signals iteration mechanics that do not exist, whereas `while` clearly communicates a simple conditional loop."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1264"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.WhileInsteadOfFor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/whileinsteadoffor.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `while` over `for` loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>When only the condition expression is defined in a for loop, and the initialization and increment expressions are missing, a while loop should be used instead to increase readability. A `for` loop with empty init and update sections signals iteration mechanics that do not exist, whereas `while` clearly communicates a simple conditional loop.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test() {\n        for (; 1 == 2 ;) {\n            System.out.println(\"i'm going to say hi a lot\");\n        }\n    }\n}\n","after":"class Test {\n    void test() {\n        while (1 == 2) {\n            System.out.println(\"i'm going to say hi a lot\");\n        }\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    void test() {\n-       for (; 1 == 2 ;) {\n+       while (1 == 2) {\n            System.out.println(\"i'm going to say hi a lot\");\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use new `Pbkdf2PasswordEncoder` factory methods"}
-  description={"In Spring Security 5.8 some `Pbkdf2PasswordEncoder` constructors have been deprecated in favor of factory methods. Refer to the [ Spring Security migration docs](https://docs.spring.io/spring-security/reference/5.8/migration/index.html#_update_pbkdf2passwordencoder) for more information."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security5.UpdatePbkdf2PasswordEncoder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security5/updatepbkdf2passwordencoder.md"}
-/>
+>
+
+<RecipeHeader.Title>Use new `Pbkdf2PasswordEncoder` factory methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Security 5.8 some `Pbkdf2PasswordEncoder` constructors have been deprecated in favor of factory methods. Refer to the [ Spring Security migration docs](https://docs.spring.io/spring-security/reference/5.8/migration/index.html#_update_pbkdf2passwordencoder) for more information.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;\n\nclass T {\n    void encoderWithDefaults() {\n        Pbkdf2PasswordEncoder encoder = new Pbkdf2PasswordEncoder();\n    }\n}\n","after":"import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;\n\nclass T {\n    void encoderWithDefaults() {\n        Pbkdf2PasswordEncoder encoder = Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass T {\n    void encoderWithDefaults() {\n-       Pbkdf2PasswordEncoder encoder = new Pbkdf2PasswordEncoder();\n+       Pbkdf2PasswordEncoder encoder = Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8();\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update `Service` `externalIP`"}
-  description={"Swap out an IP address with another one in `Service` `externalIP` settings."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.services.UpdateServiceExternalIP"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/services/updateserviceexternalip.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Update `Service` `externalIP`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Swap out an IP address with another one in `Service` `externalIP` settings.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"ipToFind","required":true,"description":"An `externalIP` address to find in the service's external IPs.","example":"192.168.0.1"},{"type":"String","name":"ipToUpdate","required":true,"description":"An `externalIP` address to update to in the service's external IPs.","example":"10.10.0.1"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

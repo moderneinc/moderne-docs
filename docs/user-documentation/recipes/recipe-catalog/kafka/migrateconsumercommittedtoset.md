@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `KafkaConsumer.committed(TopicPartition)` to `committed(Set<TopicPartition>)`"}
-  description={"Migrates from the removed `KafkaConsumer.committed(TopicPartition)` to `committed(Set<TopicPartition>)` for Kafka 4.0 compatibility. Converts single `TopicPartition` arguments to `Collections.singleton()` calls."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.MigrateConsumerCommittedToSet"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/migrateconsumercommittedtoset.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `KafkaConsumer.committed(TopicPartition)` to `committed(Set<TopicPartition>)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates from the removed `KafkaConsumer.committed(TopicPartition)` to `committed(Set<TopicPartition>)` for Kafka 4.0 compatibility. Converts single `TopicPartition` arguments to `Collections.singleton()` calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.kafka.clients.consumer.KafkaConsumer;\nimport org.apache.kafka.clients.consumer.OffsetAndMetadata;\nimport org.apache.kafka.common.TopicPartition;\nimport java.util.Map;\n\nclass KafkaConsumerExample {\n    void getCommittedOffset(KafkaConsumer<String, String> consumer, TopicPartition partition) {\n        OffsetAndMetadata offset = consumer.committed(partition);\n    }\n}\n","after":"import org.apache.kafka.clients.consumer.KafkaConsumer;\nimport org.apache.kafka.clients.consumer.OffsetAndMetadata;\nimport org.apache.kafka.common.TopicPartition;\nimport java.util.Map;\n\nimport static java.util.Collections.singleton;\n\nclass KafkaConsumerExample {\n    void getCommittedOffset(KafkaConsumer<String, String> consumer, TopicPartition partition) {\n        OffsetAndMetadata offset = consumer.committed(singleton(partition));\n    }\n}\n","diff":"@@ -6,0 +6,2 @@\nimport java.util.Map;\n\n+import static java.util.Collections.singleton;\n+\nclass KafkaConsumerExample {\n@@ -8,1 +10,1 @@\nclass KafkaConsumerExample {\n    void getCommittedOffset(KafkaConsumer<String, String> consumer, TopicPartition partition) {\n-       OffsetAndMetadata offset = consumer.committed(partition);\n+       OffsetAndMetadata offset = consumer.committed(singleton(partition));\n    }\n","newFile":false}]}]}>
 

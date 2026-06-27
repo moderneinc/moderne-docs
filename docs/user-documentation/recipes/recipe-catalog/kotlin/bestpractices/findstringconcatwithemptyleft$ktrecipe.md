@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `\"\" + x` patterns"}
-  description={"Prepending an empty `\"\"` is a Java idiom for forcing a `toString()` conversion. In Kotlin write `x.toString()` or the template `\"$x\"` for the same effect with explicit intent."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindStringConcatWithEmptyLeft$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstringconcatwithemptyleft$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `"" + x` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prepending an empty `""` is a Java idiom for forcing a `toString()` conversion. In Kotlin write `x.toString()` or the template `"$x"` for the same effect with explicit intent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindStringConcatWithEmptyLeft$KtRecipe","displayName":"Find `\"\" + x` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `try { } catch { }` nested inside another `try { } catch { }`"}
-  description={"A try nested inside another try usually means two failure modes are being handled at two different recovery points in the same control-flow tree. Pull each failure mode into its own helper function (or into a `runCatching { }.fold(...)` chain) so the recovery strategy is visible at each level."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindNestedTryCatch$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findnestedtrycatch$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `try { } catch { }` nested inside another `try { } catch { }`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A try nested inside another try usually means two failure modes are being handled at two different recovery points in the same control-flow tree. Pull each failure mode into its own helper function (or into a `runCatching { }.fold(...)` chain) so the recovery strategy is visible at each level.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindNestedTryCatch$KtRecipe","displayName":"Find `try { } catch { }` nested inside another `try { } catch { }`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add missing `@Override` to overriding and implementing methods"}
-  description={"Adds `@Override` to methods overriding superclass methods or implementing interface methods. Annotating methods improves readability by showing the author's intent to override. Additionally, when annotated, the compiler will emit an error when a signature of the overridden method does not match the superclass method."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1161"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.MissingOverrideAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/missingoverrideannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Add missing `@Override` to overriding and implementing methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `@Override` to methods overriding superclass methods or implementing interface methods. Annotating methods improves readability by showing the author's intent to override. Additionally, when annotated, the compiler will emit an error when a signature of the overridden method does not match the superclass method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"ignoreAnonymousClassMethods","required":false,"description":"When enabled, ignore missing annotations on methods which override methods when the class definition is within an anonymous class."}]}>
 

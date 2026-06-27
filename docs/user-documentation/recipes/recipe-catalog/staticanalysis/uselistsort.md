@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace invocations of `Collections#sort(List, Comparator)` with `List#sort(Comparator)`"}
-  description={"The `java.util.Collections#sort(..)` implementation defers to the `java.util.List#sort(Comparator)`, replaced it with the `java.util.List#sort(Comparator)` implementation for better readability."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UseListSort"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/uselistsort.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace invocations of `Collections#sort(List, Comparator)` with `List#sort(Comparator)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `java.util.Collections#sort(..)` implementation defers to the `java.util.List#sort(Comparator)`, replaced it with the `java.util.List#sort(Comparator)` implementation for better readability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.ArrayList;\nimport java.util.Comparator;\nimport java.util.List;\nimport java.util.Collections;\n\nclass T {\n    public void sortUsersById(List<String> names) {\n        Collections.sort(names);\n        Collections.sort(names, Comparator.naturalOrder());\n    }\n}\n","after":"import java.util.ArrayList;\nimport java.util.Comparator;\nimport java.util.List;\n\nclass T {\n    public void sortUsersById(List<String> names) {\n        names.sort(null);\n        names.sort(Comparator.naturalOrder());\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\nimport java.util.Comparator;\nimport java.util.List;\n-import java.util.Collections;\n\n@@ -8,2 +7,2 @@\nclass T {\n    public void sortUsersById(List<String> names) {\n-       Collections.sort(names);\n-       Collections.sort(names, Comparator.naturalOrder());\n+       names.sort(null);\n+       names.sort(Comparator.naturalOrder());\n    }\n","newFile":false}]}]}>
 

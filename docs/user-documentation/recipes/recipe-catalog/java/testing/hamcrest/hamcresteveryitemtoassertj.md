@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Hamcrest `everyItem` to AssertJ"}
-  description={"Migrate Hamcrest `everyItem` to AssertJ `allSatisfy` or `hasOnlyElementsOfType`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.hamcrest.HamcrestEveryItemToAssertJ"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/hamcresteveryitemtoassertj.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Hamcrest `everyItem` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Hamcrest `everyItem` to AssertJ `allSatisfy` or `hasOnlyElementsOfType`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\nimport org.junit.jupiter.api.Test;\n\nimport static org.hamcrest.MatcherAssert.assertThat;\nimport static org.hamcrest.Matchers.everyItem;\nimport static org.hamcrest.Matchers.instanceOf;\n\nclass MyTest {\n    @Test\n    void testMethod() {\n        List<Object> list = List.of(\"a\", \"b\");\n        assertThat(list, everyItem(instanceOf(String.class)));\n    }\n}\n","after":"import java.util.List;\nimport org.junit.jupiter.api.Test;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    @Test\n    void testMethod() {\n        List<Object> list = List.of(\"a\", \"b\");\n        assertThat(list).hasOnlyElementsOfType(String.class);\n    }\n}\n","diff":"@@ -4,3 +4,1 @@\nimport org.junit.jupiter.api.Test;\n\n-import static org.hamcrest.MatcherAssert.assertThat;\n-import static org.hamcrest.Matchers.everyItem;\n-import static org.hamcrest.Matchers.instanceOf;\n+import static org.assertj.core.api.Assertions.assertThat;\n\n@@ -12,1 +10,1 @@\n    void testMethod() {\n        List<Object> list = List.of(\"a\", \"b\");\n-       assertThat(list, everyItem(instanceOf(String.class)));\n+       assertThat(list).hasOnlyElementsOfType(String.class);\n    }\n","newFile":false}]}]}>
 

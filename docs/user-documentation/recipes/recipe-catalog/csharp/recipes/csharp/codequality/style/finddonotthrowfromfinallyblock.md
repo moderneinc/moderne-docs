@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Do not throw from finally block"}
-  description={"Throwing from a `finally` block can mask the original exception and make debugging difficult."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotThrowFromFinallyBlock"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finddonotthrowfromfinallyblock.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Do not throw from finally block</RecipeHeader.Title>
+
+<RecipeHeader.Description>Throwing from a `finally` block can mask the original exception and make debugging difficult.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotThrowFromFinallyBlock","displayName":"Do not throw from finally block","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

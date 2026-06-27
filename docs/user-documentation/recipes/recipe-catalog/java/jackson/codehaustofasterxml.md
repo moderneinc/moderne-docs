@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from Jackson Codehaus (legacy) to Jackson FasterXML"}
-  description={"In Jackson 2, the package and dependency coordinates moved from Codehaus to FasterXML."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jackson-2"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.CodehausToFasterXML"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/codehaustofasterxml.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove Codehaus Jackson annotations if doubly annotated","href":"java/jackson/codehaus/removedoublyannotatedcodehausannotations"},{"name":"Transfer @JsonSerialize arguments from Codehaus to FasterXML","href":"java/jackson/codehaus/transferjsonserializeargumentsfromcodehaustofasterxml"},{"name":"Migrate classes from Jackson Codehaus (legacy) to Jackson FasterXML","href":"java/jackson/codehausclassestofasterxml"},{"name":"Migrate dependencies from Jackson Codehaus (legacy) to FasterXML","href":"java/jackson/codehaus/codehausdependencytofasterxml"}]}>
+<RecipeHeader.Title>Migrate from Jackson Codehaus (legacy) to Jackson FasterXML</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Jackson 2, the package and dependency coordinates moved from Codehaus to FasterXML.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove Codehaus Jackson annotations if doubly annotated","href":"/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/removedoublyannotatedcodehausannotations/"},{"name":"Transfer @JsonSerialize arguments from Codehaus to FasterXML","href":"/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/transferjsonserializeargumentsfromcodehaustofasterxml/"},{"name":"Migrate classes from Jackson Codehaus (legacy) to Jackson FasterXML","href":"/user-documentation/recipes/recipe-catalog/java/jackson/codehausclassestofasterxml/"},{"name":"Migrate dependencies from Jackson Codehaus (legacy) to FasterXML","href":"/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/codehausdependencytofasterxml/"}]}>
 
 ## Definition
 

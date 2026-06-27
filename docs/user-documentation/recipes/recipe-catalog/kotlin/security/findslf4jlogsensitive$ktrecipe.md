@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find SLF4J log calls with sensitive field names in the format string"}
-  description={"Log messages mentioning `password`, `secret`, `token`, `api_key`, `credit_card`, `ssn`, etc. usually concatenate or substitute the secret itself. Logs propagate to disk, log aggregators, and alerting pipelines — none of which are designed as a secret store."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindSlf4jLogSensitive$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findslf4jlogsensitive$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find SLF4J log calls with sensitive field names in the format string</RecipeHeader.Title>
+
+<RecipeHeader.Description>Log messages mentioning `password`, `secret`, `token`, `api_key`, `credit_card`, `ssn`, etc. usually concatenate or substitute the secret itself. Logs propagate to disk, log aggregators, and alerting pipelines — none of which are designed as a secret store.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindSlf4jLogSensitive$KtRecipe","displayName":"Find SLF4J log calls with sensitive field names in the format string","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

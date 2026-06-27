@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use TLS for AMQP connection strings"}
-  description={"Use TLS for AMQP connection strings."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.amqp.UseTlsAmqpConnectionString"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/amqp/usetlsamqpconnectionstring.md"}
-/>
+>
+
+<RecipeHeader.Title>Use TLS for AMQP connection strings</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use TLS for AMQP connection strings.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":false,"description":"The Spring property key to perform updates against. If this value is specified, the specified property will be used for searching, otherwise a default of `spring.rabbitmq.addresses` will be used instead.","example":"spring.rabbitmq.addresses"},{"type":"Integer","name":"oldPort","required":true,"description":"The non-TLS enabled port number to replace with the TLS-enabled port. If this value is specified, no changes will be made to amqp connection strings which do not contain this port number. ","example":"1234"},{"type":"Integer","name":"port","required":true,"description":"The TLS-enabled port to use.","example":"1234"},{"type":"String","name":"tlsPropertyKey","required":false,"description":"The Spring property key to enable default TLS mode against. If this value is specified, the specified property will be used when updating the default TLS mode, otherwise a default of `spring.rabbitmq.ssl.enabled` will be used instead.","example":"spring.rabbitmq.ssl.enabled"},{"type":"List","name":"pathExpressions","required":false,"description":"Each value in this list represents a glob expression that is used to match which files will be modified. If this value is not present, this recipe will query the execution context for reasonable defaults. (\"**/application.yml\", \"**/application.yaml\", and \"**/application.properties\".","example":"**/application.yml"}]}>
 

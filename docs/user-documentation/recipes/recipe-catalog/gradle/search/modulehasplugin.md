@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Module has plugin"}
-  description={"Searches for Gradle Projects (modules) that have a plugin matching the specified id or implementing class. Places a `SearchResult` marker on all sources within a project with a matching plugin. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a spring boot migration to only projects that apply the spring dependency management plugin, limiting unnecessary upgrading. If the search result you want is instead just the build.gradle(.kts) file applying the plugin, use the `FindPlugins` recipe instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.search.ModuleHasPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/search/modulehasplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Module has plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Searches for Gradle Projects (modules) that have a plugin matching the specified id or implementing class. Places a `SearchResult` marker on all sources within a project with a matching plugin. This recipe is intended to be used as a precondition for other recipes. For example this could be used to limit the application of a spring boot migration to only projects that apply the spring dependency management plugin, limiting unnecessary upgrading. If the search result you want is instead just the build.gradle(.kts) file applying the plugin, use the `FindPlugins` recipe instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"pluginId","required":true,"description":"The unique identifier used to apply a plugin in the `plugins` block. Note that this alone is insufficient to search for plugins applied by fully qualified class name and the `buildscript` block.","example":"`com.jfrog.bintray`"},{"type":"String","name":"pluginClass","required":false,"description":"The fully qualified name of a class implementing a Gradle plugin. ","example":"com.jfrog.bintray.gradle.BintrayPlugin"}]}>
 

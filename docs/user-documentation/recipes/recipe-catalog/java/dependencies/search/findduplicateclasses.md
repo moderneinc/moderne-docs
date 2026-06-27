@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find duplicate classes on the classpath"}
-  description={"Detects classes that appear in multiple dependencies on the classpath. This is similar to what the Maven duplicate-finder-maven-plugin does. Duplicate classes can cause runtime issues when different versions of the same class are loaded."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-java-dependencies"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.search.FindDuplicateClasses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/search/findduplicateclasses.md"}
-/>
+>
+
+<RecipeHeader.Title>Find duplicate classes on the classpath</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects classes that appear in multiple dependencies on the classpath. This is similar to what the Maven duplicate-finder-maven-plugin does. Duplicate classes can cause runtime issues when different versions of the same class are loaded.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.search.FindDuplicateClasses","displayName":"Find duplicate classes on the classpath","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-dependencies","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_DEPENDENCIES","requiresConfiguration":false}}>
 

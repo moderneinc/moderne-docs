@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Jackson `ObjectMapper.readValue(...)` calls"}
-  description={"Each `readValue` is a JSON-deserialization sink — when the input bytes are attacker-controlled, the configured polymorphic-typing and visibility settings of the `ObjectMapper` become security-relevant. Flag as a deserialization seed."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindJacksonObjectMapperReadValue$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findjacksonobjectmapperreadvalue$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Jackson `ObjectMapper.readValue(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `readValue` is a JSON-deserialization sink — when the input bytes are attacker-controlled, the configured polymorphic-typing and visibility settings of the `ObjectMapper` become security-relevant. Flag as a deserialization seed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindJacksonObjectMapperReadValue$KtRecipe","displayName":"Find Jackson `ObjectMapper.readValue(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

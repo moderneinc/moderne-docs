@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `OptionalRules.OptionalIsPresent`"}
-  description={"Prefer `Optional#isPresent()` over the inverted alternative."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalIsPresentRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/optionalrulesrecipes$optionalispresentrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `OptionalRules.OptionalIsPresent`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Optional#isPresent()` over the inverted alternative.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalIsPresentRecipe","displayName":"Refaster template `OptionalRules.OptionalIsPresent`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

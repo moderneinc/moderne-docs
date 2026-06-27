@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `throw ...` statements inside Mono/Flux operator lambdas"}
-  description={"Reactor expects errors to be *signaled* through the publisher (`Mono.error(...)`) rather than thrown. A raw `throw` inside `flatMap` / `map` works through Reactor's `Exceptions.propagate` fallback, but loses stack-walking guarantees and trips up the assembly-time error handling."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindMonoErrorInsteadOfThrow$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoerrorinsteadofthrow$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `throw ...` statements inside Mono/Flux operator lambdas</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reactor expects errors to be *signaled* through the publisher (`Mono.error(...)`) rather than thrown. A raw `throw` inside `flatMap` / `map` works through Reactor's `Exceptions.propagate` fallback, but loses stack-walking guarantees and trips up the assembly-time error handling.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindMonoErrorInsteadOfThrow$KtRecipe","displayName":"Find `throw ...` statements inside Mono/Flux operator lambdas","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

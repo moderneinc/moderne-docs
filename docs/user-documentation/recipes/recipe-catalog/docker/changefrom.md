@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Docker FROM"}
-  description={"Change the base image in a Dockerfile FROM instruction. Each `*` in an `old*` glob is a positional capture; `$N` in the paired `new*` substitutes capture N. `$0` substitutes the full original value; `\\$` is a literal dollar."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.ChangeFrom"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/changefrom.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Docker FROM</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the base image in a Dockerfile FROM instruction. Each `*` in an `old*` glob is a positional capture; `$N` in the paired `new*` substitutes capture N. `$0` substitutes the full original value; `\$` is a literal dollar.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldImageName","required":true,"description":"Glob pattern to match image names (without tag/digest).","example":"ubuntu"},{"type":"String","name":"oldTag","required":false,"description":"Only match images with tags matching this glob pattern. If null, matches any tag or no tag.","example":"20.*"},{"type":"String","name":"oldDigest","required":false,"description":"Only match images with digests matching this glob pattern. If null, matches any digest or no digest. If empty (`\"\"`), matches only images that have no digest, which is useful for skipping digest-pinned `FROM`s so deliberate pins are left untouched.","example":"sha256:*"},{"type":"String","name":"oldPlatform","required":false,"description":"Only change images with this platform. If null, matches any platform.","example":"linux/amd64"},{"type":"String","name":"newImageName","required":false,"description":"The new image name. If null, preserves the existing name.","example":"ubuntu"},{"type":"String","name":"newTag","required":false,"description":"The new tag. If null, preserves the existing tag. If empty, removes the tag.","example":"22.04"},{"type":"String","name":"newDigest","required":false,"description":"The new digest. If null, preserves the existing digest. If empty, removes the digest.","example":"sha256:abc123..."},{"type":"String","name":"newPlatform","required":false,"description":"The new platform. If null, preserves the existing platform. If empty, removes the platform flag.","example":"linux/arm64"}]}>
 

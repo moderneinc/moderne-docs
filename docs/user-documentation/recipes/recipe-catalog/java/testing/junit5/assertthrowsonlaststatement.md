@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Applies JUnit 5 `assertThrows` on last statement in lambda block only"}
-  description={"Applies JUnit 5 `assertThrows` on last statement in lambda block only. In rare cases may cause compilation errors if the lambda uses effectively non final variables. In some cases, tests might fail if earlier statements in the lambda block throw exceptions."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.AssertThrowsOnLastStatement"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/assertthrowsonlaststatement.md"}
-/>
+>
+
+<RecipeHeader.Title>Applies JUnit 5 `assertThrows` on last statement in lambda block only</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies JUnit 5 `assertThrows` on last statement in lambda block only. In rare cases may cause compilation errors if the lambda uses effectively non final variables. In some cases, tests might fail if earlier statements in the lambda block throw exceptions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nclass MyTest {\n\n    @Test\n    public void test() {\n        Throwable exception = assertThrows(IllegalArgumentException.class, () -> {\n            foo();\n            System.out.println(\"foo\");\n            foo();\n        });\n        assertEquals(\"Error message\", exception.getMessage());\n    }\n    void foo() {\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nclass MyTest {\n\n    @Test\n    public void test() {\n        foo();\n        System.out.println(\"foo\");\n        Throwable exception = assertThrows(IllegalArgumentException.class, () ->\n            foo());\n        assertEquals(\"Error message\", exception.getMessage());\n    }\n    void foo() {\n    }\n}\n","diff":"@@ -10,5 +10,4 @@\n    @Test\n    public void test() {\n-       Throwable exception = assertThrows(IllegalArgumentException.class, () -> {\n-           foo();\n-           System.out.println(\"foo\");\n-           foo();\n-       });\n+       foo();\n+       System.out.println(\"foo\");\n+       Throwable exception = assertThrows(IllegalArgumentException.class, () ->\n+           foo());\n        assertEquals(\"Error message\", exception.getMessage());\n","newFile":false}]}]}>
 

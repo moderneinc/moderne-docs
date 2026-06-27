@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Modernize Kotlin test code"}
-  description={"Find Kotlin-specific test patterns: mockito-kotlin usage where mockk would be idiomatic, deprecated `runBlocking` / `TestCoroutineDispatcher` patterns, Kotest assertion migration candidates, empty / assertion-less / many-assertion test bodies, snake_case test names, and Hamcrest call sites that fluent assertion libraries (AssertJ, Kotest) replace cleanly. Each match is a `SearchResult` for review — nothing is rewritten automatically. For bulk JUnit 4 → JUnit 5 annotation/assertion migration, apply `JUnit4to5Migration` from `rewrite-testing-frameworks`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.Testing$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/testing$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `public` modifier on JUnit 5 test functions","href":"kotlin/testing/findjunitfunctionwithpublic$ktrecipe"},{"name":"Find Kotest migration candidates","href":"kotlin/testing/findkotestcandidates$ktrecipe"},{"name":"Find mockito-kotlin / Mockito patterns","href":"kotlin/testing/findmockitosmells$ktrecipe"},{"name":"Find coroutine-test patterns","href":"kotlin/testing/findcoroutinetestsmells$ktrecipe"},{"name":"Find test fixture / setup smells","href":"kotlin/testing/findtestfixturesmells$ktrecipe"},{"name":"Find assertion-library smells","href":"kotlin/testing/findassertionlibrarysmells$ktrecipe"},{"name":"Find JUnit 5 setup smells (informational)","href":"kotlin/testing/findtestframeworksetupsmells$ktrecipe"}]}>
+<RecipeHeader.Title>Modernize Kotlin test code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find Kotlin-specific test patterns: mockito-kotlin usage where mockk would be idiomatic, deprecated `runBlocking` / `TestCoroutineDispatcher` patterns, Kotest assertion migration candidates, empty / assertion-less / many-assertion test bodies, snake_case test names, and Hamcrest call sites that fluent assertion libraries (AssertJ, Kotest) replace cleanly. Each match is a `SearchResult` for review — nothing is rewritten automatically. For bulk JUnit 4 → JUnit 5 annotation/assertion migration, apply `JUnit4to5Migration` from `rewrite-testing-frameworks`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `public` modifier on JUnit 5 test functions","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findjunitfunctionwithpublic$ktrecipe/"},{"name":"Find Kotest migration candidates","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findkotestcandidates$ktrecipe/"},{"name":"Find mockito-kotlin / Mockito patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitosmells$ktrecipe/"},{"name":"Find coroutine-test patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findcoroutinetestsmells$ktrecipe/"},{"name":"Find test fixture / setup smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findtestfixturesmells$ktrecipe/"},{"name":"Find assertion-library smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertionlibrarysmells$ktrecipe/"},{"name":"Find JUnit 5 setup smells (informational)","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findtestframeworksetupsmells$ktrecipe/"}]}>
 
 ## Definition
 

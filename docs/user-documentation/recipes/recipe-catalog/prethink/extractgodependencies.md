@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Extract Go dependencies and usage"}
-  description={"Scan go.mod and Go source imports to produce a DependencyUsage entry per actually-imported module, including file-count and sample imports."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.ExtractGoDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/extractgodependencies.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Extract Go dependencies and usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Scan go.mod and Go source imports to produce a DependencyUsage entry per actually-imported module, including file-count and sample imports.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.ExtractGoDependencies","displayName":"Extract Go dependencies and usage","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

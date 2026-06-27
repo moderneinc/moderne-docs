@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `HttpStatus` enum values to RFC 9110 names"}
-  description={"Spring Framework 7.0 aligns HttpStatus enum values with RFC 9110. This recipe replaces deprecated status code constants with their RFC 9110 equivalents: `PAYLOAD_TOO_LARGE` becomes `CONTENT_TOO_LARGE` and `UNPROCESSABLE_ENTITY` becomes `UNPROCESSABLE_CONTENT`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","framework"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.MigrateHttpStatusToRfc9110"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratehttpstatustorfc9110.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate `HttpStatus` enum values to RFC 9110 names</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Framework 7.0 aligns HttpStatus enum values with RFC 9110. This recipe replaces deprecated status code constants with their RFC 9110 equivalents: `PAYLOAD_TOO_LARGE` becomes `CONTENT_TOO_LARGE` and `UNPROCESSABLE_ENTITY` becomes `UNPROCESSABLE_CONTENT`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

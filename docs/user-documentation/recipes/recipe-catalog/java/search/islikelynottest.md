@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find files that are likely not tests"}
-  description={"Sources that do not contain indicators of being, or being exclusively for the use in tests. This recipe is simply a negation of the `org.openrewrite.java.search.IsLikelyTest` recipe."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.IsLikelyNotTest"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/islikelynottest.md"}
-/>
+>
+
+<RecipeHeader.Title>Find files that are likely not tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sources that do not contain indicators of being, or being exclusively for the use in tests. This recipe is simply a negation of the `org.openrewrite.java.search.IsLikelyTest` recipe.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.search.IsLikelyNotTest","displayName":"Find files that are likely not tests","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":false}}>
 

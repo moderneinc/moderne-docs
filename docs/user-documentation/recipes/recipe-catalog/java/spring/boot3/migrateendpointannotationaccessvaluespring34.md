@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `@Endpoint`s `defaultAccess` value"}
-  description={"Since Spring Boot 3.4 the `@Endpoint` access configuration values are no longer `true|false` but `none|read-only|unrestricted`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.MigrateEndpointAnnotationAccessValueSpring34"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateendpointannotationaccessvaluespring34.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `@Endpoint`s `defaultAccess` value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Since Spring Boot 3.4 the `@Endpoint` access configuration values are no longer `true|false` but `none|read-only|unrestricted`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.actuate.endpoint.annotation.Endpoint;\n\n@Endpoint(id=\"test\",enableByDefault=false)\nclass MyEndpoint {\n}\n","after":"import org.springframework.boot.actuate.endpoint.Access;\nimport org.springframework.boot.actuate.endpoint.annotation.Endpoint;\n\n@Endpoint(id=\"test\",defaultAccess=Access.NONE)\nclass MyEndpoint {\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.springframework.boot.actuate.endpoint.Access;\nimport org.springframework.boot.actuate.endpoint.annotation.Endpoint;\n@@ -3,1 +4,1 @@\nimport org.springframework.boot.actuate.endpoint.annotation.Endpoint;\n\n-@Endpoint(id=\"test\",enableByDefault=false)\n+@Endpoint(id=\"test\",defaultAccess=Access.NONE)\nclass MyEndpoint {\n","newFile":false}]}]}>
 

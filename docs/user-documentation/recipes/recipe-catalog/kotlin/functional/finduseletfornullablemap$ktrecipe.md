@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (x != null) f(x) else null` patterns"}
-  description={"`if (x != null) f(x) else null` is `x?.let { f(it) }` written long-hand. The `?.let { }` form is more concise and (when `f` is a member call) collapses further to `x?.f(...)`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindUseLetForNullableMap$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/finduseletfornullablemap$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (x != null) f(x) else null` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`if (x != null) f(x) else null` is `x?.let { f(it) }` written long-hand. The `?.let { }` form is more concise and (when `f` is a member call) collapses further to `x?.f(...)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindUseLetForNullableMap$KtRecipe","displayName":"Find `if (x != null) f(x) else null` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

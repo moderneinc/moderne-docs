@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Flag deprecated ReactorNettyHttpClientMapper for migration"}
-  description={"Adds a TODO comment to classes implementing the deprecated `ReactorNettyHttpClientMapper` interface. Migration to `ClientHttpConnectorBuilderCustomizer<ReactorClientHttpConnectorBuilder>` requires wrapping the HttpClient configuration in `builder.withHttpClientCustomizer(...)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.FlagDeprecatedReactorNettyHttpClientMapper"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/flagdeprecatedreactornettyhttpclientmapper.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Flag deprecated ReactorNettyHttpClientMapper for migration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds a TODO comment to classes implementing the deprecated `ReactorNettyHttpClientMapper` interface. Migration to `ClientHttpConnectorBuilderCustomizer<ReactorClientHttpConnectorBuilder>` requires wrapping the HttpClient configuration in `builder.withHttpClientCustomizer(...)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package reactor.netty.http.client;\npublic class HttpClient {\n    public HttpClient responseTimeout(java.time.Duration timeout) { return this; }\n}\n"},"variants":[{"language":"java","before":"import org.springframework.boot.autoconfigure.web.reactive.function.client.ReactorNettyHttpClientMapper;\nimport org.springframework.stereotype.Component;\nimport reactor.netty.http.client.HttpClient;\n\nimport java.time.Duration;\n\n@Component\npublic class CustomHttpClientMapper implements ReactorNettyHttpClientMapper {\n    @Override\n    public HttpClient configure(HttpClient httpClient) {\n        return httpClient.responseTimeout(Duration.ofSeconds(30));\n    }\n}\n","after":"import org.springframework.boot.autoconfigure.web.reactive.function.client.ReactorNettyHttpClientMapper;\nimport org.springframework.stereotype.Component;\nimport reactor.netty.http.client.HttpClient;\n\nimport java.time.Duration;\n\n// TODO: Migrate to ClientHttpConnectorBuilderCustomizer<ReactorClientHttpConnectorBuilder>. See https://docs.spring.io/spring-boot/3.5/api/java/org/springframework/boot/autoconfigure/http/client/reactive/ClientHttpConnectorBuilderCustomizer.html\n/*~~(ReactorNettyHttpClientMapper is deprecated and will be removed in Spring Boot 4.0. Migrate to ClientHttpConnectorBuilderCustomizer<ReactorClientHttpConnectorBuilder>.)~~>*/@Component\npublic class CustomHttpClientMapper implements ReactorNettyHttpClientMapper {\n    @Override\n    public HttpClient configure(HttpClient httpClient) {\n        return httpClient.responseTimeout(Duration.ofSeconds(30));\n    }\n}\n","diff":"@@ -7,1 +7,2 @@\nimport java.time.Duration;\n\n-@Component\n+// TODO: Migrate to ClientHttpConnectorBuilderCustomizer<ReactorClientHttpConnectorBuilder>. See https://docs.spring.io/spring-boot/3.5/api/java/org/springframework/boot/autoconfigure/http/client/reactive/ClientHttpConnectorBuilderCustomizer.html\n+/*~~(ReactorNettyHttpClientMapper is deprecated and will be removed in Spring Boot 4.0. Migrate to ClientHttpConnectorBuilderCustomizer<ReactorClientHttpConnectorBuilder>.)~~>*/@Component\npublic class CustomHttpClientMapper implements ReactorNettyHttpClientMapper {\n","newFile":false}]}]}>
 

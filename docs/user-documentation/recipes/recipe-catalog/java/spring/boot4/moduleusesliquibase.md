@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Module uses Liquibase"}
-  description={"Precondition that marks all files in a module if Liquibase usage is detected. Detection is based on having a Liquibase dependency, using Liquibase types, or having changelog files."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.ModuleUsesLiquibase"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesliquibase.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"},{"name":"Module contains file","href":"java/search/modulecontainsfile"},{"name":"Module uses type","href":"java/search/moduleusestype"}]}>
+<RecipeHeader.Title>Module uses Liquibase</RecipeHeader.Title>
+
+<RecipeHeader.Description>Precondition that marks all files in a module if Liquibase usage is detected. Detection is based on having a Liquibase dependency, using Liquibase types, or having changelog files.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"},{"name":"Module contains file","href":"/user-documentation/recipes/recipe-catalog/java/search/modulecontainsfile/"},{"name":"Module uses type","href":"/user-documentation/recipes/recipe-catalog/java/search/moduleusestype/"}]}>
 
 ## Definition
 

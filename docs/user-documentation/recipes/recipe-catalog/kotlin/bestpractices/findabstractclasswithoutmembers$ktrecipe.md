@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `abstract class` declarations without abstract members"}
-  description={"An `abstract class` with no abstract members and no state offers nothing over `interface` — and `interface` composes better (multiple inheritance, no constructor coupling). If the class is being used as a marker, consider `sealed interface` for stronger exhaustiveness checks."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindAbstractClassWithoutMembers$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findabstractclasswithoutmembers$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `abstract class` declarations without abstract members</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `abstract class` with no abstract members and no state offers nothing over `interface` — and `interface` composes better (multiple inheritance, no constructor coupling). If the class is being used as a marker, consider `sealed interface` for stronger exhaustiveness checks.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindAbstractClassWithoutMembers$KtRecipe","displayName":"Find `abstract class` declarations without abstract members","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

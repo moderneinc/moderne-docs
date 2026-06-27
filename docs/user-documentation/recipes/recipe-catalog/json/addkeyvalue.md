@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add value to JSON Object"}
-  description={"Adds a `value` at the specified `keyPath` with the specified `key`, if the key doesn't already exist."}
   type={"Single recipe"}
   languages={["JSON"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-json"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.json.AddKeyValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/json/addkeyvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Add value to JSON Object</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds a `value` at the specified `keyPath` with the specified `key`, if the key doesn't already exist.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"keyPath","required":true,"description":"A JsonPath expression to locate the *parent* JSON entry.","example":"'$.subjects.*' or '$' or '$.x[1].y.*' etc."},{"type":"String","name":"key","required":true,"description":"The key to create.","example":"myKey"},{"type":"String","name":"value","required":true,"description":"The value to add to the document at the specified key. Can be of any type representing JSON value. String values should be quoted to be inserted as Strings.","example":"`\"myValue\"` or `{\"a\": 1}` or `[ 123 ]`"},{"type":"Boolean","name":"prepend","required":false,"description":"If set to `true` the value will be added to the beginning of the object"}]}>
 

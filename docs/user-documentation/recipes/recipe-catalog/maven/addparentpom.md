@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Maven parent"}
-  description={"Add a parent pom to a Maven pom.xml. Does nothing if a parent pom is already present."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.AddParentPom"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/addparentpom.md"}
-/>
+>
+
+<RecipeHeader.Title>Add Maven parent</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a parent pom to a Maven pom.xml. Does nothing if a parent pom is already present.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The group ID of the maven parent pom to be adopted.","example":"org.springframework.boot"},{"type":"String","name":"artifactId","required":true,"description":"The artifact ID of the maven parent pom to be adopted.","example":"spring-boot-starter-parent"},{"type":"String","name":"version","required":true,"description":"An exact version number or node-style semver selector used to select the version number.","example":"29.X"},{"type":"String","name":"relativePath","required":true,"description":"New relative path attribute for parent lookup.","example":"../pom.xml"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'version' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select Guava 29.0-jre","example":"-jre"}]}>
 

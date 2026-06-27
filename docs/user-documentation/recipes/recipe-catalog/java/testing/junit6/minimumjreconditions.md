@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JUnit JRE conditions"}
-  description={"This recipe will:\n - Remove tests that are only active on JREs that are below the specified version.\n - Adjust ranges to use minimum the specified version."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit6.MinimumJreConditions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit6/minimumjreconditions.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate JUnit JRE conditions</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+This recipe will:
+ - Remove tests that are only active on JREs that are below the specified version.
+ - Adjust ranges to use minimum the specified version.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"javaVersion","required":true,"description":"The minimum JRE version to use for test conditions.","example":"17"}]}>
 

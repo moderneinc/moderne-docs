@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Configure Gradle `application` plugin main class"}
-  description={"Adds or updates `application { mainClass = '...' }` in a Gradle build script. Supports both Groovy DSL (`build.gradle`) and Kotlin DSL (`build.gradle.kts`)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.ConfigureGradleApplicationPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/configuregradleapplicationplugin.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Configure Gradle `application` plugin main class</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds or updates `application { mainClass = '...' }` in a Gradle build script. Supports both Groovy DSL (`build.gradle`) and Kotlin DSL (`build.gradle.kts`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"mainClass","required":true,"description":"The fully qualified name of the application main class.","example":"com.example.JettyServer"}]}>
 

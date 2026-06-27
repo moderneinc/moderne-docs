@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find vulnerable uses of Jackson `@JsonTypeInfo`"}
-  description={"Identify where attackers can deserialize gadgets into a target field."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindVulnerableJacksonJsonTypeInfo"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findvulnerablejacksonjsontypeinfo.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find annotations","href":"java/search/findannotations"},{"name":"Find annotations","href":"java/search/findannotations"}]}>
+<RecipeHeader.Title>Find vulnerable uses of Jackson `@JsonTypeInfo`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify where attackers can deserialize gadgets into a target field.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find annotations","href":"/user-documentation/recipes/recipe-catalog/java/search/findannotations/"},{"name":"Find annotations","href":"/user-documentation/recipes/recipe-catalog/java/search/findannotations/"}]}>
 
 ## Definition
 

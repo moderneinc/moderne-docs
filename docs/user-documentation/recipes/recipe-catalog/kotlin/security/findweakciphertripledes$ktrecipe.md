@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Cipher.getInstance(\"DESede\"/\"TripleDES\")` calls"}
-  description={"Triple-DES (3DES, DESede) is deprecated by NIST as of 2023 due to its 64-bit block size making it vulnerable to Sweet32-style birthday attacks. Migrate to AES-GCM."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindWeakCipherTripleDes$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findweakciphertripledes$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Cipher.getInstance("DESede"/"TripleDES")` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Triple-DES (3DES, DESede) is deprecated by NIST as of 2023 due to its 64-bit block size making it vulnerable to Sweet32-style birthday attacks. Migrate to AES-GCM.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindWeakCipherTripleDes$KtRecipe","displayName":"Find `Cipher.getInstance(\"DESede\"/\"TripleDES\")` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

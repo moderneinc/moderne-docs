@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `MethodOrderer.Alphanumeric` to `MethodOrderer.MethodName`"}
-  description={"JUnit 6 removed the `MethodOrderer.Alphanumeric` class. This recipe migrates usages to `MethodOrderer.MethodName` which provides similar functionality."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit6.MigrateMethodOrdererAlphanumeric"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit6/migratemethodordereralphanumeric.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `MethodOrderer.Alphanumeric` to `MethodOrderer.MethodName`</RecipeHeader.Title>
+
+<RecipeHeader.Description>JUnit 6 removed the `MethodOrderer.Alphanumeric` class. This recipe migrates usages to `MethodOrderer.MethodName` which provides similar functionality.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.MethodOrderer;\nimport org.junit.jupiter.api.TestMethodOrder;\nimport org.junit.jupiter.api.Test;\n\n@TestMethodOrder(MethodOrderer.Alphanumeric.class)\nclass MyTest {\n    @Test\n    void test1() {\n    }\n\n    @Test\n    void test2() {\n    }\n}\n","after":"import org.junit.jupiter.api.MethodOrderer;\nimport org.junit.jupiter.api.TestMethodOrder;\nimport org.junit.jupiter.api.Test;\n\n@TestMethodOrder(MethodOrderer.MethodName.class)\nclass MyTest {\n    @Test\n    void test1() {\n    }\n\n    @Test\n    void test2() {\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nimport org.junit.jupiter.api.Test;\n\n-@TestMethodOrder(MethodOrderer.Alphanumeric.class)\n+@TestMethodOrder(MethodOrderer.MethodName.class)\nclass MyTest {\n","newFile":false}]}]}>
 

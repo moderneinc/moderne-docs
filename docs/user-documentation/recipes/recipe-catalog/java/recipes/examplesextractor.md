@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Extract documentation examples from tests"}
-  description={"Extract the before/after sources from tests annotated with `@DocumentExample`, and generate a YAML file with those examples to be shown in the documentation to show usage."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.ExamplesExtractor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/examplesextractor.md"}
-/>
+>
+
+<RecipeHeader.Title>Extract documentation examples from tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Extract the before/after sources from tests annotated with `@DocumentExample`, and generate a YAML file with those examples to be shown in the documentation to show usage.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package org.openrewrite.staticanalysis;\n\nimport org.junit.jupiter.api.Test;\nimport org.openrewrite.DocumentExample;\nimport org.openrewrite.test.RecipeSpec;\nimport org.openrewrite.test.RewriteTest;\n\nimport static org.openrewrite.java.Assertions.java;\n\nclass ChainStringBuilderAppendCallsTest implements RewriteTest {\n    @Override\n    public void defaults(RecipeSpec spec) {\n        spec.recipe(new ChainStringBuilderAppendCalls());\n    }\n\n    @DocumentExample(value = \"Objects concatenation.\")\n    @Test\n    void objectsConcatenation() {\n        rewriteRun(\n          java(\n            \"\"\"\n              class A {\n                  void method1() {\n                      StringBuilder sb = new StringBuilder();\n                      String op = \"+\";\n                      sb.append(\"A\" + op + \"B\");\n                      sb.append(1 + op + 2);\n                  }\n              }\n              \"\"\",\n            \"\"\"\n              class A {\n                  void method1() {\n                      StringBuilder sb = new StringBuilder();\n                      String op = \"+\";\n                      sb.append(\"A\").append(op).append(\"B\");\n                      sb.append(1).append(op).append(2);\n                  }\n              }\n              \"\"\"\n          )\n        );\n    }\n}\n"},"variants":[{"language":"yaml","before":"","after":"---\ntype: specs.openrewrite.org/v1beta/example\nrecipeName: org.openrewrite.staticanalysis.ChainStringBuilderAppendCalls\nexamples:\n- description: Objects concatenation.\n  sources:\n  - before: |\n      class A {\n          void method1() {\n              StringBuilder sb = new StringBuilder();\n              String op = \"+\";\n              sb.append(\"A\" + op + \"B\");\n              sb.append(1 + op + 2);\n          }\n      }\n    after: |\n      class A {\n          void method1() {\n              StringBuilder sb = new StringBuilder();\n              String op = \"+\";\n              sb.append(\"A\").append(op).append(\"B\");\n              sb.append(1).append(op).append(2);\n          }\n      }\n    language: java\n","newFile":true}]}]}>
 

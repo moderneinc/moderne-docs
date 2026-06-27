@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Project has no Jakarta annotations"}
-  description={"Mark all source as found per `JavaProject` where no Jakarta annotations are found. This is useful mostly as a precondition for recipes that require Jakarta annotations to be present."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.HasNoJakartaAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/hasnojakartaannotations.md"}
-/>
+>
+
+<RecipeHeader.Title>Project has no Jakarta annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Mark all source as found per `JavaProject` where no Jakarta annotations are found. This is useful mostly as a precondition for recipes that require Jakarta annotations to be present.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.HasNoJakartaAnnotations","displayName":"Project has no Jakarta annotations","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

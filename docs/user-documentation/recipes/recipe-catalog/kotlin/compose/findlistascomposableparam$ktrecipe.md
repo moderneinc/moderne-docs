@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Composable` functions with `List`/`Map`/`Set` parameters"}
-  description={"`kotlin.collections.List` (and friends) are read-only views, not immutable types — a `List<T>` can be a `MutableList<T>` upcast, so Compose's stability inferrer marks the parameter unstable and re-invokes the composable on every parent recomposition. Use `ImmutableList<T>` from `kotlinx.collections.immutable` or wrap in a `@Immutable` data holder."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindListAsComposableParam$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlistascomposableparam$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Composable` functions with `List`/`Map`/`Set` parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>`kotlin.collections.List` (and friends) are read-only views, not immutable types — a `List<T>` can be a `MutableList<T>` upcast, so Compose's stability inferrer marks the parameter unstable and re-invokes the composable on every parent recomposition. Use `ImmutableList<T>` from `kotlinx.collections.immutable` or wrap in a `@Immutable` data holder.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindListAsComposableParam$KtRecipe","displayName":"Find `@Composable` functions with `List`/`Map`/`Set` parameters","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

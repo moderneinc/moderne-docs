@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit AssertThrows to AssertJ exceptionType"}
-  description={"Convert `JUnit#AssertThrows` to `AssertJ#assertThatExceptionOfType` to allow for chained assertions on the thrown exception."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.JUnitAssertThrowsToAssertExceptionType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/junitassertthrowstoassertexceptiontype.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit AssertThrows to AssertJ exceptionType</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert `JUnit#AssertThrows` to `AssertJ#assertThatExceptionOfType` to allow for chained assertions on the thrown exception.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.junit.jupiter.api.Assertions.assertThrows;\n\npublic class SimpleExpectedExceptionTest {\n    public void throwsExceptionWithSpecificType() {\n        assertThrows(NullPointerException.class, () -> foo());\n    }\n    void foo() {\n        throw new NullPointerException();\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThatExceptionOfType;\n\npublic class SimpleExpectedExceptionTest {\n    public void throwsExceptionWithSpecificType() {\n        assertThatExceptionOfType(NullPointerException.class).isThrownBy(() -> foo());\n    }\n    void foo() {\n        throw new NullPointerException();\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static org.junit.jupiter.api.Assertions.assertThrows;\n+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;\n\n@@ -5,1 +5,1 @@\npublic class SimpleExpectedExceptionTest {\n    public void throwsExceptionWithSpecificType() {\n-       assertThrows(NullPointerException.class, () -> foo());\n+       assertThatExceptionOfType(NullPointerException.class).isThrownBy(() -> foo());\n    }\n","newFile":false}]}]}>
 

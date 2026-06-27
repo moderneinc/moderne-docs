@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Configure Gradle `jar` task for fat JAR"}
-  description={"Configures the Gradle `jar` task to produce a self-contained fat JAR with all runtime dependencies bundled. Supports both Groovy DSL (`build.gradle`) and Kotlin DSL (`build.gradle.kts`)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.ConfigureGradleFatJar"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/configuregradlefatjar.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Configure Gradle `jar` task for fat JAR</RecipeHeader.Title>
+
+<RecipeHeader.Description>Configures the Gradle `jar` task to produce a self-contained fat JAR with all runtime dependencies bundled. Supports both Groovy DSL (`build.gradle`) and Kotlin DSL (`build.gradle.kts`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"mainClass","required":true,"description":"The fully qualified name of the application main class.","example":"com.example.JettyServer"}]}>
 

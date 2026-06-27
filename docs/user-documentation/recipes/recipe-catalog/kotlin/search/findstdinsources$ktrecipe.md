@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `readLine()` / `Scanner.next*()` calls"}
-  description={"Standard-input reads are user-controlled bytes — every downstream use of the returned string is a candidate taint root. Tagging the call site lets a downstream analysis (human or LLM agent) trace where untrusted data flows."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindStdinSources$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findstdinsources$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `readLine()` / `Scanner.next*()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Standard-input reads are user-controlled bytes — every downstream use of the returned string is a candidate taint root. Tagging the call site lets a downstream analysis (human or LLM agent) trace where untrusted data flows.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindStdinSources$KtRecipe","displayName":"Find `readLine()` / `Scanner.next*()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

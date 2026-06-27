@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Jakarta EE 9 Servlet Dependency"}
-  description={"Add Jakarta EE 9 Servlet Dependency if using jakarta.servlet.ServletContext"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["servlet","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.AddJakartaEE9ServletDependencyIfUsingServletContext"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/addjakartaee9servletdependencyifusingservletcontext.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]}>
+<RecipeHeader.Title>Add Jakarta EE 9 Servlet Dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add Jakarta EE 9 Servlet Dependency if using jakarta.servlet.ServletContext</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]}>
 
 ## Definition
 

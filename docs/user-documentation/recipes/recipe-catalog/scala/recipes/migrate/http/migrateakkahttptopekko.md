@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Akka HTTP imports to migrate to Apache Pekko"}
-  description={"Finds imports starting with `akka.http`. Akka HTTP should be migrated to Apache Pekko HTTP (`org.apache.pekko.http`), the community-maintained fork."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.http.MigrateAkkaHttpToPekko"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/http/migrateakkahttptopekko.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Akka HTTP imports to migrate to Apache Pekko</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports starting with `akka.http`. Akka HTTP should be migrated to Apache Pekko HTTP (`org.apache.pekko.http`), the community-maintained fork.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import akka.http.scaladsl.Http\n\nclass Server {\n    val name = \"server\"\n}\n","after":"/*~~(Akka HTTP found; migrate to Apache Pekko HTTP (org.apache.pekko.http))~~>*/import akka.http.scaladsl.Http\n\nclass Server {\n    val name = \"server\"\n}\n","diff":"@@ -1,1 +1,1 @@\n-import akka.http.scaladsl.Http\n+/*~~(Akka HTTP found; migrate to Apache Pekko HTTP (org.apache.pekko.http))~~>*/import akka.http.scaladsl.Http\n\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `__future__` imports"}
-  description={"Find `__future__` imports and add a search marker."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.migrate.FindFutureImports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/migrate/findfutureimports.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `__future__` imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find `__future__` imports and add a search marker.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"python","before":"from __future__ import print_function\nclass Foo:\n  def foo() :\n    print(\"hello\")\n","after":"/*~~(Future import)~~>*/from __future__ import print_function\nclass Foo:\n  def foo() :\n    print(\"hello\")\n","diff":"@@ -1,1 +1,1 @@\n-from __future__ import print_function\n+/*~~(Future import)~~>*/from __future__ import print_function\nclass Foo:\n","newFile":false}]}]}>
 

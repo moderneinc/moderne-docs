@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `WordUtils` to Apache Commons Text"}
-  description={"Migrate `org.apache.commons.lang.WordUtils` to `org.apache.commons.text.WordUtils` and add the Commons Text dependency."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","commons"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.lang.WordUtilsToCommonsText"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/lang/wordutilstocommonstext.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Change type","href":"java/changetype"},{"name":"Rename package name","href":"java/changepackage"}]}>
+<RecipeHeader.Title>Migrate `WordUtils` to Apache Commons Text</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate `org.apache.commons.lang.WordUtils` to `org.apache.commons.text.WordUtils` and add the Commons Text dependency.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]}>
 
 ## Definition
 

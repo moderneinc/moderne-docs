@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Node.js test code smells"}
-  description={"Detect code smells in JavaScript and TypeScript test files including empty catch blocks and magic numbers."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindNodeTestCodeSmells"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodetestcodesmells.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Node.js test code smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect code smells in JavaScript and TypeScript test files including empty catch blocks and magic numbers.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"javascript","code":"const port = 8080;\ntest(\"should connect\", () => {\n    expect(port).toBe(8080);\n});\n"},"variants":[]}]}>
 

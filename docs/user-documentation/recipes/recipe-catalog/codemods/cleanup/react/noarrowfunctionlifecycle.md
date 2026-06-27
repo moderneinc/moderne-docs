@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Lifecycle methods should be methods on the prototype, not class fields"}
-  description={"Lifecycle methods should be methods on the prototype, not class fields\nSee rule details for [react/no-arrow-function-lifecycle](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/no-arrow-function-lifecycle.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.react.NoArrowFunctionLifecycle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/react/noarrowfunctionlifecycle.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Lifecycle methods should be methods on the prototype, not class fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>Lifecycle methods should be methods on the prototype, not class fields See rule details for [react/no-arrow-function-lifecycle](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/no-arrow-function-lifecycle.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JBoss Logging Level arguments with the corresponding eponymous level method calls"}
-  description={"Replace calls to `Logger.log(Level, ...)` with the corresponding eponymous level method calls. For example `Logger.log(Level.INFO, ...)` to `Logger.info(...)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.jboss.LoggerLevelArgumentToMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/jboss/loggerlevelargumenttomethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace JBoss Logging Level arguments with the corresponding eponymous level method calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace calls to `Logger.log(Level, ...)` with the corresponding eponymous level method calls. For example `Logger.log(Level.INFO, ...)` to `Logger.info(...)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.jboss.logging.Logger;\n\nclass Test {\n    void test(Logger logger, String msg) {\n        logger.log(Logger.Level.INFO, msg);\n    }\n}\n","after":"import org.jboss.logging.Logger;\n\nclass Test {\n    void test(Logger logger, String msg) {\n        logger.info(msg);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    void test(Logger logger, String msg) {\n-       logger.log(Logger.Level.INFO, msg);\n+       logger.info(msg);\n    }\n","newFile":false}]}]}>
 

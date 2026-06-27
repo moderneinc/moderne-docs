@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `while (true)` with initial `if` break to loop condition"}
-  description={"Simplifies `while (true)` loops where the first statement is an `if` statement that only contains a `break`. The condition is inverted and moved to the loop condition for better readability."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.MoveConditionsToWhile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/moveconditionstowhile.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `while (true)` with initial `if` break to loop condition</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplifies `while (true)` loops where the first statement is an `if` statement that only contains a `break`. The condition is inverted and moved to the loop condition for better readability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void foo(int counter) {\n        while (true) {\n            if (counter >= 5) {\n                break;\n            }\n            System.out.println(\"Counter: \" + counter);\n            counter++;\n        }\n    }\n}\n","after":"class Test {\n    void foo(int counter) {\n        while (counter < 5) {\n            System.out.println(\"Counter: \" + counter);\n            counter++;\n        }\n    }\n}\n","diff":"@@ -3,4 +3,1 @@\nclass Test {\n    void foo(int counter) {\n-       while (true) {\n-           if (counter >= 5) {\n-               break;\n-           }\n+       while (counter < 5) {\n            System.out.println(\"Counter: \" + counter);\n","newFile":false}]}]}>
 

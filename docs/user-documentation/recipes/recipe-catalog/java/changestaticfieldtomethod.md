@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change static field access to static method access"}
-  description={"Migrate accesses to a static field to invocations of a static method."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.ChangeStaticFieldToMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/changestaticfieldtomethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Change static field access to static method access</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate accesses to a static field to invocations of a static method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldClassName","required":true,"description":"The fully qualified name of the class containing the field to replace.","example":"java.util.Collections"},{"type":"String","name":"oldFieldName","required":true,"description":"The simple name of the static field to replace.","example":"EMPTY_LIST"},{"type":"String","name":"newClassName","required":false,"description":"The fully qualified name of the class containing the method to use. Leave empty to keep the same class.","example":"java.util.List"},{"type":"String","name":"newTarget","required":false,"description":"An optional method target that can be used to specify a static field within the new class.","example":"OK_RESPONSE"},{"type":"String","name":"newMethodName","required":true,"description":"The simple name of the method to use. The method must be static and have no arguments.","example":"of"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `iterator().next()` with `getFirst()`"}
-  description={"Replace `SequencedCollection.iterator().next()` with `getFirst()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.IteratorNext"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/iteratornext.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `iterator().next()` with `getFirst()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `SequencedCollection.iterator().next()` with `getFirst()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.*;\n\nclass Foo {\n    String bar(List<String> collection) {\n        return collection.iterator().next();\n    }\n}\n","after":"import java.util.*;\n\nclass Foo {\n    String bar(List<String> collection) {\n        return collection.getFirst();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Foo {\n    String bar(List<String> collection) {\n-       return collection.iterator().next();\n+       return collection.getFirst();\n    }\n","newFile":false}]}]}>
 

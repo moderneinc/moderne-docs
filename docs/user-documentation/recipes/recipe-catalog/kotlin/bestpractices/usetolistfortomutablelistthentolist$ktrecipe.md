@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `toList()` instead of `toMutableList().toList()`"}
-  description={"`toMutableList()` allocates a mutable copy, then `toList()` copies it again to an immutable list. `toList()` directly does what's needed in one pass."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.UseToListForToMutableListThenToList$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetolistfortomutablelistthentolist$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `toList()` instead of `toMutableList().toList()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`toMutableList()` allocates a mutable copy, then `toList()` copies it again to an immutable list. `toList()` directly does what's needed in one pass.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.UseToListForToMutableListThenToList$KtRecipe","displayName":"Use `toList()` instead of `toMutableList().toList()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

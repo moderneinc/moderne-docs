@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace lower and upper case `String` comparisons with `String.equalsIgnoreCase(String)`"}
-  description={"Replace `String` equality comparisons involving `.toLowerCase()` or `.toUpperCase()` with `String.equalsIgnoreCase(String anotherString)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.StringRulesRecipes$UseEqualsIgnoreCaseRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/stringrulesrecipes$useequalsignorecaserecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace lower and upper case `String` comparisons with `String.equalsIgnoreCase(String)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `String` equality comparisons involving `.toLowerCase()` or `.toUpperCase()` with `String.equalsIgnoreCase(String anotherString)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.StringRulesRecipes$UseEqualsIgnoreCaseRecipe","displayName":"Replace lower and upper case `String` comparisons with `String.equalsIgnoreCase(String)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

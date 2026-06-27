@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TimeRules.DurationOfSeconds`"}
-  description={"Prefer `Duration#ofSeconds(long)` over alternative representations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TimeRulesRecipes$DurationOfSecondsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/timerulesrecipes$durationofsecondsrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TimeRules.DurationOfSeconds`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Duration#ofSeconds(long)` over alternative representations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$DurationOfSecondsRecipe","displayName":"Refaster template `TimeRules.DurationOfSeconds`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

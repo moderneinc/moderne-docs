@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find sources that are likely tests"}
-  description={"Sources that contain indicators of being, or being exclusively for the use in tests. This recipe is not exhaustive, but is intended to be a good starting point for finding test sources. Looks at the source set name, and types in use; for example looks for uses of JUnit & TestNG annotations/assertions."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.IsLikelyTest"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/islikelytest.md"}
-/>
+>
+
+<RecipeHeader.Title>Find sources that are likely tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sources that contain indicators of being, or being exclusively for the use in tests. This recipe is not exhaustive, but is intended to be a good starting point for finding test sources. Looks at the source set name, and types in use; for example looks for uses of JUnit & TestNG annotations/assertions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.search.IsLikelyTest","displayName":"Find sources that are likely tests","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":false}}>
 

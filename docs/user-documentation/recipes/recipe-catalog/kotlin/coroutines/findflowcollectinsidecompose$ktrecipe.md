@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Flow.collect` calls inside a `@Composable`"}
-  description={"`Flow.collect` inside a `@Composable` ties collection to recomposition rather than the composable's lifecycle, leaking work on re-entry. Use `collectAsStateWithLifecycle` (Compose) or wrap with `LaunchedEffect { flow.collect { … } }`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindFlowCollectInsideCompose$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowcollectinsidecompose$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Flow.collect` calls inside a `@Composable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Flow.collect` inside a `@Composable` ties collection to recomposition rather than the composable's lifecycle, leaking work on re-entry. Use `collectAsStateWithLifecycle` (Compose) or wrap with `LaunchedEffect { flow.collect { … } }`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindFlowCollectInsideCompose$KtRecipe","displayName":"Find `Flow.collect` calls inside a `@Composable`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

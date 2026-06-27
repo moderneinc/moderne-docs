@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migration invocation of JobParameter.toString to JobParameter.getValue.toString"}
-  description={"JobParameter.toString() logic is quite different in spring batch 5, need take JobParameter.getValue.toString replace the JobParameter.toString."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.JobParameterToString"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/jobparametertostring.md"}
-/>
+>
+
+<RecipeHeader.Title>Migration invocation of JobParameter.toString to JobParameter.getValue.toString</RecipeHeader.Title>
+
+<RecipeHeader.Description>JobParameter.toString() logic is quite different in spring batch 5, need take JobParameter.getValue.toString replace the JobParameter.toString.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.batch.core.JobParameters;\n\nclass Foo {\n    void foo(JobParameters jobParameters) throws Exception {\n        jobParameters.getParameters().get(\"inputFile\").toString();\n    }\n}\n","after":"import org.springframework.batch.core.JobParameters;\n\nclass Foo {\n    void foo(JobParameters jobParameters) throws Exception {\n        jobParameters.getParameters().get(\"inputFile\").getValue().toString();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Foo {\n    void foo(JobParameters jobParameters) throws Exception {\n-       jobParameters.getParameters().get(\"inputFile\").toString();\n+       jobParameters.getParameters().get(\"inputFile\").getValue().toString();\n    }\n","newFile":false}]}]}>
 

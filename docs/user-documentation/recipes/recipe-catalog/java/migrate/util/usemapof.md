@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Map.of(..)`"}
-  description={"Prefer `Map.of(..)` instead of using `java.util.Map#put(..)` in Java 10 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.UseMapOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/usemapof.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Map.of(..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Map.of(..)` instead of using `java.util.Map#put(..)` in Java 10 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.HashMap;\nimport java.util.Map;\n\nclass Test {\n    Map<String, String> m = new HashMap<>() {{\n        put(\"stru\", \"menta\");\n        put(\"mod\", \"erne\");\n    }};\n}\n","after":"import java.util.Map;\n\nclass Test {\n    Map<String, String> m = Map.of(\n        \"stru\", \"menta\",\n        \"mod\", \"erne\");\n}\n","diff":"@@ -1,1 +1,0 @@\n-import java.util.HashMap;\nimport java.util.Map;\n@@ -5,4 +4,3 @@\n\nclass Test {\n-   Map<String, String> m = new HashMap<>() {{\n-       put(\"stru\", \"menta\");\n-       put(\"mod\", \"erne\");\n-   }};\n+   Map<String, String> m = Map.of(\n+       \"stru\", \"menta\",\n+       \"mod\", \"erne\");\n}\n","newFile":false}]}]}>
 

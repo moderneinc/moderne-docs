@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Statement.executeQuery(sql)` calls"}
-  description={"Each `executeQuery` is a SQL read sink — if `sql` is built from user-controlled strings without binding, it's a SQL-injection candidate. Useful as an individual seed even when the broader `FindSqlExecutionSinks` composite is too coarse."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindStatementExecuteQuery$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findstatementexecutequery$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Statement.executeQuery(sql)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `executeQuery` is a SQL read sink — if `sql` is built from user-controlled strings without binding, it's a SQL-injection candidate. Useful as an individual seed even when the broader `FindSqlExecutionSinks` composite is too coarse.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindStatementExecuteQuery$KtRecipe","displayName":"Find `Statement.executeQuery(sql)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

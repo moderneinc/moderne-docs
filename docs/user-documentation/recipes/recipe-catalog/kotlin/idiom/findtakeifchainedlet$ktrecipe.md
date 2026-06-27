@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `x.takeIf { p }?.let { ... }` patterns"}
-  description={"`x.takeIf { p }?.let { … }` is a guard-then-transform expressed as two calls plus a safe-call. `if (p) x.let { … } else null` (or `x.takeIf(p)?.run { … }`) is the same in one operator without the implicit `null` bridge."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindTakeIfChainedLet$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findtakeifchainedlet$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `x.takeIf { p }?.let { ... }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`x.takeIf { p }?.let { … }` is a guard-then-transform expressed as two calls plus a safe-call. `if (p) x.let { … } else null` (or `x.takeIf(p)?.run { … }`) is the same in one operator without the implicit `null` bridge.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindTakeIfChainedLet$KtRecipe","displayName":"Find `x.takeIf { p }?.let { ... }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

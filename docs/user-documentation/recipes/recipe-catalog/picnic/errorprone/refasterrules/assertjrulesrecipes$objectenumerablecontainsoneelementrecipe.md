@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJRules.ObjectEnumerableContainsOneElement`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class ObjectEnumerableContainsOneElement<S, T extends S> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"unchecked\")\n    ObjectEnumerableAssert<?, S> before(ObjectEnumerableAssert<?, S> iterAssert, T element) {\n        return Refaster.anyOf(iterAssert.containsAnyOf(element), iterAssert.containsSequence(element), iterAssert.containsSubsequence(element));\n    }\n    \n    @AfterTemplate\n    @SuppressWarnings(value = \"unchecked\")\n    ObjectEnumerableAssert<?, S> after(ObjectEnumerableAssert<?, S> iterAssert, T element) {\n        return iterAssert.contains(element);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,34 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$ObjectEnumerableContainsOneElementRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjrulesrecipes$objectenumerablecontainsoneelementrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJRules.ObjectEnumerableContainsOneElement`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class ObjectEnumerableContainsOneElement<S, T extends S> {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "unchecked")
+    ObjectEnumerableAssert<?, S> before(ObjectEnumerableAssert<?, S> iterAssert, T element) {
+        return Refaster.anyOf(iterAssert.containsAnyOf(element), iterAssert.containsSequence(element), iterAssert.containsSubsequence(element));
+    }
+    
+    @AfterTemplate
+    @SuppressWarnings(value = "unchecked")
+    ObjectEnumerableAssert<?, S> after(ObjectEnumerableAssert<?, S> iterAssert, T element) {
+        return iterAssert.contains(element);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$ObjectEnumerableContainsOneElementRecipe","displayName":"Refaster template `AssertJRules.ObjectEnumerableContainsOneElement`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add comment before property key"}
-  description={"Add a new comment before a property key if not already present, optionally commenting out the property."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-properties"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.properties.AddPropertyComment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/properties/addpropertycomment.md"}
-/>
+>
+
+<RecipeHeader.Title>Add comment before property key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a new comment before a property key if not already present, optionally commenting out the property.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The name of the property to add comment.","example":"management.metrics.binders"},{"type":"String","name":"comment","required":true,"description":"The comment to be added.","example":"comment"},{"type":"Boolean","name":"commentOutProperty","required":false,"description":"If true, property will be commented out.","example":"true"}]}>
 

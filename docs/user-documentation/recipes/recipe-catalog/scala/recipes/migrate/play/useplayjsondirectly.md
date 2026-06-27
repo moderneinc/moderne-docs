@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Play JSON `JsValue` directly"}
-  description={"Finds imports of `play.api.libs.json.Json` and usages of `Json.parse` or `Json.toJson` that may rely on deprecated implicit conversions. Consider using `play.api.libs.json.JsValue` directly."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.play.UsePlayJsonDirectly"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/play/useplayjsondirectly.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use Play JSON `JsValue` directly</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of `play.api.libs.json.Json` and usages of `Json.parse` or `Json.toJson` that may rely on deprecated implicit conversions. Consider using `play.api.libs.json.JsValue` directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import play.api.libs.json.Json\n\nclass MyService {\n    val version: Int = 1\n}\n","after":"/*~~(Consider using play.api.libs.json.JsValue directly)~~>*/import play.api.libs.json.Json\n\nclass MyService {\n    val version: Int = 1\n}\n","diff":"@@ -1,1 +1,1 @@\n-import play.api.libs.json.Json\n+/*~~(Consider using play.api.libs.json.JsValue directly)~~>*/import play.api.libs.json.Json\n\n","newFile":false}]}]}>
 

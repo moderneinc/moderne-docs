@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find overly broad mocks in .NET tests"}
-  description={"Detect It.IsAny<T> (Moq), Arg.Any<T> (NSubstitute) and A<T>.Ignored (FakeItEasy) matcher overuse in .NET tests."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindDotnetOverlyBroadMocks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetoverlybroadmocks.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find overly broad mocks in .NET tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect It.IsAny&lt;T> (Moq), Arg.Any&lt;T> (NSubstitute) and A&lt;T>.Ignored (FakeItEasy) matcher overuse in .NET tests.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.testing.quality.FindDotnetOverlyBroadMocks","displayName":"Find overly broad mocks in .NET tests","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

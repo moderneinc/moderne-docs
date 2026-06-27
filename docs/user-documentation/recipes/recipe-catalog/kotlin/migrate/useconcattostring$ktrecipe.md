@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `CharArray.concatToString()` instead of `String(charArray)`"}
-  description={"The `String(CharArray)` constructor is JVM-only; `charArray.concatToString()` is the multiplatform Kotlin extension producing the same `String`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseConcatToString$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useconcattostring$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `CharArray.concatToString()` instead of `String(charArray)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `String(CharArray)` constructor is JVM-only; `charArray.concatToString()` is the multiplatform Kotlin extension producing the same `String`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseConcatToString$KtRecipe","displayName":"Use `CharArray.concatToString()` instead of `String(charArray)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

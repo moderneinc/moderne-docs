@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find secrets with regular expressions"}
-  description={"A secret is a literal that matches any one of the provided patterns."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.secrets.FindSecretsByPattern"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/secrets/findsecretsbypattern.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find secrets with regular expressions</RecipeHeader.Title>
+
+<RecipeHeader.Description>A secret is a literal that matches any one of the provided patterns.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"secretName","required":true,"description":"The type of secret that this recipe is looking for.","example":"AWS Access Key"},{"type":"String","name":"keyPattern","required":false,"description":"A regular expression to match a 'key' against. For example, a key ","example":"[a-zA-Z0-9+\\/=]{88}"},{"type":"String","name":"valuePattern","required":true,"description":"A regular expression to search for.","example":"[a-zA-Z0-9+\\/=]{88}"}]}>
 

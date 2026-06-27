@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update the Micronaut Session support"}
-  description={"This recipe will update the Micronaut Session dependency if needed."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.UpdateMicronautSession"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautsession.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle dependency group","href":"gradle/changedependencygroupid"},{"name":"Change Maven dependency","href":"maven/changedependencygroupidandartifactid"}]}>
+<RecipeHeader.Title>Update the Micronaut Session support</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will update the Micronaut Session dependency if needed.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle dependency group","href":"/user-documentation/recipes/recipe-catalog/gradle/changedependencygroupid/"},{"name":"Change Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencygroupidandartifactid/"}]}>
 
 ## Definition
 

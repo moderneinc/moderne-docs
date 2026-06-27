@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Decompose `assertThat` on conjunctions into separate assertions"}
-  description={"Split `assertThat(a && b).isTrue()` into separate `assertThat(a).isTrue()` and `assertThat(b).isTrue()` statements, so each condition is asserted (and reported) on its own. This lets the dedicated assertion recipes simplify each conjunct, and `CollapseConsecutiveAssertThatStatements` fuse them back into a single chain when the actual is a plain expression. Only the direct `assertThat(...).isTrue()` form is decomposed; `isFalse()` is left alone, as negating a conjunction is not equivalent to negating each conjunct."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S5838"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.DecomposeConjunctionAssertion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/decomposeconjunctionassertion.md"}
-/>
+>
+
+<RecipeHeader.Title>Decompose `assertThat` on conjunctions into separate assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Split `assertThat(a && b).isTrue()` into separate `assertThat(a).isTrue()` and `assertThat(b).isTrue()` statements, so each condition is asserted (and reported) on its own. This lets the dedicated assertion recipes simplify each conjunct, and `CollapseConsecutiveAssertThatStatements` fuse them back into a single chain when the actual is a plain expression. Only the direct `assertThat(...).isTrue()` form is decomposed; `isFalse()` is left alone, as negating a conjunction is not equivalent to negating each conjunct.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.DecomposeConjunctionAssertion","displayName":"Decompose `assertThat` on conjunctions into separate assertions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

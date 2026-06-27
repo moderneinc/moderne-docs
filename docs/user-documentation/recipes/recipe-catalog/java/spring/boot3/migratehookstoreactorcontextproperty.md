@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `spring.reactor.context-propagation` property"}
-  description={"Replace `Hooks.enableAutomaticContextPropagation()` with `spring.reactor.context-propagation=auto`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.MigrateHooksToReactorContextProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratehookstoreactorcontextproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `spring.reactor.context-propagation` property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `Hooks.enableAutomaticContextPropagation()` with `spring.reactor.context-propagation=auto`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"java","before":"import reactor.core.publisher.Hooks;\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBootApplication\npublic class MyApplication {\n    public static void main(String[] args) {\n        Hooks.enableAutomaticContextPropagation();\n        SpringApplication.run(MyApplication.class, args);\n    }\n}\n","after":"import org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBootApplication\npublic class MyApplication {\n    public static void main(String[] args) {\n        SpringApplication.run(MyApplication.class, args);\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import reactor.core.publisher.Hooks;\nimport org.springframework.boot.SpringApplication;\n@@ -8,1 +7,0 @@\npublic class MyApplication {\n    public static void main(String[] args) {\n-       Hooks.enableAutomaticContextPropagation();\n        SpringApplication.run(MyApplication.class, args);\n","newFile":false},{"language":"properties","before":"","after":"spring.reactor.context-propagation=auto","newFile":true}]}]}>
 

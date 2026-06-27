@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `singleOrNull { predicate }` instead of `filter { predicate }.singleOrNull()`"}
-  description={"Folding the predicate into `singleOrNull` avoids materializing the intermediate filtered list."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseSingleOrNullWithPredicate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/usesingleornullwithpredicate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `singleOrNull { predicate }` instead of `filter { predicate }.singleOrNull()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Folding the predicate into `singleOrNull` avoids materializing the intermediate filtered list.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseSingleOrNullWithPredicate$KtRecipe","displayName":"Use `singleOrNull { predicate }` instead of `filter { predicate }.singleOrNull()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

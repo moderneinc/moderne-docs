@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Cucumber-JVM 7.x"}
-  description={"Upgrade to Cucumber-JVM 7.x from any previous version."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["cucumber","testing"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-cucumber-jvm"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.UpgradeCucumber7x"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber7x.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade to Cucumber-JVM 5.x","href":"cucumber/jvm/upgradecucumber5x"},{"name":"Migrate `cucumber-java8` to `cucumber-java`","href":"cucumber/jvm/cucumberjava8tojava"},{"name":"Drop `SummaryPrinter`","href":"cucumber/jvm/dropsummaryprinter"},{"name":"Replace `cucumber-java` step definition regexes with Cucumber expressions","href":"cucumber/jvm/regextocucumberexpression"},{"name":"Cucumber to JUnit test `@Suite`","href":"cucumber/jvm/cucumbertojunitplatformsuite"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Upgrade to Cucumber-JVM 7.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade to Cucumber-JVM 7.x from any previous version.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade to Cucumber-JVM 5.x","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/upgradecucumber5x/"},{"name":"Migrate `cucumber-java8` to `cucumber-java`","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberjava8tojava/"},{"name":"Drop `SummaryPrinter`","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/dropsummaryprinter/"},{"name":"Replace `cucumber-java` step definition regexes with Cucumber expressions","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/regextocucumberexpression/"},{"name":"Cucumber to JUnit test `@Suite`","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumbertojunitplatformsuite/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]}>
 
 ## Definition
 

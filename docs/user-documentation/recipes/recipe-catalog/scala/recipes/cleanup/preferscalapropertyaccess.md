@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer Scala-style property access over Java getters"}
-  description={"Finds Java-style getter methods (`getName`, `getValue`, etc.) that could be replaced with Scala-style property access."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.PreferScalaPropertyAccess"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferscalapropertyaccess.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer Scala-style property access over Java getters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds Java-style getter methods (`getName`, `getValue`, etc.) that could be replaced with Scala-style property access.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Person {\n    private val _name: String = \"Alice\"\n    def getName(): String = {\n        _name\n    }\n}\n","after":"class Person {\n    private val _name: String = \"Alice\"\n    /*~~(Consider using Scala-style property access instead of Java getters)~~>*/def getName(): String = {\n        _name\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Person {\n    private val _name: String = \"Alice\"\n-   def getName(): String = {\n+   /*~~(Consider using Scala-style property access instead of Java getters)~~>*/def getName(): String = {\n        _name\n","newFile":false}]}]}>
 

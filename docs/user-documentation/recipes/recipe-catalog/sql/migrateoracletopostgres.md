@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Oracle SQL to PostgreSQL"}
-  description={"Converts Oracle-specific SQL syntax and functions to PostgreSQL equivalents."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["oracle","postgresql","migration","sql"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.sql.MigrateOracleToPostgres"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/sql/migrateoracletopostgres.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Convert Oracle functions to PostgreSQL","href":"sql/convertoraclefunctionstopostgres"},{"name":"Convert Oracle data types to PostgreSQL","href":"sql/convertoracledatatypestopostgres"},{"name":"Format SQL in string text blocks","href":"sql/formatsql"}]}>
+<RecipeHeader.Title>Migrate Oracle SQL to PostgreSQL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts Oracle-specific SQL syntax and functions to PostgreSQL equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Convert Oracle functions to PostgreSQL","href":"/user-documentation/recipes/recipe-catalog/sql/convertoraclefunctionstopostgres/"},{"name":"Convert Oracle data types to PostgreSQL","href":"/user-documentation/recipes/recipe-catalog/sql/convertoracledatatypestopostgres/"},{"name":"Format SQL in string text blocks","href":"/user-documentation/recipes/recipe-catalog/sql/formatsql/"}]}>
 
 ## Definition
 

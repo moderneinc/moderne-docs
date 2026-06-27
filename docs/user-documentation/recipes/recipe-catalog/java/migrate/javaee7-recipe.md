@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to JavaEE7"}
-  description={"These recipes help with the Migration to Java EE 7, flagging and updating deprecated methods."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["javaee7","deprecated"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javaee7"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javaee7-recipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to JavaEE6","href":"java/migrate/javaee6"},{"name":"Removed OpenJPA providers in the persistence.xml file","href":"java/migrate/javaee7/openjpapersistenceprovider"},{"name":"Disable the persistence unit second-level cache","href":"java/migrate/jpacacheproperties"},{"name":"Change `beans.xml` `schemaLocation` to match XML namespace","href":"java/migrate/beansxmlnamespace"},{"name":"Adds `static` modifier to `@Produces` fields that are in session beans","href":"java/migrate/addstaticvariableonproducersessionbean"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to JavaEE7</RecipeHeader.Title>
+
+<RecipeHeader.Description>These recipes help with the Migration to Java EE 7, flagging and updating deprecated methods.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to JavaEE6","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee6/"},{"name":"Removed OpenJPA providers in the persistence.xml file","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee7/openjpapersistenceprovider/"},{"name":"Disable the persistence unit second-level cache","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jpacacheproperties/"},{"name":"Change `beans.xml` `schemaLocation` to match XML namespace","href":"/user-documentation/recipes/recipe-catalog/java/migrate/beansxmlnamespace/"},{"name":"Adds `static` modifier to `@Produces` fields that are in session beans","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addstaticvariableonproducersessionbean/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

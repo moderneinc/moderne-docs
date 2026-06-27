@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit `assertInstanceOf` to AssertJ"}
-  description={"Convert JUnit-style `assertInstanceOf()` to AssertJ's `assertThat().isInstanceOf()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.JUnitAssertInstanceOfToAssertThat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/junitassertinstanceoftoassertthat.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit `assertInstanceOf` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert JUnit-style `assertInstanceOf()` to AssertJ's `assertThat().isInstanceOf()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.junit.jupiter.api.Assertions.assertInstanceOf;\n\nclass Test {\n    void test() {\n        assertInstanceOf(Integer.class, 4);\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass Test {\n    void test() {\n        assertThat(4).isInstanceOf(Integer.class);\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static org.junit.jupiter.api.Assertions.assertInstanceOf;\n+import static org.assertj.core.api.Assertions.assertThat;\n\n@@ -5,1 +5,1 @@\nclass Test {\n    void test() {\n-       assertInstanceOf(Integer.class, 4);\n+       assertThat(4).isInstanceOf(Integer.class);\n    }\n","newFile":false}]}]}>
 

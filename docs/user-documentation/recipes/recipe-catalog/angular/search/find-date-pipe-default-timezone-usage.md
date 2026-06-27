@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `DATE_PIPE_DEFAULT_TIMEZONE` usage"}
-  description={"Finds usages of `DATE_PIPE_DEFAULT_TIMEZONE` which was deprecated in Angular 15. Use `DATE_PIPE_DEFAULT_OPTIONS` with a `{timezone: '...'}` object value instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-date-pipe-default-timezone-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-date-pipe-default-timezone-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `DATE_PIPE_DEFAULT_TIMEZONE` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of `DATE_PIPE_DEFAULT_TIMEZONE` which was deprecated in Angular 15. Use `DATE_PIPE_DEFAULT_OPTIONS` with a `{timezone: '...'}` object value instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-date-pipe-default-timezone-usage","displayName":"Find `DATE_PIPE_DEFAULT_TIMEZONE` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

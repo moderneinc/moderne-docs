@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `AbstractClientHttpResponse` to `ClientHttpResponse`"}
-  description={"Spring Framework 6.0 removed `org.springframework.http.client.AbstractClientHttpResponse`. This recipe rewrites `extends AbstractClientHttpResponse` to `implements ClientHttpResponse`, flags any `super.*()` calls inside the converted class with a TODO comment (those calls no longer compile), and renames remaining type references (variables, parameters, fields, casts, generics, return types) to the `ClientHttpResponse` interface."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.MigrateAbstractClientHttpResponse"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/migrateabstractclienthttpresponse.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Migrate `AbstractClientHttpResponse` to `ClientHttpResponse`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Framework 6.0 removed `org.springframework.http.client.AbstractClientHttpResponse`. This recipe rewrites `extends AbstractClientHttpResponse` to `implements ClientHttpResponse`, flags any `super.*()` calls inside the converted class with a TODO comment (those calls no longer compile), and renames remaining type references (variables, parameters, fields, casts, generics, return types) to the `ClientHttpResponse` interface.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

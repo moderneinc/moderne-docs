@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant as operator"}
-  description={"Remove redundant 'as' operator when the expression already has the target type."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantAsOperator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeredundantasoperator.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant as operator</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove redundant 'as' operator when the expression already has the target type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantAsOperator","displayName":"Remove redundant as operator","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

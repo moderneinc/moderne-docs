@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from Hamcrest `instanceOf` matcher to JUnit 5"}
-  description={"Migrate from Hamcrest `instanceOf` and `isA` matcher to JUnit5 `assertInstanceOf` assertion."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.hamcrest.HamcrestInstanceOfToJUnit5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/hamcrestinstanceoftojunit5.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate from Hamcrest `instanceOf` matcher to JUnit 5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from Hamcrest `instanceOf` and `isA` matcher to JUnit5 `assertInstanceOf` assertion.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport java.util.List;\n\nimport static org.hamcrest.MatcherAssert.assertThat;\nimport static org.hamcrest.Matchers.instanceOf;\nimport static org.hamcrest.Matchers.isA;\nimport static org.hamcrest.Matchers.not;\n\nclass ATest {\n    private static final List<Integer> list = List.of();\n    @Test\n    void testInstance() {\n        assertThat(list, instanceOf(Iterable.class));\n        assertThat(list, not(instanceOf(Integer.class)));\n        assertThat(list, isA(Iterable.class));\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\nimport static org.junit.jupiter.api.Assertions.assertInstanceOf;\n\nclass ATest {\n    private static final List<Integer> list = List.of();\n    @Test\n    void testInstance() {\n        assertInstanceOf(Iterable.class, list);\n        assertFalse(Integer.class.isAssignableFrom(list.getClass()));\n        assertInstanceOf(Iterable.class, list);\n    }\n}\n","diff":"@@ -4,4 +4,2 @@\nimport java.util.List;\n\n-import static org.hamcrest.MatcherAssert.assertThat;\n-import static org.hamcrest.Matchers.instanceOf;\n-import static org.hamcrest.Matchers.isA;\n-import static org.hamcrest.Matchers.not;\n+import static org.junit.jupiter.api.Assertions.assertFalse;\n+import static org.junit.jupiter.api.Assertions.assertInstanceOf;\n\n@@ -13,3 +11,3 @@\n    @Test\n    void testInstance() {\n-       assertThat(list, instanceOf(Iterable.class));\n-       assertThat(list, not(instanceOf(Integer.class)));\n-       assertThat(list, isA(Iterable.class));\n+       assertInstanceOf(Iterable.class, list);\n+       assertFalse(Integer.class.isAssignableFrom(list.getClass()));\n+       assertInstanceOf(Iterable.class, list);\n    }\n","newFile":false}]}]}>
 

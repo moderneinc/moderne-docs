@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find DTO field schemas"}
-  description={"Emit per-field rows for request/response DTO classes: wire name, type, required flag, OpenAPI format, validation constraints, and @Schema(example = ...) values. Supports OpenAPI 3.0.3 generation by providing the full field schema for each DTO an endpoint references."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDtoFieldSchemas"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddtofieldschemas.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find DTO field schemas</RecipeHeader.Title>
+
+<RecipeHeader.Description>Emit per-field rows for request/response DTO classes: wire name, type, required flag, OpenAPI format, validation constraints, and @Schema(example = ...) values. Supports OpenAPI 3.0.3 generation by providing the full field schema for each DTO an endpoint references.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindDtoFieldSchemas","displayName":"Find DTO field schemas","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

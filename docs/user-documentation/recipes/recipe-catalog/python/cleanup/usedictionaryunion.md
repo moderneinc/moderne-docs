@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use dict union operator instead of double-star unpacking"}
-  description={"Dict literals made up entirely of `**` unpacking can be rewritten with the `|` union operator available since Python 3.9."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.UseDictionaryUnion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/usedictionaryunion.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use dict union operator instead of double-star unpacking</RecipeHeader.Title>
+
+<RecipeHeader.Description>Dict literals made up entirely of `**` unpacking can be rewritten with the `|` union operator available since Python 3.9.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.UseDictionaryUnion","displayName":"Use dict union operator instead of double-star unpacking","pipPackage":"openrewrite-static-analysis"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Charset.forName(...)` calls inside loops"}
-  description={"`Charset.forName(\"UTF-8\")` walks the charset alias map on every call. Prefer the cached constants on `kotlin.text.Charsets` (`Charsets.UTF_8`, `Charsets.ISO_8859_1`, etc.) — or hoist a single `Charset` out of the loop."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindCharsetForNameInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findcharsetfornameinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Charset.forName(...)` calls inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Charset.forName("UTF-8")` walks the charset alias map on every call. Prefer the cached constants on `kotlin.text.Charsets` (`Charsets.UTF_8`, `Charsets.ISO_8859_1`, etc.) — or hoist a single `Charset` out of the loop.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindCharsetForNameInLoops$KtRecipe","displayName":"Find `Charset.forName(...)` calls inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

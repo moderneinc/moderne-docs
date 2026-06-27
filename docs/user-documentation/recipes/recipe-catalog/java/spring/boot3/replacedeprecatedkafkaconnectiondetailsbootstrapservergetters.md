@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `KafkaConnectionDetails` bootstrap server methods"}
-  description={"Replace deprecated `KafkaConnectionDetails` bootstrap server methods with chained calls. For example, `getProducerBootstrapServers()` becomes `getProducer().getBootstrapServers()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.ReplaceDeprecatedKafkaConnectionDetailsBootstrapServerGetters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacedeprecatedkafkaconnectiondetailsbootstrapservergetters.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated `KafkaConnectionDetails` bootstrap server methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated `KafkaConnectionDetails` bootstrap server methods with chained calls. For example, `getProducerBootstrapServers()` becomes `getProducer().getBootstrapServers()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.autoconfigure.kafka.KafkaConnectionDetails;\nimport java.util.List;\n\npublic class KafkaConfig {\n    public List<String> getProducerServers(KafkaConnectionDetails connectionDetails) {\n        return connectionDetails.getProducerBootstrapServers();\n    }\n\n    public List<String> getConsumerServers(KafkaConnectionDetails connectionDetails) {\n        return connectionDetails.getConsumerBootstrapServers();\n    }\n\n    public List<String> getStreamsServers(KafkaConnectionDetails connectionDetails) {\n        return connectionDetails.getStreamsBootstrapServers();\n    }\n\n    public List<String> getAdminServers(KafkaConnectionDetails connectionDetails) {\n        return connectionDetails.getAdminBootstrapServers();\n    }\n}\n","after":"import org.springframework.boot.autoconfigure.kafka.KafkaConnectionDetails;\nimport java.util.List;\n\npublic class KafkaConfig {\n    public List<String> getProducerServers(KafkaConnectionDetails connectionDetails) {\n        return connectionDetails.getProducer().getBootstrapServers();\n    }\n\n    public List<String> getConsumerServers(KafkaConnectionDetails connectionDetails) {\n        return connectionDetails.getConsumer().getBootstrapServers();\n    }\n\n    public List<String> getStreamsServers(KafkaConnectionDetails connectionDetails) {\n        return connectionDetails.getStreams().getBootstrapServers();\n    }\n\n    public List<String> getAdminServers(KafkaConnectionDetails connectionDetails) {\n        return connectionDetails.getAdmin().getBootstrapServers();\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\npublic class KafkaConfig {\n    public List<String> getProducerServers(KafkaConnectionDetails connectionDetails) {\n-       return connectionDetails.getProducerBootstrapServers();\n+       return connectionDetails.getProducer().getBootstrapServers();\n    }\n@@ -10,1 +10,1 @@\n\n    public List<String> getConsumerServers(KafkaConnectionDetails connectionDetails) {\n-       return connectionDetails.getConsumerBootstrapServers();\n+       return connectionDetails.getConsumer().getBootstrapServers();\n    }\n@@ -14,1 +14,1 @@\n\n    public List<String> getStreamsServers(KafkaConnectionDetails connectionDetails) {\n-       return connectionDetails.getStreamsBootstrapServers();\n+       return connectionDetails.getStreams().getBootstrapServers();\n    }\n@@ -18,1 +18,1 @@\n\n    public List<String> getAdminServers(KafkaConnectionDetails connectionDetails) {\n-       return connectionDetails.getAdminBootstrapServers();\n+       return connectionDetails.getAdmin().getBootstrapServers();\n    }\n","newFile":false}]}]}>
 

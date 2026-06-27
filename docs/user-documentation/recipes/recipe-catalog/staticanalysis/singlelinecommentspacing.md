@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add space after // in single-line comments"}
-  description={"Ensures there is exactly one space after // in single-line comments when missing."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["formatting"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SingleLineCommentSpacing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/singlelinecommentspacing.md"}
-/>
+>
+
+<RecipeHeader.Title>Add space after // in single-line comments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensures there is exactly one space after // in single-line comments when missing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void method() {\n        //Hello\n        int a = 1;\n    }\n}\n","after":"class Test {\n    void method() {\n        // Hello\n        int a = 1;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    void method() {\n-       //Hello\n+       // Hello\n        int a = 1;\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find variables named `password`/`secret`/`token`/`apiKey` with a non-empty literal default"}
-  description={"A property literally named `password = \"hunter2\"` (or `val token = \"…\"`, etc.) is almost always a hard-coded secret. False positives include unit-test fixtures and placeholder strings — review each match before treating as a CVE."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindSensitiveNamedVariableLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findsensitivenamedvariableliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find variables named `password`/`secret`/`token`/`apiKey` with a non-empty literal default</RecipeHeader.Title>
+
+<RecipeHeader.Description>A property literally named `password = "hunter2"` (or `val token = "…"`, etc.) is almost always a hard-coded secret. False positives include unit-test fixtures and placeholder strings — review each match before treating as a CVE.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindSensitiveNamedVariableLiteral$KtRecipe","displayName":"Find variables named `password`/`secret`/`token`/`apiKey` with a non-empty literal default","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

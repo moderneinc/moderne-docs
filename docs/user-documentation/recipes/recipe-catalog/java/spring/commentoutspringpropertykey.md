@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Comment out Spring properties"}
-  description={"Add comment to specified Spring properties, and comment out the property."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.CommentOutSpringPropertyKey"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/commentoutspringpropertykey.md"}
-/>
+>
+
+<RecipeHeader.Title>Comment out Spring properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add comment to specified Spring properties, and comment out the property.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The name of the property key to comment out.","example":"management.metrics.binders.files.enabled"},{"type":"String","name":"comment","required":true,"description":"Comment to replace the property key.","example":"This property is deprecated and no longer applicable starting from Spring Boot 3.0.x"}]}>
 

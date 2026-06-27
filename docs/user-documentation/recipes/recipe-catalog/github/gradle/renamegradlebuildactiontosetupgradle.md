@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename `gradle/gradle-build-action` to `gradle/actions/setup-gradle`"}
-  description={"Rename the deprecated `gradle/gradle-build-action` to `gradle/actions/setup-gradle@v6`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["gradle","github"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.gradle.RenameGradleBuildActionToSetupGradle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/gradle/renamegradlebuildactiontosetupgradle.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change GitHub Action","href":"github/changeaction"}]}>
+<RecipeHeader.Title>Rename `gradle/gradle-build-action` to `gradle/actions/setup-gradle`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rename the deprecated `gradle/gradle-build-action` to `gradle/actions/setup-gradle@v6`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change GitHub Action","href":"/user-documentation/recipes/recipe-catalog/github/changeaction/"}]}>
 
 ## Definition
 

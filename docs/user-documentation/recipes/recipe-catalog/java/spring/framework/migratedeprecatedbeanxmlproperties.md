@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Bean XML properties deprecated in Spring Framework 3.0"}
-  description={"Migrate Bean XML properties that were deprecated in Spring Framework 3.0."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.MigrateDeprecatedBeanXmlProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratedeprecatedbeanxmlproperties.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML attribute key","href":"xml/changetagattributekey"},{"name":"Change XML attribute","href":"xml/changetagattribute"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Find XML tags","href":"xml/search/findtags"}]}>
+<RecipeHeader.Title>Migrate Bean XML properties deprecated in Spring Framework 3.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Bean XML properties that were deprecated in Spring Framework 3.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML attribute key","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattributekey/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Find XML tags","href":"/user-documentation/recipes/recipe-catalog/xml/search/findtags/"}]}>
 
 ## Definition
 

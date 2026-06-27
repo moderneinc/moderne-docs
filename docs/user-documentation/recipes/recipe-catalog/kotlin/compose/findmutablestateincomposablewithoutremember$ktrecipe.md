@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find bare `mutableStateOf(...)` inside `@Composable` without `remember { }`"}
-  description={"A bare `mutableStateOf(...)` call inside a `@Composable` allocates a fresh `MutableState` on every recomposition, throwing away the previous value. Wrap in `remember { mutableStateOf(...) }` so the snapshot survives recomposition (or hoist into a ViewModel if it needs to survive process death)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindMutableStateInComposableWithoutRemember$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findmutablestateincomposablewithoutremember$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find bare `mutableStateOf(...)` inside `@Composable` without `remember { }`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A bare `mutableStateOf(...)` call inside a `@Composable` allocates a fresh `MutableState` on every recomposition, throwing away the previous value. Wrap in `remember { mutableStateOf(...) }` so the snapshot survives recomposition (or hoist into a ViewModel if it needs to survive process death).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindMutableStateInComposableWithoutRemember$KtRecipe","displayName":"Find bare `mutableStateOf(...)` inside `@Composable` without `remember { }`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

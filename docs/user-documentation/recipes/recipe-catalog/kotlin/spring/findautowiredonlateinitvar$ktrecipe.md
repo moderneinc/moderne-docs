@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Autowired lateinit var` properties (ctor-injection candidate)"}
-  description={"`@Autowired lateinit var x: X` is the most common Kotlin-Spring field-injection shape. Compared with `@Autowired constructor(val x: X)`, it hides the dependency from the constructor signature and prevents the compiler from enforcing initialization order. Constructor inject instead."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindAutowiredOnLateinitVar$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredonlateinitvar$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Autowired lateinit var` properties (ctor-injection candidate)</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@Autowired lateinit var x: X` is the most common Kotlin-Spring field-injection shape. Compared with `@Autowired constructor(val x: X)`, it hides the dependency from the constructor signature and prevents the compiler from enforcing initialization order. Constructor inject instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindAutowiredOnLateinitVar$KtRecipe","displayName":"Find `@Autowired lateinit var` properties (ctor-injection candidate)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

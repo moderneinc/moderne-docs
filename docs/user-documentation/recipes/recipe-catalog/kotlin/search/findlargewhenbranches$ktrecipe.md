@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `when` expressions with more than 10 branches"}
-  description={"A `when` with many branches is often hiding a sealed-class or strategy-table refactor — and even when it isn't, it's a hotspot a reviewer or LLM agent should see when scanning a file. Each match is a candidate for restructuring."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindLargeWhenBranches$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findlargewhenbranches$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `when` expressions with more than 10 branches</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `when` with many branches is often hiding a sealed-class or strategy-table refactor — and even when it isn't, it's a hotspot a reviewer or LLM agent should see when scanning a file. Each match is a candidate for restructuring.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindLargeWhenBranches$KtRecipe","displayName":"Find `when` expressions with more than 10 branches","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `HttpSecurity::apply` chained calls into `HttpSecurity::with` Lambda DSL"}
-  description={"Converts `HttpSecurity::apply` chained call from Spring Security pre 6.2.x into new lambda DSL style calls and removes `and()` methods."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security6.ApplyToWithLambdaDsl"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/applytowithlambdadsl.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `HttpSecurity::apply` chained calls into `HttpSecurity::with` Lambda DSL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `HttpSecurity::apply` chained call from Spring Security pre 6.2.x into new lambda DSL style calls and removes `and()` methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer;\nimport org.springframework.security.web.SecurityFilterChain;\n\npublic class MySecurityConfig {\n    public SecurityFilterChain configure(HttpSecurity http) {\n        return http\n                .apply(new SessionManagementConfigurer<>())\n                .invalidSessionUrl(\"junk\").and()\n                .build();\n    }\n}\n","after":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer;\nimport org.springframework.security.web.SecurityFilterChain;\n\npublic class MySecurityConfig {\n    public SecurityFilterChain configure(HttpSecurity http) {\n        return http\n                .with(new SessionManagementConfigurer<>(), configurer -> configurer\n                        .invalidSessionUrl(\"junk\"))\n                .build();\n    }\n}\n","diff":"@@ -8,2 +8,2 @@\n    public SecurityFilterChain configure(HttpSecurity http) {\n        return http\n-               .apply(new SessionManagementConfigurer<>())\n-               .invalidSessionUrl(\"junk\").and()\n+               .with(new SessionManagementConfigurer<>(), configurer -> configurer\n+                       .invalidSessionUrl(\"junk\"))\n                .build();\n","newFile":false}]}]}>
 

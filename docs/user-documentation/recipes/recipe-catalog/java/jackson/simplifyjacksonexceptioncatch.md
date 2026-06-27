@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify catch clauses for Jackson exceptions"}
-  description={"In Jackson 3, `JacksonException` and its subtypes extend `RuntimeException`. This recipe simplifies multi-catch clauses by removing Jackson exception types when `RuntimeException` is also caught, since catching both is redundant. For example, `catch (JacksonException | RuntimeException e)` becomes `catch (RuntimeException e)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.SimplifyJacksonExceptionCatch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/simplifyjacksonexceptioncatch.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify catch clauses for Jackson exceptions</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Jackson 3, `JacksonException` and its subtypes extend `RuntimeException`. This recipe simplifies multi-catch clauses by removing Jackson exception types when `RuntimeException` is also caught, since catching both is redundant. For example, `catch (JacksonException | RuntimeException e)` becomes `catch (RuntimeException e)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import tools.jackson.core.JacksonException;\n\nclass Test {\n    void doSomething() {\n        try {\n            // some code\n        } catch (JacksonException | RuntimeException e) {\n            e.printStackTrace();\n        }\n    }\n}\n","after":"class Test {\n    void doSomething() {\n        try {\n            // some code\n        } catch (RuntimeException e) {\n            e.printStackTrace();\n        }\n    }\n}\n","diff":"@@ -1,2 +1,0 @@\n-import tools.jackson.core.JacksonException;\n-\nclass Test {\n@@ -7,1 +5,1 @@\n        try {\n            // some code\n-       } catch (JacksonException | RuntimeException e) {\n+       } catch (RuntimeException e) {\n            e.printStackTrace();\n","newFile":false}]}]}>
 

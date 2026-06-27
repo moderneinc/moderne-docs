@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"MBean and MXBean interfaces must be public"}
-  description={"Sets visibility of MBean and MXBean interfaces to public."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.MXBeanRule"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/mxbeanrule.md"}
-/>
+>
+
+<RecipeHeader.Title>MBean and MXBean interfaces must be public</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sets visibility of MBean and MXBean interfaces to public.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.management.MXBean;\n\nclass TestClassAndNonPublicInterface {\n    class NonPublic implements NonPublicMBean {\n    }\n\n    @MXBean\n    private interface NonPublicMBean {\n    }\n}\n","after":"import javax.management.MXBean;\n\nclass TestClassAndNonPublicInterface {\n    class NonPublic implements NonPublicMBean {\n    }\n\n    @MXBean\n    public interface NonPublicMBean {\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\n\n    @MXBean\n-   private interface NonPublicMBean {\n+   public interface NonPublicMBean {\n    }\n","newFile":false}]}]}>
 

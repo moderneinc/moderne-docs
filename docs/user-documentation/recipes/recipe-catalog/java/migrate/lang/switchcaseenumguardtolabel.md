@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use switch cases labels for enums"}
-  description={"Use switch case labels when a guard is checking equality with an enum."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.SwitchCaseEnumGuardToLabel"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/switchcaseenumguardtolabel.md"}
-/>
+>
+
+<RecipeHeader.Title>Use switch cases labels for enums</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use switch case labels when a guard is checking equality with an enum.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package suits;\npublic enum Suit {\n    CLUBS, DIAMONDS, HEARTS, SPADES, JOKER, SCORECARD\n}\n"},"variants":[{"language":"java","before":"import suits.Suit;\nclass Test {\n    void score(Object obj) {\n        switch (obj) {\n            case null -> System.out.println(\"You did not enter the test yet\");\n            case Suit s when s == Suit.CLUBS -> System.out.println(\"Clubs\");\n            case Suit s when s.equals(Suit.DIAMONDS) -> System.out.println(\"Diamonds\");\n            case Suit s when Suit.HEARTS.equals(s) -> {\n                System.out.println(\"Hearts\");\n            }\n            case Suit s when Suit.SPADES == s -> System.out.println(\"Spades\");\n            case Suit s when Suit.JOKER == s -> System.out.println(s);\n            case Integer i -> System.out.println(\"Sorry?\");\n            case String s -> System.out.println(\"Sorry?\");\n            default -> System.out.println(\"Sorry?\");\n        }\n    }\n}\n","after":"import suits.Suit;\nclass Test {\n    void score(Object obj) {\n        switch (obj) {\n            case null -> System.out.println(\"You did not enter the test yet\");\n            case Suit.CLUBS -> System.out.println(\"Clubs\");\n            case Suit.DIAMONDS -> System.out.println(\"Diamonds\");\n            case Suit.HEARTS -> {\n                System.out.println(\"Hearts\");\n            }\n            case Suit.SPADES -> System.out.println(\"Spades\");\n            case Suit.JOKER -> System.out.println(Suit.JOKER);\n            case Integer i -> System.out.println(\"Sorry?\");\n            case String s -> System.out.println(\"Sorry?\");\n            default -> System.out.println(\"Sorry?\");\n        }\n    }\n}\n","diff":"@@ -6,3 +6,3 @@\n        switch (obj) {\n            case null -> System.out.println(\"You did not enter the test yet\");\n-           case Suit s when s == Suit.CLUBS -> System.out.println(\"Clubs\");\n-           case Suit s when s.equals(Suit.DIAMONDS) -> System.out.println(\"Diamonds\");\n-           case Suit s when Suit.HEARTS.equals(s) -> {\n+           case Suit.CLUBS -> System.out.println(\"Clubs\");\n+           case Suit.DIAMONDS -> System.out.println(\"Diamonds\");\n+           case Suit.HEARTS -> {\n                System.out.println(\"Hearts\");\n@@ -11,2 +11,2 @@\n                System.out.println(\"Hearts\");\n            }\n-           case Suit s when Suit.SPADES == s -> System.out.println(\"Spades\");\n-           case Suit s when Suit.JOKER == s -> System.out.println(s);\n+           case Suit.SPADES -> System.out.println(\"Spades\");\n+           case Suit.JOKER -> System.out.println(Suit.JOKER);\n            case Integer i -> System.out.println(\"Sorry?\");\n","newFile":false}]}]}>
 

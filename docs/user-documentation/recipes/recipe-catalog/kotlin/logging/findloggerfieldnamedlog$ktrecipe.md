@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find top-level/companion logger fields named `log`"}
-  description={"Both `log` and `logger` are common — pick one and stick with it across the codebase. The naming convention is the only thing that lets a reader skim a file and spot the logger declaration in two seconds. Flag `log`-named declarations so the team can confirm the project convention."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindLoggerFieldNamedLog$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfieldnamedlog$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find top-level/companion logger fields named `log`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Both `log` and `logger` are common — pick one and stick with it across the codebase. The naming convention is the only thing that lets a reader skim a file and spot the logger declaration in two seconds. Flag `log`-named declarations so the team can confirm the project convention.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindLoggerFieldNamedLog$KtRecipe","displayName":"Find top-level/companion logger fields named `log`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

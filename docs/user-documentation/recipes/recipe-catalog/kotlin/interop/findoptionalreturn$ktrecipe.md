@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find functions returning `Optional<T>`"}
-  description={"A Kotlin function that returns `Optional<T>` forces every caller into a `.isPresent`/`.get()` dance the language already expresses with `T?`. Returning the nullable type instead lets the call site use `?:`, `let`, and smart-casts directly."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindOptionalReturn$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalreturn$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find functions returning `Optional<T>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A Kotlin function that returns `Optional<T>` forces every caller into a `.isPresent`/`.get()` dance the language already expresses with `T?`. Returning the nullable type instead lets the call site use `?:`, `let`, and smart-casts directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindOptionalReturn$KtRecipe","displayName":"Find functions returning `Optional<T>`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

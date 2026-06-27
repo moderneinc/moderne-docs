@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring stereotype classes not declared `open`"}
-  description={"Kotlin classes are `final` by default, but Spring needs a non-final target to create CGLIB proxies (which is how `@Transactional`, `@Async`, scope-proxied beans, etc. work). The `kotlin-spring` compiler plugin opens them automatically, but if it isn't applied — or the class is in a module that doesn't apply it — Spring's proxy machinery fails at runtime. Flag stereotype classes that aren't explicitly `open` for review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindOpenClassForSpring$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findopenclassforspring$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Spring stereotype classes not declared `open`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotlin classes are `final` by default, but Spring needs a non-final target to create CGLIB proxies (which is how `@Transactional`, `@Async`, scope-proxied beans, etc. work). The `kotlin-spring` compiler plugin opens them automatically, but if it isn't applied — or the class is in a module that doesn't apply it — Spring's proxy machinery fails at runtime. Flag stereotype classes that aren't explicitly `open` for review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindOpenClassForSpring$KtRecipe","displayName":"Find Spring stereotype classes not declared `open`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

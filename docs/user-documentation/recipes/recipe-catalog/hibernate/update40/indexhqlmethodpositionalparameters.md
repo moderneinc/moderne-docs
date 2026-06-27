@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Index HQL/JPQL positional parameters in method calls"}
-  description={"Replaces unindexed `?` positional parameters with indexed `?1`, `?2`, etc. in an HQL/JPQL query string passed as the first argument of a method matching the given pattern."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update40.IndexHqlMethodPositionalParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update40/indexhqlmethodpositionalparameters.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Index HQL/JPQL positional parameters in method calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces unindexed `?` positional parameters with indexed `?1`, `?2`, etc. in an HQL/JPQL query string passed as the first argument of a method matching the given pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern whose first argument is an HQL/JPQL query string. Example: `org.hibernate.Session createQuery(String,..)`.","example":"org.hibernate.Session createQuery(String,..)"}]}>
 

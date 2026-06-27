@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove explicit True/False comparisons"}
-  description={"Drop unnecessary ``== True``, ``!= False``, and similar tests against boolean literals, leaving just the expression or ``not expr``."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifyBooleanComparison"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifybooleancomparison.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove explicit True/False comparisons</RecipeHeader.Title>
+
+<RecipeHeader.Description>Drop unnecessary ``== True``, ``!= False``, and similar tests against boolean literals, leaving just the expression or ``not expr``.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyBooleanComparison","displayName":"Remove explicit True/False comparisons","pipPackage":"openrewrite-static-analysis"}}>
 

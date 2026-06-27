@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJunitConfig`"}
-  description={"Replaces `@ExtendWith(SpringRunner.class)` and `@ContextConfiguration` with `@SpringJunitConfig`, preserving attributes on `@ContextConfiguration`, unless `@ContextConfiguration(loader = ...)` is used."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.ReplaceExtendWithAndContextConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/replaceextendwithandcontextconfiguration.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJunitConfig`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `@ExtendWith(SpringRunner.class)` and `@ContextConfiguration` with `@SpringJunitConfig`, preserving attributes on `@ContextConfiguration`, unless `@ContextConfiguration(loader = ...)` is used.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.example;\n\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.test.context.ContextConfiguration;\nimport org.springframework.test.context.junit.jupiter.SpringExtension;\n\n@ExtendWith(SpringExtension.class)\n@ContextConfiguration(classes = ExampleClass.ExampleConfiguration.class)\npublic class ExampleClass {\n    @Configuration\n    public static class ExampleConfiguration {\n    }\n}\n","after":"package org.example;\n\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.test.context.junit.jupiter.SpringJUnitConfig;\n\n@SpringJUnitConfig(classes = ExampleClass.ExampleConfiguration.class)\npublic class ExampleClass {\n    @Configuration\n    public static class ExampleConfiguration {\n    }\n}\n","diff":"@@ -3,1 +3,0 @@\npackage org.example;\n\n-import org.junit.jupiter.api.extension.ExtendWith;\nimport org.springframework.context.annotation.Configuration;\n@@ -5,2 +4,1 @@\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.springframework.context.annotation.Configuration;\n-import org.springframework.test.context.ContextConfiguration;\n-import org.springframework.test.context.junit.jupiter.SpringExtension;\n+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;\n\n@@ -8,2 +6,1 @@\nimport org.springframework.test.context.junit.jupiter.SpringExtension;\n\n-@ExtendWith(SpringExtension.class)\n-@ContextConfiguration(classes = ExampleClass.ExampleConfiguration.class)\n+@SpringJUnitConfig(classes = ExampleClass.ExampleConfiguration.class)\npublic class ExampleClass {\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `URL(\"...\")` allocations inside loops"}
-  description={"`java.net.URL`'s constructor parses the URL string and dispatches through `URLStreamHandlerFactory`. Inside a loop that adds up — hoist URLs that don't change per iteration, or migrate to `URI`/`HttpRequest` builders."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindURLConstructorInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findurlconstructorinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `URL("...")` allocations inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.net.URL`'s constructor parses the URL string and dispatches through `URLStreamHandlerFactory`. Inside a loop that adds up — hoist URLs that don't change per iteration, or migrate to `URI`/`HttpRequest` builders.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindURLConstructorInLoops$KtRecipe","displayName":"Find `URL(\"...\")` allocations inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

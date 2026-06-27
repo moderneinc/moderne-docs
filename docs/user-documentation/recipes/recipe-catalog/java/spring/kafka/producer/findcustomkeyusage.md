@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `KafkaTemplate.send()` with custom key"}
-  description={"Flags `KafkaTemplate.send()` calls that use a custom key (3+ arguments). Custom keys should be reviewed to ensure they provide appropriate partition distribution."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.kafka.producer.FindCustomKeyUsage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/kafka/producer/findcustomkeyusage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `KafkaTemplate.send()` with custom key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flags `KafkaTemplate.send()` calls that use a custom key (3+ arguments). Custom keys should be reviewed to ensure they provide appropriate partition distribution.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.kafka.core.KafkaTemplate;\nimport org.springframework.stereotype.Service;\n\n@Service\nclass MyProducer {\n    private final KafkaTemplate<String, String> kafkaTemplate;\n\n    public MyProducer(KafkaTemplate<String, String> kafkaTemplate) {\n        this.kafkaTemplate = kafkaTemplate;\n    }\n\n    public void send(String key, String message) {\n        kafkaTemplate.send(\"my-topic\", key, message);\n    }\n}\n","after":"import org.springframework.kafka.core.KafkaTemplate;\nimport org.springframework.stereotype.Service;\n\n@Service\nclass MyProducer {\n    private final KafkaTemplate<String, String> kafkaTemplate;\n\n    public MyProducer(KafkaTemplate<String, String> kafkaTemplate) {\n        this.kafkaTemplate = kafkaTemplate;\n    }\n\n    public void send(String key, String message) {\n        /*~~(KafkaTemplate.send() with custom key - review partition distribution strategy)~~>*/kafkaTemplate.send(\"my-topic\", key, message);\n    }\n}\n","diff":"@@ -13,1 +13,1 @@\n\n    public void send(String key, String message) {\n-       kafkaTemplate.send(\"my-topic\", key, message);\n+       /*~~(KafkaTemplate.send() with custom key - review partition distribution strategy)~~>*/kafkaTemplate.send(\"my-topic\", key, message);\n    }\n","newFile":false}]}]}>
 

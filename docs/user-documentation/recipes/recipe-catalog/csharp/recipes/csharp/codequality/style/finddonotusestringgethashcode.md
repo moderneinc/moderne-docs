@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find string.GetHashCode() usage"}
-  description={"Detect `string.GetHashCode()` which is not stable across runs. Use `StringComparer.GetHashCode()` or `string.GetHashCode(StringComparison)` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotUseStringGetHashCode"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finddonotusestringgethashcode.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find string.GetHashCode() usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `string.GetHashCode()` which is not stable across runs. Use `StringComparer.GetHashCode()` or `string.GetHashCode(StringComparison)` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotUseStringGetHashCode","displayName":"Find string.GetHashCode() usage","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change the jakarta.ws.rs-api dependency to scope provided when jakartaee-api 9.x is provided."}
-  description={"This recipe will change the jakarta.ws.rs-api dependency scope to provided when jakarta.jakartaee-api version 9.x is provided in WebLogic 15.1.1. This prevents the jakarta.ws.rs-api jar from being deployed to WebLogic which can cause class conflicts."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["weblogic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.ChangeJakartaWebServiceRSAPIDependencyScope"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/changejakartawebservicersapidependencyscope.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Maven dependency scope","href":"maven/changedependencyscope"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"java/dependencies/dependencyinsight"}]}>
+<RecipeHeader.Title>Change the jakarta.ws.rs-api dependency to scope provided when jakartaee-api 9.x is provided.</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will change the jakarta.ws.rs-api dependency scope to provided when jakarta.jakartaee-api version 9.x is provided in WebLogic 15.1.1. This prevents the jakarta.ws.rs-api jar from being deployed to WebLogic which can cause class conflicts.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Maven dependency scope","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencyscope/"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyinsight/"}]}>
 
 ## Definition
 

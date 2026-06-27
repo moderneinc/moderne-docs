@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`BugCheckerRules` Refaster recipes"}
-  description={"Refaster rules related to `com.google.errorprone.bugpatterns.BugChecker` classes.\n[Source](https://error-prone.picnic.tech/refasterrules/BugCheckerRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.BugCheckerRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bugcheckerrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `BugCheckerRules.BugCheckerRefactoringTestHelperIdentity`","href":"picnic/errorprone/refasterrules/bugcheckerrulesrecipes$bugcheckerrefactoringtesthelperidentityrecipe"},{"name":"Refaster template `BugCheckerRules.BugCheckerRefactoringTestHelperAddInputLinesExpectUnchanged`","href":"picnic/errorprone/refasterrules/bugcheckerrulesrecipes$bugcheckerrefactoringtesthelperaddinputlinesexpectunchangedrecipe"},{"name":"Refaster template `BugCheckerRules.NameContentEquals`","href":"picnic/errorprone/refasterrules/bugcheckerrulesrecipes$namecontentequalsrecipe"},{"name":"Refaster template `BugCheckerRules.ASTHelpersGetStartPosition`","href":"picnic/errorprone/refasterrules/bugcheckerrulesrecipes$asthelpersgetstartpositionrecipe"}]}>
+<RecipeHeader.Title>`BugCheckerRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to `com.google.errorprone.bugpatterns.BugChecker` classes. [Source](https://error-prone.picnic.tech/refasterrules/BugCheckerRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `BugCheckerRules.BugCheckerRefactoringTestHelperIdentity`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bugcheckerrulesrecipes$bugcheckerrefactoringtesthelperidentityrecipe/"},{"name":"Refaster template `BugCheckerRules.BugCheckerRefactoringTestHelperAddInputLinesExpectUnchanged`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bugcheckerrulesrecipes$bugcheckerrefactoringtesthelperaddinputlinesexpectunchangedrecipe/"},{"name":"Refaster template `BugCheckerRules.NameContentEquals`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bugcheckerrulesrecipes$namecontentequalsrecipe/"},{"name":"Refaster template `BugCheckerRules.ASTHelpersGetStartPosition`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bugcheckerrulesrecipes$asthelpersgetstartpositionrecipe/"}]}>
 
 ## Definition
 

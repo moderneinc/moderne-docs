@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert SQL data type"}
-  description={"When migrating between SQL dialects, data types often need to be converted. For example, Oracle's `VARCHAR2` can be replaced with Postgres `VARCHAR`, or `NUMBER` with `NUMERIC`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.sql.ConvertDataType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/sql/convertdatatype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert SQL data type</RecipeHeader.Title>
+
+<RecipeHeader.Description>When migrating between SQL dialects, data types often need to be converted. For example, Oracle's `VARCHAR2` can be replaced with Postgres `VARCHAR`, or `NUMBER` with `NUMERIC`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldDataType","required":true,"description":"The data type to find and replace, case insensitive.","example":"VARCHAR2"},{"type":"String","name":"newDataType","required":true,"description":"The new data type to use as replacement.","example":"VARCHAR"}]}>
 

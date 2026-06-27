@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Hamcrest JUnit dependency"}
-  description={"Add Hamcrest JUnit dependency only if JUnit 4's `assertThat` or `assumeThat` is used."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.AddHamcrestJUnitDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/addhamcrestjunitdependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Add Hamcrest JUnit dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add Hamcrest JUnit dependency only if JUnit 4's `assertThat` or `assumeThat` is used.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"class FooTest {\n    void bar() {\n        org.junit.Assert.assertThat(\"a\", org.hamcrest.Matchers.is(\"a\"));\n    }\n}\n"},"variants":[]}]}>
 

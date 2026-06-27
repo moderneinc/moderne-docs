@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add parentheses for clarity"}
-  description={"Add parentheses to expressions where operator precedence might be unclear to improve readability."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.AddParenthesesForClarity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/addparenthesesforclarity.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add parentheses for clarity</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add parentheses to expressions where operator precedence might be unclear to improve readability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.AddParenthesesForClarity","displayName":"Add parentheses for clarity","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

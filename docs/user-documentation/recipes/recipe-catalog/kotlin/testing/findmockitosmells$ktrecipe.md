@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find mockito-kotlin / Mockito patterns"}
-  description={"Search-only bundle covering the Mockito surface most worth reviewing when migrating to mockk: `mock`/`spy` allocations, `whenever.thenReturn` chains, `verify(...)` calls, argument matchers, `ArgumentCaptor.forClass`, and `@Mock`/`@InjectMocks` field annotations."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindMockitoSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitosmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Mockito.mock(...)` / `mock<X>()` calls","href":"kotlin/testing/findmockitomockcall$ktrecipe"},{"name":"Find `Mockito.spy(...)` / `spy(...)` calls","href":"kotlin/testing/findmockitospycall$ktrecipe"},{"name":"Find Mockito `whenever(...).thenReturn(...)` chains","href":"kotlin/testing/findmockitowhenthenreturn$ktrecipe"},{"name":"Find Mockito `verify(mock).method(...)` calls","href":"kotlin/testing/findmockitoverifycall$ktrecipe"},{"name":"Find Mockito argument-matcher `any()` / `eq()` / `isA()` calls","href":"kotlin/testing/findmockitoargumentmatchersany$ktrecipe"},{"name":"Find `ArgumentCaptor.forClass(X::class.java)` allocations","href":"kotlin/testing/findmockitoargumentcaptor$ktrecipe"},{"name":"Find Mockito `@Mock` fields","href":"kotlin/testing/findmockitomockfield$ktrecipe"},{"name":"Find Mockito `@InjectMocks` fields","href":"kotlin/testing/findmockitoinjectmocks$ktrecipe"}]}>
+<RecipeHeader.Title>Find mockito-kotlin / Mockito patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle covering the Mockito surface most worth reviewing when migrating to mockk: `mock`/`spy` allocations, `whenever.thenReturn` chains, `verify(...)` calls, argument matchers, `ArgumentCaptor.forClass`, and `@Mock`/`@InjectMocks` field annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Mockito.mock(...)` / `mock<X>()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitomockcall$ktrecipe/"},{"name":"Find `Mockito.spy(...)` / `spy(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitospycall$ktrecipe/"},{"name":"Find Mockito `whenever(...).thenReturn(...)` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitowhenthenreturn$ktrecipe/"},{"name":"Find Mockito `verify(mock).method(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitoverifycall$ktrecipe/"},{"name":"Find Mockito argument-matcher `any()` / `eq()` / `isA()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitoargumentmatchersany$ktrecipe/"},{"name":"Find `ArgumentCaptor.forClass(X::class.java)` allocations","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitoargumentcaptor$ktrecipe/"},{"name":"Find Mockito `@Mock` fields","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitomockfield$ktrecipe/"},{"name":"Find Mockito `@InjectMocks` fields","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitoinjectmocks$ktrecipe/"}]}>
 
 ## Definition
 

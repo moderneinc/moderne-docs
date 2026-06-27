@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LocalBroadcastManager.getInstance(...)` usage"}
-  description={"`LocalBroadcastManager` was deprecated in AndroidX 1.1 — the project effectively documents it as a global event bus, with all the ordering and lifetime trouble that implies. Migrate to `LiveData`, `StateFlow`, or `SharedFlow` for in-process pub/sub."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindLocalBroadcastManager$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findlocalbroadcastmanager$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LocalBroadcastManager.getInstance(...)` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>`LocalBroadcastManager` was deprecated in AndroidX 1.1 — the project effectively documents it as a global event bus, with all the ordering and lifetime trouble that implies. Migrate to `LiveData`, `StateFlow`, or `SharedFlow` for in-process pub/sub.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindLocalBroadcastManager$KtRecipe","displayName":"Find `LocalBroadcastManager.getInstance(...)` usage","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

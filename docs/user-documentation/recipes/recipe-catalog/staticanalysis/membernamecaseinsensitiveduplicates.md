@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Members should not have names differing only by capitalization"}
-  description={"Looking at the set of methods and fields in a class and all of its parents, no two members should have names that differ only in capitalization. This rule will not report if a method overrides a parent method. Members with near-identical names are easily confused, leading to bugs where the wrong field or method is referenced."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1845"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.MemberNameCaseInsensitiveDuplicates"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/membernamecaseinsensitiveduplicates.md"}
-/>
+>
+
+<RecipeHeader.Title>Members should not have names differing only by capitalization</RecipeHeader.Title>
+
+<RecipeHeader.Description>Looking at the set of methods and fields in a class and all of its parents, no two members should have names that differ only in capitalization. This rule will not report if a method overrides a parent method. Members with near-identical names are easily confused, leading to bugs where the wrong field or method is referenced.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"class Parent {\n    int name;\n}\n"},"variants":[{"language":"java","before":"class Child extends Parent {\n    int Name;\n}\n","after":"class Child extends Parent {\n    int /*~~(Rename this member to not match other members differing only by capitalization)~~>*/Name;\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Child extends Parent {\n-   int Name;\n+   int /*~~(Rename this member to not match other members differing only by capitalization)~~>*/Name;\n}\n","newFile":false}]}]}>
 

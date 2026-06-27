@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find within comments and literals"}
-  description={"Find regular expression matches within comments and literals. \"Literals\" includes string literals, character literals, and numeric literals."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindComments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/findcomments.md"}
-/>
+>
+
+<RecipeHeader.Title>Find within comments and literals</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find regular expression matches within comments and literals. "Literals" includes string literals, character literals, and numeric literals.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"patterns","required":true,"description":"A list of regular expressions to search for.","example":"-----BEGIN RSA PRIVATE KEY-----"}]}>
 

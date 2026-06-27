@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated Jakarta Servlet methods and classes"}
-  description={"This recipe replaces the classes and methods deprecated in Jakarta Servlet 5.0\n"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.RemovalsServletJakarta9"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/removalsservletjakarta9.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Delete method argument","href":"java/deletemethodargument"},{"name":"Delete method argument","href":"java/deletemethodargument"},{"name":"Reorder method arguments","href":"java/reordermethodarguments"},{"name":"Updates `getRealPath()` to call `getContext()` followed by `getRealPath()`","href":"java/migrate/jakarta/updategetrealpath"},{"name":"Delete method argument","href":"java/deletemethodargument"},{"name":"Delete method argument","href":"java/deletemethodargument"},{"name":"Reorder method arguments","href":"java/reordermethodarguments"}]}>
+<RecipeHeader.Title>Replace deprecated Jakarta Servlet methods and classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe replaces the classes and methods deprecated in Jakarta Servlet 5.0</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Reorder method arguments","href":"/user-documentation/recipes/recipe-catalog/java/reordermethodarguments/"},{"name":"Updates `getRealPath()` to call `getContext()` followed by `getRealPath()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updategetrealpath/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Reorder method arguments","href":"/user-documentation/recipes/recipe-catalog/java/reordermethodarguments/"}]}>
 
 ## Definition
 

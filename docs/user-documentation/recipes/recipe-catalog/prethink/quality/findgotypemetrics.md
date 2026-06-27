@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Go type quality metrics"}
-  description={"Compute per-struct code quality metrics for Go including WMC, LCOM4, TCC, CBO, and maintainability index. Aggregates methods with the same receiver type across files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.quality.FindGoTypeMetrics"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/quality/findgotypemetrics.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Go type quality metrics</RecipeHeader.Title>
+
+<RecipeHeader.Description>Compute per-struct code quality metrics for Go including WMC, LCOM4, TCC, CBO, and maintainability index. Aggregates methods with the same receiver type across files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.quality.FindGoTypeMetrics","displayName":"Find Go type quality metrics","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

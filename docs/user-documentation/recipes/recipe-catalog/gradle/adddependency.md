@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Gradle dependency"}
-  description={"Add a gradle dependency to a `build.gradle` file in the correct configuration based on where it is used."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.AddDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/adddependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Add Gradle dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a gradle dependency to a `build.gradle` file in the correct configuration based on where it is used.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate 'com.google.guava:guava:VERSION'.","example":"com.google.guava"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate 'com.google.guava:guava:VERSION'","example":"guava"},{"type":"String","name":"version","required":false,"description":"An exact version number or node-style semver selector used to select the version number. You can also use `latest.release` for the latest available version and `latest.patch` if the current version is a valid semantic version. For more details, you can look at the documentation page of [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors).","example":"29.X"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example, Setting 'version' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select Guava 29.0-jre","example":"-jre"},{"type":"String","name":"configuration","required":false,"description":"A configuration to use when it is not what can be inferred from usage. Most of the time this will be left empty, but is used when adding a new as of yet unused dependency.","example":"implementation"},{"type":"String","name":"onlyIfUsing","required":false,"description":"Used to determine if the dependency will be added and in which scope it should be placed.","example":"org.junit.jupiter.api.*"},{"type":"String","name":"classifier","required":false,"description":"A classifier to add. Commonly used to select variants of a library.","example":"test"},{"type":"String","name":"extension","required":false,"description":"The extension of the dependency to add. If omitted Gradle defaults to assuming the type is \"jar\".","example":"jar"},{"type":"String","name":"familyPattern","required":false,"description":"A pattern, applied to groupIds, used to determine which other dependencies should have aligned version numbers. Accepts '*' as a wildcard character.","example":"com.fasterxml.jackson*"},{"type":"Boolean","name":"acceptTransitive","required":false,"description":"Default false. If enabled, the dependency will not be added if it is already on the classpath as a transitive dependency.","example":"true"}]}>
 

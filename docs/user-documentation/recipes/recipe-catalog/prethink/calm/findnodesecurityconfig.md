@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Node.js security configuration"}
-  description={"Identify security middleware in Node.js applications. Detects cors, helmet, passport, and JWT middleware usage."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindNodeSecurityConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findnodesecurityconfig.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Node.js security configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify security middleware in Node.js applications. Detects cors, helmet, passport, and JWT middleware usage.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindNodeSecurityConfig","displayName":"Find Node.js security configuration","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `setFlushMode()` to `setQueryFlushMode()`"}
-  description={"In Hibernate 7.0, `CommonQueryContract.setFlushMode(FlushModeType)` has been replaced with `setQueryFlushMode(QueryFlushMode)`. This recipe migrates the method call and converts `FlushModeType` parameters to their `QueryFlushMode` equivalents."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.MigrateSetFlushModeToSetQueryFlushMode"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/migratesetflushmodetosetqueryflushmode.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `setFlushMode()` to `setQueryFlushMode()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Hibernate 7.0, `CommonQueryContract.setFlushMode(FlushModeType)` has been replaced with `setQueryFlushMode(QueryFlushMode)`. This recipe migrates the method call and converts `FlushModeType` parameters to their `QueryFlushMode` equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.persistence.FlushModeType;\nimport org.hibernate.query.Query;\n\nclass SomeClass {\n    void configureQuery(Query<?> query) {\n        query.setFlushMode(FlushModeType.AUTO);\n    }\n}\n","after":"import org.hibernate.query.Query;\nimport org.hibernate.query.QueryFlushMode;\n\nclass SomeClass {\n    void configureQuery(Query<?> query) {\n        query.setQueryFlushMode(QueryFlushMode.FLUSH);\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import jakarta.persistence.FlushModeType;\nimport org.hibernate.query.Query;\n@@ -3,0 +2,1 @@\nimport jakarta.persistence.FlushModeType;\nimport org.hibernate.query.Query;\n+import org.hibernate.query.QueryFlushMode;\n\n@@ -6,1 +6,1 @@\nclass SomeClass {\n    void configureQuery(Query<?> query) {\n-       query.setFlushMode(FlushModeType.AUTO);\n+       query.setQueryFlushMode(QueryFlushMode.FLUSH);\n    }\n","newFile":false}]}]}>
 

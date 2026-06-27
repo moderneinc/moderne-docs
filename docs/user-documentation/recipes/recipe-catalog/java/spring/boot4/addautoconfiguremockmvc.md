@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc`"}
-  description={"Adds `@AutoConfigureMockMvc` annotation to classes annotated with `@SpringBootTest` that use `MockMvc`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.AddAutoConfigureMockMvc"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/addautoconfiguremockmvc.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@AutoConfigureMockMvc` to `@SpringBootTest` classes using `MockMvc`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `@AutoConfigureMockMvc` annotation to classes annotated with `@SpringBootTest` that use `MockMvc`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.boot.test.context.SpringBootTest;\nimport org.springframework.test.web.servlet.MockMvc;\n\n@SpringBootTest\nclass MyTest {\n    @Autowired\n    private MockMvc mockMvc;\n}\n","after":"import org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;\nimport org.springframework.boot.test.context.SpringBootTest;\nimport org.springframework.test.web.servlet.MockMvc;\n\n@AutoConfigureMockMvc\n@SpringBootTest\nclass MyTest {\n    @Autowired\n    private MockMvc mockMvc;\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.springframework.beans.factory.annotation.Autowired;\n+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;\nimport org.springframework.boot.test.context.SpringBootTest;\n@@ -5,0 +6,1 @@\nimport org.springframework.test.web.servlet.MockMvc;\n\n+@AutoConfigureMockMvc\n@SpringBootTest\n","newFile":false}]}]}>
 

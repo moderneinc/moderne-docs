@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `padding(start = x, end = x, top = x, bottom = x)` shorthand opportunities"}
-  description={"When every named `padding(...)` argument carries the same value, `padding(all = x)` (or just `padding(x)`) communicates the uniform inset in a single token. Mixed-value `padding(...)` is fine; equal-on-all-sides is a shorthand candidate."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindModifierPaddingAllEqual$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierpaddingallequal$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `padding(start = x, end = x, top = x, bottom = x)` shorthand opportunities</RecipeHeader.Title>
+
+<RecipeHeader.Description>When every named `padding(...)` argument carries the same value, `padding(all = x)` (or just `padding(x)`) communicates the uniform inset in a single token. Mixed-value `padding(...)` is fine; equal-on-all-sides is a shorthand candidate.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindModifierPaddingAllEqual$KtRecipe","displayName":"Find `padding(start = x, end = x, top = x, bottom = x)` shorthand opportunities","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

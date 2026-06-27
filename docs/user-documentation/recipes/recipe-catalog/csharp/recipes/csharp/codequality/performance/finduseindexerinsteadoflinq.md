@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find LINQ methods replaceable with indexer"}
-  description={"Detect LINQ methods like `.First()` and `.Last()` that could be replaced with direct indexer access for better performance."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindUseIndexerInsteadOfLinq"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/finduseindexerinsteadoflinq.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find LINQ methods replaceable with indexer</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect LINQ methods like `.First()` and `.Last()` that could be replaced with direct indexer access for better performance.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindUseIndexerInsteadOfLinq","displayName":"Find LINQ methods replaceable with indexer","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

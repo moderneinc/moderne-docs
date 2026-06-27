@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJBigIntegerRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `BigInteger`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJBigIntegerRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJBigIntegerRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsEqualTo`","href":"picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes$abstractbigintegerassertisequaltorecipe"},{"name":"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsNotEqualTo`","href":"picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes$abstractbigintegerassertisnotequaltorecipe"},{"name":"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsZero`","href":"picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes$abstractbigintegerassertiszerorecipe"},{"name":"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsNotZero`","href":"picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes$abstractbigintegerassertisnotzerorecipe"},{"name":"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsOne`","href":"picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes$abstractbigintegerassertisonerecipe"}]}>
+<RecipeHeader.Title>`AssertJBigIntegerRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `BigInteger`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJBigIntegerRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes$abstractbigintegerassertisequaltorecipe/"},{"name":"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes$abstractbigintegerassertisnotequaltorecipe/"},{"name":"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes$abstractbigintegerassertiszerorecipe/"},{"name":"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsNotZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes$abstractbigintegerassertisnotzerorecipe/"},{"name":"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsOne`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes$abstractbigintegerassertisonerecipe/"}]}>
 
 ## Definition
 

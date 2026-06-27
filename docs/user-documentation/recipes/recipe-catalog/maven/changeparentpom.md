@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Maven parent"}
-  description={"Change the parent pom of a Maven pom.xml by matching the existing parent via groupId and artifactId, and updating it to a new groupId, artifactId, version, and optional relativePath. Also updates the project to retain dependency management and properties previously inherited from the old parent that are no longer provided by the new parent. Removes redundant dependency versions already managed by the new parent."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ChangeParentPom"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/changeparentpom.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Maven parent</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the parent pom of a Maven pom.xml by matching the existing parent via groupId and artifactId, and updating it to a new groupId, artifactId, version, and optional relativePath. Also updates the project to retain dependency management and properties previously inherited from the old parent that are no longer provided by the new parent. Removes redundant dependency versions already managed by the new parent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldGroupId","required":true,"description":"The group ID of the Maven parent pom to be changed away from.","example":"org.springframework.boot"},{"type":"String","name":"newGroupId","required":false,"description":"The group ID of the new maven parent pom to be adopted. If this argument is omitted it defaults to the value of `oldGroupId`.","example":"org.springframework.boot"},{"type":"String","name":"oldArtifactId","required":true,"description":"The artifact ID of the maven parent pom to be changed away from.","example":"spring-boot-starter-parent"},{"type":"String","name":"newArtifactId","required":false,"description":"The artifact ID of the new maven parent pom to be adopted. If this argument is omitted it defaults to the value of `oldArtifactId`.","example":"spring-boot-starter-parent"},{"type":"String","name":"newVersion","required":true,"description":"An exact version number or node-style semver selector used to select the version number.","example":"29.X"},{"type":"String","name":"oldRelativePath","required":false,"description":"The relativePath of the maven parent pom to be changed away from. Use an empty String to match `<relativePath />`, use `../pom.xml` to match the default value.","example":"../../pom.xml"},{"type":"String","name":"newRelativePath","required":false,"description":"New relative path attribute for parent lookup.","example":"../pom.xml"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'version' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select Guava 29.0-jre","example":"-jre"},{"type":"Boolean","name":"allowVersionDowngrades","required":false,"description":"If the new parent has the same group/artifact, this flag can be used to only upgrade the version if the target version is newer than the current."},{"type":"List","name":"except","required":false,"description":"Accepts a list of GAVs that should be retained when calling `RemoveRedundantDependencyVersions`.","example":"com.jcraft:jsch"}]}>
 

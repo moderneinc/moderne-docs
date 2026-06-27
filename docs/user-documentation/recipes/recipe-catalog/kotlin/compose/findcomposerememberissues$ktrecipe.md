@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose `remember` key issues"}
-  description={"`remember { … }` calls where the keys do not align with the values the block reads — keyless `remember` that captures changing variables, and `remember { mutableStateOf(call()) }` candidates for `derivedStateOf`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposeRememberIssues$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposerememberissues$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `remember { … }` calls with no keys","href":"kotlin/compose/findremembernokeys$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose `remember` key issues</RecipeHeader.Title>
+
+<RecipeHeader.Description>`remember { … }` calls where the keys do not align with the values the block reads — keyless `remember` that captures changing variables, and `remember { mutableStateOf(call()) }` candidates for `derivedStateOf`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `remember { … }` calls with no keys","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findremembernokeys$ktrecipe/"}]}>
 
 ## Definition
 

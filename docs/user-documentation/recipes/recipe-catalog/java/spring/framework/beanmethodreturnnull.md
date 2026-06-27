@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`@Bean` methods may not return `void`"}
-  description={"Make `@Bean` methods return `Object` instead of `void`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.BeanMethodReturnNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/beanmethodreturnnull.md"}
-/>
+>
+
+<RecipeHeader.Title>`@Bean` methods may not return `void`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Make `@Bean` methods return `Object` instead of `void`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Bean;\n\nclass Test {\n    @Bean\n    public void myBean() {\n    }\n}\n","after":"import org.springframework.context.annotation.Bean;\n\nclass Test {\n    @Bean\n    public Object myBean() {\n        return null;\n    }\n}\n","diff":"@@ -5,1 +5,2 @@\nclass Test {\n    @Bean\n-   public void myBean() {\n+   public Object myBean() {\n+       return null;\n    }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify [Micrometer](https://micrometer.io) meter tags"}
-  description={"Use the simplest method to add new tags."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["micrometer"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.metrics.SimplifyMicrometerMeterTags"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/metrics/simplifymicrometermetertags.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify [Micrometer](https://micrometer.io) meter tags</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use the simplest method to add new tags.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import io.micrometer.core.instrument.*;\nclass Test {\n    Counter c = Counter.builder(\"counter\")\n        .tags(new String[] { \"key\", \"value\" })\n        .register(Metrics.globalRegistry);\n}\n","after":"import io.micrometer.core.instrument.*;\nclass Test {\n    Counter c = Counter.builder(\"counter\")\n        .tag(\"key\", \"value\")\n        .register(Metrics.globalRegistry);\n}\n","diff":"@@ -4,1 +4,1 @@\nclass Test {\n    Counter c = Counter.builder(\"counter\")\n-       .tags(new String[] { \"key\", \"value\" })\n+       .tag(\"key\", \"value\")\n        .register(Metrics.globalRegistry);\n","newFile":false}]}]}>
 

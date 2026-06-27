@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `KeyPairGenerator.getInstance(\"RSA\")` callers — verify 2048+ key size"}
-  description={"RSA key sizes below 2048 bits are deprecated by NIST. Without seeing the `initialize(...)` call this recipe surfaces every `getInstance(\"RSA\")` for review — confirm the key size is at least 2048 (preferably 3072 or migrate to Ed25519/X25519)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindRsaKeySizeBelow2048$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findrsakeysizebelow2048$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `KeyPairGenerator.getInstance("RSA")` callers — verify 2048+ key size</RecipeHeader.Title>
+
+<RecipeHeader.Description>RSA key sizes below 2048 bits are deprecated by NIST. Without seeing the `initialize(...)` call this recipe surfaces every `getInstance("RSA")` for review — confirm the key size is at least 2048 (preferably 3072 or migrate to Ed25519/X25519).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindRsaKeySizeBelow2048$KtRecipe","displayName":"Find `KeyPairGenerator.getInstance(\"RSA\")` callers — verify 2048+ key size","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Reorder `maybeRemoveImport` before `maybeAddImport`"}
-  description={"Reorders `maybeAddImport` and `maybeRemoveImport` calls so that imports are removed before new imports are added. This ordering prevents potential conflicts when the import being added and the import being removed resolve to the same simple class name."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.RemoveImportBeforeAddImport"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/removeimportbeforeaddimport.md"}
-/>
+>
+
+<RecipeHeader.Title>Reorder `maybeRemoveImport` before `maybeAddImport`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reorders `maybeAddImport` and `maybeRemoveImport` calls so that imports are removed before new imports are added. This ordering prevents potential conflicts when the import being added and the import being removed resolve to the same simple class name.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.ExecutionContext;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.TreeVisitor;\nimport org.openrewrite.java.JavaIsoVisitor;\nimport org.openrewrite.java.tree.J;\n\npublic class SampleRecipe extends Recipe {\n    @Override\n    public String getDisplayName() {\n        return \"Sample\";\n    }\n\n    @Override\n    public String getDescription() {\n        return \"Sample recipe.\";\n    }\n\n    @Override\n    public TreeVisitor<?, ExecutionContext> getVisitor() {\n        return new JavaIsoVisitor<ExecutionContext>() {\n            @Override\n            public J.MethodInvocation visitMethodInvocation(J.MethodInvocation method, ExecutionContext ctx) {\n                maybeAddImport(\"com.example.NewClass\");\n                maybeRemoveImport(\"com.example.OldClass\");\n                return super.visitMethodInvocation(method, ctx);\n            }\n        };\n    }\n}\n","after":"import org.openrewrite.ExecutionContext;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.TreeVisitor;\nimport org.openrewrite.java.JavaIsoVisitor;\nimport org.openrewrite.java.tree.J;\n\npublic class SampleRecipe extends Recipe {\n    @Override\n    public String getDisplayName() {\n        return \"Sample\";\n    }\n\n    @Override\n    public String getDescription() {\n        return \"Sample recipe.\";\n    }\n\n    @Override\n    public TreeVisitor<?, ExecutionContext> getVisitor() {\n        return new JavaIsoVisitor<ExecutionContext>() {\n            @Override\n            public J.MethodInvocation visitMethodInvocation(J.MethodInvocation method, ExecutionContext ctx) {\n                maybeRemoveImport(\"com.example.OldClass\");\n                maybeAddImport(\"com.example.NewClass\");\n                return super.visitMethodInvocation(method, ctx);\n            }\n        };\n    }\n}\n","diff":"@@ -23,1 +23,0 @@\n            @Override\n            public J.MethodInvocation visitMethodInvocation(J.MethodInvocation method, ExecutionContext ctx) {\n-               maybeAddImport(\"com.example.NewClass\");\n                maybeRemoveImport(\"com.example.OldClass\");\n@@ -25,0 +24,1 @@\n                maybeAddImport(\"com.example.NewClass\");\n                maybeRemoveImport(\"com.example.OldClass\");\n+               maybeAddImport(\"com.example.NewClass\");\n                return super.visitMethodInvocation(method, ctx);\n","newFile":false}]}]}>
 

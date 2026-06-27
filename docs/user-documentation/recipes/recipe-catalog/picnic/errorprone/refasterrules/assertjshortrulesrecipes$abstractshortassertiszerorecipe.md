@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJShortRules.AbstractShortAssertIsZero`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractShortAssertIsZero {\n    \n    @BeforeTemplate\n    AbstractShortAssert<?> before(AbstractShortAssert<?> shortAssert) {\n        return shortAssert.isZero();\n    }\n    \n    @AfterTemplate\n    AbstractShortAssert<?> after(AbstractShortAssert<?> shortAssert) {\n        return shortAssert.isEqualTo((short)0);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJShortRulesRecipes$AbstractShortAssertIsZeroRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertiszerorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJShortRules.AbstractShortAssertIsZero`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractShortAssertIsZero {
+    
+    @BeforeTemplate
+    AbstractShortAssert<?> before(AbstractShortAssert<?> shortAssert) {
+        return shortAssert.isZero();
+    }
+    
+    @AfterTemplate
+    AbstractShortAssert<?> after(AbstractShortAssert<?> shortAssert) {
+        return shortAssert.isEqualTo((short)0);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJShortRulesRecipes$AbstractShortAssertIsZeroRecipe","displayName":"Refaster template `AssertJShortRules.AbstractShortAssertIsZero`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

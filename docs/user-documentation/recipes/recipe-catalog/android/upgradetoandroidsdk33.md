@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Android SDK 33"}
-  description={"Recipes to upgrade to Android SDK version 33."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.android.UpgradeToAndroidSDK33"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk33.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Android Gradle Plugin 7.2","href":"android/migratetoandroidgradleplugin_7_2"},{"name":"Change Android SDK version","href":"android/changeandroidsdkversion"}]}>
+<RecipeHeader.Title>Upgrade to Android SDK 33</RecipeHeader.Title>
+
+<RecipeHeader.Description>Recipes to upgrade to Android SDK version 33.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Android Gradle Plugin 7.2","href":"/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_7_2/"},{"name":"Change Android SDK version","href":"/user-documentation/recipes/recipe-catalog/android/changeandroidsdkversion/"}]}>
 
 ## Definition
 

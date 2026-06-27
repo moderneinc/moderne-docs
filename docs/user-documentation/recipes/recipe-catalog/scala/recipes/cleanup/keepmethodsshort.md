@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Keep methods short (max 20 statements)"}
-  description={"Finds methods with more than 20 statements. Long methods are harder to understand and maintain; consider refactoring."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.KeepMethodsShort"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/keepmethodsshort.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Keep methods short (max 20 statements)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds methods with more than 20 statements. Long methods are harder to understand and maintain; consider refactoring.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    def longMethod(): Unit = {\n        val a1 = 1\n        val a2 = 2\n        val a3 = 3\n        val a4 = 4\n        val a5 = 5\n        val a6 = 6\n        val a7 = 7\n        val a8 = 8\n        val a9 = 9\n        val a10 = 10\n        val a11 = 11\n        val a12 = 12\n        val a13 = 13\n        val a14 = 14\n        val a15 = 15\n        val a16 = 16\n        val a17 = 17\n        val a18 = 18\n        val a19 = 19\n        val a20 = 20\n        val a21 = 21\n    }\n}\n","after":"class Example {\n    /*~~(Method has too many statements; consider refactoring)~~>*/def longMethod(): Unit = {\n        val a1 = 1\n        val a2 = 2\n        val a3 = 3\n        val a4 = 4\n        val a5 = 5\n        val a6 = 6\n        val a7 = 7\n        val a8 = 8\n        val a9 = 9\n        val a10 = 10\n        val a11 = 11\n        val a12 = 12\n        val a13 = 13\n        val a14 = 14\n        val a15 = 15\n        val a16 = 16\n        val a17 = 17\n        val a18 = 18\n        val a19 = 19\n        val a20 = 20\n        val a21 = 21\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Example {\n-   def longMethod(): Unit = {\n+   /*~~(Method has too many statements; consider refactoring)~~>*/def longMethod(): Unit = {\n        val a1 = 1\n","newFile":false}]}]}>
 

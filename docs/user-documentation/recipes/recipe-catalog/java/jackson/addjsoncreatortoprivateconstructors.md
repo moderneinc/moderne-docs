@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@JsonCreator` to non-public constructors"}
-  description={"Jackson 3 strictly enforces creator visibility rules. Non-public constructors in Jackson-annotated classes that were auto-detected in Jackson 2 need an explicit `@JsonCreator` annotation to work for deserialization in Jackson 3."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.AddJsonCreatorToPrivateConstructors"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/addjsoncreatortoprivateconstructors.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `@JsonCreator` to non-public constructors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Jackson 3 strictly enforces creator visibility rules. Non-public constructors in Jackson-annotated classes that were auto-detected in Jackson 2 need an explicit `@JsonCreator` annotation to work for deserialization in Jackson 3.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.annotation.JsonProperty;\n\nclass Model {\n    private final String name;\n    private final int age;\n\n    private Model(@JsonProperty(\"name\") String name, @JsonProperty(\"age\") int age) {\n        this.name = name;\n        this.age = age;\n    }\n}\n","after":"import com.fasterxml.jackson.annotation.JsonCreator;\nimport com.fasterxml.jackson.annotation.JsonProperty;\n\nclass Model {\n    private final String name;\n    private final int age;\n\n    @JsonCreator\n    private Model(@JsonProperty(\"name\") String name, @JsonProperty(\"age\") int age) {\n        this.name = name;\n        this.age = age;\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import com.fasterxml.jackson.annotation.JsonCreator;\nimport com.fasterxml.jackson.annotation.JsonProperty;\n@@ -7,0 +8,1 @@\n    private final int age;\n\n+   @JsonCreator\n    private Model(@JsonProperty(\"name\") String name, @JsonProperty(\"age\") int age) {\n","newFile":false}]}]}>
 

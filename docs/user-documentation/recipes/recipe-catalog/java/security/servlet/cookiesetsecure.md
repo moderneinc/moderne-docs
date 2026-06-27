@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Insecure cookies"}
-  description={"Check for use of insecure cookies. Cookies should be marked as secure. This ensures that the cookie is sent only over HTTPS to prevent cross-site scripting attacks."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-614"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.servlet.CookieSetSecure"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/servlet/cookiesetsecure.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Insecure cookies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Check for use of insecure cookies. Cookies should be marked as secure. This ensures that the cookie is sent only over HTTPS to prevent cross-site scripting attacks.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.http.Cookie;\n\nclass Test {\n    void test() {\n        Cookie cookie = new Cookie(\"foo\", \"bar\");\n        System.out.println(\"hi\");\n        cookie.setSecure(false);\n    }\n}\n","after":"import javax.servlet.http.Cookie;\n\nclass Test {\n    void test() {\n        Cookie cookie = new Cookie(\"foo\", \"bar\");\n        System.out.println(\"hi\");\n        cookie.setSecure(true);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n        Cookie cookie = new Cookie(\"foo\", \"bar\");\n        System.out.println(\"hi\");\n-       cookie.setSecure(false);\n+       cookie.setSecure(true);\n    }\n","newFile":false}]}]}>
 

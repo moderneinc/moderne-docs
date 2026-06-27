@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Node.js dependencies"}
-  description={"Upgrade matching Node.js direct dependencies."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.nodejs.UpgradeDependencyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nodejs/upgradedependencyversion.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Upgrade Node.js dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade matching Node.js direct dependencies.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"namePattern","required":true,"description":"Name glob pattern used to match dependencies","example":"@apollo*"},{"type":"String","name":"version","required":true,"description":"Set the version to upgrade to.Node-style [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors) may be used.","example":"1.x"}]}>
 

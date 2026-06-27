@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `findViewById` inside `onDraw` / `onMeasure` / `onLayout`"}
-  description={"View tree-walking inside the draw/measure/layout pass costs frame budget on every pass. Cache the lookup once (in `onFinishInflate` or a `lateinit` initialized when the view attaches), or — better — migrate to ViewBinding so the cache is generated."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindFindViewByIdInHotPath$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findfindviewbyidinhotpath$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `findViewById` inside `onDraw` / `onMeasure` / `onLayout`</RecipeHeader.Title>
+
+<RecipeHeader.Description>View tree-walking inside the draw/measure/layout pass costs frame budget on every pass. Cache the lookup once (in `onFinishInflate` or a `lateinit` initialized when the view attaches), or — better — migrate to ViewBinding so the cache is generated.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindFindViewByIdInHotPath$KtRecipe","displayName":"Find `findViewById` inside `onDraw` / `onMeasure` / `onLayout`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

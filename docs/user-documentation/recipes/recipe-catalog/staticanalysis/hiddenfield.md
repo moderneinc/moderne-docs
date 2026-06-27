@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Hidden field"}
-  description={"Refactor local variables or parameters which shadow a field defined in the same class. Shadowing a field with a local variable of the same name makes it easy to accidentally reference the wrong one, leading to confusing bugs."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1117","RSPEC-S2387"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.HiddenField"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/hiddenfield.md"}
-/>
+>
+
+<RecipeHeader.Title>Hidden field</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refactor local variables or parameters which shadow a field defined in the same class. Shadowing a field with a local variable of the same name makes it easy to accidentally reference the wrong one, leading to confusing bugs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n    private String field;\n\n    public A(String field) {\n    }\n}\n","after":"public class A {\n    private String field;\n\n    public A(String field1) {\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\n    private String field;\n\n-   public A(String field) {\n+   public A(String field1) {\n    }\n","newFile":false}]}]}>
 

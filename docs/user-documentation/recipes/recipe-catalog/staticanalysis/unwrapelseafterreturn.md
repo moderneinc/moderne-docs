@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unwrap else block after return or throw statement"}
-  description={"Unwraps the else block when the if block ends with a return or throw statement, reducing nesting and improving code readability."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UnwrapElseAfterReturn"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/unwrapelseafterreturn.md"}
-/>
+>
+
+<RecipeHeader.Title>Unwrap else block after return or throw statement</RecipeHeader.Title>
+
+<RecipeHeader.Description>Unwraps the else block when the if block ends with a return or throw statement, reducing nesting and improving code readability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    int foo(boolean condition) {\n        if (condition) {\n            return 1;\n        } else {\n            return 2;\n        }\n    }\n}\n","after":"class Test {\n    int foo(boolean condition) {\n        if (condition) {\n            return 1;\n        }\n        return 2;\n    }\n}\n","diff":"@@ -5,2 +5,0 @@\n        if (condition) {\n            return 1;\n-       } else {\n-           return 2;\n        }\n@@ -8,0 +6,1 @@\n            return 2;\n        }\n+       return 2;\n    }\n","newFile":false}]}]}>
 

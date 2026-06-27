@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change cacheManager to use the SimpleCacheManager"}
-  description={"Change cacheManager to use the SimpleCacheManager."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["examples","springframework","cacheManager"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.examples.spring.ChangeCacheManagerToSimpleCacheManager"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/examples/spring/changecachemanagertosimplecachemanager.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Add or update child tag","href":"xml/addorupdatechildtag"},{"name":"Remove XML tag","href":"xml/removexmltag"}]} preconditions={[{"name":"Find files","href":"core/findsourcefiles"}]}>
+<RecipeHeader.Title>Change cacheManager to use the SimpleCacheManager</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change cacheManager to use the SimpleCacheManager.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Add or update child tag","href":"/user-documentation/recipes/recipe-catalog/xml/addorupdatechildtag/"},{"name":"Remove XML tag","href":"/user-documentation/recipes/recipe-catalog/xml/removexmltag/"}]} preconditions={[{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"}]}>
 
 ## Definition
 

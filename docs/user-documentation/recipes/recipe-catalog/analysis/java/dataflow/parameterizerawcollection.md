@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Parameterize raw `Collection`-typed local variables"}
-  description={"Infers a single element type for raw single-arg-generic `java.util.Collection` local variables (`List`, `Set`, `Collection`, `Queue`, `Deque`, `Iterable`) from the arguments passed to their `add(..)` calls and rewrites the declaration to use that type. Initializers are rewritten to use the diamond operator. The original LHS interface and RHS implementation class are preserved. Prototype scope: single-variable declarations, no alias or escape tracking."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.dataflow.ParameterizeRawCollection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/dataflow/parameterizerawcollection.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Parameterize raw `Collection`-typed local variables</RecipeHeader.Title>
+
+<RecipeHeader.Description>Infers a single element type for raw single-arg-generic `java.util.Collection` local variables (`List`, `Set`, `Collection`, `Queue`, `Deque`, `Iterable`) from the arguments passed to their `add(..)` calls and rewrites the declaration to use that type. Initializers are rewritten to use the diamond operator. The original LHS interface and RHS implementation class are preserved. Prototype scope: single-variable declarations, no alias or escape tracking.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.analysis.java.dataflow.ParameterizeRawCollection","displayName":"Parameterize raw `Collection`-typed local variables","groupId":"io.moderne.recipe","artifactId":"rewrite-program-analysis","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PROGRAM_ANALYSIS","requiresConfiguration":false}}>
 

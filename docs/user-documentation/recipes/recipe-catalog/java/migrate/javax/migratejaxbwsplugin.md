@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JAXB-WS Plugin"}
-  description={"Upgrade the JAXB-WS Maven plugin to be compatible with Java 11."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java11"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.MigrateJaxBWSPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratejaxbwsplugin.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Maven plugin group and artifact ID","href":"maven/changeplugingroupidandartifactid"},{"name":"Add or update child tag","href":"xml/addorupdatechildtag"},{"name":"Change XML tag name","href":"xml/changetagname"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate JAXB-WS Plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade the JAXB-WS Maven plugin to be compatible with Java 11.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Maven plugin group and artifact ID","href":"/user-documentation/recipes/recipe-catalog/maven/changeplugingroupidandartifactid/"},{"name":"Add or update child tag","href":"/user-documentation/recipes/recipe-catalog/xml/addorupdatechildtag/"},{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

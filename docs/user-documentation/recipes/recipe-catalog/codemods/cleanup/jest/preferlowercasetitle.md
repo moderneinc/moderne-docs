@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce lowercase test names"}
-  description={"Enforce lowercase test names\nSee rule details for [jest/prefer-lowercase-title](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-lowercase-title.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ESLint","eslint-plugin-jest","Jest"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.jest.PreferLowercaseTitle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/preferlowercasetitle.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce lowercase test names</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce lowercase test names See rule details for [jest/prefer-lowercase-title](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-lowercase-title.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

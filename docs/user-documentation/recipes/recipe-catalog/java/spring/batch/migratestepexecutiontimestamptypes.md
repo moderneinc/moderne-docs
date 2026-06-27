@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `Date` to `LocalDateTime` for Spring Batch timestamp methods"}
-  description={"In Spring Batch 5.0, `StepExecution` and `JobExecution` timestamp methods (`getStartTime()`, `getEndTime()`, `getCreateTime()`, `getLastUpdated()`) return `java.time.LocalDateTime` instead of `java.util.Date`. This recipe updates variable declarations accordingly."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.MigrateStepExecutionTimestampTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/migratestepexecutiontimestamptypes.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `Date` to `LocalDateTime` for Spring Batch timestamp methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Batch 5.0, `StepExecution` and `JobExecution` timestamp methods (`getStartTime()`, `getEndTime()`, `getCreateTime()`, `getLastUpdated()`) return `java.time.LocalDateTime` instead of `java.util.Date`. This recipe updates variable declarations accordingly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Date;\nimport org.springframework.batch.core.StepExecution;\n\nclass MyListener {\n    void afterStep(StepExecution stepExecution) {\n        Date startTime = stepExecution.getStartTime();\n        Date endTime = stepExecution.getEndTime();\n    }\n}\n","after":"import java.time.LocalDateTime;\nimport org.springframework.batch.core.StepExecution;\n\nclass MyListener {\n    void afterStep(StepExecution stepExecution) {\n        LocalDateTime startTime = stepExecution.getStartTime();\n        LocalDateTime endTime = stepExecution.getEndTime();\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import java.util.Date;\n+import java.time.LocalDateTime;\nimport org.springframework.batch.core.StepExecution;\n@@ -6,2 +6,2 @@\nclass MyListener {\n    void afterStep(StepExecution stepExecution) {\n-       Date startTime = stepExecution.getStartTime();\n-       Date endTime = stepExecution.getEndTime();\n+       LocalDateTime startTime = stepExecution.getStartTime();\n+       LocalDateTime endTime = stepExecution.getEndTime();\n    }\n","newFile":false}]}]}>
 

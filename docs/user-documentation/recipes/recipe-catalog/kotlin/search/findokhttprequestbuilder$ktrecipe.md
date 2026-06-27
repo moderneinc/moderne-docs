@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `okhttp3.Request.Builder()` constructions"}
-  description={"Each `Request.Builder()` is the construction site of an outbound OkHttp request. Flag as an outbound-network seed — a reviewer or LLM agent should check the URL source and request body for attacker-controlled data."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindOkHttpRequestBuilder$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findokhttprequestbuilder$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `okhttp3.Request.Builder()` constructions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `Request.Builder()` is the construction site of an outbound OkHttp request. Flag as an outbound-network seed — a reviewer or LLM agent should check the URL source and request body for attacker-controlled data.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindOkHttpRequestBuilder$KtRecipe","displayName":"Find `okhttp3.Request.Builder()` constructions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

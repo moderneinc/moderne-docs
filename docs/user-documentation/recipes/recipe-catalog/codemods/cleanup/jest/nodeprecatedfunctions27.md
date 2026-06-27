@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Disallow use of deprecated functions from before version 27"}
-  description={"Disallow use of deprecated functions from before version 27\nSee rule details for [jest/no-deprecated-functions](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-deprecated-functions.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ESLint","eslint-plugin-jest","Jest"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.jest.NoDeprecatedFunctions27"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/nodeprecatedfunctions27.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Disallow use of deprecated functions from before version 27</RecipeHeader.Title>
+
+<RecipeHeader.Description>Disallow use of deprecated functions from before version 27 See rule details for [jest/no-deprecated-functions](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/no-deprecated-functions.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

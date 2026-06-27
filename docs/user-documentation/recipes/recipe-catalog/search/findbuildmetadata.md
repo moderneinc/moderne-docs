@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find build metadata"}
-  description={"Find source files with matching build metadata."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.search.FindBuildMetadata"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/search/findbuildmetadata.md"}
-/>
+>
+
+<RecipeHeader.Title>Find build metadata</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find source files with matching build metadata.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"key","required":true,"description":"The key to search for in the build metadata.","example":"lstFormatVersion"},{"type":"String","name":"value","required":true,"description":"The value to search for in the build metadata.","example":"2"}]}>
 

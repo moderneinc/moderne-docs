@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`PatternRules` Refaster recipes"}
-  description={"Refaster rules related to code dealing with regular expressions.\n[Source](https://error-prone.picnic.tech/refasterrules/PatternRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.PatternRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/patternrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `PatternRules.PatternAsPredicate`","href":"picnic/errorprone/refasterrules/patternrulesrecipes$patternaspredicaterecipe"},{"name":"Refaster template `PatternRules.PatternCompileAsPredicate`","href":"picnic/errorprone/refasterrules/patternrulesrecipes$patterncompileaspredicaterecipe"}]}>
+<RecipeHeader.Title>`PatternRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to code dealing with regular expressions. [Source](https://error-prone.picnic.tech/refasterrules/PatternRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `PatternRules.PatternAsPredicate`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/patternrulesrecipes$patternaspredicaterecipe/"},{"name":"Refaster template `PatternRules.PatternCompileAsPredicate`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/patternrulesrecipes$patterncompileaspredicaterecipe/"}]}>
 
 ## Definition
 

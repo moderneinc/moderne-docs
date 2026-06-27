@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `AuthState` to `AuthExchange`"}
-  description={"Migrate Apache HttpClient 4.x `AuthState` and related types to the HttpClient 5.x `AuthExchange` API, including the `AuthProtocolState` enum, `AuthOption` queue elements, and credential-handling call sites."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","httpclient"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.MigrateAuthState"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/migrateauthstate.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Migrate `AuthScheme` credential handling","href":"apache/httpclient5/migrateauthschemecredentials"},{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"},{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"},{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"}]}>
+<RecipeHeader.Title>Migrate `AuthState` to `AuthExchange`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Apache HttpClient 4.x `AuthState` and related types to the HttpClient 5.x `AuthExchange` API, including the `AuthProtocolState` enum, `AuthOption` queue elements, and credential-handling call sites.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Migrate `AuthScheme` credential handling","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient5/migrateauthschemecredentials/"},{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"},{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"},{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"}]}>
 
 ## Definition
 

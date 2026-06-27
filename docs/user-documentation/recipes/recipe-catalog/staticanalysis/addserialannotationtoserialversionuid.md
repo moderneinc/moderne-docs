@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@Serial` annotation to `serialVersionUID`"}
-  description={"Annotate any `serialVersionUID` fields with `@Serial` to indicate it's part of the serialization mechanism."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.AddSerialAnnotationToSerialVersionUID"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/addserialannotationtoserialversionuid.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `@Serial` annotation to `serialVersionUID`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Annotate any `serialVersionUID` fields with `@Serial` to indicate it's part of the serialization mechanism.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.Serializable;\n\nclass Example implements Serializable {\n    private static final long serialVersionUID = 1L;\n}\n","after":"import java.io.Serial;\nimport java.io.Serializable;\n\nclass Example implements Serializable {\n    @Serial\n    private static final long serialVersionUID = 1L;\n}\n","diff":"@@ -1,0 +1,1 @@\n+import java.io.Serial;\nimport java.io.Serializable;\n@@ -4,0 +5,1 @@\n\nclass Example implements Serializable {\n+   @Serial\n    private static final long serialVersionUID = 1L;\n","newFile":false}]}]}>
 

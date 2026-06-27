@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `new AtomicReference<>()`"}
-  description={"Prefer the Java standard library over third-party usage of Guava in simple cases like this."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaAtomicsNewReference"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaatomicsnewreference.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `new AtomicReference<>()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Java standard library over third-party usage of Guava in simple cases like this.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.util.concurrent.Atomics;\n\nclass Test {\n    Object o1 = Atomics.newReference();\n    Object o2 = Atomics.newReference(0);\n}\n","after":"import java.util.concurrent.atomic.AtomicReference;\n\nclass Test {\n    Object o1 = new AtomicReference<>();\n    Object o2 = new AtomicReference<>(0);\n}\n","diff":"@@ -1,1 +1,1 @@\n-import com.google.common.util.concurrent.Atomics;\n+import java.util.concurrent.atomic.AtomicReference;\n\n@@ -4,2 +4,2 @@\n\nclass Test {\n-   Object o1 = Atomics.newReference();\n-   Object o2 = Atomics.newReference(0);\n+   Object o1 = new AtomicReference<>();\n+   Object o2 = new AtomicReference<>(0);\n}\n","newFile":false}]}]}>
 

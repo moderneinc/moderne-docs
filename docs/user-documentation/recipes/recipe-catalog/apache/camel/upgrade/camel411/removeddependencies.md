@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Removed deprecated components"}
-  description={"Removed deprecated components (camel-etcd3)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel411.removedDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel411/removeddependencies.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove Maven dependency","href":"maven/removedependency"}]}>
+<RecipeHeader.Title>Removed deprecated components</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removed deprecated components (camel-etcd3).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removedependency/"}]}>
 
 ## Definition
 

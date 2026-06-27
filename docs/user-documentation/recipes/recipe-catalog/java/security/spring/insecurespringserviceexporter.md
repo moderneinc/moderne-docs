@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Secure Spring service exporters"}
-  description={"The default Java deserialization mechanism is available via `ObjectInputStream` class. This mechanism is known to be vulnerable. If an attacker can make an application deserialize malicious data, it may result in arbitrary code execution.\n\nSpring’s `RemoteInvocationSerializingExporter` uses the default Java deserialization mechanism to parse data. As a result, all classes that extend it are vulnerable to deserialization attacks. The Spring Framework contains at least `HttpInvokerServiceExporter` and `SimpleHttpInvokerServiceExporter` that extend `RemoteInvocationSerializingExporter`. These exporters parse data from the HTTP body using the unsafe Java deserialization mechanism.\n\nSee the full [blog post](https://blog.gypsyengineer.com/en/security/detecting-dangerous-spring-exporters-with-codeql.html) by Artem Smotrakov on CVE-2016-1000027 from which the above description is excerpted."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CVE-2016-1000027"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.spring.InsecureSpringServiceExporter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/spring/insecurespringserviceexporter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Secure Spring service exporters</RecipeHeader.Title>
+
+<RecipeHeader.Description>The default Java deserialization mechanism is available via `ObjectInputStream` class. This mechanism is known to be vulnerable. If an attacker can make an application deserialize malicious data, it may result in arbitrary code execution.  Spring’s `RemoteInvocationSerializingExporter` uses the default Java deserialization mechanism to parse data. As a result, all classes that extend it are vulnerable to deserialization attacks. The Spring Framework contains at least `HttpInvokerServiceExporter` and `SimpleHttpInvokerServiceExporter` that extend `RemoteInvocationSerializingExporter`. These exporters parse data from the HTTP body using the unsafe Java deserialization mechanism.  See the full [blog post](https://blog.gypsyengineer.com/en/security/detecting-dangerous-spring-exporters-with-codeql.html) by Artem Smotrakov on CVE-2016-1000027 from which the above description is excerpted.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter;\n\n@Configuration\nclass Server {\n    @Bean(name = \"/account\")\n    HttpInvokerServiceExporter accountService() {\n        HttpInvokerServiceExporter exporter = new HttpInvokerServiceExporter();\n        exporter.setService(new AccountServiceImpl());\n        exporter.setServiceInterface(AccountService.class);\n        return exporter;\n    }\n\n}\n\nclass AccountServiceImpl implements AccountService {\n    @Override\n    public String echo(String data) {\n        return data;\n    }\n}\n\ninterface AccountService {\n    String echo(String data);\n}\n","after":"import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter;\n\n@Configuration\nclass Server {\n    @Bean(name = \"/account\")\n    /*~~>*/HttpInvokerServiceExporter accountService() {\n        HttpInvokerServiceExporter exporter = new HttpInvokerServiceExporter();\n        exporter.setService(new AccountServiceImpl());\n        exporter.setServiceInterface(AccountService.class);\n        return exporter;\n    }\n\n}\n\nclass AccountServiceImpl implements AccountService {\n    @Override\n    public String echo(String data) {\n        return data;\n    }\n}\n\ninterface AccountService {\n    String echo(String data);\n}\n","diff":"@@ -8,1 +8,1 @@\nclass Server {\n    @Bean(name = \"/account\")\n-   HttpInvokerServiceExporter accountService() {\n+   /*~~>*/HttpInvokerServiceExporter accountService() {\n        HttpInvokerServiceExporter exporter = new HttpInvokerServiceExporter();\n","newFile":false}]}]}>
 

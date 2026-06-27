@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find scope-function smells"}
-  description={"`run { }` with empty or no-`this` bodies, `also { }` with empty bodies, and `?.let { … !! }` patterns where the null-guard and force-unwrap contradict each other."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindScopeFunctionSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findscopefunctionsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `run { }` calls with an empty body","href":"kotlin/bestpractices/findrunwithemptybody$ktrecipe"},{"name":"Find top-level `run { … }` whose body never uses `this`","href":"kotlin/bestpractices/findstandalonerunwithoutthis$ktrecipe"},{"name":"Find `x.also { }` calls with an empty body","href":"kotlin/bestpractices/findalsowithemptybody$ktrecipe"},{"name":"Find `!!` inside a `?.let { }` body","href":"kotlin/bestpractices/findforceunwrapinlet$ktrecipe"}]}>
+<RecipeHeader.Title>Find scope-function smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>`run { }` with empty or no-`this` bodies, `also { }` with empty bodies, and `?.let { … !! }` patterns where the null-guard and force-unwrap contradict each other.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `run { }` calls with an empty body","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findrunwithemptybody$ktrecipe/"},{"name":"Find top-level `run { … }` whose body never uses `this`","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findstandalonerunwithoutthis$ktrecipe/"},{"name":"Find `x.also { }` calls with an empty body","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findalsowithemptybody$ktrecipe/"},{"name":"Find `!!` inside a `?.let { }` body","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findforceunwrapinlet$ktrecipe/"}]}>
 
 ## Definition
 

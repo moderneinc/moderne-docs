@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Format Kotlin code"}
-  description={"Format Kotlin code using a standard comprehensive set of Kotlin formatting recipes."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-kotlin"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.format.AutoFormat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/format/autoformat.md"}
-/>
+>
+
+<RecipeHeader.Title>Format Kotlin code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format Kotlin code using a standard comprehensive set of Kotlin formatting recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"/*\n * This is a sample file.\n */\n\n\n\n\npackage com.intellij.samples\n\nclass Test {\n}\n","after":"/*\n * This is a sample file.\n */\n\n\npackage com.intellij.samples\n\nclass Test {\n}\n","diff":"@@ -6,2 +6,0 @@\n\n\n-\n-\npackage com.intellij.samples\n","newFile":false}]}]}>
 

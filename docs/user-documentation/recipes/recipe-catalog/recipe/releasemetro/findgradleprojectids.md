@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Gradle project IDs"}
-  description={"Find Gradle project IDs in build.gradle files to determine the project ID."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.recipe.releasemetro.FindGradleProjectIDs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleprojectids.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Gradle project IDs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find Gradle project IDs in build.gradle files to determine the project ID.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"settingsGradleKts","code":"rootProject.name = \"rewrite-testing-frameworks\"\n"},"variants":[{"language":"buildGradleKts","before":"plugins {\n    id(\"java\")\n}\n\ngroup = \"org.openrewrite.recipe\"\n\ndependencies {\n    implementation(\"org.springframework:spring-core:5.3.21\")\n    testImplementation (\"org.junit.jupiter:junit-jupiter:5.8.2\")\n}\n","after":"/*~~(org.openrewrite.recipe:rewrite-testing-frameworks)~~>*/plugins {\n    id(\"java\")\n}\n\ngroup = \"org.openrewrite.recipe\"\n\ndependencies {\n    implementation(\"org.springframework:spring-core:5.3.21\")\n    testImplementation (\"org.junit.jupiter:junit-jupiter:5.8.2\")\n}\n","diff":"@@ -1,1 +1,1 @@\n-plugins {\n+/*~~(org.openrewrite.recipe:rewrite-testing-frameworks)~~>*/plugins {\n    id(\"java\")\n","newFile":false}]}]}>
 

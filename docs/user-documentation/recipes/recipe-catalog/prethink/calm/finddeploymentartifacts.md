@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deployment artifacts"}
-  description={"Identify deployment artifacts including Dockerfiles, docker-compose files, and Kubernetes manifests."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDeploymentArtifacts"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddeploymentartifacts.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deployment artifacts</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify deployment artifacts including Dockerfiles, docker-compose files, and Kubernetes manifests.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindDeploymentArtifacts","displayName":"Find deployment artifacts","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

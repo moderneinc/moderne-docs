@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `java.nio.file.Files`"}
-  description={"Prefer the Java standard library's `java.nio.file.Files` over third-party usage of apache's `apache.commons.io.FileUtils`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","commons"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.io.ApacheFileUtilsToJavaFiles"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/io/apachefileutilstojavafiles.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `java.nio.file.Files`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Java standard library's `java.nio.file.Files` over third-party usage of apache's `apache.commons.io.FileUtils`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.commons.io.FileUtils;\n\nimport java.io.File;\nimport java.nio.charset.Charset;\nimport java.util.List;\n\nclass A {\n    byte[] readFileBytes(File file) {\n        return FileUtils.readFileToByteArray(file);\n    }\n    List<String> readLines(File file) {\n        return FileUtils.readLines(file);\n    }\n    List<String> readLinesWithCharset(File file, Charset charset) {\n        return FileUtils.readLines(file, charset);\n    }\n    List<String> readLinesWithCharsetId(File file) {\n        return FileUtils.readLines(file, \"UTF_8\");\n    }\n}\n","after":"import java.io.File;\nimport java.nio.charset.Charset;\nimport java.nio.file.Files;\nimport java.util.List;\n\nclass A {\n    byte[] readFileBytes(File file) {\n        return Files.readAllBytes(file.toPath());\n    }\n    List<String> readLines(File file) {\n        return Files.readAllLines(file.toPath());\n    }\n    List<String> readLinesWithCharset(File file, Charset charset) {\n        return Files.readAllLines(file.toPath(), charset);\n    }\n    List<String> readLinesWithCharsetId(File file) {\n        return Files.readAllLines(file.toPath(), Charset.forName(\"UTF_8\"));\n    }\n}\n","diff":"@@ -1,2 +1,0 @@\n-import org.apache.commons.io.FileUtils;\n-\nimport java.io.File;\n@@ -5,0 +3,1 @@\nimport java.io.File;\nimport java.nio.charset.Charset;\n+import java.nio.file.Files;\nimport java.util.List;\n@@ -9,1 +8,1 @@\nclass A {\n    byte[] readFileBytes(File file) {\n-       return FileUtils.readFileToByteArray(file);\n+       return Files.readAllBytes(file.toPath());\n    }\n@@ -12,1 +11,1 @@\n    }\n    List<String> readLines(File file) {\n-       return FileUtils.readLines(file);\n+       return Files.readAllLines(file.toPath());\n    }\n@@ -15,1 +14,1 @@\n    }\n    List<String> readLinesWithCharset(File file, Charset charset) {\n-       return FileUtils.readLines(file, charset);\n+       return Files.readAllLines(file.toPath(), charset);\n    }\n@@ -18,1 +17,1 @@\n    }\n    List<String> readLinesWithCharsetId(File file) {\n-       return FileUtils.readLines(file, \"UTF_8\");\n+       return Files.readAllLines(file.toPath(), Charset.forName(\"UTF_8\"));\n    }\n","newFile":false}]}]}>
 

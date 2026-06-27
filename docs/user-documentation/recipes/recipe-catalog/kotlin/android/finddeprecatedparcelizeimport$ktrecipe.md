@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `kotlinx.android.parcel` imports"}
-  description={"The `kotlinx.android.parcel` package was moved to `kotlinx.parcelize` in 2020 when the standalone Parcelize plugin shipped. Replace the import and the Gradle plugin coordinate."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindDeprecatedParcelizeImport$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/finddeprecatedparcelizeimport$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `kotlinx.android.parcel` imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `kotlinx.android.parcel` package was moved to `kotlinx.parcelize` in 2020 when the standalone Parcelize plugin shipped. Replace the import and the Gradle plugin coordinate.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindDeprecatedParcelizeImport$KtRecipe","displayName":"Find `kotlinx.android.parcel` imports","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

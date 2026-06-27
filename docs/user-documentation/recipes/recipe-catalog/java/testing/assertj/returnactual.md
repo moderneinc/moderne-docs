@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Collapse `assertThat` followed by `return` into single statement"}
-  description={"Collapse an `assertThat` statement followed by a `return` of the same object into a single `return assertThat(...).assertions().actual()` statement."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.ReturnActual"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/returnactual.md"}
-/>
+>
+
+<RecipeHeader.Title>Collapse `assertThat` followed by `return` into single statement</RecipeHeader.Title>
+
+<RecipeHeader.Description>Collapse an `assertThat` statement followed by a `return` of the same object into a single `return assertThat(...).assertions().actual()` statement.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    List<String> test(List<String> list) {\n        assertThat(list).isNotNull();\n        return list;\n    }\n}\n","after":"import java.util.List;\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    List<String> test(List<String> list) {\n        return assertThat(list).isNotNull().actual();\n    }\n}\n","diff":"@@ -6,2 +6,1 @@\nclass MyTest {\n    List<String> test(List<String> list) {\n-       assertThat(list).isNotNull();\n-       return list;\n+       return assertThat(list).isNotNull().actual();\n    }\n","newFile":false}]}]}>
 

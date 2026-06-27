@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert API responseHeaders to headers"}
-  description={"Add `headers = @Header(name = ...)` to `@ApiResponse`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.ConvertApiResponseHeadersToHeaders"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/convertapiresponseheaderstoheaders.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert API responseHeaders to headers</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add `headers = @Header(name = ...)` to `@ApiResponse`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.openapi.swagger.ConvertApiResponseHeadersToHeaders","displayName":"Convert API responseHeaders to headers","groupId":"org.openrewrite.recipe","artifactId":"rewrite-openapi","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_OPENAPI","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"TestNG `assertEquals` to AssertJ"}
-  description={"Convert TestNG-style `assertEquals()` to AssertJ's `assertThat().isEqualTo()`, using element-wise assertions (`containsExactly`/`containsExactlyElementsOf`) for arrays and collections."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testng.TestNgAssertEqualsToAssertThat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertequalstoassertthat.md"}
-/>
+>
+
+<RecipeHeader.Title>TestNG `assertEquals` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert TestNG-style `assertEquals()` to AssertJ's `assertThat().isEqualTo()`, using element-wise assertions (`containsExactly`/`containsExactlyElementsOf`) for arrays and collections.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.testng.TestNgAssertEqualsToAssertThat","displayName":"TestNG `assertEquals` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

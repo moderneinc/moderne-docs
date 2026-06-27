@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET server configuration"}
-  description={"Read appsettings*.json and launchSettings.json for Kestrel Urls/ApplicationUrl entries and emit ServerConfiguration rows (port, sslEnabled, contextPath, protocol)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDotnetServerConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetserverconfiguration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET server configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Read appsettings*.json and launchSettings.json for Kestrel Urls/ApplicationUrl entries and emit ServerConfiguration rows (port, sslEnabled, contextPath, protocol).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindDotnetServerConfiguration","displayName":"Find .NET server configuration","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

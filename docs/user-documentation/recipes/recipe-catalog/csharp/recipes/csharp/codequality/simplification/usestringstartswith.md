@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use string.StartsWith instead of IndexOf comparison"}
-  description={"Replace `s.IndexOf(x) == 0` with `s.StartsWith(x)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringStartsWith"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usestringstartswith.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use string.StartsWith instead of IndexOf comparison</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `s.IndexOf(x) == 0` with `s.StartsWith(x)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseStringStartsWith","displayName":"Use string.StartsWith instead of IndexOf comparison","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

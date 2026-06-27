@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unconditional WebFlux response commit calls (CVE-2026-22732)"}
-  description={"Detects WebFlux calls that commit a `ServerHttpResponse` outside the lazy header-writing path: `writeWith(..)`, `writeAndFlushWith(..)`, `setComplete()`, and `HttpHeaders.setContentLength(long)`. Under CVE-2026-22732 these patterns cause Spring Security's lazy-added security headers to be dropped. The sibling recipe `FindHttpResponseContentLengthHeader` covers the servlet `setHeader` / `setIntHeader` / `addIntHeader` case. In addition to marking Java sinks, attaches a {@code SearchResult} marker to every source file in the affected project so this recipe can be used as a declarative precondition for build-level recipes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.recipe.cve202622732.FindHttpResponseContentLengthOrFlushBuffer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/recipe/cve202622732/findhttpresponsecontentlengthorflushbuffer.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find unconditional WebFlux response commit calls (CVE-2026-22732)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects WebFlux calls that commit a `ServerHttpResponse` outside the lazy header-writing path: `writeWith(..)`, `writeAndFlushWith(..)`, `setComplete()`, and `HttpHeaders.setContentLength(long)`. Under CVE-2026-22732 these patterns cause Spring Security's lazy-added security headers to be dropped. The sibling recipe `FindHttpResponseContentLengthHeader` covers the servlet `setHeader` / `setIntHeader` / `addIntHeader` case. In addition to marking Java sinks, attaches a &#123;@code SearchResult} marker to every source file in the affected project so this recipe can be used as a declarative precondition for build-level recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.recipe.cve202622732.FindHttpResponseContentLengthOrFlushBuffer","displayName":"Find unconditional WebFlux response commit calls (CVE-2026-22732)","groupId":"io.moderne.recipe","artifactId":"rewrite-cve-2026-22732","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_CVE_2026_22732","requiresConfiguration":false}}>
 

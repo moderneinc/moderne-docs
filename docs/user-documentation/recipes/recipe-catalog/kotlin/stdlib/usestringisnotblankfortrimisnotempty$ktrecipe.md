@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `isNotBlank()` instead of `trim().isNotEmpty()` on a `String`"}
-  description={"`trim().isNotEmpty()` allocates a trimmed copy to check whether anything is left. `isNotBlank()` answers the same question by scanning in place."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.UseStringIsNotBlankForTrimIsNotEmpty$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usestringisnotblankfortrimisnotempty$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `isNotBlank()` instead of `trim().isNotEmpty()` on a `String`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`trim().isNotEmpty()` allocates a trimmed copy to check whether anything is left. `isNotBlank()` answers the same question by scanning in place.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.stdlib.UseStringIsNotBlankForTrimIsNotEmpty$KtRecipe","displayName":"Use `isNotBlank()` instead of `trim().isNotEmpty()` on a `String`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

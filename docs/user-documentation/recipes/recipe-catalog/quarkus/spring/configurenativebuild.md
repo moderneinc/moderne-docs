@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Configure Quarkus Native Build Support"}
-  description={"Adds configuration and dependencies required for Quarkus native image compilation with GraalVM. Includes native profile configuration and reflection hints where needed."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","native","graalvm","quarkus","migration"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.ConfigureNativeBuild"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/configurenativebuild.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Maven profile","href":"maven/addprofile"},{"name":"Add Quarkus Maven plugin","href":"quarkus/spring/addquarkusmavenplugin"}]}>
+<RecipeHeader.Title>Configure Quarkus Native Build Support</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds configuration and dependencies required for Quarkus native image compilation with GraalVM. Includes native profile configuration and reflection hints where needed.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Maven profile","href":"/user-documentation/recipes/recipe-catalog/maven/addprofile/"},{"name":"Add Quarkus Maven plugin","href":"/user-documentation/recipes/recipe-catalog/quarkus/spring/addquarkusmavenplugin/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Force indentation to either tabs or spaces"}
-  description={"This is useful for one-off migrations of a codebase that has mixed indentation styles, while preserving all other auto-detected formatting rules."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UseTabsOrSpaces"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/usetabsorspaces.md"}
-/>
+>
+
+<RecipeHeader.Title>Force indentation to either tabs or spaces</RecipeHeader.Title>
+
+<RecipeHeader.Description>This is useful for one-off migrations of a codebase that has mixed indentation styles, while preserving all other auto-detected formatting rules.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"boolean","name":"useTabs","required":true,"description":"Whether to use tabs for indentation."}]}>
 

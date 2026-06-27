@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `HeadersConfigurer` chained calls into Lambda DSL"}
-  description={"Converts `HeadersConfigurer` chained call from Spring Security pre 5.2.x into new lambda DSL style calls and removes `and()` methods."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.HeadersConfigurerLambdaDsl"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/headersconfigurerlambdadsl.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `HeadersConfigurer` chained calls into Lambda DSL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `HeadersConfigurer` chained call from Spring Security pre 5.2.x into new lambda DSL style calls and removes `and()` methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\n\n@EnableWebSecurity\npublic class ConventionalSecurityConfig extends WebSecurityConfigurerAdapter {\n\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n                .headers(headers -> headers\n                         .contentSecurityPolicy(\"foobar\"));\n    }\n}\n","after":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\n\n@EnableWebSecurity\npublic class ConventionalSecurityConfig extends WebSecurityConfigurerAdapter {\n\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n                .headers(headers -> headers\n                        .contentSecurityPolicy(policy -> policy\n                                .policyDirectives(\"foobar\")));\n    }\n}\n","diff":"@@ -12,1 +12,2 @@\n        http\n                .headers(headers -> headers\n-                        .contentSecurityPolicy(\"foobar\"));\n+                       .contentSecurityPolicy(policy -> policy\n+                               .policyDirectives(\"foobar\")));\n    }\n","newFile":false}]}]}>
 

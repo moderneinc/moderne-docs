@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@angular/localize/init` polyfill import"}
-  description={"Adds `import '@angular/localize/init'` to `polyfills.ts`. Angular 9 introduced the `$localize` runtime API for i18n. Projects using internationalization must import this polyfill or the application will fail at runtime with `$localize is not defined`. The `@angular/localize` package must also be added as a dependency."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.add-localize-polyfill"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/add-localize-polyfill.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@angular/localize/init` polyfill import</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `import '@angular/localize/init'` to `polyfills.ts`. Angular 9 introduced the `$localize` runtime API for i18n. Projects using internationalization must import this polyfill or the application will fail at runtime with `$localize is not defined`. The `@angular/localize` package must also be added as a dependency.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.add-localize-polyfill","displayName":"Add `@angular/localize/init` polyfill import","npmPackage":"@openrewrite/recipes-angular"}}>
 

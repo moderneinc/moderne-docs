@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `Jackson.newObjectMapper()` with `new ObjectMapper().findAndRegisterModules()`"}
-  description={"Replaces Dropwizard's `Jackson.newObjectMapper()` with `new ObjectMapper().findAndRegisterModules()`, which provides equivalent module auto-discovery using the standard Jackson SPI mechanism."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.jackson.ReplaceJacksonNewObjectMapper"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/jackson/replacejacksonnewobjectmapper.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `Jackson.newObjectMapper()` with `new ObjectMapper().findAndRegisterModules()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces Dropwizard's `Jackson.newObjectMapper()` with `new ObjectMapper().findAndRegisterModules()`, which provides equivalent module auto-discovery using the standard Jackson SPI mechanism.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example;\n\nimport com.fasterxml.jackson.databind.ObjectMapper;\nimport io.dropwizard.jackson.Jackson;\n\npublic class TestUtil {\n    static ObjectMapper createMapper() {\n        return Jackson.newObjectMapper();\n    }\n}\n","after":"package com.example;\n\nimport com.fasterxml.jackson.databind.ObjectMapper;\n\npublic class TestUtil {\n    static ObjectMapper createMapper() {\n        return new ObjectMapper().findAndRegisterModules();\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\n\nimport com.fasterxml.jackson.databind.ObjectMapper;\n-import io.dropwizard.jackson.Jackson;\n\n@@ -8,1 +7,1 @@\npublic class TestUtil {\n    static ObjectMapper createMapper() {\n-       return Jackson.newObjectMapper();\n+       return new ObjectMapper().findAndRegisterModules();\n    }\n","newFile":false}]}]}>
 

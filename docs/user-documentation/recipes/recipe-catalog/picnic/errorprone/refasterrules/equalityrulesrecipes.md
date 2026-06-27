@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`EqualityRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with (in)equalities.\n[Source](https://error-prone.picnic.tech/refasterrules/EqualityRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.EqualityRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/equalityrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `EqualityRules.EnumReferenceEquality`","href":"picnic/errorprone/refasterrules/equalityrulesrecipes$enumreferenceequalityrecipe"},{"name":"Refaster template `EqualityRules.EnumReferenceEqualityLambda`","href":"picnic/errorprone/refasterrules/equalityrulesrecipes$enumreferenceequalitylambdarecipe"},{"name":"Refaster template `EqualityRules.EqualsPredicate`","href":"picnic/errorprone/refasterrules/equalityrulesrecipes$equalspredicaterecipe"},{"name":"Refaster template `EqualityRules.DoubleNegation`","href":"picnic/errorprone/refasterrules/equalityrulesrecipes$doublenegationrecipe"},{"name":"Refaster template `EqualityRules.Negation`","href":"picnic/errorprone/refasterrules/equalityrulesrecipes$negationrecipe"},{"name":"Refaster template `EqualityRules.IndirectDoubleNegation`","href":"picnic/errorprone/refasterrules/equalityrulesrecipes$indirectdoublenegationrecipe"},{"name":"Refaster template `EqualityRules.Equals`","href":"picnic/errorprone/refasterrules/equalityrulesrecipes$equalsrecipe"},{"name":"Refaster template `EqualityRules.ObjectsEquals`","href":"picnic/errorprone/refasterrules/equalityrulesrecipes$objectsequalsrecipe"}]}>
+<RecipeHeader.Title>`EqualityRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with (in)equalities. [Source](https://error-prone.picnic.tech/refasterrules/EqualityRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `EqualityRules.EnumReferenceEquality`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/equalityrulesrecipes$enumreferenceequalityrecipe/"},{"name":"Refaster template `EqualityRules.EnumReferenceEqualityLambda`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/equalityrulesrecipes$enumreferenceequalitylambdarecipe/"},{"name":"Refaster template `EqualityRules.EqualsPredicate`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/equalityrulesrecipes$equalspredicaterecipe/"},{"name":"Refaster template `EqualityRules.DoubleNegation`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/equalityrulesrecipes$doublenegationrecipe/"},{"name":"Refaster template `EqualityRules.Negation`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/equalityrulesrecipes$negationrecipe/"},{"name":"Refaster template `EqualityRules.IndirectDoubleNegation`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/equalityrulesrecipes$indirectdoublenegationrecipe/"},{"name":"Refaster template `EqualityRules.Equals`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/equalityrulesrecipes$equalsrecipe/"},{"name":"Refaster template `EqualityRules.ObjectsEquals`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/equalityrulesrecipes$objectsequalsrecipe/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose API design issues"}
-  description={"Composable functions that don't follow the Compose API guidelines: lowercase name (UI emitters should be `PascalCase`), non-`Unit` return without `@ReadOnlyComposable`, content slot without a default `{}`, missing `Modifier` parameter, and `@Composable` invocations from non-Composable lambdas."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposeApiDesignIssues$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposeapidesignissues$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `@Composable` functions whose name starts with a lowercase letter","href":"kotlin/compose/findlowercasecomposablefunction$ktrecipe"},{"name":"Find `@Composable fun … (): X` functions returning a non-`Unit` value","href":"kotlin/compose/findcomposablewithreturnvalue$ktrecipe"},{"name":"Find `@Composable` functions with a content lambda parameter not defaulted to `{}`","href":"kotlin/compose/findcomposablelambdaparammissingdefault$ktrecipe"},{"name":"Find `@Composable` functions without a `Modifier` parameter","href":"kotlin/compose/findcomposablemissingmodifierparam$ktrecipe"},{"name":"Find `@Composable` calls inside non-`@Composable` lambda parameters","href":"kotlin/compose/findcomposablecallinnoncomposablelambda$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose API design issues</RecipeHeader.Title>
+
+<RecipeHeader.Description>Composable functions that don't follow the Compose API guidelines: lowercase name (UI emitters should be `PascalCase`), non-`Unit` return without `@ReadOnlyComposable`, content slot without a default `{}`, missing `Modifier` parameter, and `@Composable` invocations from non-Composable lambdas.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `@Composable` functions whose name starts with a lowercase letter","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlowercasecomposablefunction$ktrecipe/"},{"name":"Find `@Composable fun … (): X` functions returning a non-`Unit` value","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposablewithreturnvalue$ktrecipe/"},{"name":"Find `@Composable` functions with a content lambda parameter not defaulted to `{}`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposablelambdaparammissingdefault$ktrecipe/"},{"name":"Find `@Composable` functions without a `Modifier` parameter","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposablemissingmodifierparam$ktrecipe/"},{"name":"Find `@Composable` calls inside non-`@Composable` lambda parameters","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposablecallinnoncomposablelambda$ktrecipe/"}]}>
 
 ## Definition
 

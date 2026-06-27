@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find classes with DI dependencies but missing `@Injectable()`"}
-  description={"Finds classes that have constructor parameters (suggesting dependency injection) but lack an `@Injectable()` or other Angular class-level decorator. Angular 9 with Ivy requires an explicit `@Injectable()` decorator for all services that use dependency injection."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-missing-injectable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-missing-injectable.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find classes with DI dependencies but missing `@Injectable()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds classes that have constructor parameters (suggesting dependency injection) but lack an `@Injectable()` or other Angular class-level decorator. Angular 9 with Ivy requires an explicit `@Injectable()` decorator for all services that use dependency injection.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-missing-injectable","displayName":"Find classes with DI dependencies but missing `@Injectable()`","npmPackage":"@openrewrite/recipes-angular"}}>
 

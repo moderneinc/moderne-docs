@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use string.Contains instead of IndexOf comparison"}
-  description={"Replace `s.IndexOf(x) >= 0` with `s.Contains(x)` and `s.IndexOf(x) == -1` with `!s.Contains(x)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseStringContains"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/usestringcontains.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use string.Contains instead of IndexOf comparison</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `s.IndexOf(x) >= 0` with `s.Contains(x)` and `s.IndexOf(x) == -1` with `!s.Contains(x)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseStringContains","displayName":"Use string.Contains instead of IndexOf comparison","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

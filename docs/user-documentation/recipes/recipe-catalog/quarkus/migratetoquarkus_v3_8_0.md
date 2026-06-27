@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Quarkus Updates Aggregate 3.8.0"}
-  description={"Quarkus update recipes to upgrade your application to 3.8.0."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.MigrateToQuarkus_v3_8_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_8_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.7.0","href":"quarkus/migratetoquarkus_v3_7_0"},{"name":"Migrates `camel 4.0` application to `camel 4.4`","href":"quarkus/updates/camel/camel44/camelquarkusmigrationrecipe"},{"name":"io.quarkus.updates.minio.minio38.UpdateAll","href":"quarkus/updates/minio/minio38/updateall"},{"name":"io.quarkus.updates.core.quarkus38.SyncHibernateJpaModelgenVersionWithBOM","href":"quarkus/updates/core/quarkus38/synchibernatejpamodelgenversionwithbom"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
+<RecipeHeader.Title>Quarkus Updates Aggregate 3.8.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Quarkus update recipes to upgrade your application to 3.8.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.7.0","href":"/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_7_0/"},{"name":"Migrates `camel 4.0` application to `camel 4.4`","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel44/camelquarkusmigrationrecipe/"},{"name":"io.quarkus.updates.minio.minio38.UpdateAll","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/minio/minio38/updateall/"},{"name":"io.quarkus.updates.core.quarkus38.SyncHibernateJpaModelgenVersionWithBOM","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus38/synchibernatejpamodelgenversionwithbom/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

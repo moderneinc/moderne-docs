@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find argument validation in iterator method"}
-  description={"Detect iterator methods that validate arguments after `yield return`. Argument validation in iterators is deferred until enumeration begins."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindValidateArgumentsBeforeYield"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findvalidateargumentsbeforeyield.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find argument validation in iterator method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect iterator methods that validate arguments after `yield return`. Argument validation in iterators is deferred until enumeration begins.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindValidateArgumentsBeforeYield","displayName":"Find argument validation in iterator method","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

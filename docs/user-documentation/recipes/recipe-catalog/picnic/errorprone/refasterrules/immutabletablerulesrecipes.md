@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`ImmutableTableRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `ImmutableTable`s.\n[Source](https://error-prone.picnic.tech/refasterrules/ImmutableTableRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableTableRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutabletablerulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `ImmutableTableRules.ImmutableTableBuilder`","href":"picnic/errorprone/refasterrules/immutabletablerulesrecipes$immutabletablebuilderrecipe"},{"name":"Refaster template `ImmutableTableRules.ImmutableTableBuilderBuildOrThrow`","href":"picnic/errorprone/refasterrules/immutabletablerulesrecipes$immutabletablebuilderbuildorthrowrecipe"},{"name":"Refaster template `ImmutableTableRules.CellToImmutableTable`","href":"picnic/errorprone/refasterrules/immutabletablerulesrecipes$celltoimmutabletablerecipe"},{"name":"Refaster template `ImmutableTableRules.ImmutableTableOf`","href":"picnic/errorprone/refasterrules/immutabletablerulesrecipes$immutabletableofrecipe"},{"name":"Refaster template `ImmutableTableRules.ImmutableTableBuilderPut`","href":"picnic/errorprone/refasterrules/immutabletablerulesrecipes$immutabletablebuilderputrecipe"}]}>
+<RecipeHeader.Title>`ImmutableTableRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `ImmutableTable`s. [Source](https://error-prone.picnic.tech/refasterrules/ImmutableTableRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `ImmutableTableRules.ImmutableTableBuilder`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutabletablerulesrecipes$immutabletablebuilderrecipe/"},{"name":"Refaster template `ImmutableTableRules.ImmutableTableBuilderBuildOrThrow`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutabletablerulesrecipes$immutabletablebuilderbuildorthrowrecipe/"},{"name":"Refaster template `ImmutableTableRules.CellToImmutableTable`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutabletablerulesrecipes$celltoimmutabletablerecipe/"},{"name":"Refaster template `ImmutableTableRules.ImmutableTableOf`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutabletablerulesrecipes$immutabletableofrecipe/"},{"name":"Refaster template `ImmutableTableRules.ImmutableTableBuilderPut`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutabletablerulesrecipes$immutabletablebuilderputrecipe/"}]}>
 
 ## Definition
 

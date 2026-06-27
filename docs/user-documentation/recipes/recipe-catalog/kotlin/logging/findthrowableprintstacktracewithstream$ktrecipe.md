@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `e.printStackTrace(out)` calls"}
-  description={"Writing the stack trace to a `PrintStream` / `PrintWriter` is the Java idiom for re-routing it manually. With a structured logger you don't need to — `log.error(\"context\", e)` already carries the throwable to the configured sink. Review whether the explicit redirection still serves a purpose."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindThrowablePrintStackTraceWithStream$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findthrowableprintstacktracewithstream$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `e.printStackTrace(out)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Writing the stack trace to a `PrintStream` / `PrintWriter` is the Java idiom for re-routing it manually. With a structured logger you don't need to — `log.error("context", e)` already carries the throwable to the configured sink. Review whether the explicit redirection still serves a purpose.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindThrowablePrintStackTraceWithStream$KtRecipe","displayName":"Find `e.printStackTrace(out)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

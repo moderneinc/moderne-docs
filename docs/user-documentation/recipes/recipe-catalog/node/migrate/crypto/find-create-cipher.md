@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage"}
-  description={"`crypto.createCipher()` and `crypto.createDecipher()` were deprecated in Node.js 10 (DEP0106) and removed in Node.js 22. Use `crypto.createCipheriv()` and `crypto.createDecipheriv()` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0106"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.crypto.find-create-cipher"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/crypto/find-create-cipher.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>`crypto.createCipher()` and `crypto.createDecipher()` were deprecated in Node.js 10 (DEP0106) and removed in Node.js 22. Use `crypto.createCipheriv()` and `crypto.createDecipheriv()` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.crypto.find-create-cipher","displayName":"Find deprecated `crypto.createCipher()` and `crypto.createDecipher()` usage","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

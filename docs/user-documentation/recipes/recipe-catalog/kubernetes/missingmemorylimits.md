@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure memory limits are set"}
-  description={"With no limit set, kubectl allocates more and more memory to the container until it runs out."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kubernetes"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.MissingMemoryLimits"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/missingmemorylimits.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find missing configuration","href":"kubernetes/search/findresourcemissingconfiguration"}]}>
+<RecipeHeader.Title>Ensure memory limits are set</RecipeHeader.Title>
+
+<RecipeHeader.Description>With no limit set, kubectl allocates more and more memory to the container until it runs out.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find missing configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/search/findresourcemissingconfiguration/"}]}>
 
 ## Definition
 

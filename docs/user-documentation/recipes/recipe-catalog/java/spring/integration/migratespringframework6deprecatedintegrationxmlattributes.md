@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Integration XML attributes deprecated by Spring Integration 6.x"}
-  description={"Renames or removes Spring Integration XML attributes that were deprecated or removed between Spring Integration 5.x and 6.x. Scoped to XML files using the Spring Integration namespace."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","integration"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.integration.MigrateSpringFramework6DeprecatedIntegrationXmlAttributes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/integration/migratespringframework6deprecatedintegrationxmlattributes.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML attribute key","href":"xml/changetagattributekey"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Add a comment to an XML tag","href":"xml/addcommenttoxmltag"},{"name":"Add a comment to an XML tag","href":"xml/addcommenttoxmltag"},{"name":"Add a comment to an XML tag","href":"xml/addcommenttoxmltag"},{"name":"Add a comment to an XML tag","href":"xml/addcommenttoxmltag"},{"name":"Add a comment to an XML tag","href":"xml/addcommenttoxmltag"},{"name":"Add a comment to an XML tag","href":"xml/addcommenttoxmltag"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Find XML tags","href":"xml/search/findtags"}]}>
+<RecipeHeader.Title>Migrate Spring Integration XML attributes deprecated by Spring Integration 6.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames or removes Spring Integration XML attributes that were deprecated or removed between Spring Integration 5.x and 6.x. Scoped to XML files using the Spring Integration namespace.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML attribute key","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattributekey/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Add a comment to an XML tag","href":"/user-documentation/recipes/recipe-catalog/xml/addcommenttoxmltag/"},{"name":"Add a comment to an XML tag","href":"/user-documentation/recipes/recipe-catalog/xml/addcommenttoxmltag/"},{"name":"Add a comment to an XML tag","href":"/user-documentation/recipes/recipe-catalog/xml/addcommenttoxmltag/"},{"name":"Add a comment to an XML tag","href":"/user-documentation/recipes/recipe-catalog/xml/addcommenttoxmltag/"},{"name":"Add a comment to an XML tag","href":"/user-documentation/recipes/recipe-catalog/xml/addcommenttoxmltag/"},{"name":"Add a comment to an XML tag","href":"/user-documentation/recipes/recipe-catalog/xml/addcommenttoxmltag/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Find XML tags","href":"/user-documentation/recipes/recipe-catalog/xml/search/findtags/"}]}>
 
 ## Definition
 

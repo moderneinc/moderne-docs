@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove OpenFeature's `getDoubleValue` for feature key"}
-  description={"Replace `getDoubleValue()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-feature-flags"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.featureflags.openfeature.RemoveGetDoubleValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/featureflags/openfeature/removegetdoublevalue.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a double feature flag for feature key","href":"featureflags/removedoubleflag"}]}>
+<RecipeHeader.Title>Remove OpenFeature's `getDoubleValue` for feature key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `getDoubleValue()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a double feature flag for feature key","href":"/user-documentation/recipes/recipe-catalog/featureflags/removedoubleflag/"}]}>
 
 ## Definition
 

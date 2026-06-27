@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enable `PodSecurityPolicy` controller on Google Kubernetes Engine (GKE) clusters"}
-  description={"Ensure `PodSecurityPolicy` controller is enabled on Google Kubernetes Engine (GKE) clusters."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["GCP","CKV_GCP_24","terraform"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.gcp.EnablePodSecurityPolicyControllerOnGKEClusters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/gcp/enablepodsecuritypolicycontrollerongkeclusters.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Enable `PodSecurityPolicy` controller on Google Kubernetes Engine (GKE) clusters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure `PodSecurityPolicy` controller is enabled on Google Kubernetes Engine (GKE) clusters.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

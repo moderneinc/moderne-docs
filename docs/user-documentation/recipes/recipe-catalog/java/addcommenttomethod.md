@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add comment to method declarations"}
-  description={"Add a comment to method declarations in a Java source file."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.AddCommentToMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/addcommenttomethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Add comment to method declarations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a comment to method declarations in a Java source file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"comment","required":true,"description":"The comment to add.","example":"This is a comment."},{"type":"String","name":"methodPattern","required":true,"description":"A pattern to match methods to add the comment to. A [method pattern](https://docs.openrewrite.org/reference/method-patterns) is used to find matching method declarations. For example, to find all method declarations in the Guava library, use the pattern: `com.google.common..*#*(..)`.<br/><br/>The pattern format is `<PACKAGE>#<METHOD_NAME>(<ARGS>)`. <br/><br/>`..*` includes all subpackages of `com.google.common`. <br/>`*(..)` matches any method name with any number of arguments. <br/><br/>For more specific queries, like Guava's `ImmutableMap`, use `com.google.common.collect.ImmutableMap#*(..)` to narrow down the results.","example":"java.util.List add*(..)"},{"type":"Boolean","name":"isMultiline","required":false,"description":"Comments use by default single line // but they can use multiline /* */."}]}>
 

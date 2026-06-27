@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use HTTPS for repositories"}
-  description={"Use HTTPS for repository URLs."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["security","CWE-829"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.security.UseHttpsForRepositories"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/security/usehttpsforrepositories.md"}
-/>
+>
+
+<RecipeHeader.Title>Use HTTPS for repositories</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use HTTPS for repository URLs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n  <groupId>org.openrewrite.example</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <repositories>\n    <repository>\n      <id>my-repo</id>\n      <url>http://repo.example.com/repo</url>\n    </repository>\n  </repositories>\n</project>\n","after":"<project>\n  <groupId>org.openrewrite.example</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <repositories>\n    <repository>\n      <id>my-repo</id>\n      <url>https://repo.example.com/repo</url>\n    </repository>\n  </repositories>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -8,1 +8,1 @@\n    <repository>\n      <id>my-repo</id>\n-     <url>http://repo.example.com/repo</url>\n+     <url>https://repo.example.com/repo</url>\n    </repository>\n","newFile":false}]}]}>
 

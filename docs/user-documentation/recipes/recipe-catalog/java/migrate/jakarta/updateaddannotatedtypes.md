@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `BeforeBeanDiscovery.addAnnotatedType(AnnotatedType)` with `addAnnotatedType(AnnotatedType, String)`"}
-  description={"`BeforeBeanDiscovery.addAnnotatedType(AnnotatedType)` is deprecated in CDI 1.1. It is Replaced by `BeforeBeanDiscovery.addAnnotatedType(AnnotatedType, String)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.UpdateAddAnnotatedTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateaddannotatedtypes.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `BeforeBeanDiscovery.addAnnotatedType(AnnotatedType)` with `addAnnotatedType(AnnotatedType, String)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`BeforeBeanDiscovery.addAnnotatedType(AnnotatedType)` is deprecated in CDI 1.1. It is Replaced by `BeforeBeanDiscovery.addAnnotatedType(AnnotatedType, String)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.enterprise.inject.spi.AnnotatedType;\nimport jakarta.enterprise.inject.spi.BeanManager;\nimport jakarta.enterprise.inject.spi.BeforeBeanDiscovery;\n\nclass Foo {\n  void bar(BeforeBeanDiscovery beforeBeanDiscovery, BeanManager beanManager) {\n    AnnotatedType<String> producerType = beanManager.createAnnotatedType(String.class);\n    beforeBeanDiscovery.addAnnotatedType(producerType); // Flag this one\n    beforeBeanDiscovery.addAnnotatedType(producerType, \"my unique id\"); // Not this one\n    beforeBeanDiscovery.addAnnotatedType(String.class, \"my other unique id\"); // Not this one\n  }\n}\n","after":"import jakarta.enterprise.inject.spi.AnnotatedType;\nimport jakarta.enterprise.inject.spi.BeanManager;\nimport jakarta.enterprise.inject.spi.BeforeBeanDiscovery;\n\nclass Foo {\n  void bar(BeforeBeanDiscovery beforeBeanDiscovery, BeanManager beanManager) {\n    AnnotatedType<String> producerType = beanManager.createAnnotatedType(String.class);\n    beforeBeanDiscovery.addAnnotatedType(producerType, null); // Flag this one\n    beforeBeanDiscovery.addAnnotatedType(producerType, \"my unique id\"); // Not this one\n    beforeBeanDiscovery.addAnnotatedType(String.class, \"my other unique id\"); // Not this one\n  }\n}\n","diff":"@@ -8,1 +8,1 @@\n  void bar(BeforeBeanDiscovery beforeBeanDiscovery, BeanManager beanManager) {\n    AnnotatedType<String> producerType = beanManager.createAnnotatedType(String.class);\n-   beforeBeanDiscovery.addAnnotatedType(producerType); // Flag this one\n+   beforeBeanDiscovery.addAnnotatedType(producerType, null); // Flag this one\n    beforeBeanDiscovery.addAnnotatedType(producerType, \"my unique id\"); // Not this one\n","newFile":false}]}]}>
 

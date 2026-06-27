@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade `micronaut.version` Maven property"}
-  description={"Set the maven micronaut.version property according to a node-style semver selector or to a specific version number."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.UpgradeMicronautMavenPropertyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/upgrademicronautmavenpropertyversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade `micronaut.version` Maven property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Set the maven micronaut.version property according to a node-style semver selector or to a specific version number.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"newVersion","required":true,"description":"An exact version number, or node-style semver selector used to select the version number.","example":"4.x"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Angular 15"}
-  description={"Migrates Angular 14.x applications to Angular 15. This includes removing the `relativeLinkResolution` option from `RouterModule.forRoot()`, removing the `enableIvy` compiler option from `tsconfig.json`, flagging the deprecated `DATE_PIPE_DEFAULT_TIMEZONE` token and `providedIn: NgModule`/`'any'` usage, and upgrading Angular, TypeScript, and related dependency versions."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.UpgradeToAngular15"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/upgradetoangular15.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade to Angular 14","href":"angular/upgradetoangular14"},{"name":"Remove `relativeLinkResolution`","href":"angular/migration/remove-relative-link-resolution"},{"name":"Remove `enableIvy` compiler option","href":"angular/migration/remove-enable-ivy"},{"name":"Find `DATE_PIPE_DEFAULT_TIMEZONE` usage","href":"angular/search/find-date-pipe-default-timezone-usage"},{"name":"Find deprecated `providedIn` values","href":"angular/search/find-provided-in-deprecated-usage"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Upgrade to Angular 15</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Angular 14.x applications to Angular 15. This includes removing the `relativeLinkResolution` option from `RouterModule.forRoot()`, removing the `enableIvy` compiler option from `tsconfig.json`, flagging the deprecated `DATE_PIPE_DEFAULT_TIMEZONE` token and `providedIn: NgModule`/`'any'` usage, and upgrading Angular, TypeScript, and related dependency versions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade to Angular 14","href":"/user-documentation/recipes/recipe-catalog/angular/upgradetoangular14/"},{"name":"Remove `relativeLinkResolution`","href":"/user-documentation/recipes/recipe-catalog/angular/migration/remove-relative-link-resolution/"},{"name":"Remove `enableIvy` compiler option","href":"/user-documentation/recipes/recipe-catalog/angular/migration/remove-enable-ivy/"},{"name":"Find `DATE_PIPE_DEFAULT_TIMEZONE` usage","href":"/user-documentation/recipes/recipe-catalog/angular/search/find-date-pipe-default-timezone-usage/"},{"name":"Find deprecated `providedIn` values","href":"/user-documentation/recipes/recipe-catalog/angular/search/find-provided-in-deprecated-usage/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `static: false` to view queries"}
-  description={"Adds `static: false` to `@ViewChild` and `@ContentChild` decorators that don't have the `static` property. Angular 8 requires an explicit `static` flag for view query decorators. Using `static: false` preserves the Angular 7 default behavior (queries resolved after change detection)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.add-static-false-to-view-queries"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/add-static-false-to-view-queries.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `static: false` to view queries</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `static: false` to `@ViewChild` and `@ContentChild` decorators that don't have the `static` property. Angular 8 requires an explicit `static` flag for view query decorators. Using `static: false` preserves the Angular 7 default behavior (queries resolved after change detection).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.add-static-false-to-view-queries","displayName":"Add `static: false` to view queries","npmPackage":"@openrewrite/recipes-angular"}}>
 

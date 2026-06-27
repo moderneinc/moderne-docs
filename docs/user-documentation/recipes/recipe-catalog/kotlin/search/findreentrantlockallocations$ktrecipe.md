@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `ReentrantLock()` / `ReentrantReadWriteLock()` allocations"}
-  description={"Each `ReentrantLock` allocation is a manual concurrency primitive. Flag for review — in coroutine code, `Mutex` is usually the cooperative-cancellation-friendly replacement."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindReentrantLockAllocations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findreentrantlockallocations$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `ReentrantLock()` / `ReentrantReadWriteLock()` allocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `ReentrantLock` allocation is a manual concurrency primitive. Flag for review — in coroutine code, `Mutex` is usually the cooperative-cancellation-friendly replacement.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindReentrantLockAllocations$KtRecipe","displayName":"Find `ReentrantLock()` / `ReentrantReadWriteLock()` allocations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

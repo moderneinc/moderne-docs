@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Android permissions / security smells"}
-  description={"Permission-handling patterns the platform has deprecated: direct `requestPermissions(...)` calls and `onRequestPermissionsResult` overrides (use `ActivityResultContracts.RequestPermission`), and `MODE_WORLD_READABLE` / `WORLD_WRITEABLE` (use `FileProvider`)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindAndroidPermissionsSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidpermissionssmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find direct `requestPermissions(...)` calls","href":"kotlin/android/findrequestpermissions$ktrecipe"},{"name":"Find `onRequestPermissionsResult` overrides","href":"kotlin/android/findonrequestpermissionsresultoverride$ktrecipe"},{"name":"Find `MODE_WORLD_READABLE` / `MODE_WORLD_WRITEABLE` references","href":"kotlin/android/findmodeworldreadable$ktrecipe"},{"name":"Find legacy `Intent.ACTION_PICK` / `ACTION_GET_CONTENT` references","href":"kotlin/android/findintentactiongetcontent$ktrecipe"}]}>
+<RecipeHeader.Title>Find Android permissions / security smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Permission-handling patterns the platform has deprecated: direct `requestPermissions(...)` calls and `onRequestPermissionsResult` overrides (use `ActivityResultContracts.RequestPermission`), and `MODE_WORLD_READABLE` / `WORLD_WRITEABLE` (use `FileProvider`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find direct `requestPermissions(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findrequestpermissions$ktrecipe/"},{"name":"Find `onRequestPermissionsResult` overrides","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findonrequestpermissionsresultoverride$ktrecipe/"},{"name":"Find `MODE_WORLD_READABLE` / `MODE_WORLD_WRITEABLE` references","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findmodeworldreadable$ktrecipe/"},{"name":"Find legacy `Intent.ACTION_PICK` / `ACTION_GET_CONTENT` references","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findintentactiongetcontent$ktrecipe/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Delete a spring configuration property"}
-  description={"Delete a spring configuration property from any configuration file that contains a matching key."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.DeleteSpringProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/deletespringproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Delete a spring configuration property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Delete a spring configuration property from any configuration file that contains a matching key.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The property key to delete. Supports glob expressions","example":"management.endpoint.configprops.*"}]}>
 

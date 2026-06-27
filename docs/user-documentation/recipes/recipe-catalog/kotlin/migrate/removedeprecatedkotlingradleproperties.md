@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove deprecated Kotlin Gradle properties"}
-  description={"Remove deprecated Kotlin Gradle properties from `gradle.properties`. `kotlin.experimental.coroutines` was removed in Kotlin 2.x."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={["gradle","kotlin"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.RemoveDeprecatedKotlinGradleProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/removedeprecatedkotlingradleproperties.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Delete property by key","href":"properties/deleteproperty"}]}>
+<RecipeHeader.Title>Remove deprecated Kotlin Gradle properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove deprecated Kotlin Gradle properties from `gradle.properties`. `kotlin.experimental.coroutines` was removed in Kotlin 2.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Delete property by key","href":"/user-documentation/recipes/recipe-catalog/properties/deleteproperty/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `Stream.collect(Collectors.toUnmodifiableList())` with `Stream.toList()`"}
-  description={"Replace `Stream.collect(Collectors.toUnmodifiableList())` with Java 16+ `Stream.toList()`. Also replaces `Stream.collect(Collectors.toList())` if `convertToList` is set to `true`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S6204"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.ReplaceStreamCollectWithToList"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/replacestreamcollectwithtolist.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `Stream.collect(Collectors.toUnmodifiableList())` with `Stream.toList()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `Stream.collect(Collectors.toUnmodifiableList())` with Java 16+ `Stream.toList()`. Also replaces `Stream.collect(Collectors.toList())` if `convertToList` is set to `true`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"convertToList","required":false,"description":"Also replace `Stream.collect(Collectors.toList())` with `Stream.toList()`. *BEWARE*: Attempts to modify the returned list, result in an `UnsupportedOperationException`!"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unencrypted PII storage"}
-  description={"Identifies when personally identifiable information (PII) is stored in databases, files, or other persistent storage without encryption."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.security.FindUnencryptedPiiStorage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/security/findunencryptedpiistorage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find unencrypted PII storage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identifies when personally identifiable information (PII) is stored in databases, files, or other persistent storage without encryption.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.sql.PreparedStatement;\n\nclass UserDao {\n    void saveUser(PreparedStatement stmt, String ssn, String email) throws Exception {\n        stmt.setString(1, ssn);\n        stmt.setString(2, email);\n        stmt.executeUpdate();\n    }\n}\n","after":"import java.sql.PreparedStatement;\n\nclass UserDao {\n    void saveUser(PreparedStatement stmt, String ssn, String email) throws Exception {\n        /*~~(PII use)~~>*/stmt.setString(1, ssn);\n        /*~~(PII use)~~>*/stmt.setString(2, email);\n        stmt.executeUpdate();\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass UserDao {\n    void saveUser(PreparedStatement stmt, String ssn, String email) throws Exception {\n-       stmt.setString(1, ssn);\n-       stmt.setString(2, email);\n+       /*~~(PII use)~~>*/stmt.setString(1, ssn);\n+       /*~~(PII use)~~>*/stmt.setString(2, email);\n        stmt.executeUpdate();\n","newFile":false}]}]}>
 

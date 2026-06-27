@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@EventListener` methods with non-`Unit` return types"}
-  description={"Spring's `@EventListener` republishes any non-`Unit` return value as a new event. That's a useful feature when intentional, but easy to trip over — a function written to `return result` for the caller's convenience ends up firing the event loop. Make the intent explicit (`return Unit` if the caller value isn't supposed to publish, or document that it should)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindEventListenerWithReturn$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findeventlistenerwithreturn$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@EventListener` methods with non-`Unit` return types</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring's `@EventListener` republishes any non-`Unit` return value as a new event. That's a useful feature when intentional, but easy to trip over — a function written to `return result` for the caller's convenience ends up firing the event loop. Make the intent explicit (`return Unit` if the caller value isn't supposed to publish, or document that it should).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindEventListenerWithReturn$KtRecipe","displayName":"Find `@EventListener` methods with non-`Unit` return types","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

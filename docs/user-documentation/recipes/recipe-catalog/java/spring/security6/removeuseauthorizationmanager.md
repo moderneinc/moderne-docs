@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary `use-authorization-manager` for message security in Spring security 6"}
-  description={"In Spring Security 6, `<websocket-message-broker>` defaults `use-authorization-manager` to `true`. So, the `use-authorization-manager` attribute for message security is no longer needed and can be removed."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","security"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security6.RemoveUseAuthorizationManager"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/removeuseauthorizationmanager.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML attribute","href":"xml/changetagattribute"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove unnecessary `use-authorization-manager` for message security in Spring security 6</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Security 6, `<websocket-message-broker>` defaults `use-authorization-manager` to `true`. So, the `use-authorization-manager` attribute for message security is no longer needed and can be removed.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

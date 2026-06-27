@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hardcoded container credentials"}
-  description={"Detects hardcoded credentials in GitHub Actions container configurations. Container registry passwords should use secrets instead of hardcoded values. Based on [zizmor's hardcoded-container-credentials audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/hardcoded_container_credentials.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.HardcodedCredentials"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/hardcodedcredentials.md"}
-/>
+>
+
+<RecipeHeader.Title>Find hardcoded container credentials</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects hardcoded credentials in GitHub Actions container configurations. Container registry passwords should use secrets instead of hardcoded values. Based on [zizmor's hardcoded-container-credentials audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/hardcoded_container_credentials.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"on: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    container:\n      image: my-registry/image:latest\n      credentials:\n        username: user\n        password: hardcoded-password\n    steps:\n      - run: echo \"test\"\n","after":"on: push\njobs:\n  test:\n    runs-on: ubuntu-latest\n    container:\n      image: my-registry/image:latest\n      credentials:\n        username: user\n        ~~(Container registry password 'hardcoded-password' appears to be hardcoded. Use secrets (e.g., ${{ secrets.REGISTRY_PASSWORD }}) instead.)~~>password: hardcoded-password\n    steps:\n      - run: echo \"test\"\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -9,1 +9,1 @@\n      credentials:\n        username: user\n-       password: hardcoded-password\n+       ~~(Container registry password 'hardcoded-password' appears to be hardcoded. Use secrets (e.g., ${{ secrets.REGISTRY_PASSWORD }}) instead.)~~>password: hardcoded-password\n    steps:\n","newFile":false}]}]}>
 

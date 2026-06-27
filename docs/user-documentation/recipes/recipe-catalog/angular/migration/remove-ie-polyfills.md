@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove IE11 polyfills"}
-  description={"Removes IE11-specific polyfill imports (`core-js`, `classlist.js`, `web-animations-js`) from `polyfills.ts` and `angular.json`. Angular 13 dropped IE11 support, making these polyfills unnecessary."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-ie-polyfills"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-ie-polyfills.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove IE11 polyfills</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes IE11-specific polyfill imports (`core-js`, `classlist.js`, `web-animations-js`) from `polyfills.ts` and `angular.json`. Angular 13 dropped IE11 support, making these polyfills unnecessary.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <RecipeList recipes={[{"name":"Remove IE polyfill imports from `polyfills.ts`","href":""},{"name":"Remove IE polyfills from `angular.json`","href":""}]}>
 

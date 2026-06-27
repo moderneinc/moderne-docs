@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `freeCompilerArgs.addAll(...)` in Kotlin `compilerOptions`"}
-  description={"In Gradle Kotlin DSL build scripts, replace the legacy `freeCompilerArgs = listOf(...)` assignment inside a `compilerOptions` (or `kotlinOptions`) block with the modern `freeCompilerArgs.addAll(...)`, the idiomatic way to contribute arguments to the `ListProperty`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseFreeCompilerArgsAddAll"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usefreecompilerargsaddall.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `freeCompilerArgs.addAll(...)` in Kotlin `compilerOptions`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Gradle Kotlin DSL build scripts, replace the legacy `freeCompilerArgs = listOf(...)` assignment inside a `compilerOptions` (or `kotlinOptions`) block with the modern `freeCompilerArgs.addAll(...)`, the idiomatic way to contribute arguments to the `ListProperty`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"plugins {\n    kotlin(\"jvm\") version \"1.9.24\"\n}\ntasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {\n    compilerOptions {\n        freeCompilerArgs = listOf(\"-Xjsr305=strict\")\n    }\n}\n","after":"plugins {\n    kotlin(\"jvm\") version \"1.9.24\"\n}\ntasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {\n    compilerOptions {\n        freeCompilerArgs.addAll(\"-Xjsr305=strict\")\n    }\n}\n","diff":"--- build.gradle.kts\n+++ build.gradle.kts\n@@ -6,1 +6,1 @@\ntasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {\n    compilerOptions {\n-       freeCompilerArgs = listOf(\"-Xjsr305=strict\")\n+       freeCompilerArgs.addAll(\"-Xjsr305=strict\")\n    }\n","newFile":false}]}]}>
 

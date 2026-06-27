@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Int.toString(2)` instead of `Integer.toBinaryString`"}
-  description={"`Integer.toBinaryString(i)` is JVM-only; the multiplatform `i.toString(2)` produces the same binary text."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseIntToStringBinary$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useinttostringbinary$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Int.toString(2)` instead of `Integer.toBinaryString`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Integer.toBinaryString(i)` is JVM-only; the multiplatform `i.toString(2)` produces the same binary text.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseIntToStringBinary$KtRecipe","displayName":"Use `Int.toString(2)` instead of `Integer.toBinaryString`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

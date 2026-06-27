@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remediate OWASP A06:2021 Vulnerable and outdated components"}
-  description={"OWASP [A06:2021](https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/) describes failures related to vulnerable and outdated components."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspA06"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/owaspa06.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find and fix vulnerable Maven/Gradle dependencies","href":"java/dependencies/dependencyvulnerabilitycheck"}]}>
+<RecipeHeader.Title>Remediate OWASP A06:2021 Vulnerable and outdated components</RecipeHeader.Title>
+
+<RecipeHeader.Description>OWASP [A06:2021](https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/) describes failures related to vulnerable and outdated components.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find and fix vulnerable Maven/Gradle dependencies","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck/"}]}>
 
 ## Definition
 

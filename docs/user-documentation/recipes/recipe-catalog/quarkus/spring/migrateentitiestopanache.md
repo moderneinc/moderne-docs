@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JPA Entities to Panache Entities"}
-  description={"Converts standard JPA entities to Quarkus Panache entities using the Active Record pattern. Entities will extend PanacheEntity and gain built-in CRUD operations."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","quarkus","panache","migration","jpa"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.MigrateEntitiesToPanache"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/migrateentitiestopanache.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Convert JPA Entity to Panache Entity","href":"quarkus/spring/jpaentitytopanacheentity"}]}>
+<RecipeHeader.Title>Migrate JPA Entities to Panache Entities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts standard JPA entities to Quarkus Panache entities using the Active Record pattern. Entities will extend PanacheEntity and gain built-in CRUD operations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Convert JPA Entity to Panache Entity","href":"/user-documentation/recipes/recipe-catalog/quarkus/spring/jpaentitytopanacheentity/"}]}>
 
 ## Definition
 

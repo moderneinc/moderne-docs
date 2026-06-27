@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use [VulnCheck Exploit Intelligence](https://docs.vulncheck.com/products/exploit-and-vulnerability-intelligence/exploit-intelligence) to fix vulnerabilities"}
-  description={"This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from VulnCheck Vulnerability Intelligence. The recipe has an option to limit fixes to only those vulnerabilities that have evidence of exploitation at various levels of severity."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.vulncheck.FixVulnCheckVulnerabilities"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/vulncheck/fixvulncheckvulnerabilities.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use [VulnCheck Exploit Intelligence](https://docs.vulncheck.com/products/exploit-and-vulnerability-intelligence/exploit-intelligence) to fix vulnerabilities</RecipeHeader.Title>
+
+<RecipeHeader.Description>This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from VulnCheck Vulnerability Intelligence. The recipe has an option to limit fixes to only those vulnerabilities that have evidence of exploitation at various levels of severity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"apiToken","required":true,"description":"The API token for the VulnCheck api","example":"A_TOKEN_GENERATED_FROM_VULNCHECK"},{"type":"String","name":"scope","required":false,"description":"Match dependencies with the specified scope. Default is `compile`. An explanation of what each scope means can be found in the [Apache Maven documentation](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#Dependency_Scope).","example":"compile"},{"type":"Boolean","name":"overrideTransitive","required":false,"description":"When enabled transitive dependencies with vulnerabilities will have their versions overridden. By default only direct dependencies have their version numbers upgraded.","example":"false"},{"type":"UpgradeDelta","name":"maximumUpgradeDelta","required":false,"description":"The maximum difference to allow when suggesting a dependency version upgrade. Patch version upgrades are the default and safest option, as patch releases assert full backwards compatibility with no breaking changes. Minor version upgrades can introduce new features but do not _typically_ include breaking changes. Major version upgrades will typically require code changes above and beyond this recipe. ","example":"patch"},{"type":"String","name":"exploitMaturity","required":false,"description":"Fix only those vulnerabilities that have an exploit maturity level equal to or greater than the specified level.","example":"weaponized"}]}>
 

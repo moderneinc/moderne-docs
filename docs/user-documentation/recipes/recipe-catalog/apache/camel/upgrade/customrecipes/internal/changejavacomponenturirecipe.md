@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Camel component URI in Java"}
-  description={"Transforms component URIs in Java code using regular expressions with capturing groups."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.customRecipes.internal.ChangeJavaComponentUriRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/internal/changejavacomponenturirecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Camel component URI in Java</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms component URIs in Java code using regular expressions with capturing groups.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"uriPattern","required":true,"description":"Regular expression to match the component URI. Use capturing groups for parts to preserve.","example":"^pulsar:((persistent|non-persistent)://([^/]+)/([^/]+)/([^/]+)/(.+))$"},{"type":"String","name":"replacement","required":true,"description":"Replacement string using ${1}, ${2}, etc. to reference capturing groups from the pattern.","example":"pulsar:${2}://${3}/${5}/${6}"}]}>
 

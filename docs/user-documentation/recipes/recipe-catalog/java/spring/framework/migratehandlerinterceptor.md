@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `HandlerInterceptorAdapter` to `HandlerInterceptor`"}
-  description={"Deprecated as of 5.3 in favor of implementing `HandlerInterceptor` and/or `AsyncHandlerInterceptor`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateHandlerInterceptor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratehandlerinterceptor.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `HandlerInterceptorAdapter` to `HandlerInterceptor`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Deprecated as of 5.3 in favor of implementing `HandlerInterceptor` and/or `AsyncHandlerInterceptor`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.http.*;\n\nimport org.springframework.web.servlet.handler.HandlerInterceptorAdapter;\nimport org.springframework.web.servlet.ModelAndView;\n\nclass MyInterceptor extends HandlerInterceptorAdapter {\n    @Override\n    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {\n        return super.preHandle(request, response, handler);\n    }\n\n    @Override\n    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {\n        super.postHandle(request, response, handler, modelAndView);\n    }\n\n    @Override\n    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {\n        super.afterCompletion(request, response, handler, ex);\n    }\n}\n","after":"import javax.servlet.http.*;\n\nimport org.springframework.web.servlet.HandlerInterceptor;\nimport org.springframework.web.servlet.ModelAndView;\n\nclass MyInterceptor implements HandlerInterceptor {\n    @Override\n    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {\n        return true;\n    }\n\n    @Override\n    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {\n    }\n\n    @Override\n    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport javax.servlet.http.*;\n\n-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;\n+import org.springframework.web.servlet.HandlerInterceptor;\nimport org.springframework.web.servlet.ModelAndView;\n@@ -6,1 +6,1 @@\nimport org.springframework.web.servlet.ModelAndView;\n\n-class MyInterceptor extends HandlerInterceptorAdapter {\n+class MyInterceptor implements HandlerInterceptor {\n    @Override\n@@ -9,1 +9,1 @@\n    @Override\n    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {\n-       return super.preHandle(request, response, handler);\n+       return true;\n    }\n@@ -14,1 +14,0 @@\n    @Override\n    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {\n-       super.postHandle(request, response, handler, modelAndView);\n    }\n@@ -19,1 +18,0 @@\n    @Override\n    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {\n-       super.afterCompletion(request, response, handler, ex);\n    }\n","newFile":false}]}]}>
 

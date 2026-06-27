@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove the `@Autowired` annotation on inferred constructor"}
-  description={"Spring can infer an autowired constructor when there is a single constructor on the bean. This recipe removes unneeded `@Autowired` annotations on constructors."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.NoAutowiredOnConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/noautowiredonconstructor.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove the `@Autowired` annotation on inferred constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring can infer an autowired constructor when there is a single constructor on the bean. This recipe removes unneeded `@Autowired` annotations on constructors.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.NoAutowiredOnConstructor","displayName":"Remove the `@Autowired` annotation on inferred constructor","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

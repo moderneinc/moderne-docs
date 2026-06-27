@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add newline before return"}
-  description={"Add a blank line before return statements that follow other statements."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.AddNewLineBeforeReturn"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/formatting/addnewlinebeforereturn.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add newline before return</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a blank line before return statements that follow other statements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.AddNewLineBeforeReturn","displayName":"Add newline before return","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

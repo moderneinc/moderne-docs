@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unnecessary throws"}
-  description={"Remove unnecessary `throws` declarations. This recipe will only remove unused, checked exceptions if:\n\n - The declaring class or the method declaration is `final`.\n - The method declaration is `static` or `private`.\n - The method overrides a method declaration in a super class and the super class does not throw the exception.\n - The method is `public` or `protected` and the exception is not documented via a JavaDoc as a `@throws` tag.\n\nDeclaring exceptions that are never thrown misleads callers into writing unnecessary error-handling code and obscures the method's true behavior."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1130"]}
@@ -31,7 +29,24 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UnnecessaryThrows"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessarythrows.md"}
-/>
+>
+
+<RecipeHeader.Title>Unnecessary throws</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Remove unnecessary `throws` declarations. This recipe will only remove unused, checked exceptions if:
+
+ - The declaring class or the method declaration is `final`.
+ - The method declaration is `static` or `private`.
+ - The method overrides a method declaration in a super class and the super class does not throw the exception.
+ - The method is `public` or `protected` and the exception is not documented via a JavaDoc as a `@throws` tag.
+
+Declaring exceptions that are never thrown misleads callers into writing unnecessary error-handling code and obscures the method's true behavior.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.FileInputStream;\nimport java.io.FileNotFoundException;\nimport java.io.IOException;\nimport java.io.UncheckedIOException;\nclass Test {\n    private void changed() throws FileNotFoundException, UncheckedIOException {\n    }\n\n    void unchanged() throws IOException, UncheckedIOException {\n        new FileInputStream(\"test\");\n    }\n}\n","after":"import java.io.FileInputStream;\nimport java.io.IOException;\nimport java.io.UncheckedIOException;\nclass Test {\n    private void changed() throws UncheckedIOException {\n    }\n\n    void unchanged() throws IOException, UncheckedIOException {\n        new FileInputStream(\"test\");\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport java.io.FileInputStream;\n-import java.io.FileNotFoundException;\nimport java.io.IOException;\n@@ -6,1 +5,1 @@\nimport java.io.UncheckedIOException;\nclass Test {\n-   private void changed() throws FileNotFoundException, UncheckedIOException {\n+   private void changed() throws UncheckedIOException {\n    }\n","newFile":false}]}]}>
 

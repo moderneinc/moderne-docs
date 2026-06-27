@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add bulk read method to `InputStream` implementations"}
-  description={"Adds a `read(byte[], int, int)` method to `InputStream` subclasses that only override the single-byte `read()` method. Java's default `InputStream.read(byte[], int, int)` implementation calls the single-byte `read()` method in a loop, which can cause severe performance degradation (up to 350x slower) for bulk reads. This recipe detects `InputStream` implementations that delegate to another stream and adds the missing bulk read method to delegate bulk reads as well."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.io.AddInputStreamBulkReadMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/io/addinputstreambulkreadmethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Add bulk read method to `InputStream` implementations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds a `read(byte[], int, int)` method to `InputStream` subclasses that only override the single-byte `read()` method. Java's default `InputStream.read(byte[], int, int)` implementation calls the single-byte `read()` method in a loop, which can cause severe performance degradation (up to 350x slower) for bulk reads. This recipe detects `InputStream` implementations that delegate to another stream and adds the missing bulk read method to delegate bulk reads as well.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.IOException;\nimport java.io.InputStream;\n\nclass Example {\n    private InputStream delegate;\n\n    InputStream getWrappedStream() {\n        return new InputStream() {\n            @Override\n            public int read() throws IOException {\n                return delegate.read();\n            }\n        };\n    }\n}\n","after":"import java.io.IOException;\nimport java.io.InputStream;\n\nclass Example {\n    private InputStream delegate;\n\n    InputStream getWrappedStream() {\n        return new InputStream() {\n            @Override\n            public int read() throws IOException {\n                return delegate.read();\n            }\n\n            @Override\n            public int read(byte[] b, int off, int len) throws IOException {\n                return delegate.read(b, off, len);\n            }\n        };\n    }\n}\n","diff":"@@ -13,0 +13,5 @@\n                return delegate.read();\n            }\n+\n+           @Override\n+           public int read(byte[] b, int off, int len) throws IOException {\n+               return delegate.read(b, off, len);\n+           }\n        };\n","newFile":false}]}]}>
 

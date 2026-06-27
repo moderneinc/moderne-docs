@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change property key"}
-  description={"Change a YAML property key while leaving the value intact. Expects dot notation for nested YAML mappings, similar to how Spring Boot interprets `application.yml` files."}
   type={"Single recipe"}
   languages={["YAML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-yaml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.yaml.ChangePropertyKey"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/yaml/changepropertykey.md"}
-/>
+>
+
+<RecipeHeader.Title>Change property key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change a YAML property key while leaving the value intact. Expects dot notation for nested YAML mappings, similar to how Spring Boot interprets `application.yml` files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to rename. Supports glob patterns.","example":"management.metrics.binders.*.enabled"},{"type":"String","name":"newPropertyKey","required":true,"description":"The new name for the property key.","example":"management.metrics.enable.process.files"},{"type":"Boolean","name":"relaxedBinding","required":false,"description":"Whether to match the `oldPropertyKey` using [relaxed binding](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) rules. Defaults to `true`. If you want to use exact matching in your search, set this to `false`."},{"type":"List","name":"except","required":false,"description":"If any of these property keys exist as direct children of `oldPropertyKey`, then they will not be moved to `newPropertyKey`.","example":"List.of(\"group\")"},{"type":"String","name":"filePattern","required":false,"description":"A glob expression representing a file path to search for (relative to the project root). Blank/null matches all.","example":".github/workflows/*.yml"}]}>
 

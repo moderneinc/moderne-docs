@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `StringUtils.upperCase(String)` with JDK internals"}
-  description={"Replace Apache Commons `StringUtils.upperCase(String str)` with JDK internals."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.lang.ApacheCommonsStringUtilsRecipes$UppercaseRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/lang/apachecommonsstringutilsrecipes$uppercaserecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `StringUtils.upperCase(String)` with JDK internals</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace Apache Commons `StringUtils.upperCase(String str)` with JDK internals.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.apache.commons.lang.ApacheCommonsStringUtilsRecipes$UppercaseRecipe","displayName":"Replace `StringUtils.upperCase(String)` with JDK internals","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 

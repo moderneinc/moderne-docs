@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Transform CommonJS style `require()` calls to ES6 `import` statements"}
-  description={"Transform CommonJS style `require()` calls to ES6 `import` statements."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["codemods","5to6"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.ecmascript.5to6.cjsToEsm"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/ecmascript/5to6/cjstoesm.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"codemods/applycodemod"}]}>
+<RecipeHeader.Title>Transform CommonJS style `require()` calls to ES6 `import` statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transform CommonJS style `require()` calls to ES6 `import` statements.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Applies a codemod to all source files","href":"/user-documentation/recipes/recipe-catalog/codemods/applycodemod/"}]}>
 
 ## Definition
 

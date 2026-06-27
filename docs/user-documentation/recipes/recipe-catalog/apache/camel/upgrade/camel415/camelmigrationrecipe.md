@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.14` application to `camel 4.15`"}
-  description={"Migrates `camel 4.14` application to `camel 4.15`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel415.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel415/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Changed types of camel AI nested headers classes","href":"apache/camel/upgrade/camel415/ainestedheadersclasses"},{"name":"Refactored dataFormats","href":"apache/camel/upgrade/camel415/dataformats"},{"name":"Refactored dataFormats (YAML DSL)","href":"apache/camel/upgrade/camel415/yamdataformats"},{"name":"Refactored dataFormats (XML DSL)","href":"apache/camel/upgrade/camel415/xmldataformats"},{"name":"Changed parameter in camel-netty and camel-netty-http","href":"apache/camel/upgrade/camel415/nettyandnettyhttp"}]}>
+<RecipeHeader.Title>Migrates `camel 4.14` application to `camel 4.15`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.14` application to `camel 4.15`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Changed types of camel AI nested headers classes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel415/ainestedheadersclasses/"},{"name":"Refactored dataFormats","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel415/dataformats/"},{"name":"Refactored dataFormats (YAML DSL)","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel415/yamdataformats/"},{"name":"Refactored dataFormats (XML DSL)","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel415/xmldataformats/"},{"name":"Changed parameter in camel-netty and camel-netty-http","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel415/nettyandnettyhttp/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Node.js test coverage"}
-  description={"Identify test methods in Jest, Mocha, and Vitest test files. Detects describe(), it(), and test() blocks and populates the TestMapping table."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindNodeTestCoverage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findnodetestcoverage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Node.js test coverage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify test methods in Jest, Mocha, and Vitest test files. Detects describe(), it(), and test() blocks and populates the TestMapping table.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindNodeTestCoverage","displayName":"Find Node.js test coverage","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

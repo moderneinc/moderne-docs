@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Changes an argument (or pair of arguments) to a `TimeValue` for matched method invocations"}
-  description={"In Apache Http Client 5.x migration, some methods that previously took a single `long` argument, or a pair of arguments of type `long` and `TimeUnit` respectively, have changed to take a `TimeValue`. Previously in 4.x, all these single `long` argument methods were implicitly having the value expressed in milliseconds. By default this recipe uses `TimeUnit.MILLISECONDS` for the `TimeUnit` when creating a `TimeValue`. It is possible to specify this as a option. The `timeUnit` option will be ignored for cases matching `*(long, TimeUnit)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.ChangeArgumentToTimeValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/changeargumenttotimevalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Changes an argument (or pair of arguments) to a `TimeValue` for matched method invocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Apache Http Client 5.x migration, some methods that previously took a single `long` argument, or a pair of arguments of type `long` and `TimeUnit` respectively, have changed to take a `TimeValue`. Previously in 4.x, all these single `long` argument methods were implicitly having the value expressed in milliseconds. By default this recipe uses `TimeUnit.MILLISECONDS` for the `TimeUnit` when creating a `TimeValue`. It is possible to specify this as a option. The `timeUnit` option will be ignored for cases matching `*(long, TimeUnit).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern that is used to find matching method invocations.","example":"org.apache.http.impl.nio.reactor.IOReactorConfig.Builder setSelectInterval(long)"},{"type":"TimeUnit","name":"timeUnit","required":false,"description":"The TimeUnit enum value we want to use to turn the original value into a TimeValue. Defaults to `MILLISECONDS`.","example":"MILLISECONDS"}]}>
 

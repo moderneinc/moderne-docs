@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `runBlocking` calls inside a `launch`/`async` lambda"}
-  description={"`runBlocking` inside an outer coroutine builder pins the dispatcher thread until the inner block returns, defeating the cooperative scheduling the outer builder set up. Inline the suspending body — you're already in a suspend context."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindRunBlockingInLaunch$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findrunblockinginlaunch$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `runBlocking` calls inside a `launch`/`async` lambda</RecipeHeader.Title>
+
+<RecipeHeader.Description>`runBlocking` inside an outer coroutine builder pins the dispatcher thread until the inner block returns, defeating the cooperative scheduling the outer builder set up. Inline the suspending body — you're already in a suspend context.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindRunBlockingInLaunch$KtRecipe","displayName":"Find `runBlocking` calls inside a `launch`/`async` lambda","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `ReplayProcessor.createSizeAndTimeout(int, Duration)` with `Sinks.many().replay().limit(int, duration)`"}
-  description={"As of 3.5 ReplayProcessor is deprecated and Sinks are preferred."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.reactive.reactor.ReactorProcessorCreateToSinkRecipes$ReplayProcessorCreateSizeAndTimeoutToSinkRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorprocessorcreatetosinkrecipes$replayprocessorcreatesizeandtimeouttosinkrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `ReplayProcessor.createSizeAndTimeout(int, Duration)` with `Sinks.many().replay().limit(int, duration)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of 3.5 ReplayProcessor is deprecated and Sinks are preferred.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.reactive.reactor.ReactorProcessorCreateToSinkRecipes$ReplayProcessorCreateSizeAndTimeoutToSinkRecipe","displayName":"Replace `ReplayProcessor.createSizeAndTimeout(int, Duration)` with `Sinks.many().replay().limit(int, duration)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-reactive-streams","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_REACTIVE_STREAMS","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `IntStreamRules.IntStreamAllMatch`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class IntStreamAllMatch {\n    \n    @BeforeTemplate\n    boolean before(IntStream stream, IntPredicate predicate) {\n        return stream.noneMatch(predicate.negate());\n    }\n    \n    @AfterTemplate\n    boolean after(IntStream stream, IntPredicate predicate) {\n        return stream.allMatch(predicate);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.IntStreamRulesRecipes$IntStreamAllMatchRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/intstreamrulesrecipes$intstreamallmatchrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `IntStreamRules.IntStreamAllMatch`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class IntStreamAllMatch {
+    
+    @BeforeTemplate
+    boolean before(IntStream stream, IntPredicate predicate) {
+        return stream.noneMatch(predicate.negate());
+    }
+    
+    @AfterTemplate
+    boolean after(IntStream stream, IntPredicate predicate) {
+        return stream.allMatch(predicate);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.IntStreamRulesRecipes$IntStreamAllMatchRecipe","displayName":"Refaster template `IntStreamRules.IntStreamAllMatch`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

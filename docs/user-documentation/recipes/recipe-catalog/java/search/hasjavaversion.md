@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find files compiled at a specific Java version"}
-  description={"Finds Java source files matching a particular language level. This is useful especially as a precondition for other recipes."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.HasJavaVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Find files compiled at a specific Java version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds Java source files matching a particular language level. This is useful especially as a precondition for other recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"version","required":true,"description":"An exact version number or node-style semver selector used to select the version number.","example":"17.X"},{"type":"Boolean","name":"checkTargetCompatibility","required":false,"description":"The source and target compatibility versions can be different. This option allows you to check against the target compatibility version instead of the source compatibility version.","example":"17.X"}]}>
 

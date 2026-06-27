@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add OCI image labels"}
-  description={"Adds standard OCI (Open Container Initiative) image labels to a Dockerfile. These labels provide metadata about the image such as title, version, source, and license information. See https://github.com/opencontainers/image-spec/blob/main/annotations.md for the specification."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.AddOciLabels"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/addocilabels.md"}
-/>
+>
+
+<RecipeHeader.Title>Add OCI image labels</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds standard OCI (Open Container Initiative) image labels to a Dockerfile. These labels provide metadata about the image such as title, version, source, and license information. See https://github.com/opencontainers/image-spec/blob/main/annotations.md for the specification.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"title","required":false,"description":"Human-readable title of the image (org.opencontainers.image.title).","example":"My Application"},{"type":"String","name":"description","required":false,"description":"Human-readable description of the image (org.opencontainers.image.description).","example":"A containerized web application"},{"type":"String","name":"version","required":false,"description":"Version of the packaged software (org.opencontainers.image.version).","example":"1.0.0"},{"type":"String","name":"created","required":false,"description":"Date and time the image was built in RFC 3339 format. If 'now', uses the current time.","example":"2024-01-15T10:30:00Z"},{"type":"String","name":"revision","required":false,"description":"Source control revision identifier for the packaged software (org.opencontainers.image.revision).","example":"abc123def456"},{"type":"String","name":"source","required":false,"description":"URL to get source code for building the image (org.opencontainers.image.source).","example":"https://github.com/myorg/myapp"},{"type":"String","name":"url","required":false,"description":"URL to find more information about the image (org.opencontainers.image.url).","example":"https://myapp.example.com"},{"type":"String","name":"vendor","required":false,"description":"Name of the distributing entity, organization, or individual (org.opencontainers.image.vendor).","example":"My Organization"},{"type":"String","name":"licenses","required":false,"description":"License(s) under which contained software is distributed as a SPDX License Expression (org.opencontainers.image.licenses).","example":"Apache-2.0"},{"type":"String","name":"authors","required":false,"description":"Contact details of the people or organization responsible (org.opencontainers.image.authors).","example":"maintainers@example.com"}]}>
 

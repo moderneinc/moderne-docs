@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Drop default-value slice boundaries"}
-  description={"Omit slice start/stop when they equal ``0`` and ``len(seq)`` respectively, e.g. ``data[0:len(data)]`` becomes ``data[:]``."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveRedundantSliceIndex"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeredundantsliceindex.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Drop default-value slice boundaries</RecipeHeader.Title>
+
+<RecipeHeader.Description>Omit slice start/stop when they equal ``0`` and ``len(seq)`` respectively, e.g. ``data[0:len(data)]`` becomes ``data[:]``.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveRedundantSliceIndex","displayName":"Drop default-value slice boundaries","pipPackage":"openrewrite-static-analysis"}}>
 

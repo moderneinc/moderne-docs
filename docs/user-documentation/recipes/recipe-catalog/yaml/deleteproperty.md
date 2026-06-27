@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Delete property"}
-  description={"Delete a YAML property. Nested YAML mappings are interpreted as dot separated property names, i.e. as Spring Boot interprets application.yml files like `a.b.c.d` or `a.b.c:d`."}
   type={"Single recipe"}
   languages={["YAML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-yaml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.yaml.DeleteProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/yaml/deleteproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Delete property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Delete a YAML property. Nested YAML mappings are interpreted as dot separated property names, i.e. as Spring Boot interprets application.yml files like `a.b.c.d` or `a.b.c:d`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The key to be deleted. Supports glob patterns.","example":"management.metrics.binders.files.*"},{"type":"Boolean","name":"coalesce","required":false,"description":"(Deprecated: in a future version, this recipe will always use the `false` behavior) Simplify nested map hierarchies into their simplest dot separated property form."},{"type":"Boolean","name":"relaxedBinding","required":false,"description":"Whether to match the `propertyKey` using [relaxed binding](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) rules. Defaults to `true`. If you want to use exact matching in your search, set this to `false`."},{"type":"String","name":"filePattern","required":false,"description":"A glob expression representing a file path to search for (relative to the project root). Blank/null matches all.","example":".github/workflows/*.yml"}]}>
 

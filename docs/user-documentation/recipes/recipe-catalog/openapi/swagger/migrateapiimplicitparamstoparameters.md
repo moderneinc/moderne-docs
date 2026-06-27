@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from `@ApiImplicitParams`  to `@Parameters`"}
-  description={"Converts `@ApiImplicitParams` to `@Parameters` and the `@ApiImplicitParam` annotation to `@Parameter` and converts the directly mappable attributes and removes the others."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["openapi","swagger"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.MigrateApiImplicitParamsToParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiimplicitparamstoparameters.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change annotation attribute name","href":"java/changeannotationattributename"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Migrate `@ApiImplicitParam` to `@Parameter`","href":"openapi/swagger/migrateapiimplicitparam"}]}>
+<RecipeHeader.Title>Migrate from `@ApiImplicitParams`  to `@Parameters`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `@ApiImplicitParams` to `@Parameters` and the `@ApiImplicitParam` annotation to `@Parameter` and converts the directly mappable attributes and removes the others.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change annotation attribute name","href":"/user-documentation/recipes/recipe-catalog/java/changeannotationattributename/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Migrate `@ApiImplicitParam` to `@Parameter`","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiimplicitparam/"}]}>
 
 ## Definition
 

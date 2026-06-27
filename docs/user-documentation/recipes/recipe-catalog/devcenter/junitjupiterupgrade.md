@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move to JUnit 6"}
-  description={"Move to JUnit Jupiter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.JUnitJupiterUpgrade"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/junitjupiterupgrade.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Move to JUnit 6</RecipeHeader.Title>
+
+<RecipeHeader.Description>Move to JUnit Jupiter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"upgradeRecipe","required":false,"description":"The recipe to use to upgrade.","example":"org.openrewrite.java.testing.junit5.JUnit4to5Migration"}]}>
 

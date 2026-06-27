@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Char.uppercaseChar()` instead of `Char.toUpperCase()`"}
-  description={"`Char.toUpperCase()` was deprecated in Kotlin 1.5 in favor of the locale-explicit `uppercaseChar()`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseUppercaseChar$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useuppercasechar$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Char.uppercaseChar()` instead of `Char.toUpperCase()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Char.toUpperCase()` was deprecated in Kotlin 1.5 in favor of the locale-explicit `uppercaseChar()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseUppercaseChar$KtRecipe","displayName":"Use `Char.uppercaseChar()` instead of `Char.toUpperCase()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Resolve Deprecations in Spring Boot 3.3"}
-  description={"Migrates Deprecations in the Spring Boot 3.3 Release. Contains the removal of `DefaultJmsListenerContainerFactoryConfigurer.setObservationRegistry` and adds new parameter of `WebEndpointDiscoverer` constructor."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.ResolveDeprecationsSpringBoot_3_3"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/resolvedeprecationsspringboot_3_3.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Migrate WebEndpointDiscoverer 6-parameter constructor to 8-parameter","href":"java/spring/boot3/migratewebendpointdiscovererconstructor"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Resolve Deprecations in Spring Boot 3.3</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Deprecations in the Spring Boot 3.3 Release. Contains the removal of `DefaultJmsListenerContainerFactoryConfigurer.setObservationRegistry` and adds new parameter of `WebEndpointDiscoverer` constructor.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Migrate WebEndpointDiscoverer 6-parameter constructor to 8-parameter","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratewebendpointdiscovererconstructor/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

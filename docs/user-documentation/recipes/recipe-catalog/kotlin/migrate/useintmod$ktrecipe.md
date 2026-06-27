@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Int.mod()` instead of `java.lang.Math.floorMod`"}
-  description={"`Math.floorMod(a, b)` becomes `a.mod(b)`. Kotlin's `Int.mod` uses floored-division semantics — the result is non-negative when the divisor is positive — matching `Math.floorMod`. Reads as a receiver call and is multiplatform."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseIntMod$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintmod$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Int.mod()` instead of `java.lang.Math.floorMod`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Math.floorMod(a, b)` becomes `a.mod(b)`. Kotlin's `Int.mod` uses floored-division semantics — the result is non-negative when the divisor is positive — matching `Math.floorMod`. Reads as a receiver call and is multiplatform.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseIntMod$KtRecipe","displayName":"Use `Int.mod()` instead of `java.lang.Math.floorMod`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `StringBuilder#append` with `String`"}
-  description={"Replace `StringBuilder.append()` with String if you are only concatenating a small number of strings and the code is simple and easy to read, as the compiler can optimize simple string concatenation expressions into a single String object, which can be more efficient than using StringBuilder."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceStringBuilderWithString"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replacestringbuilderwithstring.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `StringBuilder#append` with `String`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `StringBuilder.append()` with String if you are only concatenating a small number of strings and the code is simple and easy to read, as the compiler can optimize simple string concatenation expressions into a single String object, which can be more efficient than using StringBuilder.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void foo() {\n        String s = new StringBuilder().append(\"A\").append(\"B\").toString();\n    }\n}\n","after":"class A {\n    void foo() {\n        String s = \"A\" + \"B\";\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n    void foo() {\n-       String s = new StringBuilder().append(\"A\").append(\"B\").toString();\n+       String s = \"A\" + \"B\";\n    }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Jakarta Faces 4.0 to 4.1"}
-  description={"Jakarta EE 11 uses Faces 4.1 a minor upgrade."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["faces","jsf","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.Faces4xMigrationToFaces41x"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces4xmigrationtofaces41x.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"JSF 2.x to Jakarta Faces 3.x","href":"java/migrate/jakarta/faces2xmigrationtojakartafaces3x"},{"name":"Upgrade to Jakarta Faces 4.x","href":"java/migrate/jakarta/faces3xmigrationtofaces4x"},{"name":"Update Jakarta EE Java Faces Dependencies to 4.1.x","href":"java/migrate/jakarta/updatejakartafacesapi41"},{"name":"OmniFaces Namespace Migration","href":"java/migrate/jakarta/omnifacesnamespacemigration"},{"name":"Upgrade Faces open source libraries","href":"java/migrate/jakarta/upgradefaces41opensourcelibraries"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Jakarta Faces 4.0 to 4.1</RecipeHeader.Title>
+
+<RecipeHeader.Description>Jakarta EE 11 uses Faces 4.1 a minor upgrade.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"JSF 2.x to Jakarta Faces 3.x","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces2xmigrationtojakartafaces3x/"},{"name":"Upgrade to Jakarta Faces 4.x","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces3xmigrationtofaces4x/"},{"name":"Update Jakarta EE Java Faces Dependencies to 4.1.x","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartafacesapi41/"},{"name":"OmniFaces Namespace Migration","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/omnifacesnamespacemigration/"},{"name":"Upgrade Faces open source libraries","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradefaces41opensourcelibraries/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

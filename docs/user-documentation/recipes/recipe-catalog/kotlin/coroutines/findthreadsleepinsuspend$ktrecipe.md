@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Thread.sleep` calls inside `suspend` functions"}
-  description={"`Thread.sleep` parks the underlying dispatcher thread and ignores coroutine cancellation. From a suspend function, use `delay(ms)` — it suspends without blocking and integrates with structured cancellation."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindThreadSleepInSuspend$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findthreadsleepinsuspend$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Thread.sleep` calls inside `suspend` functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Thread.sleep` parks the underlying dispatcher thread and ignores coroutine cancellation. From a suspend function, use `delay(ms)` — it suspends without blocking and integrates with structured cancellation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindThreadSleepInSuspend$KtRecipe","displayName":"Find `Thread.sleep` calls inside `suspend` functions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

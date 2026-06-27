@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Context.registerReceiver(...)` calls"}
-  description={"On API 33+ `registerReceiver(...)` requires an explicit `RECEIVER_EXPORTED` / `RECEIVER_NOT_EXPORTED` flag — calls without it throw `SecurityException`. Migrate to `ContextCompat.registerReceiver(...)`, which forwards the flag and is backwards-compatible."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindContextRegisterReceiver$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findcontextregisterreceiver$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Context.registerReceiver(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>On API 33+ `registerReceiver(...)` requires an explicit `RECEIVER_EXPORTED` / `RECEIVER_NOT_EXPORTED` flag — calls without it throw `SecurityException`. Migrate to `ContextCompat.registerReceiver(...)`, which forwards the flag and is backwards-compatible.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindContextRegisterReceiver$KtRecipe","displayName":"Find `Context.registerReceiver(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

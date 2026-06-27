@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find loggers declared as instance fields (one per object)"}
-  description={"An instance-field `val log = LoggerFactory.getLogger(...)` allocates one logger per object. Logger factories cache by name, so the runtime cost is one extra map lookup per allocation — but the conventional shape is a `private val log` in the companion object (or a top-level `private val log` for top-level functions), so a per-instance logger usually reflects accidental code placement."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindLoggerNotInCompanion$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggernotincompanion$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find loggers declared as instance fields (one per object)</RecipeHeader.Title>
+
+<RecipeHeader.Description>An instance-field `val log = LoggerFactory.getLogger(...)` allocates one logger per object. Logger factories cache by name, so the runtime cost is one extra map lookup per allocation — but the conventional shape is a `private val log` in the companion object (or a top-level `private val log` for top-level functions), so a per-instance logger usually reflects accidental code placement.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindLoggerNotInCompanion$KtRecipe","displayName":"Find loggers declared as instance fields (one per object)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

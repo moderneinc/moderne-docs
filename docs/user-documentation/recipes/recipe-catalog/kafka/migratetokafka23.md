@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Kafka 2.3"}
-  description={"Migrate applications to the latest Kafka 2.3 release."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kafka"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.MigrateToKafka23"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/migratetokafka23.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate `Joined.named()` to `Joined.as()`","href":"kafka/streams/migratejoinednamemethod"}]}>
+<RecipeHeader.Title>Migrate to Kafka 2.3</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Kafka 2.3 release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Migrate `Joined.named()` to `Joined.as()`","href":"/user-documentation/recipes/recipe-catalog/kafka/streams/migratejoinednamemethod/"}]}>
 
 ## Definition
 

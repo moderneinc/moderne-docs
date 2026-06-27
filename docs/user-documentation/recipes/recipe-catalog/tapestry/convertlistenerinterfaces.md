@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert Tapestry 4 listener interfaces to Tapestry 5 annotations"}
-  description={"Converts Tapestry 4 page lifecycle listener interfaces (`PageBeginRenderListener`, `PageEndRenderListener`, etc.) to Tapestry 5 lifecycle annotations (`@SetupRender`, `@CleanupRender`, etc.) and removes the interface implementations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.tapestry.ConvertListenerInterfaces"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/tapestry/convertlistenerinterfaces.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert Tapestry 4 listener interfaces to Tapestry 5 annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts Tapestry 4 page lifecycle listener interfaces (`PageBeginRenderListener`, `PageEndRenderListener`, etc.) to Tapestry 5 lifecycle annotations (`@SetupRender`, `@CleanupRender`, etc.) and removes the interface implementations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.tapestry.event.PageBeginRenderListener;\nimport org.apache.tapestry.event.PageEvent;\n\npublic class MyPage implements PageBeginRenderListener {\n\n    public void pageBeginRender(PageEvent event) {\n        // setup code\n    }\n}\n","after":"import org.apache.tapestry5.annotations.SetupRender;\n\npublic class MyPage {\n\n    @SetupRender public void pageBeginRender() {\n        // setup code\n    }\n}\n","diff":"@@ -1,2 +1,1 @@\n-import org.apache.tapestry.event.PageBeginRenderListener;\n-import org.apache.tapestry.event.PageEvent;\n+import org.apache.tapestry5.annotations.SetupRender;\n\n@@ -4,1 +3,1 @@\nimport org.apache.tapestry.event.PageEvent;\n\n-public class MyPage implements PageBeginRenderListener {\n+public class MyPage {\n\n@@ -6,1 +5,1 @@\npublic class MyPage implements PageBeginRenderListener {\n\n-   public void pageBeginRender(PageEvent event) {\n+   @SetupRender public void pageBeginRender() {\n        // setup code\n","newFile":false}]}]}>
 

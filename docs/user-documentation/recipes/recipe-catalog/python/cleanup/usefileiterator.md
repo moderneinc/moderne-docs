@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Iterate over file objects directly, not via `readlines()`"}
-  description={"File objects are iterable and yield lines on demand, so calling `.readlines()` to build an intermediate list is unnecessary."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.UseFileIterator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/usefileiterator.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Iterate over file objects directly, not via `readlines()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>File objects are iterable and yield lines on demand, so calling `.readlines()` to build an intermediate list is unnecessary.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.UseFileIterator","displayName":"Iterate over file objects directly, not via `readlines()`","pipPackage":"openrewrite-static-analysis"}}>
 

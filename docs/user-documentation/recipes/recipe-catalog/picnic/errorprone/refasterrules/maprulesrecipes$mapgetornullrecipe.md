@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `MapRules.MapGetOrNull`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class MapGetOrNull<K, V, T> {\n    \n    @BeforeTemplate\n    @Nullable\n    V before(Map<K, V> map, T key) {\n        return map.getOrDefault(key, null);\n    }\n    \n    @AfterTemplate\n    @Nullable\n    V after(Map<K, V> map, T key) {\n        return map.get(key);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,34 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.MapRulesRecipes$MapGetOrNullRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/maprulesrecipes$mapgetornullrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `MapRules.MapGetOrNull`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class MapGetOrNull<K, V, T> {
+    
+    @BeforeTemplate
+    @Nullable
+    V before(Map<K, V> map, T key) {
+        return map.getOrDefault(key, null);
+    }
+    
+    @AfterTemplate
+    @Nullable
+    V after(Map<K, V> map, T key) {
+        return map.get(key);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.MapRulesRecipes$MapGetOrNullRecipe","displayName":"Refaster template `MapRules.MapGetOrNull`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `val` over `var`"}
-  description={"Finds mutable `var` declarations in Scala code. Idiomatic Scala prefers immutable `val` over mutable `var`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.PreferImmutableVal"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferimmutableval.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer `val` over `var`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds mutable `var` declarations in Scala code. Idiomatic Scala prefers immutable `val` over mutable `var`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    var count = 0\n}\n","after":"class Example {\n    /*~~(Consider using val instead)~~>*/var count = 0\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Example {\n-   var count = 0\n+   /*~~(Consider using val instead)~~>*/var count = 0\n}\n","newFile":false}]}]}>
 

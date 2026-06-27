@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`Provider` implementation beans to Micronaut `@Factory`"}
-  description={"As of Micronaut 3.x the `@Factory` annotation is required for creating beans from `javax.inject.Provider get()` implementations."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.ProviderImplementationsToMicronautFactories"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/providerimplementationstomicronautfactories.md"}
-/>
+>
+
+<RecipeHeader.Title>`Provider` implementation beans to Micronaut `@Factory`</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of Micronaut 3.x the `@Factory` annotation is required for creating beans from `javax.inject.Provider get()` implementations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package abc;\n\nimport io.micronaut.context.annotation.Bean;\nimport io.micronaut.core.annotation.NonNull;\nimport javax.inject.Provider;\nimport javax.inject.Singleton;\n\n@Bean\n@Singleton\npublic class AProvider implements Provider<A> {\n\n    @Override\n    public A get() {\n        return new AImpl();\n    }\n\n    private void doSomething(@NonNull String arg) {\n    }\n}\n","after":"package abc;\n\nimport io.micronaut.context.annotation.Bean;\nimport io.micronaut.context.annotation.Factory;\nimport io.micronaut.core.annotation.NonNull;\nimport javax.inject.Provider;\nimport javax.inject.Singleton;\n\n@Factory\npublic class AProvider implements Provider<A> {\n\n    @Override\n    @Bean\n    @Singleton\n    public A get() {\n        return new AImpl();\n    }\n\n    private void doSomething(@NonNull String arg) {\n    }\n}\n","diff":"@@ -4,0 +4,1 @@\n\nimport io.micronaut.context.annotation.Bean;\n+import io.micronaut.context.annotation.Factory;\nimport io.micronaut.core.annotation.NonNull;\n@@ -8,2 +9,1 @@\nimport javax.inject.Singleton;\n\n-@Bean\n-@Singleton\n+@Factory\npublic class AProvider implements Provider<A> {\n@@ -13,0 +13,2 @@\n\n    @Override\n+   @Bean\n+   @Singleton\n    public A get() {\n","newFile":false}]}]}>
 

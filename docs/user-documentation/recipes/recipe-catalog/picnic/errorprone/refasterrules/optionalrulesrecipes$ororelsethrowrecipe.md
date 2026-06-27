@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `OptionalRules.OrOrElseThrow`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class OrOrElseThrow<T> {\n    \n    @BeforeTemplate\n    T before(Optional<T> o1, Optional<T> o2) {\n        return o1.orElseGet(()->o2.orElseThrow());\n    }\n    \n    @AfterTemplate\n    T after(Optional<T> o1, Optional<T> o2) {\n        return o1.or(()->o2).orElseThrow();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OrOrElseThrowRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/optionalrulesrecipes$ororelsethrowrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `OptionalRules.OrOrElseThrow`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class OrOrElseThrow<T> {
+    
+    @BeforeTemplate
+    T before(Optional<T> o1, Optional<T> o2) {
+        return o1.orElseGet(()->o2.orElseThrow());
+    }
+    
+    @AfterTemplate
+    T after(Optional<T> o1, Optional<T> o2) {
+        return o1.or(()->o2).orElseThrow();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OrOrElseThrowRecipe","displayName":"Refaster template `OptionalRules.OrOrElseThrow`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `String.format` calls inside collection lambdas"}
-  description={"`String.format(...)` reparses the format string on every call. Inside a collection lambda that runs per element — prefer Kotlin string templates (`\"${x}\"`) or hoist a `Formatter`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindStringFormatInCollectionLambdas$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findstringformatincollectionlambdas$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `String.format` calls inside collection lambdas</RecipeHeader.Title>
+
+<RecipeHeader.Description>`String.format(...)` reparses the format string on every call. Inside a collection lambda that runs per element — prefer Kotlin string templates (`"${x}"`) or hoist a `Formatter`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindStringFormatInCollectionLambdas$KtRecipe","displayName":"Find `String.format` calls inside collection lambdas","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

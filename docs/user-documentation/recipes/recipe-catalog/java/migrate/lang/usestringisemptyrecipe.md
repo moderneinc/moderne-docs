@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `0 < s.length()` with `!s.isEmpty()`"}
-  description={"Replace `0 < s.length()` and `s.length() != 0` with `!s.isEmpty()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.UseStringIsEmptyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/usestringisemptyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `0 < s.length()` with `!s.isEmpty()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `0 < s.length()` and `s.length() != 0` with `!s.isEmpty()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void m(String s) {\n        boolean b = s.length() > 0;\n        boolean c = 0 < s.length();\n        boolean d = 0 != s.length();\n        boolean e = s.length() != 0;\n        boolean f = (s + \"!\").length() != 0;\n    }\n}\n","after":"class Test {\n    void m(String s) {\n        boolean b = !s.isEmpty();\n        boolean c = !s.isEmpty();\n        boolean d = !s.isEmpty();\n        boolean e = !s.isEmpty();\n        boolean f = !(s + \"!\").isEmpty();\n    }\n}\n","diff":"@@ -3,5 +3,5 @@\nclass Test {\n    void m(String s) {\n-       boolean b = s.length() > 0;\n-       boolean c = 0 < s.length();\n-       boolean d = 0 != s.length();\n-       boolean e = s.length() != 0;\n-       boolean f = (s + \"!\").length() != 0;\n+       boolean b = !s.isEmpty();\n+       boolean c = !s.isEmpty();\n+       boolean d = !s.isEmpty();\n+       boolean e = !s.isEmpty();\n+       boolean f = !(s + \"!\").isEmpty();\n    }\n","newFile":false}]}]}>
 

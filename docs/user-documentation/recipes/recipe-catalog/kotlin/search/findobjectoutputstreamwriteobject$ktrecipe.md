@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `ObjectOutputStream.writeObject(...)` calls"}
-  description={"Java serialization is brittle and a known security hazard on the read side; the write side is a seed where the on-wire/on-disk format gets fixed. Flag for review when migrating away from Java serialization."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindObjectOutputStreamWriteObject$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findobjectoutputstreamwriteobject$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `ObjectOutputStream.writeObject(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java serialization is brittle and a known security hazard on the read side; the write side is a seed where the on-wire/on-disk format gets fixed. Flag for review when migrating away from Java serialization.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindObjectOutputStreamWriteObject$KtRecipe","displayName":"Find `ObjectOutputStream.writeObject(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

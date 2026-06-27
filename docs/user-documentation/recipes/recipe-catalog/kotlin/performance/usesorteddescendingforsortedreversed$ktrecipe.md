@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `sortedDescending()` instead of `sorted().reversed()`"}
-  description={"`sortedDescending` sorts directly into descending order. `sorted().reversed()` allocates an intermediate ascending-sorted list and then a reversed copy."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseSortedDescendingForSortedReversed$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/usesorteddescendingforsortedreversed$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `sortedDescending()` instead of `sorted().reversed()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`sortedDescending` sorts directly into descending order. `sorted().reversed()` allocates an intermediate ascending-sorted list and then a reversed copy.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseSortedDescendingForSortedReversed$KtRecipe","displayName":"Use `sortedDescending()` instead of `sorted().reversed()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

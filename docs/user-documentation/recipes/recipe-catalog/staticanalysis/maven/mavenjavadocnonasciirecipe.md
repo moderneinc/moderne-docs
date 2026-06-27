@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove non-ASCII characters from Javadoc"}
-  description={"Maven's javadoc-plugin configuration does not support non-ASCII characters. What makes it tricky is the error is very ambiguous and doesn't help in any way. This recipe removes those non-ASCII characters."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.maven.MavenJavadocNonAsciiRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/maven/mavenjavadocnonasciirecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove non-ASCII characters from Javadoc</RecipeHeader.Title>
+
+<RecipeHeader.Description>Maven's javadoc-plugin configuration does not support non-ASCII characters. What makes it tricky is the error is very ambiguous and doesn't help in any way. This recipe removes those non-ASCII characters.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"/**\n* this is a sample class\n* ₤€ contains non ascii characters\n*/\nclass A {\n}\n","after":"/**\n* this is a sample class\n*  contains non ascii characters\n*/\nclass A {\n}\n","diff":"@@ -3,1 +3,1 @@\n/**\n* this is a sample class\n-* ₤€ contains non ascii characters\n+*  contains non ascii characters\n*/\n","newFile":false}]}]}>
 

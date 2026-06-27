@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `PrimitiveRules.IntegerSignumIsNegative`"}
-  description={"Prefer an `Integer#signum(int)` comparison to 0 over less idiomatic alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$IntegerSignumIsNegativeRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/primitiverulesrecipes$integersignumisnegativerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `PrimitiveRules.IntegerSignumIsNegative`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer an `Integer#signum(int)` comparison to 0 over less idiomatic alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$IntegerSignumIsNegativeRecipe","displayName":"Refaster template `PrimitiveRules.IntegerSignumIsNegative`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

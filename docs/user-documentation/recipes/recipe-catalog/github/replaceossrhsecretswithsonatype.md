@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace OSSRH secrets with Sonatype secrets"}
-  description={"Replace deprecated OSSRH_S01 secrets with new Sonatype secrets in GitHub Actions workflows. This is an example use of the `ReplaceSecrets` and `ReplaceSecretKeys` recipes combined used to update the Maven publishing secrets in OpenRewrite's GitHub organization."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["github","secrets"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.ReplaceOssrhSecretsWithSonatype"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/replaceossrhsecretswithsonatype.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace GitHub Action secret names","href":"github/replacesecrets"},{"name":"Replace GitHub Action secret names","href":"github/replacesecrets"},{"name":"Replace secret key names in GitHub Actions","href":"github/replacesecretkeys"},{"name":"Replace secret key names in GitHub Actions","href":"github/replacesecretkeys"}]}>
+<RecipeHeader.Title>Replace OSSRH secrets with Sonatype secrets</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated OSSRH_S01 secrets with new Sonatype secrets in GitHub Actions workflows. This is an example use of the `ReplaceSecrets` and `ReplaceSecretKeys` recipes combined used to update the Maven publishing secrets in OpenRewrite's GitHub organization.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace GitHub Action secret names","href":"/user-documentation/recipes/recipe-catalog/github/replacesecrets/"},{"name":"Replace GitHub Action secret names","href":"/user-documentation/recipes/recipe-catalog/github/replacesecrets/"},{"name":"Replace secret key names in GitHub Actions","href":"/user-documentation/recipes/recipe-catalog/github/replacesecretkeys/"},{"name":"Replace secret key names in GitHub Actions","href":"/user-documentation/recipes/recipe-catalog/github/replacesecretkeys/"}]}>
 
 ## Definition
 

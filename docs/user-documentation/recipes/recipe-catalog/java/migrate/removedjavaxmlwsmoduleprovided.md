@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Do not package `java.xml.ws` module in WebSphere Liberty applications"}
-  description={"The `java.xml.ws` module was removed in Java11. Websphere Liberty provides its own implementation of the module, which can be used by specifying the `jaxws-2.2` feature in the server.xml file. This recipe updates the `javax.xml.ws` dependency to use the `provided` scope to avoid class loading issues."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java11"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.RemovedJavaXMLWSModuleProvided"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/removedjavaxmlwsmoduleprovided.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Maven dependency scope","href":"maven/changedependencyscope"},{"name":"Change a Gradle dependency configuration","href":"gradle/changedependencyconfiguration"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Do not package `java.xml.ws` module in WebSphere Liberty applications</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `java.xml.ws` module was removed in Java11. Websphere Liberty provides its own implementation of the module, which can be used by specifying the `jaxws-2.2` feature in the server.xml file. This recipe updates the `javax.xml.ws` dependency to use the `provided` scope to avoid class loading issues.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Maven dependency scope","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencyscope/"},{"name":"Change a Gradle dependency configuration","href":"/user-documentation/recipes/recipe-catalog/gradle/changedependencyconfiguration/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

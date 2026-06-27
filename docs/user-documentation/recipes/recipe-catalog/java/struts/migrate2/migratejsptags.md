@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Struts 1 JSP tags to Struts 2"}
-  description={"Transforms Struts 1 JSP tags (`html:`, `bean:`, `logic:`) to Struts 2 tags (`s:`)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate2.MigrateJspTags"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratejsptags.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Struts 1 JSP tags to Struts 2</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms Struts 1 JSP tags (`html:`, `bean:`, `logic:`) to Struts 2 tags (`s:`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<html:form action=\"/login\">\n    <html:text property=\"username\"/>\n    <html:password property=\"password\"/>\n    <html:submit value=\"Login\"/>\n</html:form>\n","after":"<s:form action=\"/login\">\n    <s:textfield name=\"username\"/>\n    <s:password name=\"password\"/>\n    <s:submit value=\"Login\"/>\n</s:form>\n","diff":"--- login.jsp\n+++ login.jsp\n@@ -1,5 +1,5 @@\n-<html:form action=\"/login\">\n-   <html:text property=\"username\"/>\n-   <html:password property=\"password\"/>\n-   <html:submit value=\"Login\"/>\n-</html:form>\n+<s:form action=\"/login\">\n+   <s:textfield name=\"username\"/>\n+   <s:password name=\"password\"/>\n+   <s:submit value=\"Login\"/>\n+</s:form>\n\n","newFile":false}]}]}>
 

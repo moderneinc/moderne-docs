@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Minimal indentation for `SourceSpecs` text blocks"}
-  description={"Text blocks that assert before and after source code should have minimal indentation."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.SourceSpecTextBlockIndentation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/sourcespectextblockindentation.md"}
-/>
+>
+
+<RecipeHeader.Title>Minimal indentation for `SourceSpecs` text blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Text blocks that assert before and after source code should have minimal indentation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.test.RewriteTest;\nimport static org.openrewrite.test.SourceSpecs.text;\n\nclass MyRecipeTest implements RewriteTest {\n    void test() {\n      rewriteRun(\n         text(\n           \"\"\"\n               class Test {\n \n                   \n                   void test() {\n                       System.out.println(\"Hello, world!\");\n                   }\n               }\n             \"\"\"\n         )\n      );\n    }\n}\n","after":"import org.openrewrite.test.RewriteTest;\nimport static org.openrewrite.test.SourceSpecs.text;\n\nclass MyRecipeTest implements RewriteTest {\n    void test() {\n      rewriteRun(\n         text(\n           \"\"\"\n             class Test {\n \n                 \n                 void test() {\n                     System.out.println(\"Hello, world!\");\n                 }\n             }\n             \"\"\"\n         )\n      );\n    }\n}\n","diff":"@@ -9,1 +9,1 @@\n         text(\n           \"\"\"\n-              class Test {\n+            class Test {\n \n@@ -11,5 +11,5 @@\n               class Test {\n \n-                  \n-                  void test() {\n-                      System.out.println(\"Hello, world!\");\n-                  }\n-              }\n+                \n+                void test() {\n+                    System.out.println(\"Hello, world!\");\n+                }\n+            }\n             \"\"\"\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Thread(...)` constructor calls"}
-  description={"Each raw `Thread(...)` constructor is an unmanaged thread allocation — no pool, no lifecycle. On JVM/Android code that ships with Kotlin coroutines or a structured executor service, these are usually candidates to migrate to a managed scope."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindThreadConstructors$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findthreadconstructors$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Thread(...)` constructor calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each raw `Thread(...)` constructor is an unmanaged thread allocation — no pool, no lifecycle. On JVM/Android code that ships with Kotlin coroutines or a structured executor service, these are usually candidates to migrate to a managed scope.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindThreadConstructors$KtRecipe","displayName":"Find `Thread(...)` constructor calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

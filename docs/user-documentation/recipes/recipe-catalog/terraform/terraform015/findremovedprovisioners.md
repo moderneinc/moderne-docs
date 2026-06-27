@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find removed provisioners"}
-  description={"Find usage of provisioners that were removed in Terraform 0.15: `chef`, `habitat`, `puppet`, and `salt-masterless`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.terraform015.FindRemovedProvisioners"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/terraform015/findremovedprovisioners.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find removed provisioners</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find usage of provisioners that were removed in Terraform 0.15: `chef`, `habitat`, `puppet`, and `salt-masterless`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"hcl","before":"resource \"aws_instance\" \"example\" {\n  ami = \"abc-123\"\n\n  provisioner \"chef\" {\n    server_url = \"https://chef.example.com\"\n  }\n}\n","after":"resource \"aws_instance\" \"example\" {\n  ami = \"abc-123\"\n\n  /*~~(Provisioner 'chef' was removed in Terraform 0.15)~~>*/provisioner \"chef\" {\n    server_url = \"https://chef.example.com\"\n  }\n}\n","diff":"@@ -4,1 +4,1 @@\n  ami = \"abc-123\"\n\n- provisioner \"chef\" {\n+ /*~~(Provisioner 'chef' was removed in Terraform 0.15)~~>*/provisioner \"chef\" {\n    server_url = \"https://chef.example.com\"\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates deprecated `DefaultHttpClient`"}
-  description={"Since `DefaultHttpClient` is deprecated, we need to change it to the `CloseableHttpClient`. It only covers the default scenario with no custom `HttpParams` or `ConnectionManager`.\n\nOf note: the `DefaultHttpClient` [does not support TLS 1.2](https://find-sec-bugs.github.io/bugs.htm#DEFAULT_HTTP_CLIENT).\n\nReferences:\n - [Find Sec Bugs](https://find-sec-bugs.github.io/bugs.htm#DEFAULT_HTTP_CLIENT).\n - [IBM Support Pages](https://www.ibm.com/support/pages/im-using-apache-httpclient-make-outbound-call-my-web-application-running-websphere-application-server-traditional-and-im-getting-ssl-handshake-error-how-can-i-debug)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["CWE-326"]}
@@ -31,7 +29,23 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient4.MigrateDefaultHttpClient"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient4/migratedefaulthttpclient.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrates deprecated `DefaultHttpClient`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Since `DefaultHttpClient` is deprecated, we need to change it to the `CloseableHttpClient`. It only covers the default scenario with no custom `HttpParams` or `ConnectionManager`.
+
+Of note: the `DefaultHttpClient` [does not support TLS 1.2](https://find-sec-bugs.github.io/bugs.htm#DEFAULT_HTTP_CLIENT).
+
+References:
+ - [Find Sec Bugs](https://find-sec-bugs.github.io/bugs.htm#DEFAULT_HTTP_CLIENT).
+ - [IBM Support Pages](https://www.ibm.com/support/pages/im-using-apache-httpclient-make-outbound-call-my-web-application-running-websphere-application-server-traditional-and-im-getting-ssl-handshake-error-how-can-i-debug).
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.http.HttpResponse;\nimport org.apache.http.client.methods.HttpPost;\nimport org.apache.http.impl.client.DefaultHttpClient;\n\nimport java.io.IOException;\n\nclass A {\n    void method() throws IOException {\n        DefaultHttpClient httpClient = new DefaultHttpClient();\n        HttpPost httpPost = new HttpPost(\"https://moderne.io\");\n        HttpResponse httpResponse = httpClient.execute(httpPost);\n    }\n}\n","after":"import org.apache.http.HttpResponse;\nimport org.apache.http.client.methods.HttpPost;\nimport org.apache.http.impl.client.CloseableHttpClient;\nimport org.apache.http.impl.client.HttpClients;\n\nimport java.io.IOException;\n\nclass A {\n    void method() throws IOException {\n        CloseableHttpClient httpClient = HttpClients.createDefault();\n        HttpPost httpPost = new HttpPost(\"https://moderne.io\");\n        HttpResponse httpResponse = httpClient.execute(httpPost);\n    }\n}\n","diff":"@@ -3,1 +3,2 @@\nimport org.apache.http.HttpResponse;\nimport org.apache.http.client.methods.HttpPost;\n-import org.apache.http.impl.client.DefaultHttpClient;\n+import org.apache.http.impl.client.CloseableHttpClient;\n+import org.apache.http.impl.client.HttpClients;\n\n@@ -9,1 +10,1 @@\nclass A {\n    void method() throws IOException {\n-       DefaultHttpClient httpClient = new DefaultHttpClient();\n+       CloseableHttpClient httpClient = HttpClients.createDefault();\n        HttpPost httpPost = new HttpPost(\"https://moderne.io\");\n","newFile":false}]}]}>
 

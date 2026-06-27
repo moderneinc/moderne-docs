@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use varargs equivalents for deprecated JdbcTemplate signatures"}
-  description={"`JdbcTemplate` signatures with `Object[]` arguments are deprecated, in favor of their existing varargs equivalents."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.JdbcTemplateObjectArrayArgToVarArgs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/jdbctemplateobjectarrayargtovarargs.md"}
-/>
+>
+
+<RecipeHeader.Title>Use varargs equivalents for deprecated JdbcTemplate signatures</RecipeHeader.Title>
+
+<RecipeHeader.Description>`JdbcTemplate` signatures with `Object[]` arguments are deprecated, in favor of their existing varargs equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package abc;\nimport org.springframework.jdbc.core.JdbcTemplate;\nimport java.util.List;\n\nclass MyDao {\n\n    JdbcTemplate jdbcTemplate;\n\n    User getUser(String first, String last) {\n        Object[] args = new Object[]{first, last};\n        return jdbcTemplate.queryForObject(\"select NAME, AGE from USER where FIRST = ? && LAST = ?\", args, User.class);\n    }\n\n    User getUser2(String first, String last) {\n        Object[] args = new Object[]{first, last};\n         return jdbcTemplate.queryForObject(\"\", args, (resultSet, i) -> {\n            User user = new User();\n            user.setName(resultSet.getString(\"NAME\"));\n            user.setAge(resultSet.getInt(\"AGE\"));\n            return user;\n        });\n    }\n}\n","after":"package abc;\nimport org.springframework.jdbc.core.JdbcTemplate;\nimport java.util.List;\n\nclass MyDao {\n\n    JdbcTemplate jdbcTemplate;\n\n    User getUser(String first, String last) {\n        Object[] args = new Object[]{first, last};\n        return jdbcTemplate.queryForObject(\"select NAME, AGE from USER where FIRST = ? && LAST = ?\", User.class, args);\n    }\n\n    User getUser2(String first, String last) {\n        Object[] args = new Object[]{first, last};\n         return jdbcTemplate.queryForObject(\"\", (resultSet, i) -> {\n            User user = new User();\n            user.setName(resultSet.getString(\"NAME\"));\n            user.setAge(resultSet.getInt(\"AGE\"));\n            return user;\n        }, args);\n    }\n}\n","diff":"@@ -11,1 +11,1 @@\n    User getUser(String first, String last) {\n        Object[] args = new Object[]{first, last};\n-       return jdbcTemplate.queryForObject(\"select NAME, AGE from USER where FIRST = ? && LAST = ?\", args, User.class);\n+       return jdbcTemplate.queryForObject(\"select NAME, AGE from USER where FIRST = ? && LAST = ?\", User.class, args);\n    }\n@@ -16,1 +16,1 @@\n    User getUser2(String first, String last) {\n        Object[] args = new Object[]{first, last};\n-        return jdbcTemplate.queryForObject(\"\", args, (resultSet, i) -> {\n+        return jdbcTemplate.queryForObject(\"\", (resultSet, i) -> {\n            User user = new User();\n@@ -21,1 +21,1 @@\n            user.setAge(resultSet.getInt(\"AGE\"));\n            return user;\n-       });\n+       }, args);\n    }\n","newFile":false}]}]}>
 

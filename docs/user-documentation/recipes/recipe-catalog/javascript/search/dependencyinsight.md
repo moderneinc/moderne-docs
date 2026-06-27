@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Node.js dependency insight"}
-  description={"Find direct and transitive npm dependencies matching a package name pattern. Results include dependencies that either directly match or transitively include a matching dependency."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-javascript"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.search.DependencyInsight"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/search/dependencyinsight.md"}
-/>
+>
+
+<RecipeHeader.Title>Node.js dependency insight</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find direct and transitive npm dependencies matching a package name pattern. Results include dependencies that either directly match or transitively include a matching dependency.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageNamePattern","required":true,"description":"A glob pattern to match npm package names. Use `*` as a wildcard.","example":"@types/*"},{"type":"String","name":"scope","required":false,"description":"Match dependencies in the specified scope. All scopes are searched by default.","example":"dependencies"},{"type":"Boolean","name":"onlyDirect","required":false,"description":"If enabled, transitive dependencies will not be considered. All dependencies are searched by default.","example":"true"}]}>
 

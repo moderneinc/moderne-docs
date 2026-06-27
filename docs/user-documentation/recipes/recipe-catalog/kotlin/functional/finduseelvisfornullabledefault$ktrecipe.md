@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (x != null) x else default` patterns"}
-  description={"`if (x != null) x else default` is the elvis operator written long-hand: `x ?: default`. The elvis form composes naturally with chains (`a ?: b ?: c`) and keeps the value derivation in a single expression."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindUseElvisForNullableDefault$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/finduseelvisfornullabledefault$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (x != null) x else default` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`if (x != null) x else default` is the elvis operator written long-hand: `x ?: default`. The elvis form composes naturally with chains (`a ?: b ?: c`) and keeps the value derivation in a single expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindUseElvisForNullableDefault$KtRecipe","displayName":"Find `if (x != null) x else default` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

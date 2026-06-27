@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `findViewById` call sites"}
-  description={"`findViewById` is the legacy view-lookup API. Modern Android uses ViewBinding (auto-generated `Binding` classes per layout) which is type-safe, null-safe, and avoids the per-call HashMap walk. Each match is a candidate for migration."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindFindViewById$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findfindviewbyid$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `findViewById` call sites</RecipeHeader.Title>
+
+<RecipeHeader.Description>`findViewById` is the legacy view-lookup API. Modern Android uses ViewBinding (auto-generated `Binding` classes per layout) which is type-safe, null-safe, and avoids the per-call HashMap walk. Each match is a candidate for migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindFindViewById$KtRecipe","displayName":"Find `findViewById` call sites","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

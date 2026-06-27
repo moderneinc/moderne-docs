@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated Jetpack Compose methods"}
-  description={"Replace deprecated Jetpack Compose method calls with their recommended replacements, based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={["compose","kotlin"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.ReplaceDeprecatedComposeMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/replacedeprecatedcomposemethods.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace deprecated `runtime` methods","href":"androidx/compose/runtime/replacedeprecatedruntime1methods"},{"name":"Replace deprecated `material` methods","href":"androidx/compose/material/replacedeprecatedmaterial1methods"},{"name":"Replace deprecated `material3` methods","href":"androidx/compose/material3/replacedeprecatedmaterial31methods"},{"name":"Replace deprecated `animation-core` methods","href":"androidx/compose/animation/replacedeprecatedanimationcore1methods"}]}>
+<RecipeHeader.Title>Replace deprecated Jetpack Compose methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated Jetpack Compose method calls with their recommended replacements, based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace deprecated `runtime` methods","href":"/user-documentation/recipes/recipe-catalog/androidx/compose/runtime/replacedeprecatedruntime1methods/"},{"name":"Replace deprecated `material` methods","href":"/user-documentation/recipes/recipe-catalog/androidx/compose/material/replacedeprecatedmaterial1methods/"},{"name":"Replace deprecated `material3` methods","href":"/user-documentation/recipes/recipe-catalog/androidx/compose/material3/replacedeprecatedmaterial31methods/"},{"name":"Replace deprecated `animation-core` methods","href":"/user-documentation/recipes/recipe-catalog/androidx/compose/animation/replacedeprecatedanimationcore1methods/"}]}>
 
 ## Definition
 

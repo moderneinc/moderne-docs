@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Spring Security 5.4 introduces the ability to configure `HttpSecurity` by creating a `SecurityFilterChain` bean"}
-  description={"The Spring Security `WebSecurityConfigurerAdapter` was deprecated 5.7, this recipe will transform `WebSecurityConfigurerAdapter` classes by using a component based approach. Check out the [spring-security-without-the-websecurityconfigureradapter](https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter) blog for more details."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security5.WebSecurityConfigurerAdapter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security5/websecurityconfigureradapter.md"}
-/>
+>
+
+<RecipeHeader.Title>Spring Security 5.4 introduces the ability to configure `HttpSecurity` by creating a `SecurityFilterChain` bean</RecipeHeader.Title>
+
+<RecipeHeader.Description>The Spring Security `WebSecurityConfigurerAdapter` was deprecated 5.7, this recipe will transform `WebSecurityConfigurerAdapter` classes by using a component based approach. Check out the [spring-security-without-the-websecurityconfigureradapter](https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter) blog for more details.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.websecuritydemo;\n\nimport static org.springframework.security.config.Customizer.withDefaults;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\n\n@Configuration\npublic class SecurityConfiguration extends WebSecurityConfigurerAdapter {\n\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n            .authorizeHttpRequests((authz) -> authz\n                .anyRequest().authenticated()\n            )\n            .httpBasic(withDefaults());\n    }\n\n    void someMethod() {}\n\n}\n","after":"package com.example.websecuritydemo;\n\nimport static org.springframework.security.config.Customizer.withDefaults;\n\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\n\n@Configuration\npublic class SecurityConfiguration {\n\n    @Bean\n    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {\n        http\n            .authorizeHttpRequests((authz) -> authz\n                .anyRequest().authenticated()\n            )\n            .httpBasic(withDefaults());\n        return http.build();\n    }\n\n    void someMethod() {}\n\n}\n","diff":"@@ -4,0 +4,2 @@\n\nimport static org.springframework.security.config.Customizer.withDefaults;\n+\n+import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\n@@ -5,1 +7,0 @@\nimport static org.springframework.security.config.Customizer.withDefaults;\nimport org.springframework.context.annotation.Configuration;\n-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\n@@ -7,0 +8,1 @@\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\n+import org.springframework.security.web.SecurityFilterChain;\n\n@@ -9,1 +11,1 @@\n\n@Configuration\n-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {\n+public class SecurityConfiguration {\n\n@@ -11,2 +13,2 @@\npublic class SecurityConfiguration extends WebSecurityConfigurerAdapter {\n\n-   @Override\n-   protected void configure(HttpSecurity http) throws Exception {\n+   @Bean\n+   SecurityFilterChain filterChain(HttpSecurity http) throws Exception {\n        http\n@@ -18,0 +20,1 @@\n            )\n            .httpBasic(withDefaults());\n+       return http.build();\n    }\n","newFile":false}]}]}>
 

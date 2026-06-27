@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `ZipkinAutoConfiguration`"}
-  description={"Zipkin is no longer auto-configured by default in Spring Boot 4.0; remove references to it from exclusions on annotations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.RemoveZipkinAutoConfigurationExclude"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/removezipkinautoconfigurationexclude.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `ZipkinAutoConfiguration`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Zipkin is no longer auto-configured by default in Spring Boot 4.0; remove references to it from exclusions on annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;\nimport org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinAutoConfiguration;\n\n@SpringBootApplication(exclude = { SecurityAutoConfiguration.class, ZipkinAutoConfiguration.class })\npublic class Application {\n}\n","after":"import org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;\n\n@SpringBootApplication(exclude = SecurityAutoConfiguration.class)\npublic class Application {\n}\n","diff":"@@ -3,1 +3,0 @@\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\nimport org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;\n-import org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinAutoConfiguration;\n\n@@ -5,1 +4,1 @@\nimport org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinAutoConfiguration;\n\n-@SpringBootApplication(exclude = { SecurityAutoConfiguration.class, ZipkinAutoConfiguration.class })\n+@SpringBootApplication(exclude = SecurityAutoConfiguration.class)\npublic class Application {\n","newFile":false}]}]}>
 

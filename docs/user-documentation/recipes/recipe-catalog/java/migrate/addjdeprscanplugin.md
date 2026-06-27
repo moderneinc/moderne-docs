@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `JDeprScan` Maven Plug-in"}
-  description={"Add the `JDeprScan` Maven plugin to scan class files for uses of deprecated APIs."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.AddJDeprScanPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/addjdeprscanplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `JDeprScan` Maven Plug-in</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add the `JDeprScan` Maven plugin to scan class files for uses of deprecated APIs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"release","required":false,"description":"Specifies the Java SE release that provides the set of deprecated APIs for scanning.","example":"11"}]}>
 

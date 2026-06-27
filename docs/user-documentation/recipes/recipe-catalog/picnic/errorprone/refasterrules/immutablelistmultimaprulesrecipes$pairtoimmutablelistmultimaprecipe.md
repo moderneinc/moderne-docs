@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ImmutableListMultimapRules.PairToImmutableListMultimap`"}
-  description={"Prefer `ImmutableListMultimap#of(Object, Object)` over more contrived or less-specific alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableListMultimapRulesRecipes$PairToImmutableListMultimapRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$pairtoimmutablelistmultimaprecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ImmutableListMultimapRules.PairToImmutableListMultimap`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `ImmutableListMultimap#of(Object, Object)` over more contrived or less-specific alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableListMultimapRulesRecipes$PairToImmutableListMultimapRecipe","displayName":"Refaster template `ImmutableListMultimapRules.PairToImmutableListMultimap`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

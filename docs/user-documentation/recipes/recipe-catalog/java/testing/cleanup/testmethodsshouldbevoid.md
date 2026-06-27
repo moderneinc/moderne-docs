@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Test methods should have void return type"}
-  description={"Test methods annotated with `@Test`, `@ParameterizedTest`, `@RepeatedTest`, `@TestTemplate` should have `void` return type. Non-void return types can cause test discovery issues, and warnings as of JUnit 5.13+. This recipe changes the return type to `void` and removes `return` statements."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.TestMethodsShouldBeVoid"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/testmethodsshouldbevoid.md"}
-/>
+>
+
+<RecipeHeader.Title>Test methods should have void return type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Test methods annotated with `@Test`, `@ParameterizedTest`, `@RepeatedTest`, `@TestTemplate` should have `void` return type. Non-void return types can cause test discovery issues, and warnings as of JUnit 5.13+. This recipe changes the return type to `void` and removes `return` statements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\n\nclass ATest {\n    @Test\n    int testMethod() {\n        int i = 42;\n        return i;\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\n\nclass ATest {\n    @Test\n    void testMethod() {\n        int i = 42;\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass ATest {\n    @Test\n-   int testMethod() {\n+   void testMethod() {\n        int i = 42;\n@@ -7,1 +7,0 @@\n    int testMethod() {\n        int i = 42;\n-       return i;\n    }\n","newFile":false}]}]}>
 

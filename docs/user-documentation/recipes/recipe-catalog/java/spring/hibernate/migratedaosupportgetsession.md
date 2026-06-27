@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `HibernateDaoSupport#getSession()` usage"}
-  description={"Migrate `HibernateDaoSupport#getSession()` usage to `HibernateDaoSupport#getSessionFactory()#getCurrentSession()` and annotate the methods with `@Transactional`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.hibernate.MigrateDaoSupportGetSession"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/hibernate/migratedaosupportgetsession.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `HibernateDaoSupport#getSession()` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate `HibernateDaoSupport#getSession()` usage to `HibernateDaoSupport#getSessionFactory()#getCurrentSession()` and annotate the methods with `@Transactional`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.orm.hibernate3.support.HibernateDaoSupport;\nimport org.hibernate.Session;\n\npublic class UserDao extends HibernateDaoSupport {\n    public User findById(Long id) {\n        Session session = this.getSession();\n        try {\n            return session.get(User.class, id);\n        } finally {\n            releaseSession(session);\n        }\n    }\n}\n","after":"import org.springframework.orm.hibernate3.support.HibernateDaoSupport;\nimport org.springframework.transaction.annotation.Transactional;\nimport org.hibernate.Session;\n\npublic class UserDao extends HibernateDaoSupport {\n    @Transactional\n    public User findById(Long id) {\n        Session session = this.getSessionFactory().getCurrentSession();\n        try {\n            return session.get(User.class, id);\n        } finally {\n            releaseSession(session);\n        }\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.springframework.orm.hibernate3.support.HibernateDaoSupport;\n+import org.springframework.transaction.annotation.Transactional;\nimport org.hibernate.Session;\n@@ -5,0 +6,1 @@\n\npublic class UserDao extends HibernateDaoSupport {\n+   @Transactional\n    public User findById(Long id) {\n@@ -6,1 +8,1 @@\npublic class UserDao extends HibernateDaoSupport {\n    public User findById(Long id) {\n-       Session session = this.getSession();\n+       Session session = this.getSessionFactory().getCurrentSession();\n        try {\n","newFile":false}]}]}>
 

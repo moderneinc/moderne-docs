@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `assertThrows<X> { ... }` calls — Kotest migration candidate"}
-  description={"JUnit 5's `assertThrows<X> { … }` and Kotest's `shouldThrow<X> { … }` have the same shape. Migrating gives access to Kotest's `shouldThrowExactly<X>` (rejects subclass exceptions) and `shouldThrowMessage(text) { … }`, which are tighter than JUnit's catch-and-introspect pattern."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindAssertThrowsCandidateForKotest$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertthrowscandidateforkotest$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `assertThrows<X> { ... }` calls — Kotest migration candidate</RecipeHeader.Title>
+
+<RecipeHeader.Description>JUnit 5's `assertThrows<X> { … }` and Kotest's `shouldThrow<X> { … }` have the same shape. Migrating gives access to Kotest's `shouldThrowExactly<X>` (rejects subclass exceptions) and `shouldThrowMessage(text) { … }`, which are tighter than JUnit's catch-and-introspect pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindAssertThrowsCandidateForKotest$KtRecipe","displayName":"Find `assertThrows<X> { ... }` calls — Kotest migration candidate","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

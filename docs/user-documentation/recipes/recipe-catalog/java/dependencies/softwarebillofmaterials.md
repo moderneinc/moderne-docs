@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Software bill of materials"}
-  description={"Produces a software bill of materials (SBOM) for a project. An SBOM is a complete list of all dependencies used in a project, including transitive dependencies. The produced SBOM is in the [CycloneDX](https://cyclonedx.org/) XML format. Supports Gradle and Maven. Places a file named sbom.xml adjacent to the Gradle or Maven build file."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CycloneDX"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.SoftwareBillOfMaterials"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/softwarebillofmaterials.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Software bill of materials</RecipeHeader.Title>
+
+<RecipeHeader.Description>Produces a software bill of materials (SBOM) for a project. An SBOM is a complete list of all dependencies used in a project, including transitive dependencies. The produced SBOM is in the [CycloneDX](https://cyclonedx.org/) XML format. Supports Gradle and Maven. Places a file named sbom.xml adjacent to the Gradle or Maven build file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.dependencies.SoftwareBillOfMaterials","displayName":"Software bill of materials","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":false}}>
 

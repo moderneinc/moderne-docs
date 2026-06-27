@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Wicket 10.x"}
-  description={"Migrates Wicket 9.x to Wicket 10.x, as well as Java 17 and Jakarta."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.wicket.MigrateToWicket10"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/wicket/migratetowicket10.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Java 17","href":"java/migrate/upgradetojava17"},{"name":"Migrate to Jakarta EE 9","href":"java/migrate/jakarta/javaxmigrationtojakarta"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Change type","href":"java/changetype"},{"name":"Remove Maven dependency","href":"maven/removedependency"},{"name":"Remove Maven dependency","href":"maven/removedependency"},{"name":"Upgrade Maven dependency version","href":"maven/upgradedependencyversion"},{"name":"Upgrade Maven dependency version","href":"maven/upgradedependencyversion"},{"name":"Upgrade Maven dependency version","href":"maven/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Migrate to Wicket 10.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Wicket 9.x to Wicket 10.x, as well as Java 17 and Jakarta.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Java 17","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava17/"},{"name":"Migrate to Jakarta EE 9","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxmigrationtojakarta/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Remove Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removedependency/"},{"name":"Remove Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/removedependency/"},{"name":"Upgrade Maven dependency version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion/"},{"name":"Upgrade Maven dependency version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion/"},{"name":"Upgrade Maven dependency version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion/"}]}>
 
 ## Definition
 

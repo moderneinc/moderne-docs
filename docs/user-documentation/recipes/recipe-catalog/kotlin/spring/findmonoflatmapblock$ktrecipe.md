@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Mono.block()` calls in non-test code"}
-  description={"Outside of `@Test` methods, `Mono.block()` is almost always a bug: it bridges reactive code into a blocking call, defeating the purpose of WebFlux. In Kotlin, the bridge should go the other direction — `awaitSingle()` from `kotlinx-coroutines-reactor`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindMonoFlatMapBlock$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoflatmapblock$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Mono.block()` calls in non-test code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Outside of `@Test` methods, `Mono.block()` is almost always a bug: it bridges reactive code into a blocking call, defeating the purpose of WebFlux. In Kotlin, the bridge should go the other direction — `awaitSingle()` from `kotlinx-coroutines-reactor`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindMonoFlatMapBlock$KtRecipe","displayName":"Find `Mono.block()` calls in non-test code","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find string.GetHashCode() without StringComparer"}
-  description={"Detect calls to `string.GetHashCode()` without a `StringComparer`. The default `GetHashCode()` may produce different results across platforms."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindStringGetHashCode"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findstringgethashcode.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find string.GetHashCode() without StringComparer</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect calls to `string.GetHashCode()` without a `StringComparer`. The default `GetHashCode()` may produce different results across platforms.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindStringGetHashCode","displayName":"Find string.GetHashCode() without StringComparer","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

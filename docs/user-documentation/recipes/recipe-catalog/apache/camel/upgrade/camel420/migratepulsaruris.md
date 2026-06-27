@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Pulsar component URIs from V1 to V2 format"}
-  description={"Apache Pulsar client upgraded from 4.1.3 to 4.2.0. Per PIP-457, V1 topic names are no longer supported.\nMigrates from V1 format (persistent://tenant/cluster/namespace/topic) to V2 format (persistent://tenant/namespace/topic).\nRemoves the cluster segment. Only transforms URIs where the topic name does NOT contain slashes.\nURIs with slashes in topic names are left unchanged to avoid ambiguity between V1 and V2 formats.\nWorks across Java, XML DSL, and YAML DSL.\n"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel420.migratePulsarUris"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel420/migratepulsaruris.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Camel component URI across all DSLs","href":"apache/camel/upgrade/customrecipes/changecomponenturirecipe"}]}>
+<RecipeHeader.Title>Migrate Pulsar component URIs from V1 to V2 format</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apache Pulsar client upgraded from 4.1.3 to 4.2.0. Per PIP-457, V1 topic names are no longer supported. Migrates from V1 format (persistent://tenant/cluster/namespace/topic) to V2 format (persistent://tenant/namespace/topic). Removes the cluster segment. Only transforms URIs where the topic name does NOT contain slashes. URIs with slashes in topic names are left unchanged to avoid ambiguity between V1 and V2 formats. Works across Java, XML DSL, and YAML DSL.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Camel component URI across all DSLs","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/changecomponenturirecipe/"}]}>
 
 ## Definition
 

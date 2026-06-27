@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find HTTP client construction sites"}
-  description={"Each HTTP client construction is a place where connection pooling, timeouts, retry policy, and TLS settings are committed. Flag for review so a reviewer or LLM agent can confirm the call site picks the right policy rather than the defaults."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindHttpClientConstructions$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findhttpclientconstructions$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find HTTP client construction sites</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each HTTP client construction is a place where connection pooling, timeouts, retry policy, and TLS settings are committed. Flag for review so a reviewer or LLM agent can confirm the call site picks the right policy rather than the defaults.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindHttpClientConstructions$KtRecipe","displayName":"Find HTTP client construction sites","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

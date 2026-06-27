@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Kafka 2.5"}
-  description={"Migrate applications to the latest Kafka 2.5 release."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kafka"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.MigrateToKafka25"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/migratetokafka25.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Kafka 2.4","href":"kafka/migratetokafka24"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Change type","href":"java/changetype"},{"name":"Migrate deprecated `KafkaStreams#store` method","href":"kafka/streams/migratekafkastreamsstoremethod"},{"name":"Migrate KStream to KTable conversion to use `toTable()` method","href":"kafka/streams/migratekstreamtotable"}]}>
+<RecipeHeader.Title>Migrate to Kafka 2.5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Kafka 2.5 release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Kafka 2.4","href":"/user-documentation/recipes/recipe-catalog/kafka/migratetokafka24/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Migrate deprecated `KafkaStreams#store` method","href":"/user-documentation/recipes/recipe-catalog/kafka/streams/migratekafkastreamsstoremethod/"},{"name":"Migrate KStream to KTable conversion to use `toTable()` method","href":"/user-documentation/recipes/recipe-catalog/kafka/streams/migratekstreamtotable/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `.getOrThrow()` calls on a `Result<T>`"}
-  description={"`Result.getOrThrow()` unwraps success or rethrows the captured failure. If the call site does that immediately after `runCatching { … }`, the `Result` round-trip is pure ceremony — the same value with the same failure mode comes out of the bare expression. Prefer the bare expression, or use `.fold(...)` / `.getOrElse { … }` to actually do something with the failure."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindResultGetOrThrow$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultgetorthrow$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `.getOrThrow()` calls on a `Result<T>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Result.getOrThrow()` unwraps success or rethrows the captured failure. If the call site does that immediately after `runCatching { … }`, the `Result` round-trip is pure ceremony — the same value with the same failure mode comes out of the bare expression. Prefer the bare expression, or use `.fold(...)` / `.getOrElse { … }` to actually do something with the failure.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindResultGetOrThrow$KtRecipe","displayName":"Find `.getOrThrow()` calls on a `Result<T>`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `.find()` check with `in` / `not in`"}
-  description={"Rewrite ``.find()`` return-value checks as membership tests: ``text.find(sub) == -1`` becomes ``sub not in text`` and ``text.find(sub) != -1`` becomes ``sub in text``."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifySubstringSearch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifysubstringsearch.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `.find()` check with `in` / `not in`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rewrite ``.find()`` return-value checks as membership tests: ``text.find(sub) == -1`` becomes ``sub not in text`` and ``text.find(sub) != -1`` becomes ``sub in text``.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifySubstringSearch","displayName":"Replace `.find()` check with `in` / `not in`","pipPackage":"openrewrite-static-analysis"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to DataNucleus 4.0"}
-  description={"Migrate DataNucleus 3.x applications to 4.0. This recipe handles package relocations, type renames, property key changes, and dependency updates introduced in AccessPlatform 4.0."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["datanucleus","jdo","jpa"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.datanucleus.UpgradeDataNucleus_4_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_4_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"DataNucleus 4.0 package moves","href":"java/migrate/datanucleus/datanucleuspackagemoves_4_0"},{"name":"DataNucleus 4.0 type changes","href":"java/migrate/datanucleus/datanucleustypechanges_4_0"},{"name":"DataNucleus 4.0 property migrations","href":"java/migrate/datanucleus/datanucleusproperties_4_0"}]}>
+<RecipeHeader.Title>Migrate to DataNucleus 4.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate DataNucleus 3.x applications to 4.0. This recipe handles package relocations, type renames, property key changes, and dependency updates introduced in AccessPlatform 4.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"DataNucleus 4.0 package moves","href":"/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleuspackagemoves_4_0/"},{"name":"DataNucleus 4.0 type changes","href":"/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleustypechanges_4_0/"},{"name":"DataNucleus 4.0 property migrations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleusproperties_4_0/"}]}>
 
 ## Definition
 

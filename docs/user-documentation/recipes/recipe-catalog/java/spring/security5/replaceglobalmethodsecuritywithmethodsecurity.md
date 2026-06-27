@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace global method security with method security"}
-  description={"`@EnableGlobalMethodSecurity` and `<global-method-security>` are deprecated in favor of `@EnableMethodSecurity` and `<method-security>`, respectively. The new annotation and XML element activate Spring’s pre-post annotations by default and use AuthorizationManager internally."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security5.ReplaceGlobalMethodSecurityWithMethodSecurity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security5/replaceglobalmethodsecuritywithmethodsecurity.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace global method security with method security</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@EnableGlobalMethodSecurity` and `<global-method-security>` are deprecated in favor of `@EnableMethodSecurity` and `<method-security>`, respectively. The new annotation and XML element activate Spring’s pre-post annotations by default and use AuthorizationManager internally.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;\n\n@EnableGlobalMethodSecurity(prePostEnabled = true)\npublic class config {\n}\n","after":"import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;\n\n@EnableMethodSecurity\npublic class config {\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;\n+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;\n\n@@ -3,1 +3,1 @@\nimport org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;\n\n-@EnableGlobalMethodSecurity(prePostEnabled = true)\n+@EnableMethodSecurity\npublic class config {\n","newFile":false}]}]}>
 

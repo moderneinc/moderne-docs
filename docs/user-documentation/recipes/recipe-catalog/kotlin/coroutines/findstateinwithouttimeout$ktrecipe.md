@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `stateIn` with `SharingStarted.Eagerly` or unparameterized start"}
-  description={"`stateIn(scope)` with the default `Eagerly` start keeps the upstream Flow producing forever (no last-subscriber timeout). For UI state, `WhileSubscribed(5_000)` is the canonical setting — it survives configuration changes without leaking the producer."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindStateInWithoutTimeout$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findstateinwithouttimeout$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `stateIn` with `SharingStarted.Eagerly` or unparameterized start</RecipeHeader.Title>
+
+<RecipeHeader.Description>`stateIn(scope)` with the default `Eagerly` start keeps the upstream Flow producing forever (no last-subscriber timeout). For UI state, `WhileSubscribed(5_000)` is the canonical setting — it survives configuration changes without leaking the producer.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindStateInWithoutTimeout$KtRecipe","displayName":"Find `stateIn` with `SharingStarted.Eagerly` or unparameterized start","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

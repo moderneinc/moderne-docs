@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `FormattedArgumentsToVMethod.ErrorToVError`"}
-  description={"Recipe created for the following Refaster template:\n```java\npublic static class ErrorToVError {\n    \n    @BeforeTemplate\n    void before(Logger logger, String message, Object[] args) {\n        logger.error(message, args);\n    }\n    \n    @AfterTemplate\n    void after(Logger logger, String message, Object[] args) {\n        logger.errorv(message, args);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.jboss.FormattedArgumentsToVMethodRecipes$ErrorToVErrorRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/jboss/formattedargumentstovmethodrecipes$errortoverrorrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `FormattedArgumentsToVMethod.ErrorToVError`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+public static class ErrorToVError {
+    
+    @BeforeTemplate
+    void before(Logger logger, String message, Object[] args) {
+        logger.error(message, args);
+    }
+    
+    @AfterTemplate
+    void after(Logger logger, String message, Object[] args) {
+        logger.errorv(message, args);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.logging.jboss.FormattedArgumentsToVMethodRecipes$ErrorToVErrorRecipe","displayName":"Refaster template `FormattedArgumentsToVMethod.ErrorToVError`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 

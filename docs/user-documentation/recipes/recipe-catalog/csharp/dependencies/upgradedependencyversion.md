@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade C# dependency versions"}
-  description={"Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`."}
   type={"Single recipe"}
   languages={["C#"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.csharp.dependencies.UpgradeDependencyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/dependencies/upgradedependencyversion.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Upgrade C# dependency versions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packagePattern","required":true,"description":"Package glob pattern used to match dependencies.","example":"Microsoft*"},{"type":"String","name":"newVersion","required":true,"description":"An exact version number.","example":"12.3"}]}>
 

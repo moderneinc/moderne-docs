@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename private field according to _camelCase convention"}
-  description={"Detect private fields not following _camelCase naming convention."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Naming.RenamePrivateFieldAccordingToConvention"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/naming/renameprivatefieldaccordingtoconvention.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Rename private field according to _camelCase convention</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect private fields not following _camelCase naming convention.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Naming.RenamePrivateFieldAccordingToConvention","displayName":"Rename private field according to _camelCase convention","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

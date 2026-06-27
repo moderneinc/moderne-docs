@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `appendln` with `appendLine`"}
-  description={"Replace `appendln()` with `appendLine()`. This was deprecated in Kotlin 1.4 and becomes an error in Kotlin 2.1."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={["kotlin"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.ReplaceDeprecatedAppendln"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedappendln.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"}]}>
+<RecipeHeader.Title>Replace deprecated `appendln` with `appendLine`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `appendln()` with `appendLine()`. This was deprecated in Kotlin 1.4 and becomes an error in Kotlin 2.1.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]}>
 
 ## Definition
 

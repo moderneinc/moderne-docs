@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to JSpecify"}
-  description={"This recipe will migrate to JSpecify annotations from various other nullability annotation standards."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jspecify.MigrateToJSpecify"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jspecify/migratetojspecify.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate from javax annotation API to JSpecify","href":"java/jspecify/migratefromjavaxannotationapi"},{"name":"Migrate from Jakarta annotation API to JSpecify","href":"java/jspecify/migratefromjakartaannotationapi"},{"name":"Migrate from JetBrains annotations to JSpecify","href":"java/jspecify/migratefromjetbrainsannotations"},{"name":"Migrate from Micrometer annotations to JSpecify","href":"java/jspecify/migratefrommicrometerannotations"},{"name":"Migrate from Micronaut Framework annotations to JSpecify","href":"java/jspecify/migratefrommicronautannotations"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to JSpecify</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will migrate to JSpecify annotations from various other nullability annotation standards.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate from javax annotation API to JSpecify","href":"/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromjavaxannotationapi/"},{"name":"Migrate from Jakarta annotation API to JSpecify","href":"/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromjakartaannotationapi/"},{"name":"Migrate from JetBrains annotations to JSpecify","href":"/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromjetbrainsannotations/"},{"name":"Migrate from Micrometer annotations to JSpecify","href":"/user-documentation/recipes/recipe-catalog/java/jspecify/migratefrommicrometerannotations/"},{"name":"Migrate from Micronaut Framework annotations to JSpecify","href":"/user-documentation/recipes/recipe-catalog/java/jspecify/migratefrommicronautannotations/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

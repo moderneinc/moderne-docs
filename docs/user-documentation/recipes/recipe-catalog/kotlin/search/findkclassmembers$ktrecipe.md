@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `KClass.members` / `memberFunctions` / `memberProperties` access"}
-  description={"Access to `KClass.members` (and its sibling reflective collections) requires `kotlin-reflect.jar` at runtime and walks every declared member of the class. Each call is a position where reflection over a Kotlin type is happening — opaque to static analysis."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindKClassMembers$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findkclassmembers$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `KClass.members` / `memberFunctions` / `memberProperties` access</RecipeHeader.Title>
+
+<RecipeHeader.Description>Access to `KClass.members` (and its sibling reflective collections) requires `kotlin-reflect.jar` at runtime and walks every declared member of the class. Each call is a position where reflection over a Kotlin type is happening — opaque to static analysis.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindKClassMembers$KtRecipe","displayName":"Find `KClass.members` / `memberFunctions` / `memberProperties` access","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

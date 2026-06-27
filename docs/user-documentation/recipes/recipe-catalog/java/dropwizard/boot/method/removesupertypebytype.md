@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove supertype by fully qualified name"}
-  description={"Removes a specified type from class extends or implements clauses."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.method.RemoveSuperTypeByType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/method/removesupertypebytype.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove interface implementations","href":"java/removeimplements"}]}>
+<RecipeHeader.Title>Remove supertype by fully qualified name</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes a specified type from class extends or implements clauses.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove interface implementations","href":"/user-documentation/recipes/recipe-catalog/java/removeimplements/"}]}>
 
 ## Definition
 

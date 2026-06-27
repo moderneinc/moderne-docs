@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TimeRules.DurationBetweenInstants`"}
-  description={"Don't unnecessarily convert to and from milliseconds. (This way nanosecond precision is retained.) <strong>Warning:</strong> this rewrite rule increases precision!."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TimeRulesRecipes$DurationBetweenInstantsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/timerulesrecipes$durationbetweeninstantsrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TimeRules.DurationBetweenInstants`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Don't unnecessarily convert to and from milliseconds. (This way nanosecond precision is retained.) &lt;strong>Warning:&lt;/strong> this rewrite rule increases precision!.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$DurationBetweenInstantsRecipe","displayName":"Refaster template `TimeRules.DurationBetweenInstants`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

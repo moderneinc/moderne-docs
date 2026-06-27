@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `String.toFloat()` instead of `java.lang.Float.parseFloat(s)`"}
-  description={"Java-idiom `Float.parseFloat(s)` migrates to the Kotlin extension `s.toFloat()`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseStringToFloat$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtofloat$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `String.toFloat()` instead of `java.lang.Float.parseFloat(s)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java-idiom `Float.parseFloat(s)` migrates to the Kotlin extension `s.toFloat()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseStringToFloat$KtRecipe","displayName":"Use `String.toFloat()` instead of `java.lang.Float.parseFloat(s)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

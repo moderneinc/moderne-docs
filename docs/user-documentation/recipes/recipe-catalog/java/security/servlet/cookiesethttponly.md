@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Cookies missing HttpOnly flag"}
-  description={"Check for use of cookies without the HttpOnly flag. Cookies should be marked as HttpOnly to prevent client-side scripts from accessing them, reducing the risk of cross-site scripting (XSS) attacks."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-1004"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.servlet.CookieSetHttpOnly"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/servlet/cookiesethttponly.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Cookies missing HttpOnly flag</RecipeHeader.Title>
+
+<RecipeHeader.Description>Check for use of cookies without the HttpOnly flag. Cookies should be marked as HttpOnly to prevent client-side scripts from accessing them, reducing the risk of cross-site scripting (XSS) attacks.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.http.Cookie;\n\nclass Test {\n    void test() {\n        Cookie cookie = new Cookie(\"foo\", \"bar\");\n        System.out.println(\"hi\");\n        cookie.setHttpOnly(false);\n    }\n}\n","after":"import javax.servlet.http.Cookie;\n\nclass Test {\n    void test() {\n        Cookie cookie = new Cookie(\"foo\", \"bar\");\n        System.out.println(\"hi\");\n        cookie.setHttpOnly(true);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n        Cookie cookie = new Cookie(\"foo\", \"bar\");\n        System.out.println(\"hi\");\n-       cookie.setHttpOnly(false);\n+       cookie.setHttpOnly(true);\n    }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from Zipkin to OpenTelemetry OTLP"}
-  description={"Migrate from Zipkin tracing to OpenTelemetry OTLP. This recipe replaces Zipkin dependencies with OpenTelemetry OTLP exporter and updates the related configuration properties."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","zipkin","migration","opentelemetry","boot"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.opentelemetry.MigrateFromZipkinToOpenTelemetry"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/opentelemetry/migratefromzipkintoopentelemetry.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate from Zipkin to OpenTelemetry OTLP</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from Zipkin tracing to OpenTelemetry OTLP. This recipe replaces Zipkin dependencies with OpenTelemetry OTLP exporter and updates the related configuration properties.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

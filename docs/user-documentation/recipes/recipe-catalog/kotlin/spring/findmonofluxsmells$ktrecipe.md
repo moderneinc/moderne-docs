@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Mono/Flux ergonomic smells"}
-  description={"Reactive-pipeline shapes that read more naturally a different way: `flatMap { Mono.just(...) }` → `map`, `block()` / `blockFirst()` / `blockLast()` outside `@Test` methods, single-argument `Flux.subscribe` (missing error consumer), raw `throw` inside operator lambdas (use `Mono.error`), `Mono.zip` (verify independent operands), and `Flux.fromIterable(listOf(...))` (use `Flux.just`)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindMonoFluxSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonofluxsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Mono.flatMap { x -> Mono.just(f(x)) }` patterns","href":"kotlin/spring/findmonoflatmapreturningmonojust$ktrecipe"},{"name":"Find `Flux.flatMap { x -> Mono.just(f(x)) }` patterns","href":"kotlin/spring/findfluxflatmapreturningfluxjust$ktrecipe"},{"name":"Find `Mono.block()` calls outside `@Test` methods","href":"kotlin/spring/findmonoblockinnontest$ktrecipe"},{"name":"Find `Flux.blockFirst()` calls outside `@Test` methods","href":"kotlin/spring/findfluxblockfirstinnontest$ktrecipe"},{"name":"Find `Flux.blockLast()` calls outside `@Test` methods","href":"kotlin/spring/findfluxblocklastinnontest$ktrecipe"},{"name":"Find `Flux.subscribe { ... }` without an error consumer","href":"kotlin/spring/findfluxsubscribewithoutonerror$ktrecipe"},{"name":"Find `throw ...` statements inside Mono/Flux operator lambdas","href":"kotlin/spring/findmonoerrorinsteadofthrow$ktrecipe"},{"name":"Find `Mono.zip(...)` calls","href":"kotlin/spring/findmonozipwithoutalloperands$ktrecipe"},{"name":"Find `Flux.fromIterable(listOf(...))` patterns","href":"kotlin/spring/findfluxfromiterablewithlist$ktrecipe"}]}>
+<RecipeHeader.Title>Find Mono/Flux ergonomic smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reactive-pipeline shapes that read more naturally a different way: `flatMap { Mono.just(...) }` → `map`, `block()` / `blockFirst()` / `blockLast()` outside `@Test` methods, single-argument `Flux.subscribe` (missing error consumer), raw `throw` inside operator lambdas (use `Mono.error`), `Mono.zip` (verify independent operands), and `Flux.fromIterable(listOf(...))` (use `Flux.just`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Mono.flatMap { x -> Mono.just(f(x)) }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoflatmapreturningmonojust$ktrecipe/"},{"name":"Find `Flux.flatMap { x -> Mono.just(f(x)) }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxflatmapreturningfluxjust$ktrecipe/"},{"name":"Find `Mono.block()` calls outside `@Test` methods","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoblockinnontest$ktrecipe/"},{"name":"Find `Flux.blockFirst()` calls outside `@Test` methods","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxblockfirstinnontest$ktrecipe/"},{"name":"Find `Flux.blockLast()` calls outside `@Test` methods","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxblocklastinnontest$ktrecipe/"},{"name":"Find `Flux.subscribe { ... }` without an error consumer","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxsubscribewithoutonerror$ktrecipe/"},{"name":"Find `throw ...` statements inside Mono/Flux operator lambdas","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoerrorinsteadofthrow$ktrecipe/"},{"name":"Find `Mono.zip(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonozipwithoutalloperands$ktrecipe/"},{"name":"Find `Flux.fromIterable(listOf(...))` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxfromiterablewithlist$ktrecipe/"}]}>
 
 ## Definition
 

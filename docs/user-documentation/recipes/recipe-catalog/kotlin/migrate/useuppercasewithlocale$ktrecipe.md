@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `uppercase(locale)` instead of `toUpperCase(locale)`"}
-  description={"The JVM `String.toUpperCase(Locale)` overload was deprecated in Kotlin 1.5 alongside the no-arg form; the replacement `uppercase(Locale)` keeps the locale parameter and uses the new spelling."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseUppercaseWithLocale$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useuppercasewithlocale$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `uppercase(locale)` instead of `toUpperCase(locale)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The JVM `String.toUpperCase(Locale)` overload was deprecated in Kotlin 1.5 alongside the no-arg form; the replacement `uppercase(Locale)` keeps the locale parameter and uses the new spelling.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseUppercaseWithLocale$KtRecipe","displayName":"Use `uppercase(locale)` instead of `toUpperCase(locale)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

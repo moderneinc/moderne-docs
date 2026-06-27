@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `ByteArray.fill()` instead of `Arrays.fill(arr, value)`"}
-  description={"`java.util.Arrays.fill(arr: byte[], value)` is JVM-only; `arr.fill(value)` is the multiplatform Kotlin extension."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseByteArrayFill$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebytearrayfill$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `ByteArray.fill()` instead of `Arrays.fill(arr, value)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Arrays.fill(arr: byte[], value)` is JVM-only; `arr.fill(value)` is the multiplatform Kotlin extension.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseByteArrayFill$KtRecipe","displayName":"Use `ByteArray.fill()` instead of `Arrays.fill(arr, value)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

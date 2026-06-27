@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Require one JSX element per line"}
-  description={"Require one JSX element per line\nSee rule details for [react/jsx-one-expression-per-line](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-one-expression-per-line.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.react.JsxOneExpressionPerLine"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/react/jsxoneexpressionperline.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Require one JSX element per line</RecipeHeader.Title>
+
+<RecipeHeader.Description>Require one JSX element per line See rule details for [react/jsx-one-expression-per-line](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-one-expression-per-line.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

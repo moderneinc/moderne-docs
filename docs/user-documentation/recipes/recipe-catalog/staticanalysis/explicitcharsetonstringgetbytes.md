@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Set charset encoding explicitly when calling `String#getBytes`"}
-  description={"This makes the behavior of the code platform neutral. It will not override any existing explicit encodings, even if they don't match the default encoding option. Relying on the platform default charset can produce different results across environments, leading to subtle data corruption bugs."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4719"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ExplicitCharsetOnStringGetBytes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/explicitcharsetonstringgetbytes.md"}
-/>
+>
+
+<RecipeHeader.Title>Set charset encoding explicitly when calling `String#getBytes`</RecipeHeader.Title>
+
+<RecipeHeader.Description>This makes the behavior of the code platform neutral. It will not override any existing explicit encodings, even if they don't match the default encoding option. Relying on the platform default charset can produce different results across environments, leading to subtle data corruption bugs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"encoding","required":false,"description":"The default encoding to supply to the `getBytes` call","example":"UTF_8"}]}>
 

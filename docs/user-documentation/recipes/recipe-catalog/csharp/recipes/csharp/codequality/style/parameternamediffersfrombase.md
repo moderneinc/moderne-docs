@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Parameter name differs from base"}
-  description={"Rename parameter to match base class or interface definition."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.ParameterNameDiffersFromBase"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/parameternamediffersfrombase.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Parameter name differs from base</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rename parameter to match base class or interface definition.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.ParameterNameDiffersFromBase","displayName":"Parameter name differs from base","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

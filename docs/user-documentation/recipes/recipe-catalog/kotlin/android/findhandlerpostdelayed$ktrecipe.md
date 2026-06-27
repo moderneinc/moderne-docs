@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Handler.postDelayed(...)` calls"}
-  description={"`Handler.postDelayed(runnable, ms)` schedules main-thread work without a story for cancellation — the canonical bug is the activity dying while the runnable is still scheduled, then running with a stale view reference. Use `lifecycleScope.launch { delay(ms); … }` instead: cancellation is automatic on lifecycle teardown."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindHandlerPostDelayed$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findhandlerpostdelayed$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Handler.postDelayed(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Handler.postDelayed(runnable, ms)` schedules main-thread work without a story for cancellation — the canonical bug is the activity dying while the runnable is still scheduled, then running with a stale view reference. Use `lifecycleScope.launch { delay(ms); … }` instead: cancellation is automatic on lifecycle teardown.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindHandlerPostDelayed$KtRecipe","displayName":"Find `Handler.postDelayed(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

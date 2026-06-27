@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Security AccessController"}
-  description={"The Security Manager API is unsupported in Java 24. This recipe will remove the usage of `java.security.AccessController`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security","java25","deprecation"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.AccessController"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/accesscontroller.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove catch for a checked exception if the try block does not throw that exception","href":"staticanalysis/unnecessarycatch"},{"name":"Unnecessary throws","href":"staticanalysis/unnecessarythrows"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"java/search/hasjavaversion"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove Security AccessController</RecipeHeader.Title>
+
+<RecipeHeader.Description>The Security Manager API is unsupported in Java 24. This recipe will remove the usage of `java.security.AccessController`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Remove catch for a checked exception if the try block does not throw that exception","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessarycatch/"},{"name":"Unnecessary throws","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessarythrows/"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

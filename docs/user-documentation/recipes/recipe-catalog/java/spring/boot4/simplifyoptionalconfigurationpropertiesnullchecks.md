@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify null checks on `Optional` `@ConfigurationProperties` parameters"}
-  description={"Spring Boot 4.1 changes constructor-bound `@ConfigurationProperties` so that `Optional<T>` parameters bind to `Optional.empty()` rather than `null`. This recipe replaces `== null` / `!= null` checks against such parameters (or same-named fields in the binding constructor's class) with the constant they will always evaluate to, then runs `SimplifyConstantIfBranchExecution` to remove the dead branches."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.SimplifyOptionalConfigurationPropertiesNullChecks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/simplifyoptionalconfigurationpropertiesnullchecks.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify null checks on `Optional` `@ConfigurationProperties` parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot 4.1 changes constructor-bound `@ConfigurationProperties` so that `Optional<T>` parameters bind to `Optional.empty()` rather than `null`. This recipe replaces `== null` / `!= null` checks against such parameters (or same-named fields in the binding constructor's class) with the constant they will always evaluate to, then runs `SimplifyConstantIfBranchExecution` to remove the dead branches.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.context.properties.ConfigurationProperties;\nimport java.util.Optional;\n\n@ConfigurationProperties(\"app\")\npublic class AppProperties {\n    private final Optional<String> name;\n\n    public AppProperties(Optional<String> name) {\n        this.name = name;\n    }\n\n    public String describe() {\n        return name == null ? \"missing\" : name.orElse(\"none\");\n    }\n}\n","after":"import org.springframework.boot.context.properties.ConfigurationProperties;\nimport java.util.Optional;\n\n@ConfigurationProperties(\"app\")\npublic class AppProperties {\n    private final Optional<String> name;\n\n    public AppProperties(Optional<String> name) {\n        this.name = name;\n    }\n\n    public String describe() {\n        return name.orElse(\"none\");\n    }\n}\n","diff":"@@ -13,1 +13,1 @@\n\n    public String describe() {\n-       return name == null ? \"missing\" : name.orElse(\"none\");\n+       return name.orElse(\"none\");\n    }\n","newFile":false}]}]}>
 

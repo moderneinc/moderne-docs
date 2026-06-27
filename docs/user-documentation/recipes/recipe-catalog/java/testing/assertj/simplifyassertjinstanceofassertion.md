@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify AssertJ assertions on `instanceof` expressions"}
-  description={"Replace `assertThat(x instanceof Type).isTrue()` with the dedicated `assertThat(x).isInstanceOf(Type.class)`, and the negated and `isFalse()` variants with `isNotInstanceOf`, so failures describe the actual type rather than just `expected true but was false`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S5838"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.SimplifyAssertJInstanceOfAssertion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjinstanceofassertion.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify AssertJ assertions on `instanceof` expressions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `assertThat(x instanceof Type).isTrue()` with the dedicated `assertThat(x).isInstanceOf(Type.class)`, and the negated and `isFalse()` variants with `isNotInstanceOf`, so failures describe the actual type rather than just `expected true but was false`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.SimplifyAssertJInstanceOfAssertion","displayName":"Simplify AssertJ assertions on `instanceof` expressions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `PoolingNHttpClientConnectionManager` to `PoolingAsyncClientConnectionManager`"}
-  description={"Migrates `PoolingNHttpClientConnectionManager` from Apache HttpAsyncClient 4.x to `PoolingAsyncClientConnectionManager` in HttpClient 5.x using the builder pattern."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.MigratePoolingNHttpClientConnectionManager"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/migratepoolingnhttpclientconnectionmanager.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `PoolingNHttpClientConnectionManager` to `PoolingAsyncClientConnectionManager`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `PoolingNHttpClientConnectionManager` from Apache HttpAsyncClient 4.x to `PoolingAsyncClientConnectionManager` in HttpClient 5.x using the builder pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager;\nimport org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor;\nimport org.apache.http.nio.reactor.ConnectingIOReactor;\n\nclass A {\n    void method() throws Exception {\n        ConnectingIOReactor ioReactor = new DefaultConnectingIOReactor();\n        PoolingNHttpClientConnectionManager cm = new PoolingNHttpClientConnectionManager(ioReactor);\n    }\n}\n","after":"import org.apache.hc.client5.http.impl.nio.PoolingAsyncClientConnectionManager;\nimport org.apache.hc.client5.http.impl.nio.PoolingAsyncClientConnectionManagerBuilder;\nimport org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor;\nimport org.apache.http.nio.reactor.ConnectingIOReactor;\n\nclass A {\n    void method() throws Exception {\n        ConnectingIOReactor ioReactor = new DefaultConnectingIOReactor();\n        PoolingAsyncClientConnectionManager cm = PoolingAsyncClientConnectionManagerBuilder.create().build();\n    }\n}\n","diff":"@@ -1,1 +1,2 @@\n-import org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager;\n+import org.apache.hc.client5.http.impl.nio.PoolingAsyncClientConnectionManager;\n+import org.apache.hc.client5.http.impl.nio.PoolingAsyncClientConnectionManagerBuilder;\nimport org.apache.http.impl.nio.reactor.DefaultConnectingIOReactor;\n@@ -8,1 +9,1 @@\n    void method() throws Exception {\n        ConnectingIOReactor ioReactor = new DefaultConnectingIOReactor();\n-       PoolingNHttpClientConnectionManager cm = new PoolingNHttpClientConnectionManager(ioReactor);\n+       PoolingAsyncClientConnectionManager cm = PoolingAsyncClientConnectionManagerBuilder.create().build();\n    }\n","newFile":false}]}]}>
 

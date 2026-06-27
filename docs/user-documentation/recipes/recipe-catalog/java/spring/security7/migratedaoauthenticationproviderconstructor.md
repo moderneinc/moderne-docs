@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use constructor injection for `DaoAuthenticationProvider`"}
-  description={"Spring Security 7.0 removed the no-arg `DaoAuthenticationProvider()` constructor and the `setUserDetailsService(UserDetailsService)` setter; `UserDetailsService` is now a required constructor argument. This recipe folds `setUserDetailsService(x)` into the constructor (`new DaoAuthenticationProvider(x)`) and removes the setter when the provider is created with the no-arg constructor in the same block, for both Java and Kotlin sources. `setPasswordEncoder(...)` and other configuration are preserved. When the setter cannot be safely folded, a TODO comment with migration guidance is added instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.security7.MigrateDaoAuthenticationProviderConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security7/migratedaoauthenticationproviderconstructor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use constructor injection for `DaoAuthenticationProvider`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Security 7.0 removed the no-arg `DaoAuthenticationProvider()` constructor and the `setUserDetailsService(UserDetailsService)` setter; `UserDetailsService` is now a required constructor argument. This recipe folds `setUserDetailsService(x)` into the constructor (`new DaoAuthenticationProvider(x)`) and removes the setter when the provider is created with the no-arg constructor in the same block, for both Java and Kotlin sources. `setPasswordEncoder(...)` and other configuration are preserved. When the setter cannot be safely folded, a TODO comment with migration guidance is added instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.authentication.dao.DaoAuthenticationProvider;\nimport org.springframework.security.core.userdetails.UserDetailsService;\nimport org.springframework.security.crypto.password.PasswordEncoder;\n\nclass SecurityConfig {\n    void configure(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {\n        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();\n        provider.setUserDetailsService(userDetailsService);\n        provider.setPasswordEncoder(passwordEncoder);\n    }\n}\n","after":"import org.springframework.security.authentication.dao.DaoAuthenticationProvider;\nimport org.springframework.security.core.userdetails.UserDetailsService;\nimport org.springframework.security.crypto.password.PasswordEncoder;\n\nclass SecurityConfig {\n    void configure(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {\n        DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService);\n        provider.setPasswordEncoder(passwordEncoder);\n    }\n}\n","diff":"@@ -7,2 +7,1 @@\nclass SecurityConfig {\n    void configure(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {\n-       DaoAuthenticationProvider provider = new DaoAuthenticationProvider();\n-       provider.setUserDetailsService(userDetailsService);\n+       DaoAuthenticationProvider provider = new DaoAuthenticationProvider(userDetailsService);\n        provider.setPasswordEncoder(passwordEncoder);\n","newFile":false}]}]}>
 

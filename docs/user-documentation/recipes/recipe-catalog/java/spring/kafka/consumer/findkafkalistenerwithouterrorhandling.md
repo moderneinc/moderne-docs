@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@KafkaListener` methods without error handling"}
-  description={"Flags `@KafkaListener` methods that lack proper error handling. Methods should have `@RetryableTopic`, specify an `errorHandler` in the annotation, or implement try-catch blocks for error handling."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.kafka.consumer.FindKafkaListenerWithoutErrorHandling"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/kafka/consumer/findkafkalistenerwithouterrorhandling.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@KafkaListener` methods without error handling</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flags `@KafkaListener` methods that lack proper error handling. Methods should have `@RetryableTopic`, specify an `errorHandler` in the annotation, or implement try-catch blocks for error handling.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.kafka.annotation.KafkaListener;\nimport org.springframework.stereotype.Service;\n\n@Service\nclass MyConsumer {\n\n    @KafkaListener(topics = \"my-topic\")\n    public void consume(String message) {\n        System.out.println(message);\n    }\n}\n","after":"import org.springframework.kafka.annotation.KafkaListener;\nimport org.springframework.stereotype.Service;\n\n@Service\nclass MyConsumer {\n\n    /*~~(Missing error handling: add @RetryableTopic, errorHandler attribute, or try-catch block)~~>*/@KafkaListener(topics = \"my-topic\")\n    public void consume(String message) {\n        System.out.println(message);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass MyConsumer {\n\n-   @KafkaListener(topics = \"my-topic\")\n+   /*~~(Missing error handling: add @RetryableTopic, errorHandler attribute, or try-catch block)~~>*/@KafkaListener(topics = \"my-topic\")\n    public void consume(String message) {\n","newFile":false}]}]}>
 

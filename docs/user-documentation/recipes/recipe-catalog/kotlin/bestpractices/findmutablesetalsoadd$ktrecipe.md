@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `mutableSetOf<T>().also { it.add(x) }` patterns"}
-  description={"Same shape as the `mutableListOf` variant — use `buildSet { add(...) }` for the same readability gain."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindMutableSetAlsoAdd$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findmutablesetalsoadd$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `mutableSetOf<T>().also { it.add(x) }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Same shape as the `mutableListOf` variant — use `buildSet { add(...) }` for the same readability gain.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindMutableSetAlsoAdd$KtRecipe","displayName":"Find `mutableSetOf<T>().also { it.add(x) }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

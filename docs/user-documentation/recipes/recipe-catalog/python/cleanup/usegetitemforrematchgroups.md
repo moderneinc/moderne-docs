@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use bracket access for ``re.Match`` groups"}
-  description={"Replace ``match.group(n)`` with ``match[n]`` to use the shorter subscript syntax available since Python 3.6."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.UseGetitemForReMatchGroups"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/usegetitemforrematchgroups.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use bracket access for ``re.Match`` groups</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace ``match.group(n)`` with ``match[n]`` to use the shorter subscript syntax available since Python 3.6.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.UseGetitemForReMatchGroups","displayName":"Use bracket access for ``re.Match`` groups","pipPackage":"openrewrite-static-analysis"}}>
 

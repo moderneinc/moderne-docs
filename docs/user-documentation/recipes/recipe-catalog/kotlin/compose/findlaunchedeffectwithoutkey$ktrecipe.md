@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LaunchedEffect { … }` calls with no key argument"}
-  description={"`LaunchedEffect` always takes at least one key — without one the call is a compile error (or silently rebound to a `(suspend () -> Unit)` overload in stubbed builds). Confirm a key is supplied; `LaunchedEffect(Unit) { … }` is the canonical one-shot spelling."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindLaunchedEffectWithoutKey$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlaunchedeffectwithoutkey$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LaunchedEffect { … }` calls with no key argument</RecipeHeader.Title>
+
+<RecipeHeader.Description>`LaunchedEffect` always takes at least one key — without one the call is a compile error (or silently rebound to a `(suspend () -> Unit)` overload in stubbed builds). Confirm a key is supplied; `LaunchedEffect(Unit) { … }` is the canonical one-shot spelling.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindLaunchedEffectWithoutKey$KtRecipe","displayName":"Find `LaunchedEffect { … }` calls with no key argument","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

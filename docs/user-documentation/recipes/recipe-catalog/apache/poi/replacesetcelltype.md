@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apache POI use `Cell.setCellType(CellType)`"}
-  description={"`Cell.setCellType()` can be configured with either an integer or a the `CellType` enumeration. It is clearer and less error-prone to use the `CellType` enumeration, so this recipe converts all `setCellType()` calls to use it."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.poi.ReplaceSetCellType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/poi/replacesetcelltype.md"}
-/>
+>
+
+<RecipeHeader.Title>Apache POI use `Cell.setCellType(CellType)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Cell.setCellType()` can be configured with either an integer or a the `CellType` enumeration. It is clearer and less error-prone to use the `CellType` enumeration, so this recipe converts all `setCellType()` calls to use it.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.poi.ss.usermodel.Cell;\n\nclass Test {\n    void method(Cell cell) {\n        cell.setCellType(0);\n        cell.setCellType(Cell.CELL_TYPE_NUMERIC);\n        cell.setCellType(cell.CELL_TYPE_NUMERIC);\n    }\n}\n","after":"import org.apache.poi.ss.usermodel.Cell;\nimport org.apache.poi.ss.usermodel.CellType;\n\nclass Test {\n    void method(Cell cell) {\n        cell.setCellType(CellType.NUMERIC);\n        cell.setCellType(CellType.NUMERIC);\n        cell.setCellType(CellType.NUMERIC);\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.apache.poi.ss.usermodel.Cell;\n+import org.apache.poi.ss.usermodel.CellType;\n\n@@ -5,3 +6,3 @@\nclass Test {\n    void method(Cell cell) {\n-       cell.setCellType(0);\n-       cell.setCellType(Cell.CELL_TYPE_NUMERIC);\n-       cell.setCellType(cell.CELL_TYPE_NUMERIC);\n+       cell.setCellType(CellType.NUMERIC);\n+       cell.setCellType(CellType.NUMERIC);\n+       cell.setCellType(CellType.NUMERIC);\n    }\n","newFile":false}]}]}>
 

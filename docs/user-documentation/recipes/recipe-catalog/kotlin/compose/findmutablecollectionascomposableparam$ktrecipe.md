@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Composable` functions with `MutableList`/`MutableMap`/`MutableSet` parameters"}
-  description={"Compose's stability inferrer treats `MutableList`/`MutableMap`/`MutableSet` parameters as unstable — every recomposition compares by identity and re-invokes the composable even if no element changed. Use `kotlinx.collections.immutable.ImmutableList` (or wrap in a `@Stable` class) so equality checks short-circuit and recomposition is skipped."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindMutableCollectionAsComposableParam$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findmutablecollectionascomposableparam$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Composable` functions with `MutableList`/`MutableMap`/`MutableSet` parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Compose's stability inferrer treats `MutableList`/`MutableMap`/`MutableSet` parameters as unstable — every recomposition compares by identity and re-invokes the composable even if no element changed. Use `kotlinx.collections.immutable.ImmutableList` (or wrap in a `@Stable` class) so equality checks short-circuit and recomposition is skipped.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindMutableCollectionAsComposableParam$KtRecipe","displayName":"Find `@Composable` functions with `MutableList`/`MutableMap`/`MutableSet` parameters","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

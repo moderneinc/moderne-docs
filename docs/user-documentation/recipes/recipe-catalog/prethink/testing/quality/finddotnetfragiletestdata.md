@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET fragile test data"}
-  description={"Detect hardcoded dates/paths/ports, DateTime.Now usage, and Guid.NewGuid/ Random in .NET tests — sources of timing- or environment-dependent flakiness."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindDotnetFragileTestData"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetfragiletestdata.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET fragile test data</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect hardcoded dates/paths/ports, DateTime.Now usage, and Guid.NewGuid/ Random in .NET tests — sources of timing- or environment-dependent flakiness.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.testing.quality.FindDotnetFragileTestData","displayName":"Find .NET fragile test data","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

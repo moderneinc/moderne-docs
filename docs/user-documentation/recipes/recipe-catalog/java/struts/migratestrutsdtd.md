@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate DTD to a specific Struts version"}
-  description={"Update Struts DTD to reflect the specified version."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.MigrateStrutsDtd"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migratestrutsdtd.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate DTD to a specific Struts version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update Struts DTD to reflect the specified version.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"strutsVersion","required":true,"description":"The Struts version to migrate to.","example":"6.0"}]}>
 

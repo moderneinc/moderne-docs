@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `startActivityForResult` calls"}
-  description={"`startActivityForResult` was deprecated in AndroidX Activity 1.2 / Fragment 1.3 in favor of the Activity Result APIs (`registerForActivityResult(ActivityResultContracts.X) { result -> … }`). The new API survives process death, decouples the launcher from the lifecycle owner, and removes the per-screen `onActivityResult` switch."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindStartActivityForResult$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findstartactivityforresult$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `startActivityForResult` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`startActivityForResult` was deprecated in AndroidX Activity 1.2 / Fragment 1.3 in favor of the Activity Result APIs (`registerForActivityResult(ActivityResultContracts.X) { result -> … }`). The new API survives process death, decouples the launcher from the lifecycle owner, and removes the per-screen `onActivityResult` switch.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindStartActivityForResult$KtRecipe","displayName":"Find `startActivityForResult` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

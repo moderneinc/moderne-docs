@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `ListenableFuture` to `CompletableFuture`"}
-  description={"Spring Framework 6.0 deprecated `ListenableFuture` in favor of `CompletableFuture`. Spring Framework 7.0 removes `ListenableFuture` entirely. This recipe migrates usages of `ListenableFuture` and its callbacks to use `CompletableFuture` and `BiConsumer` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.MigrateListenableFuture"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratelistenablefuture.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `ListenableFuture` to `CompletableFuture`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Framework 6.0 deprecated `ListenableFuture` in favor of `CompletableFuture`. Spring Framework 7.0 removes `ListenableFuture` entirely. This recipe migrates usages of `ListenableFuture` and its callbacks to use `CompletableFuture` and `BiConsumer` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.util.concurrent.ListenableFuture;\nimport org.springframework.util.concurrent.ListenableFutureCallback;\nclass A {\n    void test(ListenableFuture<String> future) {\n        future.addCallback(new ListenableFutureCallback<String>() {\n            @Override\n            public void onSuccess(String result) {\n                System.out.println(result);\n            }\n\n            @Override\n            public void onFailure(Throwable ex) {\n                System.err.println(ex.getMessage());\n            }\n        });\n    }\n}\n","after":"import java.util.concurrent.CompletableFuture;\n\nclass A {\n    void test(CompletableFuture<String> future) {\n        future.whenComplete((String result, Throwable ex) -> {\n            if (ex == null) {\n                System.out.println(result);\n            } else {\n                System.err.println(ex.getMessage());\n            }\n        });\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.springframework.util.concurrent.ListenableFuture;\n-import org.springframework.util.concurrent.ListenableFutureCallback;\n+import java.util.concurrent.CompletableFuture;\n+\nclass A {\n@@ -4,4 +4,3 @@\nimport org.springframework.util.concurrent.ListenableFutureCallback;\nclass A {\n-   void test(ListenableFuture<String> future) {\n-       future.addCallback(new ListenableFutureCallback<String>() {\n-           @Override\n-           public void onSuccess(String result) {\n+   void test(CompletableFuture<String> future) {\n+       future.whenComplete((String result, Throwable ex) -> {\n+           if (ex == null) {\n                System.out.println(result);\n@@ -9,4 +8,1 @@\n            public void onSuccess(String result) {\n                System.out.println(result);\n-           }\n-\n-           @Override\n-           public void onFailure(Throwable ex) {\n+           } else {\n                System.err.println(ex.getMessage());\n","newFile":false}]}]}>
 

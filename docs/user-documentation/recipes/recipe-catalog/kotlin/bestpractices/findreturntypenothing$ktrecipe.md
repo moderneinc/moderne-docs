@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find functions declared with `: Nothing` return type"}
-  description={"`Nothing` means 'this function never returns normally' — the body must `throw`, loop forever, or call another `Nothing`-returning function. Flag for review: if the body actually does return, the type is wrong; if it always throws, the call sites can rely on Kotlin's exhaustiveness checks."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindReturnTypeNothing$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findreturntypenothing$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find functions declared with `: Nothing` return type</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Nothing` means 'this function never returns normally' — the body must `throw`, loop forever, or call another `Nothing`-returning function. Flag for review: if the body actually does return, the type is wrong; if it always throws, the call sites can rely on Kotlin's exhaustiveness checks.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindReturnTypeNothing$KtRecipe","displayName":"Find functions declared with `: Nothing` return type","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

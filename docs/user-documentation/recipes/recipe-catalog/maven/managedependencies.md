@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Manage dependencies"}
-  description={"Make existing dependencies managed by moving their version to be specified in the dependencyManagement section of the POM."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ManageDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/managedependencies.md"}
-/>
+>
+
+<RecipeHeader.Title>Manage dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Make existing dependencies managed by moving their version to be specified in the dependencyManagement section of the POM.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupPattern","required":true,"description":"Group glob expression pattern used to match dependencies that should be managed.Group is the first part of a dependency coordinate `com.google.guava:guava:VERSION`.","example":"com.google.*"},{"type":"String","name":"artifactPattern","required":false,"description":"Artifact glob expression pattern used to match dependencies that should be managed.Artifact is the second part of a dependency coordinate `com.google.guava:guava:VERSION`.","example":"guava*"},{"type":"Boolean","name":"addToRootPom","required":false,"description":"Add to the root POM where root is the eldest parent of the pom within the source set."},{"type":"Boolean","name":"skipModelUpdate","required":false,"description":"Optionally skip updating the dependency model after managing dependencies. Updating the model does not affect the source code of the POM,but will cause the resolved dependency model to reflect the changes made to the POM. If this recipe is ran standalone, it is not necessary to update the model."}]}>
 

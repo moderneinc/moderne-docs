@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Normalize format of enum flag value"}
-  description={"Normalize the format of Flags enum values."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.NormalizeEnumFlagValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/normalizeenumflagvalue.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Normalize format of enum flag value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Normalize the format of Flags enum values.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.NormalizeEnumFlagValue","displayName":"Normalize format of enum flag value","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

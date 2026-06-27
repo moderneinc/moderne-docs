@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `HttpHeaders` methods removed when `MultiValueMap` contract was dropped"}
-  description={"Spring Framework 7.0 changed `HttpHeaders` to no longer implement `MultiValueMap`. This recipe replaces removed inherited method calls: `containsKey()` with `containsHeader()`, `keySet()` with `headerNames()`, and `entrySet()` with `headerSet()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.MigrateHttpHeadersMultiValueMapMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratehttpheadersmultivaluemapmethods.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `HttpHeaders` methods removed when `MultiValueMap` contract was dropped</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Framework 7.0 changed `HttpHeaders` to no longer implement `MultiValueMap`. This recipe replaces removed inherited method calls: `containsKey()` with `containsHeader()`, `keySet()` with `headerNames()`, and `entrySet()` with `headerSet()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.http.HttpHeaders;\n\nclass A {\n    void foo(HttpHeaders headers) {\n        boolean hasAuth = headers.containsKey(\"Authorization\");\n    }\n}\n","after":"import org.springframework.http.HttpHeaders;\n\nclass A {\n    void foo(HttpHeaders headers) {\n        boolean hasAuth = headers.containsHeader(\"Authorization\");\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass A {\n    void foo(HttpHeaders headers) {\n-       boolean hasAuth = headers.containsKey(\"Authorization\");\n+       boolean hasAuth = headers.containsHeader(\"Authorization\");\n    }\n","newFile":false}]}]}>
 

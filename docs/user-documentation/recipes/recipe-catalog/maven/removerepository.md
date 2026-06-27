@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove repository"}
-  description={"Removes a matching Maven repository."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.RemoveRepository"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/removerepository.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove repository</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes a matching Maven repository.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"id","required":false,"description":"A unique repository ID.","example":"repo-id"},{"type":"String","name":"url","required":true,"description":"The URL of the repository.","example":"http://myrepo.maven.com/repo"}]}>
 

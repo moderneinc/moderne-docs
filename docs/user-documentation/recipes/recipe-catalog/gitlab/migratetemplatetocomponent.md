@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate GitLab template to component"}
-  description={"Replace a GitLab `template:` include with a `component:` include, as recommended by GitLab's CI/CD Catalog migration guides."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.MigrateTemplateToComponent"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/migratetemplatetocomponent.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate GitLab template to component</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace a GitLab `template:` include with a `component:` include, as recommended by GitLab's CI/CD Catalog migration guides.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldTemplate","required":true,"description":"The name of the template to replace.","example":"Terraform/Base.latest.gitlab-ci.yml"},{"type":"String","name":"newComponent","required":true,"description":"Name of the component to use instead.","example":"$CI_SERVER_FQDN/components/opentofu/job-templates"},{"type":"String","name":"version","required":true,"description":"Version of the component to add.","example":"~latest"},{"type":"List","name":"inputs","required":false,"description":"The set of inputs to provide to the component.","example":"opentofu_version: 1.6.0"}]}>
 

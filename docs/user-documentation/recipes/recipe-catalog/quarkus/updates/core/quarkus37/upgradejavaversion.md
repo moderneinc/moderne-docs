@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Java version"}
-  description={"Upgrade build plugin configuration to use the specified Java version. This recipe changes `java.toolchain.languageVersion` in `build.gradle(.kts)` of gradle projects, or maven-compiler-plugin target version and related settings. Will not downgrade if the version is newer than the specified version."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus37.UpgradeJavaVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/upgradejavaversion.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use Maven compiler plugin release configuration","href":"maven/usemavencompilerpluginreleaseconfiguration"},{"name":"Update Maven Java project properties","href":"maven/updatemavenprojectpropertyjavaversion"},{"name":"Update Gradle project Java compatibility","href":"gradle/updatejavacompatibility"}]}>
+<RecipeHeader.Title>Upgrade Java version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade build plugin configuration to use the specified Java version. This recipe changes `java.toolchain.languageVersion` in `build.gradle(.kts)` of gradle projects, or maven-compiler-plugin target version and related settings. Will not downgrade if the version is newer than the specified version.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use Maven compiler plugin release configuration","href":"/user-documentation/recipes/recipe-catalog/maven/usemavencompilerpluginreleaseconfiguration/"},{"name":"Update Maven Java project properties","href":"/user-documentation/recipes/recipe-catalog/maven/updatemavenprojectpropertyjavaversion/"},{"name":"Update Gradle project Java compatibility","href":"/user-documentation/recipes/recipe-catalog/gradle/updatejavacompatibility/"}]}>
 
 ## Definition
 

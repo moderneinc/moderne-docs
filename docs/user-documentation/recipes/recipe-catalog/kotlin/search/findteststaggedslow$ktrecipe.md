@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find tests tagged `@Tag(\"slow\")`"}
-  description={"Slow-tagged tests usually live behind a separate CI lane. Each match is a candidate to either speed up (find the underlying source of slowness) or to verify the tag is wired into the build's test selection."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindTestsTaggedSlow$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findteststaggedslow$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find tests tagged `@Tag("slow")`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Slow-tagged tests usually live behind a separate CI lane. Each match is a candidate to either speed up (find the underlying source of slowness) or to verify the tag is wired into the build's test selection.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindTestsTaggedSlow$KtRecipe","displayName":"Find tests tagged `@Tag(\"slow\")`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

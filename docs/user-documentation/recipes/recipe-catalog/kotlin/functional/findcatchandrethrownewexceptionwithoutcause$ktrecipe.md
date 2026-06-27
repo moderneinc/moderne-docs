@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `catch (e: Exception) { throw OtherException(...) }` without `e` as cause"}
-  description={"Catching one exception and throwing a different one without passing the original as the `cause` argument loses the original stack trace at the throw site — debugging then starts from the wrapping exception with no breadcrumbs to the actual failure. Include `e` in the new exception's constructor (or use `.initCause(e)`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindCatchAndRethrowNewExceptionWithoutCause$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchandrethrownewexceptionwithoutcause$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `catch (e: Exception) { throw OtherException(...) }` without `e` as cause</RecipeHeader.Title>
+
+<RecipeHeader.Description>Catching one exception and throwing a different one without passing the original as the `cause` argument loses the original stack trace at the throw site — debugging then starts from the wrapping exception with no breadcrumbs to the actual failure. Include `e` in the new exception's constructor (or use `.initCause(e)`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindCatchAndRethrowNewExceptionWithoutCause$KtRecipe","displayName":"Find `catch (e: Exception) { throw OtherException(...) }` without `e` as cause","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

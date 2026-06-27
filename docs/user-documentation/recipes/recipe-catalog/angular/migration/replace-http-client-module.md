@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `HttpClientModule` with `provideHttpClient()`"}
-  description={"Replaces deprecated `HttpClientModule`, `HttpClientJsonpModule`, `HttpClientXsrfModule`, and `HttpClientTestingModule` with their functional equivalents: `provideHttpClient()` with feature functions and `provideHttpClientTesting()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.replace-http-client-module"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/replace-http-client-module.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `HttpClientModule` with `provideHttpClient()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces deprecated `HttpClientModule`, `HttpClientJsonpModule`, `HttpClientXsrfModule`, and `HttpClientTestingModule` with their functional equivalents: `provideHttpClient()` with feature functions and `provideHttpClientTesting()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.replace-http-client-module","displayName":"Replace `HttpClientModule` with `provideHttpClient()`","npmPackage":"@openrewrite/recipes-angular"}}>
 

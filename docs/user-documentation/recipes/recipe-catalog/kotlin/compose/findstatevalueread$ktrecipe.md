@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `state.value` reads inside a `@Composable`"}
-  description={"Reading `state.value` works but loses the `by` delegate ergonomics — and worse, with `remember { mutableStateOf(...) }` plus `.value`, it is easy to forget the `remember` and create a fresh `MutableState` per recomposition. Prefer `val state by remember { mutableStateOf(...) }` so the type checker keeps the snapshot read implicit."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindStateValueRead$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findstatevalueread$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `state.value` reads inside a `@Composable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reading `state.value` works but loses the `by` delegate ergonomics — and worse, with `remember { mutableStateOf(...) }` plus `.value`, it is easy to forget the `remember` and create a fresh `MutableState` per recomposition. Prefer `val state by remember { mutableStateOf(...) }` so the type checker keeps the snapshot read implicit.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindStateValueRead$KtRecipe","displayName":"Find `state.value` reads inside a `@Composable`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Predicate.and(Predicate)`"}
-  description={"Prefer `Predicate.and(Predicate)` over `Predicates.and(Predicate, Predicate)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaPredicatesAndOr"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavapredicatesandor.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Predicate.and(Predicate)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Predicate.and(Predicate)` over `Predicates.and(Predicate, Predicate)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.base.Predicate;\nimport com.google.common.base.Predicates;\n\nclass Test {\n    Predicate<String> isNotNull = s -> s != null;\n    Predicate<String> isNotEmpty = s -> !s.isEmpty();\n    Predicate<String> combined = Predicates.and(isNotNull, isNotEmpty);\n}\n","after":"import com.google.common.base.Predicate;\n\nclass Test {\n    Predicate<String> isNotNull = s -> s != null;\n    Predicate<String> isNotEmpty = s -> !s.isEmpty();\n    Predicate<String> combined = isNotNull.and(isNotEmpty);\n}\n","diff":"@@ -2,1 +2,0 @@\nimport com.google.common.base.Predicate;\n-import com.google.common.base.Predicates;\n\n@@ -7,1 +6,1 @@\n    Predicate<String> isNotNull = s -> s != null;\n    Predicate<String> isNotEmpty = s -> !s.isEmpty();\n-   Predicate<String> combined = Predicates.and(isNotNull, isNotEmpty);\n+   Predicate<String> combined = isNotNull.and(isNotEmpty);\n}\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `setConnectTimeout(..)` to ConnectionConfig `setConnectTimeout(..)`"}
-  description={"`setConnectTimeout(..)` was deprecated in Spring Framework 6.2 and removed in 7.0. This recipe adds a comment directing users to migrate to `ConnectionConfig.setConnectTimeout()` on the `PoolingHttpClientConnectionManager`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.HttpComponentsClientHttpRequestFactoryConnectTimeout"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/httpcomponentsclienthttprequestfactoryconnecttimeout.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `setConnectTimeout(..)` to ConnectionConfig `setConnectTimeout(..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`setConnectTimeout(..)` was deprecated in Spring Framework 6.2 and removed in 7.0. This recipe adds a comment directing users to migrate to `ConnectionConfig.setConnectTimeout()` on the `PoolingHttpClientConnectionManager`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;\n\nclass Example {\n    void configure() {\n        HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();\n        factory.setConnectTimeout(5000);\n    }\n}\n","after":"import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;\n\nclass Example {\n    void configure() {\n        HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();\n        // Manual migration to `ConnectionConfig.Builder.setConnectTimeout(Timeout)` necessary; see: https://github.com/spring-projects/spring-framework/issues/35748\n        factory.setConnectTimeout(5000);\n    }\n}\n","diff":"@@ -6,0 +6,1 @@\n    void configure() {\n        HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();\n+       // Manual migration to `ConnectionConfig.Builder.setConnectTimeout(Timeout)` necessary; see: https://github.com/spring-projects/spring-framework/issues/35748\n        factory.setConnectTimeout(5000);\n","newFile":false}]}]}>
 

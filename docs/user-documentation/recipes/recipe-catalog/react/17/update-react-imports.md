@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary React imports"}
-  description={"Removes the default `import React from 'react'` when React is only used for JSX, which is no longer necessary with the new JSX transform in React 17+."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.17.update-react-imports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/17/update-react-imports.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary React imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the default `import React from 'react'` when React is only used for JSX, which is no longer necessary with the new JSX transform in React 17+.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.17.update-react-imports","displayName":"Remove unnecessary React imports","npmPackage":"@openrewrite/recipes-react"}}>
 

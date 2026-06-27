@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to SpringDoc 3.0"}
-  description={"Upgrade to SpringDoc v3.0."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["springdoc"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.springdoc.UpgradeSpringDoc_3_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_3_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade to SpringDoc 2.8","href":"java/springdoc/upgradespringdoc_2_8"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Upgrade to SpringDoc 3.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade to SpringDoc v3.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade to SpringDoc 2.8","href":"/user-documentation/recipes/recipe-catalog/java/springdoc/upgradespringdoc_2_8/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

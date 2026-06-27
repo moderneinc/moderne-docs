@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `checkNotNull(x)` without an explanatory message"}
-  description={"`checkNotNull(x)` throws an `IllegalStateException` with a generic message. Pass a lazy message — `checkNotNull(x) { \"state invariant: x ready after init\" }` — to make the failure self-documenting."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindCheckNotNullWithoutMessage$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findchecknotnullwithoutmessage$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `checkNotNull(x)` without an explanatory message</RecipeHeader.Title>
+
+<RecipeHeader.Description>`checkNotNull(x)` throws an `IllegalStateException` with a generic message. Pass a lazy message — `checkNotNull(x) { "state invariant: x ready after init" }` — to make the failure self-documenting.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindCheckNotNullWithoutMessage$KtRecipe","displayName":"Find `checkNotNull(x)` without an explanatory message","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

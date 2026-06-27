@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate the `DBRiderTestExecutionListener` to the `@DBRider` annotation"}
-  description={"Migrate the `DBRiderTestExecutionListener` to the `@DBRider` annotation. This recipe is useful when migrating from JUnit 4 `dbrider-spring` to JUnit 5 `dbrider-junit5`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.dbrider.ExecutionListenerToDbRiderAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/dbrider/executionlistenertodbriderannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate the `DBRiderTestExecutionListener` to the `@DBRider` annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate the `DBRiderTestExecutionListener` to the `@DBRider` annotation. This recipe is useful when migrating from JUnit 4 `dbrider-spring` to JUnit 5 `dbrider-junit5`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.test.context.TestExecutionListeners;\nimport com.github.database.rider.spring.DBRiderTestExecutionListener;\n\n@TestExecutionListeners(mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS, listeners = {DBRiderTestExecutionListener.class})\npublic class Sample {}\n","after":"import com.github.database.rider.junit5.api.DBRider;\n\n@DBRider\npublic class Sample {}\n","diff":"@@ -1,2 +1,1 @@\n-import org.springframework.test.context.TestExecutionListeners;\n-import com.github.database.rider.spring.DBRiderTestExecutionListener;\n+import com.github.database.rider.junit5.api.DBRider;\n\n@@ -4,1 +3,1 @@\nimport com.github.database.rider.spring.DBRiderTestExecutionListener;\n\n-@TestExecutionListeners(mergeMode = TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS, listeners = {DBRiderTestExecutionListener.class})\n+@DBRider\npublic class Sample {}\n","newFile":false}]}]}>
 

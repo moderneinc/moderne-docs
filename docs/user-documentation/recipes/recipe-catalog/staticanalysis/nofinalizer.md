@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `finalize()` method"}
-  description={"Finalizers are deprecated. Use of `finalize()` can lead to performance issues, deadlocks, hangs, and other undesirable behavior."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1113"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.NoFinalizer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/nofinalizer.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `finalize()` method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finalizers are deprecated. Use of `finalize()` can lead to performance issues, deadlocks, hangs, and other undesirable behavior.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    public void method() {\n    }\n\n    @Override\n    protected void finalize() throws Throwable {\n        super.finalize();\n    }\n\n    protected void finalize(Object param) throws Throwable {\n        super.finalize();\n    }\n}\n","after":"class Test {\n    public void method() {\n    }\n\n    protected void finalize(Object param) throws Throwable {\n        super.finalize();\n    }\n}\n","diff":"@@ -5,5 +5,0 @@\n    }\n\n-   @Override\n-   protected void finalize() throws Throwable {\n-       super.finalize();\n-   }\n-\n    protected void finalize(Object param) throws Throwable {\n","newFile":false}]}]}>
 

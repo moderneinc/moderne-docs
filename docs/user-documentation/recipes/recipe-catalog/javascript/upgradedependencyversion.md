@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade npm dependency version"}
-  description={"Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file by running the package manager. Matching is by exact package name or glob pattern. v1 uses simple string inequality for the upgrade check (always overwrites). A future version will use semver to skip already-up-to-date constraints. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-javascript"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.UpgradeDependencyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade npm dependency version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrades the version constraint of matching npm dependencies in `package.json` and regenerates the lock file by running the package manager. Matching is by exact package name or glob pattern. v1 uses simple string inequality for the upgrade check (always overwrites). A future version will use semver to skip already-up-to-date constraints. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageName","required":false,"description":"Exact package name to match. Mutually exclusive with `packagePattern`; at least one is required.","example":"lodash"},{"type":"String","name":"packagePattern","required":false,"description":"Glob pattern matching package names (e.g., `@types/*`). Mutually exclusive with `packageName`; at least one is required.","example":"@types/*"},{"type":"String","name":"newVersion","required":true,"description":"The new version constraint to set on matching dependencies.","example":"^5.0.0"}]}>
 

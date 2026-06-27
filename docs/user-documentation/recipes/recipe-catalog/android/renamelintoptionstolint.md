@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename `lintOptions` to `lint`"}
-  description={"The `lintOptions { ... }` DSL block was renamed to `lint { ... }` in Android Gradle Plugin 7.0 and may be removed in AGP 9.x. This is a pure block rename with no semantic change."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.android.RenameLintOptionsToLint"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/android/renamelintoptionstolint.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Rename `lintOptions` to `lint`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `lintOptions { ... }` DSL block was renamed to `lint { ... }` in Android Gradle Plugin 7.0 and may be removed in AGP 9.x. This is a pure block rename with no semantic change.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"apply plugin: 'com.android.application'\nandroid {\n    lintOptions {\n        abortOnError false\n        checkReleaseBuilds true\n    }\n}\n","after":"apply plugin: 'com.android.application'\nandroid {\n    lint {\n        abortOnError false\n        checkReleaseBuilds true\n    }\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -3,1 +3,1 @@\napply plugin: 'com.android.application'\nandroid {\n-   lintOptions {\n+   lint {\n        abortOnError false\n","newFile":false}]}]}>
 

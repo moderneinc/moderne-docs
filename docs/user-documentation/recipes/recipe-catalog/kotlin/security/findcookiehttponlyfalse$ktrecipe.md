@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Cookie.setHttpOnly(false)` calls"}
-  description={"`setHttpOnly(false)` makes the cookie readable from JavaScript — directly exfiltratable by any XSS bug in the same origin. Set `httpOnly = true` for every session cookie."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindCookieHttpOnlyFalse$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findcookiehttponlyfalse$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Cookie.setHttpOnly(false)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`setHttpOnly(false)` makes the cookie readable from JavaScript — directly exfiltratable by any XSS bug in the same origin. Set `httpOnly = true` for every session cookie.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindCookieHttpOnlyFalse$KtRecipe","displayName":"Find `Cookie.setHttpOnly(false)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

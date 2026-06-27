@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET ghost tests"}
-  description={"Detect empty test bodies and suppressed tests ([Ignore], [Fact(Skip=...)]) in .NET tests."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindDotnetGhostTests"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnetghosttests.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET ghost tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect empty test bodies and suppressed tests ([Ignore], [Fact(Skip=...)]) in .NET tests.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.testing.quality.FindDotnetGhostTests","displayName":"Find .NET ghost tests","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

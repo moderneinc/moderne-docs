@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find security smells in Kotlin code"}
-  description={"OWASP-aligned search-only recipes covering weak cryptography, insecure TLS configuration, injection vectors, Java deserialization, JWT misuse, sensitive data in logs, Android-specific security smells, and hard-coded secret literals. Each match is a `SearchResult` for review — nothing is rewritten automatically because security findings nearly always need a human to pick the migration target."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.Security$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/security$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find weak cryptographic primitives","href":"kotlin/security/findweakcryptography$ktrecipe"},{"name":"Find insecure TLS configuration","href":"kotlin/security/findinsecuretls$ktrecipe"},{"name":"Find injection vectors","href":"kotlin/security/findinjectionvectors$ktrecipe"},{"name":"Find insecure cookie / session configuration","href":"kotlin/security/findinsecuresessionconfig$ktrecipe"},{"name":"Find unsafe Java deserialization","href":"kotlin/security/findunsafedeserialization$ktrecipe"},{"name":"Find JWT misuse","href":"kotlin/security/findjwtmisuse$ktrecipe"},{"name":"Find sensitive data in log calls","href":"kotlin/security/findsensitivedatainlogs$ktrecipe"},{"name":"Find Android-specific security smells","href":"kotlin/security/findandroidsecuritysmells$ktrecipe"},{"name":"Find hard-coded secret literals","href":"kotlin/security/findhardcodedsecrets$ktrecipe"}]}>
+<RecipeHeader.Title>Find security smells in Kotlin code</RecipeHeader.Title>
+
+<RecipeHeader.Description>OWASP-aligned search-only recipes covering weak cryptography, insecure TLS configuration, injection vectors, Java deserialization, JWT misuse, sensitive data in logs, Android-specific security smells, and hard-coded secret literals. Each match is a `SearchResult` for review — nothing is rewritten automatically because security findings nearly always need a human to pick the migration target.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find weak cryptographic primitives","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findweakcryptography$ktrecipe/"},{"name":"Find insecure TLS configuration","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findinsecuretls$ktrecipe/"},{"name":"Find injection vectors","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findinjectionvectors$ktrecipe/"},{"name":"Find insecure cookie / session configuration","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findinsecuresessionconfig$ktrecipe/"},{"name":"Find unsafe Java deserialization","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findunsafedeserialization$ktrecipe/"},{"name":"Find JWT misuse","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findjwtmisuse$ktrecipe/"},{"name":"Find sensitive data in log calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findsensitivedatainlogs$ktrecipe/"},{"name":"Find Android-specific security smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findandroidsecuritysmells$ktrecipe/"},{"name":"Find hard-coded secret literals","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findhardcodedsecrets$ktrecipe/"}]}>
 
 ## Definition
 

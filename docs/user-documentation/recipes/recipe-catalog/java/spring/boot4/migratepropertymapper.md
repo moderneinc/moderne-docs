@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `PropertyMapper` API for Spring Boot 4.0"}
-  description={"Migrates `PropertyMapper` usage to accommodate Spring Boot 4.0 behavioral changes. In Boot 4.0, `PropertyMapper.from()` no longer calls `to()` when the source value is `null`. This recipe first inserts `.always()` on bare chains to preserve null-passing behavior, then removes the now-redundant `.whenNonNull()` and `.alwaysApplyingWhenNonNull()` calls. Guarded by a Spring Boot < 4.0 precondition so that on subsequent recipe cycles (after the version is bumped by the parent migration recipe), this recipe becomes a no-op — preventing it from incorrectly adding `.always()` to chains that just had `.whenNonNull()` stripped."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.MigratePropertyMapper"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratepropertymapper.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Preserve `PropertyMapper` null-passing behavior","href":"java/spring/boot4/insertpropertymapperalwaysmethodinvocation"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove method invocations","href":"java/removemethodinvocations"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
+<RecipeHeader.Title>Migrate `PropertyMapper` API for Spring Boot 4.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `PropertyMapper` usage to accommodate Spring Boot 4.0 behavioral changes. In Boot 4.0, `PropertyMapper.from()` no longer calls `to()` when the source value is `null`. This recipe first inserts `.always()` on bare chains to preserve null-passing behavior, then removes the now-redundant `.whenNonNull()` and `.alwaysApplyingWhenNonNull()` calls. Guarded by a Spring Boot &lt; 4.0 precondition so that on subsequent recipe cycles (after the version is bumped by the parent migration recipe), this recipe becomes a no-op — preventing it from incorrectly adding `.always()` to chains that just had `.whenNonNull()` stripped.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Preserve `PropertyMapper` null-passing behavior","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/insertpropertymapperalwaysmethodinvocation/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

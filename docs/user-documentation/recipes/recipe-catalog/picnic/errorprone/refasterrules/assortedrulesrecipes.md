@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssortedRules` Refaster recipes"}
-  description={"Assorted Refaster rules that do not (yet) belong in one of the other classes with more topical Refaster rules.\n[Source](https://error-prone.picnic.tech/refasterrules/AssortedRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssortedRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assortedrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssortedRules.CheckIndex`","href":"picnic/errorprone/refasterrules/assortedrulesrecipes$checkindexrecipe"},{"name":"Refaster template `AssortedRules.IteratorGetNextOrDefault`","href":"picnic/errorprone/refasterrules/assortedrulesrecipes$iteratorgetnextordefaultrecipe"},{"name":"Refaster template `AssortedRules.LogicalImplication`","href":"picnic/errorprone/refasterrules/assortedrulesrecipes$logicalimplicationrecipe"},{"name":"Refaster template `AssortedRules.UnboundedSingleElementStream`","href":"picnic/errorprone/refasterrules/assortedrulesrecipes$unboundedsingleelementstreamrecipe"},{"name":"Refaster template `AssortedRules.IterableIsEmpty`","href":"picnic/errorprone/refasterrules/assortedrulesrecipes$iterableisemptyrecipe"},{"name":"Refaster template `AssortedRules.SplitToStream`","href":"picnic/errorprone/refasterrules/assortedrulesrecipes$splittostreamrecipe"}]}>
+<RecipeHeader.Title>`AssortedRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Assorted Refaster rules that do not (yet) belong in one of the other classes with more topical Refaster rules. [Source](https://error-prone.picnic.tech/refasterrules/AssortedRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssortedRules.CheckIndex`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assortedrulesrecipes$checkindexrecipe/"},{"name":"Refaster template `AssortedRules.IteratorGetNextOrDefault`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assortedrulesrecipes$iteratorgetnextordefaultrecipe/"},{"name":"Refaster template `AssortedRules.LogicalImplication`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assortedrulesrecipes$logicalimplicationrecipe/"},{"name":"Refaster template `AssortedRules.UnboundedSingleElementStream`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assortedrulesrecipes$unboundedsingleelementstreamrecipe/"},{"name":"Refaster template `AssortedRules.IterableIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assortedrulesrecipes$iterableisemptyrecipe/"},{"name":"Refaster template `AssortedRules.SplitToStream`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assortedrulesrecipes$splittostreamrecipe/"}]}>
 
 ## Definition
 

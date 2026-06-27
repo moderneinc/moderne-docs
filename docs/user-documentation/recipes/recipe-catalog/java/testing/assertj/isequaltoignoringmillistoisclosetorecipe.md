@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` by `by isCloseTo(Date, long)`"}
-  description={"`isEqualToIgnoringMillis()` is deprecated in favor of `isCloseTo()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.IsEqualToIgnoringMillisToIsCloseToRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/isequaltoignoringmillistoisclosetorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `AbstractDateAssert#isEqualToIgnoringMillis(java.util.Date)` by `by isCloseTo(Date, long)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`isEqualToIgnoringMillis()` is deprecated in favor of `isCloseTo()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.assertj.core.api.Assertions;\n\nimport java.util.Date;\n\nclass A {\n    public void foo(Date date1, Date date2) {\n        Assertions.assertThat(date1).isEqualToIgnoringMillis(date2);\n    }\n}\n","after":"import org.assertj.core.api.Assertions;\n\nimport java.util.Date;\n\nclass A {\n    public void foo(Date date1, Date date2) {\n        Assertions.assertThat(date1).isCloseTo(date2, 1000L);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass A {\n    public void foo(Date date1, Date date2) {\n-       Assertions.assertThat(date1).isEqualToIgnoringMillis(date2);\n+       Assertions.assertThat(date1).isCloseTo(date2, 1000L);\n    }\n","newFile":false}]}]}>
 

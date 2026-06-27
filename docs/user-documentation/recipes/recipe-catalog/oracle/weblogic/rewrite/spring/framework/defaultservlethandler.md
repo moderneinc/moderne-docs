@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update Default Servlet Handler for Spring Framework if empty"}
-  description={"This recipe will update Spring Framework default servlet handler if empty, as noted in the Spring Framework 6.2 [documentation](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/default-servlet-handler.html)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["default-servlet-handler","weblogic","springframework"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.spring.framework.DefaultServletHandler"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/defaultservlethandler.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove XML tag","href":"xml/removexmltag"},{"name":"Add or update child tag","href":"xml/addorupdatechildtag"}]} preconditions={[{"name":"Find files","href":"core/findsourcefiles"},{"name":"Find XML tags","href":"xml/search/findtags"}]}>
+<RecipeHeader.Title>Update Default Servlet Handler for Spring Framework if empty</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will update Spring Framework default servlet handler if empty, as noted in the Spring Framework 6.2 [documentation](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/default-servlet-handler.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove XML tag","href":"/user-documentation/recipes/recipe-catalog/xml/removexmltag/"},{"name":"Add or update child tag","href":"/user-documentation/recipes/recipe-catalog/xml/addorupdatechildtag/"}]} preconditions={[{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"},{"name":"Find XML tags","href":"/user-documentation/recipes/recipe-catalog/xml/search/findtags/"}]}>
 
 ## Definition
 

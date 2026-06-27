@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find CALM relationships"}
-  description={"Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindCalmRelationships"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find CALM relationships</RecipeHeader.Title>
+
+<RecipeHeader.Description>Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.springframework.stereotype.Service;\n\n@Service\npublic class UserService {\n    public String findAll() {\n        return \"users\";\n    }\n}\n"},"variants":[]}]}>
 

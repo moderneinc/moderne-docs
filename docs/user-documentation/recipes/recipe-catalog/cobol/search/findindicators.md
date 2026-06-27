@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find indicators"}
-  description={"Find matching indicators. Currently, this recipe will not mark indicators on copybook code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-cobol"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.cobol.search.FindIndicators"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cobol/search/findindicators.md"}
-/>
+>
+
+<RecipeHeader.Title>Find indicators</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find matching indicators. Currently, this recipe will not mark indicators on copybook code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"indicator","required":true,"description":"Indicator to search for.","example":"D"}]}>
 

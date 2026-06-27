@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Rfc6265CookieProcessor` instead of `LegacyCookieProcessor`"}
-  description={"Replace the legacy Tomcat `LegacyCookieProcessor` with the RFC 6265 compliant `Rfc6265CookieProcessor`, both in Java references and in the `<CookieProcessor className=\"…\"/>` attribute of Tomcat configuration files such as `context.xml` and `server.xml`. `Rfc6265CookieProcessor` has been the default cookie processor since Tomcat 8.5; `LegacyCookieProcessor` exists only for backwards compatibility. RFC 6265 parsing is stricter than the legacy behavior, so review applications relying on legacy cookie handling before applying this recipe."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["tomcat"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.UseRfc6265CookieProcessor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/userfc6265cookieprocessor.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change XML attribute","href":"xml/changetagattribute"}]}>
+<RecipeHeader.Title>Use `Rfc6265CookieProcessor` instead of `LegacyCookieProcessor`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace the legacy Tomcat `LegacyCookieProcessor` with the RFC 6265 compliant `Rfc6265CookieProcessor`, both in Java references and in the `<CookieProcessor className="…"/>` attribute of Tomcat configuration files such as `context.xml` and `server.xml`. `Rfc6265CookieProcessor` has been the default cookie processor since Tomcat 8.5; `LegacyCookieProcessor` exists only for backwards compatibility. RFC 6265 parsing is stricter than the legacy behavior, so review applications relying on legacy cookie handling before applying this recipe.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"}]}>
 
 ## Definition
 

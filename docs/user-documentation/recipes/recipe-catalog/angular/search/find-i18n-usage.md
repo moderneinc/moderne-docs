@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find i18n usage"}
-  description={"Finds i18n usage indicators: legacy i18n configuration in `angular.json` (`i18nLocale`, `i18nFile`, `i18nFormat`, `i18nMissingTranslation`), `$localize` tagged template literals, and `@angular/localize` imports. Projects with these markers need `@angular/localize` installed and `import '@angular/localize/init'` in `polyfills.ts` for Angular 9+."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-i18n-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-i18n-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find i18n usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds i18n usage indicators: legacy i18n configuration in `angular.json` (`i18nLocale`, `i18nFile`, `i18nFormat`, `i18nMissingTranslation`), `$localize` tagged template literals, and `@angular/localize` imports. Projects with these markers need `@angular/localize` installed and `import '@angular/localize/init'` in `polyfills.ts` for Angular 9+.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <RecipeList recipes={[{"name":"Find i18n configuration in `angular.json`","href":""},{"name":"Find `$localize` usage in TypeScript","href":""}]}>
 

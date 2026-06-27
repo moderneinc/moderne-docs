@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (x != null) x.foo()` patterns"}
-  description={"`if (x != null) { x.foo() }` is the long form of `x?.let { it.foo() }` — or, when only one call is needed and `x` is a local, `x?.foo()`. The safe-call form makes the null-aware path part of the type system rather than a separate Boolean check."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindLetForNotNullCheck$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findletfornotnullcheck$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (x != null) x.foo()` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`if (x != null) { x.foo() }` is the long form of `x?.let { it.foo() }` — or, when only one call is needed and `x` is a local, `x?.foo()`. The safe-call form makes the null-aware path part of the type system rather than a separate Boolean check.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindLetForNotNullCheck$KtRecipe","displayName":"Find `if (x != null) x.foo()` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

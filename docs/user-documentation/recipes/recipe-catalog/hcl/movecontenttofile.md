@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move content to another file"}
-  description={"Move content to another HCL file, deleting it in the original file."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-hcl"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hcl.MoveContentToFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hcl/movecontenttofile.md"}
-/>
+>
+
+<RecipeHeader.Title>Move content to another file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Move content to another HCL file, deleting it in the original file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"contentPath","required":true,"description":"A JSONPath expression specifying the block to move.","example":"$.provider"},{"type":"String","name":"fromPath","required":true,"description":"The source path of the file from which content is being moved.","example":"from.tf"},{"type":"String","name":"destinationPath","required":true,"description":"The source path of the file to move the content to.","example":"to.tf"}]}>
 

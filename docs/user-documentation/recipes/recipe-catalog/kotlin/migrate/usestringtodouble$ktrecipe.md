@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `String.toDouble()` instead of `java.lang.Double.parseDouble(s)`"}
-  description={"Java-idiom `Double.parseDouble(s)` migrates to the Kotlin extension `s.toDouble()`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseStringToDouble$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtodouble$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `String.toDouble()` instead of `java.lang.Double.parseDouble(s)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java-idiom `Double.parseDouble(s)` migrates to the Kotlin extension `s.toDouble()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseStringToDouble$KtRecipe","displayName":"Use `String.toDouble()` instead of `java.lang.Double.parseDouble(s)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

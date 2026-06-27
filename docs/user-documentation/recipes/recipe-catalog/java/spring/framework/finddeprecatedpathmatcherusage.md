@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `PathMatcher` usage"}
-  description={"In Spring Framework 7.0, `PathMatcher` and `AntPathMatcher` are deprecated in favor of `PathPatternParser`. This recipe finds usages of the deprecated `AntPathMatcher` class that may require manual migration to `PathPatternParser`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","search","framework"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.FindDeprecatedPathMatcherUsage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/finddeprecatedpathmatcherusage.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find types","href":"java/search/findtypes"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Find deprecated `PathMatcher` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Framework 7.0, `PathMatcher` and `AntPathMatcher` are deprecated in favor of `PathPatternParser`. This recipe finds usages of the deprecated `AntPathMatcher` class that may require manual migration to `PathPatternParser`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find types","href":"/user-documentation/recipes/recipe-catalog/java/search/findtypes/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

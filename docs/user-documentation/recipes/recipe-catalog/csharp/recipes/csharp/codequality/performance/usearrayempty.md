@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Array.Empty<T>() instead of new T[0]"}
-  description={"Use Array.Empty<T>() instead of allocating empty arrays."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UseArrayEmpty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/usearrayempty.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use Array.Empty&lt;T>() instead of new T[0]</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use Array.Empty&lt;T>() instead of allocating empty arrays.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UseArrayEmpty","displayName":"Use Array.Empty<T>() instead of new T[0]","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

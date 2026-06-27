@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use range operator"}
-  description={"Detect Substring calls that could use C# 8 range syntax."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseRangeOperator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/userangeoperator.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use range operator</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect Substring calls that could use C# 8 range syntax.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseRangeOperator","displayName":"Use range operator","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

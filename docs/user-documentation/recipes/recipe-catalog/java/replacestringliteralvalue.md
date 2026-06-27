@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `String` literal"}
-  description={"Replace the value of a complete `String` literal."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.ReplaceStringLiteralValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/replacestringliteralvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `String` literal</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace the value of a complete `String` literal.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldLiteralValue","required":true,"description":"The `String` value to replace.","example":"apple"},{"type":"String","name":"newLiteralValue","required":true,"description":"The `String` value to replace with.","example":"orange"}]}>
 

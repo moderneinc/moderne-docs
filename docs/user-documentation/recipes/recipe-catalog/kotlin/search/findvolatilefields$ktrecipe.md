@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Volatile` properties"}
-  description={"`@Volatile` properties announce concurrent mutation — every read/write is a happens-before edge that downstream code relies on. Each match is a position a reviewer or LLM agent should inspect for memory-ordering bugs."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindVolatileFields$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findvolatilefields$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Volatile` properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@Volatile` properties announce concurrent mutation — every read/write is a happens-before edge that downstream code relies on. Each match is a position a reviewer or LLM agent should inspect for memory-ordering bugs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindVolatileFields$KtRecipe","displayName":"Find `@Volatile` properties","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

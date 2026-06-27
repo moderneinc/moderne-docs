@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose recomposition smells"}
-  description={"Recomposition-related patterns whose default behavior surprises authors: `LazyColumn`/`LazyRow`/`LazyVerticalGrid` whose inner `items(...)` calls have no `key` (composition state churns on reorder), and lazy-list content lambdas that read snapshot state from the enclosing scope (every state change invalidates the entire list)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindRecompositionSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findrecompositionsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `LazyColumn { … }` calls — verify items use stable keys","href":"kotlin/compose/findlazycolumndirectcall$ktrecipe"},{"name":"Find `LazyRow { … }` calls — verify items use stable keys","href":"kotlin/compose/findlazyrowdirectcall$ktrecipe"},{"name":"Find `LazyVerticalGrid { … }` calls — verify items use stable keys","href":"kotlin/compose/findlazyverticalgriddirectcall$ktrecipe"},{"name":"Find lazy-list `items(...) { … }` content lambdas that read a `MutableState` from the enclosing scope","href":"kotlin/compose/findlambdacapturingmutablestateinitems$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose recomposition smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Recomposition-related patterns whose default behavior surprises authors: `LazyColumn`/`LazyRow`/`LazyVerticalGrid` whose inner `items(...)` calls have no `key` (composition state churns on reorder), and lazy-list content lambdas that read snapshot state from the enclosing scope (every state change invalidates the entire list).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `LazyColumn { … }` calls — verify items use stable keys","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlazycolumndirectcall$ktrecipe/"},{"name":"Find `LazyRow { … }` calls — verify items use stable keys","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlazyrowdirectcall$ktrecipe/"},{"name":"Find `LazyVerticalGrid { … }` calls — verify items use stable keys","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlazyverticalgriddirectcall$ktrecipe/"},{"name":"Find lazy-list `items(...) { … }` content lambdas that read a `MutableState` from the enclosing scope","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlambdacapturingmutablestateinitems$ktrecipe/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Make class sealed"}
-  description={"A class that has only private constructors should be marked as sealed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.MakeClassSealed"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/makeclasssealed.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Make class sealed</RecipeHeader.Title>
+
+<RecipeHeader.Description>A class that has only private constructors should be marked as sealed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.MakeClassSealed","displayName":"Make class sealed","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

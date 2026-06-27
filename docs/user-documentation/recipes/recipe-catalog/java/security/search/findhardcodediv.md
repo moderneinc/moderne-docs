@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hardcoded initialization vectors"}
-  description={"Finds `IvParameterSpec` constructed with hardcoded byte arrays or string literals. A static IV makes CBC and other modes deterministic, enabling chosen-plaintext attacks. IVs should be generated randomly using `SecureRandom` for each encryption operation."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S3329","CWE-329"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindHardcodedIv"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findhardcodediv.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find hardcoded initialization vectors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `IvParameterSpec` constructed with hardcoded byte arrays or string literals. A static IV makes CBC and other modes deterministic, enabling chosen-plaintext attacks. IVs should be generated randomly using `SecureRandom` for each encryption operation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.crypto.spec.IvParameterSpec;\n\nclass A {\n    void encrypt() {\n        IvParameterSpec iv = new IvParameterSpec(new byte[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15});\n    }\n}\n","after":"import javax.crypto.spec.IvParameterSpec;\n\nclass A {\n    void encrypt() {\n        IvParameterSpec iv = /*~~(Hardcoded IV in IvParameterSpec. Use SecureRandom to generate a unique IV for each encryption.)~~>*/new IvParameterSpec(new byte[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15});\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass A {\n    void encrypt() {\n-       IvParameterSpec iv = new IvParameterSpec(new byte[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15});\n+       IvParameterSpec iv = /*~~(Hardcoded IV in IvParameterSpec. Use SecureRandom to generate a unique IV for each encryption.)~~>*/new IvParameterSpec(new byte[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15});\n    }\n","newFile":false}]}]}>
 

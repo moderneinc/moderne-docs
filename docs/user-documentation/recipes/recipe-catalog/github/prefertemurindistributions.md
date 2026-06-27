@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `actions/setup-java` `temurin` distribution as they are cached in hosted runners"}
-  description={"[Host runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources/) include Temurin by default as part of the [hosted tool cache](https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#hosted-tool-cache). Using Temurin speeds up builds as there is no need to download and configure the Java SDK with every build."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.PreferTemurinDistributions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/prefertemurindistributions.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `actions/setup-java` `temurin` distribution as they are cached in hosted runners</RecipeHeader.Title>
+
+<RecipeHeader.Description>[Host runners](https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources/) include Temurin by default as part of the [hosted tool cache](https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#hosted-tool-cache). Using Temurin speeds up builds as there is no need to download and configure the Java SDK with every build.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"jobs:\n  build:\n    runs-on: [ubuntu-latest,macos-latest]\n    steps:\n      - uses: actions/checkout@v2\n        with:\n          fetch-depth: 0\n      - name: set-up-jdk-0\n        uses: actions/setup-java@v2.3.0\n        with:\n          distribution: \"zulu\"\n          java-version: \"11\"\n      - name: set-up-jdk-1\n        uses: actions/setup-java@v2.3.0\n        with:\n          distribution: \"adopt\"\n          java-version: \"17\"\n      - name: set-up-jdk-2\n        uses: actions/setup-java@v2.3.0\n        with:\n          distribution: \"zulu\"\n          java-version: \"8\"\n      - name: build\n        run: ./gradlew build test\n","after":"jobs:\n  build:\n    runs-on: [ubuntu-latest,macos-latest]\n    steps:\n      - uses: actions/checkout@v2\n        with:\n          fetch-depth: 0\n      - name: set-up-jdk-0\n        uses: actions/setup-java@v2.3.0\n        with:\n          distribution: \"temurin\"\n          java-version: \"11\"\n      - name: set-up-jdk-1\n        uses: actions/setup-java@v2.3.0\n        with:\n          distribution: \"temurin\"\n          java-version: \"17\"\n      - name: set-up-jdk-2\n        uses: actions/setup-java@v2.3.0\n        with:\n          distribution: \"temurin\"\n          java-version: \"8\"\n      - name: build\n        run: ./gradlew build test\n","diff":"--- .github/workflows/ci.yml\n+++ .github/workflows/ci.yml\n@@ -11,1 +11,1 @@\n        uses: actions/setup-java@v2.3.0\n        with:\n-         distribution: \"zulu\"\n+         distribution: \"temurin\"\n          java-version: \"11\"\n@@ -16,1 +16,1 @@\n        uses: actions/setup-java@v2.3.0\n        with:\n-         distribution: \"adopt\"\n+         distribution: \"temurin\"\n          java-version: \"17\"\n@@ -21,1 +21,1 @@\n        uses: actions/setup-java@v2.3.0\n        with:\n-         distribution: \"zulu\"\n+         distribution: \"temurin\"\n          java-version: \"8\"\n","newFile":false}]}]}>
 

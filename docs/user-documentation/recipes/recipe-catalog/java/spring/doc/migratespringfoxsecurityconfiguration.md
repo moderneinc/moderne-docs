@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate SpringFox `SecurityConfiguration` bean to Springdoc Swagger UI properties"}
-  description={"Replace `@Bean` methods that return `springfox.documentation.swagger.web.SecurityConfiguration` with the equivalent `springdoc.swagger-ui.*` configuration properties. Only literal builder arguments are migrated; beans with non-literal arguments or unsupported builder methods (`apiKey`, `apiKeyName`, `apiKeyVehicle`, `additionalQueryStringParams`) are left untouched for manual review. If no Spring application configuration file exists, the bean is left in place to avoid silently dropping configuration."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.doc.MigrateSpringFoxSecurityConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/doc/migratespringfoxsecurityconfiguration.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate SpringFox `SecurityConfiguration` bean to Springdoc Swagger UI properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `@Bean` methods that return `springfox.documentation.swagger.web.SecurityConfiguration` with the equivalent `springdoc.swagger-ui.*` configuration properties. Only literal builder arguments are migrated; beans with non-literal arguments or unsupported builder methods (`apiKey`, `apiKeyName`, `apiKeyVehicle`, `additionalQueryStringParams`) are left untouched for manual review. If no Spring application configuration file exists, the bean is left in place to avoid silently dropping configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"java","before":"package com.example;\n\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport springfox.documentation.swagger.web.SecurityConfiguration;\nimport springfox.documentation.swagger.web.SecurityConfigurationBuilder;\n\n@Configuration\npublic class SwaggerConfig {\n\n    @Bean\n    SecurityConfiguration security() {\n        return SecurityConfigurationBuilder.builder()\n                .enableCsrfSupport(true)\n                .build();\n    }\n}\n","after":"package com.example;\n\nimport org.springframework.context.annotation.Configuration;\n\n@Configuration\npublic class SwaggerConfig {\n}\n","diff":"@@ -3,1 +3,0 @@\npackage com.example;\n\n-import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\n@@ -5,2 +4,0 @@\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\n-import springfox.documentation.swagger.web.SecurityConfiguration;\n-import springfox.documentation.swagger.web.SecurityConfigurationBuilder;\n\n@@ -10,7 +7,0 @@\n@Configuration\npublic class SwaggerConfig {\n-\n-   @Bean\n-   SecurityConfiguration security() {\n-       return SecurityConfigurationBuilder.builder()\n-               .enableCsrfSupport(true)\n-               .build();\n-   }\n}\n","newFile":false},{"language":"properties","before":"spring.application.name=demo\n","after":"spring.application.name=demo\nspringdoc.swagger-ui.csrf.enabled=true\n","diff":"--- application.properties\n+++ application.properties\n@@ -2,0 +2,1 @@\nspring.application.name=demo\n+springdoc.swagger-ui.csrf.enabled=true\n\n","newFile":false}]}]}>
 

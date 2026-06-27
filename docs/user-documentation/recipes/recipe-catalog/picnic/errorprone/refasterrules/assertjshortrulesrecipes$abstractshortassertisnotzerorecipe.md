@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJShortRules.AbstractShortAssertIsNotZero`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractShortAssertIsNotZero {\n    \n    @BeforeTemplate\n    AbstractShortAssert<?> before(AbstractShortAssert<?> shortAssert) {\n        return shortAssert.isNotZero();\n    }\n    \n    @AfterTemplate\n    AbstractShortAssert<?> after(AbstractShortAssert<?> shortAssert) {\n        return shortAssert.isNotEqualTo((short)0);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJShortRulesRecipes$AbstractShortAssertIsNotZeroRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjshortrulesrecipes$abstractshortassertisnotzerorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJShortRules.AbstractShortAssertIsNotZero`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractShortAssertIsNotZero {
+    
+    @BeforeTemplate
+    AbstractShortAssert<?> before(AbstractShortAssert<?> shortAssert) {
+        return shortAssert.isNotZero();
+    }
+    
+    @AfterTemplate
+    AbstractShortAssert<?> after(AbstractShortAssert<?> shortAssert) {
+        return shortAssert.isNotEqualTo((short)0);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJShortRulesRecipes$AbstractShortAssertIsNotZeroRecipe","displayName":"Refaster template `AssertJShortRules.AbstractShortAssertIsNotZero`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

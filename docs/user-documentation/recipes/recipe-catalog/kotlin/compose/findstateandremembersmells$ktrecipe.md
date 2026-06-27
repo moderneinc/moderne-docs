@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose state + remember misuse"}
-  description={"State that does not survive recomposition the way the author intended: `remember(unstableKey, …)` whose key is itself a fresh allocation; `by remember { … }` whose body isn't a `MutableState` (the delegate is a no-op); `remember { mutableListOf(...) }` where the mutations bypass the snapshot system."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindStateAndRememberSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findstateandremembersmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `remember(mutableListOf(...), …)` and similar unstable-key calls","href":"kotlin/compose/findrememberwithunstablekey$ktrecipe"},{"name":"Find `by remember { … }` delegations whose body isn't a `mutableStateOf`","href":"kotlin/compose/findbyrememberwithoutmutablestate$ktrecipe"},{"name":"Find `remember { mutableListOf<T>() }` patterns","href":"kotlin/compose/findremembermutablelistofwithoutmutablestate$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose state + remember misuse</RecipeHeader.Title>
+
+<RecipeHeader.Description>State that does not survive recomposition the way the author intended: `remember(unstableKey, …)` whose key is itself a fresh allocation; `by remember { … }` whose body isn't a `MutableState` (the delegate is a no-op); `remember { mutableListOf(...) }` where the mutations bypass the snapshot system.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `remember(mutableListOf(...), …)` and similar unstable-key calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findrememberwithunstablekey$ktrecipe/"},{"name":"Find `by remember { … }` delegations whose body isn't a `mutableStateOf`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findbyrememberwithoutmutablestate$ktrecipe/"},{"name":"Find `remember { mutableListOf<T>() }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findremembermutablelistofwithoutmutablestate$ktrecipe/"}]}>
 
 ## Definition
 

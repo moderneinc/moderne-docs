@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Inline `log4j-api-2` methods annotated with `@InlineMe`"}
-  description={"Automatically generated recipes to inline method calls based on `@InlineMe` annotations discovered in the type table."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.apache.logging.log4j.InlineLog4jApiMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/logging/log4j/inlinelog4japimethods.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"},{"name":"Inline method calls","href":"java/inlinemethodcalls"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Inline `log4j-api-2` methods annotated with `@InlineMe`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Automatically generated recipes to inline method calls based on `@InlineMe` annotations discovered in the type table.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"},{"name":"Inline method calls","href":"/user-documentation/recipes/recipe-catalog/java/inlinemethodcalls/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

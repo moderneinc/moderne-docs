@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create Tomcat server source file"}
-  description={"Creates a `TomcatServer.java` source file for projects containing JBoss descriptor files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.tomcat.CreateTomcatSourceFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/createtomcatsourcefile.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Create Tomcat server source file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Creates a `TomcatServer.java` source file for projects containing JBoss descriptor files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageName","required":true,"description":"The package name for the generated Java source files.","example":"com.example.tomcat"},{"type":"String","name":"contextPath","required":false,"description":"The context path for the Tomcat application.","example":"/myapp"},{"type":"Integer","name":"port","required":false,"description":"The default port for the Tomcat server.","example":"8080"}]}>
 

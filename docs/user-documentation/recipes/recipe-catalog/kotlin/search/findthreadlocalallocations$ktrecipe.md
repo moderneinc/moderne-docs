@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `ThreadLocal()` allocations"}
-  description={"`ThreadLocal` ties state to a thread identity that coroutines do not preserve across suspension. Each allocation is a candidate to migrate to a `CoroutineContext.Element` or to confirm the call site is non-suspending."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindThreadLocalAllocations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findthreadlocalallocations$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `ThreadLocal()` allocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`ThreadLocal` ties state to a thread identity that coroutines do not preserve across suspension. Each allocation is a candidate to migrate to a `CoroutineContext.Element` or to confirm the call site is non-suspending.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindThreadLocalAllocations$KtRecipe","displayName":"Find `ThreadLocal()` allocations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

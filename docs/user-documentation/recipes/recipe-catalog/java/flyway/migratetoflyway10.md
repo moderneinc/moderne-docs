@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Flyway 10"}
-  description={"Migrate to Flyway 10. See details at [Flyway V10 has landed](https://documentation.red-gate.com/fd/flyway-v10-has-landed-222627771.html)."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["flyway"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.flyway.MigrateToFlyway10"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/flyway/migratetoflyway10.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add missing Flyway module for PostgreSQL","href":"java/flyway/addflywaymodulepostgresql"},{"name":"Add missing Flyway module for MySQL","href":"java/flyway/addflywaymodulemysql"},{"name":"Add missing Flyway module for Oracle","href":"java/flyway/addflywaymoduleoracle"},{"name":"Add missing Flyway module for SQL Server","href":"java/flyway/addflywaymodulesqlserver"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Flyway 10</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate to Flyway 10. See details at [Flyway V10 has landed](https://documentation.red-gate.com/fd/flyway-v10-has-landed-222627771.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add missing Flyway module for PostgreSQL","href":"/user-documentation/recipes/recipe-catalog/java/flyway/addflywaymodulepostgresql/"},{"name":"Add missing Flyway module for MySQL","href":"/user-documentation/recipes/recipe-catalog/java/flyway/addflywaymodulemysql/"},{"name":"Add missing Flyway module for Oracle","href":"/user-documentation/recipes/recipe-catalog/java/flyway/addflywaymoduleoracle/"},{"name":"Add missing Flyway module for SQL Server","href":"/user-documentation/recipes/recipe-catalog/java/flyway/addflywaymodulesqlserver/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

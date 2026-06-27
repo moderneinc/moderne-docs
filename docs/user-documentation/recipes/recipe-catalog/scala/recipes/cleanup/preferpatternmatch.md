@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer pattern matching over `asInstanceOf` casts"}
-  description={"Finds `.asInstanceOf[T]` type casts that should be replaced with pattern matching. Idiomatic Scala prefers pattern matching over explicit casts."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.PreferPatternMatch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferpatternmatch.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer pattern matching over `asInstanceOf` casts</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `.asInstanceOf[T]` type casts that should be replaced with pattern matching. Idiomatic Scala prefers pattern matching over explicit casts.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  val obj: Any = \"hello\"\n  val str = obj.asInstanceOf[String]\n}\n","after":"object Test {\n  val obj: Any = \"hello\"\n  val str = /*~~(Consider pattern matching instead of asInstanceOf)~~>*/obj.asInstanceOf[String]\n}\n","diff":"@@ -3,1 +3,1 @@\nobject Test {\n  val obj: Any = \"hello\"\n- val str = obj.asInstanceOf[String]\n+ val str = /*~~(Consider pattern matching instead of asInstanceOf)~~>*/obj.asInstanceOf[String]\n}\n","newFile":false}]}]}>
 

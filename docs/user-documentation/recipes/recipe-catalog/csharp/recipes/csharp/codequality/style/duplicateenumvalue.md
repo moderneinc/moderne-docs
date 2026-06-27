@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Flag duplicate enum value"}
-  description={"Flag enum members that have the same underlying value."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.DuplicateEnumValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/duplicateenumvalue.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Flag duplicate enum value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flag enum members that have the same underlying value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.DuplicateEnumValue","displayName":"Flag duplicate enum value","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

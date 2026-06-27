@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to `kotlinx-serialization` 1.8"}
-  description={"Upgrade kotlinx-serialization to 1.8.x and replace deprecated method calls."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UpgradeKotlinxSerialization_1_8"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxserialization_1_8.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace deprecated `kotlinx-serialization-core` methods","href":"jetbrains/kotlinx/replacedeprecatedkotlinxserializationcore1methods"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Upgrade to `kotlinx-serialization` 1.8</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade kotlinx-serialization to 1.8.x and replace deprecated method calls.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace deprecated `kotlinx-serialization-core` methods","href":"/user-documentation/recipes/recipe-catalog/jetbrains/kotlinx/replacedeprecatedkotlinxserializationcore1methods/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]}>
 
 ## Definition
 

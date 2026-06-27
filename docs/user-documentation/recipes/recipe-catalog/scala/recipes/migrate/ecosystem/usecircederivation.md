@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use circe `derives` for Scala 3"}
-  description={"Finds imports of `io.circe.generic.auto` which uses Shapeless-based automatic derivation. In Scala 3, consider using `derives` syntax for codec derivation instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.ecosystem.UseCirceDerivation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/ecosystem/usecircederivation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use circe `derives` for Scala 3</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of `io.circe.generic.auto` which uses Shapeless-based automatic derivation. In Scala 3, consider using `derives` syntax for codec derivation instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import io.circe.generic.auto._\n\nobject Main {\n  val x = 1\n}\n","after":"/*~~(circe generic auto derivation; consider using derives for Scala 3)~~>*/import io.circe.generic.auto._\n\nobject Main {\n  val x = 1\n}\n","diff":"@@ -1,1 +1,1 @@\n-import io.circe.generic.auto._\n+/*~~(circe generic auto derivation; consider using derives for Scala 3)~~>*/import io.circe.generic.auto._\n\n","newFile":false}]}]}>
 

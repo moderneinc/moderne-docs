@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Synchronize mutable shared state"}
-  description={"Finds `var` declarations at class level that lack `@volatile` or other synchronization annotations. Mutable shared state without synchronization is a common source of concurrency bugs."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.concurrency.SynchronizeMutableState"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/concurrency/synchronizemutablestate.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Synchronize mutable shared state</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `var` declarations at class level that lack `@volatile` or other synchronization annotations. Mutable shared state without synchronization is a common source of concurrency bugs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Counter {\n    var count = 0\n}\n","after":"class Counter {\n    /*~~(Mutable shared state without synchronization)~~>*/var count = 0\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Counter {\n-   var count = 0\n+   /*~~(Mutable shared state without synchronization)~~>*/var count = 0\n}\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find reassigned primary constructor parameter"}
-  description={"Detect primary constructor parameters that are reassigned in the class body. Primary constructor parameters should be treated as readonly."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindPrimaryConstructorReadonly"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findprimaryconstructorreadonly.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find reassigned primary constructor parameter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect primary constructor parameters that are reassigned in the class body. Primary constructor parameters should be treated as readonly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindPrimaryConstructorReadonly","displayName":"Find reassigned primary constructor parameter","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

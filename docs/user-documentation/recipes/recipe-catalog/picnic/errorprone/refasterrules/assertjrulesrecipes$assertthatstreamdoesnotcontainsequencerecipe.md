@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJRules.AssertThatStreamDoesNotContainSequence`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatStreamDoesNotContainSequence<S, T extends S, U extends T> {\n    \n    @BeforeTemplate\n    ListAssert<T> before(Stream<S> stream, Iterable<U> iterable, Collector<S, ?, ? extends List<T>> collector) {\n        return assertThat(stream.collect(collector)).doesNotContainSequence(iterable);\n    }\n    \n    @BeforeTemplate\n    ListAssert<T> before(Stream<S> stream, U[] iterable, Collector<S, ?, ? extends List<T>> collector) {\n        return assertThat(stream.collect(collector)).doesNotContainSequence(iterable);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ListAssert<S> after(Stream<S> stream, Iterable<U> iterable) {\n        return assertThat(stream).doesNotContainSequence(iterable);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,38 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamDoesNotContainSequenceRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamdoesnotcontainsequencerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJRules.AssertThatStreamDoesNotContainSequence`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatStreamDoesNotContainSequence<S, T extends S, U extends T> {
+    
+    @BeforeTemplate
+    ListAssert<T> before(Stream<S> stream, Iterable<U> iterable, Collector<S, ?, ? extends List<T>> collector) {
+        return assertThat(stream.collect(collector)).doesNotContainSequence(iterable);
+    }
+    
+    @BeforeTemplate
+    ListAssert<T> before(Stream<S> stream, U[] iterable, Collector<S, ?, ? extends List<T>> collector) {
+        return assertThat(stream.collect(collector)).doesNotContainSequence(iterable);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    ListAssert<S> after(Stream<S> stream, Iterable<U> iterable) {
+        return assertThat(stream).doesNotContainSequence(iterable);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamDoesNotContainSequenceRecipe","displayName":"Refaster template `AssertJRules.AssertThatStreamDoesNotContainSequence`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `buildToolsVersion`"}
-  description={"Remove the `buildToolsVersion` declaration from the `android` block in a Gradle build file. Since Android Gradle Plugin 3.0 the build tools version is selected automatically based on the AGP version, so explicit `buildToolsVersion` declarations are ignored and add noise to build files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.android.RemoveBuildToolsVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/android/removebuildtoolsversion.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `buildToolsVersion`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove the `buildToolsVersion` declaration from the `android` block in a Gradle build file. Since Android Gradle Plugin 3.0 the build tools version is selected automatically based on the AGP version, so explicit `buildToolsVersion` declarations are ignored and add noise to build files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"buildscript {\n    repositories {\n        mavenCentral()\n        google()\n    }\n    dependencies {\n        classpath 'com.android.tools.build:gradle:8.6.1'\n    }\n}\nrepositories {\n    mavenCentral()\n}\napply plugin: 'com.android.application'\nandroid {\n   compileSdk 35\n   buildToolsVersion \"34.0.0\"\n   defaultConfig {\n       targetSdk 35\n   }\n   namespace = \"com.example.myapp\"\n}\n","after":"buildscript {\n    repositories {\n        mavenCentral()\n        google()\n    }\n    dependencies {\n        classpath 'com.android.tools.build:gradle:8.6.1'\n    }\n}\nrepositories {\n    mavenCentral()\n}\napply plugin: 'com.android.application'\nandroid {\n   compileSdk 35\n   defaultConfig {\n       targetSdk 35\n   }\n   namespace = \"com.example.myapp\"\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -16,1 +16,0 @@\nandroid {\n   compileSdk 35\n-  buildToolsVersion \"34.0.0\"\n   defaultConfig {\n","newFile":false}]}]}>
 

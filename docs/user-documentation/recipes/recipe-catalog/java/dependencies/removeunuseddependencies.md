@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unused dependencies"}
-  description={"Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.\n\nThis recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(\"java.util.List\")` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.\n\nThis recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.RemoveUnusedDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unused dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName("java.util.List")` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"ignoredDependencies","required":false,"description":"A list of `groupId:artifactId` glob patterns for dependencies that should never be removed, even if they appear unused. For example, `com.google.*:*` would ignore all Google dependencies, and `*:lombok` would ignore Lombok regardless of group ID.","example":"org.projectlombok:lombok,com.google.*:*"}]}>
 

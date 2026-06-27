@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Disallow use of `Object.prototype.hasOwnProperty.call()` and prefer use of `Object.hasOwn(`)"}
-  description={"Disallow use of `Object.prototype.hasOwnProperty.call()` and prefer use of `Object.hasOwn(`) \nSee [rule details](https://eslint.org/docs/latest/rules/prefer-object-has-own)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.javascript.PreferObjectHasOwn"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/preferobjecthasown.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Disallow use of `Object.prototype.hasOwnProperty.call()` and prefer use of `Object.hasOwn(`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Disallow use of `Object.prototype.hasOwnProperty.call()` and prefer use of `Object.hasOwn(`)  See [rule details](https://eslint.org/docs/latest/rules/prefer-object-has-own).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

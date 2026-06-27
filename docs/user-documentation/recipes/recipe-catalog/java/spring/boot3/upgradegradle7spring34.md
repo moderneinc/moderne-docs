@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Gradle to 7.6.4+ for Spring Boot 3.4"}
-  description={"Spring Boot 3.4 requires Gradle 7.6.4."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","gradle","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.UpgradeGradle7Spring34"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradegradle7spring34.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Gradle 7 from Gradle 6","href":"gradle/migratetogradle7"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Find Gradle wrappers","href":"gradle/search/findgradlewrapper"}]}>
+<RecipeHeader.Title>Upgrade Gradle to 7.6.4+ for Spring Boot 3.4</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot 3.4 requires Gradle 7.6.4.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Gradle 7 from Gradle 6","href":"/user-documentation/recipes/recipe-catalog/gradle/migratetogradle7/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Find Gradle wrappers","href":"/user-documentation/recipes/recipe-catalog/gradle/search/findgradlewrapper/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Parse `Jenkinsfile` as Groovy"}
-  description={"Parse any `Jenkinsfile` as Groovy code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.JenkinsfileAsGroovy"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/jenkinsfileasgroovy.md"}
-/>
+>
+
+<RecipeHeader.Title>Parse `Jenkinsfile` as Groovy</RecipeHeader.Title>
+
+<RecipeHeader.Description>Parse any `Jenkinsfile` as Groovy code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"filePattern","required":false,"description":"A glob pattern to match Jenkinsfile paths. Defaults to `**/Jenkinsfile*`.","example":"**/Jenkinsfile*"}]}>
 

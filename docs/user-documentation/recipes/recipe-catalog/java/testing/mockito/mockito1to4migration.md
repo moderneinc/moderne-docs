@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Mockito 4.x upgrade"}
-  description={"Upgrade Mockito from 1.x to 4.x."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["testing","mockito"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.Mockito1to4Migration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to4migration.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Mockito 3.x migration from 1.x","href":"java/testing/mockito/mockito1to3migration"},{"name":"Replace `Mockito.when` on static (non mock) with try-with-resource with MockedStatic","href":"java/testing/mockito/mockitowhenonstatictomockstatic"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Replace `MockitoAnnotations.initMocks(this)` to `MockitoAnnotations.openMocks(this)`","href":"java/testing/mockito/replaceinitmocktoopenmock"},{"name":"Close unclosed static mocks","href":"java/testing/mockito/closeunclosedstaticmocks"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Mockito 4.x upgrade</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade Mockito from 1.x to 4.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Mockito 3.x migration from 1.x","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to3migration/"},{"name":"Replace `Mockito.when` on static (non mock) with try-with-resource with MockedStatic","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitowhenonstatictomockstatic/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Replace `MockitoAnnotations.initMocks(this)` to `MockitoAnnotations.openMocks(this)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/replaceinitmocktoopenmock/"},{"name":"Close unclosed static mocks","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/closeunclosedstaticmocks/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

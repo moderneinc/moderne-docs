@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@PathVariable` parameters without an explicit name"}
-  description={"`@PathVariable name: String` works only as long as the JVM preserves parameter names, which requires the `-parameters` javac flag and `-java-parameters` kotlinc flag. If either is missing, Spring resolves the path variable by ordinal — a footgun on rename. Set the name explicitly: `@PathVariable(\"id\") id: String`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindPathVariableWithoutName$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findpathvariablewithoutname$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@PathVariable` parameters without an explicit name</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@PathVariable name: String` works only as long as the JVM preserves parameter names, which requires the `-parameters` javac flag and `-java-parameters` kotlinc flag. If either is missing, Spring resolves the path variable by ordinal — a footgun on rename. Set the name explicitly: `@PathVariable("id") id: String`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindPathVariableWithoutName$KtRecipe","displayName":"Find `@PathVariable` parameters without an explicit name","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

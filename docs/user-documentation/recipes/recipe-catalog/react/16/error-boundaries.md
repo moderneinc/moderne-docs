@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename `unstable_handleError` to `componentDidCatch`"}
-  description={"Renames the unstable error boundary method to the official `componentDidCatch` API introduced in React 16."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.16.error-boundaries"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/16/error-boundaries.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Rename `unstable_handleError` to `componentDidCatch`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames the unstable error boundary method to the official `componentDidCatch` API introduced in React 16.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.16.error-boundaries","displayName":"Rename `unstable_handleError` to `componentDidCatch`","npmPackage":"@openrewrite/recipes-react"}}>
 

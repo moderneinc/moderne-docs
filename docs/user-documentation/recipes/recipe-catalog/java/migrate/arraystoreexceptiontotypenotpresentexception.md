@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Catch `TypeNotPresentException` thrown by `Class.getAnnotation()`"}
-  description={"Replace catch blocks for `ArrayStoreException` around `Class.getAnnotation()` with `TypeNotPresentException` to ensure compatibility with Java 11+."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.ArrayStoreExceptionToTypeNotPresentException"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/arraystoreexceptiontotypenotpresentexception.md"}
-/>
+>
+
+<RecipeHeader.Title>Catch `TypeNotPresentException` thrown by `Class.getAnnotation()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace catch blocks for `ArrayStoreException` around `Class.getAnnotation()` with `TypeNotPresentException` to ensure compatibility with Java 11+.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.lang.annotation.*;\nimport java.util.*;\n\npublic class Test {\n    public void testMethod() {\n        try {\n            Object o = \"test\";\n            o.getClass().getAnnotation(Override.class);\n        } catch (ArrayStoreException e) {\n            System.out.println(\"Caught Exception\");\n        }\n        try {\n            Object.class.getAnnotation(Override.class);\n        } catch (ArrayStoreException e) {\n            System.out.println(\"Caught ArrayStoreException\");\n        }\n    }\n}\n","after":"import java.lang.annotation.*;\nimport java.util.*;\n\npublic class Test {\n    public void testMethod() {\n        try {\n            Object o = \"test\";\n            o.getClass().getAnnotation(Override.class);\n        } catch (TypeNotPresentException e) {\n            System.out.println(\"Caught Exception\");\n        }\n        try {\n            Object.class.getAnnotation(Override.class);\n        } catch (TypeNotPresentException e) {\n            System.out.println(\"Caught ArrayStoreException\");\n        }\n    }\n}\n","diff":"@@ -9,1 +9,1 @@\n            Object o = \"test\";\n            o.getClass().getAnnotation(Override.class);\n-       } catch (ArrayStoreException e) {\n+       } catch (TypeNotPresentException e) {\n            System.out.println(\"Caught Exception\");\n@@ -14,1 +14,1 @@\n        try {\n            Object.class.getAnnotation(Override.class);\n-       } catch (ArrayStoreException e) {\n+       } catch (TypeNotPresentException e) {\n            System.out.println(\"Caught ArrayStoreException\");\n","newFile":false}]}]}>
 

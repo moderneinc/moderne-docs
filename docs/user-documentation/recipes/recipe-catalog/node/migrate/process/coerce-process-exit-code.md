@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Coerce `process.exit()` and `process.exitCode` to integer"}
-  description={"Wraps non-integer values passed to `process.exit()` or assigned to `process.exitCode` with `Math.trunc()` to avoid the DEP0164 deprecation warning about implicit coercion to integer."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0164"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.process.coerce-process-exit-code"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/process/coerce-process-exit-code.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Coerce `process.exit()` and `process.exitCode` to integer</RecipeHeader.Title>
+
+<RecipeHeader.Description>Wraps non-integer values passed to `process.exit()` or assigned to `process.exitCode` with `Math.trunc()` to avoid the DEP0164 deprecation warning about implicit coercion to integer.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.process.coerce-process-exit-code","displayName":"Coerce `process.exit()` and `process.exitCode` to integer","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

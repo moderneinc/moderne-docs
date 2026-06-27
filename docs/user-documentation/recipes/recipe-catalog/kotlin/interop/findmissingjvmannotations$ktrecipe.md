@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Kotlin declarations missing `@Jvm*` interop annotations"}
-  description={"Search-only bundle of declarations where the JVM-visible API surface would benefit from one of the `@JvmStatic` / `@JvmField` / `@JvmOverloads` / `@JvmName` / `@Throws` annotations. Each match is a candidate for review — none should be applied blindly, but the absence is the primary friction Java callers feel."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindMissingJvmAnnotations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmannotations$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `companion object` functions missing `@JvmStatic`","href":"kotlin/interop/findmissingjvmstaticincompanion$ktrecipe"},{"name":"Find `const val` / companion `val` declarations missing `@JvmField`","href":"kotlin/interop/findmissingjvmfieldonconst$ktrecipe"},{"name":"Find functions with default parameters missing `@JvmOverloads`","href":"kotlin/interop/findmissingjvmoverloadsondefaults$ktrecipe"},{"name":"Find top-level functions missing `@JvmName`","href":"kotlin/interop/findmissingjvmnameonextensionfunction$ktrecipe"},{"name":"Find `val isX` Boolean properties missing `@get:JvmName`","href":"kotlin/interop/findmissingjvmnameonisgetter$ktrecipe"},{"name":"Find functions with `throw` of a checked exception missing `@Throws`","href":"kotlin/interop/findmissingthrowsannotation$ktrecipe"},{"name":"Find interface declarations with default-method bodies","href":"kotlin/interop/findkotlindefaultmethodinterface$ktrecipe"},{"name":"Find `@RequiresOptIn` annotation declarations","href":"kotlin/interop/findrequiresoptinonexperimentalapi$ktrecipe"}]}>
+<RecipeHeader.Title>Find Kotlin declarations missing `@Jvm*` interop annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle of declarations where the JVM-visible API surface would benefit from one of the `@JvmStatic` / `@JvmField` / `@JvmOverloads` / `@JvmName` / `@Throws` annotations. Each match is a candidate for review — none should be applied blindly, but the absence is the primary friction Java callers feel.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `companion object` functions missing `@JvmStatic`","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmstaticincompanion$ktrecipe/"},{"name":"Find `const val` / companion `val` declarations missing `@JvmField`","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmfieldonconst$ktrecipe/"},{"name":"Find functions with default parameters missing `@JvmOverloads`","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmoverloadsondefaults$ktrecipe/"},{"name":"Find top-level functions missing `@JvmName`","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmnameonextensionfunction$ktrecipe/"},{"name":"Find `val isX` Boolean properties missing `@get:JvmName`","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmnameonisgetter$ktrecipe/"},{"name":"Find functions with `throw` of a checked exception missing `@Throws`","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingthrowsannotation$ktrecipe/"},{"name":"Find interface declarations with default-method bodies","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findkotlindefaultmethodinterface$ktrecipe/"},{"name":"Find `@RequiresOptIn` annotation declarations","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findrequiresoptinonexperimentalapi$ktrecipe/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace redundant String format invocations that are wrapped with PrintStream operations"}
-  description={"Replaces `PrintStream.print(String.format(format, ...args))` with `PrintStream.printf(format, ...args)` (and for `println`, appends a newline to the format string)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceRedundantFormatWithPrintf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replaceredundantformatwithprintf.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace redundant String format invocations that are wrapped with PrintStream operations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `PrintStream.print(String.format(format, ...args))` with `PrintStream.printf(format, ...args)` (and for `println`, appends a newline to the format string).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test(String arg) {\n        String formatString = \"hello %s%n\";\n        System.out.print(String.format(formatString, arg));\n    }\n}\n","after":"class Test {\n    void test(String arg) {\n        String formatString = \"hello %s%n\";\n        System.out.printf(formatString, arg);\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\n    void test(String arg) {\n        String formatString = \"hello %s%n\";\n-       System.out.print(String.format(formatString, arg));\n+       System.out.printf(formatString, arg);\n    }\n","newFile":false}]}]}>
 

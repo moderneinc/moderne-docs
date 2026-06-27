@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update SDKMan Java version"}
-  description={"Update the SDKMAN JDK version in the `.sdkmanrc` file. Given a major release (e.g., 17), the recipe will update the current distribution to the current default SDKMAN version of the specified major release. The distribution option can be used to specify a specific JVM distribution. Note that these must correspond to valid SDKMAN distributions."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpdateSdkMan"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/updatesdkman.md"}
-/>
+>
+
+<RecipeHeader.Title>Update SDKMan Java version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update the SDKMAN JDK version in the `.sdkmanrc` file. Given a major release (e.g., 17), the recipe will update the current distribution to the current default SDKMAN version of the specified major release. The distribution option can be used to specify a specific JVM distribution. Note that these must correspond to valid SDKMAN distributions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"newVersion","required":false,"description":"The Java version to update to. Use `latest.patch` to upgrade to the latest version within the current major version.","example":"17"},{"type":"String","name":"newDistribution","required":false,"description":"The JVM distribution to use.","example":"tem"}]}>
 

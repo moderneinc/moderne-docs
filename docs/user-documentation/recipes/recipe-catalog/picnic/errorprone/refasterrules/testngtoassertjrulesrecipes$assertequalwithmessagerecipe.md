@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TestNGToAssertJRules.AssertEqualWithMessage`"}
-  description={"Recipe created for the following Refaster template:\n```java\n@SuppressWarnings(value = \"java:S1448\")\nstatic final class AssertEqualWithMessage {\n    \n    @BeforeTemplate\n    void before(boolean actual, String message, boolean expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(boolean actual, String message, Boolean expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Boolean actual, String message, boolean expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Boolean actual, String message, Boolean expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(byte actual, String message, byte expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(byte actual, String message, Byte expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Byte actual, String message, byte expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Byte actual, String message, Byte expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(char actual, String message, char expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(char actual, String message, Character expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Character actual, String message, char expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Character actual, String message, Character expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(short actual, String message, short expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(short actual, String message, Short expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Short actual, String message, short expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Short actual, String message, Short expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(int actual, String message, int expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(int actual, String message, Integer expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Integer actual, String message, int expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Integer actual, String message, Integer expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(long actual, String message, long expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(long actual, String message, Long expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Long actual, String message, long expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Long actual, String message, Long expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(float actual, String message, float expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(float actual, String message, Float expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Float actual, String message, float expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Float actual, String message, Float expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(double actual, String message, double expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(double actual, String message, Double expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Double actual, String message, double expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Double actual, String message, Double expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Object actual, String message, Object expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(String actual, String message, String expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @BeforeTemplate\n    void before(Map<?, ?> actual, String message, Map<?, ?> expected) {\n        assertEquals(actual, expected, message);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Object actual, String message, Object expected) {\n        assertThat(actual).withFailMessage(message).isEqualTo(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1448"]}
@@ -31,7 +29,204 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualWithMessageRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequalwithmessagerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TestNGToAssertJRules.AssertEqualWithMessage`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+@SuppressWarnings(value = "java:S1448")
+static final class AssertEqualWithMessage {
+    
+    @BeforeTemplate
+    void before(boolean actual, String message, boolean expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(boolean actual, String message, Boolean expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Boolean actual, String message, boolean expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Boolean actual, String message, Boolean expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(byte actual, String message, byte expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(byte actual, String message, Byte expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Byte actual, String message, byte expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Byte actual, String message, Byte expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(char actual, String message, char expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(char actual, String message, Character expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Character actual, String message, char expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Character actual, String message, Character expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(short actual, String message, short expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(short actual, String message, Short expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Short actual, String message, short expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Short actual, String message, Short expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(int actual, String message, int expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(int actual, String message, Integer expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Integer actual, String message, int expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Integer actual, String message, Integer expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(long actual, String message, long expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(long actual, String message, Long expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Long actual, String message, long expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Long actual, String message, Long expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(float actual, String message, float expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(float actual, String message, Float expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Float actual, String message, float expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Float actual, String message, Float expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(double actual, String message, double expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(double actual, String message, Double expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Double actual, String message, double expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Double actual, String message, Double expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Object actual, String message, Object expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(String actual, String message, String expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @BeforeTemplate
+    void before(Map<?, ?> actual, String message, Map<?, ?> expected) {
+        assertEquals(actual, expected, message);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(Object actual, String message, Object expected) {
+        assertThat(actual).withFailMessage(message).isEqualTo(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualWithMessageRecipe","displayName":"Refaster template `TestNGToAssertJRules.AssertEqualWithMessage`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

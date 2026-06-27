@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Single line comments begin with a whitespace"}
-  description={"Write `// hi` instead of `//hi`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.format.SingleLineComments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/format/singlelinecomments.md"}
-/>
+>
+
+<RecipeHeader.Title>Single line comments begin with a whitespace</RecipeHeader.Title>
+
+<RecipeHeader.Description>Write `// hi` instead of `//hi`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"//hi\nclass Test {\n}\n","after":"// hi\nclass Test {\n}\n","diff":"@@ -1,1 +1,1 @@\n-//hi\n+// hi\nclass Test {\n","newFile":false}]}]}>
 

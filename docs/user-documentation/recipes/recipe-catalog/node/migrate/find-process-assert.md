@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `process.assert()` usage"}
-  description={"`process.assert()` was deprecated in Node.js 10 (DEP0100) and removed in Node.js 23. Use the `assert` module instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0100"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.find-process-assert"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/find-process-assert.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated `process.assert()` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>`process.assert()` was deprecated in Node.js 10 (DEP0100) and removed in Node.js 23. Use the `assert` module instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.find-process-assert","displayName":"Find deprecated `process.assert()` usage","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Android SDK 35"}
-  description={"Recipes to upgrade to Android SDK version 35."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.android.UpgradeToAndroidSDK35"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk35.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade to Android SDK 34","href":"android/upgradetoandroidsdk34"},{"name":"Migrate to Android Gradle Plugin 8.6","href":"android/migratetoandroidgradleplugin_8_6"},{"name":"Change Android SDK version","href":"android/changeandroidsdkversion"}]}>
+<RecipeHeader.Title>Upgrade to Android SDK 35</RecipeHeader.Title>
+
+<RecipeHeader.Description>Recipes to upgrade to Android SDK version 35.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade to Android SDK 34","href":"/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk34/"},{"name":"Migrate to Android Gradle Plugin 8.6","href":"/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_6/"},{"name":"Change Android SDK version","href":"/user-documentation/recipes/recipe-catalog/android/changeandroidsdkversion/"}]}>
 
 ## Definition
 

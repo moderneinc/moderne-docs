@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unused type parameter"}
-  description={"Flag type parameters that are not used."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UnusedTypeParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/unusedtypeparameter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unused type parameter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flag type parameters that are not used.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UnusedTypeParameter","displayName":"Remove unused type parameter","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

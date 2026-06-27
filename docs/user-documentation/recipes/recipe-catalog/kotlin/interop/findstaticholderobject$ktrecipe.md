@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `object Constants { const val A = ... }` static-constants holders"}
-  description={"An `object Constants` whose body is exclusively `const val` declarations is a holder for compile-time constants. Promote each `const val` to a top-level declaration — both forms inline identically at the JVM bytecode level, but the top-level form is one import shorter at every call site."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindStaticHolderObject$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findstaticholderobject$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `object Constants { const val A = ... }` static-constants holders</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `object Constants` whose body is exclusively `const val` declarations is a holder for compile-time constants. Promote each `const val` to a top-level declaration — both forms inline identically at the JVM bytecode level, but the top-level form is one import shorter at every call site.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindStaticHolderObject$KtRecipe","displayName":"Find `object Constants { const val A = ... }` static-constants holders","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

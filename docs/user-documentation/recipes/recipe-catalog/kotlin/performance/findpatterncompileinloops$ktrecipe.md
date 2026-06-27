@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Pattern.compile` allocations inside loops"}
-  description={"Compiling a `java.util.regex.Pattern` is expensive — allocating one inside a loop recompiles it on every iteration. Hoist the `Pattern` out of the loop or cache it in a top-level property."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindPatternCompileInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findpatterncompileinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Pattern.compile` allocations inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>Compiling a `java.util.regex.Pattern` is expensive — allocating one inside a loop recompiles it on every iteration. Hoist the `Pattern` out of the loop or cache it in a top-level property.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindPatternCompileInLoops$KtRecipe","displayName":"Find `Pattern.compile` allocations inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

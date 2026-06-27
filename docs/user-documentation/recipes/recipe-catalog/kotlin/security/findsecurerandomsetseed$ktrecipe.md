@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `SecureRandom.setSeed(...)` with a literal seed"}
-  description={"`SecureRandom.setSeed(literal)` makes the RNG deterministic — defeats the whole point of using a CSPRNG. Let `SecureRandom` seed itself from the platform entropy source."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindSecureRandomSetSeed$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findsecurerandomsetseed$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `SecureRandom.setSeed(...)` with a literal seed</RecipeHeader.Title>
+
+<RecipeHeader.Description>`SecureRandom.setSeed(literal)` makes the RNG deterministic — defeats the whole point of using a CSPRNG. Let `SecureRandom` seed itself from the platform entropy source.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindSecureRandomSetSeed$KtRecipe","displayName":"Find `SecureRandom.setSeed(...)` with a literal seed","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

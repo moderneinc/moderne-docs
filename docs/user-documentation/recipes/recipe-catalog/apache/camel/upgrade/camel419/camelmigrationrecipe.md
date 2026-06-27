@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.18` application to `camel 4.19`"}
-  description={"Migrates `camel 4.18` application to `camel 4.19`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel419.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"The camel-test module has been removed from camel-bom","href":"apache/camel/upgrade/camel419/removedcomponents"},{"name":"Migrate camel-groovy-xml to camel-groovy","href":"apache/camel/upgrade/camel419/migrategroovyxml"},{"name":"Camel XML DSL Saga EIP restructuring","href":"apache/camel/upgrade/camel419/xmldsl419sagarecipe"},{"name":"Camel YAML DSL Saga EIP restructuring","href":"apache/camel/upgrade/camel419/yamldsl419sagarecipe"},{"name":"Remove test-jar type from camel-test-infra dependencies","href":"apache/camel/upgrade/camel419/pom419testinfrarecipe"},{"name":"Camel YAML DSL routePolicy renaming","href":"apache/camel/upgrade/camel419/yamldsl419routepolicyrecipe"}]}>
+<RecipeHeader.Title>Migrates `camel 4.18` application to `camel 4.19`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.18` application to `camel 4.19`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"The camel-test module has been removed from camel-bom","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/removedcomponents/"},{"name":"Migrate camel-groovy-xml to camel-groovy","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/migrategroovyxml/"},{"name":"Camel XML DSL Saga EIP restructuring","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/xmldsl419sagarecipe/"},{"name":"Camel YAML DSL Saga EIP restructuring","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/yamldsl419sagarecipe/"},{"name":"Remove test-jar type from camel-test-infra dependencies","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/pom419testinfrarecipe/"},{"name":"Camel YAML DSL routePolicy renaming","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/yamldsl419routepolicyrecipe/"}]}>
 
 ## Definition
 

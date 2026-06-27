@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJOptionalRules.AssertThatOptionalIsPresent`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatOptionalIsPresent<T> {\n    \n    @BeforeTemplate\n    AbstractAssert<?, ?> before(Optional<T> optional) {\n        return Refaster.anyOf(assertThat(optional.isPresent()).isTrue(), assertThat(optional.isEmpty()).isFalse());\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    OptionalAssert<T> after(Optional<T> optional) {\n        return assertThat(optional).isPresent();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes$AssertThatOptionalIsPresentRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$assertthatoptionalispresentrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJOptionalRules.AssertThatOptionalIsPresent`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatOptionalIsPresent<T> {
+    
+    @BeforeTemplate
+    AbstractAssert<?, ?> before(Optional<T> optional) {
+        return Refaster.anyOf(assertThat(optional.isPresent()).isTrue(), assertThat(optional.isEmpty()).isFalse());
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    OptionalAssert<T> after(Optional<T> optional) {
+        return assertThat(optional).isPresent();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes$AssertThatOptionalIsPresentRecipe","displayName":"Refaster template `AssertJOptionalRules.AssertThatOptionalIsPresent`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

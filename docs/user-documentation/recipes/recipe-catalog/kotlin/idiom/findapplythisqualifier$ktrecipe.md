@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find redundant `this.` inside `apply { }` blocks"}
-  description={"Inside `apply { }`, every member access resolves against the implicit receiver — `this.prop = v` is just `prop = v`. Drop the qualifier; the whole point of `apply` is the implicit receiver."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindApplyThisQualifier$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findapplythisqualifier$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find redundant `this.` inside `apply { }` blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Inside `apply { }`, every member access resolves against the implicit receiver — `this.prop = v` is just `prop = v`. Drop the qualifier; the whole point of `apply` is the implicit receiver.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindApplyThisQualifier$KtRecipe","displayName":"Find redundant `this.` inside `apply { }` blocks","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

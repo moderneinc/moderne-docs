@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `runCatching { }` blocks that may swallow `CancellationException`"}
-  description={"`runCatching { }` catches every `Throwable`, including `kotlinx.coroutines.CancellationException`. Inside a coroutine that's a bug — `CancellationException` is the cooperative-cancellation signal, and swallowing it stops the coroutine from cancelling. Either avoid `runCatching` in suspending code, or rethrow with `.onFailure { if (it is CancellationException) throw it }` before any other handling."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindRunCatchingSwallowingCancellation$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingswallowingcancellation$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `runCatching { }` blocks that may swallow `CancellationException`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`runCatching { }` catches every `Throwable`, including `kotlinx.coroutines.CancellationException`. Inside a coroutine that's a bug — `CancellationException` is the cooperative-cancellation signal, and swallowing it stops the coroutine from cancelling. Either avoid `runCatching` in suspending code, or rethrow with `.onFailure { if (it is CancellationException) throw it }` before any other handling.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindRunCatchingSwallowingCancellation$KtRecipe","displayName":"Find `runCatching { }` blocks that may swallow `CancellationException`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

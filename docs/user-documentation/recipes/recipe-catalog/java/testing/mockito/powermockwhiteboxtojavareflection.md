@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace PowerMock `Whitebox` with Java reflection"}
-  description={"Replace `org.powermock.reflect.Whitebox` calls (`setInternalState`, `getInternalState`, `invokeMethod`, `getField`, `getMethod`, `invokeConstructor`) with plain Java reflection using `java.lang.reflect.Field`, `java.lang.reflect.Method`, and `java.lang.reflect.Constructor`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["testing","mockito"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.PowerMockWhiteboxToJavaReflection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxtojavareflection.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace PowerMock `Whitebox.setInternalState()` with Java reflection","href":"java/testing/mockito/powermockwhiteboxsetinternalstatetojavareflection"},{"name":"Replace PowerMock `Whitebox.getInternalState()` with Java reflection","href":"java/testing/mockito/powermockwhiteboxgetinternalstatetojavareflection"},{"name":"Replace PowerMock `Whitebox.invokeMethod()` with Java reflection","href":"java/testing/mockito/powermockwhiteboxinvokemethodtojavareflection"},{"name":"Replace PowerMock `Whitebox.getField()` with Java reflection","href":"java/testing/mockito/powermockwhiteboxgetfieldtojavareflection"},{"name":"Replace PowerMock `Whitebox.getMethod()` with Java reflection","href":"java/testing/mockito/powermockwhiteboxgetmethodtojavareflection"},{"name":"Replace PowerMock `Whitebox.invokeConstructor()` with Java reflection","href":"java/testing/mockito/powermockwhiteboxinvokeconstructortojavareflection"}]}>
+<RecipeHeader.Title>Replace PowerMock `Whitebox` with Java reflection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `org.powermock.reflect.Whitebox` calls (`setInternalState`, `getInternalState`, `invokeMethod`, `getField`, `getMethod`, `invokeConstructor`) with plain Java reflection using `java.lang.reflect.Field`, `java.lang.reflect.Method`, and `java.lang.reflect.Constructor`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace PowerMock `Whitebox.setInternalState()` with Java reflection","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxsetinternalstatetojavareflection/"},{"name":"Replace PowerMock `Whitebox.getInternalState()` with Java reflection","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxgetinternalstatetojavareflection/"},{"name":"Replace PowerMock `Whitebox.invokeMethod()` with Java reflection","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxinvokemethodtojavareflection/"},{"name":"Replace PowerMock `Whitebox.getField()` with Java reflection","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxgetfieldtojavareflection/"},{"name":"Replace PowerMock `Whitebox.getMethod()` with Java reflection","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxgetmethodtojavareflection/"},{"name":"Replace PowerMock `Whitebox.invokeConstructor()` with Java reflection","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxinvokeconstructortojavareflection/"}]}>
 
 ## Definition
 

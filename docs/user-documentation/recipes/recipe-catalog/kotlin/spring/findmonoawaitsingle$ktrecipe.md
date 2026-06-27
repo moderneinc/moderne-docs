@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `mono.awaitSingle()` calls inside Flux/Flow collectors"}
-  description={"`awaitSingle()` is the right bridge from a single-value `Mono` into a coroutine. Inside a `Flux.collect` / `Flow.collect` over many elements, however, the pattern often signals that the surrounding code is mixing two stream models — flag for review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindMonoAwaitSingle$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoawaitsingle$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `mono.awaitSingle()` calls inside Flux/Flow collectors</RecipeHeader.Title>
+
+<RecipeHeader.Description>`awaitSingle()` is the right bridge from a single-value `Mono` into a coroutine. Inside a `Flux.collect` / `Flow.collect` over many elements, however, the pattern often signals that the surrounding code is mixing two stream models — flag for review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindMonoAwaitSingle$KtRecipe","displayName":"Find `mono.awaitSingle()` calls inside Flux/Flow collectors","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

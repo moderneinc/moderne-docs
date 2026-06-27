@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use text blocks"}
-  description={"Text blocks are easier to read than concatenated strings."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.UseTextBlocks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/usetextblocks.md"}
-/>
+>
+
+<RecipeHeader.Title>Use text blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Text blocks are easier to read than concatenated strings.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"boolean","name":"convertStringsWithoutNewlines","required":false,"description":"Whether or not strings without newlines should be converted to text block when processing code. The default value is true.","example":"true"},{"type":"boolean","name":"avoidLineContinuations","required":false,"description":"When enabled, the recipe avoids using `\\` line continuation escapes in text blocks where the content contains newlines. Non-newline-joined strings are placed on the same text block line instead. The default value is false.","example":"true"}]}>
 

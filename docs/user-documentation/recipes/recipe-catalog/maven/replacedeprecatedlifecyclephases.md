@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated lifecycle phases"}
-  description={"Maven 4 deprecated all `pre-*` and `post-*` lifecycle phases in favor of the `before:` and `after:` syntax. This recipe updates plugin phase declarations to use the new syntax, including `pre-clean` → `before:clean`, `pre-site` → `before:site`, `pre-integration-test` → `before:integration-test`, and their `post-*` equivalents."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ReplaceDeprecatedLifecyclePhases"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/replacedeprecatedlifecyclephases.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML tag value","href":"xml/changetagvalue"},{"name":"Change XML tag value","href":"xml/changetagvalue"},{"name":"Change XML tag value","href":"xml/changetagvalue"},{"name":"Change XML tag value","href":"xml/changetagvalue"},{"name":"Change XML tag value","href":"xml/changetagvalue"},{"name":"Change XML tag value","href":"xml/changetagvalue"}]}>
+<RecipeHeader.Title>Replace deprecated lifecycle phases</RecipeHeader.Title>
+
+<RecipeHeader.Description>Maven 4 deprecated all `pre-*` and `post-*` lifecycle phases in favor of the `before:` and `after:` syntax. This recipe updates plugin phase declarations to use the new syntax, including `pre-clean` → `before:clean`, `pre-site` → `before:site`, `pre-integration-test` → `before:integration-test`, and their `post-*` equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"},{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"},{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"},{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"},{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"},{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"}]}>
 
 ## Definition
 

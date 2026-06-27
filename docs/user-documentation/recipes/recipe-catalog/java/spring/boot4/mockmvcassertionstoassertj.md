@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate MockMvc `andExpect()` chains to AssertJ assertions"}
-  description={"Converts MockMvc Hamcrest-style `andExpect()` assertion chains to AssertJ-style fluent assertions using `assertThat()`. Handles status, content, JSON path, header, redirect, and forward assertions."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.MockMvcAssertionsToAssertJ"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvcassertionstoassertj.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate MockMvc `andExpect()` chains to AssertJ assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts MockMvc Hamcrest-style `andExpect()` assertion chains to AssertJ-style fluent assertions using `assertThat()`. Handles status, content, JSON path, header, redirect, and forward assertions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.test.web.servlet.MockMvc;\nimport static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;\nimport static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;\n\nclass MyTest {\n    private MockMvc mockMvc;\n\n    void test() throws Exception {\n        mockMvc.perform(get(\"/api\")).andExpect(status().isOk());\n    }\n}\n","after":"import org.springframework.test.web.servlet.MockMvc;\n\nimport static org.assertj.core.api.Assertions.assertThat;\nimport static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;\n\nclass MyTest {\n    private MockMvc mockMvc;\n\n    void test() throws Exception {\n        assertThat(mockMvc.perform(get(\"/api\"))).hasStatusOk();\n    }\n}\n","diff":"@@ -2,0 +2,2 @@\nimport org.springframework.test.web.servlet.MockMvc;\n+\n+import static org.assertj.core.api.Assertions.assertThat;\nimport static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;\n@@ -3,1 +5,0 @@\nimport org.springframework.test.web.servlet.MockMvc;\nimport static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;\n-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;\n\n@@ -9,1 +10,1 @@\n\n    void test() throws Exception {\n-       mockMvc.perform(get(\"/api\")).andExpect(status().isOk());\n+       assertThat(mockMvc.perform(get(\"/api\"))).hasStatusOk();\n    }\n","newFile":false}]}]}>
 

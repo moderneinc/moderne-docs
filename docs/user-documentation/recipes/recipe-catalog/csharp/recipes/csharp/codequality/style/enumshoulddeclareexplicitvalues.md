@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enum should declare explicit values"}
-  description={"Add explicit values to enum members that do not have them."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.EnumShouldDeclareExplicitValues"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/enumshoulddeclareexplicitvalues.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Enum should declare explicit values</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add explicit values to enum members that do not have them.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.EnumShouldDeclareExplicitValues","displayName":"Enum should declare explicit values","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

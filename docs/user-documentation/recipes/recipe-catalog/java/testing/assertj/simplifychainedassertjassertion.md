@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify AssertJ chained assertions"}
-  description={"Many AssertJ chained assertions have dedicated assertions that function the same. It is best to use the dedicated assertions."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S5838"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.SimplifyChainedAssertJAssertion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifychainedassertjassertion.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify AssertJ chained assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Many AssertJ chained assertions have dedicated assertions that function the same. It is best to use the dedicated assertions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"chainedAssertion","required":false,"description":"The chained AssertJ assertion to move to dedicated assertion.","example":"equals"},{"type":"String","name":"assertToReplace","required":false,"description":"The AssertJ assert that should be replaced.","example":"isTrue"},{"type":"String","name":"dedicatedAssertion","required":false,"description":"The AssertJ method to migrate to.","example":"isEqualTo"},{"type":"String","name":"requiredType","required":false,"description":"The type of the actual assertion argument.","example":"java.lang.String"}]}>
 

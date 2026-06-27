@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use pattern matching instead of HasValue"}
-  description={"Replace `nullable.HasValue` with `nullable is not null`. Pattern matching is more idiomatic in modern C#. Note: this recipe uses name-based matching and may match non-Nullable types with a `HasValue` property."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UsePatternMatchingInsteadOfHasValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usepatternmatchinginsteadofhasvalue.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use pattern matching instead of HasValue</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `nullable.HasValue` with `nullable is not null`. Pattern matching is more idiomatic in modern C#. Note: this recipe uses name-based matching and may match non-Nullable types with a `HasValue` property.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UsePatternMatchingInsteadOfHasValue","displayName":"Use pattern matching instead of HasValue","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

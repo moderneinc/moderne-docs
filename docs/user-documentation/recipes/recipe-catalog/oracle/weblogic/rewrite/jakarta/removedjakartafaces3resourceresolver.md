@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `ResourceResolver` with `ResourceHandler`"}
-  description={"The `ResourceResolver` class was removed in Jakarta Faces 3.0.  The functionality provided by that class can be replaced by using the `jakarta.faces.application.ResourceHandler` class.\n"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.RemovedJakartaFaces3ResourceResolver"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/removedjakartafaces3resourceresolver.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Replace `ResourceResolver` with `ResourceHandler`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `ResourceResolver` class was removed in Jakarta Faces 3.0.  The functionality provided by that class can be replaced by using the `jakarta.faces.application.ResourceHandler` class.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

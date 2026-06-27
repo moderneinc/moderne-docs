@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Cloud 2025"}
-  description={"Migrate applications to the latest Spring Cloud 2025 (Northfields) release."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","cloud"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.cloud2025.UpgradeSpringCloud_2025"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/upgradespringcloud_2025.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade dependencies to Spring Cloud 2025","href":"java/spring/cloud2025/dependencyupgrades"},{"name":"Migrate to New Spring Cloud Gateway Modules and Starters","href":"java/spring/cloud2025/springcloudgatewaydeprecatedmodulesandstarters"},{"name":"Migrate Spring Cloud Gateway Properties","href":"java/spring/cloud2025/springcloudgatewayproperties"},{"name":"Migrate Spring Cloud Gateway Webflux Properties","href":"java/spring/cloud2025/springcloudgatewaywebfluxproperties"},{"name":"Migrate Spring Cloud Gateway Proxy Webflux Properties","href":"java/spring/cloud2025/springcloudgatewayproxywebfluxproperties"},{"name":"Migrate Spring Cloud Gateway WebMvc Properties","href":"java/spring/cloud2025/springcloudgatewaywebmvcproperties"},{"name":"Migrate Spring Cloud Gateway Proxy WebMvc Properties","href":"java/spring/cloud2025/springcloudgatewayproxywebmvcproperties"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Cloud 2025</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Cloud 2025 (Northfields) release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade dependencies to Spring Cloud 2025","href":"/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/dependencyupgrades/"},{"name":"Migrate to New Spring Cloud Gateway Modules and Starters","href":"/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/springcloudgatewaydeprecatedmodulesandstarters/"},{"name":"Migrate Spring Cloud Gateway Properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/springcloudgatewayproperties/"},{"name":"Migrate Spring Cloud Gateway Webflux Properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/springcloudgatewaywebfluxproperties/"},{"name":"Migrate Spring Cloud Gateway Proxy Webflux Properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/springcloudgatewayproxywebfluxproperties/"},{"name":"Migrate Spring Cloud Gateway WebMvc Properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/springcloudgatewaywebmvcproperties/"},{"name":"Migrate Spring Cloud Gateway Proxy WebMvc Properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/springcloudgatewayproxywebmvcproperties/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

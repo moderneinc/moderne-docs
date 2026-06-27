@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `emptyMap<K, V>()` instead of `mapOf<K, V>()`"}
-  description={"`mapOf()` with no entries delegates to `emptyMap()`. Call the named factory directly to make the empty-by-construction intent visible."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.UseEmptyMapForMapOfNoArgs$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/useemptymapformapofnoargs$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `emptyMap<K, V>()` instead of `mapOf<K, V>()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`mapOf()` with no entries delegates to `emptyMap()`. Call the named factory directly to make the empty-by-construction intent visible.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.stdlib.UseEmptyMapForMapOfNoArgs$KtRecipe","displayName":"Use `emptyMap<K, V>()` instead of `mapOf<K, V>()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

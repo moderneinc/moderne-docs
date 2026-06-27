@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find potentially invalid attribute argument type"}
-  description={"Detect attribute arguments that use types not valid in attribute constructors (only primitives, string, Type, enums, and arrays of these are allowed)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindInvalidAttributeArgumentType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findinvalidattributeargumenttype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find potentially invalid attribute argument type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect attribute arguments that use types not valid in attribute constructors (only primitives, string, Type, enums, and arrays of these are allowed).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindInvalidAttributeArgumentType","displayName":"Find potentially invalid attribute argument type","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

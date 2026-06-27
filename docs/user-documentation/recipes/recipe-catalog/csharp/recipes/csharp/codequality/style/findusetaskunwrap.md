@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find double await pattern"}
-  description={"Detect `await await` pattern which can be replaced with `.Unwrap()` for clarity."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseTaskUnwrap"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findusetaskunwrap.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find double await pattern</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `await await` pattern which can be replaced with `.Unwrap()` for clarity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseTaskUnwrap","displayName":"Find double await pattern","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

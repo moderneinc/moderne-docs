@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"AddScalarPreferStandardBasicTypesForHibernate5"}
-  description={"Prefer the use of `StandardBasicTypes.*` in `NativeQuery.addScalar(...)` invocations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-hibernate"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hibernate.AddScalarPreferStandardBasicTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/addscalarpreferstandardbasictypes.md"}
-/>
+>
+
+<RecipeHeader.Title>AddScalarPreferStandardBasicTypesForHibernate5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the use of `StandardBasicTypes.*` in `NativeQuery.addScalar(...)` invocations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.Session;\nimport org.hibernate.type.StringType;\nimport org.hibernate.type.IntegerType;\n\nclass MyRepository {\n    void callAddScalar(Session session) {\n        session.createNativeQuery(\"select * from foo\")\n            .addScalar(\"name\", new StringType())\n            .addScalar(\"age\", IntegerType.INSTANCE)\n            .list();\n    }\n}\n","after":"import org.hibernate.Session;\nimport org.hibernate.type.StandardBasicTypes;\n\nclass MyRepository {\n    void callAddScalar(Session session) {\n        session.createNativeQuery(\"select * from foo\")\n            .addScalar(\"name\", StandardBasicTypes.STRING)\n            .addScalar(\"age\", StandardBasicTypes.INTEGER)\n            .list();\n    }\n}\n","diff":"@@ -2,2 +2,1 @@\nimport org.hibernate.Session;\n-import org.hibernate.type.StringType;\n-import org.hibernate.type.IntegerType;\n+import org.hibernate.type.StandardBasicTypes;\n\n@@ -8,2 +7,2 @@\n    void callAddScalar(Session session) {\n        session.createNativeQuery(\"select * from foo\")\n-           .addScalar(\"name\", new StringType())\n-           .addScalar(\"age\", IntegerType.INSTANCE)\n+           .addScalar(\"name\", StandardBasicTypes.STRING)\n+           .addScalar(\"age\", StandardBasicTypes.INTEGER)\n            .list();\n","newFile":false}]}]}>
 

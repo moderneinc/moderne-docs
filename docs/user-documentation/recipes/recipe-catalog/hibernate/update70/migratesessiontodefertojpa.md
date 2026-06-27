@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Session save/update/delete method calls"}
-  description={"Migrates code using deprecated Session load/get/refresh/save/update/delete methods to their Hibernate 7.0 replacements."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.MigrateSessionToDeferToJPA"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/migratesessiontodefertojpa.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Session save/update/delete method calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates code using deprecated Session load/get/refresh/save/update/delete methods to their Hibernate 7.0 replacements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.Session;\npublic class SomeClass {\n    public void doSomething(Session session, Object entity) {\n        session.save(entity);\n    }\n}\n","after":"import org.hibernate.Session;\npublic class SomeClass {\n    public void doSomething(Session session, Object entity) {\n        session.persist(entity);\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\npublic class SomeClass {\n    public void doSomething(Session session, Object entity) {\n-       session.save(entity);\n+       session.persist(entity);\n    }\n","newFile":false}]}]}>
 

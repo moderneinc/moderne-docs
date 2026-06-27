@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `List.of()`"}
-  description={"Prefer `List.of()` instead of using `Collections.emptyList()` in Java 9 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.MigrateCollectionsEmptyList"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/migratecollectionsemptylist.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `List.of()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `List.of()` instead of using `Collections.emptyList()` in Java 9 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.*;\n\nclass Test {\n    List<String> list = Collections.emptyList();\n}\n","after":"import java.util.List;\n\nclass Test {\n    List<String> list = List.of();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import java.util.*;\n+import java.util.List;\n\n@@ -4,1 +4,1 @@\n\nclass Test {\n-   List<String> list = Collections.emptyList();\n+   List<String> list = List.of();\n}\n","newFile":false}]}]}>
 

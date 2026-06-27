@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename `Elasticsearch valueBody()` methods"}
-  description={"In Elasticsearch Java Client 9.0, the generic `valueBody()` method and `valueBody(...)` builder methods have been replaced with specific getter and setter methods that better reflect the type of data being returned. Similarly, for `GetRepositoryResponse`, the `result` field also got altered to `repositories`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["elasticsearch","migration"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.elastic.elastic9.RenameApiField"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/elastic/elastic9/renameapifield.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Rename `Elasticsearch valueBody()` methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Elasticsearch Java Client 9.0, the generic `valueBody()` method and `valueBody(...)` builder methods have been replaced with specific getter and setter methods that better reflect the type of data being returned. Similarly, for `GetRepositoryResponse`, the `result` field also got altered to `repositories`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fullyQualifiedName","required":true,"description":"The fully qualified name of the class containing the field to rename.","example":"co.elastic.clients.elasticsearch.snapshot.RepositoryVerifyIntegrityResponse"},{"type":"String","name":"field","required":true,"description":"The name of the field/method to rename.","example":"valueBody"},{"type":"String","name":"newField","required":true,"description":"The new name for the field/method.","example":"result"}]}>
 

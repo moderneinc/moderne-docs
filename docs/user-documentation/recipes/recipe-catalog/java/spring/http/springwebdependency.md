@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring Web dependency"}
-  description={"Find compile scoped Spring Web dependency for Maven and Gradle, both direct and transitive."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.http.SpringWebDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/http/springwebdependency.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Maven dependency insight","href":"maven/search/dependencyinsight"},{"name":"Gradle dependency insight","href":"gradle/search/dependencyinsight"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Find Spring Web dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find compile scoped Spring Web dependency for Maven and Gradle, both direct and transitive.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Maven dependency insight","href":"/user-documentation/recipes/recipe-catalog/maven/search/dependencyinsight/"},{"name":"Gradle dependency insight","href":"/user-documentation/recipes/recipe-catalog/gradle/search/dependencyinsight/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

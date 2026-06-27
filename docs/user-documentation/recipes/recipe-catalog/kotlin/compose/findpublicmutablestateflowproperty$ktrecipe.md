@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find non-`private` `MutableStateFlow` properties"}
-  description={"Convention pattern: `private val _state = MutableStateFlow(...); val state: StateFlow<T> = _state.asStateFlow()`. A non-`private` `MutableStateFlow` property exposes the writable handle to consumers — anyone who can read it can also call `.value = …` or `tryEmit(...)`, breaking the unidirectional-data-flow contract the ViewModel is supposed to enforce. Make the field `private` and expose a read-only `StateFlow` view."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindPublicMutableStateFlowProperty$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findpublicmutablestateflowproperty$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find non-`private` `MutableStateFlow` properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convention pattern: `private val _state = MutableStateFlow(...); val state: StateFlow<T> = _state.asStateFlow()`. A non-`private` `MutableStateFlow` property exposes the writable handle to consumers — anyone who can read it can also call `.value = …` or `tryEmit(...)`, breaking the unidirectional-data-flow contract the ViewModel is supposed to enforce. Make the field `private` and expose a read-only `StateFlow` view.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindPublicMutableStateFlowProperty$KtRecipe","displayName":"Find non-`private` `MutableStateFlow` properties","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

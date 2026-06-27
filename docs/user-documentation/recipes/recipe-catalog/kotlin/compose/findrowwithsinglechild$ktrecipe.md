@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Row { … }` with a single child"}
-  description={"A `Row { OneChild() }` allocates a layout node and runs the row measurement to position exactly one child. Either remove the row or replace with `Box(modifier = m)` if the row's `horizontalArrangement` actually does work the parent isn't."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindRowWithSingleChild$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findrowwithsinglechild$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Row { … }` with a single child</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `Row { OneChild() }` allocates a layout node and runs the row measurement to position exactly one child. Either remove the row or replace with `Box(modifier = m)` if the row's `horizontalArrangement` actually does work the parent isn't.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindRowWithSingleChild$KtRecipe","displayName":"Find `Row { … }` with a single child","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

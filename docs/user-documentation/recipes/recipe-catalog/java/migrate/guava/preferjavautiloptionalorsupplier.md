@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)`"}
-  description={"Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)` over `com.google.common.base.Optional#or(com.google.common.base.Optional)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S4738","guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.PreferJavaUtilOptionalOrSupplier"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautiloptionalorsupplier.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)` over `com.google.common.base.Optional#or(com.google.common.base.Optional).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.PreferJavaUtilOptionalOrSupplier","displayName":"Prefer `java.util.Optional#or(Supplier<T extends java.util.Optional<T>>)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

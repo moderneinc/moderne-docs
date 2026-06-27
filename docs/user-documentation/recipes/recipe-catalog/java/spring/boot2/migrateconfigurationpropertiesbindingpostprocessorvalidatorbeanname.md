@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `EnableConfigurationProperties.VALIDATOR_BEAN_NAME`"}
-  description={"Replaces field and static access of `ConfigurationPropertiesBindingPostProcessor.VALIDATOR_BEAN_NAME` with `EnableConfigurationProperties.VALIDATOR_BEAN_NAME`. Deprecated in 2.2.x."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateConfigurationPropertiesBindingPostProcessorValidatorBeanName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateconfigurationpropertiesbindingpostprocessorvalidatorbeanname.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `EnableConfigurationProperties.VALIDATOR_BEAN_NAME`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces field and static access of `ConfigurationPropertiesBindingPostProcessor.VALIDATOR_BEAN_NAME` with `EnableConfigurationProperties.VALIDATOR_BEAN_NAME`. Deprecated in 2.2.x.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor;\n\nclass Test {\n    static void method() {\n        String value = ConfigurationPropertiesBindingPostProcessor.VALIDATOR_BEAN_NAME;\n    }\n}\n","after":"import org.springframework.boot.context.properties.EnableConfigurationProperties;\n\nclass Test {\n    static void method() {\n        String value = EnableConfigurationProperties.VALIDATOR_BEAN_NAME;\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor;\n+import org.springframework.boot.context.properties.EnableConfigurationProperties;\n\n@@ -5,1 +5,1 @@\nclass Test {\n    static void method() {\n-       String value = ConfigurationPropertiesBindingPostProcessor.VALIDATOR_BEAN_NAME;\n+       String value = EnableConfigurationProperties.VALIDATOR_BEAN_NAME;\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `String.format` calls inside loops"}
-  description={"`String.format(...)` parses the format string on every call. Inside a loop this re-parses the same template every iteration — prefer string templates (`\"${x}\"`) or extract the `Formatter` if you must use `%`-style specifiers."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindStringFormatInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findstringformatinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `String.format` calls inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>`String.format(...)` parses the format string on every call. Inside a loop this re-parses the same template every iteration — prefer string templates (`"${x}"`) or extract the `Formatter` if you must use `%`-style specifiers.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindStringFormatInLoops$KtRecipe","displayName":"Find `String.format` calls inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

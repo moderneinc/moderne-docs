@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Bean` methods without `@Scope`"}
-  description={"`@Bean` without `@Scope` produces a singleton, which is almost always correct — but for stateful beans (`@RequestScope`, `@SessionScope`, prototype-scoped builders) the default is wrong. Flag for review when the bean's nature suggests a scope decision is in order."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringBeanWithoutScope$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringbeanwithoutscope$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Bean` methods without `@Scope`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@Bean` without `@Scope` produces a singleton, which is almost always correct — but for stateful beans (`@RequestScope`, `@SessionScope`, prototype-scoped builders) the default is wrong. Flag for review when the bean's nature suggests a scope decision is in order.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindSpringBeanWithoutScope$KtRecipe","displayName":"Find `@Bean` methods without `@Scope`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

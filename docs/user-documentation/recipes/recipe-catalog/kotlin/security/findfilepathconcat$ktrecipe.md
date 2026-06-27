@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `File(\"...\" + input)` constructions"}
-  description={"Concatenating user input into a `File(...)` path is the canonical path-traversal vector (`../etc/passwd`). Resolve against a fixed base with `File(base, name)` plus an explicit `canonicalPath.startsWith(baseCanonicalPath)` check."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindFilePathConcat$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findfilepathconcat$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `File("..." + input)` constructions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Concatenating user input into a `File(...)` path is the canonical path-traversal vector (`../etc/passwd`). Resolve against a fixed base with `File(base, name)` plus an explicit `canonicalPath.startsWith(baseCanonicalPath)` check.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindFilePathConcat$KtRecipe","displayName":"Find `File(\"...\" + input)` constructions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

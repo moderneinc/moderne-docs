@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find declarations annotated `@Deprecated`"}
-  description={"A `@Deprecated` declaration is API the maintainers want callers to migrate away from. Each match is a candidate to revisit either the deprecation timeline or the replacement strategy."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindDeprecatedDeclarations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/finddeprecateddeclarations$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find declarations annotated `@Deprecated`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `@Deprecated` declaration is API the maintainers want callers to migrate away from. Each match is a candidate to revisit either the deprecation timeline or the replacement strategy.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindDeprecatedDeclarations$KtRecipe","displayName":"Find declarations annotated `@Deprecated`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

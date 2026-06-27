@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"DevCenter for C#"}
-  description={"A default DevCenter configuration for C# repositories. Track .NET version adoption across your organization."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.DevCenterCSharpStarter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/devcentercsharpstarter.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Move to a later .NET version","href":"devcenter/csharpversionupgrade"},{"name":"Find organization statistics","href":"devcenter/findorganizationstatistics"},{"name":"Find committers on repositories","href":"search/findcommitters"}]}>
+<RecipeHeader.Title>DevCenter for C#</RecipeHeader.Title>
+
+<RecipeHeader.Description>A default DevCenter configuration for C# repositories. Track .NET version adoption across your organization.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Move to a later .NET version","href":"/user-documentation/recipes/recipe-catalog/devcenter/csharpversionupgrade/"},{"name":"Find organization statistics","href":"/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics/"},{"name":"Find committers on repositories","href":"/user-documentation/recipes/recipe-catalog/search/findcommitters/"}]}>
 
 ## Definition
 

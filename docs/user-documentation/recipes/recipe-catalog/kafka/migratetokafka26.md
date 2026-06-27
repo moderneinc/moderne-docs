@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Kafka 2.6"}
-  description={"Migrate applications to the latest Kafka 2.6 release."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kafka"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.MigrateToKafka26"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/migratetokafka26.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Kafka 2.5","href":"kafka/migratetokafka25"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate `exactly_once` to `exactly_once_beta`","href":"kafka/streams/processingguaranteeexactlyoncetobeta"}]}>
+<RecipeHeader.Title>Migrate to Kafka 2.6</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Kafka 2.6 release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Kafka 2.5","href":"/user-documentation/recipes/recipe-catalog/kafka/migratetokafka25/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Migrate `exactly_once` to `exactly_once_beta`","href":"/user-documentation/recipes/recipe-catalog/kafka/streams/processingguaranteeexactlyoncetobeta/"}]}>
 
 ## Definition
 

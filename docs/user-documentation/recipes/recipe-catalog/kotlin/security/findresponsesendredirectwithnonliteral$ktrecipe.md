@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `HttpServletResponse.sendRedirect(input)` calls with non-literal arguments"}
-  description={"An unvalidated redirect URL lets an attacker craft a link that looks like it leads to your site but bounces to an attacker-controlled page (open-redirect / phishing). Validate against an allowlist or use a relative path."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindResponseSendRedirectWithNonLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findresponsesendredirectwithnonliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `HttpServletResponse.sendRedirect(input)` calls with non-literal arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>An unvalidated redirect URL lets an attacker craft a link that looks like it leads to your site but bounces to an attacker-controlled page (open-redirect / phishing). Validate against an allowlist or use a relative path.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindResponseSendRedirectWithNonLiteral$KtRecipe","displayName":"Find `HttpServletResponse.sendRedirect(input)` calls with non-literal arguments","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

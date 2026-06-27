@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Long.toString(radix)` instead of `Long.toString(l, radix)`"}
-  description={"`java.lang.Long.toString(l, radix)` is the JVM-only spelling; `l.toString(radix)` is the multiplatform Kotlin receiver call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseLongToStringWithRadix$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselongtostringwithradix$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Long.toString(radix)` instead of `Long.toString(l, radix)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.lang.Long.toString(l, radix)` is the JVM-only spelling; `l.toString(radix)` is the multiplatform Kotlin receiver call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseLongToStringWithRadix$KtRecipe","displayName":"Use `Long.toString(radix)` instead of `Long.toString(l, radix)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

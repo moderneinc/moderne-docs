@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `String.equals()` on `String` literals"}
-  description={"`String.equals()` should be used when checking value equality on String literals. Using `==` or `!=` compares object references, not the actual value of the Strings. This only modifies code where at least one side of the binary operation (`==` or `!=`) is a String literal, such as `\"someString\" == someVariable;`. This is to prevent inadvertently changing code where referential equality is the user's intent. Reference equality on strings is fragile because it depends on JVM string interning behavior, which can vary across runtimes and is not guaranteed for dynamically constructed strings."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4973"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.StringLiteralEquality"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/stringliteralequality.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `String.equals()` on `String` literals</RecipeHeader.Title>
+
+<RecipeHeader.Description>`String.equals()` should be used when checking value equality on String literals. Using `==` or `!=` compares object references, not the actual value of the Strings. This only modifies code where at least one side of the binary operation (`==` or `!=`) is a String literal, such as `"someString" == someVariable;`. This is to prevent inadvertently changing code where referential equality is the user's intent. Reference equality on strings is fragile because it depends on JVM string interning behavior, which can vary across runtimes and is not guaranteed for dynamically constructed strings.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\nclass Test {\n    public String getString() {\n        return \"stringy\";\n    }\n\n    public void method(String str) {\n        if (str.length() > 1 && str == \"test\") ;\n        if (\"test\" == str) ;\n        if (\"test\" == \"test\") ;\n        if (\"test\" == new String(\"test\")) ;\n        if (\"test\" == getString());\n        boolean flag = (str == \"test\");\n        while (\"test\" == str) {\n        }\n    }\n\n    public void findPeter(List<Friend> friends) {\n        friends.stream().filter(e -> e.name == \"peter\");\n    }\n\n    class Friend {\n        String name;\n    }\n}\n","after":"import java.util.List;\nclass Test {\n    public String getString() {\n        return \"stringy\";\n    }\n\n    public void method(String str) {\n        if (str.length() > 1 && \"test\".equals(str)) ;\n        if (\"test\".equals(str)) ;\n        if (\"test\".equals(\"test\")) ;\n        if (\"test\".equals(new String(\"test\"))) ;\n        if (\"test\".equals(getString()));\n        boolean flag = (\"test\".equals(str));\n        while (\"test\".equals(str)) {\n        }\n    }\n\n    public void findPeter(List<Friend> friends) {\n        friends.stream().filter(e -> \"peter\".equals(e.name));\n    }\n\n    class Friend {\n        String name;\n    }\n}\n","diff":"@@ -8,7 +8,7 @@\n\n    public void method(String str) {\n-       if (str.length() > 1 && str == \"test\") ;\n-       if (\"test\" == str) ;\n-       if (\"test\" == \"test\") ;\n-       if (\"test\" == new String(\"test\")) ;\n-       if (\"test\" == getString());\n-       boolean flag = (str == \"test\");\n-       while (\"test\" == str) {\n+       if (str.length() > 1 && \"test\".equals(str)) ;\n+       if (\"test\".equals(str)) ;\n+       if (\"test\".equals(\"test\")) ;\n+       if (\"test\".equals(new String(\"test\"))) ;\n+       if (\"test\".equals(getString()));\n+       boolean flag = (\"test\".equals(str));\n+       while (\"test\".equals(str)) {\n        }\n@@ -19,1 +19,1 @@\n\n    public void findPeter(List<Friend> friends) {\n-       friends.stream().filter(e -> e.name == \"peter\");\n+       friends.stream().filter(e -> \"peter\".equals(e.name));\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Sequence`/`List` pipeline shape smells"}
-  description={"Flags pipelines where the `List`/`Sequence` choice fights the data flow — long `List` pipelines that materialize between every stage, and `Sequence` pipelines that eagerly fall back to `List` mid-pipeline."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindSequencePipelineSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findsequencepipelinesmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find long `List` pipelines that should use `Sequence`","href":"kotlin/performance/findlargelistpipeline$ktrecipe"},{"name":"Find `seq.toList().map { ... }` patterns","href":"kotlin/performance/findeagermaponsequence$ktrecipe"}]}>
+<RecipeHeader.Title>Find `Sequence`/`List` pipeline shape smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flags pipelines where the `List`/`Sequence` choice fights the data flow — long `List` pipelines that materialize between every stage, and `Sequence` pipelines that eagerly fall back to `List` mid-pipeline.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find long `List` pipelines that should use `Sequence`","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findlargelistpipeline$ktrecipe/"},{"name":"Find `seq.toList().map { ... }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findeagermaponsequence$ktrecipe/"}]}>
 
 ## Definition
 

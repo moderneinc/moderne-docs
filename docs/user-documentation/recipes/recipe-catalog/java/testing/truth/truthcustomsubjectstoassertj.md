@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Truth custom subjects to AssertJ"}
-  description={"Marks Google Truth's `assertAbout()` usage for manual review as AssertJ handles custom assertions differently."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.truth.TruthCustomSubjectsToAssertJ"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/truth/truthcustomsubjectstoassertj.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Truth custom subjects to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Marks Google Truth's `assertAbout()` usage for manual review as AssertJ handles custom assertions differently.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.truth.TruthCustomSubjectsToAssertJ","displayName":"Migrate Truth custom subjects to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.6` application to `camel 4.7`"}
-  description={"Migrates `camel 4.6` application to `camel 4.7`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel47.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel47/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Renamed classes for API","href":"apache/camel/upgrade/camel47/renamedclasses"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/camel47/xmldsl47recipe"},{"name":"Camel YML DSL changes","href":"apache/camel/upgrade/camel47/yamldsl47recipe"},{"name":"Change of headers with embedded HTTP server (consumer)","href":"apache/camel/upgrade/camel47/java47recipes"},{"name":"Moved the camel-cloudevents api into camel-api and removed the camel-cloudevents","href":"apache/camel/upgrade/camel47/removeddependencies"}]}>
+<RecipeHeader.Title>Migrates `camel 4.6` application to `camel 4.7`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.6` application to `camel 4.7`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Renamed classes for API","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel47/renamedclasses/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel47/xmldsl47recipe/"},{"name":"Camel YML DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel47/yamldsl47recipe/"},{"name":"Change of headers with embedded HTTP server (consumer)","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel47/java47recipes/"},{"name":"Moved the camel-cloudevents api into camel-api and removed the camel-cloudevents","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel47/removeddependencies/"}]}>
 
 ## Definition
 

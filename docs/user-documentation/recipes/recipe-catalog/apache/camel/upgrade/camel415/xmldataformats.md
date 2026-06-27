@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refactored dataFormats (XML DSL)"}
-  description={"Refactored dataFormats (XML DSL)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel415.xmlDataFormats"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel415/xmldataformats.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyindataformatxml"}]}>
+<RecipeHeader.Title>Refactored dataFormats (XML DSL)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refactored dataFormats (XML DSL).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatxml/"}]}>
 
 ## Definition
 

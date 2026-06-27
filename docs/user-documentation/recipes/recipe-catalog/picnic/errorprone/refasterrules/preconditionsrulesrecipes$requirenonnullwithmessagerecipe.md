@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `PreconditionsRules.RequireNonNullWithMessage`"}
-  description={"Prefer `Objects#requireNonNull(Object, String)` over non-JDK alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.PreconditionsRulesRecipes$RequireNonNullWithMessageRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/preconditionsrulesrecipes$requirenonnullwithmessagerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `PreconditionsRules.RequireNonNullWithMessage`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Objects#requireNonNull(Object, String)` over non-JDK alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.PreconditionsRulesRecipes$RequireNonNullWithMessageRecipe","displayName":"Refaster template `PreconditionsRules.RequireNonNullWithMessage`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

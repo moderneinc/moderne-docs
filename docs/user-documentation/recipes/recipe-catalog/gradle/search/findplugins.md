@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Gradle plugin"}
-  description={"Find a Gradle plugin by id and/or class name. For best results both should be specified, as one cannot automatically be used to infer the other."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.search.FindPlugins"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/search/findplugins.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Gradle plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find a Gradle plugin by id and/or class name. For best results both should be specified, as one cannot automatically be used to infer the other.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"pluginId","required":true,"description":"The unique identifier used to apply a plugin in the `plugins` block. Note that this alone is insufficient to search for plugins applied by fully qualified class name and the `buildscript` block.","example":"`com.jfrog.bintray`"},{"type":"String","name":"pluginClass","required":false,"description":"The fully qualified name of a class implementing a Gradle plugin. ","example":"com.jfrog.bintray.gradle.BintrayPlugin"}]}>
 

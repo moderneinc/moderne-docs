@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create Jenkinsfile"}
-  description={"Creates a simple base Jenkinsfile in Groovy for a Declarative Pipeline - located in the root of the project."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.CreateJenkinsfile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/createjenkinsfile.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Create text file","href":"text/createtextfile"},{"name":"Parse `Jenkinsfile` as Groovy","href":"jenkins/jenkinsfileasgroovy"}]}>
+<RecipeHeader.Title>Create Jenkinsfile</RecipeHeader.Title>
+
+<RecipeHeader.Description>Creates a simple base Jenkinsfile in Groovy for a Declarative Pipeline - located in the root of the project.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Create text file","href":"/user-documentation/recipes/recipe-catalog/text/createtextfile/"},{"name":"Parse `Jenkinsfile` as Groovy","href":"/user-documentation/recipes/recipe-catalog/jenkins/jenkinsfileasgroovy/"}]}>
 
 ## Definition
 

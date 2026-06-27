@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Maps deprecated classes from Apache HttpClient 4.5.x to suggested replacements"}
-  description={"Uses new classes/methods instead of the deprecated ones."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient4.MappingDeprecatedClasses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient4/mappingdeprecatedclasses.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Change type","href":"java/changetype"},{"name":"Migrates deprecated `DefaultHttpClient`","href":"apache/httpclient4/migratedefaulthttpclient"}]}>
+<RecipeHeader.Title>Maps deprecated classes from Apache HttpClient 4.5.x to suggested replacements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Uses new classes/methods instead of the deprecated ones.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Migrates deprecated `DefaultHttpClient`","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient4/migratedefaulthttpclient/"}]}>
 
 ## Definition
 

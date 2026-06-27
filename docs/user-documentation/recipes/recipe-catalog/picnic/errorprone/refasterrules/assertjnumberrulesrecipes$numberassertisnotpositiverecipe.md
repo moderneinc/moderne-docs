@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJNumberRules.NumberAssertIsNotPositive`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class NumberAssertIsNotPositive {\n    \n    @BeforeTemplate\n    AbstractByteAssert<?> before(AbstractByteAssert<?> numberAssert) {\n        return Refaster.anyOf(numberAssert.isLessThanOrEqualTo((byte)0), numberAssert.isLessThan((byte)1));\n    }\n    \n    @BeforeTemplate\n    AbstractShortAssert<?> before(AbstractShortAssert<?> numberAssert) {\n        return Refaster.anyOf(numberAssert.isLessThanOrEqualTo((short)0), numberAssert.isLessThan((short)1));\n    }\n    \n    @BeforeTemplate\n    AbstractIntegerAssert<?> before(AbstractIntegerAssert<?> numberAssert) {\n        return Refaster.anyOf(numberAssert.isLessThanOrEqualTo(0), numberAssert.isLessThan(1));\n    }\n    \n    @BeforeTemplate\n    AbstractLongAssert<?> before(AbstractLongAssert<?> numberAssert) {\n        return Refaster.anyOf(numberAssert.isLessThanOrEqualTo(0), numberAssert.isLessThan(1));\n    }\n    \n    @BeforeTemplate\n    AbstractFloatAssert<?> before(AbstractFloatAssert<?> numberAssert) {\n        return numberAssert.isLessThanOrEqualTo(0);\n    }\n    \n    @BeforeTemplate\n    AbstractDoubleAssert<?> before(AbstractDoubleAssert<?> numberAssert) {\n        return numberAssert.isLessThanOrEqualTo(0);\n    }\n    \n    @BeforeTemplate\n    AbstractBigIntegerAssert<?> before(AbstractBigIntegerAssert<?> numberAssert) {\n        return Refaster.anyOf(numberAssert.isLessThanOrEqualTo(BigInteger.ZERO), numberAssert.isLessThan(BigInteger.valueOf(1)));\n    }\n    \n    @BeforeTemplate\n    AbstractBigDecimalAssert<?> before(AbstractBigDecimalAssert<?> numberAssert) {\n        return numberAssert.isLessThanOrEqualTo(BigDecimal.ZERO);\n    }\n    \n    @AfterTemplate\n    NumberAssert<?, ?> after(NumberAssert<?, ?> numberAssert) {\n        return numberAssert.isNotPositive();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,67 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJNumberRulesRecipes$NumberAssertIsNotPositiveRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjnumberrulesrecipes$numberassertisnotpositiverecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJNumberRules.NumberAssertIsNotPositive`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class NumberAssertIsNotPositive {
+    
+    @BeforeTemplate
+    AbstractByteAssert<?> before(AbstractByteAssert<?> numberAssert) {
+        return Refaster.anyOf(numberAssert.isLessThanOrEqualTo((byte)0), numberAssert.isLessThan((byte)1));
+    }
+    
+    @BeforeTemplate
+    AbstractShortAssert<?> before(AbstractShortAssert<?> numberAssert) {
+        return Refaster.anyOf(numberAssert.isLessThanOrEqualTo((short)0), numberAssert.isLessThan((short)1));
+    }
+    
+    @BeforeTemplate
+    AbstractIntegerAssert<?> before(AbstractIntegerAssert<?> numberAssert) {
+        return Refaster.anyOf(numberAssert.isLessThanOrEqualTo(0), numberAssert.isLessThan(1));
+    }
+    
+    @BeforeTemplate
+    AbstractLongAssert<?> before(AbstractLongAssert<?> numberAssert) {
+        return Refaster.anyOf(numberAssert.isLessThanOrEqualTo(0), numberAssert.isLessThan(1));
+    }
+    
+    @BeforeTemplate
+    AbstractFloatAssert<?> before(AbstractFloatAssert<?> numberAssert) {
+        return numberAssert.isLessThanOrEqualTo(0);
+    }
+    
+    @BeforeTemplate
+    AbstractDoubleAssert<?> before(AbstractDoubleAssert<?> numberAssert) {
+        return numberAssert.isLessThanOrEqualTo(0);
+    }
+    
+    @BeforeTemplate
+    AbstractBigIntegerAssert<?> before(AbstractBigIntegerAssert<?> numberAssert) {
+        return Refaster.anyOf(numberAssert.isLessThanOrEqualTo(BigInteger.ZERO), numberAssert.isLessThan(BigInteger.valueOf(1)));
+    }
+    
+    @BeforeTemplate
+    AbstractBigDecimalAssert<?> before(AbstractBigDecimalAssert<?> numberAssert) {
+        return numberAssert.isLessThanOrEqualTo(BigDecimal.ZERO);
+    }
+    
+    @AfterTemplate
+    NumberAssert<?, ?> after(NumberAssert<?, ?> numberAssert) {
+        return numberAssert.isNotPositive();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJNumberRulesRecipes$NumberAssertIsNotPositiveRecipe","displayName":"Refaster template `AssertJNumberRules.NumberAssertIsNotPositive`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

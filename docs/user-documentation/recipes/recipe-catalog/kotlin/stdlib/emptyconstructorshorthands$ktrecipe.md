@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `emptyList()` / `emptySet()` / `emptyMap()` over zero-arg builders"}
-  description={"When `listOf()` / `setOf()` / `mapOf()` are called with no entries, replace them with the explicit `emptyList()` / `emptySet()` / `emptyMap()` factories so the empty-by-construction intent is visible at the call site."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.EmptyConstructorShorthands$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/emptyconstructorshorthands$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `emptyList<T>()` instead of `listOf<T>()`","href":"kotlin/stdlib/useemptylistforlistofnoargs$ktrecipe"},{"name":"Use `emptySet<T>()` instead of `setOf<T>()`","href":"kotlin/stdlib/useemptysetforsetofnoargs$ktrecipe"},{"name":"Use `emptyMap<K, V>()` instead of `mapOf<K, V>()`","href":"kotlin/stdlib/useemptymapformapofnoargs$ktrecipe"}]}>
+<RecipeHeader.Title>Prefer `emptyList()` / `emptySet()` / `emptyMap()` over zero-arg builders</RecipeHeader.Title>
+
+<RecipeHeader.Description>When `listOf()` / `setOf()` / `mapOf()` are called with no entries, replace them with the explicit `emptyList()` / `emptySet()` / `emptyMap()` factories so the empty-by-construction intent is visible at the call site.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `emptyList<T>()` instead of `listOf<T>()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/useemptylistforlistofnoargs$ktrecipe/"},{"name":"Use `emptySet<T>()` instead of `setOf<T>()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/useemptysetforsetofnoargs$ktrecipe/"},{"name":"Use `emptyMap<K, V>()` instead of `mapOf<K, V>()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/stdlib/useemptymapformapofnoargs$ktrecipe/"}]}>
 
 ## Definition
 

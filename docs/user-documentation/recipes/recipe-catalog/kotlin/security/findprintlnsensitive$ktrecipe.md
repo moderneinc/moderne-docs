@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `println(\"... password ...\")` patterns"}
-  description={"`println` writes to stdout, which on production tends to land in container logs. Treat it like any other log sink — strip sensitive values before printing, or use a structured logger that redacts at the formatter."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindPrintlnSensitive$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findprintlnsensitive$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `println("... password ...")` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`println` writes to stdout, which on production tends to land in container logs. Treat it like any other log sink — strip sensitive values before printing, or use a structured logger that redacts at the formatter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindPrintlnSensitive$KtRecipe","displayName":"Find `println(\"... password ...\")` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

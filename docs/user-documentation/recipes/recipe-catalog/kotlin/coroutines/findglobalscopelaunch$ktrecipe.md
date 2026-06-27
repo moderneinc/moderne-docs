@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `GlobalScope.launch` calls"}
-  description={"`GlobalScope.launch { }` is a fire-and-forget coroutine builder with no parent — it cannot be cancelled with the lifecycle that started it and leaks if the work outlives the screen/process. Prefer a scoped `CoroutineScope` tied to the lifecycle (`viewModelScope`, `lifecycleScope`, or an explicit scope cancelled in `onCleared`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindGlobalScopeLaunch$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findglobalscopelaunch$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `GlobalScope.launch` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`GlobalScope.launch { }` is a fire-and-forget coroutine builder with no parent — it cannot be cancelled with the lifecycle that started it and leaks if the work outlives the screen/process. Prefer a scoped `CoroutineScope` tied to the lifecycle (`viewModelScope`, `lifecycleScope`, or an explicit scope cancelled in `onCleared`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindGlobalScopeLaunch$KtRecipe","displayName":"Find `GlobalScope.launch` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Maven annotation processor path"}
-  description={"Add the groupId, artifactId, version, and exclusions of a Maven annotation processor path."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.AddAnnotationProcessorPath"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/addannotationprocessorpath.md"}
-/>
+>
+
+<RecipeHeader.Title>Add Maven annotation processor path</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add the groupId, artifactId, version, and exclusions of a Maven annotation processor path.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The groupId to use.","example":"corp.internal.openrewrite.recipe"},{"type":"String","name":"artifactId","required":true,"description":"The artifactId to use.","example":"my-new-annotation-processor"},{"type":"String","name":"version","required":true,"description":"An exact version string for the annotation processor path.","example":"${micronaut.validation}"},{"type":"String","name":"onlyIfUsing","required":true,"description":"Used to determine if the annotation processor will be added.","example":"jakarta.validation.constraints.*"},{"type":"List","name":"exclusions","required":false,"description":"A list of exclusions to apply to the annotation processor path in the format groupId:artifactId","example":"io.micronaut:micronaut-inject"}]}>
 

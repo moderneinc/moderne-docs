@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Arquillian JUnit 5 Extension"}
-  description={"Migrates Arquillian JUnit 4 to JUnit 5."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["junit","testing","arquillian"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.arquillian.ArquillianJUnit4ToArquillianJUnit5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/arquillian/arquillianjunit4toarquillianjunit5.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`","href":"java/testing/junit5/runnertoextension"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Arquillian JUnit 4 `@InSequence` to JUnit Jupiter `@Order`","href":"java/testing/arquillian/replacearquillianinsequenceannotation"},{"name":"Rename package name","href":"java/changepackage"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use Arquillian JUnit 5 Extension</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Arquillian JUnit 4 to JUnit 5.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/runnertoextension/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Arquillian JUnit 4 `@InSequence` to JUnit Jupiter `@Order`","href":"/user-documentation/recipes/recipe-catalog/java/testing/arquillian/replacearquillianinsequenceannotation/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

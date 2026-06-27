@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LazyColumn { … }` calls — verify items use stable keys"}
-  description={"A `LazyColumn { items(...) { … } }` whose inner `items` call has no `key = { … }` recomposes every visible row on every reorder/insertion. Audit the call to add a stable key."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindLazyColumnDirectCall$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlazycolumndirectcall$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LazyColumn { … }` calls — verify items use stable keys</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `LazyColumn { items(...) { … } }` whose inner `items` call has no `key = { … }` recomposes every visible row on every reorder/insertion. Audit the call to add a stable key.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindLazyColumnDirectCall$KtRecipe","displayName":"Find `LazyColumn { … }` calls — verify items use stable keys","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

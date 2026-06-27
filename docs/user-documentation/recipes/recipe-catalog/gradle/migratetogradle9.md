@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Gradle 9 from Gradle 8"}
-  description={"Migrate to version 9.x. See the Gradle upgrade guide from [version 8.x to 9.0](https://docs.gradle.org/9.0.0/userguide/upgrading_major_version_9.html) for more information."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.MigrateToGradle9"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/migratetogradle9.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Gradle 8 from Gradle 7","href":"gradle/migratetogradle8"},{"name":"Update Gradle wrapper","href":"gradle/updategradlewrapper"},{"name":"Use `String` notation for Gradle dependency declarations","href":"gradle/dependencyusestringnotation"},{"name":"Use one dependency declaration per statement","href":"gradle/gradle9/onedependencydeclarationperstatement"},{"name":"Use `mainClass` instead of `main` for `JavaExec` tasks","href":"gradle/gradle9/usemainclassproperty"},{"name":"Use `application { mainClass }` instead of `mainClassName`","href":"gradle/gradle9/usemainclasspropertyforapplication"},{"name":"Move `sourceCompatibility` and `targetCompatibility` into the `java { }` extension block","href":"gradle/gradle9/usejavaextensionblock"},{"name":"Replace spread-`all*` calls in `configurations` blocks with `configurations.all { }`","href":"gradle/gradle9/rewritespreadallinconfigurationsblock"},{"name":"Use `version { }` closure instead of `version = { }` assignment","href":"gradle/gradle9/useversionclosure"},{"name":"Use `project(...)` dependency notation instead of the current project's module coordinates","href":"gradle/gradle9/useprojectdependencyinsteadofmodulecoordinates"},{"name":"Use `matching(Closure)` instead of `findAll(Closure)` on Gradle container collections","href":"gradle/gradle9/usematchinginsteadoffindall"}]}>
+<RecipeHeader.Title>Migrate to Gradle 9 from Gradle 8</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate to version 9.x. See the Gradle upgrade guide from [version 8.x to 9.0](https://docs.gradle.org/9.0.0/userguide/upgrading_major_version_9.html) for more information.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Gradle 8 from Gradle 7","href":"/user-documentation/recipes/recipe-catalog/gradle/migratetogradle8/"},{"name":"Update Gradle wrapper","href":"/user-documentation/recipes/recipe-catalog/gradle/updategradlewrapper/"},{"name":"Use `String` notation for Gradle dependency declarations","href":"/user-documentation/recipes/recipe-catalog/gradle/dependencyusestringnotation/"},{"name":"Use one dependency declaration per statement","href":"/user-documentation/recipes/recipe-catalog/gradle/gradle9/onedependencydeclarationperstatement/"},{"name":"Use `mainClass` instead of `main` for `JavaExec` tasks","href":"/user-documentation/recipes/recipe-catalog/gradle/gradle9/usemainclassproperty/"},{"name":"Use `application { mainClass }` instead of `mainClassName`","href":"/user-documentation/recipes/recipe-catalog/gradle/gradle9/usemainclasspropertyforapplication/"},{"name":"Move `sourceCompatibility` and `targetCompatibility` into the `java { }` extension block","href":"/user-documentation/recipes/recipe-catalog/gradle/gradle9/usejavaextensionblock/"},{"name":"Replace spread-`all*` calls in `configurations` blocks with `configurations.all { }`","href":"/user-documentation/recipes/recipe-catalog/gradle/gradle9/rewritespreadallinconfigurationsblock/"},{"name":"Use `version { }` closure instead of `version = { }` assignment","href":"/user-documentation/recipes/recipe-catalog/gradle/gradle9/useversionclosure/"},{"name":"Use `project(...)` dependency notation instead of the current project's module coordinates","href":"/user-documentation/recipes/recipe-catalog/gradle/gradle9/useprojectdependencyinsteadofmodulecoordinates/"},{"name":"Use `matching(Closure)` instead of `findAll(Closure)` on Gradle container collections","href":"/user-documentation/recipes/recipe-catalog/gradle/gradle9/usematchinginsteadoffindall/"}]}>
 
 ## Definition
 

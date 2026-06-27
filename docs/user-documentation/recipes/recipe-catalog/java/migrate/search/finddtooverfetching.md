@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find methods that only use one DTO data element"}
-  description={"Find methods that have 'opportunities' for improvement."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.search.FindDtoOverfetching"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/search/finddtooverfetching.md"}
-/>
+>
+
+<RecipeHeader.Title>Find methods that only use one DTO data element</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find methods that have 'opportunities' for improvement.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"dtoType","required":true,"description":"The fully qualified name of the DTO.","example":"com.example.dto.*"}]}>
 

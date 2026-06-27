@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find public-API and binary-stability surface"}
-  description={"Public `const val` / `lateinit var` declarations, `@OptIn` / `@RequiresOptIn` annotations, `@Deprecated` declarations, and JVM-interop annotations (`@JvmStatic`, `@JvmField`, `@JvmOverloads`). Each match is a position where API stability or external-consumer constraints are encoded in the source."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindApiSurface$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findapisurface$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find public `const val` declarations","href":"kotlin/search/findpublicconstants$ktrecipe"},{"name":"Find public `lateinit var` declarations","href":"kotlin/search/findpubliclateinit$ktrecipe"},{"name":"Find `@OptIn(...)` annotations","href":"kotlin/search/findoptinannotations$ktrecipe"},{"name":"Find declarations annotated `@RequiresOptIn`","href":"kotlin/search/findrequiresoptindeclarations$ktrecipe"},{"name":"Find declarations annotated `@Deprecated`","href":"kotlin/search/finddeprecateddeclarations$ktrecipe"},{"name":"Find `@JvmStatic` annotations","href":"kotlin/search/findjvmstaticannotations$ktrecipe"},{"name":"Find `@JvmField` annotations","href":"kotlin/search/findjvmfieldannotations$ktrecipe"},{"name":"Find `@JvmOverloads` annotations","href":"kotlin/search/findjvmoverloadsannotations$ktrecipe"}]}>
+<RecipeHeader.Title>Find public-API and binary-stability surface</RecipeHeader.Title>
+
+<RecipeHeader.Description>Public `const val` / `lateinit var` declarations, `@OptIn` / `@RequiresOptIn` annotations, `@Deprecated` declarations, and JVM-interop annotations (`@JvmStatic`, `@JvmField`, `@JvmOverloads`). Each match is a position where API stability or external-consumer constraints are encoded in the source.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find public `const val` declarations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findpublicconstants$ktrecipe/"},{"name":"Find public `lateinit var` declarations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findpubliclateinit$ktrecipe/"},{"name":"Find `@OptIn(...)` annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findoptinannotations$ktrecipe/"},{"name":"Find declarations annotated `@RequiresOptIn`","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findrequiresoptindeclarations$ktrecipe/"},{"name":"Find declarations annotated `@Deprecated`","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/finddeprecateddeclarations$ktrecipe/"},{"name":"Find `@JvmStatic` annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findjvmstaticannotations$ktrecipe/"},{"name":"Find `@JvmField` annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findjvmfieldannotations$ktrecipe/"},{"name":"Find `@JvmOverloads` annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findjvmoverloadsannotations$ktrecipe/"}]}>
 
 ## Definition
 

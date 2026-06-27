@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade AWS Aurora PostgreSQL to 17"}
-  description={"Upgrade `engine_version` to Aurora PostgreSQL 17 on `aws_rds_cluster` resources and set `allow_major_version_upgrade = true` to permit the major version change."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["RDS","terraform","AWS"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.aws.UpgradeAwsAuroraPostgresToV17"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/aws/upgradeawsaurorapostgrestov17.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Terraform resource attribute","href":"terraform/changeresourceattribute"},{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Upgrade AWS Aurora PostgreSQL to 17</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade `engine_version` to Aurora PostgreSQL 17 on `aws_rds_cluster` resources and set `allow_major_version_upgrade = true` to permit the major version change.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Terraform resource attribute","href":"/user-documentation/recipes/recipe-catalog/terraform/changeresourceattribute/"},{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

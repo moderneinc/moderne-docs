@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `getFirst()` instead of `stream().findFirst().orElseThrow()`"}
-  description={"For SequencedCollections, use `collection.getFirst()` instead of `collection.stream().findFirst().orElseThrow()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.StreamFindFirst"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/streamfindfirst.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `getFirst()` instead of `stream().findFirst().orElseThrow()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>For SequencedCollections, use `collection.getFirst()` instead of `collection.stream().findFirst().orElseThrow()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.*;\n\nclass Foo {\n    void bar(SequencedCollection<String> collection) {\n        String first = collection.stream().findFirst().orElseThrow();\n    }\n}\n","after":"import java.util.*;\n\nclass Foo {\n    void bar(SequencedCollection<String> collection) {\n        String first = collection.getFirst();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Foo {\n    void bar(SequencedCollection<String> collection) {\n-       String first = collection.stream().findFirst().orElseThrow();\n+       String first = collection.getFirst();\n    }\n","newFile":false}]}]}>
 

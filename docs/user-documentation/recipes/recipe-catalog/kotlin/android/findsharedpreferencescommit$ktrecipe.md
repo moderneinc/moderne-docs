@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `SharedPreferences.Editor.commit()` calls"}
-  description={"`commit()` writes to disk on the calling thread (often the main thread, where it can drop a frame). `apply()` writes asynchronously and atomically, returning immediately — use it unless you specifically need the boolean result on the spot."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindSharedPreferencesCommit$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findsharedpreferencescommit$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `SharedPreferences.Editor.commit()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`commit()` writes to disk on the calling thread (often the main thread, where it can drop a frame). `apply()` writes asynchronously and atomically, returning immediately — use it unless you specifically need the boolean result on the spot.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindSharedPreferencesCommit$KtRecipe","displayName":"Find `SharedPreferences.Editor.commit()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

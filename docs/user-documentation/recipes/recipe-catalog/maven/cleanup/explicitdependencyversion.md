@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add explicit dependency versions"}
-  description={"Add explicit dependency versions to POMs for reproducibility, as the `LATEST` and `RELEASE` version keywords are deprecated."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.cleanup.ExplicitDependencyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/cleanup/explicitdependencyversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Add explicit dependency versions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add explicit dependency versions to POMs for reproducibility, as the `LATEST` and `RELEASE` version keywords are deprecated.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"xml","code":"<project>\n  <groupId>com.mycompany.app</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <dependencies>\n    <dependency>\n      <groupId>com.google.guava</groupId>\n      <artifactId>guava</artifactId>\n      <version>LATEST</version>\n    </dependency>\n  </dependencies>\n</project>\n"},"variants":[]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsOne`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractDoubleAssertIsOne {\n    \n    @BeforeTemplate\n    AbstractDoubleAssert<?> before(AbstractDoubleAssert<?> doubleAssert) {\n        return doubleAssert.isOne();\n    }\n    \n    @AfterTemplate\n    AbstractDoubleAssert<?> after(AbstractDoubleAssert<?> doubleAssert) {\n        return doubleAssert.isEqualTo(1);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJDoubleRulesRecipes$AbstractDoubleAssertIsOneRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisonerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsOne`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractDoubleAssertIsOne {
+    
+    @BeforeTemplate
+    AbstractDoubleAssert<?> before(AbstractDoubleAssert<?> doubleAssert) {
+        return doubleAssert.isOne();
+    }
+    
+    @AfterTemplate
+    AbstractDoubleAssert<?> after(AbstractDoubleAssert<?> doubleAssert) {
+        return doubleAssert.isEqualTo(1);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJDoubleRulesRecipes$AbstractDoubleAssertIsOneRecipe","displayName":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsOne`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

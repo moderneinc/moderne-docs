@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `try { x } catch (e: Exception) { default }` patterns"}
-  description={"A try whose catch returns a non-null default value maps directly to `runCatching { x }.getOrDefault(default)` or `.getOrElse { default }`. The latter is preferred when the default depends on the exception type."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindTryCatchReturningDefault$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findtrycatchreturningdefault$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `try { x } catch (e: Exception) { default }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>A try whose catch returns a non-null default value maps directly to `runCatching { x }.getOrDefault(default)` or `.getOrElse { default }`. The latter is preferred when the default depends on the exception type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindTryCatchReturningDefault$KtRecipe","displayName":"Find `try { x } catch (e: Exception) { default }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

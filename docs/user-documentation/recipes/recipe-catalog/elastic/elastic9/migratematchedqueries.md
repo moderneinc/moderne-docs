@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `matchedQueries` from List to Map"}
-  description={"In Elasticsearch Java Client 9.0, `Hit.matchedQueries()` changed from returning `List<String>` to `Map<String, Double>`. This recipe migrates the usage by adding `.keySet()` for iterations and using `new ArrayList<>(result.keySet())` for assignments."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["elasticsearch","migration"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.elastic.elastic9.MigrateMatchedQueries"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/elastic/elastic9/migratematchedqueries.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `matchedQueries` from List to Map</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Elasticsearch Java Client 9.0, `Hit.matchedQueries()` changed from returning `List<String>` to `Map<String, Double>`. This recipe migrates the usage by adding `.keySet()` for iterations and using `new ArrayList<>(result.keySet())` for assignments.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import co.elastic.clients.elasticsearch.core.search.Hit;\nimport java.util.List;\n\nclass Test {\n    void processHit(Hit<Object> hit) {\n        List<String> queries = hit.matchedQueries();\n        for (String query : queries) {\n            System.out.println(query);\n        }\n    }\n}\n","after":"import co.elastic.clients.elasticsearch.core.search.Hit;\n\nimport java.util.ArrayList;\nimport java.util.List;\n\nclass Test {\n    void processHit(Hit<Object> hit) {\n        List<String> queries = new ArrayList<>(hit.matchedQueries().keySet());\n        for (String query : queries) {\n            System.out.println(query);\n        }\n    }\n}\n","diff":"@@ -2,0 +2,2 @@\nimport co.elastic.clients.elasticsearch.core.search.Hit;\n+\n+import java.util.ArrayList;\nimport java.util.List;\n@@ -6,1 +8,1 @@\nclass Test {\n    void processHit(Hit<Object> hit) {\n-       List<String> queries = hit.matchedQueries();\n+       List<String> queries = new ArrayList<>(hit.matchedQueries().keySet());\n        for (String query : queries) {\n","newFile":false}]}]}>
 

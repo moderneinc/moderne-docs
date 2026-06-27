@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJObjectRules.AssertThatHasToString`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasToString<T> {\n    \n    @BeforeTemplate\n    AbstractStringAssert<?> before(T object, String str) {\n        return assertThat(object.toString()).isEqualTo(str);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ObjectAssert<T> after(T object, String str) {\n        return assertThat(object).hasToString(str);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes$AssertThatHasToStringRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthathastostringrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJObjectRules.AssertThatHasToString`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatHasToString<T> {
+    
+    @BeforeTemplate
+    AbstractStringAssert<?> before(T object, String str) {
+        return assertThat(object.toString()).isEqualTo(str);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    ObjectAssert<T> after(T object, String str) {
+        return assertThat(object).hasToString(str);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes$AssertThatHasToStringRecipe","displayName":"Refaster template `AssertJObjectRules.AssertThatHasToString`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

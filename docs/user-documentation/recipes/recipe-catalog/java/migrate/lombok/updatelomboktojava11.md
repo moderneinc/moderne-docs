@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Lombok to a Java 11 compatible version"}
-  description={"Update Lombok dependency to a version that is compatible with Java 11 and migrate experimental Lombok types that have been promoted."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java11","lombok"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lombok.UpdateLombokToJava11"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/updatelomboktojava11.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Prefer `final var` over `lombok.val`","href":"java/migrate/lombok/lombokvaltofinalvar"},{"name":"Migrate Lombok's `@__` syntax to `onX_` for Java 8+","href":"java/migrate/lombok/lombokonxtoonx_"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate Lombok to a Java 11 compatible version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update Lombok dependency to a version that is compatible with Java 11 and migrate experimental Lombok types that have been promoted.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Prefer `final var` over `lombok.val`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokvaltofinalvar/"},{"name":"Migrate Lombok's `@__` syntax to `onX_` for Java 8+","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokonxtoonx_/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

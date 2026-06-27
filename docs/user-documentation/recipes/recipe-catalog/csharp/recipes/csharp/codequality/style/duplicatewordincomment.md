@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Duplicate word in a comment"}
-  description={"Find and fix duplicate consecutive words in comments."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.DuplicateWordInComment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/duplicatewordincomment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Duplicate word in a comment</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find and fix duplicate consecutive words in comments.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.DuplicateWordInComment","displayName":"Duplicate word in a comment","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

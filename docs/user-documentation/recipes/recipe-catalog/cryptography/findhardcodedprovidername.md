@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hardcoded cryptographic provider names"}
-  description={"Detects hardcoded cryptographic provider names (like 'BC', 'SunJCE') used in getInstance() calls. Hardcoding provider names reduces portability and can cause issues when the provider is not available on different systems."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindHardcodedProviderName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedprovidername.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find hardcoded cryptographic provider names</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects hardcoded cryptographic provider names (like 'BC', 'SunJCE') used in getInstance() calls. Hardcoding provider names reduces portability and can cause issues when the provider is not available on different systems.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.security.KeyPair;\nimport java.security.KeyPairGenerator;\n\npublic class HardcodedProviderExample {\n    public KeyPair generateKeyPair() throws Exception {\n        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\", \"BC\");\n        kpg.initialize(2048);\n        return kpg.generateKeyPair();\n    }\n}\n","after":"import java.security.KeyPair;\nimport java.security.KeyPairGenerator;\n\npublic class HardcodedProviderExample {\n    public KeyPair generateKeyPair() throws Exception {\n        KeyPairGenerator kpg = /*~~(CRYPTO_PROVIDER use)~~>*/KeyPairGenerator.getInstance(\"RSA\", \"BC\");\n        kpg.initialize(2048);\n        return kpg.generateKeyPair();\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\npublic class HardcodedProviderExample {\n    public KeyPair generateKeyPair() throws Exception {\n-       KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\", \"BC\");\n+       KeyPairGenerator kpg = /*~~(CRYPTO_PROVIDER use)~~>*/KeyPairGenerator.getInstance(\"RSA\", \"BC\");\n        kpg.initialize(2048);\n","newFile":false}]}]}>
 

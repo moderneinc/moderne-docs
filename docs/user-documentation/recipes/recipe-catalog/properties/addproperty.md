@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add a new property"}
-  description={"Adds a new property to a property file. Attempts to place the new property in alphabetical order by the property keys. Whitespace before and after the `=` must be included in the property and value."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-properties"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.properties.AddProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/properties/addproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Add a new property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds a new property to a property file. Attempts to place the new property in alphabetical order by the property keys. Whitespace before and after the `=` must be included in the property and value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"property","required":true,"description":"The property key to add.","example":"management.metrics.enable.process.files"},{"type":"String","name":"value","required":true,"description":"The value of the new property key.","example":"newPropValue"},{"type":"String","name":"comment","required":false,"description":"A comment that will be added to the new property.","example":"This is a comment"},{"type":"String","name":"delimiter","required":false,"description":"Property entries support different delimiters (`=`, `:`, or whitespace). The default value is `=` unless provided the delimiter of the new property entry.","example":":"},{"type":"Boolean","name":"orderedInsertion","required":false,"description":"Whether to attempt adding the property in an order following alphabetic sorting. The default value is `true`.","example":"false"},{"type":"InsertMode","name":"insertMode","required":false,"description":"Choose an insertion point relative to an existing property. Default is `Last`. Takes precedence over `orderedInsertion`. If the referenced property does not exist, falls back to default behavior."},{"type":"String","name":"insertProperty","required":false,"description":"The key of an existing property to use as the reference point for the insert mode. Required when `insertMode` is `Before` or `After`.","example":"server.port"}]}>
 

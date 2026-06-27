@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade a lazily-initialized `@Nullable` field to `@MonotonicNonNull`"}
-  description={"Upgrades a `private`, non-`final` JSpecify `@Nullable` reference field to the Checker Framework `@org.checkerframework.checker.nullness.qual.MonotonicNonNull` annotation when it is genuinely a lazily-initialized-non-null field, so NullAway treats reads of it as non-null and the `requireNonNull` noise a plain `@Nullable` would force at every read disappears. A field qualifies only if it is `private` and non-`final`, its declaration declares exactly one reference-typed variable, there is at least one assignment to it, EVERY assignment has a provably-non-null right-hand side (`new`, an array creation, a non-null literal, `this`, or a call to a method whose return is resolved and not `@Nullable`), at least one assignment is outside a constructor (the lazy signal), and EVERY null-observation of the field (`f == null`/`f != null`/`f instanceof X`) is a lazy-init guard — the condition of an `if` whose then-branch assigns the field. Conservative and sound by design: `private` bounds the analysis to the declaring class so it is complete, and the absence of any null-handling use means the upgrade is runtime-NPE-preserving — it only removes the `@Nullable` signal where `null` would already crash. Any field whose `null` is handled gracefully anywhere, or any condition that cannot be proven, leaves the field unchanged. Only Java sources are modified."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.infer.UpgradeLazilyInitializedFieldToMonotonicNonNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/infer/upgradelazilyinitializedfieldtomonotonicnonnull.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Upgrade a lazily-initialized `@Nullable` field to `@MonotonicNonNull`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrades a `private`, non-`final` JSpecify `@Nullable` reference field to the Checker Framework `@org.checkerframework.checker.nullness.qual.MonotonicNonNull` annotation when it is genuinely a lazily-initialized-non-null field, so NullAway treats reads of it as non-null and the `requireNonNull` noise a plain `@Nullable` would force at every read disappears. A field qualifies only if it is `private` and non-`final`, its declaration declares exactly one reference-typed variable, there is at least one assignment to it, EVERY assignment has a provably-non-null right-hand side (`new`, an array creation, a non-null literal, `this`, or a call to a method whose return is resolved and not `@Nullable`), at least one assignment is outside a constructor (the lazy signal), and EVERY null-observation of the field (`f == null`/`f != null`/`f instanceof X`) is a lazy-init guard — the condition of an `if` whose then-branch assigns the field. Conservative and sound by design: `private` bounds the analysis to the declaring class so it is complete, and the absence of any null-handling use means the upgrade is runtime-NPE-preserving — it only removes the `@Nullable` signal where `null` would already crash. Any field whose `null` is handled gracefully anywhere, or any condition that cannot be proven, leaves the field unchanged. Only Java sources are modified.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.nullability.infer.UpgradeLazilyInitializedFieldToMonotonicNonNull","displayName":"Upgrade a lazily-initialized `@Nullable` field to `@MonotonicNonNull`","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 

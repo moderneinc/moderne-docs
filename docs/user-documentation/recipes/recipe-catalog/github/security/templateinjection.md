@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find template injection vulnerabilities"}
-  description={"Find GitHub Actions workflows vulnerable to template injection attacks. These occur when user-controllable input (like pull request titles, issue bodies, or commit messages) is used directly in `run` commands or `script` inputs without proper escaping. Attackers can exploit this to execute arbitrary code. Based on [zizmor's `template-injection` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/template_injection.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.TemplateInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/templateinjection.md"}
-/>
+>
+
+<RecipeHeader.Title>Find template injection vulnerabilities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find GitHub Actions workflows vulnerable to template injection attacks. These occur when user-controllable input (like pull request titles, issue bodies, or commit messages) is used directly in `run` commands or `script` inputs without proper escaping. Attackers can exploit this to execute arbitrary code. Based on [zizmor's `template-injection` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/template_injection.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Test Workflow\non: pull_request_target\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - run: 'echo \"PR Title: ${{ github.event.pull_request.title }}\"'\n","after":"name: Test Workflow\non: pull_request_target\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - ~~(Potential template injection vulnerability. User-controlled input 'github.event.pull_request.title' used in run command without proper escaping.)~~>run: 'echo \"PR Title: ${{ github.event.pull_request.title }}\"'\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -7,1 +7,1 @@\n    runs-on: ubuntu-latest\n    steps:\n-     - run: 'echo \"PR Title: ${{ github.event.pull_request.title }}\"'\n+     - ~~(Potential template injection vulnerability. User-controlled input 'github.event.pull_request.title' used in run command without proper escaping.)~~>run: 'echo \"PR Title: ${{ github.event.pull_request.title }}\"'\n\n","newFile":false}]}]}>
 

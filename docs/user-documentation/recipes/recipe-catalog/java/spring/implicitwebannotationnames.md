@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove implicit web annotation names"}
-  description={"Removes implicit web annotation names."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.ImplicitWebAnnotationNames"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/implicitwebannotationnames.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove implicit web annotation names</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes implicit web annotation names.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.*;\n\n@RestController\n@RequestMapping(\"/users\")\npublic class UsersController {\n    @GetMapping(\"/{id}\")\n    public ResponseEntity<String> getUser(@PathVariable(\"id\") Long id,\n                                          @PathVariable(required = false) Long p2,\n                                          @PathVariable(value = \"p3\") Long anotherName) {\n        System.out.println(anotherName);\n    }\n}\n","after":"import org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.*;\n\n@RestController\n@RequestMapping(\"/users\")\npublic class UsersController {\n    @GetMapping(\"/{id}\")\n    public ResponseEntity<String> getUser(@PathVariable Long id,\n                                          @PathVariable(required = false) Long p2,\n                                          @PathVariable(value = \"p3\") Long anotherName) {\n        System.out.println(anotherName);\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\npublic class UsersController {\n    @GetMapping(\"/{id}\")\n-   public ResponseEntity<String> getUser(@PathVariable(\"id\") Long id,\n+   public ResponseEntity<String> getUser(@PathVariable Long id,\n                                          @PathVariable(required = false) Long p2,\n","newFile":false}]}]}>
 

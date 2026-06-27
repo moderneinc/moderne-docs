@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add maven jar plugin to suppress illegal reflection warnings"}
-  description={"Adds a maven jar plugin that's configured to suppress Illegal Reflection Warnings."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.AddSuppressionForIllegalReflectionWarningsPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/addsuppressionforillegalreflectionwarningsplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Add maven jar plugin to suppress illegal reflection warnings</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds a maven jar plugin that's configured to suppress Illegal Reflection Warnings.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"version","required":false,"description":"An exact version number, or node-style semver selector used to select the version number.","example":"29.X"}]}>
 

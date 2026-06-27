@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `ADD` with `COPY`"}
-  description={"Replaces `ADD` instructions with `COPY` where appropriate. `ADD` is only kept when the source is a URL or a tar archive that should be auto-extracted. Using `COPY` is preferred for transparency (CIS Docker Benchmark 4.9)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.ReplaceAddWithCopy"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/replaceaddwithcopy.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `ADD` with `COPY`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `ADD` instructions with `COPY` where appropriate. `ADD` is only kept when the source is a URL or a tar archive that should be auto-extracted. Using `COPY` is preferred for transparency (CIS Docker Benchmark 4.9).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"docker","before":"FROM ubuntu:22.04\nADD app.jar /app/\n","after":"FROM ubuntu:22.04\nCOPY app.jar /app/\n","diff":"@@ -2,1 +2,1 @@\nFROM ubuntu:22.04\n-ADD app.jar /app/\n+COPY app.jar /app/\n\n","newFile":false}]}]}>
 

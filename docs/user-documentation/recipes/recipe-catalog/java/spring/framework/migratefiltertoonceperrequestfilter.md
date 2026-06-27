@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `Filter` to `OncePerRequestFilter`"}
-  description={"Migrates classes that implement `javax.servlet.Filter` (or `jakarta.servlet.Filter`) to extend `org.springframework.web.filter.OncePerRequestFilter`. This transformation renames `doFilter` to `doFilterInternal`, changes parameter types to HTTP variants, removes manual casting, and removes empty `init()` and `destroy()` methods."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.MigrateFilterToOncePerRequestFilter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratefiltertoonceperrequestfilter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `Filter` to `OncePerRequestFilter`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates classes that implement `javax.servlet.Filter` (or `jakarta.servlet.Filter`) to extend `org.springframework.web.filter.OncePerRequestFilter`. This transformation renames `doFilter` to `doFilterInternal`, changes parameter types to HTTP variants, removes manual casting, and removes empty `init()` and `destroy()` methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.*;\nimport javax.servlet.http.*;\nimport java.io.IOException;\n\npublic class CustomFilter implements Filter {\n    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)\n            throws IOException, ServletException {\n        // custom logic\n        chain.doFilter(request, response);\n    }\n}\n","after":"import org.springframework.web.filter.OncePerRequestFilter;\n\nimport javax.servlet.FilterChain;\nimport javax.servlet.ServletException;\nimport javax.servlet.ServletRequest;\nimport javax.servlet.ServletResponse;\nimport javax.servlet.http.*;\nimport java.io.IOException;\n\npublic class CustomFilter extends OncePerRequestFilter {\n    @Override\n    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)\n            throws IOException, ServletException {\n        // custom logic\n        chain.doFilter(request, response);\n    }\n}\n","diff":"@@ -1,1 +1,6 @@\n-import javax.servlet.*;\n+import org.springframework.web.filter.OncePerRequestFilter;\n+\n+import javax.servlet.FilterChain;\n+import javax.servlet.ServletException;\n+import javax.servlet.ServletRequest;\n+import javax.servlet.ServletResponse;\nimport javax.servlet.http.*;\n@@ -5,2 +10,3 @@\nimport java.io.IOException;\n\n-public class CustomFilter implements Filter {\n-   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)\n+public class CustomFilter extends OncePerRequestFilter {\n+   @Override\n+   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)\n            throws IOException, ServletException {\n","newFile":false}]}]}>
 

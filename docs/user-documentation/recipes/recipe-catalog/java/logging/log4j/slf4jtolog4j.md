@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate SLF4J to Log4j 2.x API"}
-  description={"Transforms code written using SLF4J to use Log4j 2.x API."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["slf4j","logging","log4j"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.log4j.Slf4jToLog4j"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/log4j/slf4jtolog4j.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Replace any Lombok log annotations with target logging framework annotation","href":"java/logging/changelomboklogannotation"},{"name":"Add imports for fully qualified references to types","href":"java/shortenfullyqualifiedtypereferences"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate SLF4J to Log4j 2.x API</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms code written using SLF4J to use Log4j 2.x API.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Replace any Lombok log annotations with target logging framework annotation","href":"/user-documentation/recipes/recipe-catalog/java/logging/changelomboklogannotation/"},{"name":"Add imports for fully qualified references to types","href":"/user-documentation/recipes/recipe-catalog/java/shortenfullyqualifiedtypereferences/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

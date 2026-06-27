@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Annotate required method parameters with `@NonNull`"}
-  description={"Add `@NonNull` to parameters of public methods that are explicitly checked for `null` and throw an exception if null. By default `org.jspecify.annotations.NonNull` is used, but through the `nonNullAnnotationClass` option a custom annotation can be provided. When providing a custom `nonNullAnnotationClass` that annotation should be meta annotated with `@Target(TYPE_USE)`. This recipe scans for methods that do not already have parameters annotated with `@NonNull` annotation and checks for null validation patterns that throw exceptions, such as `if (param == null) throw new IllegalArgumentException()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.AnnotateRequiredParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/annotaterequiredparameters.md"}
-/>
+>
+
+<RecipeHeader.Title>Annotate required method parameters with `@NonNull`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add `@NonNull` to parameters of public methods that are explicitly checked for `null` and throw an exception if null. By default `org.jspecify.annotations.NonNull` is used, but through the `nonNullAnnotationClass` option a custom annotation can be provided. When providing a custom `nonNullAnnotationClass` that annotation should be meta annotated with `@Target(TYPE_USE)`. This recipe scans for methods that do not already have parameters annotated with `@NonNull` annotation and checks for null validation patterns that throw exceptions, such as `if (param == null) throw new IllegalArgumentException()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"nonNullAnnotationClass","required":false,"description":"The fully qualified name of the @NonNull annotation. The annotation should be meta annotated with `@Target(TYPE_USE)`. Defaults to `org.jspecify.annotations.NonNull`","example":"org.jspecify.annotations.NonNull"}]}>
 

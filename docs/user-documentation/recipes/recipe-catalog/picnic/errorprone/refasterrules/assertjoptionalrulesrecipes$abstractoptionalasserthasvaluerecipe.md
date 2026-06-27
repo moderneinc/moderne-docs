@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJOptionalRules.AbstractOptionalAssertHasValue`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractOptionalAssertHasValue<T> {\n    \n    @BeforeTemplate\n    AbstractAssert<?, ?> before(AbstractOptionalAssert<?, T> optionalAssert, T value) {\n        return Refaster.anyOf(optionalAssert.get().isEqualTo(value), optionalAssert.isEqualTo(Optional.of(value)), optionalAssert.contains(value), optionalAssert.isPresent().hasValue(value));\n    }\n    \n    @AfterTemplate\n    AbstractOptionalAssert<?, T> after(AbstractOptionalAssert<?, T> optionalAssert, T value) {\n        return optionalAssert.hasValue(value);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes$AbstractOptionalAssertHasValueRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$abstractoptionalasserthasvaluerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJOptionalRules.AbstractOptionalAssertHasValue`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractOptionalAssertHasValue<T> {
+    
+    @BeforeTemplate
+    AbstractAssert<?, ?> before(AbstractOptionalAssert<?, T> optionalAssert, T value) {
+        return Refaster.anyOf(optionalAssert.get().isEqualTo(value), optionalAssert.isEqualTo(Optional.of(value)), optionalAssert.contains(value), optionalAssert.isPresent().hasValue(value));
+    }
+    
+    @AfterTemplate
+    AbstractOptionalAssert<?, T> after(AbstractOptionalAssert<?, T> optionalAssert, T value) {
+        return optionalAssert.hasValue(value);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes$AbstractOptionalAssertHasValueRecipe","displayName":"Refaster template `AssertJOptionalRules.AbstractOptionalAssertHasValue`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

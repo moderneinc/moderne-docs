@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `@Endpoint` Security properties to 3.4"}
-  description={"Migrate the settings for Spring Boot Management Endpoint Security from `true`|`false` to `read-only`|`none`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.SpringBootProperties_3_4"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/springbootproperties_3_4-moderne-edition.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate `@Endpoint`s `defaultAccess` value","href":"java/spring/boot3/migrateendpointannotationaccessvaluespring34"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate `@Endpoint` Security properties to 3.4</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate the settings for Spring Boot Management Endpoint Security from `true`|`false` to `read-only`|`none`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate `@Endpoint`s `defaultAccess` value","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateendpointannotationaccessvaluespring34/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

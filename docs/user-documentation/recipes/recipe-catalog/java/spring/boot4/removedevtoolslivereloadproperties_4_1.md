@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Comment out deprecated DevTools LiveReload properties"}
-  description={"Spring Boot 4.1.0-M3 deprecated the LiveReload feature in DevTools with no replacement. The feature still functions in 4.1, so this recipe comments out `spring.devtools.livereload.*` properties (rather than deleting them) to flag the deprecation while leaving the values recoverable."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","devtools","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.RemoveDevtoolsLiveReloadProperties_4_1"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/removedevtoolslivereloadproperties_4_1.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Comment out Spring properties","href":"java/spring/commentoutspringpropertykey"},{"name":"Comment out Spring properties","href":"java/spring/commentoutspringpropertykey"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Comment out deprecated DevTools LiveReload properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot 4.1.0-M3 deprecated the LiveReload feature in DevTools with no replacement. The feature still functions in 4.1, so this recipe comments out `spring.devtools.livereload.*` properties (rather than deleting them) to flag the deprecation while leaving the values recoverable.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Comment out Spring properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/commentoutspringpropertykey/"},{"name":"Comment out Spring properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/commentoutspringpropertykey/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

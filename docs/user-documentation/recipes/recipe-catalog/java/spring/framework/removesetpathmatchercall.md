@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove deprecated `setPathMatcher()` calls"}
-  description={"In Spring Framework 7.0, `PathMatcher` and `AntPathMatcher` are deprecated in favor of `PathPatternParser`, which has been the default in Spring MVC since 6.0. This recipe removes calls to `setPathMatcher(new AntPathMatcher())` since they are now redundant. The default `PathPatternParser` provides better performance through pre-parsed patterns."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.RemoveSetPathMatcherCall"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/removesetpathmatchercall.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove deprecated `setPathMatcher()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Framework 7.0, `PathMatcher` and `AntPathMatcher` are deprecated in favor of `PathPatternParser`, which has been the default in Spring MVC since 6.0. This recipe removes calls to `setPathMatcher(new AntPathMatcher())` since they are now redundant. The default `PathPatternParser` provides better performance through pre-parsed patterns.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.demo;\n\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.util.AntPathMatcher;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class WebConfig implements WebMvcConfigurer {\n    @Override\n    public void configurePathMatch(PathMatchConfigurer configurer) {\n        configurer.setPathMatcher(new AntPathMatcher());\n    }\n}\n","after":"package com.example.demo;\n\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class WebConfig implements WebMvcConfigurer {\n    @Override\n    public void configurePathMatch(PathMatchConfigurer configurer) {\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\n\nimport org.springframework.context.annotation.Configuration;\n-import org.springframework.util.AntPathMatcher;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\n@@ -12,1 +11,0 @@\n    @Override\n    public void configurePathMatch(PathMatchConfigurer configurer) {\n-       configurer.setPathMatcher(new AntPathMatcher());\n    }\n","newFile":false}]}]}>
 

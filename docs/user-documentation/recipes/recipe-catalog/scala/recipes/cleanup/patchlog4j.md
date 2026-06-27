@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure Log4j is patched against CVE-2021-44228"}
-  description={"Finds imports of Log4j 1.x (`org.apache.log4j`) or Log4j 2.x (`org.apache.logging.log4j`). Ensure your Log4j version is patched against CVE-2021-44228."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.PatchLog4j"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/patchlog4j.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Ensure Log4j is patched against CVE-2021-44228</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of Log4j 1.x (`org.apache.log4j`) or Log4j 2.x (`org.apache.logging.log4j`). Ensure your Log4j version is patched against CVE-2021-44228.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import org.apache.log4j.Logger\n\nobject Service {\n  val logger = Logger.getLogger(\"Service\")\n}\n","after":"/*~~(Log4j found; ensure version is patched against CVE-2021-44228)~~>*/import org.apache.log4j.Logger\n\nobject Service {\n  val logger = Logger.getLogger(\"Service\")\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.apache.log4j.Logger\n+/*~~(Log4j found; ensure version is patched against CVE-2021-44228)~~>*/import org.apache.log4j.Logger\n\n","newFile":false}]}]}>
 

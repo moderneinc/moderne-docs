@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@MockBean` on `lateinit var` fields"}
-  description={"`@MockBean lateinit var x` mutates the bean at field-injection time, which works but ties the test to Spring's container even when the unit under test could be exercised with constructor injection of a plain `mockk<X>()`. Flag for review — preferred where the surrounding test can be a plain unit test."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindMockBeanOnField$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findmockbeanonfield$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@MockBean` on `lateinit var` fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@MockBean lateinit var x` mutates the bean at field-injection time, which works but ties the test to Spring's container even when the unit under test could be exercised with constructor injection of a plain `mockk<X>()`. Flag for review — preferred where the surrounding test can be a plain unit test.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindMockBeanOnField$KtRecipe","displayName":"Find `@MockBean` on `lateinit var` fields","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

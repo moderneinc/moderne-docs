@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Analyse Organization's Release Train Metro Plan"}
-  description={"Gathers the basic information to create and understand the organizations release train metro plan."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.recipe.releasemetro.ReleaseMetroPlan"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/recipe/releasemetro/releasemetroplan.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find maven project IDs","href":"recipe/releasemetro/findmavenprojectids"},{"name":"Find Gradle project IDs","href":"recipe/releasemetro/findgradleprojectids"},{"name":"Find Maven parent relationships","href":"recipe/releasemetro/findmavenparentrelationships"},{"name":"Find Gradle root project to subproject relationships","href":"recipe/releasemetro/findgradleparentrelationships"},{"name":"Find potentially unused dependencies","href":"recipe/releasemetro/findpotentiallyunuseddependencies"},{"name":"Find Maven dependency","href":"maven/search/finddependency"},{"name":"Find Gradle dependency","href":"gradle/search/finddependency"}]}>
+<RecipeHeader.Title>Analyse Organization's Release Train Metro Plan</RecipeHeader.Title>
+
+<RecipeHeader.Description>Gathers the basic information to create and understand the organizations release train metro plan.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find maven project IDs","href":"/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findmavenprojectids/"},{"name":"Find Gradle project IDs","href":"/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleprojectids/"},{"name":"Find Maven parent relationships","href":"/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findmavenparentrelationships/"},{"name":"Find Gradle root project to subproject relationships","href":"/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findgradleparentrelationships/"},{"name":"Find potentially unused dependencies","href":"/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findpotentiallyunuseddependencies/"},{"name":"Find Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/finddependency/"},{"name":"Find Gradle dependency","href":"/user-documentation/recipes/recipe-catalog/gradle/search/finddependency/"}]}>
 
 ## Definition
 

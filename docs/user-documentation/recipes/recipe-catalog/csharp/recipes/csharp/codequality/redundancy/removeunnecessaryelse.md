@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary else clause"}
-  description={"Remove `else` clause when the `if` body always terminates with `return`, `throw`, `break`, `continue`, or `goto`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveUnnecessaryElse"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeunnecessaryelse.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary else clause</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `else` clause when the `if` body always terminates with `return`, `throw`, `break`, `continue`, or `goto`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveUnnecessaryElse","displayName":"Remove unnecessary else clause","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

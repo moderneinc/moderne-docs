@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Does not include dependency for Gradle and Maven"}
-  description={"A precondition which returns false if visiting a Gradle file / Maven pom which includes the specified dependency in the classpath of some Gradle configuration / Maven scope. For compatibility with multimodule projects, this should most often be applied as a precondition."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-java-dependencies"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.search.DoesNotIncludeDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/search/doesnotincludedependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Does not include dependency for Gradle and Maven</RecipeHeader.Title>
+
+<RecipeHeader.Description>A precondition which returns false if visiting a Gradle file / Maven pom which includes the specified dependency in the classpath of some Gradle configuration / Maven scope. For compatibility with multimodule projects, this should most often be applied as a precondition.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. Supports glob.","example":"com.google.guava"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. Supports glob.","example":"guava"},{"type":"String","name":"version","required":false,"description":"Match only dependencies with the specified resolved version. Node-style [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors) may be used. All versions are searched by default.","example":"1.x"},{"type":"Boolean","name":"onlyDirect","required":false,"description":"Default false. If enabled, transitive dependencies will not be considered.","example":"true"},{"type":"String","name":"scope","required":false,"description":"Default any. If specified, only the requested scope's classpaths will be checked.","example":"compile"},{"type":"String","name":"configuration","required":false,"description":"Match dependencies with the specified configuration. If not specified, all configurations will be searched.","example":"compileClasspath"}]}>
 

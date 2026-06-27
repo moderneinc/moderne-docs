@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Function.compose(Function)`"}
-  description={"Prefer `Function.compose(Function)` over `Functions.compose(Function, Function)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaFunctionsCompose"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavafunctionscompose.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Function.compose(Function)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Function.compose(Function)` over `Functions.compose(Function, Function)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.base.Function;\nimport com.google.common.base.Functions;\n\nclass Test {\n    public static void test() {\n        Function<Object, Integer> composed = Functions.compose(new Function<String, Integer>() {\n            @Override\n            public Integer apply(String input) {\n                return input.length();\n            }\n        }, new Function<Object, String>() {\n            @Override\n            public String apply(Object input) {\n                return input.toString();\n            }\n        });\n    }\n}\n","after":"import com.google.common.base.Function;\n\nclass Test {\n    public static void test() {\n        Function<Object, Integer> composed = new Function<String, Integer>() {\n            @Override\n            public Integer apply(String input) {\n                return input.length();\n            }\n        }.compose(new Function<Object, String>() {\n            @Override\n            public String apply(Object input) {\n                return input.toString();\n            }\n        });\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport com.google.common.base.Function;\n-import com.google.common.base.Functions;\n\n@@ -6,1 +5,1 @@\nclass Test {\n    public static void test() {\n-       Function<Object, Integer> composed = Functions.compose(new Function<String, Integer>() {\n+       Function<Object, Integer> composed = new Function<String, Integer>() {\n            @Override\n@@ -11,1 +10,1 @@\n                return input.length();\n            }\n-       }, new Function<Object, String>() {\n+       }.compose(new Function<Object, String>() {\n            @Override\n","newFile":false}]}]}>
 

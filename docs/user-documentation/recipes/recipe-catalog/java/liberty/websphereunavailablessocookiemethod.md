@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `revokeSSOCookies` with `logout`"}
-  description={"Replace `WSSecurityHelper.revokeSSOCookies(request, response)` with `request.logout()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-liberty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.liberty.WebSphereUnavailableSSOCookieMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/liberty/websphereunavailablessocookiemethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `revokeSSOCookies` with `logout`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `WSSecurityHelper.revokeSSOCookies(request, response)` with `request.logout()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.liberty.WebSphereUnavailableSSOCookieMethod","displayName":"Replace `revokeSSOCookies` with `logout`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-liberty","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LIBERTY","requiresConfiguration":false}}>
 

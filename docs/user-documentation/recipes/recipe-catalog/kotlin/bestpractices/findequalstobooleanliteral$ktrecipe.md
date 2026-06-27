@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `b == true` / `b == false` comparisons"}
-  description={"When `b` is `Boolean`, `b == true` is just `b` and `b == false` is `!b`. The longhand only obscures intent. For `Boolean?` the longhand is meaningful — it returns `false` for `null` rather than failing on `!!` — so leave those alone; flag only the comparison and let the reviewer decide."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindEqualsToBooleanLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findequalstobooleanliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `b == true` / `b == false` comparisons</RecipeHeader.Title>
+
+<RecipeHeader.Description>When `b` is `Boolean`, `b == true` is just `b` and `b == false` is `!b`. The longhand only obscures intent. For `Boolean?` the longhand is meaningful — it returns `false` for `null` rather than failing on `!!` — so leave those alone; flag only the comparison and let the reviewer decide.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindEqualsToBooleanLiteral$KtRecipe","displayName":"Find `b == true` / `b == false` comparisons","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LiveData.observe(this, observer)` calls inside `Fragment`"}
-  description={"Inside a `Fragment`, `liveData.observe(this, observer)` ties the subscription to the fragment's lifecycle — which outlives the view across `onDestroyView`/`onCreateView` recreation and produces dangling references to a destroyed view. Use `viewLifecycleOwner` instead."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindLifecycleObserveLiveData$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findlifecycleobservelivedata$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LiveData.observe(this, observer)` calls inside `Fragment`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Inside a `Fragment`, `liveData.observe(this, observer)` ties the subscription to the fragment's lifecycle — which outlives the view across `onDestroyView`/`onCreateView` recreation and produces dangling references to a destroyed view. Use `viewLifecycleOwner` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindLifecycleObserveLiveData$KtRecipe","displayName":"Find `LiveData.observe(this, observer)` calls inside `Fragment`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

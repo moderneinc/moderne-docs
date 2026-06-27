@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove json4s imports"}
-  description={"Removes imports of the json4s library (`org.json4s.*`). json4s has known performance and maintenance concerns and should be replaced with a modern Scala JSON library such as circe or zio-json. Removing the imports causes the compiler to highlight all usage sites that need updating."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.json.MigrateJson4s"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/json/migratejson4s.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove json4s imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes imports of the json4s library (`org.json4s.*`). json4s has known performance and maintenance concerns and should be replaced with a modern Scala JSON library such as circe or zio-json. Removing the imports causes the compiler to highlight all usage sites that need updating.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import org.json4s.native.JsonMethods\n\nclass Parser {\n    val name = \"parser\"\n}\n","after":"\n\n\nclass Parser {\n    val name = \"parser\"\n}\n","diff":"@@ -1,1 +1,0 @@\n-import org.json4s.native.JsonMethods\n\n@@ -3,0 +2,2 @@\nimport org.json4s.native.JsonMethods\n\n+\n+\nclass Parser {\n","newFile":false}]}]}>
 

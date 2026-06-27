@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Dropwizard `MultiPartBundle` to Spring multipart configuration"}
-  description={"Removes `bootstrap.addBundle(new MultiPartBundle())` and its import, and adds `spring.servlet.multipart` configuration (enabled, unlimited sizes) to the module's Spring configuration, creating `application.yml` if none exists. Spring Boot enables multipart support automatically. Only modules that actually registered `MultiPartBundle` are configured."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.bundle.MigrateMultiPartBundle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/bundle/migratemultipartbundle.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Dropwizard `MultiPartBundle` to Spring multipart configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `bootstrap.addBundle(new MultiPartBundle())` and its import, and adds `spring.servlet.multipart` configuration (enabled, unlimited sizes) to the module's Spring configuration, creating `application.yml` if none exists. Spring Boot enables multipart support automatically. Only modules that actually registered `MultiPartBundle` are configured.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.java.dropwizard.boot.bundle.MigrateMultiPartBundle","displayName":"Migrate Dropwizard `MultiPartBundle` to Spring multipart configuration","groupId":"io.moderne.recipe","artifactId":"rewrite-dropwizard","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DROPWIZARD","requiresConfiguration":false}}>
 

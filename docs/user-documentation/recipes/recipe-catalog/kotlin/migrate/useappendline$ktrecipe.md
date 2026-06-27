@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `appendLine()` instead of `appendln()`"}
-  description={"`Appendable.appendln()` was deprecated in Kotlin 1.4 in favor of `appendLine()` (consistent naming with `Reader.readLine()`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseAppendLine$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useappendline$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `appendLine()` instead of `appendln()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Appendable.appendln()` was deprecated in Kotlin 1.4 in favor of `appendLine()` (consistent naming with `Reader.readLine()`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseAppendLine$KtRecipe","displayName":"Use `appendLine()` instead of `appendln()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

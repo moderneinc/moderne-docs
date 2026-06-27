@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`@ElementCollection` annotations must be accompanied by a defined `@Column` annotation"}
-  description={"When an attribute is annotated with `@ElementCollection`, a separate table is created for the attribute that includes the attribute \nID and value. In OpenJPA, the column for the annotated attribute is named element, whereas EclipseLink names the column based on \nthe name of the attribute. To remain compatible with tables that were created with OpenJPA, add a `@Column` annotation with the name \nattribute set to element."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.AddColumnAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addcolumnannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>`@ElementCollection` annotations must be accompanied by a defined `@Column` annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>When an attribute is annotated with `@ElementCollection`, a separate table is created for the attribute that includes the attribute  ID and value. In OpenJPA, the column for the annotated attribute is named element, whereas EclipseLink names the column based on  the name of the attribute. To remain compatible with tables that were created with OpenJPA, add a `@Column` annotation with the name  attribute set to element.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\n\nimport javax.persistence.ElementCollection;\nimport javax.persistence.Entity;\nimport javax.persistence.Id;\n\n@Entity\npublic class ElementCollectionEntity {\n    @Id\n    private int id;\n\n    @ElementCollection\n    private List<String> listofStrings;\n}\n","after":"import java.util.List;\n\nimport javax.persistence.Column;\nimport javax.persistence.ElementCollection;\nimport javax.persistence.Entity;\nimport javax.persistence.Id;\n\n@Entity\npublic class ElementCollectionEntity {\n    @Id\n    private int id;\n\n    @Column(name = \"element\")\n    @ElementCollection\n    private List<String> listofStrings;\n}\n","diff":"@@ -3,0 +3,1 @@\nimport java.util.List;\n\n+import javax.persistence.Column;\nimport javax.persistence.ElementCollection;\n@@ -12,0 +13,1 @@\n    private int id;\n\n+   @Column(name = \"element\")\n    @ElementCollection\n","newFile":false}]}]}>
 

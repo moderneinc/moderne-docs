@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `also { }` blocks that mutate the receiver"}
-  description={"`also { }` is for side effects that don't change the receiver — logging, validation, registering a callback. If the lambda mutates `it`, prefer `apply { … }`, which is built for that and reads as configuration."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindAlsoWithMutation$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findalsowithmutation$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `also { }` blocks that mutate the receiver</RecipeHeader.Title>
+
+<RecipeHeader.Description>`also { }` is for side effects that don't change the receiver — logging, validation, registering a callback. If the lambda mutates `it`, prefer `apply { … }`, which is built for that and reads as configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindAlsoWithMutation$KtRecipe","displayName":"Find `also { }` blocks that mutate the receiver","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

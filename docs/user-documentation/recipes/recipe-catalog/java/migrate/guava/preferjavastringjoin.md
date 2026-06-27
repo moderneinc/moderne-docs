@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `String#join()` over Guava `Joiner#join()`"}
-  description={"Replaces supported calls to `com.google.common.base.Joiner#join()` with `java.lang.String#join()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.PreferJavaStringJoin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavastringjoin.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `String#join()` over Guava `Joiner#join()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces supported calls to `com.google.common.base.Joiner#join()` with `java.lang.String#join()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.base.Joiner;\n\nclass Test {\n    String s = Joiner.on(\", \").join(\"a\", \"b\");\n}\n","after":"class Test {\n    String s = String.join(\", \", \"a\", \"b\");\n}\n","diff":"@@ -1,2 +1,0 @@\n-import com.google.common.base.Joiner;\n-\nclass Test {\n@@ -4,1 +2,1 @@\n\nclass Test {\n-   String s = Joiner.on(\", \").join(\"a\", \"b\");\n+   String s = String.join(\", \", \"a\", \"b\");\n}\n","newFile":false}]}]}>
 

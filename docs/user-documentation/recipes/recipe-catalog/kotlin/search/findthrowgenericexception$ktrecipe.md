@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `throw Exception(...)` and `throw RuntimeException(...)` calls"}
-  description={"Throwing a bare `Exception` / `RuntimeException` forces every caller into a generic catch. Each match is a candidate to use a more specific exception type (`IllegalArgumentException`, `IllegalStateException`, a domain-specific subclass)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindThrowGenericException$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findthrowgenericexception$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `throw Exception(...)` and `throw RuntimeException(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Throwing a bare `Exception` / `RuntimeException` forces every caller into a generic catch. Each match is a candidate to use a more specific exception type (`IllegalArgumentException`, `IllegalStateException`, a domain-specific subclass).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindThrowGenericException$KtRecipe","displayName":"Find `throw Exception(...)` and `throw RuntimeException(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

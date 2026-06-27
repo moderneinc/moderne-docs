@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find missing NotNullIfNotNull attribute"}
-  description={"Detect methods with nullable return types depending on nullable parameters that lack `[NotNullIfNotNull]` attribute."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindNotNullIfNotNullAttribute"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findnotnullifnotnullattribute.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find missing NotNullIfNotNull attribute</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect methods with nullable return types depending on nullable parameters that lack `[NotNullIfNotNull]` attribute.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindNotNullIfNotNullAttribute","displayName":"Find missing NotNullIfNotNull attribute","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

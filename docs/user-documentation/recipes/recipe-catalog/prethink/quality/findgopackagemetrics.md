@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Go package quality metrics"}
-  description={"Per-package architectural metrics for Go: afferent/efferent coupling, instability, abstractness (interface ratio), distance from main sequence, and cycle detection."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.quality.FindGoPackageMetrics"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/quality/findgopackagemetrics.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Go package quality metrics</RecipeHeader.Title>
+
+<RecipeHeader.Description>Per-package architectural metrics for Go: afferent/efferent coupling, instability, abstractness (interface ratio), distance from main sequence, and cycle detection.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.quality.FindGoPackageMetrics","displayName":"Find Go package quality metrics","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

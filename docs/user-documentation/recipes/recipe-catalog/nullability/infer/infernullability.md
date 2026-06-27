@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Infer and add `@Nullable` annotations"}
-  description={"Infer where reference values can be null and add JSpecify `@Nullable` accordingly — across method return types, parameters, fields, override hierarchies, Kotlin call sites, and generic/array element types — together with OpenRewrite's static-analysis intra-body inference. Run after `io.moderne.nullability.migrate.MigrateNullabilityToJSpecify` so existing annotations are already in JSpecify form. Nullability propagates across files and converges over successive recipe cycles."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["jspecify","nullability"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.infer.InferNullability"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/infer/infernullability.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Compose JSpecify best practices (intra-body nullability inference)","href":"nullability/infer/composejspecifybestpractices"},{"name":"Add `@Nullable` to methods that can return null","href":"nullability/infer/addnullabletoreturntype"},{"name":"Add `@Nullable` to method parameters that can receive null","href":"nullability/infer/addnullabletoparametercrossfile"},{"name":"Add `@Nullable` to fields that can hold null","href":"nullability/infer/addnullabletofield"},{"name":"Propagate `@Nullable` across override relationships","href":"nullability/infer/propagatenullableacrossoverrides"},{"name":"Infer Java `@Nullable` return types from Kotlin call sites","href":"nullability/infer/inferjavanullabilityfromkotlincallsites"},{"name":"Add `@Nullable` to array element types that can hold null","href":"nullability/infer/addnullabletoarrayelementtype"},{"name":"Add `@Nullable` to collection and map type arguments that hold null elements","href":"nullability/infer/addnullabletotypeargument"},{"name":"Add a `@Nullable` upper bound to a pass-through type parameter fed a null-returning lambda","href":"nullability/infer/addnullableboundtopassthroughtypeparameter"},{"name":"Add `@Nullable` to a functional-interface return type argument fed a null-returning lambda","href":"nullability/infer/addnullabletofunctionalreturnargument"}]}>
+<RecipeHeader.Title>Infer and add `@Nullable` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Infer where reference values can be null and add JSpecify `@Nullable` accordingly — across method return types, parameters, fields, override hierarchies, Kotlin call sites, and generic/array element types — together with OpenRewrite's static-analysis intra-body inference. Run after `io.moderne.nullability.migrate.MigrateNullabilityToJSpecify` so existing annotations are already in JSpecify form. Nullability propagates across files and converges over successive recipe cycles.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Compose JSpecify best practices (intra-body nullability inference)","href":"/user-documentation/recipes/recipe-catalog/nullability/infer/composejspecifybestpractices/"},{"name":"Add `@Nullable` to methods that can return null","href":"/user-documentation/recipes/recipe-catalog/nullability/infer/addnullabletoreturntype/"},{"name":"Add `@Nullable` to method parameters that can receive null","href":"/user-documentation/recipes/recipe-catalog/nullability/infer/addnullabletoparametercrossfile/"},{"name":"Add `@Nullable` to fields that can hold null","href":"/user-documentation/recipes/recipe-catalog/nullability/infer/addnullabletofield/"},{"name":"Propagate `@Nullable` across override relationships","href":"/user-documentation/recipes/recipe-catalog/nullability/infer/propagatenullableacrossoverrides/"},{"name":"Infer Java `@Nullable` return types from Kotlin call sites","href":"/user-documentation/recipes/recipe-catalog/nullability/infer/inferjavanullabilityfromkotlincallsites/"},{"name":"Add `@Nullable` to array element types that can hold null","href":"/user-documentation/recipes/recipe-catalog/nullability/infer/addnullabletoarrayelementtype/"},{"name":"Add `@Nullable` to collection and map type arguments that hold null elements","href":"/user-documentation/recipes/recipe-catalog/nullability/infer/addnullabletotypeargument/"},{"name":"Add a `@Nullable` upper bound to a pass-through type parameter fed a null-returning lambda","href":"/user-documentation/recipes/recipe-catalog/nullability/infer/addnullableboundtopassthroughtypeparameter/"},{"name":"Add `@Nullable` to a functional-interface return type argument fed a null-returning lambda","href":"/user-documentation/recipes/recipe-catalog/nullability/infer/addnullabletofunctionalreturnargument/"}]}>
 
 ## Definition
 

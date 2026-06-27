@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove deprecated Akka imports"}
-  description={"Removes imports of deprecated Akka APIs such as `akka.pattern.ask` (old ask pattern) and `akka.actor.PoisonPill`. These have no direct drop-in replacement and should be replaced with their modern Akka Typed equivalents."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.akka.RemoveDeprecatedAkkaImports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/akka/removedeprecatedakkaimports.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove deprecated Akka imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes imports of deprecated Akka APIs such as `akka.pattern.ask` (old ask pattern) and `akka.actor.PoisonPill`. These have no direct drop-in replacement and should be replaced with their modern Akka Typed equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import akka.pattern.ask\n\nclass Requester {\n    val name = \"requester\"\n}\n","after":"\n\nclass Requester {\n    val name = \"requester\"\n}\n","diff":"@@ -1,1 +1,0 @@\n-import akka.pattern.ask\n\n@@ -3,0 +2,1 @@\nimport akka.pattern.ask\n\n+\nclass Requester {\n","newFile":false}]}]}>
 

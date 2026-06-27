@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find weak password encoder strength"}
-  description={"Finds Spring Security `BCryptPasswordEncoder` instantiations with a strength (work factor) below 10. The default and OWASP-recommended minimum is 10; lower values make stolen password hashes substantially cheaper to brute-force."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-521","security","CWE-916"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindWeakPasswordEncoderStrength"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findweakpasswordencoderstrength.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find weak password encoder strength</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds Spring Security `BCryptPasswordEncoder` instantiations with a strength (work factor) below 10. The default and OWASP-recommended minimum is 10; lower values make stolen password hashes substantially cheaper to brute-force.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;\n\nclass Config {\n    BCryptPasswordEncoder encoder() {\n        return new BCryptPasswordEncoder(4);\n    }\n}\n","after":"import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;\n\nclass Config {\n    BCryptPasswordEncoder encoder() {\n        return /*~~(BCrypt strength 4 below recommended minimum of 10 (CWE-521))~~>*/new BCryptPasswordEncoder(4);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Config {\n    BCryptPasswordEncoder encoder() {\n-       return new BCryptPasswordEncoder(4);\n+       return /*~~(BCrypt strength 4 below recommended minimum of 10 (CWE-521))~~>*/new BCryptPasswordEncoder(4);\n    }\n","newFile":false}]}]}>
 

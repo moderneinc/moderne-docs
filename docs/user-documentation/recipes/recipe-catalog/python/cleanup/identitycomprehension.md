@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify identity comprehension to `list()`/`set()` call"}
-  description={"A comprehension that simply passes through each element unchanged is equivalent to calling `list()` or `set()` on the iterable."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.IdentityComprehension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/identitycomprehension.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify identity comprehension to `list()`/`set()` call</RecipeHeader.Title>
+
+<RecipeHeader.Description>A comprehension that simply passes through each element unchanged is equivalent to calling `list()` or `set()` on the iterable.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.IdentityComprehension","displayName":"Simplify identity comprehension to `list()`/`set()` call","pipPackage":"openrewrite-static-analysis"}}>
 

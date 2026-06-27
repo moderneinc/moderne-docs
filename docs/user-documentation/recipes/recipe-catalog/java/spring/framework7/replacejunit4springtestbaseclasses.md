@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUnit 4 Spring test base classes with JUnit Jupiter annotations"}
-  description={"Replace `AbstractJUnit4SpringContextTests` and `AbstractTransactionalJUnit4SpringContextTests` base classes with `@ExtendWith(SpringExtension.class)` and `@Transactional` annotations. These base classes are deprecated in Spring Framework 7.0 in favor of the SpringExtension for JUnit Jupiter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.ReplaceJUnit4SpringTestBaseClasses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/replacejunit4springtestbaseclasses.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace JUnit 4 Spring test base classes with JUnit Jupiter annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `AbstractJUnit4SpringContextTests` and `AbstractTransactionalJUnit4SpringContextTests` base classes with `@ExtendWith(SpringExtension.class)` and `@Transactional` annotations. These base classes are deprecated in Spring Framework 7.0 in favor of the SpringExtension for JUnit Jupiter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Test;\nimport org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;\n\npublic class MyTest extends AbstractJUnit4SpringContextTests {\n\n    @Test\n    public void testSomething() {\n    }\n}\n","after":"import org.junit.Test;\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.springframework.test.context.junit.jupiter.SpringExtension;\n\n@ExtendWith(SpringExtension.class)\npublic class MyTest {\n\n    @Test\n    public void testSomething() {\n    }\n}\n","diff":"@@ -2,1 +2,2 @@\nimport org.junit.Test;\n-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;\n+import org.junit.jupiter.api.extension.ExtendWith;\n+import org.springframework.test.context.junit.jupiter.SpringExtension;\n\n@@ -4,1 +5,2 @@\nimport org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;\n\n-public class MyTest extends AbstractJUnit4SpringContextTests {\n+@ExtendWith(SpringExtension.class)\n+public class MyTest {\n\n","newFile":false}]}]}>
 

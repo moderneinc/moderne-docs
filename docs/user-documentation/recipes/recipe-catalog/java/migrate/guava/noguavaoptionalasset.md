@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Optional.stream().collect(Collectors.toSet())`"}
-  description={"Prefer `Optional.stream().collect(Collectors.toSet())` over `Optional.asSet()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaOptionalAsSet"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaoptionalasset.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Optional.stream().collect(Collectors.toSet())`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Optional.stream().collect(Collectors.toSet())` over `Optional.asSet()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.guava.NoGuavaOptionalAsSet","displayName":"Prefer `Optional.stream().collect(Collectors.toSet())`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `=` assignment syntax for Gradle properties"}
-  description={"Converts deprecated Groovy DSL property assignment syntax from space/method-call form (e.g., `description 'text'` or `description('text')`) to assignment form (`description = 'text'`). Addresses Gradle 8.14 deprecation: \"Properties should be assigned using the 'propName = value' syntax.\"."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.UsePropertyAssignmentSyntax"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `=` assignment syntax for Gradle properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts deprecated Groovy DSL property assignment syntax from space/method-call form (e.g., `description 'text'` or `description('text')`) to assignment form (`description = 'text'`). Addresses Gradle 8.14 deprecation: "Properties should be assigned using the 'propName = value' syntax.".</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyName","required":true,"description":"The name of the property whose method-call or space-separated syntax should be converted to assignment syntax using `=`.","example":"description"}]}>
 

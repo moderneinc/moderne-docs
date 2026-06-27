@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find concurrency primitives"}
-  description={"Raw threads, executor-service factories, JUC locks, atomic primitives, futures, synchronized blocks, `@Volatile` fields, `ThreadLocal` allocations, and JUC coordination primitives (`Semaphore`, `CountDownLatch`, `CyclicBarrier`). Each match is a position to inspect for cancellation semantics, happens-before edges, and pool lifecycle."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindConcurrencySurface$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findconcurrencysurface$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Thread(...)` constructor calls","href":"kotlin/search/findthreadconstructors$ktrecipe"},{"name":"Find `Executors.newXxxThreadPool` factory calls","href":"kotlin/search/findexecutorservicefactories$ktrecipe"},{"name":"Find `ReentrantLock()` / `ReentrantReadWriteLock()` allocations","href":"kotlin/search/findreentrantlockallocations$ktrecipe"},{"name":"Find `AtomicReference`/`AtomicInteger`/`AtomicLong`/`AtomicBoolean` allocations","href":"kotlin/search/findatomicallocations$ktrecipe"},{"name":"Find `CompletableFuture` / `FutureTask` allocations","href":"kotlin/search/findfutureallocations$ktrecipe"},{"name":"Find `synchronized(lock) { ... }` calls","href":"kotlin/search/findsynchronizedblocks$ktrecipe"},{"name":"Find `@Volatile` properties","href":"kotlin/search/findvolatilefields$ktrecipe"},{"name":"Find `ThreadLocal()` allocations","href":"kotlin/search/findthreadlocalallocations$ktrecipe"},{"name":"Find `Semaphore` / `CountDownLatch` / `CyclicBarrier` allocations","href":"kotlin/search/findsemaphoreorlatchallocations$ktrecipe"}]}>
+<RecipeHeader.Title>Find concurrency primitives</RecipeHeader.Title>
+
+<RecipeHeader.Description>Raw threads, executor-service factories, JUC locks, atomic primitives, futures, synchronized blocks, `@Volatile` fields, `ThreadLocal` allocations, and JUC coordination primitives (`Semaphore`, `CountDownLatch`, `CyclicBarrier`). Each match is a position to inspect for cancellation semantics, happens-before edges, and pool lifecycle.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Thread(...)` constructor calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findthreadconstructors$ktrecipe/"},{"name":"Find `Executors.newXxxThreadPool` factory calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findexecutorservicefactories$ktrecipe/"},{"name":"Find `ReentrantLock()` / `ReentrantReadWriteLock()` allocations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findreentrantlockallocations$ktrecipe/"},{"name":"Find `AtomicReference`/`AtomicInteger`/`AtomicLong`/`AtomicBoolean` allocations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findatomicallocations$ktrecipe/"},{"name":"Find `CompletableFuture` / `FutureTask` allocations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findfutureallocations$ktrecipe/"},{"name":"Find `synchronized(lock) { ... }` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findsynchronizedblocks$ktrecipe/"},{"name":"Find `@Volatile` properties","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findvolatilefields$ktrecipe/"},{"name":"Find `ThreadLocal()` allocations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findthreadlocalallocations$ktrecipe/"},{"name":"Find `Semaphore` / `CountDownLatch` / `CyclicBarrier` allocations","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findsemaphoreorlatchallocations$ktrecipe/"}]}>
 
 ## Definition
 

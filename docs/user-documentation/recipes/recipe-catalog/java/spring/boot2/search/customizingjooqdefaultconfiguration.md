@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"In Spring Boot 2.5 a `DefaultConfigurationCustomizer` can now be used in favour of defining one or more `*Provider` beans"}
-  description={"To streamline the customization of jOOQ’s `DefaultConfiguration`, a bean that implements `DefaultConfigurationCustomizer` can now be defined. This customizer callback should be used in favour of defining one or more `*Provider` beans, the support for which has now been deprecated. See [Spring Boot 2.5 jOOQ customization](https://docs.spring.io/spring-boot/docs/2.5.x/reference/htmlsingle/#features.sql.jooq.customizing)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.search.CustomizingJooqDefaultConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/customizingjooqdefaultconfiguration.md"}
-/>
+>
+
+<RecipeHeader.Title>In Spring Boot 2.5 a `DefaultConfigurationCustomizer` can now be used in favour of defining one or more `*Provider` beans</RecipeHeader.Title>
+
+<RecipeHeader.Description>To streamline the customization of jOOQ’s `DefaultConfiguration`, a bean that implements `DefaultConfigurationCustomizer` can now be defined. This customizer callback should be used in favour of defining one or more `*Provider` beans, the support for which has now been deprecated. See [Spring Boot 2.5 jOOQ customization](https://docs.spring.io/spring-boot/docs/2.5.x/reference/htmlsingle/#features.sql.jooq.customizing).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.jooq.conf.Settings;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.context.annotation.Bean;\n\n@Configuration\nclass PersistenceConfiguration {\n\n    @Bean\n    Settings settings() {\n        return null;\n    }\n}\n","after":"import org.jooq.conf.Settings;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.context.annotation.Bean;\n\n@Configuration\nclass PersistenceConfiguration {\n\n    /*~~>*/@Bean\n    Settings settings() {\n        return null;\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\nclass PersistenceConfiguration {\n\n-   @Bean\n+   /*~~>*/@Bean\n    Settings settings() {\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename setter methods to fit Lombok"}
-  description={"Rename methods that are effectively setter to the name Lombok would give them.\nLimitations:\n - If two methods in a class are effectively the same setter then one's name will be corrected and the others name will be left as it is.\n - If the correct name for a method is already taken by another method then the name will not be corrected.\n - Method name swaps or circular renaming within a class cannot be performed because the names block each other.\nE.g. `int getFoo() { return ba; } int getBa() { return foo; }` stays as it is."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,22 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lombok.AdoptLombokSetterMethodNames"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/adoptlomboksettermethodnames.md"}
-/>
+>
+
+<RecipeHeader.Title>Rename setter methods to fit Lombok</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Rename methods that are effectively setter to the name Lombok would give them.
+Limitations:
+ - If two methods in a class are effectively the same setter then one's name will be corrected and the others name will be left as it is.
+ - If the correct name for a method is already taken by another method then the name will not be corrected.
+ - Method name swaps or circular renaming within a class cannot be performed because the names block each other.
+E.g. `int getFoo() { return ba; } int getBa() { return foo; }` stays as it is.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    int foo = 9;\n    public void storeFoo(int foo) {\n        this.foo = foo;\n    }\n}\n","after":"class A {\n    int foo = 9;\n    public void setFoo(int foo) {\n        this.foo = foo;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n    int foo = 9;\n-   public void storeFoo(int foo) {\n+   public void setFoo(int foo) {\n        this.foo = foo;\n","newFile":false}]}]}>
 

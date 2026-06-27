@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Delete key"}
-  description={"Delete a JSON mapping entry key."}
   type={"Single recipe"}
   languages={["JSON"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-json"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.json.DeleteKey"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/json/deletekey.md"}
-/>
+>
+
+<RecipeHeader.Title>Delete key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Delete a JSON mapping entry key.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"keyPath","required":true,"description":"A [JsonPath](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expression to locate a JSON entry.","example":"$.subjects.kind"}]}>
 

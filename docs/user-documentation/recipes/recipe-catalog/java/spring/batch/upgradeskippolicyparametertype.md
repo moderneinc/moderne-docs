@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change the type of `skipCount` parameter in `SkipPolicy` from `int` to `long`"}
-  description={"The `skipCount` parameter in `org.springframework.batch.core.step.skip.SkipPolicy#shouldSkip` has been changed from `int` to `long`, this recipe updates the parameter type in the implementing classes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.UpgradeSkipPolicyParameterType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/upgradeskippolicyparametertype.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change parameter type for a method declaration","href":"java/spring/changemethodparameter"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Change the type of `skipCount` parameter in `SkipPolicy` from `int` to `long`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `skipCount` parameter in `org.springframework.batch.core.step.skip.SkipPolicy#shouldSkip` has been changed from `int` to `long`, this recipe updates the parameter type in the implementing classes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change parameter type for a method declaration","href":"/user-documentation/recipes/recipe-catalog/java/spring/changemethodparameter/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

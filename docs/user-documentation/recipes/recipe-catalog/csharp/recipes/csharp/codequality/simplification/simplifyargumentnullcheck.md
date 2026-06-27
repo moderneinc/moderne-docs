@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify argument null check"}
-  description={"Use ArgumentNullException.ThrowIfNull(arg) instead of manual null check."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyArgumentNullCheck"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifyargumentnullcheck.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify argument null check</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use ArgumentNullException.ThrowIfNull(arg) instead of manual null check.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyArgumentNullCheck","displayName":"Simplify argument null check","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename Jackson 2.x methods to 3.x equivalents for ObjectNode"}
-  description={"Rename ObjectNode methods deprecated in Jackson 2 and removed in 3.x (`put(String, JsonNode)` to `set`, `putAll` to `setAll`)."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.UpgradeJackson_2_3_ObjectNodeMethodRenames"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/upgradejackson_2_3_objectnodemethodrenames.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"}]}>
+<RecipeHeader.Title>Rename Jackson 2.x methods to 3.x equivalents for ObjectNode</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rename ObjectNode methods deprecated in Jackson 2 and removed in 3.x (`put(String, JsonNode)` to `set`, `putAll` to `setAll`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]}>
 
 ## Definition
 

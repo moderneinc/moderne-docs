@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJInstantRules.AssertThatIsBetween`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsBetween {\n    \n    @BeforeTemplate\n    AbstractInstantAssert<?> before(Instant actual, Instant start, Instant end) {\n        return Refaster.anyOf(assertThat(actual).isAfterOrEqualTo(start).isBeforeOrEqualTo(end), assertThat(actual).isBeforeOrEqualTo(end).isAfterOrEqualTo(start));\n    }\n    \n    @AfterTemplate\n    AbstractInstantAssert<?> after(Instant actual, Instant start, Instant end) {\n        return assertThat(actual).isBetween(start, end);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJInstantRulesRecipes$AssertThatIsBetweenRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisbetweenrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJInstantRules.AssertThatIsBetween`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIsBetween {
+    
+    @BeforeTemplate
+    AbstractInstantAssert<?> before(Instant actual, Instant start, Instant end) {
+        return Refaster.anyOf(assertThat(actual).isAfterOrEqualTo(start).isBeforeOrEqualTo(end), assertThat(actual).isBeforeOrEqualTo(end).isAfterOrEqualTo(start));
+    }
+    
+    @AfterTemplate
+    AbstractInstantAssert<?> after(Instant actual, Instant start, Instant end) {
+        return assertThat(actual).isBetween(start, end);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJInstantRulesRecipes$AssertThatIsBetweenRecipe","displayName":"Refaster template `AssertJInstantRules.AssertThatIsBetween`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `String.toLong(radix)` instead of `Long.parseLong(s, radix)`"}
-  description={"`java.lang.Long.parseLong(s, radix)` is JVM-only; the Kotlin extension `s.toLong(radix)` is multiplatform and reads as a receiver call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseStringToLongWithRadix$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtolongwithradix$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `String.toLong(radix)` instead of `Long.parseLong(s, radix)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.lang.Long.parseLong(s, radix)` is JVM-only; the Kotlin extension `s.toLong(radix)` is multiplatform and reads as a receiver call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseStringToLongWithRadix$KtRecipe","displayName":"Use `String.toLong(radix)` instead of `Long.parseLong(s, radix)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

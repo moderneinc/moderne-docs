@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate RestAssured from javax to jakarta namespace by upgrading to a version compatible with J2EE9"}
-  description={"Java EE has been rebranded to Jakarta EE.  This recipe replaces existing RestAssured dependencies with their counterparts that are compatible with Jakarta EE.\n"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus30.RestAssuredJavaxToJakarta"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/restassuredjavaxtojakarta.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Maven dependency version","href":"maven/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Migrate RestAssured from javax to jakarta namespace by upgrading to a version compatible with J2EE9</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java EE has been rebranded to Jakarta EE.  This recipe replaces existing RestAssured dependencies with their counterparts that are compatible with Jakarta EE.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Maven dependency version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion/"}]}>
 
 ## Definition
 

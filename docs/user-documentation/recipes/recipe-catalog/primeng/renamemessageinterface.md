@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename `Message` interface to `ToastMessageOptions`"}
-  description={"Renames the `Message` interface import from `primeng/api` to `ToastMessageOptions` and updates all identifier usages. The `Message` interface was renamed in PrimeNG 18 due to name collision with the `Message` component."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.RenameMessageInterface"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/renamemessageinterface.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename `Message` identifiers to `ToastMessageOptions`","href":""},{"name":"Change import","href":"javascript/change-import"}]}>
+<RecipeHeader.Title>Rename `Message` interface to `ToastMessageOptions`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames the `Message` interface import from `primeng/api` to `ToastMessageOptions` and updates all identifier usages. The `Message` interface was renamed in PrimeNG 18 due to name collision with the `Message` component.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename `Message` identifiers to `ToastMessageOptions`","href":""},{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/javascript/change-import/"}]}>
 
 ## Definition
 

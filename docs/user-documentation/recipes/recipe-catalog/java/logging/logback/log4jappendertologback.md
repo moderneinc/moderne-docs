@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Log4j 2.x Appender to logback-classic equivalents"}
-  description={"Migrates custom Log4j 2.x Appender components to `logback-classic`. This recipe operates on the following assumptions: 1.) The contents of the `append()` method remains unchanged. 2.) The `requiresLayout()` method is not used in logback and can be removed. 3.) In logback, the `stop()` method is the equivalent of log4j's close() method. For more details, see this page from logback: [`Migration from log4j`](http://logback.qos.ch/manual/migrationFromLog4j.html)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.logback.Log4jAppenderToLogback"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/logback/log4jappendertologback.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate Log4j 2.x Appender to logback-classic equivalents</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates custom Log4j 2.x Appender components to `logback-classic`. This recipe operates on the following assumptions: 1.) The contents of the `append()` method remains unchanged. 2.) The `requiresLayout()` method is not used in logback and can be removed. 3.) In logback, the `stop()` method is the equivalent of log4j's close() method. For more details, see this page from logback: [`Migration from log4j`](http://logback.qos.ch/manual/migrationFromLog4j.html).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.log4j.AppenderSkeleton;\nimport org.apache.log4j.spi.LoggingEvent;\n\nclass TrivialAppender extends AppenderSkeleton {\n    @Override\n    protected void append(LoggingEvent event) {\n        String s = this.layout.format(event);\n        System.out.println(s);\n    }\n\n    @Override\n    public void close() {\n        // nothing to do\n    }\n\n    @Override\n    public boolean requiresLayout() {\n        return true;\n    }\n}\n","after":"import ch.qos.logback.classic.spi.ILoggingEvent;\nimport ch.qos.logback.core.AppenderBase;\n\nclass TrivialAppender extends AppenderBase<ILoggingEvent> {\n    @Override\n    protected void append(ILoggingEvent event) {\n        String s = this.layout.doLayout(event);\n        System.out.println(s);\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.apache.log4j.AppenderSkeleton;\n-import org.apache.log4j.spi.LoggingEvent;\n+import ch.qos.logback.classic.spi.ILoggingEvent;\n+import ch.qos.logback.core.AppenderBase;\n\n@@ -4,1 +4,1 @@\nimport org.apache.log4j.spi.LoggingEvent;\n\n-class TrivialAppender extends AppenderSkeleton {\n+class TrivialAppender extends AppenderBase<ILoggingEvent> {\n    @Override\n@@ -6,2 +6,2 @@\nclass TrivialAppender extends AppenderSkeleton {\n    @Override\n-   protected void append(LoggingEvent event) {\n-       String s = this.layout.format(event);\n+   protected void append(ILoggingEvent event) {\n+       String s = this.layout.doLayout(event);\n        System.out.println(s);\n@@ -10,10 +10,0 @@\n        System.out.println(s);\n    }\n-\n-   @Override\n-   public void close() {\n-       // nothing to do\n-   }\n-\n-   @Override\n-   public boolean requiresLayout() {\n-       return true;\n-   }\n}\n","newFile":false}]}]}>
 

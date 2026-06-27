@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `new ArrayList<>()`"}
-  description={"Prefer the Java standard library over third-party usage of Guava in simple cases like this."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaListsNewArrayList"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavalistsnewarraylist.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `new ArrayList<>()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Java standard library over third-party usage of Guava in simple cases like this.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\n\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = Lists.newArrayList();\n}\n","after":"import java.util.ArrayList;\nimport java.util.List;\n\nclass Test {\n    List<Integer> cardinalsWorldSeries = new ArrayList<>();\n}\n","diff":"@@ -1,2 +1,1 @@\n-import com.google.common.collect.*;\n-\n+import java.util.ArrayList;\nimport java.util.List;\n@@ -6,1 +5,1 @@\n\nclass Test {\n-   List<Integer> cardinalsWorldSeries = Lists.newArrayList();\n+   List<Integer> cardinalsWorldSeries = new ArrayList<>();\n}\n","newFile":false}]}]}>
 

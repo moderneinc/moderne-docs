@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Quarkus configuration property value"}
-  description={"Change the value of a property in Quarkus configuration files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.ChangeQuarkusPropertyValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/changequarkuspropertyvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Quarkus configuration property value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the value of a property in Quarkus configuration files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The name of the property key whose value is to be changed. Supports regex.","example":"quarkus.hibernate-search-orm.indexing.plan.synchronization.strategy"},{"type":"String","name":"newValue","required":true,"description":"The new value to be used for key specified by `propertyKey`.","example":"read-sync"},{"type":"String","name":"oldValue","required":false,"description":"Only change the property value if it matches the configured `oldValue`.","example":"read-sync"},{"type":"String","name":"profile","required":false,"description":"The profile where the property is defined. If not specified, the property will be changed on all profiles by default.","example":"dev"},{"type":"Boolean","name":"changeAllProfiles","required":false,"description":"If set to true, the property value will be changed on all available profiles. Defaults to `true` if a profile is not defined.","example":"false"},{"type":"List","name":"pathExpressions","required":false,"description":"Each value in this list represents a glob expression that is used to match which files will be modified. If this value is not present, this recipe will query the execution context for reasonable defaults. (\"**/application.yml\", \"**/application.yaml\", \"**/application.properties\" and \"**/META-INF/microprofile-config.properties\".","example":"[\"**/application.yaml\"]"}]}>
 

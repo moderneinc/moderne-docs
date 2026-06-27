@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUnit `assertNotEquals(false, <boolean>)` to `assertFalse(<boolean>)` / `assertTrue(<boolean>)`"}
-  description={"Using `assertFalse` or `assertTrue` is simpler and more clear."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.AssertNotEqualsBooleanToAssertBoolean"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertnotequalsbooleantoassertboolean.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace JUnit `assertNotEquals(false, <boolean>)` to `assertFalse(<boolean>)` / `assertTrue(<boolean>)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using `assertFalse` or `assertTrue` is simpler and more clear.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.junit.jupiter.api.Assertions.assertNotEquals;\n\npublic class Test {\n    void test() {\n        String a = \"a\";\n        String c = \"c\";\n        boolean b = false;\n        assertNotEquals(false, b);\n        assertNotEquals(false, a.equals(c));\n        assertNotEquals(false, a.equals(c), \"message\");\n    }\n}\n","after":"import static org.junit.jupiter.api.Assertions.assertTrue;\n\npublic class Test {\n    void test() {\n        String a = \"a\";\n        String c = \"c\";\n        boolean b = false;\n        assertTrue(b);\n        assertTrue(a.equals(c));\n        assertTrue(a.equals(c), \"message\");\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static org.junit.jupiter.api.Assertions.assertNotEquals;\n+import static org.junit.jupiter.api.Assertions.assertTrue;\n\n@@ -8,3 +8,3 @@\n        String c = \"c\";\n        boolean b = false;\n-       assertNotEquals(false, b);\n-       assertNotEquals(false, a.equals(c));\n-       assertNotEquals(false, a.equals(c), \"message\");\n+       assertTrue(b);\n+       assertTrue(a.equals(c));\n+       assertTrue(a.equals(c), \"message\");\n    }\n","newFile":false}]}]}>
 

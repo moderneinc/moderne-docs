@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find equality / comparison smells"}
-  description={"`===` / `!==` referential checks (usually `==` is meant), `x == true|false` longhand for Boolean, and `x.compareTo(y) > 0` calls that should use the comparison operator directly."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindEqualitySmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findequalitysmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `===` / `!==` referential-equality comparisons","href":"kotlin/bestpractices/findreferentialequality$ktrecipe"},{"name":"Find `b == true` / `b == false` comparisons","href":"kotlin/bestpractices/findequalstobooleanliteral$ktrecipe"},{"name":"Find `x.compareTo(y) <op> 0` patterns","href":"kotlin/bestpractices/findcomparetoinsteadofoperator$ktrecipe"}]}>
+<RecipeHeader.Title>Find equality / comparison smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>`===` / `!==` referential checks (usually `==` is meant), `x == true|false` longhand for Boolean, and `x.compareTo(y) > 0` calls that should use the comparison operator directly.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `===` / `!==` referential-equality comparisons","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findreferentialequality$ktrecipe/"},{"name":"Find `b == true` / `b == false` comparisons","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findequalstobooleanliteral$ktrecipe/"},{"name":"Find `x.compareTo(y) <op> 0` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findcomparetoinsteadofoperator$ktrecipe/"}]}>
 
 ## Definition
 

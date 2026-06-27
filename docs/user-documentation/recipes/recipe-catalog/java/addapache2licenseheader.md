@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add ASLv2 license header"}
-  description={"Adds the Apache Software License Version 2.0 to Java source files which are missing a license header."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["oss"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.AddApache2LicenseHeader"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/addapache2licenseheader.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add license header","href":"java/addlicenseheader"}]}>
+<RecipeHeader.Title>Add ASLv2 license header</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the Apache Software License Version 2.0 to Java source files which are missing a license header.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add license header","href":"/user-documentation/recipes/recipe-catalog/java/addlicenseheader/"}]}>
 
 ## Definition
 

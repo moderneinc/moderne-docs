@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Android modernization candidates"}
-  description={"Patterns that work but predate the modern Android toolchain: manual `Parcelable` (`@Parcelize`), `java.io.Serializable` on Android transports, RxJava imports (coroutines + Flow), `Dagger*Component.builder()` (Hilt), direct `ViewModelProvider` construction (`by viewModels()`), `ObjectAnimator` (Compose animation APIs), and `Runtime.exec` (audit for app-sandbox fit)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindAndroidModernizationCandidates$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidmodernizationcandidates$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find Kotlin classes implementing `Parcelable` without `@Parcelize`","href":"kotlin/android/findparcelablejavaimpl$ktrecipe"},{"name":"Find Kotlin classes implementing `java.io.Serializable`","href":"kotlin/android/findserializableusage$ktrecipe"},{"name":"Find `io.reactivex.*` imports","href":"kotlin/android/findrxjavaimports$ktrecipe"},{"name":"Find `Dagger*Component.builder().build()` patterns","href":"kotlin/android/findmanualdaggerprovision$ktrecipe"},{"name":"Find `ViewModelProvider(...)` direct constructions","href":"kotlin/android/findandroidviewmodelinjection$ktrecipe"},{"name":"Find `ObjectAnimator.ofInt/ofFloat(...)` calls","href":"kotlin/android/findobjectanimator$ktrecipe"},{"name":"Find `Runtime.exec(...)` / `ProcessBuilder.start()` calls","href":"kotlin/android/findruntimeexecinandroid$ktrecipe"}]}>
+<RecipeHeader.Title>Find Android modernization candidates</RecipeHeader.Title>
+
+<RecipeHeader.Description>Patterns that work but predate the modern Android toolchain: manual `Parcelable` (`@Parcelize`), `java.io.Serializable` on Android transports, RxJava imports (coroutines + Flow), `Dagger*Component.builder()` (Hilt), direct `ViewModelProvider` construction (`by viewModels()`), `ObjectAnimator` (Compose animation APIs), and `Runtime.exec` (audit for app-sandbox fit).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find Kotlin classes implementing `Parcelable` without `@Parcelize`","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findparcelablejavaimpl$ktrecipe/"},{"name":"Find Kotlin classes implementing `java.io.Serializable`","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findserializableusage$ktrecipe/"},{"name":"Find `io.reactivex.*` imports","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findrxjavaimports$ktrecipe/"},{"name":"Find `Dagger*Component.builder().build()` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findmanualdaggerprovision$ktrecipe/"},{"name":"Find `ViewModelProvider(...)` direct constructions","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidviewmodelinjection$ktrecipe/"},{"name":"Find `ObjectAnimator.ofInt/ofFloat(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findobjectanimator$ktrecipe/"},{"name":"Find `Runtime.exec(...)` / `ProcessBuilder.start()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findruntimeexecinandroid$ktrecipe/"}]}>
 
 ## Definition
 

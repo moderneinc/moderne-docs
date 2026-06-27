@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated methods in`SecurityManager`"}
-  description={"Replace `SecurityManager` methods `checkAwtEventQueueAccess()`, `checkSystemClipboardAccess()`, `checkMemberAccess()` and `checkTopLevelWindow()` deprecated in Java SE 11 by `checkPermission(new java.security.AllPermission())`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.RemovedSecurityManagerMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/removedsecuritymanagermethods.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated methods in`SecurityManager`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `SecurityManager` methods `checkAwtEventQueueAccess()`, `checkSystemClipboardAccess()`, `checkMemberAccess()` and `checkTopLevelWindow()` deprecated in Java SE 11 by `checkPermission(new java.security.AllPermission())`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.RemovedSecurityManagerMethods","displayName":"Replace deprecated methods in`SecurityManager`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

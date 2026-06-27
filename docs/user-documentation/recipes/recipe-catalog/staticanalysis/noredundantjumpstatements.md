@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Jump statements should not be redundant"}
-  description={"Jump statements such as return and continue let you change the default flow of program execution, but jump statements that direct the control flow to the original direction are just a waste of keystrokes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S3626"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.NoRedundantJumpStatements"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/noredundantjumpstatements.md"}
-/>
+>
+
+<RecipeHeader.Title>Jump statements should not be redundant</RecipeHeader.Title>
+
+<RecipeHeader.Description>Jump statements such as return and continue let you change the default flow of program execution, but jump statements that direct the control flow to the original direction are just a waste of keystrokes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    boolean condition1;\n    boolean condition2;\n    void test() {\n        while (condition1) {\n            if (condition2) {\n                continue;\n            } else {\n                System.out.println();\n            }\n        }\n        return;\n    }\n}\n","after":"class Test {\n    boolean condition1;\n    boolean condition2;\n    void test() {\n        while (condition1) {\n            if (!condition2) {\n                System.out.println();\n            }\n        }\n    }\n}\n","diff":"@@ -6,3 +6,1 @@\n    void test() {\n        while (condition1) {\n-           if (condition2) {\n-               continue;\n-           } else {\n+           if (!condition2) {\n                System.out.println();\n@@ -12,1 +10,0 @@\n            }\n        }\n-       return;\n    }\n","newFile":false}]}]}>
 

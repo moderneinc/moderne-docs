@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `OutgoingMessage._headers` and `._headerNames` with public methods"}
-  description={"Replace deprecated `OutgoingMessage.prototype._headers` with `getHeaders()`, `setHeader()`, `removeHeader()` and `OutgoingMessage.prototype._headerNames` with `getHeaderNames()` to address DEP0066 deprecation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0066"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.http.replace-outgoing-message-headers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/http/replace-outgoing-message-headers.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `OutgoingMessage._headers` and `._headerNames` with public methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated `OutgoingMessage.prototype._headers` with `getHeaders()`, `setHeader()`, `removeHeader()` and `OutgoingMessage.prototype._headerNames` with `getHeaderNames()` to address DEP0066 deprecation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.http.replace-outgoing-message-headers","displayName":"Replace `OutgoingMessage._headers` and `._headerNames` with public methods","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

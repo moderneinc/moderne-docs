@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find sensitive API endpoints"}
-  description={"Find data models exposed by REST APIs that contain sensitive information like PII and secrets."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindSensitiveApiEndpoints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findsensitiveapiendpoints.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find sensitive API endpoints</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find data models exposed by REST APIs that contain sensitive information like PII and secrets.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"fieldNames","required":true,"description":"Field names to search for.","example":"password,dateOfBirth,dob,ssn"},{"type":"Boolean","name":"transitive","required":false,"description":"Find model objects that contain other model objects that contain sensitive data."}]}>
 

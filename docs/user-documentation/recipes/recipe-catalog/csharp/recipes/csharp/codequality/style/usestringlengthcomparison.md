@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use string.Length instead of comparison with empty string"}
-  description={"Replace `s == \"\"` with `s.Length == 0` and `s != \"\"` with `s.Length != 0`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseStringLengthComparison"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/usestringlengthcomparison.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use string.Length instead of comparison with empty string</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `s == ""` with `s.Length == 0` and `s != ""` with `s.Length != 0`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseStringLengthComparison","displayName":"Use string.Length instead of comparison with empty string","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

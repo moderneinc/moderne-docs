@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Disabled` annotations"}
-  description={"`@Disabled` is the JUnit 5 skip annotation — typically used for tests that are flaky, broken, or pending an upstream fix. Each match is a tech-debt marker worth reviewing: confirm the skip is still warranted, the reason still applies, and the test isn't hiding a real regression."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindDisabledTest$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/finddisabledtest$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Disabled` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@Disabled` is the JUnit 5 skip annotation — typically used for tests that are flaky, broken, or pending an upstream fix. Each match is a tech-debt marker worth reviewing: confirm the skip is still warranted, the reason still applies, and the test isn't hiding a real regression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindDisabledTest$KtRecipe","displayName":"Find `@Disabled` annotations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

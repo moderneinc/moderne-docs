@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Apache Kafka Native container"}
-  description={"Replace `confluentinc/cp-kafka` with the much faster `apache/kafka-native` image and migrate from `org.testcontainers.containers.KafkaContainer` to `org.testcontainers.kafka.KafkaContainer`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testcontainers.MigrateToKafkaNative"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/migratetokafkanative.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace container image name","href":"java/testing/testcontainers/replacecontainerimagename"},{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Apache Kafka Native container</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `confluentinc/cp-kafka` with the much faster `apache/kafka-native` image and migrate from `org.testcontainers.containers.KafkaContainer` to `org.testcontainers.kafka.KafkaContainer`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace container image name","href":"/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/replacecontainerimagename/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

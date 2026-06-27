@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove a redundant declaration-position `@Nullable` on a method return"}
-  description={"When a method return type already carries a TYPE_USE `@Nullable` (for example `<T> @Nullable T` or `pkg.@Nullable Type`), a second `@Nullable` in the leading (declaration) position or before the type parameters (`@Nullable <T> @Nullable T`) is redundant — and on generic, qualified, or nested return types it is rejected by `javac` (\"Nullable is not a repeatable annotation interface\" / \"scoping construct cannot be annotated with type-use annotation\"). This removes that duplicate so the JSpecify annotation survives in the single, valid TYPE_USE position. It only ever removes an annotation that is provably duplicated by one on the return type itself, so it never changes a method's nullability."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.cleanup.RemoveRedundantNullableOnMethodReturn"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/cleanup/removeredundantnullableonmethodreturn.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove a redundant declaration-position `@Nullable` on a method return</RecipeHeader.Title>
+
+<RecipeHeader.Description>When a method return type already carries a TYPE_USE `@Nullable` (for example `<T> @Nullable T` or `pkg.@Nullable Type`), a second `@Nullable` in the leading (declaration) position or before the type parameters (`@Nullable <T> @Nullable T`) is redundant — and on generic, qualified, or nested return types it is rejected by `javac` ("Nullable is not a repeatable annotation interface" / "scoping construct cannot be annotated with type-use annotation"). This removes that duplicate so the JSpecify annotation survives in the single, valid TYPE_USE position. It only ever removes an annotation that is provably duplicated by one on the return type itself, so it never changes a method's nullability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.nullability.cleanup.RemoveRedundantNullableOnMethodReturn","displayName":"Remove a redundant declaration-position `@Nullable` on a method return","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 

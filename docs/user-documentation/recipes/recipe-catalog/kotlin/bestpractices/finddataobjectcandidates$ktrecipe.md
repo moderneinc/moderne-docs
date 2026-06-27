@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find marker `object` declarations that could be `data object`"}
-  description={"A bare `object Foo` declaration with no body inherits `Any.toString()`, which prints as `Foo$Companion@<hash>`-style identity strings. `data object Foo` (Kotlin 1.9+) generates a readable `toString` (`\"Foo\"`), `equals` (identity), and `hashCode` — preferred for marker singletons used in `when` exhaustiveness checks and serialization."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindDataObjectCandidates$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/finddataobjectcandidates$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find marker `object` declarations that could be `data object`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A bare `object Foo` declaration with no body inherits `Any.toString()`, which prints as `Foo$Companion@<hash>`-style identity strings. `data object Foo` (Kotlin 1.9+) generates a readable `toString` (`"Foo"`), `equals` (identity), and `hashCode` — preferred for marker singletons used in `when` exhaustiveness checks and serialization.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindDataObjectCandidates$KtRecipe","displayName":"Find marker `object` declarations that could be `data object`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

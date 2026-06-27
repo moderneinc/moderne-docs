@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Delete files"}
-  description={"Delete files by source path."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.DeleteSourceFiles"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/deletesourcefiles.md"}
-/>
+>
+
+<RecipeHeader.Title>Delete files</RecipeHeader.Title>
+
+<RecipeHeader.Description>Delete files by source path.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"filePattern","required":true,"description":"A glob expression representing a file path to delete (relative to the project root).","example":".github/workflows/*.yml"}]}>
 

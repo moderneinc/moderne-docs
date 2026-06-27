@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add RBAC rules"}
-  description={"Add RBAC rules to ClusterRoles or namespaced Roles."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.rbac.AddRuleToRole"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/rbac/addruletorole.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add RBAC rules</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add RBAC rules to ClusterRoles or namespaced Roles.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"rbacResourceType","required":true,"description":"Type of RBAC resource to which this recipe adds a rule.","example":"ClusterRole"},{"type":"String","name":"rbacResourceName","required":true,"description":"Glob pattern of the name of the RBAC resource to which this recipe adds a rule.","example":"my-cluster-role"},{"type":"Set","name":"apiGroups","required":true,"description":"Comma-separated list of API groups to which this rule refers.","example":",v1"},{"type":"Set","name":"resources","required":true,"description":"Comma-separated list of Kubernetes resource types to which this rule refers.","example":"pods"},{"type":"Set","name":"resourceNames","required":false,"description":"Comma-separated list of names of Kubernetes resources to which this rule applies.","example":"my-pod"},{"type":"Set","name":"verbs","required":true,"description":"The API verbs to enable with this rule.","example":"get,list"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

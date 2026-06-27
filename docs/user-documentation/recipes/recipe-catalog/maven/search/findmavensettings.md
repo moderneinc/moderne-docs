@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find effective maven settings"}
-  description={"List the effective maven settings file for the current project."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.search.FindMavenSettings"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/search/findmavensettings.md"}
-/>
+>
+
+<RecipeHeader.Title>Find effective maven settings</RecipeHeader.Title>
+
+<RecipeHeader.Description>List the effective maven settings file for the current project.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"existenceCheckOnly","required":false,"description":"Only record that a maven settings file exists; do not include its contents."}]}>
 

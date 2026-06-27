@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Kotlin method"}
-  description={"Replaces Kotlin method calls based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={["deprecated","kotlin"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.replace.ReplaceKotlinMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/replace/replacekotlinmethod.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace Kotlin method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces Kotlin method calls based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern that is used to find matching method invocations.","example":"arrow.core.MapKt mapOrAccumulate(kotlin.Function2)"},{"type":"String","name":"replacement","required":true,"description":"The replacement expression from `@Deprecated(replaceWith=ReplaceWith(...))`. Parameter names from the original method can be used directly.","example":"mapValuesOrAccumulate(transform)"},{"type":"List","name":"imports","required":false,"description":"List of imports to add when the replacement is made.","example":"[\"arrow.core.Either\"]"},{"type":"List","name":"classpathFromResources","required":false,"description":"List of classpath resource names for parsing the replacement template.","example":"[\"arrow-core-2\"]"}]}>
 

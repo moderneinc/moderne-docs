@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `ResponseEntity(body, HttpStatus.OK)` constructor calls"}
-  description={"The two-argument `ResponseEntity` constructor with `HttpStatus.OK` is exactly what `ResponseEntity.ok(body)` produces — using the factory makes the 200-OK intent explicit and removes the dependency on `HttpStatus`. Save the constructor form for genuinely status-varying responses."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindResponseEntityWithoutStatus$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findresponseentitywithoutstatus$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `ResponseEntity(body, HttpStatus.OK)` constructor calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>The two-argument `ResponseEntity` constructor with `HttpStatus.OK` is exactly what `ResponseEntity.ok(body)` produces — using the factory makes the 200-OK intent explicit and removes the dependency on `HttpStatus`. Save the constructor form for genuinely status-varying responses.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindResponseEntityWithoutStatus$KtRecipe","displayName":"Find `ResponseEntity(body, HttpStatus.OK)` constructor calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

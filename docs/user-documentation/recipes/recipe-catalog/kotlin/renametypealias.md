@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename type alias"}
-  description={"Change the name of a given type alias."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-kotlin"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.RenameTypeAlias"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/renametypealias.md"}
-/>
+>
+
+<RecipeHeader.Title>Rename type alias</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the name of a given type alias.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"aliasName","required":true,"description":"Name of the alias type.","example":"OldAlias"},{"type":"String","name":"newName","required":true,"description":"Name of the alias type.","example":"NewAlias"},{"type":"String","name":"fullyQualifiedAliasedType","required":true,"description":"Fully-qualified class name of the aliased type.","example":"org.junit.Assume"}]}>
 

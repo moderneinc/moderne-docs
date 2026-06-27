@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use constant instead of field"}
-  description={"Convert `static readonly` fields with literal initializers to `const`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseConstantInsteadOfField"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/useconstantinsteadoffield.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use constant instead of field</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert `static readonly` fields with literal initializers to `const`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseConstantInsteadOfField","displayName":"Use constant instead of field","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

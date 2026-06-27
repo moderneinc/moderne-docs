@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace TOML table row"}
-  description={"Replace a TOML table row with new content. If a row with the same identifying property exists, replace it entirely."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-toml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.toml.ReplaceTableRow"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/toml/replacetablerow.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace TOML table row</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace a TOML table row with new content. If a row with the same identifying property exists, replace it entirely.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"tableName","required":true,"description":"The name of the TOML array table to replace rows in (e.g., 'package.contributors').","example":"package.contributors"},{"type":"String","name":"row","required":true,"description":"The TOML key-value pairs to replace with. Should contain the objectIdentifyingProperty.","example":"name = \"Alice Smith\"\\nemail = \"alice@example.com\""},{"type":"String","name":"identifyingKey","required":true,"description":"The property name used to match existing rows. When a row with this property value exists, it will be replaced; otherwise, a new row will not be inserted (see MergeTableRow).","example":"name"}]}>
 

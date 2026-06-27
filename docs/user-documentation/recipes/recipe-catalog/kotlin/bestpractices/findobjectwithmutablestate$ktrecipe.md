@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `object` declarations with `var` properties"}
-  description={"An `object` is a singleton — its `var` properties are shared global mutable state. Concurrent reads/writes race without synchronization, and the value can change in surprising ways across modules."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindObjectWithMutableState$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findobjectwithmutablestate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `object` declarations with `var` properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `object` is a singleton — its `var` properties are shared global mutable state. Concurrent reads/writes race without synchronization, and the value can change in surprising ways across modules.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindObjectWithMutableState$KtRecipe","displayName":"Find `object` declarations with `var` properties","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

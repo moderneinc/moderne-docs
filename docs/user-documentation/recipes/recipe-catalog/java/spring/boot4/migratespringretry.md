@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Retry to Spring Resilience"}
-  description={"Handle spring-retry no longer managed by Spring Boot and the possible migration to Spring Core Resilience."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.MigrateSpringRetry"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretry.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Migrate `spring-retry` to Spring Framework resilience","href":"java/spring/boot4/migratespringretrytospringframework7"},{"name":"Change type","href":"java/changetype"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Module uses type","href":"java/search/moduleusestype"}]}>
+<RecipeHeader.Title>Migrate Spring Retry to Spring Resilience</RecipeHeader.Title>
+
+<RecipeHeader.Description>Handle spring-retry no longer managed by Spring Boot and the possible migration to Spring Core Resilience.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Migrate `spring-retry` to Spring Framework resilience","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratespringretrytospringframework7/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Module uses type","href":"/user-documentation/recipes/recipe-catalog/java/search/moduleusestype/"}]}>
 
 ## Definition
 

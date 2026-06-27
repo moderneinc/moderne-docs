@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create Jetty server source file"}
-  description={"Creates a `JettyServer.java` source file for projects containing JBoss descriptor files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.jetty.CreateJettySourceFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/createjettysourcefile.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Create Jetty server source file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Creates a `JettyServer.java` source file for projects containing JBoss descriptor files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageName","required":true,"description":"The package name for the generated Java source files.","example":"com.example.jetty"},{"type":"String","name":"contextPath","required":false,"description":"The context path for the Jetty application.","example":"/myapp"},{"type":"Integer","name":"port","required":false,"description":"The default port for the Jetty server.","example":"8080"}]}>
 

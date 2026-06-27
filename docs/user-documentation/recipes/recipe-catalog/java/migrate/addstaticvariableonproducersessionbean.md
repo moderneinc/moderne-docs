@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adds `static` modifier to `@Produces` fields that are in session beans"}
-  description={"Ensures that the fields annotated with `@Produces` which is inside the session bean (`@Stateless`, `@Stateful`, or `@Singleton`) are declared `static`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.AddStaticVariableOnProducerSessionBean"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/addstaticvariableonproducersessionbean.md"}
-/>
+>
+
+<RecipeHeader.Title>Adds `static` modifier to `@Produces` fields that are in session beans</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensures that the fields annotated with `@Produces` which is inside the session bean (`@Stateless`, `@Stateful`, or `@Singleton`) are declared `static`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.test;\nimport jakarta.ejb.Stateless;\nimport jakarta.enterprise.inject.Produces;\n\n@Stateless\npublic class MySessionBean {\n    @Produces\n    private SomeDependency someDependency;\n    void exampleMethod() {\n       return;\n    }\n}\n","after":"package com.test;\nimport jakarta.ejb.Stateless;\nimport jakarta.enterprise.inject.Produces;\n\n@Stateless\npublic class MySessionBean {\n    @Produces\n    private static SomeDependency someDependency;\n    void exampleMethod() {\n       return;\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\npublic class MySessionBean {\n    @Produces\n-   private SomeDependency someDependency;\n+   private static SomeDependency someDependency;\n    void exampleMethod() {\n","newFile":false}]}]}>
 

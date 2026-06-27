@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `String.formatted(Object...)`"}
-  description={"Prefer `String.formatted(Object...)` over `String.format(String, Object...)` in Java 17 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.StringFormatted"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/stringformatted.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `String.formatted(Object...)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `String.formatted(Object...)` over `String.format(String, Object...)` in Java 17 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"addParentheses","required":false,"description":"Add parentheses around the first argument if it is not a simple expression. Default true; if false no change will be made. "}]}>
 

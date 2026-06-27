@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add XML declaration to Jelly files"}
-  description={"Ensure the XML declaration `<?jelly escape-by-default='true'?>` is present in all `.jelly` files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.AddJellyXmlDeclaration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/addjellyxmldeclaration.md"}
-/>
+>
+
+<RecipeHeader.Title>Add XML declaration to Jelly files</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure the XML declaration `<?jelly escape-by-default='true'?>` is present in all `.jelly` files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.jenkins.AddJellyXmlDeclaration","displayName":"Add XML declaration to Jelly files","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jenkins","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JENKINS","requiresConfiguration":false}}>
 

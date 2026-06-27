@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated `.append()` to `pd.concat()`"}
-  description={"`DataFrame.append()` no longer exists in pandas 2.0+. This recipe rewrites `.append(x)` calls to `pd.concat([df, x])`."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.DataframeAppendToConcat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/dataframeappendtoconcat.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate deprecated `.append()` to `pd.concat()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`DataFrame.append()` no longer exists in pandas 2.0+. This recipe rewrites `.append(x)` calls to `pd.concat([df, x])`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.DataframeAppendToConcat","displayName":"Migrate deprecated `.append()` to `pd.concat()`","pipPackage":"openrewrite-static-analysis"}}>
 

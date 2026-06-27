@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Data 3.0"}
-  description={"Migrate applications to Spring Data 3.0. Handles the PagingAndSortingRepository hierarchy change where it no longer extends CrudRepository, and chains prior deprecation fixes from Spring Data 2.7."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.data.UpgradeSpringData_3_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_3_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Data JPA 2.7","href":"java/spring/data/upgradespringdata_2_7"},{"name":"Add `CrudRepository` to interfaces extending `PagingAndSortingRepository`","href":"java/spring/data/migratepagingandsortingrepository"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Data 3.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to Spring Data 3.0. Handles the PagingAndSortingRepository hierarchy change where it no longer extends CrudRepository, and chains prior deprecation fixes from Spring Data 2.7.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Data JPA 2.7","href":"/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_2_7/"},{"name":"Add `CrudRepository` to interfaces extending `PagingAndSortingRepository`","href":"/user-documentation/recipes/recipe-catalog/java/spring/data/migratepagingandsortingrepository/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

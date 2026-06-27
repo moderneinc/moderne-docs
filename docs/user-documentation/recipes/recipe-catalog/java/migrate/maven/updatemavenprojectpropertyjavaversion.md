@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update Maven Java project properties"}
-  description={"The Java version is determined by several project properties, including:\n\n * `java.version`\n * `jdk.version`\n * `javaVersion`\n * `jdkVersion`\n * `maven.compiler.source`\n * `maven.compiler.target`\n * `maven.compiler.release`\n * `release.version`\n\nIf none of these properties are in use and the maven compiler plugin is not otherwise configured, adds the `maven.compiler.release` property."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,30 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.maven.UpdateMavenProjectPropertyJavaVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/maven/updatemavenprojectpropertyjavaversion.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Update Maven Java project properties","href":"maven/updatemavenprojectpropertyjavaversion"}]}>
+<RecipeHeader.Title>Update Maven Java project properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+The Java version is determined by several project properties, including:
+
+ * `java.version`
+ * `jdk.version`
+ * `javaVersion`
+ * `jdkVersion`
+ * `maven.compiler.source`
+ * `maven.compiler.target`
+ * `maven.compiler.release`
+ * `release.version`
+
+If none of these properties are in use and the maven compiler plugin is not otherwise configured, adds the `maven.compiler.release` property.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Update Maven Java project properties","href":"/user-documentation/recipes/recipe-catalog/maven/updatemavenprojectpropertyjavaversion/"}]}>
 
 ## Definition
 

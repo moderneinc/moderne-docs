@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace string-based `loadChildren` with dynamic `import()`"}
-  description={"Converts the deprecated string-based `loadChildren: 'path#Module'` syntax to dynamic imports: `loadChildren: () => import('path').then(m => m.Module)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.replace-load-children-string"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/replace-load-children-string.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace string-based `loadChildren` with dynamic `import()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts the deprecated string-based `loadChildren: 'path#Module'` syntax to dynamic imports: `loadChildren: () => import('path').then(m => m.Module)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.replace-load-children-string","displayName":"Replace string-based `loadChildren` with dynamic `import()`","npmPackage":"@openrewrite/recipes-angular"}}>
 

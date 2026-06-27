@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Reorder annotation attributes alphabetically"}
-  description={"Reorder annotation attributes to be alphabetical. Positional arguments (those without explicit attribute names) are left in their original position."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReorderAnnotationAttributes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/reorderannotationattributes.md"}
-/>
+>
+
+<RecipeHeader.Title>Reorder annotation attributes alphabetically</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reorder annotation attributes to be alphabetical. Positional arguments (those without explicit attribute names) are left in their original position.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"@interface MyAnnotation {\n    String name();\n    int value();\n    boolean enabled();\n}\n\n@MyAnnotation(value = 123, name = \"test\", enabled = true)\nclass A {\n}\n","after":"@interface MyAnnotation {\n    String name();\n    int value();\n    boolean enabled();\n}\n\n@MyAnnotation(enabled = true, name = \"test\", value = 123)\nclass A {\n}\n","diff":"@@ -7,1 +7,1 @@\n}\n\n-@MyAnnotation(value = 123, name = \"test\", enabled = true)\n+@MyAnnotation(enabled = true, name = \"test\", value = 123)\nclass A {\n","newFile":false}]}]}>
 

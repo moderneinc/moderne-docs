@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `implicit` to `given`/`using` (Scala 3)"}
-  description={"Finds `implicit` keyword usage on methods and parameters. In Scala 3, `implicit` is replaced with `given`/`using`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.MigrateImplicitToGivenUsing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/migrateimplicittogivenusing.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `implicit` to `given`/`using` (Scala 3)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `implicit` keyword usage on methods and parameters. In Scala 3, `implicit` is replaced with `given`/`using`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Conversions {\n  implicit def intToString(x: Int): String = x.toString\n}\n","after":"class Conversions {\n  /*~~(Consider migrating to given/using (Scala 3))~~>*/implicit def intToString(x: Int): String = x.toString\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Conversions {\n- implicit def intToString(x: Int): String = x.toString\n+ /*~~(Consider migrating to given/using (Scala 3))~~>*/implicit def intToString(x: Int): String = x.toString\n}\n","newFile":false}]}]}>
 

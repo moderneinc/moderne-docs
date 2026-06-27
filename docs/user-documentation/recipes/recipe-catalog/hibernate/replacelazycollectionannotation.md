@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `@LazyCollection` with `jakarta.persistence.FetchType`"}
-  description={"Adds the `FetchType` to jakarta annotations and deletes `@LazyCollection`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-hibernate"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hibernate.ReplaceLazyCollectionAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/replacelazycollectionannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `@LazyCollection` with `jakarta.persistence.FetchType`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the `FetchType` to jakarta annotations and deletes `@LazyCollection`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.annotations.LazyCollection;\nimport org.hibernate.annotations.LazyCollectionOption;\nimport jakarta.persistence.CascadeType;\nimport jakarta.persistence.OneToMany;\n\nimport java.util.HashSet;\nimport java.util.Set;\n\nclass SomeClass {\n\n    private Set<Object> items = new HashSet<>();\n\n    @LazyCollection(LazyCollectionOption.FALSE)\n    @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE })\n    public Set<Object> getItems() {\n        return items;\n    }\n}\n","after":"import jakarta.persistence.CascadeType;\nimport jakarta.persistence.FetchType;\nimport jakarta.persistence.OneToMany;\n\nimport java.util.HashSet;\nimport java.util.Set;\n\nclass SomeClass {\n\n    private Set<Object> items = new HashSet<>();\n\n    @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE }, fetch = FetchType.EAGER)\n    public Set<Object> getItems() {\n        return items;\n    }\n}\n","diff":"@@ -1,2 +1,0 @@\n-import org.hibernate.annotations.LazyCollection;\n-import org.hibernate.annotations.LazyCollectionOption;\nimport jakarta.persistence.CascadeType;\n@@ -4,0 +2,1 @@\nimport org.hibernate.annotations.LazyCollectionOption;\nimport jakarta.persistence.CascadeType;\n+import jakarta.persistence.FetchType;\nimport jakarta.persistence.OneToMany;\n@@ -13,2 +12,1 @@\n    private Set<Object> items = new HashSet<>();\n\n-   @LazyCollection(LazyCollectionOption.FALSE)\n-   @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE })\n+   @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE }, fetch = FetchType.EAGER)\n    public Set<Object> getItems() {\n","newFile":false}]}]}>
 

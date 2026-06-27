@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `@RequestMapping` annotations"}
-  description={"Replace method declaration `@RequestMapping` annotations with `@GetMapping`, `@PostMapping`, etc. when possible."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S4488"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.NoRequestMappingAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/norequestmappingannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `@RequestMapping` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace method declaration `@RequestMapping` annotations with `@GetMapping`, `@PostMapping`, etc. when possible.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.*;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport static org.springframework.web.bind.annotation.RequestMethod.GET;\nimport static org.springframework.web.bind.annotation.RequestMethod.HEAD;\n\n@RestController\n@RequestMapping(\"/users\")\npublic class UsersController {\n    @RequestMapping(method = HEAD)\n    public ResponseEntity<List<String>> getUsersHead() {\n        return null;\n    }\n\n    @RequestMapping(method = GET)\n    public ResponseEntity<List<String>> getUsers() {\n        return null;\n    }\n\n    @RequestMapping(path = \"/{id}\", method = RequestMethod.GET)\n    public ResponseEntity<String> getUser(@PathVariable(\"id\") Long id) {\n        return null;\n    }\n\n    @RequestMapping\n    public ResponseEntity<List<String>> getUsersNoRequestMethod() {\n        return null;\n    }\n}\n","after":"import java.util.*;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RequestMapping;\nimport static org.springframework.web.bind.annotation.RequestMethod.HEAD;\n\n@RestController\n@RequestMapping(\"/users\")\npublic class UsersController {\n    @RequestMapping(method = HEAD)\n    public ResponseEntity<List<String>> getUsersHead() {\n        return null;\n    }\n\n    @GetMapping\n    public ResponseEntity<List<String>> getUsers() {\n        return null;\n    }\n\n    @GetMapping(\"/{id}\")\n    public ResponseEntity<String> getUser(@PathVariable(\"id\") Long id) {\n        return null;\n    }\n\n    @RequestMapping\n    public ResponseEntity<List<String>> getUsersNoRequestMethod() {\n        return null;\n    }\n}\n","diff":"@@ -3,0 +3,1 @@\nimport java.util.*;\nimport org.springframework.http.ResponseEntity;\n+import org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RequestMapping;\n@@ -4,1 +5,0 @@\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.bind.annotation.RequestMapping;\n-import static org.springframework.web.bind.annotation.RequestMethod.GET;\nimport static org.springframework.web.bind.annotation.RequestMethod.HEAD;\n@@ -15,1 +15,1 @@\n    }\n\n-   @RequestMapping(method = GET)\n+   @GetMapping\n    public ResponseEntity<List<String>> getUsers() {\n@@ -20,1 +20,1 @@\n    }\n\n-   @RequestMapping(path = \"/{id}\", method = RequestMethod.GET)\n+   @GetMapping(\"/{id}\")\n    public ResponseEntity<String> getUser(@PathVariable(\"id\") Long id) {\n","newFile":false}]}]}>
 

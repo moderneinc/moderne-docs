@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `System.currentTimeMillis()` calls"}
-  description={"Direct `System.currentTimeMillis()` calls are convenient but couple the call site to wall-clock time, making tests deterministic only by mocking the whole class. Inject a `Clock` (or, on JDK 8+, `java.time.Clock`) and read time through it."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindSystemCurrentTimeMillis$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findsystemcurrenttimemillis$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `System.currentTimeMillis()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Direct `System.currentTimeMillis()` calls are convenient but couple the call site to wall-clock time, making tests deterministic only by mocking the whole class. Inject a `Clock` (or, on JDK 8+, `java.time.Clock`) and read time through it.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindSystemCurrentTimeMillis$KtRecipe","displayName":"Find `System.currentTimeMillis()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

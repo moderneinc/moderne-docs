@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `viewModel<X>()` calls inside `@Composable`"}
-  description={"`viewModel<X>()` retrieves a `ViewModel` scoped to the nearest `ViewModelStoreOwner`. Inside a generic composable this couples the composable to the host's `ViewModelStoreOwner` provision — fine at screen entry points, surprising deep in a component tree. Flag to confirm intent."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindViewModelInComposable$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findviewmodelincomposable$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `viewModel<X>()` calls inside `@Composable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`viewModel<X>()` retrieves a `ViewModel` scoped to the nearest `ViewModelStoreOwner`. Inside a generic composable this couples the composable to the host's `ViewModelStoreOwner` provision — fine at screen entry points, surprising deep in a component tree. Flag to confirm intent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindViewModelInComposable$KtRecipe","displayName":"Find `viewModel<X>()` calls inside `@Composable`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

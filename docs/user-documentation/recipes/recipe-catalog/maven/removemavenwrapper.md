@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Maven wrapper"}
-  description={"Remove Maven wrapper files from a project. This includes the `mvnw` and `mvnw.cmd` scripts, and the `.mvn/wrapper` directory."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.RemoveMavenWrapper"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/removemavenwrapper.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Delete files","href":"core/deletesourcefiles"},{"name":"Delete files","href":"core/deletesourcefiles"},{"name":"Delete files","href":"core/deletesourcefiles"}]}>
+<RecipeHeader.Title>Remove Maven wrapper</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove Maven wrapper files from a project. This includes the `mvnw` and `mvnw.cmd` scripts, and the `.mvn/wrapper` directory.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Delete files","href":"/user-documentation/recipes/recipe-catalog/core/deletesourcefiles/"},{"name":"Delete files","href":"/user-documentation/recipes/recipe-catalog/core/deletesourcefiles/"},{"name":"Delete files","href":"/user-documentation/recipes/recipe-catalog/core/deletesourcefiles/"}]}>
 
 ## Definition
 

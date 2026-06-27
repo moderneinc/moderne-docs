@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find empty classes"}
-  description={"Find empty classes without annotations that do not implement an interface or extend a class."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S2094"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindEmptyClasses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/findemptyclasses.md"}
-/>
+>
+
+<RecipeHeader.Title>Find empty classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find empty classes without annotations that do not implement an interface or extend a class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class IsEmpty {\n}\n","after":"/*~~>*/class IsEmpty {\n}\n","diff":"@@ -1,1 +1,1 @@\n-class IsEmpty {\n+/*~~>*/class IsEmpty {\n}\n","newFile":false}]}]}>
 

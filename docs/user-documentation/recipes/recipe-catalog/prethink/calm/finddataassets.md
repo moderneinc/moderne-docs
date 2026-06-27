@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find data assets"}
-  description={"Identify data assets including JPA entities, MongoDB documents, Java records, and DTOs in the application."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDataAssets"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddataassets.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find data assets</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify data assets including JPA entities, MongoDB documents, Java records, and DTOs in the application.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\npublic record Greeting(long id, String content) {\n}\n"},"variants":[]}]}>
 

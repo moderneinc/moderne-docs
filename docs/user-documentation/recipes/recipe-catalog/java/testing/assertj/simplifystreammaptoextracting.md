@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify `assertThat(collection.stream().map(...))` to `assertThat(collection).extracting(...)`"}
-  description={"Simplifies AssertJ assertions that use `stream().map()` to extract values from a collection by using the dedicated `extracting()` method instead. This makes the assertion more readable and leverages AssertJ's built-in extraction capabilities."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.SimplifyStreamMapToExtracting"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifystreammaptoextracting.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify `assertThat(collection.stream().map(...))` to `assertThat(collection).extracting(...)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplifies AssertJ assertions that use `stream().map()` to extract values from a collection by using the dedicated `extracting()` method instead. This makes the assertion more readable and leverages AssertJ's built-in extraction capabilities.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    void testMethod(List<Row> rows) {\n        assertThat(rows.stream().map(Row::getValue)).contains(\"a\");\n    }\n}\n","after":"import java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    void testMethod(List<Row> rows) {\n        assertThat(rows).extracting(Row::getValue).contains(\"a\");\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass MyTest {\n    void testMethod(List<Row> rows) {\n-       assertThat(rows.stream().map(Row::getValue)).contains(\"a\");\n+       assertThat(rows).extracting(Row::getValue).contains(\"a\");\n    }\n","newFile":false}]}]}>
 

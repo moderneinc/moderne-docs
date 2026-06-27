@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enable Lombok annotation processor"}
-  description={"With Java 23 the encapsulation of JDK internals made it necessary to configure annotation processors like Lombok explicitly. The change is valid for older versions as well."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.EnableLombokAnnotationProcessor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/enablelombokannotationprocessor.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add an annotation processor to `maven-compiler-plugin`","href":"maven/addannotationprocessor"},{"name":"Add Gradle dependency","href":"gradle/adddependency"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
+<RecipeHeader.Title>Enable Lombok annotation processor</RecipeHeader.Title>
+
+<RecipeHeader.Description>With Java 23 the encapsulation of JDK internals made it necessary to configure annotation processors like Lombok explicitly. The change is valid for older versions as well.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add an annotation processor to `maven-compiler-plugin`","href":"/user-documentation/recipes/recipe-catalog/maven/addannotationprocessor/"},{"name":"Add Gradle dependency","href":"/user-documentation/recipes/recipe-catalog/gradle/adddependency/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

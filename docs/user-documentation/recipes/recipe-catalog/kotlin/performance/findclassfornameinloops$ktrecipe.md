@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Class.forName` calls inside loops"}
-  description={"`Class.forName(...)` walks the classloader hierarchy on every call. Resolving the same class on every loop iteration burns CPU — cache the resolved `Class<*>` in a top-level property."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindClassForNameInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findclassfornameinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Class.forName` calls inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Class.forName(...)` walks the classloader hierarchy on every call. Resolving the same class on every loop iteration burns CPU — cache the resolved `Class<*>` in a top-level property.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindClassForNameInLoops$KtRecipe","displayName":"Find `Class.forName` calls inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

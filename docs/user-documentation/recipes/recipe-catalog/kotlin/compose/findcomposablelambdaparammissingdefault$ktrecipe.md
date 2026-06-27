@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Composable` functions with a content lambda parameter not defaulted to `{}`"}
-  description={"By Material/Compose convention, content slot lambdas (`content: @Composable () -> Unit`) default to `{}` so callers can compose the function without supplying a body when they only want the surrounding chrome. Flag content slots without defaults so the API gets the convention-conforming overload."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposableLambdaParamMissingDefault$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposablelambdaparammissingdefault$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Composable` functions with a content lambda parameter not defaulted to `{}`</RecipeHeader.Title>
+
+<RecipeHeader.Description>By Material/Compose convention, content slot lambdas (`content: @Composable () -> Unit`) default to `{}` so callers can compose the function without supplying a body when they only want the surrounding chrome. Flag content slots without defaults so the API gets the convention-conforming overload.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindComposableLambdaParamMissingDefault$KtRecipe","displayName":"Find `@Composable` functions with a content lambda parameter not defaulted to `{}`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

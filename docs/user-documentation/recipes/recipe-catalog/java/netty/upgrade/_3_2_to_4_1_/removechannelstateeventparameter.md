@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove ChannelStateEvent parameter from handler methods"}
-  description={"Removes `ChannelStateEvent` parameters from Netty channel handler method declarations, as Netty 4 handler methods no longer take this parameter."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-netty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.netty.upgrade._3_2_to_4_1_.RemoveChannelStateEventParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/netty/upgrade/_3_2_to_4_1_/removechannelstateeventparameter.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove ChannelStateEvent parameter from handler methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `ChannelStateEvent` parameters from Netty channel handler method declarations, as Netty 4 handler methods no longer take this parameter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.netty.upgrade._3_2_to_4_1_.RemoveChannelStateEventParameter","displayName":"Remove ChannelStateEvent parameter from handler methods","groupId":"org.openrewrite.recipe","artifactId":"rewrite-netty","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_NETTY","requiresConfiguration":false}}>
 

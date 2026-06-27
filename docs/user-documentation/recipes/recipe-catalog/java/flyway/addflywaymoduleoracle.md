@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add missing Flyway module for Oracle"}
-  description={"Database modules for Flyway 10 have been split out into separate modules for maintainability. Add the `flyway-database-oracle` dependency if you are using Oracle with Flyway 10, as detailed on https://github.com/flyway/flyway/issues/3780."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["oracle","flyway"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.flyway.AddFlywayModuleOracle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/flyway/addflywaymoduleoracle.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"java/dependencies/dependencyinsight"},{"name":"Dependency insight for Gradle and Maven","href":"java/dependencies/dependencyinsight"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Add missing Flyway module for Oracle</RecipeHeader.Title>
+
+<RecipeHeader.Description>Database modules for Flyway 10 have been split out into separate modules for maintainability. Add the `flyway-database-oracle` dependency if you are using Oracle with Flyway 10, as detailed on https://github.com/flyway/flyway/issues/3780.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyinsight/"},{"name":"Dependency insight for Gradle and Maven","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyinsight/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

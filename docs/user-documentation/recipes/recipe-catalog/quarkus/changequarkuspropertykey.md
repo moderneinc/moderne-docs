@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Quarkus configuration property key"}
-  description={"Change the key of a property in Quarkus configuration files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.ChangeQuarkusPropertyKey"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/changequarkuspropertykey.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Quarkus configuration property key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the key of a property in Quarkus configuration files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to rename. Supports regex.","example":"quarkus.hibernate-search-orm.automatic-indexing.synchronization.strategy"},{"type":"String","name":"newPropertyKey","required":true,"description":"The new name for the property key. Supports regex.","example":"quarkus.hibernate-search-orm.indexing.plan.synchronization.strategy"},{"type":"String","name":"profile","required":false,"description":"The profile where the property is defined. If not specified, the property will be changed on all profiles by default.","example":"dev"},{"type":"Boolean","name":"changeAllProfiles","required":false,"description":"If set to true, the property will be changed on all available profiles. Defaults to `true` if a profile is not defined.","example":"false"},{"type":"List","name":"pathExpressions","required":false,"description":"Each value in this list represents a glob expression that is used to match which files will be modified. If this value is not present, this recipe will query the execution context for reasonable defaults. (\"**/application.yml\", \"**/application.yaml\", \"**/application.properties\" and \"**/META-INF/microprofile-config.properties\".","example":"[\"**/application.yaml\"]"}]}>
 

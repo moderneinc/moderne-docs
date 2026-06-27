@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Bitwise operation on enum without Flags attribute"}
-  description={"Flag bitwise operations on enums that lack the Flags attribute."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.BitOperationOnEnumWithoutFlags"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/bitoperationonenumwithoutflags.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Bitwise operation on enum without Flags attribute</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flag bitwise operations on enums that lack the Flags attribute.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.BitOperationOnEnumWithoutFlags","displayName":"Bitwise operation on enum without Flags attribute","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

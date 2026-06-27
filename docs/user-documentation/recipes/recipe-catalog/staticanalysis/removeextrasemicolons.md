@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove extra semicolons"}
-  description={"Removes not needed semicolons. Semicolons are considered not needed:\n * Optional semicolons at the end of try-with-resources,\n * after the last enum value if no field or method is defined,\n * no statement between two semicolon.\n\nStray semicolons are typically typos or remnants of refactoring and can mislead readers into thinking a statement is present."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1116","RSPEC-S2959"]}
@@ -31,7 +29,22 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveExtraSemicolons"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeextrasemicolons.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove extra semicolons</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Removes not needed semicolons. Semicolons are considered not needed:
+ * Optional semicolons at the end of try-with-resources,
+ * after the last enum value if no field or method is defined,
+ * no statement between two semicolon.
+
+Stray semicolons are typically typos or remnants of refactoring and can mislead readers into thinking a statement is present.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test() {\n        ;\n    }\n}\n","after":"class Test {\n    void test() {\n    }\n}\n","diff":"@@ -3,1 +3,0 @@\nclass Test {\n    void test() {\n-       ;\n    }\n","newFile":false}]}]}>
 

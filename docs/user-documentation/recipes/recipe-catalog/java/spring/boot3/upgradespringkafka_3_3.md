@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Kafka 3.3"}
-  description={"Migrate applications to the latest Spring Kafka 3.3 release."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","kafka"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.UpgradeSpringKafka_3_3"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradespringkafka_3_3.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `kafkaAwareTransactionManager` setter","href":"java/spring/boot3/replacekafkatransactionmanagersetter"},{"name":"Migrates Spring Kafka deprecated error handlers","href":"java/spring/kafka/upgradespringkafka_2_8_errorhandlers"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Kafka 3.3</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Kafka 3.3 release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `kafkaAwareTransactionManager` setter","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacekafkatransactionmanagersetter/"},{"name":"Migrates Spring Kafka deprecated error handlers","href":"/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_2_8_errorhandlers/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find filesystem-operation seeds"}
-  description={"Individual filesystem reads, writes, deletes, and copies via `java.io.File` and `java.nio.file.Files`. Each match is a position where the program crosses the filesystem trust boundary."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindFileSystemSeeds$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findfilesystemseeds$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `File.writeText(...)` calls","href":"kotlin/search/findfilewritetext$ktrecipe"},{"name":"Find `File.readText()` calls","href":"kotlin/search/findfilereadtext$ktrecipe"},{"name":"Find `File.readBytes()` calls","href":"kotlin/search/findfilereadbytes$ktrecipe"},{"name":"Find `Files.writeString(...)` calls","href":"kotlin/search/findfileswritestring$ktrecipe"},{"name":"Find `Files.newBufferedWriter(...)` calls","href":"kotlin/search/findfilesnewbufferedwriter$ktrecipe"},{"name":"Find `Files.delete(...)` / `Files.deleteIfExists(...)` calls","href":"kotlin/search/findfilesdelete$ktrecipe"},{"name":"Find `Files.copy(...)` calls","href":"kotlin/search/findfilescopy$ktrecipe"}]}>
+<RecipeHeader.Title>Find filesystem-operation seeds</RecipeHeader.Title>
+
+<RecipeHeader.Description>Individual filesystem reads, writes, deletes, and copies via `java.io.File` and `java.nio.file.Files`. Each match is a position where the program crosses the filesystem trust boundary.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `File.writeText(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findfilewritetext$ktrecipe/"},{"name":"Find `File.readText()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findfilereadtext$ktrecipe/"},{"name":"Find `File.readBytes()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findfilereadbytes$ktrecipe/"},{"name":"Find `Files.writeString(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findfileswritestring$ktrecipe/"},{"name":"Find `Files.newBufferedWriter(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findfilesnewbufferedwriter$ktrecipe/"},{"name":"Find `Files.delete(...)` / `Files.deleteIfExists(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findfilesdelete$ktrecipe/"},{"name":"Find `Files.copy(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findfilescopy$ktrecipe/"}]}>
 
 ## Definition
 

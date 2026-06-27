@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert Truth `assertWithMessage` to AssertJ"}
-  description={"Converts Google Truth's `assertWithMessage().that()` pattern to AssertJ's `assertThat().as()` pattern."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.truth.TruthAssertWithMessageToAssertJ"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/truth/truthassertwithmessagetoassertj.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert Truth `assertWithMessage` to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts Google Truth's `assertWithMessage().that()` pattern to AssertJ's `assertThat().as()` pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static com.google.common.truth.Truth.assertWithMessage;\n\nclass Test {\n    void test() {\n        String actual = \"hello\";\n        assertWithMessage(\"Expected greeting\").that(actual).isEqualTo(\"hello\");\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass Test {\n    void test() {\n        String actual = \"hello\";\n        assertThat(actual).as(\"Expected greeting\").isEqualTo(\"hello\");\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static com.google.common.truth.Truth.assertWithMessage;\n+import static org.assertj.core.api.Assertions.assertThat;\n\n@@ -6,1 +6,1 @@\n    void test() {\n        String actual = \"hello\";\n-       assertWithMessage(\"Expected greeting\").that(actual).isEqualTo(\"hello\");\n+       assertThat(actual).as(\"Expected greeting\").isEqualTo(\"hello\");\n    }\n","newFile":false}]}]}>
 

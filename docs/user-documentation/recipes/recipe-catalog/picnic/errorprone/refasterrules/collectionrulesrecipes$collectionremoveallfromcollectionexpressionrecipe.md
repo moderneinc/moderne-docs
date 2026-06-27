@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `CollectionRules.CollectionRemoveAllFromCollectionExpression`"}
-  description={"Don't call `Iterables#removeAll(Iterable, Collection)` when the elements to be removed are already part of a `Collection`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionRemoveAllFromCollectionExpressionRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/collectionrulesrecipes$collectionremoveallfromcollectionexpressionrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `CollectionRules.CollectionRemoveAllFromCollectionExpression`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Don't call `Iterables#removeAll(Iterable, Collection)` when the elements to be removed are already part of a `Collection`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionRemoveAllFromCollectionExpressionRecipe","displayName":"Refaster template `CollectionRules.CollectionRemoveAllFromCollectionExpression`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `Object.finalize()` invocations"}
-  description={"Remove calls to `Object.finalize()`. This method is called during garbage collection and calling it manually is misleading. Explicit finalize invocations can trigger resource cleanup prematurely while the object is still in use, leading to unpredictable behavior."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1111"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveCallsToObjectFinalize"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removecallstoobjectfinalize.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `Object.finalize()` invocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove calls to `Object.finalize()`. This method is called during garbage collection and calling it manually is misleading. Explicit finalize invocations can trigger resource cleanup prematurely while the object is still in use, leading to unpredictable behavior.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n\n        @Override\n        protected void finalize() {\n            super.finalize();\n        }\n\n        public static void main(String[] args) throws Throwable {\n\n            A a = new A();\n            System.out.println(\"Clean object\");\n            a.finalize();\n        }\n    }\n","after":"public class A {\n\n        @Override\n        protected void finalize() {\n            super.finalize();\n        }\n\n        public static void main(String[] args) throws Throwable {\n\n            A a = new A();\n            System.out.println(\"Clean object\");\n        }\n    }\n","diff":"@@ -12,1 +12,0 @@\n            A a = new A();\n            System.out.println(\"Clean object\");\n-           a.finalize();\n        }\n","newFile":false}]}]}>
 

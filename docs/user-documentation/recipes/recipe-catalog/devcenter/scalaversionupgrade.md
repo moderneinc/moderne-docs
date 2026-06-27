@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move to a later Scala version"}
-  description={"Determine the current state of a repository relative to a desired Scala version upgrade."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.ScalaVersionUpgrade"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/scalaversionupgrade.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Move to a later Scala version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Determine the current state of a repository relative to a desired Scala version upgrade.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"int","name":"majorVersion","required":true,"description":"The major version of Scala to upgrade to.","example":"3"},{"type":"String","name":"upgradeRecipe","required":false,"description":"The recipe to use to upgrade.","example":"org.openrewrite.scala.migrate.UpgradeScala_2_12"}]}>
 

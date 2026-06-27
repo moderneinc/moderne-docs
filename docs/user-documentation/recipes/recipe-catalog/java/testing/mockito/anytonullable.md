@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Mockito 1.x `anyString()`/`any()` with `nullable(Class)`"}
-  description={"Since Mockito 2.10 `anyString()` and `any()` no longer matches null values. Use `nullable(Class)` instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.AnyToNullable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/anytonullable.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace Mockito 1.x `anyString()`/`any()` with `nullable(Class)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Since Mockito 2.10 `anyString()` and `any()` no longer matches null values. Use `nullable(Class)` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"class Example {\n    String greet(Object obj) {\n        return \"Hello \" + obj;\n    }\n}\n"},"variants":[{"language":"java","before":"import static org.mockito.Mockito.mock;\nimport static org.mockito.Mockito.when;\nimport static org.mockito.Mockito.any;\n\nclass MyTest {\n     void test() {\n        Example example = mock(Example.class);\n        when(example.greet(any(Object.class))).thenReturn(\"Hello world\");\n     }\n}\n","after":"import static org.mockito.ArgumentMatchers.nullable;\nimport static org.mockito.Mockito.mock;\nimport static org.mockito.Mockito.when;\n\nclass MyTest {\n     void test() {\n        Example example = mock(Example.class);\n        when(example.greet(nullable(Object.class))).thenReturn(\"Hello world\");\n     }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import static org.mockito.ArgumentMatchers.nullable;\nimport static org.mockito.Mockito.mock;\n@@ -3,1 +4,0 @@\nimport static org.mockito.Mockito.mock;\nimport static org.mockito.Mockito.when;\n-import static org.mockito.Mockito.any;\n\n@@ -8,1 +8,1 @@\n     void test() {\n        Example example = mock(Example.class);\n-       when(example.greet(any(Object.class))).thenReturn(\"Hello world\");\n+       when(example.greet(nullable(Object.class))).thenReturn(\"Hello world\");\n     }\n","newFile":false}]}]}>
 

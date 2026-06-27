@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename the `kotlinOptions` block to `compilerOptions`"}
-  description={"Rename the deprecated `kotlinOptions` DSL block to `compilerOptions` in Gradle build files (Groovy and Kotlin DSL). The `kotlinOptions` DSL was deprecated in Kotlin 2.0 and removed in Kotlin 2.2. Note: in the Kotlin DSL the assignments inside the block must also be modernized for the result to compile; see `UseJvmTargetProviderSyntax` and `UseFreeCompilerArgsAddAll`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.RenameKotlinOptionsToCompilerOptions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/renamekotlinoptionstocompileroptions.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Rename the `kotlinOptions` block to `compilerOptions`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rename the deprecated `kotlinOptions` DSL block to `compilerOptions` in Gradle build files (Groovy and Kotlin DSL). The `kotlinOptions` DSL was deprecated in Kotlin 2.0 and removed in Kotlin 2.2. Note: in the Kotlin DSL the assignments inside the block must also be modernized for the result to compile; see `UseJvmTargetProviderSyntax` and `UseFreeCompilerArgsAddAll`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins {\n    id \"org.jetbrains.kotlin.jvm\" version \"1.9.24\"\n}\ntasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {\n    kotlinOptions {\n        jvmTarget = \"1.8\"\n    }\n}\n","after":"plugins {\n    id \"org.jetbrains.kotlin.jvm\" version \"1.9.24\"\n}\ntasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {\n    compilerOptions {\n        jvmTarget = \"1.8\"\n    }\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -5,1 +5,1 @@\n}\ntasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {\n-   kotlinOptions {\n+   compilerOptions {\n        jvmTarget = \"1.8\"\n","newFile":false}]}]}>
 

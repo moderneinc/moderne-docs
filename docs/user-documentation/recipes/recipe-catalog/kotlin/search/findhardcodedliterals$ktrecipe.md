@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hardcoded literals and error-handling smells"}
-  description={"Hardcoded design tokens (`Color(0xFF...)`), empty `catch` blocks, overly-broad `catch (e: Exception)` clauses, and `throw RuntimeException(...)` calls. Each match is a position where intent is unclear or recovery is too broad."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindHardcodedLiterals$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findhardcodedliterals$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Color(0xFF...)` color-literal constructions","href":"kotlin/search/findhardcodedcolorliterals$ktrecipe"},{"name":"Find `catch` blocks with empty bodies","href":"kotlin/search/findemptycatchblocks$ktrecipe"},{"name":"Find `catch (e: Exception)` and `catch (e: Throwable)` clauses","href":"kotlin/search/findgenericexceptioncatch$ktrecipe"},{"name":"Find `throw Exception(...)` and `throw RuntimeException(...)` calls","href":"kotlin/search/findthrowgenericexception$ktrecipe"}]}>
+<RecipeHeader.Title>Find hardcoded literals and error-handling smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Hardcoded design tokens (`Color(0xFF...)`), empty `catch` blocks, overly-broad `catch (e: Exception)` clauses, and `throw RuntimeException(...)` calls. Each match is a position where intent is unclear or recovery is too broad.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Color(0xFF...)` color-literal constructions","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findhardcodedcolorliterals$ktrecipe/"},{"name":"Find `catch` blocks with empty bodies","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findemptycatchblocks$ktrecipe/"},{"name":"Find `catch (e: Exception)` and `catch (e: Throwable)` clauses","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findgenericexceptioncatch$ktrecipe/"},{"name":"Find `throw Exception(...)` and `throw RuntimeException(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findthrowgenericexception$ktrecipe/"}]}>
 
 ## Definition
 

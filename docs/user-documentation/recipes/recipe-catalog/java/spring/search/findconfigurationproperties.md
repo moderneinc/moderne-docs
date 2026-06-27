@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring `@ConfigurationProperties`"}
-  description={"Find all classes annotated with `@ConfigurationProperties` and extract their prefix values. This is useful for discovering all externalized configuration properties in Spring Boot applications."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.search.FindConfigurationProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/search/findconfigurationproperties.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Spring `@ConfigurationProperties`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find all classes annotated with `@ConfigurationProperties` and extract their prefix values. This is useful for discovering all externalized configuration properties in Spring Boot applications.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package test;\nimport org.springframework.boot.context.properties.ConfigurationProperties;\n\n@ConfigurationProperties(\"my.service\")\npublic class MyProperties {\n    private boolean enabled;\n    private String url;\n\n    public boolean isEnabled() {\n        return enabled;\n    }\n\n    public void setEnabled(boolean enabled) {\n        this.enabled = enabled;\n    }\n\n    public String getUrl() {\n        return url;\n    }\n\n    public void setUrl(String url) {\n        this.url = url;\n    }\n}\n","after":"package test;\nimport org.springframework.boot.context.properties.ConfigurationProperties;\n\n/*~~(@ConfigurationProperties(\"my.service\"))~~>*/@ConfigurationProperties(\"my.service\")\npublic class MyProperties {\n    private boolean enabled;\n    private String url;\n\n    public boolean isEnabled() {\n        return enabled;\n    }\n\n    public void setEnabled(boolean enabled) {\n        this.enabled = enabled;\n    }\n\n    public String getUrl() {\n        return url;\n    }\n\n    public void setUrl(String url) {\n        this.url = url;\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\nimport org.springframework.boot.context.properties.ConfigurationProperties;\n\n-@ConfigurationProperties(\"my.service\")\n+/*~~(@ConfigurationProperties(\"my.service\"))~~>*/@ConfigurationProperties(\"my.service\")\npublic class MyProperties {\n","newFile":false}]}]}>
 

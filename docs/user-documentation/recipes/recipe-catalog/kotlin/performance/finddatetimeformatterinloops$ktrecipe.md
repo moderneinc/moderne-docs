@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `DateTimeFormatter.ofPattern` allocations inside loops"}
-  description={"`DateTimeFormatter.ofPattern(...)` parses the pattern up-front. Doing that on every loop iteration burns CPU repeatedly — hoist the formatter into a top-level property. Unlike `SimpleDateFormat`, `DateTimeFormatter` is thread-safe, so the hoisted instance can be shared."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindDateTimeFormatterInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/finddatetimeformatterinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `DateTimeFormatter.ofPattern` allocations inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>`DateTimeFormatter.ofPattern(...)` parses the pattern up-front. Doing that on every loop iteration burns CPU repeatedly — hoist the formatter into a top-level property. Unlike `SimpleDateFormat`, `DateTimeFormatter` is thread-safe, so the hoisted instance can be shared.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindDateTimeFormatterInLoops$KtRecipe","displayName":"Find `DateTimeFormatter.ofPattern` allocations inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

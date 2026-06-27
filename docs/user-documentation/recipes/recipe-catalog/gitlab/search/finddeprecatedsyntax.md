@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated GitLab CI syntax"}
-  description={"Find usages of deprecated `only` and `except` keywords in `.gitlab-ci.yml`. These keywords are deprecated in favor of `rules`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["search","ci","gitlab"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.search.FindDeprecatedSyntax"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/search/finddeprecatedsyntax.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find deprecated `only` keyword","href":"gitlab/search/finddeprecatedonly"},{"name":"Find deprecated `except` keyword","href":"gitlab/search/finddeprecatedexcept"}]}>
+<RecipeHeader.Title>Find deprecated GitLab CI syntax</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find usages of deprecated `only` and `except` keywords in `.gitlab-ci.yml`. These keywords are deprecated in favor of `rules`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find deprecated `only` keyword","href":"/user-documentation/recipes/recipe-catalog/gitlab/search/finddeprecatedonly/"},{"name":"Find deprecated `except` keyword","href":"/user-documentation/recipes/recipe-catalog/gitlab/search/finddeprecatedexcept/"}]}>
 
 ## Definition
 

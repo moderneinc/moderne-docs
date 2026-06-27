@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `MockitoTestExecutionListener` (JUnit Jupiter projects)"}
-  description={"Replace `MockitoTestExecutionListener` in projects that have JUnit Jupiter as a dependency. Uses `@ExtendWith(MockitoExtension.class)` as the replacement."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListenerForJupiter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacemockitotestexecutionlistenerforjupiter.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization","href":"java/testing/mockito/replacemockitotestexecutionlistener"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Replace `MockitoTestExecutionListener` (JUnit Jupiter projects)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `MockitoTestExecutionListener` in projects that have JUnit Jupiter as a dependency. Uses `@ExtendWith(MockitoExtension.class)` as the replacement.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacemockitotestexecutionlistener/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply `var` to generic method invocations"}
-  description={"Apply `var` to variables initialized by invocations of generic methods. This recipe ignores generic factory methods without parameters, because open rewrite cannot handle them correctly ATM."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.var.UseVarForGenericMethodInvocations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforgenericmethodinvocations.md"}
-/>
+>
+
+<RecipeHeader.Title>Apply `var` to generic method invocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply `var` to variables initialized by invocations of generic methods. This recipe ignores generic factory methods without parameters, because open rewrite cannot handle them correctly ATM.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.app;\n\nimport java.util.List;\n\nclass A {\n  void m() {\n      List<String> strs = List.of(\"one\", \"two\");\n  }\n}\n","after":"package com.example.app;\n\nimport java.util.List;\n\nclass A {\n  void m() {\n      var strs = List.of(\"one\", \"two\");\n  }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass A {\n  void m() {\n-     List<String> strs = List.of(\"one\", \"two\");\n+     var strs = List.of(\"one\", \"two\");\n  }\n","newFile":false}]}]}>
 

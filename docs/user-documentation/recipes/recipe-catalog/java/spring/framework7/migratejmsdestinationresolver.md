@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Preserve DynamicDestinationResolver behavior for JmsTemplate"}
-  description={"Spring Framework 7.0 changed the default `DestinationResolver` for `JmsTemplate` from `DynamicDestinationResolver` to `SimpleDestinationResolver`, which caches Session-resolved Queue and Topic instances. This recipe explicitly configures `DynamicDestinationResolver` to preserve the pre-7.0 behavior. The caching behavior of `SimpleDestinationResolver` should be fine for most JMS brokers, so this explicit configuration can be removed once verified."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","jms","framework"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.MigrateJmsDestinationResolver"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/migratejmsdestinationresolver.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Explicitly set DynamicDestinationResolver on JmsTemplate","href":"java/spring/framework7/adddynamicdestinationresolvertojmstemplate"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Preserve DynamicDestinationResolver behavior for JmsTemplate</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Framework 7.0 changed the default `DestinationResolver` for `JmsTemplate` from `DynamicDestinationResolver` to `SimpleDestinationResolver`, which caches Session-resolved Queue and Topic instances. This recipe explicitly configures `DynamicDestinationResolver` to preserve the pre-7.0 behavior. The caching behavior of `SimpleDestinationResolver` should be fine for most JMS brokers, so this explicit configuration can be removed once verified.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Explicitly set DynamicDestinationResolver on JmsTemplate","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework7/adddynamicdestinationresolvertojmstemplate/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

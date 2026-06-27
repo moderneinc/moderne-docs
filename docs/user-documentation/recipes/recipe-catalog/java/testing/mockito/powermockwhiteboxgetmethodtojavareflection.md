@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace PowerMock `Whitebox.getMethod()` with Java reflection"}
-  description={"Replace `Whitebox.getMethod(Class, String, Class...)` with `Class.getDeclaredMethod(String, Class...)` plus `setAccessible(true)`. Unlike PowerMock, `getDeclaredMethod` does not traverse the class hierarchy; calls passing an explicit `Class[]` array are left unchanged for manual migration."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.PowerMockWhiteboxGetMethodToJavaReflection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxgetmethodtojavareflection.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace PowerMock `Whitebox.getMethod()` with Java reflection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `Whitebox.getMethod(Class, String, Class...)` with `Class.getDeclaredMethod(String, Class...)` plus `setAccessible(true)`. Unlike PowerMock, `getDeclaredMethod` does not traverse the class hierarchy; calls passing an explicit `Class[]` array are left unchanged for manual migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.PowerMockWhiteboxGetMethodToJavaReflection","displayName":"Replace PowerMock `Whitebox.getMethod()` with Java reflection","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

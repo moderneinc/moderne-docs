@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `java.net.MulticastSocket#setTimeToLive(int)`"}
-  description={"Use `java.net.MulticastSocket#setTimeToLive(int)` instead of the deprecated `java.net.MulticastSocket#setTTL(byte)` in Java 1.2 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["deprecated"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.net.MigrateMulticastSocketSetTTLToSetTimeToLive"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/net/migratemulticastsocketsetttltosettimetolive.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `java.net.MulticastSocket#setTimeToLive(int)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `java.net.MulticastSocket#setTimeToLive(int)` instead of the deprecated `java.net.MulticastSocket#setTTL(byte)` in Java 1.2 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.example;\n\nimport java.net.MulticastSocket;\n\npublic class Test {\n    public static void method() {\n        MulticastSocket s = new MulticastSocket(0);\n        s.setTTL((byte) 1);\n    }\n}\n","after":"package org.openrewrite.example;\n\nimport java.net.MulticastSocket;\n\npublic class Test {\n    public static void method() {\n        MulticastSocket s = new MulticastSocket(0);\n        s.setTimeToLive(Byte.valueOf((byte) 1).intValue());\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\n    public static void method() {\n        MulticastSocket s = new MulticastSocket(0);\n-       s.setTTL((byte) 1);\n+       s.setTimeToLive(Byte.valueOf((byte) 1).intValue());\n    }\n","newFile":false}]}]}>
 

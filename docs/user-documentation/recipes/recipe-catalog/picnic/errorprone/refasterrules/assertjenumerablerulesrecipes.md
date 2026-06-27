@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJEnumerableRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over enumerable objects.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJEnumerableRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJEnumerableRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertIsNotEmpty`","href":"picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableassertisnotemptyrecipe"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSize`","href":"picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizerecipe"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeLessThan`","href":"picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizelessthanrecipe"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeLessThanOrEqualTo`","href":"picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizelessthanorequaltorecipe"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeGreaterThan`","href":"picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizegreaterthanrecipe"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeGreaterThanOrEqualTo`","href":"picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizegreaterthanorequaltorecipe"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeBetween`","href":"picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizebetweenrecipe"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSameSizeAs`","href":"picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassamesizeasrecipe"}]}>
+<RecipeHeader.Title>`AssertJEnumerableRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over enumerable objects. [Source](https://error-prone.picnic.tech/refasterrules/AssertJEnumerableRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertIsNotEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableassertisnotemptyrecipe/"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSize`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizerecipe/"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeLessThan`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizelessthanrecipe/"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeLessThanOrEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizelessthanorequaltorecipe/"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeGreaterThan`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizegreaterthanrecipe/"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeGreaterThanOrEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizegreaterthanorequaltorecipe/"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeBetween`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizebetweenrecipe/"},{"name":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSameSizeAs`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassamesizeasrecipe/"}]}>
 
 ## Definition
 

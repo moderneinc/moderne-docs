@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find process control vulnerabilities"}
-  description={"Detects when user-controlled input flows into native library loading methods without proper validation, which could allow an attacker to load arbitrary native code (CWE-114)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["CWE-114"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.security.FindProcessControlInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/security/findprocesscontrolinjection.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find process control vulnerabilities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects when user-controlled input flows into native library loading methods without proper validation, which could allow an attacker to load arbitrary native code (CWE-114).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.http.HttpServletRequest;\n\nclass NativeLoader {\n    void load(HttpServletRequest request) {\n        String lib = request.getParameter(\"library\");\n        System.loadLibrary(lib);\n    }\n}\n","after":"import javax.servlet.http.HttpServletRequest;\n\nclass NativeLoader {\n    void load(HttpServletRequest request) {\n        String lib = request.getParameter(\"library\");\n        /*~~(PROCESS_CONTROL use)~~>*/System.loadLibrary(lib);\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n    void load(HttpServletRequest request) {\n        String lib = request.getParameter(\"library\");\n-       System.loadLibrary(lib);\n+       /*~~(PROCESS_CONTROL use)~~>*/System.loadLibrary(lib);\n    }\n","newFile":false}]}]}>
 

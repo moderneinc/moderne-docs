@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Avoid `System.exit` in library code"}
-  description={"Finds `System.exit` and `sys.exit` calls which terminate the JVM. Avoid using these in library code; prefer exceptions or controlled shutdown."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.AvoidSystemExit"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/avoidsystemexit.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Avoid `System.exit` in library code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `System.exit` and `sys.exit` calls which terminate the JVM. Avoid using these in library code; prefer exceptions or controlled shutdown.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object App {\n  def shutdown(): Unit = {\n    System.exit(1)\n  }\n}\n","after":"object App {\n  /*~~(System.exit/sys.exit found; avoid in library code)~~>*/def shutdown(): Unit = {\n    System.exit(1)\n  }\n}\n","diff":"@@ -2,1 +2,1 @@\nobject App {\n- def shutdown(): Unit = {\n+ /*~~(System.exit/sys.exit found; avoid in library code)~~>*/def shutdown(): Unit = {\n    System.exit(1)\n","newFile":false}]}]}>
 

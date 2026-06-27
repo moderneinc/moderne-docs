@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert SQL Server data types to PostgreSQL"}
-  description={"Replaces SQL Server-specific data types with PostgreSQL equivalents."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["sqlserver","postgresql","mssql","sql"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.sql.ConvertSqlServerDataTypesToPostgres"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/sql/convertsqlserverdatatypestopostgres.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"},{"name":"Convert SQL data type","href":"sql/convertdatatype"}]}>
+<RecipeHeader.Title>Convert SQL Server data types to PostgreSQL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces SQL Server-specific data types with PostgreSQL equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"},{"name":"Convert SQL data type","href":"/user-documentation/recipes/recipe-catalog/sql/convertdatatype/"}]}>
 
 ## Definition
 

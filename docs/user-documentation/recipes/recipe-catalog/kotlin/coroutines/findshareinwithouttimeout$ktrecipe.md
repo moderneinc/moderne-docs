@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `shareIn` calls without a timeout-parameterized start"}
-  description={"Same trap as `stateIn` — without an explicit `WhileSubscribed(timeoutMillis)`, an unused upstream producer keeps running, and config changes (which momentarily drop subscriber counts) can either drop state or hold work alive."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindShareInWithoutTimeout$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findshareinwithouttimeout$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `shareIn` calls without a timeout-parameterized start</RecipeHeader.Title>
+
+<RecipeHeader.Description>Same trap as `stateIn` — without an explicit `WhileSubscribed(timeoutMillis)`, an unused upstream producer keeps running, and config changes (which momentarily drop subscriber counts) can either drop state or hold work alive.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindShareInWithoutTimeout$KtRecipe","displayName":"Find `shareIn` calls without a timeout-parameterized start","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find insecure commands configuration"}
-  description={"Detects when insecure workflow commands are enabled via `ACTIONS_ALLOW_UNSECURE_COMMANDS`. This environment variable enables dangerous workflow commands that can lead to code injection vulnerabilities. Based on [zizmor's insecure-commands audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/insecure_commands.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.InsecureCommands"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/insecurecommands.md"}
-/>
+>
+
+<RecipeHeader.Title>Find insecure commands configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects when insecure workflow commands are enabled via `ACTIONS_ALLOW_UNSECURE_COMMANDS`. This environment variable enables dangerous workflow commands that can lead to code injection vulnerabilities. Based on [zizmor's insecure-commands audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/insecure_commands.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"on: push\nenv:\n  ACTIONS_ALLOW_UNSECURE_COMMANDS: true\n  OTHER_VAR: value\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo \"test\"\n","after":"on: push\nenv:\n  ~~(Insecure commands are enabled via ACTIONS_ALLOW_UNSECURE_COMMANDS. This allows dangerous workflow commands that can lead to code injection. Remove this environment variable to disable insecure commands.)~~>ACTIONS_ALLOW_UNSECURE_COMMANDS: true\n  OTHER_VAR: value\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo \"test\"\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -3,1 +3,1 @@\non: push\nenv:\n- ACTIONS_ALLOW_UNSECURE_COMMANDS: true\n+ ~~(Insecure commands are enabled via ACTIONS_ALLOW_UNSECURE_COMMANDS. This allows dangerous workflow commands that can lead to code injection. Remove this environment variable to disable insecure commands.)~~>ACTIONS_ALLOW_UNSECURE_COMMANDS: true\n  OTHER_VAR: value\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Finds uses of `Encryptors.queryableText()`"}
-  description={"`Encryptors.queryableText()` is insecure and is removed in Spring Security 6."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","security","search"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security5.search.FindEncryptorsQueryableTextUses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security5/search/findencryptorsqueryabletextuses.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find method usages","href":"java/search/findmethods"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Finds uses of `Encryptors.queryableText()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Encryptors.queryableText()` is insecure and is removed in Spring Security 6.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

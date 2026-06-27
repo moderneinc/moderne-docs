@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find uses of deprecated classes"}
-  description={"Find uses of deprecated classes, optionally ignoring those classes that are inside deprecated scopes."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindDeprecatedClasses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/finddeprecatedclasses.md"}
-/>
+>
+
+<RecipeHeader.Title>Find uses of deprecated classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find uses of deprecated classes, optionally ignoring those classes that are inside deprecated scopes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"typePattern","required":false,"description":"A type pattern that is used to find matching classes.","example":"org.springframework..*"},{"type":"Boolean","name":"matchInherited","required":false,"description":"When enabled, find types that inherit from a deprecated type."},{"type":"Boolean","name":"ignoreDeprecatedScopes","required":false,"description":"When a deprecated type is used in a deprecated method or class, ignore it."}]}>
 

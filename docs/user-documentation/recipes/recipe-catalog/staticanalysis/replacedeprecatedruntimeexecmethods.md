@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `Runtime#exec()` methods"}
-  description={"Replace `Runtime#exec(String)` methods to use `exec(String[])` instead because the former is deprecated after Java 18 and is no longer recommended for use by the Java documentation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceDeprecatedRuntimeExecMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replacedeprecatedruntimeexecmethods.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated `Runtime#exec()` methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `Runtime#exec(String)` methods to use `exec(String[])` instead because the former is deprecated after Java 18 and is no longer recommended for use by the Java documentation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.File;\nimport java.io.IOException;\n\nclass A {\n    void method() throws IOException {\n        Runtime runtime = Runtime.getRuntime();\n        String[] envp = { \"E1=1\", \"E2=2\"};\n        File dir = new File(\"/tmp\");\n\n        Process process1 = runtime.exec(\"ls -a -l\");\n        Process process2 = runtime.exec(\"ls -a -l\", envp);\n        Process process3 = runtime.exec(\"ls -a -l\", envp, dir);\n    }\n}\n","after":"import java.io.File;\nimport java.io.IOException;\n\nclass A {\n    void method() throws IOException {\n        Runtime runtime = Runtime.getRuntime();\n        String[] envp = { \"E1=1\", \"E2=2\"};\n        File dir = new File(\"/tmp\");\n\n        Process process1 = runtime.exec(new String[]{\"ls\", \"-a\", \"-l\"});\n        Process process2 = runtime.exec(new String[]{\"ls\", \"-a\", \"-l\"}, envp);\n        Process process3 = runtime.exec(new String[]{\"ls\", \"-a\", \"-l\"}, envp, dir);\n    }\n}\n","diff":"@@ -10,3 +10,3 @@\n        File dir = new File(\"/tmp\");\n\n-       Process process1 = runtime.exec(\"ls -a -l\");\n-       Process process2 = runtime.exec(\"ls -a -l\", envp);\n-       Process process3 = runtime.exec(\"ls -a -l\", envp, dir);\n+       Process process1 = runtime.exec(new String[]{\"ls\", \"-a\", \"-l\"});\n+       Process process2 = runtime.exec(new String[]{\"ls\", \"-a\", \"-l\"}, envp);\n+       Process process3 = runtime.exec(new String[]{\"ls\", \"-a\", \"-l\"}, envp, dir);\n    }\n","newFile":false}]}]}>
 

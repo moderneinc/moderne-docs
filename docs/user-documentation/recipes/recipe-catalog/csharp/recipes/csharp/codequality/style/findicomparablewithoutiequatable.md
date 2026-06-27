@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find IComparable<T> without IEquatable<T>"}
-  description={"Detect classes that implement `IComparable<T>` but not `IEquatable<T>`. Both interfaces should be implemented together for consistent comparison semantics."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindIComparableWithoutIEquatable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findicomparablewithoutiequatable.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find IComparable&lt;T> without IEquatable&lt;T></RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect classes that implement `IComparable<T>` but not `IEquatable<T>`. Both interfaces should be implemented together for consistent comparison semantics.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindIComparableWithoutIEquatable","displayName":"Find IComparable<T> without IEquatable<T>","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

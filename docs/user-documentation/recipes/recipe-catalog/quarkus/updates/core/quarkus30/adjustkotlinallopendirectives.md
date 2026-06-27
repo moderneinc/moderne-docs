@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adjust all-open directives in Kotlin plugin configuration"}
-  description={"Adjust all-open directives in Kotlin plugin configuration"}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus30.AdjustKotlinAllOpenDirectives"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/adjustkotlinallopendirectives.md"}
-/>
+>
+
+<RecipeHeader.Title>Adjust all-open directives in Kotlin plugin configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adjust all-open directives in Kotlin plugin configuration</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.quarkus.updates.core.quarkus30.AdjustKotlinAllOpenDirectives","displayName":"Adjust all-open directives in Kotlin plugin configuration","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

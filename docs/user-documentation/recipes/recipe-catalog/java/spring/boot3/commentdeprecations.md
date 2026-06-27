@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Comment deprecated methods in Spring 3.4"}
-  description={"Spring Boot 3.4 deprecates methods that are not commonly used or need manual interaction."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.CommentDeprecations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/commentdeprecations.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add comment to method declarations","href":"java/addcommenttomethod"},{"name":"Add comment to method declarations","href":"java/addcommenttomethod"},{"name":"Add comment to method declarations","href":"java/addcommenttomethod"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Comment deprecated methods in Spring 3.4</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot 3.4 deprecates methods that are not commonly used or need manual interaction.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add comment to method declarations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethod/"},{"name":"Add comment to method declarations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethod/"},{"name":"Add comment to method declarations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethod/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

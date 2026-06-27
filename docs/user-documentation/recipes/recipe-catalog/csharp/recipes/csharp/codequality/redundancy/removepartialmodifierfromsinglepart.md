@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove partial modifier from single-part type"}
-  description={"Remove `partial` modifier from types that have only one part."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemovePartialModifierFromSinglePart"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removepartialmodifierfromsinglepart.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove partial modifier from single-part type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `partial` modifier from types that have only one part.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemovePartialModifierFromSinglePart","displayName":"Remove partial modifier from single-part type","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

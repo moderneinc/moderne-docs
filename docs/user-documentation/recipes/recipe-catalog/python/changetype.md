@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change type"}
-  description={"Change a type reference from one fully qualified name to another."}
   type={"Composite recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.ChangeType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/changetype.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"org.openrewrite.java.ChangeType","href":"java/changetype"}]}>
+<RecipeHeader.Title>Change type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change a type reference from one fully qualified name to another.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"org.openrewrite.java.ChangeType","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

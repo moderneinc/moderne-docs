@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate xmlns entries in `*-jdbc.xml` files to WebLogic 15.1.1"}
-  description={"This recipe will update the `xmlns` entries in `*-jdbc.xml` files to WebLogic 15.1.1"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["schemas","weblogic","jdbc"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.WebLogicJdbcXmlNamespace1511"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/weblogicjdbcxmlnamespace1511.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate xmlns entries in `*-jdbc.xml` files to WebLogic 14.1.2","href":"oracle/weblogic/rewrite/weblogicjdbcxmlnamespace1412"},{"name":"Find and replace","href":"text/findandreplace"}]}>
+<RecipeHeader.Title>Migrate xmlns entries in `*-jdbc.xml` files to WebLogic 15.1.1</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will update the `xmlns` entries in `*-jdbc.xml` files to WebLogic 15.1.1</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate xmlns entries in `*-jdbc.xml` files to WebLogic 14.1.2","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/weblogicjdbcxmlnamespace1412/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"}]}>
 
 ## Definition
 

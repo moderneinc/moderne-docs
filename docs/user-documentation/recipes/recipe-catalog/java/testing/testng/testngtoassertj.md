@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate TestNG assertions to AssertJ"}
-  description={"Convert assertions from `org.testng.Assert` to `org.assertj.core.api.Assertions`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["testing","assertj","testng"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testng.TestNgToAssertj"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testng/testngtoassertj.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Refaster rules that replace TestNG assertions with equivalent AssertJ assertions","href":"picnic/errorprone/refasterrules/testngtoassertjrulesrecipes"},{"name":"TestNG `assertEquals` to AssertJ","href":"java/testing/testng/testngassertequalstoassertthat"},{"name":"TestNG `assertNotEquals` to AssertJ","href":"java/testing/testng/testngassertnotequalstoassertthat"},{"name":"TestNG `assertEqualsNoOrder` to AssertJ","href":"java/testing/testng/testngassertequalsnoordertoassertthat"},{"name":"TestNG `assertEqualsDeep`/`assertNotEqualsDeep` to AssertJ","href":"java/testing/testng/testngassertequalsdeeptoassertthat"},{"name":"TestNG `assertSame` to AssertJ","href":"java/testing/testng/testngassertsametoassertthat"},{"name":"TestNG `assertNotSame` to AssertJ","href":"java/testing/testng/testngassertnotsametoassertthat"},{"name":"TestNG `assertThrows`/`expectThrows` to AssertJ","href":"java/testing/testng/testngassertthrowstoassertthat"},{"name":"TestNG `assertList*` to AssertJ","href":"java/testing/testng/testngassertlisttoassertthat"},{"name":"Use static import","href":"java/usestaticimport"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate TestNG assertions to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert assertions from `org.testng.Assert` to `org.assertj.core.api.Assertions`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Refaster rules that replace TestNG assertions with equivalent AssertJ assertions","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes/"},{"name":"TestNG `assertEquals` to AssertJ","href":"/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertequalstoassertthat/"},{"name":"TestNG `assertNotEquals` to AssertJ","href":"/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertnotequalstoassertthat/"},{"name":"TestNG `assertEqualsNoOrder` to AssertJ","href":"/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertequalsnoordertoassertthat/"},{"name":"TestNG `assertEqualsDeep`/`assertNotEqualsDeep` to AssertJ","href":"/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertequalsdeeptoassertthat/"},{"name":"TestNG `assertSame` to AssertJ","href":"/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertsametoassertthat/"},{"name":"TestNG `assertNotSame` to AssertJ","href":"/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertnotsametoassertthat/"},{"name":"TestNG `assertThrows`/`expectThrows` to AssertJ","href":"/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertthrowstoassertthat/"},{"name":"TestNG `assertList*` to AssertJ","href":"/user-documentation/recipes/recipe-catalog/java/testing/testng/testngassertlisttoassertthat/"},{"name":"Use static import","href":"/user-documentation/recipes/recipe-catalog/java/usestaticimport/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

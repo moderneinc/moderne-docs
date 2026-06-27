@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Gradle plugin"}
-  description={"Add a build plugin to a Gradle build file's `plugins` block."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.AddBuildPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/plugins/addbuildplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Add Gradle plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a build plugin to a Gradle build file's `plugins` block.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"pluginId","required":true,"description":"The plugin id to apply.","example":"com.jfrog.bintray"},{"type":"String","name":"version","required":false,"description":"An exact version number or node-style semver selector used to select the version number. You can also use `latest.release` for the latest available version and `latest.patch` if the current version is a valid semantic version. For more details, you can look at the documentation page of [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors).","example":"3.x"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'version' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select Guava 29.0-jre","example":"-jre"},{"type":"Boolean","name":"apply","required":false,"description":"Immediate apply the plugin. Defaults to `true`."},{"type":"Boolean","name":"acceptTransitive","required":false,"description":"Some plugins apply other plugins. When this is set to true no plugin declaration will be added if the plugin is already applied transitively. When this is set to false the plugin will be added explicitly even if it is already applied transitively. Defaults to `true`."}]}>
 

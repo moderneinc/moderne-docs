@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Session interface method calls"}
-  description={"Migrates code using deprecated Session interface methods to their Hibernate 7.0 replacements."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.MigrateSessionInterface"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/migratesessioninterface.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Session interface method calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates code using deprecated Session interface methods to their Hibernate 7.0 replacements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.Session;\npublic class SomeClass {\n    public void doSomething(Session session) {\n        session.createQuery(\"SELECT e FROM Entity e\");\n    }\n}\n","after":"import org.hibernate.Session;\npublic class SomeClass {\n    public void doSomething(Session session) {\n        session.createSelectionQuery(\"SELECT e FROM Entity e\", Object.class);\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\npublic class SomeClass {\n    public void doSomething(Session session) {\n-       session.createQuery(\"SELECT e FROM Entity e\");\n+       session.createSelectionQuery(\"SELECT e FROM Entity e\", Object.class);\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (result.isSuccess) … else …` patterns"}
-  description={"Branching on `Result.isSuccess` / `Result.isFailure` and then unwrapping with `getOrNull()` / `exceptionOrNull()` is the imperative form of `result.fold(onSuccess, onFailure)`. The `.fold(...)` form is total (the compiler verifies both branches are present) and reads as the value-producing expression it actually is."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindResultFoldImperative$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultfoldimperative$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (result.isSuccess) … else …` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Branching on `Result.isSuccess` / `Result.isFailure` and then unwrapping with `getOrNull()` / `exceptionOrNull()` is the imperative form of `result.fold(onSuccess, onFailure)`. The `.fold(...)` form is total (the compiler verifies both branches are present) and reads as the value-producing expression it actually is.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindResultFoldImperative$KtRecipe","displayName":"Find `if (result.isSuccess) … else …` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

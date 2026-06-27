@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enable Develocity build cache"}
-  description={"Add Develocity build cache configuration to any `.mvn/` Develocity configuration file that lack existing configuration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.EnableDevelocityBuildCache"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/enabledevelocitybuildcache.md"}
-/>
+>
+
+<RecipeHeader.Title>Enable Develocity build cache</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add Develocity build cache configuration to any `.mvn/` Develocity configuration file that lack existing configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"localEnabled","required":false,"description":"Value for `//develocity/buildCache/local/enabled`.","example":"true"},{"type":"String","name":"remoteEnabled","required":false,"description":"Value for `//develocity/buildCache/remote/enabled`.","example":"true"},{"type":"String","name":"remoteStoreEnabled","required":false,"description":"Value for `//develocity/buildCache/remote/storeEnabled`.","example":"#{isTrue(env['CI'])}"}]}>
 

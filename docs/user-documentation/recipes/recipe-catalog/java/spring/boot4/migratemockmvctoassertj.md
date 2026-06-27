@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate MockMvc to AssertJ assertions"}
-  description={"Migrates Spring MockMvc tests from Hamcrest-style `andExpect()` assertions to AssertJ-style fluent assertions. Changes `MockMvc` to `MockMvcTester` and converts assertion chains."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","testing","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.MigrateMockMvcToAssertJ"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratemockmvctoassertj.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate MockMvc `andExpect()` chains to AssertJ assertions","href":"java/spring/boot4/mockmvcassertionstoassertj"},{"name":"Migrate `MockMvc` to `MockMvcTester`","href":"java/spring/boot4/mockmvctomockmvctester"},{"name":"Migrate `MockMvcRequestBuilders` to `MockMvcTester` request methods","href":"java/spring/boot4/mockmvcrequestbuilderstomockmvctester"}]}>
+<RecipeHeader.Title>Migrate MockMvc to AssertJ assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Spring MockMvc tests from Hamcrest-style `andExpect()` assertions to AssertJ-style fluent assertions. Changes `MockMvc` to `MockMvcTester` and converts assertion chains.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate MockMvc `andExpect()` chains to AssertJ assertions","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvcassertionstoassertj/"},{"name":"Migrate `MockMvc` to `MockMvcTester`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvctomockmvctester/"},{"name":"Migrate `MockMvcRequestBuilders` to `MockMvcTester` request methods","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/mockmvcrequestbuilderstomockmvctester/"}]}>
 
 ## Definition
 

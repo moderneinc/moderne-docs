@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unused labels"}
-  description={"Remove labels that are not referenced by any `break` or `continue` statement."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1065"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveUnusedLabels"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedlabels.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unused labels</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove labels that are not referenced by any `break` or `continue` statement.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void foo() {\n        label: for (int i = 0; i < 10; i++) {\n            System.out.println(i);\n        }\n    }\n}\n","after":"class A {\n    void foo() {\n        for (int i = 0; i < 10; i++) {\n            System.out.println(i);\n        }\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n    void foo() {\n-       label: for (int i = 0; i < 10; i++) {\n+       for (int i = 0; i < 10; i++) {\n            System.out.println(i);\n","newFile":false}]}]}>
 

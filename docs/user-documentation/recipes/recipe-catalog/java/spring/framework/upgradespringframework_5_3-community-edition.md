@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Framework 5.3"}
-  description={"Migrate applications to the latest Spring Framework 5.3 release."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.UpgradeSpringFramework_5_3"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_3-community-edition.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Framework 5.2","href":"java/spring/framework/upgradespringframework_5_2"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Use `ObjectUtils#isEmpty(Object)`","href":"java/spring/framework/useobjectutilsisempty"},{"name":"Migrate `HandlerInterceptorAdapter` to `HandlerInterceptor`","href":"java/spring/framework/migratehandlerinterceptor"},{"name":"Convert `InstantiationAwareBeanPostProcessorAdapter` to `SmartInstantiationAwareBeanPostProcessor`","href":"java/spring/framework/migrateinstantiationawarebeanpostprocessoradapter"},{"name":"Use varargs equivalents for deprecated JdbcTemplate signatures","href":"java/spring/framework/jdbctemplateobjectarrayargtovarargs"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Framework 5.3</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Framework 5.3 release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Framework 5.2","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_2/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Use `ObjectUtils#isEmpty(Object)`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/useobjectutilsisempty/"},{"name":"Migrate `HandlerInterceptorAdapter` to `HandlerInterceptor`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/migratehandlerinterceptor/"},{"name":"Convert `InstantiationAwareBeanPostProcessorAdapter` to `SmartInstantiationAwareBeanPostProcessor`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateinstantiationawarebeanpostprocessoradapter/"},{"name":"Use varargs equivalents for deprecated JdbcTemplate signatures","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/jdbctemplateobjectarrayargtovarargs/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

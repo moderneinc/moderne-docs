@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Comment on Kotlin usages of `SecurityContext.getAuthentication()`"}
-  description={"Spring Security 7 made `SecurityContext.getAuthentication()` return `@Nullable Authentication`. In Kotlin this becomes `Authentication?`, so existing chains like `SecurityContextHolder.getContext().authentication.credentials` no longer compile. This recipe adds a TODO comment on the line above each Kotlin statement that reads the authentication — both the explicit `getAuthentication()` form and the Kotlin property form `.authentication` — so a developer can decide per call site whether to use a safe-call (`?.`) or a non-null assertion (`!!`)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.security7.CommentOnSecurityContextAuthenticationInKotlin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security7/commentonsecuritycontextauthenticationinkotlin.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Comment on Kotlin usages of `SecurityContext.getAuthentication()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Security 7 made `SecurityContext.getAuthentication()` return `@Nullable Authentication`. In Kotlin this becomes `Authentication?`, so existing chains like `SecurityContextHolder.getContext().authentication.credentials` no longer compile. This recipe adds a TODO comment on the line above each Kotlin statement that reads the authentication — both the explicit `getAuthentication()` form and the Kotlin property form `.authentication` — so a developer can decide per call site whether to use a safe-call (`?.`) or a non-null assertion (`!!`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"kotlin","code":"import org.springframework.security.core.context.SecurityContextHolder\n\nclass TokenExtractor {\n    fun extract() {\n        val authentication = SecurityContextHolder.getContext().authentication\n        println(authentication)\n    }\n}\n"},"variants":[]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Boot 2.1"}
-  description={"Migrate applications to the latest Spring Boot 2.1 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.1."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","boot"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.UpgradeSpringBoot_2_1"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_1.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate from Spring Boot 1.x to 2.0","href":"java/spring/boot2/upgradespringboot_2_0"},{"name":"Migrate to Spring Framework 5.1","href":"java/spring/framework/upgradespringframework_5_1"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"},{"name":"Upgrade Maven parent project version","href":"maven/upgradeparentversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Update Gradle wrapper","href":"gradle/updategradlewrapper"},{"name":"Use `RestTemplateBuilder#basicAuthentication`","href":"java/spring/boot2/migrateresttemplatebuilderbasicauthorization"},{"name":"Use `RestTemplateBuilder#setConnectTimeout(Duration)` and `RestTemplateBuilder#setReadTimeout(Duration)`","href":"java/spring/boot2/migrateresttemplatebuildertimeoutbyint"},{"name":"Use `MultipartConfigFactory` with `DataSize` arguments","href":"java/spring/boot2/migratemultipartconfigfactory"},{"name":"Migrate Spring Boot properties to 2.1","href":"java/spring/boot2/springbootproperties_2_1"},{"name":"Upgrade MyBatis to Spring Boot 2.1","href":"java/spring/boot3/upgrademybatistospringboot_2_1"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Boot 2.1</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Boot 2.1 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 2.1.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate from Spring Boot 1.x to 2.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/upgradespringboot_2_0/"},{"name":"Migrate to Spring Framework 5.1","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_5_1/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"},{"name":"Upgrade Maven parent project version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradeparentversion/"},{"name":"Update a Gradle plugin by id","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/upgradepluginversion/"},{"name":"Update a Gradle plugin by id","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/upgradepluginversion/"},{"name":"Update Gradle wrapper","href":"/user-documentation/recipes/recipe-catalog/gradle/updategradlewrapper/"},{"name":"Use `RestTemplateBuilder#basicAuthentication`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateresttemplatebuilderbasicauthorization/"},{"name":"Use `RestTemplateBuilder#setConnectTimeout(Duration)` and `RestTemplateBuilder#setReadTimeout(Duration)`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateresttemplatebuildertimeoutbyint/"},{"name":"Use `MultipartConfigFactory` with `DataSize` arguments","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratemultipartconfigfactory/"},{"name":"Migrate Spring Boot properties to 2.1","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/springbootproperties_2_1/"},{"name":"Upgrade MyBatis to Spring Boot 2.1","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgrademybatistospringboot_2_1/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

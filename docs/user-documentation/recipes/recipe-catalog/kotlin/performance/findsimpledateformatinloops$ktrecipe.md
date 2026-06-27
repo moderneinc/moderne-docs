@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `SimpleDateFormat` allocations inside loops"}
-  description={"`SimpleDateFormat` parses its pattern string in the constructor and is not thread-safe — allocating one per iteration is a common per-row hot spot. Hoist it out of the loop or use a thread-local cache (or migrate to `DateTimeFormatter`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindSimpleDateFormatInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findsimpledateformatinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `SimpleDateFormat` allocations inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>`SimpleDateFormat` parses its pattern string in the constructor and is not thread-safe — allocating one per iteration is a common per-row hot spot. Hoist it out of the loop or use a thread-local cache (or migrate to `DateTimeFormatter`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindSimpleDateFormatInLoops$KtRecipe","displayName":"Find `SimpleDateFormat` allocations inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

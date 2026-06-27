@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Python dependency insight"}
-  description={"Find Python dependencies, including transitive dependencies, matching a package name pattern. Results include the resolved version, scope, and whether the dependency is direct or transitive."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.migrate.DependencyInsight"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/migrate/dependencyinsight.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Python dependency insight</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find Python dependencies, including transitive dependencies, matching a package name pattern. Results include the resolved version, scope, and whether the dependency is direct or transitive.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packagePattern","required":true,"description":"A glob pattern to match against package names. Package names are normalized per PEP 503 before matching (lowercased, runs of dashes/underscores/dots collapsed to a single dash).","example":"requests"},{"type":"String","name":"scope","required":false,"description":"Filter dependencies by scope. Common scopes: `main`, `build`, or the name of an optional-dependency extra or dependency-group (e.g., `dev`, `test`). When omitted, all scopes are searched.","example":"main"}]}>
 

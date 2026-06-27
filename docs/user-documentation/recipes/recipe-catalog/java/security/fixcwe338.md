@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Fix CWE-338 with `SecureRandom`"}
-  description={"Use a cryptographically strong pseudo-random number generator (PRNG)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-338"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.FixCwe338"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/fixcwe338.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Fix CWE-338 with `SecureRandom`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use a cryptographically strong pseudo-random number generator (PRNG).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package au.com.suncorp.easyshare.services.util;\nimport org.apache.commons.lang.RandomStringUtils;\npublic final class RandomUtil {\n    private RandomUtil() {\n    }\n    public static String generateString(int count) {\n        return RandomStringUtils.randomAlphanumeric(count);\n    }\n}\n","after":"package au.com.suncorp.easyshare.services.util;\n\nimport org.apache.commons.lang.RandomStringUtils;\n\nimport java.security.SecureRandom;\n\npublic final class RandomUtil {\n    private static final SecureRandom SECURE_RANDOM = new SecureRandom();\n    private static final int DEF_COUNT = 20;\n\n    static {\n        SECURE_RANDOM.nextBytes(new byte[64]);\n    }\n\n    private RandomUtil() {\n    }\n\n    public static String generateString(int count) {\n        return generateRandomAlphanumericString();\n    }\n\n    private static String generateRandomAlphanumericString() {\n        return RandomStringUtils.random(DEF_COUNT, 0, 0, true, true, null, SECURE_RANDOM);\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\npackage au.com.suncorp.easyshare.services.util;\n+\nimport org.apache.commons.lang.RandomStringUtils;\n@@ -3,0 +4,3 @@\npackage au.com.suncorp.easyshare.services.util;\nimport org.apache.commons.lang.RandomStringUtils;\n+\n+import java.security.SecureRandom;\n+\npublic final class RandomUtil {\n@@ -4,0 +8,7 @@\nimport org.apache.commons.lang.RandomStringUtils;\npublic final class RandomUtil {\n+   private static final SecureRandom SECURE_RANDOM = new SecureRandom();\n+   private static final int DEF_COUNT = 20;\n+\n+   static {\n+       SECURE_RANDOM.nextBytes(new byte[64]);\n+   }\n+\n    private RandomUtil() {\n@@ -6,0 +17,1 @@\n    private RandomUtil() {\n    }\n+\n    public static String generateString(int count) {\n@@ -7,1 +19,1 @@\n    }\n    public static String generateString(int count) {\n-       return RandomStringUtils.randomAlphanumeric(count);\n+       return generateRandomAlphanumericString();\n    }\n@@ -9,0 +21,4 @@\n        return RandomStringUtils.randomAlphanumeric(count);\n    }\n+\n+   private static String generateRandomAlphanumericString() {\n+       return RandomStringUtils.random(DEF_COUNT, 0, 0, true, true, null, SECURE_RANDOM);\n+   }\n}\n","newFile":false}]}]}>
 

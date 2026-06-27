@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find logger write calls (`info`/`warn`/`error`/`debug`)"}
-  description={"Logger calls can persistently capture user-controlled data into log aggregators — a PII-leak seed. Each match is a candidate to verify that the format arguments don't include sensitive fields or that a redaction layer wraps the call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindLogWriteSinks$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findlogwritesinks$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find logger write calls (`info`/`warn`/`error`/`debug`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Logger calls can persistently capture user-controlled data into log aggregators — a PII-leak seed. Each match is a candidate to verify that the format arguments don't include sensitive fields or that a redaction layer wraps the call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindLogWriteSinks$KtRecipe","displayName":"Find logger write calls (`info`/`warn`/`error`/`debug`)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

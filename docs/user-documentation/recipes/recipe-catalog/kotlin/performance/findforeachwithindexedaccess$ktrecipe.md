@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `for (i in xs.indices) { val x = xs[i] }` patterns"}
-  description={"Iterating over `xs.indices` and indexing back into `xs[i]` is the explicit-index form of `xs.forEachIndexed { i, x -> }`. The indexed form is clearer and avoids re-resolving `xs[i]` on every access."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindForEachWithIndexedAccess$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findforeachwithindexedaccess$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `for (i in xs.indices) { val x = xs[i] }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Iterating over `xs.indices` and indexing back into `xs[i]` is the explicit-index form of `xs.forEachIndexed { i, x -> }`. The indexed form is clearer and avoids re-resolving `xs[i]` on every access.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindForEachWithIndexedAccess$KtRecipe","displayName":"Find `for (i in xs.indices) { val x = xs[i] }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

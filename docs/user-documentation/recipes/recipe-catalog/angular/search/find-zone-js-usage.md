@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find zone.js usage"}
-  description={"Finds zone.js imports and NgZone references. Angular 20 supports zoneless change detection via `provideZonelessChangeDetection()`, making zone.js optional."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-zone-js-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-zone-js-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find zone.js usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds zone.js imports and NgZone references. Angular 20 supports zoneless change detection via `provideZonelessChangeDetection()`, making zone.js optional.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-zone-js-usage","displayName":"Find zone.js usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

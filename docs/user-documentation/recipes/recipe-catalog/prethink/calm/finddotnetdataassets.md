@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET data assets"}
-  description={"Detect C# DTOs, records, and entity types based on property/method ratio, [DataContract] / [Table] attributes, and `record` keyword."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDotnetDataAssets"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetdataassets.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET data assets</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect C# DTOs, records, and entity types based on property/method ratio, [DataContract] / [Table] attributes, and `record` keyword.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindDotnetDataAssets","displayName":"Find .NET data assets","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find SQL function"}
-  description={"Find SQL functions by name."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.sql.search.FindFunction"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/sql/search/findfunction.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find SQL function</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find SQL functions by name.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"functionName","required":true,"description":"The name of the function to find, case insensitive. Supports glob.","example":"nvl"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Stream.of(...)` calls"}
-  description={"`Stream.of(...)` is a varargs-to-Stream constructor used to bootstrap a Stream pipeline. In Kotlin, `sequenceOf(...)` (lazy) or `listOf(...)` (eager) cover the same uses without committing to the Stream type at the boundary."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindStreamOfCall$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findstreamofcall$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Stream.of(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Stream.of(...)` is a varargs-to-Stream constructor used to bootstrap a Stream pipeline. In Kotlin, `sequenceOf(...)` (lazy) or `listOf(...)` (eager) cover the same uses without committing to the Stream type at the boundary.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindStreamOfCall$KtRecipe","displayName":"Find `Stream.of(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

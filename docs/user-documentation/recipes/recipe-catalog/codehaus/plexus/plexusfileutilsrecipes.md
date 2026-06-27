@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`PlexusFileUtils` Refaster recipes"}
-  description={"Refaster template recipes for `org.openrewrite.codehaus.plexus.PlexusFileUtils`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codehaus.plexus.PlexusFileUtilsRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codehaus/plexus/plexusfileutilsrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `FileUtils.deleteDirectory(File)` with JDK provided API","href":"codehaus/plexus/plexusfileutilsrecipes$deletedirectoryfilerecipe"},{"name":"Replace `FileUtils.deleteDirectory(String)` with JDK provided API","href":"codehaus/plexus/plexusfileutilsrecipes$deletedirectorystringrecipe"},{"name":"Replace `FileUtils.fileExists(String)` with JDK provided API","href":"codehaus/plexus/plexusfileutilsrecipes$fileexistsstringrecipe"},{"name":"Replace `FileUtils.getFile(String)` with JDK provided API","href":"codehaus/plexus/plexusfileutilsrecipes$getfilerecipe"}]}>
+<RecipeHeader.Title>`PlexusFileUtils` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster template recipes for `org.openrewrite.codehaus.plexus.PlexusFileUtils`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `FileUtils.deleteDirectory(File)` with JDK provided API","href":"/user-documentation/recipes/recipe-catalog/codehaus/plexus/plexusfileutilsrecipes$deletedirectoryfilerecipe/"},{"name":"Replace `FileUtils.deleteDirectory(String)` with JDK provided API","href":"/user-documentation/recipes/recipe-catalog/codehaus/plexus/plexusfileutilsrecipes$deletedirectorystringrecipe/"},{"name":"Replace `FileUtils.fileExists(String)` with JDK provided API","href":"/user-documentation/recipes/recipe-catalog/codehaus/plexus/plexusfileutilsrecipes$fileexistsstringrecipe/"},{"name":"Replace `FileUtils.getFile(String)` with JDK provided API","href":"/user-documentation/recipes/recipe-catalog/codehaus/plexus/plexusfileutilsrecipes$getfilerecipe/"}]}>
 
 ## Definition
 

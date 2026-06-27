@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `exactly_once` and `exactly_once_beta` to `exactly_once_v2`"}
-  description={"Kafka Streams 2.6 introduces the exactly-once semantics v2, which is a more efficient implementation with improved internal handling. Starting from 3.0, it becomes the default \"exactly_once_v2\"."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kafka"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.streams.ProcessingGuaranteeExactlyOnceToV2"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/streams/processingguaranteeexactlyoncetov2.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `String` literal","href":"java/replacestringliteralvalue"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"}]}>
+<RecipeHeader.Title>Migrate `exactly_once` and `exactly_once_beta` to `exactly_once_v2`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kafka Streams 2.6 introduces the exactly-once semantics v2, which is a more efficient implementation with improved internal handling. Starting from 3.0, it becomes the default "exactly_once_v2".</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `String` literal","href":"/user-documentation/recipes/recipe-catalog/java/replacestringliteralvalue/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"}]}>
 
 ## Definition
 

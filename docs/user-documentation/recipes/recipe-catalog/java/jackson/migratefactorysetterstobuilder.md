@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate factory setter calls to builder pattern"}
-  description={"In Jackson 3, `JsonFactory` is immutable and `new JsonFactory()` is no longer the right entry point: the concrete factory lives at `tools.jackson.core.json.JsonFactory` and is constructed via `JsonFactory.builder()...build()`. Configuration methods like `enable`, `disable`, `configure`, `setCharacterEscapes`, etc. must be called on the builder instead. This recipe migrates setter calls to the builder pattern when safe, or adds TODO comments when automatic migration is not possible."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.MigrateFactorySettersToBuilder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/migratefactorysetterstobuilder.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate factory setter calls to builder pattern</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Jackson 3, `JsonFactory` is immutable and `new JsonFactory()` is no longer the right entry point: the concrete factory lives at `tools.jackson.core.json.JsonFactory` and is constructed via `JsonFactory.builder()...build()`. Configuration methods like `enable`, `disable`, `configure`, `setCharacterEscapes`, etc. must be called on the builder instead. This recipe migrates setter calls to the builder pattern when safe, or adds TODO comments when automatic migration is not possible.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.core.JsonFactory;\n\nclass A {\n    JsonFactory factory = new JsonFactory();\n}\n","after":"import com.fasterxml.jackson.core.JsonFactory;\n\nclass A {\n    JsonFactory factory = JsonFactory.builder()\n            .build();\n}\n","diff":"@@ -4,1 +4,2 @@\n\nclass A {\n-   JsonFactory factory = new JsonFactory();\n+   JsonFactory factory = JsonFactory.builder()\n+           .build();\n}\n","newFile":false}]}]}>
 

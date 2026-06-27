@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add repository"}
-  description={"Adds a new Maven Repository or updates a matching repository."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.AddRepository"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/addrepository.md"}
-/>
+>
+
+<RecipeHeader.Title>Add repository</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds a new Maven Repository or updates a matching repository.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"id","required":true,"description":"A unique name to describe the repository.","example":"repo-id"},{"type":"String","name":"url","required":true,"description":"The URL of the repository.","example":"http://myrepo.maven.com/repo"},{"type":"String","name":"repoName","required":false,"description":"A display name for the repository.","example":"My Great Repo Name"},{"type":"String","name":"layout","required":false,"description":"The Maven layout of the repository.","example":"default"},{"type":"Boolean","name":"snapshotsEnabled","required":false,"description":"Snapshots from the repository are available."},{"type":"String","name":"snapshotsChecksumPolicy","required":false,"description":"Governs whether snapshots require checksums.","example":"warn"},{"type":"String","name":"snapshotsUpdatePolicy","required":false,"description":"The policy governing snapshot updating interval.","example":"always"},{"type":"Boolean","name":"releasesEnabled","required":false,"description":"Releases from the repository are available"},{"type":"String","name":"releasesChecksumPolicy","required":false,"description":"Governs whether releases require checksums.","example":"fail"},{"type":"String","name":"releasesUpdatePolicy","required":false,"description":"The policy governing release updating interval.","example":"never"},{"type":"Type","name":"type","required":false,"description":"The type of repository to add.","example":"Repository"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JSF variable-resolver to el-resolver"}
-  description={"Migrates JSF faces-config.xml from namespaces, tags and values that was deprecated in JSF 1.2 and removed in later versions, to the JSF 2.3 compatible constructs."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","framework","jsf"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.jsf23.MigrateFacesConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/jsf23/migratefacesconfig.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML tag name","href":"xml/changetagname"},{"name":"Change XML tag value","href":"xml/changetagvalue"},{"name":"Remove XML tag","href":"xml/removexmltag"},{"name":"Find and replace","href":"text/findandreplace"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Find files","href":"core/findsourcefiles"}]}>
+<RecipeHeader.Title>Migrate JSF variable-resolver to el-resolver</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates JSF faces-config.xml from namespaces, tags and values that was deprecated in JSF 1.2 and removed in later versions, to the JSF 2.3 compatible constructs.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"},{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"},{"name":"Remove XML tag","href":"/user-documentation/recipes/recipe-catalog/xml/removexmltag/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"}]}>
 
 ## Definition
 

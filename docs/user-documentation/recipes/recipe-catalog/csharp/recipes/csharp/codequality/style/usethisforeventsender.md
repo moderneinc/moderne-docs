@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use 'this' for event sender"}
-  description={"Replace `null` with `this` as the sender argument when raising instance events. The sender should be the object raising the event."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseThisForEventSender"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/usethisforeventsender.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use 'this' for event sender</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `null` with `this` as the sender argument when raising instance events. The sender should be the object raising the event.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseThisForEventSender","displayName":"Use 'this' for event sender","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

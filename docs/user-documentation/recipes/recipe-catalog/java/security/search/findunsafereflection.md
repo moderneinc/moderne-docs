@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unsafe reflection vectors"}
-  description={"Finds calls to `Class.forName()` which, when the class name is derived from user input, can allow an attacker to instantiate arbitrary classes. Review these call sites to ensure the class name is not externally controlled."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security","CWE-470"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindUnsafeReflection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findunsafereflection.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find method usages","href":"java/search/findmethods"}]}>
+<RecipeHeader.Title>Find unsafe reflection vectors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds calls to `Class.forName()` which, when the class name is derived from user input, can allow an attacker to instantiate arbitrary classes. Review these call sites to ensure the class name is not externally controlled.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove interface implementations"}
-  description={"Removes `implements` clauses from classes implementing the specified interface. Removes `@Overrides` annotations from methods which no longer override anything."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.RemoveImplements"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/removeimplements.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove interface implementations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `implements` clauses from classes implementing the specified interface. Removes `@Overrides` annotations from methods which no longer override anything.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"interfaceType","required":true,"description":"The fully qualified name of the interface to remove.","example":"java.io.Serializable"},{"type":"String","name":"filter","required":false,"description":"Only apply the interface removal to classes with fully qualified names that begin with this filter. `null` or empty matches all classes.","example":"com.yourorg."}]}>
 

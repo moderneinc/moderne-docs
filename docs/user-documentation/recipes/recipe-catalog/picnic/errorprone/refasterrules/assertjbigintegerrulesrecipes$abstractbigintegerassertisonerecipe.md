@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsOne`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractBigIntegerAssertIsOne {\n    \n    @BeforeTemplate\n    AbstractBigIntegerAssert<?> before(AbstractBigIntegerAssert<?> bigIntegerAssert) {\n        return Refaster.anyOf(bigIntegerAssert.isOne(), bigIntegerAssert.isEqualTo(1L), bigIntegerAssert.isEqualTo(BigInteger.ONE));\n    }\n    \n    @AfterTemplate\n    AbstractBigIntegerAssert<?> after(AbstractBigIntegerAssert<?> bigIntegerAssert) {\n        return bigIntegerAssert.isEqualTo(1);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJBigIntegerRulesRecipes$AbstractBigIntegerAssertIsOneRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbigintegerrulesrecipes$abstractbigintegerassertisonerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsOne`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractBigIntegerAssertIsOne {
+    
+    @BeforeTemplate
+    AbstractBigIntegerAssert<?> before(AbstractBigIntegerAssert<?> bigIntegerAssert) {
+        return Refaster.anyOf(bigIntegerAssert.isOne(), bigIntegerAssert.isEqualTo(1L), bigIntegerAssert.isEqualTo(BigInteger.ONE));
+    }
+    
+    @AfterTemplate
+    AbstractBigIntegerAssert<?> after(AbstractBigIntegerAssert<?> bigIntegerAssert) {
+        return bigIntegerAssert.isEqualTo(1);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJBigIntegerRulesRecipes$AbstractBigIntegerAssertIsOneRecipe","displayName":"Refaster template `AssertJBigIntegerRules.AbstractBigIntegerAssertIsOne`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose effect handler issues"}
-  description={"Effect handlers misused: `LaunchedEffect(Unit)`/`LaunchedEffect(true)` placeholder keys, `DisposableEffect` lambdas missing `onDispose { }`, `rememberCoroutineScope()` mis-placed inside a lambda, `LaunchedEffect` inside loops, and side-effecting calls (logging, `File`) inside the composable body rather than an effect block."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposeEffectIssues$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposeeffectissues$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `LaunchedEffect(Unit) { … }` blocks","href":"kotlin/compose/findlaunchedeffectwithunitkey$ktrecipe"},{"name":"Find `LaunchedEffect(true) { … }` blocks","href":"kotlin/compose/findlaunchedeffectwithtruekey$ktrecipe"},{"name":"Find `DisposableEffect { … }` blocks missing an `onDispose { }`","href":"kotlin/compose/finddisposableeffectmissingondispose$ktrecipe"},{"name":"Find logging calls in `@Composable` bodies","href":"kotlin/compose/findsideeffectincomposablebody$ktrecipe"},{"name":"Find `java.io.File(...)` allocations inside a `@Composable` body","href":"kotlin/compose/findsideeffectallocationsinbody$ktrecipe"},{"name":"Find `rememberCoroutineScope()` calls inside a lambda","href":"kotlin/compose/findremembercoroutinescopeinlambda$ktrecipe"},{"name":"Find `for (...) { LaunchedEffect(...) { … } }` patterns","href":"kotlin/compose/findcoroutinelaunchinsidelaunchedeffectinloop$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose effect handler issues</RecipeHeader.Title>
+
+<RecipeHeader.Description>Effect handlers misused: `LaunchedEffect(Unit)`/`LaunchedEffect(true)` placeholder keys, `DisposableEffect` lambdas missing `onDispose { }`, `rememberCoroutineScope()` mis-placed inside a lambda, `LaunchedEffect` inside loops, and side-effecting calls (logging, `File`) inside the composable body rather than an effect block.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `LaunchedEffect(Unit) { … }` blocks","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlaunchedeffectwithunitkey$ktrecipe/"},{"name":"Find `LaunchedEffect(true) { … }` blocks","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlaunchedeffectwithtruekey$ktrecipe/"},{"name":"Find `DisposableEffect { … }` blocks missing an `onDispose { }`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/finddisposableeffectmissingondispose$ktrecipe/"},{"name":"Find logging calls in `@Composable` bodies","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findsideeffectincomposablebody$ktrecipe/"},{"name":"Find `java.io.File(...)` allocations inside a `@Composable` body","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findsideeffectallocationsinbody$ktrecipe/"},{"name":"Find `rememberCoroutineScope()` calls inside a lambda","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findremembercoroutinescopeinlambda$ktrecipe/"},{"name":"Find `for (...) { LaunchedEffect(...) { … } }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findcoroutinelaunchinsidelaunchedeffectinloop$ktrecipe/"}]}>
 
 ## Definition
 

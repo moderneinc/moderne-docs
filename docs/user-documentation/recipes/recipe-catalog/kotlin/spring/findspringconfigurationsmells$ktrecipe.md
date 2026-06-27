@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring configuration smells"}
-  description={"Configuration scattered across `@Value` lateinit-var reads, untyped `Environment.getProperty(...)` calls, `@ConfigurationProperties` carriers that aren't `data class`, `@Bean fun foo(): X = X()` candidates for the `beans { }` Kotlin DSL, and misplaced `@PropertySource` on non-`@Configuration` classes."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringConfigurationSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringconfigurationsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `@Value` on `lateinit var` properties","href":"kotlin/spring/findvalueannotationonlateinit$ktrecipe"},{"name":"Find `Environment.getProperty(...)` calls","href":"kotlin/spring/findenvironmentgetproperty$ktrecipe"},{"name":"Find `@ConfigurationProperties` classes that aren't `data class`","href":"kotlin/spring/findconfigurationpropertieswithoutdata$ktrecipe"},{"name":"Find `@Bean fun foo(): X = X()` candidates for the `beans { }` DSL","href":"kotlin/spring/findbeanlambdacandidate$ktrecipe"},{"name":"Find `@PropertySource` on classes that lack `@Configuration`","href":"kotlin/spring/findpropertysourceonnonconfiguration$ktrecipe"}]}>
+<RecipeHeader.Title>Find Spring configuration smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Configuration scattered across `@Value` lateinit-var reads, untyped `Environment.getProperty(...)` calls, `@ConfigurationProperties` carriers that aren't `data class`, `@Bean fun foo(): X = X()` candidates for the `beans { }` Kotlin DSL, and misplaced `@PropertySource` on non-`@Configuration` classes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `@Value` on `lateinit var` properties","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findvalueannotationonlateinit$ktrecipe/"},{"name":"Find `Environment.getProperty(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findenvironmentgetproperty$ktrecipe/"},{"name":"Find `@ConfigurationProperties` classes that aren't `data class`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findconfigurationpropertieswithoutdata$ktrecipe/"},{"name":"Find `@Bean fun foo(): X = X()` candidates for the `beans { }` DSL","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findbeanlambdacandidate$ktrecipe/"},{"name":"Find `@PropertySource` on classes that lack `@Configuration`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findpropertysourceonnonconfiguration$ktrecipe/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from tibdex/github-app-token to actions/create-github-app-token"}
-  description={"Migrates from the deprecated `tibdex/github-app-token@v2` to `actions/create-github-app-token@v3`, which runs on Node.js 24 instead of the deprecated Node.js 20. Renames the `app_id`, `private_key`, and `github_api_url` inputs to their kebab-case equivalents `app-id`, `private-key`, and `github-api-url`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["github","actions"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.MigrateTibdexGitHubAppTokenToActions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/migratetibdexgithubapptokentoactions.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change GitHub Action","href":"github/changeaction"},{"name":"Change key","href":"yaml/changekey"},{"name":"Change key","href":"yaml/changekey"},{"name":"Change key","href":"yaml/changekey"}]}>
+<RecipeHeader.Title>Migrate from tibdex/github-app-token to actions/create-github-app-token</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates from the deprecated `tibdex/github-app-token@v2` to `actions/create-github-app-token@v3`, which runs on Node.js 24 instead of the deprecated Node.js 20. Renames the `app_id`, `private_key`, and `github_api_url` inputs to their kebab-case equivalents `app-id`, `private-key`, and `github-api-url`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change GitHub Action","href":"/user-documentation/recipes/recipe-catalog/github/changeaction/"},{"name":"Change key","href":"/user-documentation/recipes/recipe-catalog/yaml/changekey/"},{"name":"Change key","href":"/user-documentation/recipes/recipe-catalog/yaml/changekey/"},{"name":"Change key","href":"/user-documentation/recipes/recipe-catalog/yaml/changekey/"}]}>
 
 ## Definition
 

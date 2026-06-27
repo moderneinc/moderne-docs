@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `spring.artemis.host` and `spring.artemis.port` to `spring.artemis.broker-url`"}
-  description={"Combines `spring.artemis.host` and `spring.artemis.port` into `spring.artemis.broker-url` in the format `tcp://host:port`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateArtemisProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateartemisproperties.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `spring.artemis.host` and `spring.artemis.port` to `spring.artemis.broker-url`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Combines `spring.artemis.host` and `spring.artemis.port` into `spring.artemis.broker-url` in the format `tcp://host:port`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"properties","before":"spring.artemis.host=myhost\nspring.artemis.port=1234\n","after":"spring.artemis.broker-url=tcp://myhost:1234\n","diff":"@@ -1,2 +1,1 @@\n-spring.artemis.host=myhost\n-spring.artemis.port=1234\n+spring.artemis.broker-url=tcp://myhost:1234\n\n","newFile":false}]}]}>
 

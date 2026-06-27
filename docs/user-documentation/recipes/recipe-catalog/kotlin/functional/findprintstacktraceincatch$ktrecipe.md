@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `e.printStackTrace()` calls inside a catch block"}
-  description={"`e.printStackTrace()` writes to stderr — which in most server environments is either unread, unrotated, or both. Replace with a real logger call (`log.error(\"context\", e)`) so the stack trace lands in the same place every other error in the application does."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindPrintStackTraceInCatch$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findprintstacktraceincatch$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `e.printStackTrace()` calls inside a catch block</RecipeHeader.Title>
+
+<RecipeHeader.Description>`e.printStackTrace()` writes to stderr — which in most server environments is either unread, unrotated, or both. Replace with a real logger call (`log.error("context", e)`) so the stack trace lands in the same place every other error in the application does.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindPrintStackTraceInCatch$KtRecipe","displayName":"Find `e.printStackTrace()` calls inside a catch block","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

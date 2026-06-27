@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Separate application YAML by profile"}
-  description={"The Spring team's recommendation is to separate profile properties into their own YAML files now."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.SeparateApplicationYamlByProfile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/separateapplicationyamlbyprofile.md"}
-/>
+>
+
+<RecipeHeader.Title>Separate application YAML by profile</RecipeHeader.Title>
+
+<RecipeHeader.Description>The Spring team's recommendation is to separate profile properties into their own YAML files now.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"","after":"name: test","newFile":true},{"language":"yaml","before":"name: main\n---\nspring:\n  config:\n    activate:\n      on-profile: test\nname: test\n","after":"name: main\n","diff":"@@ -2,6 +2,0 @@\nname: main\n----\n-spring:\n- config:\n-   activate:\n-     on-profile: test\n-name: test\n\n","newFile":false}]}]}>
 

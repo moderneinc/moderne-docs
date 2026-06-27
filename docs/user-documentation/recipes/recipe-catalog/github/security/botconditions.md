@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find spoofable bot actor checks"}
-  description={"Find workflow conditions that check for bot actors in ways that can be spoofed. Bot actor names (like `dependabot[bot]`) can be easily spoofed by creating accounts with similar names. Use `actor_id` with numeric comparison instead for secure bot validation. Based on [zizmor's `bot-conditions` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/bot_conditions.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.BotConditions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/botconditions.md"}
-/>
+>
+
+<RecipeHeader.Title>Find spoofable bot actor checks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find workflow conditions that check for bot actors in ways that can be spoofed. Bot actor names (like `dependabot[bot]`) can be easily spoofed by creating accounts with similar names. Use `actor_id` with numeric comparison instead for secure bot validation. Based on [zizmor's `bot-conditions` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/bot_conditions.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Test Workflow\non: pull_request\njobs:\n  test:\n    runs-on: ubuntu-latest\n    if: github.actor == 'dependabot[bot]'\n    steps:\n      - uses: actions/checkout@v4\n","after":"name: Test Workflow\non: pull_request\njobs:\n  test:\n    runs-on: ubuntu-latest\n    ~~(Bot actor name check is spoofable. Consider using actor_id instead for more secure bot validation.)~~>if: github.actor == 'dependabot[bot]'\n    steps:\n      - uses: actions/checkout@v4\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -6,1 +6,1 @@\n  test:\n    runs-on: ubuntu-latest\n-   if: github.actor == 'dependabot[bot]'\n+   ~~(Bot actor name check is spoofable. Consider using actor_id instead for more secure bot validation.)~~>if: github.actor == 'dependabot[bot]'\n    steps:\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Make AuditorAware.getCurrentAuditor return `Optional`"}
-  description={"As of Spring boot 2.0, the `AuditorAware.getCurrentAuditor` method should return an `Optional`. This recipe will update the implementations of this method to return an `Optional` using the `ofNullable`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.data.MigrateAuditorAwareToOptional"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/data/migrateauditorawaretooptional.md"}
-/>
+>
+
+<RecipeHeader.Title>Make AuditorAware.getCurrentAuditor return `Optional`</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of Spring boot 2.0, the `AuditorAware.getCurrentAuditor` method should return an `Optional`. This recipe will update the implementations of this method to return an `Optional` using the `ofNullable`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.data.domain.AuditorAware;\n\npublic class MyAuditorAware implements AuditorAware<String> {\n    @Override\n    public String getCurrentAuditor() {\n        return \"admin\";\n    }\n}\n","after":"import org.springframework.data.domain.AuditorAware;\n\nimport java.util.Optional;\n\npublic class MyAuditorAware implements AuditorAware<String> {\n    @Override\n    public Optional<java.lang.String> getCurrentAuditor() {\n        return Optional.ofNullable(\"admin\");\n    }\n}\n","diff":"@@ -3,0 +3,2 @@\nimport org.springframework.data.domain.AuditorAware;\n\n+import java.util.Optional;\n+\npublic class MyAuditorAware implements AuditorAware<String> {\n@@ -5,2 +7,2 @@\npublic class MyAuditorAware implements AuditorAware<String> {\n    @Override\n-   public String getCurrentAuditor() {\n-       return \"admin\";\n+   public Optional<java.lang.String> getCurrentAuditor() {\n+       return Optional.ofNullable(\"admin\");\n    }\n","newFile":false}]}]}>
 

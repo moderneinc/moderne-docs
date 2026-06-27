@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `ViewModelProvider(...)` direct constructions"}
-  description={"`ViewModelProvider(this).get(MyViewModel::class.java)` predates the `by viewModels()` / `by activityViewModels()` Kotlin property delegates. With Hilt, those delegates pick up the `@HiltViewModel` annotation — no factory plumbing needed at the call site."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindAndroidViewModelInjection$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidviewmodelinjection$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `ViewModelProvider(...)` direct constructions</RecipeHeader.Title>
+
+<RecipeHeader.Description>`ViewModelProvider(this).get(MyViewModel::class.java)` predates the `by viewModels()` / `by activityViewModels()` Kotlin property delegates. With Hilt, those delegates pick up the `@HiltViewModel` annotation — no factory plumbing needed at the call site.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindAndroidViewModelInjection$KtRecipe","displayName":"Find `ViewModelProvider(...)` direct constructions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `JsonFactoryDecorator` to `TokenStreamFactoryBuilderDecorator`"}
-  description={"Migrates classes that implement `net.logstash.logback.decorate.JsonFactoryDecorator` (removed in logstash-logback-encoder 9.0) to implement `TokenStreamFactoryBuilderDecorator<JsonFactory, JsonFactoryBuilder>`. The `decorate(JsonFactory)` method is rewritten to take and return a `JsonFactoryBuilder`, and mutator calls inside the body (e.g. `setCharacterEscapes`) are folded into the equivalent builder calls (e.g. `characterEscapes`) where a mapping is known. Unmapped mutators are kept by name with a `TODO` comment for manual review."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.MigrateJsonFactoryDecorator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratejsonfactorydecorator.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `JsonFactoryDecorator` to `TokenStreamFactoryBuilderDecorator`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates classes that implement `net.logstash.logback.decorate.JsonFactoryDecorator` (removed in logstash-logback-encoder 9.0) to implement `TokenStreamFactoryBuilderDecorator<JsonFactory, JsonFactoryBuilder>`. The `decorate(JsonFactory)` method is rewritten to take and return a `JsonFactoryBuilder`, and mutator calls inside the body (e.g. `setCharacterEscapes`) are folded into the equivalent builder calls (e.g. `characterEscapes`) where a mapping is known. Unmapped mutators are kept by name with a `TODO` comment for manual review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.example.CustomCharacterEscapes;\nimport com.fasterxml.jackson.core.JsonFactory;\nimport net.logstash.logback.decorate.JsonFactoryDecorator;\n\nclass MyDecorator implements JsonFactoryDecorator {\n    @Override\n    public JsonFactory decorate(JsonFactory factory) {\n        factory.setCharacterEscapes(new CustomCharacterEscapes());\n        return factory;\n    }\n}\n","after":"import com.example.CustomCharacterEscapes;\nimport com.fasterxml.jackson.core.JsonFactory;\nimport com.fasterxml.jackson.core.json.JsonFactoryBuilder;\nimport net.logstash.logback.decorate.TokenStreamFactoryBuilderDecorator;\n\nclass MyDecorator implements TokenStreamFactoryBuilderDecorator<JsonFactory, JsonFactoryBuilder> {\n    @Override\n    public JsonFactoryBuilder decorate(JsonFactoryBuilder builder) {\n        return builder\n                .characterEscapes(new CustomCharacterEscapes());\n    }\n}\n","diff":"@@ -3,1 +3,2 @@\nimport com.example.CustomCharacterEscapes;\nimport com.fasterxml.jackson.core.JsonFactory;\n-import net.logstash.logback.decorate.JsonFactoryDecorator;\n+import com.fasterxml.jackson.core.json.JsonFactoryBuilder;\n+import net.logstash.logback.decorate.TokenStreamFactoryBuilderDecorator;\n\n@@ -5,1 +6,1 @@\nimport net.logstash.logback.decorate.JsonFactoryDecorator;\n\n-class MyDecorator implements JsonFactoryDecorator {\n+class MyDecorator implements TokenStreamFactoryBuilderDecorator<JsonFactory, JsonFactoryBuilder> {\n    @Override\n@@ -7,3 +8,3 @@\nclass MyDecorator implements JsonFactoryDecorator {\n    @Override\n-   public JsonFactory decorate(JsonFactory factory) {\n-       factory.setCharacterEscapes(new CustomCharacterEscapes());\n-       return factory;\n+   public JsonFactoryBuilder decorate(JsonFactoryBuilder builder) {\n+       return builder\n+               .characterEscapes(new CustomCharacterEscapes());\n    }\n","newFile":false}]}]}>
 

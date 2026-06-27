@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Cloud 2025.1"}
-  description={"Migrate applications to the latest Spring Cloud 2025.1 release, compatible with Spring Boot 4.0."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","cloud"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.cloud2025.UpgradeSpringCloud_2025_1"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/upgradespringcloud_2025_1.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Change Maven parent","href":"maven/changeparentpom"},{"name":"Add Spring Cloud dependencies BOM","href":"java/spring/cloud2025/addspringclouddependenciesbom"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Cloud 2025.1</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Cloud 2025.1 release, compatible with Spring Boot 4.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Change Maven parent","href":"/user-documentation/recipes/recipe-catalog/maven/changeparentpom/"},{"name":"Add Spring Cloud dependencies BOM","href":"/user-documentation/recipes/recipe-catalog/java/spring/cloud2025/addspringclouddependenciesbom/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

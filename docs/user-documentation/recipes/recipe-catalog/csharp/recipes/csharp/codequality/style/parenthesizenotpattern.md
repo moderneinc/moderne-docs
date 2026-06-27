@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Parenthesize not pattern for clarity"}
-  description={"Add parentheses to `not A or B` → `(not A) or B` to clarify that `not` binds tighter than `or`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.ParenthesizeNotPattern"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/parenthesizenotpattern.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Parenthesize not pattern for clarity</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add parentheses to `not A or B` → `(not A) or B` to clarify that `not` binds tighter than `or`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.ParenthesizeNotPattern","displayName":"Parenthesize not pattern for clarity","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

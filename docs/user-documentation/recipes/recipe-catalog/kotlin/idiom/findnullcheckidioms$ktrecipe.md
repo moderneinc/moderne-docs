@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find manual null-check idioms"}
-  description={"`if (x != null) x.foo()` / `if (x == null) return …` / `if (x == null) throw …` patterns where Kotlin's `?.`, `?: return`, and `?: throw` operators express the same intent in expression position."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindNullCheckIdioms$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnullcheckidioms$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `if (x != null) x.foo()` that could use `?.`","href":"kotlin/idiom/findifnotnullthencall$ktrecipe"},{"name":"Find `if (x != null) y = x.foo()` patterns","href":"kotlin/idiom/findifnotnullassign$ktrecipe"},{"name":"Find `if (x == null) return ...` early-exit patterns","href":"kotlin/idiom/findifnullreturn$ktrecipe"},{"name":"Find `if (x == null) throw ...` patterns","href":"kotlin/idiom/findifnullthrow$ktrecipe"},{"name":"Find `if (cond) value else null` patterns","href":"kotlin/idiom/findifelsenulldefault$ktrecipe"}]}>
+<RecipeHeader.Title>Find manual null-check idioms</RecipeHeader.Title>
+
+<RecipeHeader.Description>`if (x != null) x.foo()` / `if (x == null) return …` / `if (x == null) throw …` patterns where Kotlin's `?.`, `?: return`, and `?: throw` operators express the same intent in expression position.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `if (x != null) x.foo()` that could use `?.`","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifnotnullthencall$ktrecipe/"},{"name":"Find `if (x != null) y = x.foo()` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifnotnullassign$ktrecipe/"},{"name":"Find `if (x == null) return ...` early-exit patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifnullreturn$ktrecipe/"},{"name":"Find `if (x == null) throw ...` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifnullthrow$ktrecipe/"},{"name":"Find `if (cond) value else null` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifelsenulldefault$ktrecipe/"}]}>
 
 ## Definition
 

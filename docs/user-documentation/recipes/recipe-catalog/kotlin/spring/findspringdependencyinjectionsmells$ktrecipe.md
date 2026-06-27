@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring dependency-injection smells"}
-  description={"Field injection (`@Autowired` / `@Inject` / `@Qualifier` on `lateinit var`), redundant `@Autowired` on single ctors, the deprecated `@Required` setter annotation, and Spring stereotype classes that aren't `open` (Kotlin's `final` default breaks CGLIB proxies unless `kotlin-spring` is applied)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringDependencyInjectionSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringdependencyinjectionsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `@Autowired` on a single constructor","href":"kotlin/spring/findautowiredonconstructor$ktrecipe"},{"name":"Find `@Autowired lateinit var` field injection","href":"kotlin/spring/findautowiredonfield$ktrecipe"},{"name":"Find `@Inject lateinit var` field injection","href":"kotlin/spring/findfieldinjection$ktrecipe"},{"name":"Find `@Required` annotations","href":"kotlin/spring/findrequiredonsetter$ktrecipe"},{"name":"Find any `lateinit var` injected field (`@Autowired` / `@Inject` / `@Value`)","href":"kotlin/spring/findlateinitinjectedfield$ktrecipe"},{"name":"Find `@Qualifier` on `lateinit var` fields","href":"kotlin/spring/findqualifieronlateinitfield$ktrecipe"},{"name":"Find Spring stereotype classes not declared `open`","href":"kotlin/spring/findopenclassforspring$ktrecipe"}]}>
+<RecipeHeader.Title>Find Spring dependency-injection smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Field injection (`@Autowired` / `@Inject` / `@Qualifier` on `lateinit var`), redundant `@Autowired` on single ctors, the deprecated `@Required` setter annotation, and Spring stereotype classes that aren't `open` (Kotlin's `final` default breaks CGLIB proxies unless `kotlin-spring` is applied).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `@Autowired` on a single constructor","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredonconstructor$ktrecipe/"},{"name":"Find `@Autowired lateinit var` field injection","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredonfield$ktrecipe/"},{"name":"Find `@Inject lateinit var` field injection","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findfieldinjection$ktrecipe/"},{"name":"Find `@Required` annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findrequiredonsetter$ktrecipe/"},{"name":"Find any `lateinit var` injected field (`@Autowired` / `@Inject` / `@Value`)","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findlateinitinjectedfield$ktrecipe/"},{"name":"Find `@Qualifier` on `lateinit var` fields","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findqualifieronlateinitfield$ktrecipe/"},{"name":"Find Spring stereotype classes not declared `open`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findopenclassforspring$ktrecipe/"}]}>
 
 ## Definition
 

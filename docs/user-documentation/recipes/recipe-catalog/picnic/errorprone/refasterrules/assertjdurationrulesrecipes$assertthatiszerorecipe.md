@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJDurationRules.AssertThatIsZero`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsZero {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Duration duration) {\n        return assertThat(duration.isZero()).isTrue();\n    }\n    \n    @BeforeTemplate\n    AbstractDurationAssert<?> before2(Duration duration) {\n        return assertThat(duration).isEqualTo(Duration.ZERO);\n    }\n    \n    @AfterTemplate\n    AbstractDurationAssert<?> after(Duration duration) {\n        return assertThat(duration).isZero();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,37 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatIsZeroRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdurationrulesrecipes$assertthatiszerorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJDurationRules.AssertThatIsZero`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIsZero {
+    
+    @BeforeTemplate
+    AbstractBooleanAssert<?> before(Duration duration) {
+        return assertThat(duration.isZero()).isTrue();
+    }
+    
+    @BeforeTemplate
+    AbstractDurationAssert<?> before2(Duration duration) {
+        return assertThat(duration).isEqualTo(Duration.ZERO);
+    }
+    
+    @AfterTemplate
+    AbstractDurationAssert<?> after(Duration duration) {
+        return assertThat(duration).isZero();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatIsZeroRecipe","displayName":"Refaster template `AssertJDurationRules.AssertThatIsZero`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

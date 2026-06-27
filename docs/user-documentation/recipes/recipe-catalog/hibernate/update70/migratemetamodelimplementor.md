@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `MetamodelImplementor` to Hibernate 7.0"}
-  description={"In Hibernate 7.0, `MetamodelImplementor` has been split into `MappingMetamodel` for ORM-specific operations and `JpaMetamodel` for JPA-standard operations. This recipe migrates the usage based on which methods are called."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.MigrateMetamodelImplementor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/migratemetamodelimplementor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `MetamodelImplementor` to Hibernate 7.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Hibernate 7.0, `MetamodelImplementor` has been split into `MappingMetamodel` for ORM-specific operations and `JpaMetamodel` for JPA-standard operations. This recipe migrates the usage based on which methods are called.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.persistence.EntityManager;\nimport org.hibernate.engine.spi.SessionFactoryImplementor;\nimport org.hibernate.metamodel.spi.MetamodelImplementor;\n\nclass JpaService {\n    void entity_Class(EntityManager entityManager) {\n        MetamodelImplementor metamodel = entityManager.getEntityManagerFactory()\n                .unwrap(SessionFactoryImplementor.class)\n                .getMetamodel();\n        metamodel.entity(Object.class);\n    }\n}\n","after":"import jakarta.persistence.EntityManager;\nimport org.hibernate.engine.spi.SessionFactoryImplementor;\nimport org.hibernate.metamodel.model.domain.JpaMetamodel;\n\nclass JpaService {\n    void entity_Class(EntityManager entityManager) {\n        JpaMetamodel jpaMetamodel = entityManager.getEntityManagerFactory()\n                .unwrap(SessionFactoryImplementor.class)\n                .getRuntimeMetamodels()\n                .getJpaMetamodel();\n        jpaMetamodel.entity(Object.class);\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport jakarta.persistence.EntityManager;\nimport org.hibernate.engine.spi.SessionFactoryImplementor;\n-import org.hibernate.metamodel.spi.MetamodelImplementor;\n+import org.hibernate.metamodel.model.domain.JpaMetamodel;\n\n@@ -7,1 +7,1 @@\nclass JpaService {\n    void entity_Class(EntityManager entityManager) {\n-       MetamodelImplementor metamodel = entityManager.getEntityManagerFactory()\n+       JpaMetamodel jpaMetamodel = entityManager.getEntityManagerFactory()\n                .unwrap(SessionFactoryImplementor.class)\n@@ -9,2 +9,3 @@\n        MetamodelImplementor metamodel = entityManager.getEntityManagerFactory()\n                .unwrap(SessionFactoryImplementor.class)\n-               .getMetamodel();\n-       metamodel.entity(Object.class);\n+               .getRuntimeMetamodels()\n+               .getJpaMetamodel();\n+       jpaMetamodel.entity(Object.class);\n    }\n","newFile":false}]}]}>
 

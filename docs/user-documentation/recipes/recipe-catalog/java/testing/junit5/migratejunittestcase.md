@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JUnit 4 `TestCase` to JUnit Jupiter"}
-  description={"Convert JUnit 4 `TestCase` to JUnit Jupiter."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.MigrateJUnitTestCase"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/migratejunittestcase.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate JUnit 4 `TestCase` to JUnit Jupiter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert JUnit 4 `TestCase` to JUnit Jupiter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import junit.framework.TestCase;\n\npublic class MathTest extends TestCase {\n    protected long value1;\n    protected long value2;\n\n    @Override\n    protected void setUp() {\n        super.setUp();\n        value1 = 2;\n        value2 = 3;\n    }\n\n    public void testAdd() {\n        setName(\"primitive test\");\n        long result = value1 + value2;\n        assertEquals(5, result);\n        fail(\"some Failure message\");\n    }\n\n    @Override\n    protected void tearDown() {\n        super.tearDown();\n        value1 = 0;\n        value2 = 0;\n    }\n}\n","after":"import org.junit.jupiter.api.AfterEach;\nimport org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.*;\n\npublic class MathTest {\n    protected long value1;\n    protected long value2;\n\n    @BeforeEach\n    public void setUp() {\n        value1 = 2;\n        value2 = 3;\n    }\n\n    @Test\n    public void testAdd() {\n        //setName(\"primitive test\");\n        long result = value1 + value2;\n        assertEquals(5, result);\n        fail(\"some Failure message\");\n    }\n\n    @AfterEach\n    public void tearDown() {\n        value1 = 0;\n        value2 = 0;\n    }\n}\n","diff":"@@ -1,1 +1,3 @@\n-import junit.framework.TestCase;\n+import org.junit.jupiter.api.AfterEach;\n+import org.junit.jupiter.api.BeforeEach;\n+import org.junit.jupiter.api.Test;\n\n@@ -3,1 +5,3 @@\nimport junit.framework.TestCase;\n\n-public class MathTest extends TestCase {\n+import static org.junit.jupiter.api.Assertions.*;\n+\n+public class MathTest {\n    protected long value1;\n@@ -7,3 +11,2 @@\n    protected long value2;\n\n-   @Override\n-   protected void setUp() {\n-       super.setUp();\n+   @BeforeEach\n+   public void setUp() {\n        value1 = 2;\n@@ -14,0 +17,1 @@\n    }\n\n+   @Test\n    public void testAdd() {\n@@ -15,1 +19,1 @@\n\n    public void testAdd() {\n-       setName(\"primitive test\");\n+       //setName(\"primitive test\");\n        long result = value1 + value2;\n@@ -21,3 +25,2 @@\n    }\n\n-   @Override\n-   protected void tearDown() {\n-       super.tearDown();\n+   @AfterEach\n+   public void tearDown() {\n        value1 = 0;\n","newFile":false}]}]}>
 

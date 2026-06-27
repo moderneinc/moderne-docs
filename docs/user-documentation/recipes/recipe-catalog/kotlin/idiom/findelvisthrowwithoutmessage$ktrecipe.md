@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `x ?: throw SomeException()` without a message"}
-  description={"`x ?: throw IllegalStateException()` (no message arg) throws with a stack trace and no context. Pass an argument that explains why `x` was expected non-null at this point — error reports are the cheapest tool we have."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindElvisThrowWithoutMessage$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findelvisthrowwithoutmessage$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `x ?: throw SomeException()` without a message</RecipeHeader.Title>
+
+<RecipeHeader.Description>`x ?: throw IllegalStateException()` (no message arg) throws with a stack trace and no context. Pass an argument that explains why `x` was expected non-null at this point — error reports are the cheapest tool we have.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindElvisThrowWithoutMessage$KtRecipe","displayName":"Find `x ?: throw SomeException()` without a message","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

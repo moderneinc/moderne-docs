@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Flux.blockLast()` calls outside `@Test` methods"}
-  description={"`Flux.blockLast()` drains the entire Flux on the calling thread to return the final element. In production code, that's almost never the intent — surface the elements through `asFlow().collect { }` or call from a coroutine with `awaitLast()`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindFluxBlockLastInNonTest$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxblocklastinnontest$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Flux.blockLast()` calls outside `@Test` methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Flux.blockLast()` drains the entire Flux on the calling thread to return the final element. In production code, that's almost never the intent — surface the elements through `asFlow().collect { }` or call from a coroutine with `awaitLast()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindFluxBlockLastInNonTest$KtRecipe","displayName":"Find `Flux.blockLast()` calls outside `@Test` methods","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

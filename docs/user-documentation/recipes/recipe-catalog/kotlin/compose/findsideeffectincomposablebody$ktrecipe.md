@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find logging calls in `@Composable` bodies"}
-  description={"`android.util.Log`/`println` inside a `@Composable` body runs on every recomposition — often dozens of times during a single user interaction — producing log spam and disguising real telemetry. Move the call into a `SideEffect { }` (or a `LaunchedEffect(key) { }`) so it fires once per successful composition, or out of the composable entirely."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindSideEffectInComposableBody$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findsideeffectincomposablebody$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find logging calls in `@Composable` bodies</RecipeHeader.Title>
+
+<RecipeHeader.Description>`android.util.Log`/`println` inside a `@Composable` body runs on every recomposition — often dozens of times during a single user interaction — producing log spam and disguising real telemetry. Move the call into a `SideEffect { }` (or a `LaunchedEffect(key) { }`) so it fires once per successful composition, or out of the composable entirely.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindSideEffectInComposableBody$KtRecipe","displayName":"Find logging calls in `@Composable` bodies","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

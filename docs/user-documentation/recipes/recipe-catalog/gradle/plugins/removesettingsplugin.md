@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Gradle settings plugin"}
-  description={"Remove plugin from Gradle settings file `plugins` block by id."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.RemoveSettingsPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/plugins/removesettingsplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove Gradle settings plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove plugin from Gradle settings file `plugins` block by id.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"pluginId","required":true,"description":"The plugin id to remove.","example":"com.jfrog.bintray"}]}>
 

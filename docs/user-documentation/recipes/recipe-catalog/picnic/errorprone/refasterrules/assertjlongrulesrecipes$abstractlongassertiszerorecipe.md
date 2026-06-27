@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJLongRules.AbstractLongAssertIsZero`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractLongAssertIsZero {\n    \n    @BeforeTemplate\n    AbstractLongAssert<?> before(AbstractLongAssert<?> longAssert) {\n        return longAssert.isZero();\n    }\n    \n    @AfterTemplate\n    AbstractLongAssert<?> after(AbstractLongAssert<?> longAssert) {\n        return longAssert.isEqualTo(0);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJLongRulesRecipes$AbstractLongAssertIsZeroRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjlongrulesrecipes$abstractlongassertiszerorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJLongRules.AbstractLongAssertIsZero`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractLongAssertIsZero {
+    
+    @BeforeTemplate
+    AbstractLongAssert<?> before(AbstractLongAssert<?> longAssert) {
+        return longAssert.isZero();
+    }
+    
+    @AfterTemplate
+    AbstractLongAssert<?> after(AbstractLongAssert<?> longAssert) {
+        return longAssert.isEqualTo(0);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJLongRulesRecipes$AbstractLongAssertIsZeroRecipe","displayName":"Refaster template `AssertJLongRules.AbstractLongAssertIsZero`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

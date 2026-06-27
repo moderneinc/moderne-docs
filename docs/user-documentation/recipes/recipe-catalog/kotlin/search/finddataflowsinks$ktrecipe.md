@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find data-flow sink positions"}
-  description={"Locations where data crosses a trust or persistence boundary: SQL execution, filesystem writes, process execution, logger writes, outbound network, cryptographic operations, and Android clipboard access. Each match is a seed an LLM agent can connect back to upstream sources."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindDataFlowSinks$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/finddataflowsinks$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find SQL execution sinks (`Statement.execute*`, `prepareStatement`, `createNativeQuery`)","href":"kotlin/search/findsqlexecutionsinks$ktrecipe"},{"name":"Find filesystem write calls (`File.writeText`, `Files.write`, etc.)","href":"kotlin/search/findfilewritesinks$ktrecipe"},{"name":"Find process-execution sinks (`Runtime.exec`, `ProcessBuilder.start`)","href":"kotlin/search/findcommandexecutionsinks$ktrecipe"},{"name":"Find logger write calls (`info`/`warn`/`error`/`debug`)","href":"kotlin/search/findlogwritesinks$ktrecipe"},{"name":"Find outbound-network sinks (`URL.openConnection`, `OkHttpClient.newCall`, etc.)","href":"kotlin/search/findnetworksinks$ktrecipe"},{"name":"Find HTTP client construction sites","href":"kotlin/search/findhttpclientconstructions$ktrecipe"},{"name":"Find cryptographic primitive entries (`KeyGenerator.generateKey`, `Cipher.getInstance`, etc.)","href":"kotlin/search/findcryptoseeds$ktrecipe"},{"name":"Find non-cryptographic random sources (`Math.random`, `kotlin.random.Random`, `java.util.Random`)","href":"kotlin/search/findinsecurerandomsources$ktrecipe"},{"name":"Find Android `ClipboardManager` access","href":"kotlin/search/findclipboardaccess$ktrecipe"}]}>
+<RecipeHeader.Title>Find data-flow sink positions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Locations where data crosses a trust or persistence boundary: SQL execution, filesystem writes, process execution, logger writes, outbound network, cryptographic operations, and Android clipboard access. Each match is a seed an LLM agent can connect back to upstream sources.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find SQL execution sinks (`Statement.execute*`, `prepareStatement`, `createNativeQuery`)","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findsqlexecutionsinks$ktrecipe/"},{"name":"Find filesystem write calls (`File.writeText`, `Files.write`, etc.)","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findfilewritesinks$ktrecipe/"},{"name":"Find process-execution sinks (`Runtime.exec`, `ProcessBuilder.start`)","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findcommandexecutionsinks$ktrecipe/"},{"name":"Find logger write calls (`info`/`warn`/`error`/`debug`)","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findlogwritesinks$ktrecipe/"},{"name":"Find outbound-network sinks (`URL.openConnection`, `OkHttpClient.newCall`, etc.)","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findnetworksinks$ktrecipe/"},{"name":"Find HTTP client construction sites","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findhttpclientconstructions$ktrecipe/"},{"name":"Find cryptographic primitive entries (`KeyGenerator.generateKey`, `Cipher.getInstance`, etc.)","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findcryptoseeds$ktrecipe/"},{"name":"Find non-cryptographic random sources (`Math.random`, `kotlin.random.Random`, `java.util.Random`)","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findinsecurerandomsources$ktrecipe/"},{"name":"Find Android `ClipboardManager` access","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findclipboardaccess$ktrecipe/"}]}>
 
 ## Definition
 

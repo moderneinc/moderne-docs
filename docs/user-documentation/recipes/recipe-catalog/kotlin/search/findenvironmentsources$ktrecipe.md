@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `System.getenv(...)` / `System.getProperty(...)` reads"}
-  description={"Environment variables and system properties are operator-controlled configuration values. Each read is a configuration seam — a reviewer or LLM agent reading the code should know which knobs the program exposes."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindEnvironmentSources$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findenvironmentsources$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `System.getenv(...)` / `System.getProperty(...)` reads</RecipeHeader.Title>
+
+<RecipeHeader.Description>Environment variables and system properties are operator-controlled configuration values. Each read is a configuration seam — a reviewer or LLM agent reading the code should know which knobs the program exposes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindEnvironmentSources$KtRecipe","displayName":"Find `System.getenv(...)` / `System.getProperty(...)` reads","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

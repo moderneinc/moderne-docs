@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to ApacheHttpClient 5.x deprecated methods from 4.x"}
-  description={"Migrates deprecated methods to their equivalent ones in 5.x."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.StatusLine"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/statusline.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Simplify a call chain","href":"java/simplifymethodchain"},{"name":"Simplify a call chain","href":"java/simplifymethodchain"},{"name":"Simplify a call chain","href":"java/simplifymethodchain"},{"name":"Replaces deprecated `HttpResponse::getStatusLine()`","href":"apache/httpclient5/newstatusline"},{"name":"Replaces deprecated `HttpRequestBase::getRequestLine()`","href":"apache/httpclient5/newrequestline"}]}>
+<RecipeHeader.Title>Migrate to ApacheHttpClient 5.x deprecated methods from 4.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates deprecated methods to their equivalent ones in 5.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Simplify a call chain","href":"/user-documentation/recipes/recipe-catalog/java/simplifymethodchain/"},{"name":"Simplify a call chain","href":"/user-documentation/recipes/recipe-catalog/java/simplifymethodchain/"},{"name":"Simplify a call chain","href":"/user-documentation/recipes/recipe-catalog/java/simplifymethodchain/"},{"name":"Replaces deprecated `HttpResponse::getStatusLine()`","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient5/newstatusline/"},{"name":"Replaces deprecated `HttpRequestBase::getRequestLine()`","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient5/newrequestline/"}]}>
 
 ## Definition
 

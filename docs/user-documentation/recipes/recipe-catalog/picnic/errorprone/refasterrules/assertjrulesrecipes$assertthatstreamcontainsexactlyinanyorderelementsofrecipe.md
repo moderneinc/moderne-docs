@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJRules.AssertThatStreamContainsExactlyInAnyOrderElementsOf`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatStreamContainsExactlyInAnyOrderElementsOf<S, T extends S, U extends T> {\n    \n    @BeforeTemplate\n    ListAssert<T> before(Stream<S> stream, Iterable<U> iterable, Collector<S, ?, ? extends List<T>> collector) {\n        return assertThat(stream.collect(collector)).containsExactlyInAnyOrderElementsOf(iterable);\n    }\n    \n    @BeforeTemplate\n    AbstractCollectionAssert<?, ?, T, ?> before2(Stream<S> stream, Iterable<U> iterable, Collector<S, ?, ? extends Multiset<T>> collector) {\n        return assertThat(stream.collect(collector)).containsExactlyInAnyOrderElementsOf(iterable);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ListAssert<S> after(Stream<S> stream, Iterable<U> iterable) {\n        return assertThat(stream).containsExactlyInAnyOrderElementsOf(iterable);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,38 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsExactlyInAnyOrderElementsOfRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsexactlyinanyorderelementsofrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJRules.AssertThatStreamContainsExactlyInAnyOrderElementsOf`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatStreamContainsExactlyInAnyOrderElementsOf<S, T extends S, U extends T> {
+    
+    @BeforeTemplate
+    ListAssert<T> before(Stream<S> stream, Iterable<U> iterable, Collector<S, ?, ? extends List<T>> collector) {
+        return assertThat(stream.collect(collector)).containsExactlyInAnyOrderElementsOf(iterable);
+    }
+    
+    @BeforeTemplate
+    AbstractCollectionAssert<?, ?, T, ?> before2(Stream<S> stream, Iterable<U> iterable, Collector<S, ?, ? extends Multiset<T>> collector) {
+        return assertThat(stream.collect(collector)).containsExactlyInAnyOrderElementsOf(iterable);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    ListAssert<S> after(Stream<S> stream, Iterable<U> iterable) {
+        return assertThat(stream).containsExactlyInAnyOrderElementsOf(iterable);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsExactlyInAnyOrderElementsOfRecipe","displayName":"Refaster template `AssertJRules.AssertThatStreamContainsExactlyInAnyOrderElementsOf`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

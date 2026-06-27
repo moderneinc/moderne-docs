@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Transform classes that extend `*ListenerSupport` to implement the `*Listener` interfaces instead"}
-  description={"As of 5.0 `*Listener` interfaces default methods (made possible by a Java 8 baseline) can be implemented directly without the need for the adapter."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.ListenerSupportClassToInterface"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/listenersupportclasstointerface.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Transform classes that extend a given Class to implement the given Interface instead","href":"java/spring/batch/replacesupportclasswithitsinterface"},{"name":"Transform classes that extend a given Class to implement the given Interface instead","href":"java/spring/batch/replacesupportclasswithitsinterface"},{"name":"Transform classes that extend a given Class to implement the given Interface instead","href":"java/spring/batch/replacesupportclasswithitsinterface"},{"name":"Transform classes that extend a given Class to implement the given Interface instead","href":"java/spring/batch/replacesupportclasswithitsinterface"},{"name":"Transform classes that extend a given Class to implement the given Interface instead","href":"java/spring/batch/replacesupportclasswithitsinterface"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Transform classes that extend `*ListenerSupport` to implement the `*Listener` interfaces instead</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of 5.0 `*Listener` interfaces default methods (made possible by a Java 8 baseline) can be implemented directly without the need for the adapter.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Transform classes that extend a given Class to implement the given Interface instead","href":"/user-documentation/recipes/recipe-catalog/java/spring/batch/replacesupportclasswithitsinterface/"},{"name":"Transform classes that extend a given Class to implement the given Interface instead","href":"/user-documentation/recipes/recipe-catalog/java/spring/batch/replacesupportclasswithitsinterface/"},{"name":"Transform classes that extend a given Class to implement the given Interface instead","href":"/user-documentation/recipes/recipe-catalog/java/spring/batch/replacesupportclasswithitsinterface/"},{"name":"Transform classes that extend a given Class to implement the given Interface instead","href":"/user-documentation/recipes/recipe-catalog/java/spring/batch/replacesupportclasswithitsinterface/"},{"name":"Transform classes that extend a given Class to implement the given Interface instead","href":"/user-documentation/recipes/recipe-catalog/java/spring/batch/replacesupportclasswithitsinterface/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

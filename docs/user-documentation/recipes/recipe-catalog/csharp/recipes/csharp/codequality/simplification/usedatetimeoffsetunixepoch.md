@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use DateTimeOffset.UnixEpoch"}
-  description={"Replace `new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)` with `DateTimeOffset.UnixEpoch`. Available since .NET 8, `DateTimeOffset.UnixEpoch` is more readable."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseDateTimeOffsetUnixEpoch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usedatetimeoffsetunixepoch.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use DateTimeOffset.UnixEpoch</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `new DateTimeOffset(1970, 1, 1, 0, 0, 0, TimeSpan.Zero)` with `DateTimeOffset.UnixEpoch`. Available since .NET 8, `DateTimeOffset.UnixEpoch` is more readable.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseDateTimeOffsetUnixEpoch","displayName":"Use DateTimeOffset.UnixEpoch","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Merge YAML snippet"}
-  description={"Merge a YAML snippet with an existing YAML document."}
   type={"Single recipe"}
   languages={["YAML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-yaml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.yaml.MergeYaml"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/yaml/mergeyaml.md"}
-/>
+>
+
+<RecipeHeader.Title>Merge YAML snippet</RecipeHeader.Title>
+
+<RecipeHeader.Description>Merge a YAML snippet with an existing YAML document.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"key","required":true,"description":"A [JsonPath](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expression used to find matching keys.","example":"$.metadata"},{"type":"String","name":"yaml","required":true,"description":"The YAML snippet to insert. The snippet will be indented to match the style of its surroundings.","example":"labels:\n  label-one: \"value-one\""},{"type":"Boolean","name":"acceptTheirs","required":false,"description":"When the YAML snippet to insert conflicts with an existing key value pair and an existing key has a different value, prefer the original value."},{"type":"String","name":"objectIdentifyingProperty","required":false,"description":"Name of a property which will be used to identify objects (mapping). This serves as the key to match on when merging entries of a sequence.","example":"name"},{"type":"String","name":"filePattern","required":false,"description":"A glob expression representing a file path to search for (relative to the project root). Blank/null matches all.","example":".github/workflows/*.yml"},{"type":"InsertMode","name":"insertMode","required":false,"description":"Choose an insertion point when multiple mappings exist. Default is `Last`."},{"type":"String","name":"insertProperty","required":false,"description":"Define the key for the insertion mode. Takes the `key` JsonPath into account. Only useful when `insert mode` is either `Before` or `After`.","example":"some-key"},{"type":"Boolean","name":"createNewKeys","required":false,"description":"When the key path does _not_ match any keys, create new keys on the spot. Default is `true`."}]}>
 

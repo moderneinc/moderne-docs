@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find privileged `resource_type` definitions"}
-  description={"By default, `resource_type` definitions are unprivileged."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.concourse.search.FindPrivilegedResourceType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/concourse/search/findprivilegedresourcetype.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find YAML entries","href":"yaml/search/findkey"}]}>
+<RecipeHeader.Title>Find privileged `resource_type` definitions</RecipeHeader.Title>
+
+<RecipeHeader.Description>By default, `resource_type` definitions are unprivileged.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find YAML entries","href":"/user-documentation/recipes/recipe-catalog/yaml/search/findkey/"}]}>
 
 ## Definition
 

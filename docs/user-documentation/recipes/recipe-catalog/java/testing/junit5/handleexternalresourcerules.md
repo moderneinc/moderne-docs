@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Handle the usage of ExternalResourceRule fields using @ExtendWith(ExternalResourceSupport.class)"}
-  description={"Handles the usage of the ExternalResourceRule fields by adding the @ExtendWith(ExternalResourceSupport.class) annotation to the test class."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.HandleExternalResourceRules"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/handleexternalresourcerules.md"}
-/>
+>
+
+<RecipeHeader.Title>Handle the usage of ExternalResourceRule fields using @ExtendWith(ExternalResourceSupport.class)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Handles the usage of the ExternalResourceRule fields by adding the @ExtendWith(ExternalResourceSupport.class) annotation to the test class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Rule;\nimport io.grpc.testing.GrpcCleanupRule;\n\npublic class EmptyTestClassWithExternalResourceRule {\n    @Rule public final GrpcCleanupRule grpcCleanup = new GrpcCleanupRule();\n}\n","after":"import org.junit.Rule;\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.junit.jupiter.migrationsupport.rules.ExternalResourceSupport;\nimport io.grpc.testing.GrpcCleanupRule;\n\n@ExtendWith(ExternalResourceSupport.class)\npublic class EmptyTestClassWithExternalResourceRule {\n    @Rule public final GrpcCleanupRule grpcCleanup = new GrpcCleanupRule();\n}\n","diff":"@@ -2,0 +2,2 @@\nimport org.junit.Rule;\n+import org.junit.jupiter.api.extension.ExtendWith;\n+import org.junit.jupiter.migrationsupport.rules.ExternalResourceSupport;\nimport io.grpc.testing.GrpcCleanupRule;\n@@ -4,0 +6,1 @@\nimport io.grpc.testing.GrpcCleanupRule;\n\n+@ExtendWith(ExternalResourceSupport.class)\npublic class EmptyTestClassWithExternalResourceRule {\n","newFile":false}]}]}>
 

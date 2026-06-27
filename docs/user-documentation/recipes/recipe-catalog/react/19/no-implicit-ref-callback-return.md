@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove implicit ref callback returns"}
-  description={"In React 19, ref callbacks can return cleanup functions. Arrow functions with expression bodies implicitly return values, which React would interpret as cleanup functions. This recipe wraps them in block bodies."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.no-implicit-ref-callback-return"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/no-implicit-ref-callback-return.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove implicit ref callback returns</RecipeHeader.Title>
+
+<RecipeHeader.Description>In React 19, ref callbacks can return cleanup functions. Arrow functions with expression bodies implicitly return values, which React would interpret as cleanup functions. This recipe wraps them in block bodies.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.19.no-implicit-ref-callback-return","displayName":"Remove implicit ref callback returns","npmPackage":"@openrewrite/recipes-react"}}>
 

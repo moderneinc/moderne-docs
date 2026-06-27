@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Optimize LINQ Where().First()"}
-  description={"Replace `items.Where(predicate).First()` with `items.First(predicate)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereFirst"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/optimizelinqwherefirst.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Optimize LINQ Where().First()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `items.Where(predicate).First()` with `items.First(predicate)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereFirst","displayName":"Optimize LINQ Where().First()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

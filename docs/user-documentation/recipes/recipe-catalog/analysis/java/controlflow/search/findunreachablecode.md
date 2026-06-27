@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unreachable code"}
-  description={"Uses control flow analysis to identify statements that can never be executed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.controlflow.search.FindUnreachableCode"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/controlflow/search/findunreachablecode.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find unreachable code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Uses control flow analysis to identify statements that can never be executed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.analysis.java.controlflow.search.FindUnreachableCode","displayName":"Find unreachable code","groupId":"io.moderne.recipe","artifactId":"rewrite-program-analysis","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PROGRAM_ANALYSIS","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify consecutive assignments"}
-  description={"Combine consecutive assignments into a single statement where possible."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SimplifyConsecutiveAssignments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyconsecutiveassignments.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify consecutive assignments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Combine consecutive assignments into a single statement where possible.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    int test() {\n        int x = 1;\n        x++;\n        x *= 2;\n        return x;\n    }\n}\n","after":"class Test {\n    int test() {\n        int x = (1 + 1) * 2;\n        return x;\n    }\n}\n","diff":"@@ -3,3 +3,1 @@\nclass Test {\n    int test() {\n-       int x = 1;\n-       x++;\n-       x *= 2;\n+       int x = (1 + 1) * 2;\n        return x;\n","newFile":false}]}]}>
 

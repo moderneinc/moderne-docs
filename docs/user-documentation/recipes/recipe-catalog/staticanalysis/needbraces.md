@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Fix missing braces"}
-  description={"Adds missing braces around code such as single-line `if`, `for`, `while`, and `do-while` block bodies. Omitting braces can lead to dangling-statement bugs when additional lines are later added to a block without realizing they fall outside the control structure."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S121"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.NeedBraces"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/needbraces.md"}
-/>
+>
+
+<RecipeHeader.Title>Fix missing braces</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds missing braces around code such as single-line `if`, `for`, `while`, and `do-while` block bodies. Omitting braces can lead to dangling-statement bugs when additional lines are later added to a block without realizing they fall outside the control structure.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    static void addToWhile() {\n        while (true) ;\n    }\n\n    static void addToWhileWithBody() {\n        while (true) return;\n    }\n\n    static void addToIf(int n) {\n        if (n == 1) return;\n        // foo\n    }\n\n    static void addToIfElse(int n) {\n        if (n == 1) return;\n        else return;\n    }\n\n    static void addToIfElseIfElse(int n) {\n        if (n == 1) return;\n        else if (n == 2) return;\n        else return;\n    }\n\n    static void addToDoWhile(Object obj) {\n        do obj.notify(); while (true);\n    }\n\n    static void addToIterativeFor(Object obj) {\n        for (int i = 0; ; ) obj.notify();\n    }\n\n    static void addToForEach(int[] arr) {\n        for (int i : arr) System.out.println(i);\n    }\n}\n","after":"class Test {\n    static void addToWhile() {\n        while (true) {\n        }\n    }\n\n    static void addToWhileWithBody() {\n        while (true) {\n            return;\n        }\n    }\n\n    static void addToIf(int n) {\n        if (n == 1) {\n            return;\n        }\n        // foo\n    }\n\n    static void addToIfElse(int n) {\n        if (n == 1) {\n            return;\n        } else {\n            return;\n        }\n    }\n\n    static void addToIfElseIfElse(int n) {\n        if (n == 1) {\n            return;\n        } else if (n == 2) {\n            return;\n        } else {\n            return;\n        }\n    }\n\n    static void addToDoWhile(Object obj) {\n        do {\n            obj.notify();\n        } while (true);\n    }\n\n    static void addToIterativeFor(Object obj) {\n        for (int i = 0; ; ) {\n            obj.notify();\n        }\n    }\n\n    static void addToForEach(int[] arr) {\n        for (int i : arr) {\n            System.out.println(i);\n        }\n    }\n}\n","diff":"@@ -3,1 +3,2 @@\nclass Test {\n    static void addToWhile() {\n-       while (true) ;\n+       while (true) {\n+       }\n    }\n@@ -7,1 +8,3 @@\n\n    static void addToWhileWithBody() {\n-       while (true) return;\n+       while (true) {\n+           return;\n+       }\n    }\n@@ -11,1 +14,3 @@\n\n    static void addToIf(int n) {\n-       if (n == 1) return;\n+       if (n == 1) {\n+           return;\n+       }\n        // foo\n@@ -16,2 +21,5 @@\n\n    static void addToIfElse(int n) {\n-       if (n == 1) return;\n-       else return;\n+       if (n == 1) {\n+           return;\n+       } else {\n+           return;\n+       }\n    }\n@@ -21,3 +29,7 @@\n\n    static void addToIfElseIfElse(int n) {\n-       if (n == 1) return;\n-       else if (n == 2) return;\n-       else return;\n+       if (n == 1) {\n+           return;\n+       } else if (n == 2) {\n+           return;\n+       } else {\n+           return;\n+       }\n    }\n@@ -27,1 +39,3 @@\n\n    static void addToDoWhile(Object obj) {\n-       do obj.notify(); while (true);\n+       do {\n+           obj.notify();\n+       } while (true);\n    }\n@@ -31,1 +45,3 @@\n\n    static void addToIterativeFor(Object obj) {\n-       for (int i = 0; ; ) obj.notify();\n+       for (int i = 0; ; ) {\n+           obj.notify();\n+       }\n    }\n@@ -35,1 +51,3 @@\n\n    static void addToForEach(int[] arr) {\n-       for (int i : arr) System.out.println(i);\n+       for (int i : arr) {\n+           System.out.println(i);\n+       }\n    }\n","newFile":false}]}]}>
 

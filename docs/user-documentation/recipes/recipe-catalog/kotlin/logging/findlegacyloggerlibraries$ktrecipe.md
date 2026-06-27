@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find legacy logger-library usage"}
-  description={"Bundles `java.util.logging` and log4j 1.x finders. Both predate structured logging and should migrate to SLF4J or kotlin-logging."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindLegacyLoggerLibraries$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findlegacyloggerlibraries$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `java.util.logging.Logger.getLogger(...)` calls","href":"kotlin/logging/findjulloggergetlogger$ktrecipe"},{"name":"Find `julLogger.log(level, msg)` and level-specific `julLogger.fine/info/severe/...` calls","href":"kotlin/logging/findjulloggerlog$ktrecipe"},{"name":"Find `org.apache.log4j.Logger` references","href":"kotlin/logging/findlog4j1logger$ktrecipe"}]}>
+<RecipeHeader.Title>Find legacy logger-library usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Bundles `java.util.logging` and log4j 1.x finders. Both predate structured logging and should migrate to SLF4J or kotlin-logging.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `java.util.logging.Logger.getLogger(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findjulloggergetlogger$ktrecipe/"},{"name":"Find `julLogger.log(level, msg)` and level-specific `julLogger.fine/info/severe/...` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findjulloggerlog$ktrecipe/"},{"name":"Find `org.apache.log4j.Logger` references","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findlog4j1logger$ktrecipe/"}]}>
 
 ## Definition
 

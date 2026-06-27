@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Do not raise reserved exception types"}
-  description={"Avoid throwing `Exception`, `SystemException`, or `ApplicationException`. Use more specific exception types."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotRaiseReservedExceptionType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finddonotraisereservedexceptiontype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Do not raise reserved exception types</RecipeHeader.Title>
+
+<RecipeHeader.Description>Avoid throwing `Exception`, `SystemException`, or `ApplicationException`. Use more specific exception types.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotRaiseReservedExceptionType","displayName":"Do not raise reserved exception types","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

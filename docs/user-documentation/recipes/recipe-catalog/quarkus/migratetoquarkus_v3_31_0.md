@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Quarkus Updates Aggregate 3.31.0"}
-  description={"Quarkus update recipes to upgrade your application to 3.31.0."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.MigrateToQuarkus_v3_31_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_31_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.30.0","href":"quarkus/migratetoquarkus_v3_30_0"},{"name":"io.quarkus.updates.core.quarkus331.CoreUpdate331","href":"quarkus/updates/core/quarkus331/coreupdate331"},{"name":"io.quarkus.updates.core.quarkus331.OidcClientFilterSplitPackagesFix","href":"quarkus/updates/core/quarkus331/oidcclientfiltersplitpackagesfix"},{"name":"io.quarkus.updates.core.quarkus331.JUnitRelocations","href":"quarkus/updates/core/quarkus331/junitrelocations"},{"name":"io.quarkus.updates.core.quarkus331.Testcontainers2","href":"quarkus/updates/core/quarkus331/testcontainers2"},{"name":"io.quarkus.updates.core.quarkus331.OpenTelemetryTracingPackageTypoFix","href":"quarkus/updates/core/quarkus331/opentelemetrytracingpackagetypofix"},{"name":"Migrates `camel 4.16` application to `camel 4.17`","href":"quarkus/updates/camel/camel417/camelquarkusmigrationrecipe"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
+<RecipeHeader.Title>Quarkus Updates Aggregate 3.31.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Quarkus update recipes to upgrade your application to 3.31.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.30.0","href":"/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_30_0/"},{"name":"io.quarkus.updates.core.quarkus331.CoreUpdate331","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus331/coreupdate331/"},{"name":"io.quarkus.updates.core.quarkus331.OidcClientFilterSplitPackagesFix","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus331/oidcclientfiltersplitpackagesfix/"},{"name":"io.quarkus.updates.core.quarkus331.JUnitRelocations","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus331/junitrelocations/"},{"name":"io.quarkus.updates.core.quarkus331.Testcontainers2","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus331/testcontainers2/"},{"name":"io.quarkus.updates.core.quarkus331.OpenTelemetryTracingPackageTypoFix","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus331/opentelemetrytracingpackagetypofix/"},{"name":"Migrates `camel 4.16` application to `camel 4.17`","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel417/camelquarkusmigrationrecipe/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

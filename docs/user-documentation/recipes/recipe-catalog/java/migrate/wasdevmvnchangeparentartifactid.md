@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change `net.wasdev.maven.parent:java8-parent` to `:parent`"}
-  description={"This recipe changes the artifactId of the `<parent>` tag in the `pom.xml` from `java8-parent` to `parent`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.WasDevMvnChangeParentArtifactId"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/wasdevmvnchangeparentartifactid.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Maven parent","href":"maven/changeparentpom"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Change `net.wasdev.maven.parent:java8-parent` to `:parent`</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe changes the artifactId of the `<parent>` tag in the `pom.xml` from `java8-parent` to `parent`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Maven parent","href":"/user-documentation/recipes/recipe-catalog/maven/changeparentpom/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

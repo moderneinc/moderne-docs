@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Mono.block()` calls outside `@Test` methods"}
-  description={"`Mono.block()` parks the calling thread until the upstream Mono completes, which is fine in a test but a footgun in production code. On Netty's small event-loop pool, one `block()` can stall every concurrent request. Bridge with `awaitSingle()` from `kotlinx-coroutines-reactor` inside a `suspend fun` instead."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindMonoBlockInNonTest$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonoblockinnontest$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Mono.block()` calls outside `@Test` methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Mono.block()` parks the calling thread until the upstream Mono completes, which is fine in a test but a footgun in production code. On Netty's small event-loop pool, one `block()` can stall every concurrent request. Bridge with `awaitSingle()` from `kotlinx-coroutines-reactor` inside a `suspend fun` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindMonoBlockInNonTest$KtRecipe","displayName":"Find `Mono.block()` calls outside `@Test` methods","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

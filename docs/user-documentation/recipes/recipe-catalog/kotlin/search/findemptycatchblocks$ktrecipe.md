@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `catch` blocks with empty bodies"}
-  description={"An empty `catch` block silently swallows failures — usually a bug or, at minimum, a missing comment explaining the intent. Flag for review so a reviewer or LLM agent can either log, rethrow, or document the swallow."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindEmptyCatchBlocks$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findemptycatchblocks$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `catch` blocks with empty bodies</RecipeHeader.Title>
+
+<RecipeHeader.Description>An empty `catch` block silently swallows failures — usually a bug or, at minimum, a missing comment explaining the intent. Flag for review so a reviewer or LLM agent can either log, rethrow, or document the swallow.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindEmptyCatchBlocks$KtRecipe","displayName":"Find `catch` blocks with empty bodies","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

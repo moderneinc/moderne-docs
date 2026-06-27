@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `kotlinx.android.synthetic.*` imports"}
-  description={"The Kotlin Android Extensions synthetic-view plugin was deprecated in 1.4.20 and removed entirely in later AGP versions. Migrate the call sites to ViewBinding. Each reference here corresponds to a usage that won't compile without the (removed) plugin."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindKotlinAndroidSyntheticImports$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findkotlinandroidsyntheticimports$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `kotlinx.android.synthetic.*` imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>The Kotlin Android Extensions synthetic-view plugin was deprecated in 1.4.20 and removed entirely in later AGP versions. Migrate the call sites to ViewBinding. Each reference here corresponds to a usage that won't compile without the (removed) plugin.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindKotlinAndroidSyntheticImports$KtRecipe","displayName":"Find `kotlinx.android.synthetic.*` imports","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JSP taglib directives for Struts 2"}
-  description={"Update Struts 1 taglib directives to Struts 2 taglib."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate2.MigrateJspTaglib"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratejsptaglib.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate JSP taglib directives for Struts 2</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update Struts 1 taglib directives to Struts 2 taglib.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.struts.migrate2.MigrateJspTaglib","displayName":"Migrate JSP taglib directives for Struts 2","groupId":"org.openrewrite.recipe","artifactId":"rewrite-struts","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STRUTS","requiresConfiguration":false}}>
 

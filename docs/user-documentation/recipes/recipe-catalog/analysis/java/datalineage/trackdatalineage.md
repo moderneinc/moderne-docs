@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Track data lineage"}
-  description={"Tracks the flow of data from database sources to API sinks to understand data dependencies and support compliance requirements.\n\n## Prerequisites for detecting a data flow\n\nAll of the following conditions must be met for the recipe to report a flow:\n\n1. The source code must contain at least one method call matching a recognized **source** (see below).\n2. The source code must contain at least one method call matching a recognized **sink** (see below).\n3. The tainted data must propagate from the source to the sink through variable assignments within the same method or via fields across methods in the same compilation unit.\n4. No **flow breaker** (see below) may appear on the path between source and sink.\n5. The relevant library types (e.g., `java.sql.ResultSet`, `javax.ws.rs.core.Response`) must be on the classpath so that OpenRewrite can resolve types. If types are unresolved, method matchers will not trigger and no flows will be detected.\n\n## Recognized sources (database reads)\n\n| Category | Classes |\n| --- | --- |\n| JDBC | `java.sql.ResultSet` |\n| JPA (javax) | `javax.persistence.EntityManager`, `Query`, `TypedQuery` |\n| JPA (jakarta) | `jakarta.persistence.EntityManager`, `Query`, `TypedQuery` |\n| Hibernate | `org.hibernate.Session`, `org.hibernate.query.Query` |\n| Spring Data | `org.springframework.data.repository.CrudRepository` |\n| Spring JDBC | `org.springframework.jdbc.core.JdbcTemplate` |\n| MyBatis | `org.apache.ibatis.session.SqlSession`, `org.mybatis.spring.SqlSessionTemplate` |\n| MongoDB | `com.mongodb.client.MongoCollection`, `org.springframework.data.mongodb.core.MongoTemplate` |\n| Redis | `redis.clients.jedis.Jedis`, `org.springframework.data.redis.core.RedisTemplate`, `ValueOperations`, `HashOperations` |\n| Cassandra | `com.datastax.driver.core.Session`, `org.springframework.data.cassandra.core.CassandraTemplate` |\n| Elasticsearch | `org.elasticsearch.client.RestHighLevelClient`, `org.springframework.data.elasticsearch.core.ElasticsearchTemplate` |\n| Heuristic | Any class with `Repository`, `Dao`, or `Mapper` in its name calling methods starting with find, get, query, search, load, fetch, or select |\n\n## Recognized sinks (API responses)\n\n| Category | Classes |\n| --- | --- |\n| JAX-RS (javax) | `javax.ws.rs.core.Response`, `Response.ResponseBuilder` |\n| JAX-RS (jakarta) | `jakarta.ws.rs.core.Response`, `Response.ResponseBuilder` |\n| Spring MVC | `org.springframework.http.ResponseEntity`, `ResponseEntity.BodyBuilder` |\n| Servlet (javax) | `javax.servlet.http.HttpServletResponse`, `javax.servlet.ServletOutputStream` |\n| Servlet (jakarta) | `jakarta.servlet.http.HttpServletResponse`, `jakarta.servlet.ServletOutputStream` |\n| Java I/O | `java.io.PrintWriter`, `java.io.Writer`, `java.io.OutputStream` |\n| Jackson | `com.fasterxml.jackson.databind.ObjectMapper`, `com.fasterxml.jackson.core.JsonGenerator` |\n| Gson | `com.google.gson.Gson`, `com.google.gson.JsonWriter` |\n| GraphQL | `graphql.schema.DataFetcher`, `graphql.schema.PropertyDataFetcher` |\n| Spring WebFlux | `ServerResponse`, `reactor.core.publisher.Mono`, `reactor.core.publisher.Flux` |\n| gRPC | `io.grpc.stub.StreamObserver` |\n| WebSocket | `javax.websocket.Session`, `RemoteEndpoint.Basic`, `jakarta.websocket.*`, `org.springframework.web.socket.WebSocketSession` |\n\n## Flow breakers\n\nFlows are broken by methods matching common sanitization patterns (anonymize, redact, mask, encrypt, hash, sanitize, etc.) or authorization checks (isAuthorized, hasPermission, hasRole, etc.)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,65 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.datalineage.TrackDataLineage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/datalineage/trackdatalineage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Track data lineage</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Tracks the flow of data from database sources to API sinks to understand data dependencies and support compliance requirements.
+
+## Prerequisites for detecting a data flow
+
+All of the following conditions must be met for the recipe to report a flow:
+
+1. The source code must contain at least one method call matching a recognized **source** (see below).
+2. The source code must contain at least one method call matching a recognized **sink** (see below).
+3. The tainted data must propagate from the source to the sink through variable assignments within the same method or via fields across methods in the same compilation unit.
+4. No **flow breaker** (see below) may appear on the path between source and sink.
+5. The relevant library types (e.g., `java.sql.ResultSet`, `javax.ws.rs.core.Response`) must be on the classpath so that OpenRewrite can resolve types. If types are unresolved, method matchers will not trigger and no flows will be detected.
+
+## Recognized sources (database reads)
+
+| Category | Classes |
+| --- | --- |
+| JDBC | `java.sql.ResultSet` |
+| JPA (javax) | `javax.persistence.EntityManager`, `Query`, `TypedQuery` |
+| JPA (jakarta) | `jakarta.persistence.EntityManager`, `Query`, `TypedQuery` |
+| Hibernate | `org.hibernate.Session`, `org.hibernate.query.Query` |
+| Spring Data | `org.springframework.data.repository.CrudRepository` |
+| Spring JDBC | `org.springframework.jdbc.core.JdbcTemplate` |
+| MyBatis | `org.apache.ibatis.session.SqlSession`, `org.mybatis.spring.SqlSessionTemplate` |
+| MongoDB | `com.mongodb.client.MongoCollection`, `org.springframework.data.mongodb.core.MongoTemplate` |
+| Redis | `redis.clients.jedis.Jedis`, `org.springframework.data.redis.core.RedisTemplate`, `ValueOperations`, `HashOperations` |
+| Cassandra | `com.datastax.driver.core.Session`, `org.springframework.data.cassandra.core.CassandraTemplate` |
+| Elasticsearch | `org.elasticsearch.client.RestHighLevelClient`, `org.springframework.data.elasticsearch.core.ElasticsearchTemplate` |
+| Heuristic | Any class with `Repository`, `Dao`, or `Mapper` in its name calling methods starting with find, get, query, search, load, fetch, or select |
+
+## Recognized sinks (API responses)
+
+| Category | Classes |
+| --- | --- |
+| JAX-RS (javax) | `javax.ws.rs.core.Response`, `Response.ResponseBuilder` |
+| JAX-RS (jakarta) | `jakarta.ws.rs.core.Response`, `Response.ResponseBuilder` |
+| Spring MVC | `org.springframework.http.ResponseEntity`, `ResponseEntity.BodyBuilder` |
+| Servlet (javax) | `javax.servlet.http.HttpServletResponse`, `javax.servlet.ServletOutputStream` |
+| Servlet (jakarta) | `jakarta.servlet.http.HttpServletResponse`, `jakarta.servlet.ServletOutputStream` |
+| Java I/O | `java.io.PrintWriter`, `java.io.Writer`, `java.io.OutputStream` |
+| Jackson | `com.fasterxml.jackson.databind.ObjectMapper`, `com.fasterxml.jackson.core.JsonGenerator` |
+| Gson | `com.google.gson.Gson`, `com.google.gson.JsonWriter` |
+| GraphQL | `graphql.schema.DataFetcher`, `graphql.schema.PropertyDataFetcher` |
+| Spring WebFlux | `ServerResponse`, `reactor.core.publisher.Mono`, `reactor.core.publisher.Flux` |
+| gRPC | `io.grpc.stub.StreamObserver` |
+| WebSocket | `javax.websocket.Session`, `RemoteEndpoint.Basic`, `jakarta.websocket.*`, `org.springframework.web.socket.WebSocketSession` |
+
+## Flow breakers
+
+Flows are broken by methods matching common sanitization patterns (anonymize, redact, mask, encrypt, hash, sanitize, etc.) or authorization checks (isAuthorized, hasPermission, hasRole, etc.).
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.sql.ResultSet;\nimport javax.ws.rs.core.Response;\n\nclass UserController {\n    public Response getUser(String id, ResultSet rs) throws Exception {\n        String name = rs.getString(\"name\");\n        String email = rs.getString(\"email\");\n\n        User user = new User(name, email);\n        return Response.ok(user).build();\n    }\n\n    class User {\n        String name, email;\n        User(String n, String e) { name = n; email = e; }\n    }\n}\n","after":"import java.sql.ResultSet;\nimport javax.ws.rs.core.Response;\n\nclass UserController {\n    public Response getUser(String id, ResultSet rs) throws Exception {\n        String name = rs.getString(\"name\");\n        String email = rs.getString(\"email\");\n\n        User user = new User(name, email);\n        return /*~~(DATA_LINEAGE use)~~>*/Response.ok(user).build();\n    }\n\n    class User {\n        String name, email;\n        User(String n, String e) { name = n; email = e; }\n    }\n}\n","diff":"@@ -10,1 +10,1 @@\n\n        User user = new User(name, email);\n-       return Response.ok(user).build();\n+       return /*~~(DATA_LINEAGE use)~~>*/Response.ok(user).build();\n    }\n","newFile":false}]}]}>
 

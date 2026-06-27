@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `WebView.loadUrl(\"http://...\")` calls"}
-  description={"Loading an `http://` URL into a WebView opts out of TLS and lets any on-path attacker rewrite the page (script injection, credential theft). Use `https://`, and if you must load HTTP, set `setAllowFileAccess(false)` plus a restricted `WebViewClient`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindWebViewLoadUrlHttp$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findwebviewloadurlhttp$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `WebView.loadUrl("http://...")` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Loading an `http://` URL into a WebView opts out of TLS and lets any on-path attacker rewrite the page (script injection, credential theft). Use `https://`, and if you must load HTTP, set `setAllowFileAccess(false)` plus a restricted `WebViewClient`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindWebViewLoadUrlHttp$KtRecipe","displayName":"Find `WebView.loadUrl(\"http://...\")` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

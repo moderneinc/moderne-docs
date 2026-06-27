@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Gradle projects"}
-  description={"Gradle projects are those with `build.gradle` or `build.gradle.kts` files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.search.FindGradleProject"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/search/findgradleproject.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Gradle projects</RecipeHeader.Title>
+
+<RecipeHeader.Description>Gradle projects are those with `build.gradle` or `build.gradle.kts` files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"SearchCriteria","name":"searchCriteria","required":true,"description":"Whether to identify gradle projects by source file name or the presence of a marker","example":"Marker"}]}>
 

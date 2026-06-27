@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find eager string interpolation in `log.info(...)`"}
-  description={"`log.info(\"x=$x\")` evaluates the template eagerly. If your application turns info off in production, the `toString()` calls inside the template still run. Use the lambda form (kotlin-logging) or the SLF4J `{}` placeholder form."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindEagerStringInterpolationInLogInfo$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinloginfo$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find eager string interpolation in `log.info(...)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`log.info("x=$x")` evaluates the template eagerly. If your application turns info off in production, the `toString()` calls inside the template still run. Use the lambda form (kotlin-logging) or the SLF4J `{}` placeholder form.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindEagerStringInterpolationInLogInfo$KtRecipe","displayName":"Find eager string interpolation in `log.info(...)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

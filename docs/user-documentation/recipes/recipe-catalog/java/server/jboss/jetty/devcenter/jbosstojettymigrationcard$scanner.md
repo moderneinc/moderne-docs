@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JBoss to Jetty migration scanner"}
-  description={"Scans for JBoss and Jetty configuration files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.jetty.devcenter.JBossToJettyMigrationCard$Scanner"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/devcenter/jbosstojettymigrationcard$scanner.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>JBoss to Jetty migration scanner</RecipeHeader.Title>
+
+<RecipeHeader.Description>Scans for JBoss and Jetty configuration files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.java.server.jboss.jetty.devcenter.JBossToJettyMigrationCard$Scanner","displayName":"JBoss to Jetty migration scanner","groupId":"io.moderne.recipe","artifactId":"rewrite-java-application-server","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_JAVA_APPLICATION_SERVER","requiresConfiguration":false}}>
 

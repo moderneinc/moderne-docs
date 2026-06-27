@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StringRules.OptionalNonEmptyString`"}
-  description={"Don't use the ternary operator to create an optionally-absent string."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StringRulesRecipes$OptionalNonEmptyStringRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/stringrulesrecipes$optionalnonemptystringrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StringRules.OptionalNonEmptyString`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Don't use the ternary operator to create an optionally-absent string.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StringRulesRecipes$OptionalNonEmptyStringRecipe","displayName":"Refaster template `StringRules.OptionalNonEmptyString`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

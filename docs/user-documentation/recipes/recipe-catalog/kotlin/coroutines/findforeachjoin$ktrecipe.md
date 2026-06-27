@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `forEach { it.join() }` over `List<Job>`"}
-  description={"Sequential `.forEach { it.join() }` waits for each `Job` to complete before starting the next wait. `joinAll()` waits for all jobs concurrently with a single suspension point."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindForEachJoin$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findforeachjoin$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `forEach { it.join() }` over `List<Job>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sequential `.forEach { it.join() }` waits for each `Job` to complete before starting the next wait. `joinAll()` waits for all jobs concurrently with a single suspension point.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindForEachJoin$KtRecipe","displayName":"Find `forEach { it.join() }` over `List<Job>`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

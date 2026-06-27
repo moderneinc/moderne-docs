@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace DataSourceFactory build chain with @Autowired DataSource"}
-  description={"Replaces `DataSourceFactory.build(MetricRegistry, String)` variable declarations with `@Autowired DataSource` fields. Spring Boot auto-configures the DataSource from `spring.datasource.*` properties. Note: connection pool metrics previously wired via `MetricRegistry` require `spring-boot-starter-actuator` for equivalent observability."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.datasource.RemoveDataSourceFactoryBuildChain"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/datasource/removedatasourcefactorybuildchain.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace DataSourceFactory build chain with @Autowired DataSource</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `DataSourceFactory.build(MetricRegistry, String)` variable declarations with `@Autowired DataSource` fields. Spring Boot auto-configures the DataSource from `spring.datasource.*` properties. Note: connection pool metrics previously wired via `MetricRegistry` require `spring-boot-starter-actuator` for equivalent observability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example;\n\nimport com.codahale.metrics.MetricRegistry;\nimport io.dropwizard.db.DataSourceFactory;\nimport io.dropwizard.db.ManagedDataSource;\n\npublic class App {\n    void run(DataSourceFactory factory, MetricRegistry metrics) throws Exception {\n        ManagedDataSource dataSource = factory.build(metrics, \"assessmentdb\");\n        System.out.println(\"started\");\n    }\n}\n","after":"package com.example;\n\nimport com.codahale.metrics.MetricRegistry;\nimport io.dropwizard.db.DataSourceFactory;\nimport org.springframework.beans.factory.annotation.Autowired;\n\nimport javax.sql.DataSource;\n\npublic class App {\n    @Autowired\n    private DataSource dataSource;\n    void run(DataSourceFactory factory, MetricRegistry metrics) throws Exception {\n        System.out.println(\"started\");\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nimport com.codahale.metrics.MetricRegistry;\nimport io.dropwizard.db.DataSourceFactory;\n-import io.dropwizard.db.ManagedDataSource;\n+import org.springframework.beans.factory.annotation.Autowired;\n\n@@ -7,0 +7,2 @@\nimport io.dropwizard.db.ManagedDataSource;\n\n+import javax.sql.DataSource;\n+\npublic class App {\n@@ -8,0 +10,2 @@\n\npublic class App {\n+   @Autowired\n+   private DataSource dataSource;\n    void run(DataSourceFactory factory, MetricRegistry metrics) throws Exception {\n@@ -9,1 +13,0 @@\npublic class App {\n    void run(DataSourceFactory factory, MetricRegistry metrics) throws Exception {\n-       ManagedDataSource dataSource = factory.build(metrics, \"assessmentdb\");\n        System.out.println(\"started\");\n","newFile":false}]}]}>
 

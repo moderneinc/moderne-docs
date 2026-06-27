@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change new objects creation to Builder pattern"}
-  description={"Transform the creation of a class using 'new' to builder pattern."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/software.amazon.awssdk.v2migration.NewClassToBuilderPattern"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/newclasstobuilderpattern.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Transform 'new' expressions to builders","href":"amazon/awssdk/v2migration/newclasstobuilder"},{"name":"V1 Setter to V2","href":"amazon/awssdk/v2migration/v1settertov2"}]}>
+<RecipeHeader.Title>Change new objects creation to Builder pattern</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transform the creation of a class using 'new' to builder pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Transform 'new' expressions to builders","href":"/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/newclasstobuilder/"},{"name":"V1 Setter to V2","href":"/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/v1settertov2/"}]}>
 
 ## Definition
 

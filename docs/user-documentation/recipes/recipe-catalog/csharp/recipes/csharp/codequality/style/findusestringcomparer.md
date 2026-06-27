@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Dictionary/HashSet without StringComparer"}
-  description={"Detect `Dictionary<string, T>` or `HashSet<string>` created without an explicit `StringComparer`. Use `StringComparer.Ordinal` or `StringComparer.OrdinalIgnoreCase`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseStringComparer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findusestringcomparer.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Dictionary/HashSet without StringComparer</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `Dictionary<string, T>` or `HashSet<string>` created without an explicit `StringComparer`. Use `StringComparer.Ordinal` or `StringComparer.OrdinalIgnoreCase`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseStringComparer","displayName":"Find Dictionary/HashSet without StringComparer","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Expression Language injection vectors"}
-  description={"Finds calls to Expression Language (EL) evaluation methods which, when the expression is built from user input, can allow arbitrary code execution. Use parameterized expressions or input validation instead."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security","CWE-917"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindExpressionLanguageInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findexpressionlanguageinjection.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"}]}>
+<RecipeHeader.Title>Find Expression Language injection vectors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds calls to Expression Language (EL) evaluation methods which, when the expression is built from user input, can allow arbitrary code execution. Use parameterized expressions or input validation instead.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"}]}>
 
 ## Definition
 

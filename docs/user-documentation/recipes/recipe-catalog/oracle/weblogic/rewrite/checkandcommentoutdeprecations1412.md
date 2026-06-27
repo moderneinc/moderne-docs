@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Report types deprecated or removed in WebLogic version 14.1.2"}
-  description={"This recipe will report Java types that have been deprecated or removed in WebLogic version 14.1.2. This is an alias to prevent breaking existing recipes."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.CheckAndCommentOutDeprecations1412"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/checkandcommentoutdeprecations1412.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Report types deprecated or removed in WebLogic version 14.1.2","href":"oracle/weblogic/rewrite/reportdeprecatedorremoved1412"}]}>
+<RecipeHeader.Title>Report types deprecated or removed in WebLogic version 14.1.2</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will report Java types that have been deprecated or removed in WebLogic version 14.1.2. This is an alias to prevent breaking existing recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Report types deprecated or removed in WebLogic version 14.1.2","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/reportdeprecatedorremoved1412/"}]}>
 
 ## Definition
 

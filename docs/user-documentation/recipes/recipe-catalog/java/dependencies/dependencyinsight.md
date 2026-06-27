@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Dependency insight for Gradle and Maven"}
-  description={"Finds dependencies, including transitive dependencies, in both Gradle and Maven projects. Matches within all Gradle dependency configurations and Maven scopes."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-java-dependencies"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyInsight"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyinsight.md"}
-/>
+>
+
+<RecipeHeader.Title>Dependency insight for Gradle and Maven</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds dependencies, including transitive dependencies, in both Gradle and Maven projects. Matches within all Gradle dependency configurations and Maven scopes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupIdPattern","required":true,"description":"Group ID glob pattern used to match dependencies.","example":"com.fasterxml.jackson*"},{"type":"String","name":"artifactIdPattern","required":true,"description":"Artifact ID glob pattern used to match dependencies.","example":"jackson-*"},{"type":"String","name":"version","required":false,"description":"Match only dependencies with the specified version. Node-style [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors) may be used. All versions are searched by default.","example":"1.x"},{"type":"String","name":"scope","required":false,"description":"Match dependencies with the specified Maven scope. All scopes are searched by default.","example":"compile"}]}>
 

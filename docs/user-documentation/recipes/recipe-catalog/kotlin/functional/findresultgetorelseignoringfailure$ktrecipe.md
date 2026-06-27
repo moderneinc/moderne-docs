@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Result.getOrElse { }` whose lambda ignores the failure parameter"}
-  description={"`result.getOrElse { default }` (lambda ignores its parameter) is exactly `result.getOrDefault(default)`. The `getOrDefault` form makes the intent — 'a constant fallback, the exception type is irrelevant' — explicit in the call name."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindResultGetOrElseIgnoringFailure$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultgetorelseignoringfailure$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Result.getOrElse { }` whose lambda ignores the failure parameter</RecipeHeader.Title>
+
+<RecipeHeader.Description>`result.getOrElse { default }` (lambda ignores its parameter) is exactly `result.getOrDefault(default)`. The `getOrDefault` form makes the intent — 'a constant fallback, the exception type is irrelevant' — explicit in the call name.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindResultGetOrElseIgnoringFailure$KtRecipe","displayName":"Find `Result.getOrElse { }` whose lambda ignores the failure parameter","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

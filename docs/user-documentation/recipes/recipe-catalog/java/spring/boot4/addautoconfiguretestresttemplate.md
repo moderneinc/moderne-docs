@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@AutoConfigureTestRestTemplate` if necessary"}
-  description={"Adds `@AutoConfigureTestRestTemplate` to test classes annotated with `@SpringBootTest` that use `TestRestTemplate` since this bean is no longer auto-configured as described in the [Spring Boot 4 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide#using-webclient-or-testresttemplate-and-springboottest)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot4.AddAutoConfigureTestRestTemplate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/addautoconfiguretestresttemplate.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `@AutoConfigureTestRestTemplate` if necessary</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `@AutoConfigureTestRestTemplate` to test classes annotated with `@SpringBootTest` that use `TestRestTemplate` since this bean is no longer auto-configured as described in the [Spring Boot 4 migration guide](https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-4.0-Migration-Guide#using-webclient-or-testresttemplate-and-springboottest).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.resttestclient.TestRestTemplate;\nimport org.springframework.boot.test.context.SpringBootTest;\n\n@SpringBootTest\nclass ExampleTest {\n    TestRestTemplate testRestTemplate;\n}\n","after":"import org.springframework.boot.resttestclient.TestRestTemplate;\nimport org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate;\nimport org.springframework.boot.test.context.SpringBootTest;\n\n@AutoConfigureTestRestTemplate\n@SpringBootTest\nclass ExampleTest {\n    TestRestTemplate testRestTemplate;\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.springframework.boot.resttestclient.TestRestTemplate;\n+import org.springframework.boot.resttestclient.autoconfigure.AutoConfigureTestRestTemplate;\nimport org.springframework.boot.test.context.SpringBootTest;\n@@ -4,0 +5,1 @@\nimport org.springframework.boot.test.context.SpringBootTest;\n\n+@AutoConfigureTestRestTemplate\n@SpringBootTest\n","newFile":false}]}]}>
 

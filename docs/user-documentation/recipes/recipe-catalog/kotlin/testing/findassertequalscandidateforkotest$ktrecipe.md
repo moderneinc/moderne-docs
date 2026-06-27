@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `assertEquals(...)` calls — Kotest migration candidate"}
-  description={"Kotest's idiomatic form for `assertEquals(expected, actual)` is `actual shouldBe expected` — the receiver is the subject under test, which composes naturally with chained matchers (`actual shouldBe expected; actual.shouldBeOfType<T>()`). Each match is a candidate when migrating to Kotest."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindAssertEqualsCandidateForKotest$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertequalscandidateforkotest$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `assertEquals(...)` calls — Kotest migration candidate</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotest's idiomatic form for `assertEquals(expected, actual)` is `actual shouldBe expected` — the receiver is the subject under test, which composes naturally with chained matchers (`actual shouldBe expected; actual.shouldBeOfType<T>()`). Each match is a candidate when migrating to Kotest.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindAssertEqualsCandidateForKotest$KtRecipe","displayName":"Find `assertEquals(...)` calls — Kotest migration candidate","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

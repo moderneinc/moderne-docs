@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `public static void main(String[] args)` to instance `void main()`"}
-  description={"Migrate `public static void main(String[] args)` method to instance `void main()` method when the `args` parameter is unused, as supported by JEP 512 in Java 25+."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.MigrateMainMethodToInstanceMain"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/migratemainmethodtoinstancemain.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `public static void main(String[] args)` to instance `void main()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate `public static void main(String[] args)` method to instance `void main()` method when the `args` parameter is unused, as supported by JEP 512 in Java 25+.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Application {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}\n","after":"class Application {\n    void main() {\n        System.out.println(\"Hello, World!\");\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Application {\n-   public static void main(String[] args) {\n+   void main() {\n        System.out.println(\"Hello, World!\");\n","newFile":false}]}]}>
 

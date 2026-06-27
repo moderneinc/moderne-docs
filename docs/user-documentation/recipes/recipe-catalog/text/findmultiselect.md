@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Experimental find text with multiselect"}
-  description={"Search for text, treating all textual sources as plain text. This version of the recipe exists to experiment with multiselect recipe options."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.text.FindMultiselect"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/text/findmultiselect.md"}
-/>
+>
+
+<RecipeHeader.Title>Experimental find text with multiselect</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search for text, treating all textual sources as plain text. This version of the recipe exists to experiment with multiselect recipe options.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"find","required":true,"description":"The text to find. This snippet can be multiline.","example":"blacklist"},{"type":"Boolean","name":"regex","required":false,"description":"If true, `find` will be interpreted as a Regular Expression. Default `false`."},{"type":"Set","name":"regexOptions","required":false,"description":"Regex processing options. Multiple options may be specified. These options do nothing if `regex` mode is not enabled.\n* Case-sensitive - The search will be sensitive to letter case. * Multiline - Allows `^` and `$` to match the beginning and end of lines, respectively.* Dot all - Allows `.` to match line terminators."},{"type":"String","name":"filePattern","required":false,"description":"A glob expression that can be used to constrain which directories or source files should be searched. Multiple patterns may be specified, separated by a semicolon `;`. If multiple patterns are supplied any of the patterns matching will be interpreted as a match. When not set, all source files are searched. ","example":"**/*.java"}]}>
 

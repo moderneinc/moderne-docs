@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add MongoDB representation properties for UUID and BigDecimal"}
-  description={"Adds the 'spring.mongodb.representation.uuid' property with value 'standard' and the 'spring.data.mongodb.representation.big-decimal' property with the value 'decimal128' to Spring configuration files when a MongoDB dependency is detected."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot","mongodb"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.AddMongoDbRepresentationProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmongodbrepresentationproperties.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add a spring configuration property","href":"java/spring/addspringproperty"},{"name":"Add a spring configuration property","href":"java/spring/addspringproperty"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
+<RecipeHeader.Title>Add MongoDB representation properties for UUID and BigDecimal</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the 'spring.mongodb.representation.uuid' property with value 'standard' and the 'spring.data.mongodb.representation.big-decimal' property with the value 'decimal128' to Spring configuration files when a MongoDB dependency is detected.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add a spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/addspringproperty/"},{"name":"Add a spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/addspringproperty/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

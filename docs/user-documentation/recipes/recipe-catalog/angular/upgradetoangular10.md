@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Angular 10"}
-  description={"Migrates Angular 9.x applications to Angular 10. This includes removing the deprecated `es5BrowserSupport` option from `angular.json`, renaming deprecated `validator`/`asyncValidator` to their plural forms, renaming `browserslist` to `.browserslistrc`, migrating to solution-style `tsconfig.json`, and upgrading Angular, TypeScript, and related dependency versions."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.UpgradeToAngular10"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/upgradetoangular10.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade to Angular 9","href":"angular/upgradetoangular9"},{"name":"Remove `es5BrowserSupport` from `angular.json`","href":"angular/migration/remove-es5-browser-support"},{"name":"Replace `validator`/`asyncValidator` with plural forms","href":"angular/migration/replace-validator-with-validators"},{"name":"Migrate to solution-style tsconfig","href":"angular/migration/migrate-to-solution-style-tsconfig"},{"name":"Find `ModuleWithProviders` without generic type","href":"angular/search/find-bare-module-with-providers"},{"name":"Rename file","href":"angular/migration/rename-file"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Upgrade to Angular 10</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Angular 9.x applications to Angular 10. This includes removing the deprecated `es5BrowserSupport` option from `angular.json`, renaming deprecated `validator`/`asyncValidator` to their plural forms, renaming `browserslist` to `.browserslistrc`, migrating to solution-style `tsconfig.json`, and upgrading Angular, TypeScript, and related dependency versions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade to Angular 9","href":"/user-documentation/recipes/recipe-catalog/angular/upgradetoangular9/"},{"name":"Remove `es5BrowserSupport` from `angular.json`","href":"/user-documentation/recipes/recipe-catalog/angular/migration/remove-es5-browser-support/"},{"name":"Replace `validator`/`asyncValidator` with plural forms","href":"/user-documentation/recipes/recipe-catalog/angular/migration/replace-validator-with-validators/"},{"name":"Migrate to solution-style tsconfig","href":"/user-documentation/recipes/recipe-catalog/angular/migration/migrate-to-solution-style-tsconfig/"},{"name":"Find `ModuleWithProviders` without generic type","href":"/user-documentation/recipes/recipe-catalog/angular/search/find-bare-module-with-providers/"},{"name":"Rename file","href":"/user-documentation/recipes/recipe-catalog/angular/migration/rename-file/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"}]}>
 
 ## Definition
 

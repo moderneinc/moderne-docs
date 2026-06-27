@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find database-query seeds"}
-  description={"Individual SQL execution and JPA query construction calls (`Statement.executeQuery`, `Statement.executeUpdate`, `EntityManager.createQuery`). Each match is a position where a SQL/JPQL string crosses into the database layer."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindDatabaseSeeds$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/finddatabaseseeds$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Statement.executeQuery(sql)` calls","href":"kotlin/search/findstatementexecutequery$ktrecipe"},{"name":"Find `Statement.executeUpdate(sql)` calls","href":"kotlin/search/findstatementexecuteupdate$ktrecipe"},{"name":"Find `EntityManager.createQuery(...)` calls","href":"kotlin/search/findentitymanagercreatequery$ktrecipe"}]}>
+<RecipeHeader.Title>Find database-query seeds</RecipeHeader.Title>
+
+<RecipeHeader.Description>Individual SQL execution and JPA query construction calls (`Statement.executeQuery`, `Statement.executeUpdate`, `EntityManager.createQuery`). Each match is a position where a SQL/JPQL string crosses into the database layer.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Statement.executeQuery(sql)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findstatementexecutequery$ktrecipe/"},{"name":"Find `Statement.executeUpdate(sql)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findstatementexecuteupdate$ktrecipe/"},{"name":"Find `EntityManager.createQuery(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findentitymanagercreatequery$ktrecipe/"}]}>
 
 ## Definition
 

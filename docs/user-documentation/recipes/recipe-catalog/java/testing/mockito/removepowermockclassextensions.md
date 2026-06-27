@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove PowerMock class extensions"}
-  description={"Removes `extends PowerMockConfiguration` and `extends PowerMockTestCase` from test classes, as these are PowerMock-specific base classes not needed with Mockito."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.RemovePowerMockClassExtensions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/removepowermockclassextensions.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove PowerMock class extensions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `extends PowerMockConfiguration` and `extends PowerMockTestCase` from test classes, as these are PowerMock-specific base classes not needed with Mockito.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package org.powermock.modules.testng;\n\npublic class PowerMockTestCase {}\n"},"variants":[{"language":"java","before":"import org.powermock.modules.testng.PowerMockTestCase;\n\npublic class MyPowerMockTestCase extends PowerMockTestCase {}\n","after":"public class MyPowerMockTestCase {}\n","diff":"@@ -1,1 +1,1 @@\n-import org.powermock.modules.testng.PowerMockTestCase;\n+public class MyPowerMockTestCase {}\n\n@@ -3,2 +3,0 @@\nimport org.powermock.modules.testng.PowerMockTestCase;\n\n-public class MyPowerMockTestCase extends PowerMockTestCase {}\n-\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit 4 `@RunWith(Parameterized.class)` to JUnit Jupiter parameterized tests"}
-  description={"Convert JUnit 4 parameterized runner the JUnit Jupiter parameterized test equivalent."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.ParameterizedRunnerToParameterized"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/parameterizedrunnertoparameterized.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit 4 `@RunWith(Parameterized.class)` to JUnit Jupiter parameterized tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert JUnit 4 parameterized runner the JUnit Jupiter parameterized test equivalent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Test;\nimport org.junit.runner.RunWith;\nimport org.junit.runners.Parameterized;\nimport org.junit.runners.Parameterized.Parameters;\n\nimport java.util.Arrays;\nimport java.util.List;\n\n@RunWith(Parameterized.class)\npublic class VetTests {\n\n    private String firstName;\n    private String lastName;\n    private Integer id;\n\n    public VetTests(String firstName, String lastName, Integer id) {\n        this.firstName = firstName;\n        this.lastName = lastName;\n        this.id = id;\n    }\n\n    @Test\n    public void testSerialization() {\n        Vet vet = new Vet();\n        vet.setFirstName(firstName);\n        vet.setLastName(lastName);\n        vet.setId(id);\n    }\n\n    @Parameters\n    public static List<Object[]> parameters() {\n        return Arrays.asList(\n            new Object[] { \"Otis\", \"TheDog\", 124 },\n            new Object[] { \"Garfield\", \"TheBoss\", 126 });\n    }\n}\n","after":"import org.junit.jupiter.params.ParameterizedTest;\nimport org.junit.jupiter.params.provider.MethodSource;\n\nimport java.util.Arrays;\nimport java.util.List;\n\npublic class VetTests {\n\n    private String firstName;\n    private String lastName;\n    private Integer id;\n\n    public void initVetTests(String firstName, String lastName, Integer id) {\n        this.firstName = firstName;\n        this.lastName = lastName;\n        this.id = id;\n    }\n\n    @MethodSource(\"parameters\")\n    @ParameterizedTest\n    public void testSerialization(String firstName, String lastName, Integer id) {\n        initVetTests(firstName, lastName, id);\n        Vet vet = new Vet();\n        vet.setFirstName(firstName);\n        vet.setLastName(lastName);\n        vet.setId(id);\n    }\n\n    public static List<Object[]> parameters() {\n        return Arrays.asList(\n            new Object[] { \"Otis\", \"TheDog\", 124 },\n            new Object[] { \"Garfield\", \"TheBoss\", 126 });\n    }\n}\n","diff":"@@ -1,4 +1,2 @@\n-import org.junit.Test;\n-import org.junit.runner.RunWith;\n-import org.junit.runners.Parameterized;\n-import org.junit.runners.Parameterized.Parameters;\n+import org.junit.jupiter.params.ParameterizedTest;\n+import org.junit.jupiter.params.provider.MethodSource;\n\n@@ -9,1 +7,0 @@\nimport java.util.List;\n\n-@RunWith(Parameterized.class)\npublic class VetTests {\n@@ -16,1 +13,1 @@\n    private Integer id;\n\n-   public VetTests(String firstName, String lastName, Integer id) {\n+   public void initVetTests(String firstName, String lastName, Integer id) {\n        this.firstName = firstName;\n@@ -22,2 +19,4 @@\n    }\n\n-   @Test\n-   public void testSerialization() {\n+   @MethodSource(\"parameters\")\n+   @ParameterizedTest\n+   public void testSerialization(String firstName, String lastName, Integer id) {\n+       initVetTests(firstName, lastName, id);\n        Vet vet = new Vet();\n@@ -30,1 +29,0 @@\n    }\n\n-   @Parameters\n    public static List<Object[]> parameters() {\n","newFile":false}]}]}>
 

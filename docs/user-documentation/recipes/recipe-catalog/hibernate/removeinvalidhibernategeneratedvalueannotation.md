@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove invalid `@GeneratedValue` annotation"}
-  description={"Removes `@GeneratedValue` annotation from fields that are not also annotated with `@Id`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-hibernate"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hibernate.RemoveInvalidHibernateGeneratedValueAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/removeinvalidhibernategeneratedvalueannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove invalid `@GeneratedValue` annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `@GeneratedValue` annotation from fields that are not also annotated with `@Id`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.persistence.Entity;\nimport jakarta.persistence.GeneratedValue;\nimport jakarta.persistence.Id;\n\nclass A {\n    @Id\n    Integer id;\n    @GeneratedValue\n    String name;\n}\n","after":"import jakarta.persistence.Entity;\nimport jakarta.persistence.Id;\n\nclass A {\n    @Id\n    Integer id;\n    String name;\n}\n","diff":"@@ -2,1 +2,0 @@\nimport jakarta.persistence.Entity;\n-import jakarta.persistence.GeneratedValue;\nimport jakarta.persistence.Id;\n@@ -8,1 +7,0 @@\n    @Id\n    Integer id;\n-   @GeneratedValue\n    String name;\n","newFile":false}]}]}>
 

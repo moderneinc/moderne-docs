@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use conditional access"}
-  description={"Transform null-check patterns to use conditional access (?.)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseConditionalAccess"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/useconditionalaccess.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use conditional access</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transform null-check patterns to use conditional access (?.).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseConditionalAccess","displayName":"Use conditional access","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

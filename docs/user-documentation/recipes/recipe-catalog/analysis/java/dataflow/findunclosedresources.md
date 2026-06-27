@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unclosed resources (S2095)"}
-  description={"Identifies resources implementing AutoCloseable/Closeable that are opened but not properly closed on all execution paths. Unclosed resources can lead to resource leaks that degrade application performance and stability."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2095"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.dataflow.FindUnclosedResources"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/dataflow/findunclosedresources.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find unclosed resources (S2095)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identifies resources implementing AutoCloseable/Closeable that are opened but not properly closed on all execution paths. Unclosed resources can lead to resource leaks that degrade application performance and stability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.*;\n\nclass Test {\n    void test() throws Exception {\n        InputStream is = new FileInputStream(\"file.txt\");\n        is.read();\n    }\n}\n","after":"import java.io.*;\n\nclass Test {\n    void test() throws Exception {\n        /*~~>*/InputStream is = new FileInputStream(\"file.txt\");\n        is.read();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    void test() throws Exception {\n-       InputStream is = new FileInputStream(\"file.txt\");\n+       /*~~>*/InputStream is = new FileInputStream(\"file.txt\");\n        is.read();\n","newFile":false}]}]}>
 

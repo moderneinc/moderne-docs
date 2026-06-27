@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use modernized `javax.management.monitor` APIs"}
-  description={"Certain `javax.management.monitor` APIs have become deprecated and their usages changed, necessitating usage changes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.JavaxManagementMonitorAPIs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/javaxmanagementmonitorapis.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `javax.management.monitor.CounterMonitor#setInitThreshold`","href":"java/migrate/javax/migratecountermonitorsetthresholdtosetinitthreshold"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use modernized `javax.management.monitor` APIs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Certain `javax.management.monitor` APIs have become deprecated and their usages changed, necessitating usage changes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `javax.management.monitor.CounterMonitor#setInitThreshold`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/migratecountermonitorsetthresholdtosetinitthreshold/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

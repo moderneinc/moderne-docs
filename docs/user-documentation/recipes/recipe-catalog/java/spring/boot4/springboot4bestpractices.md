@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Spring Boot 4.0 best practices"}
-  description={"Applies best practices to Spring Boot 4.+ applications."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.SpringBoot4BestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/springboot4bestpractices.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Spring Boot 3.5 best practices","href":"java/spring/boot3/springboot3bestpractices"},{"name":"Migrate to Spring Boot 4.0","href":"java/spring/boot4/upgradespringboot_4_0-moderne-edition"},{"name":"Migrate MockMvc to AssertJ assertions","href":"java/spring/boot4/migratemockmvctoassertj"},{"name":"Add `@Nullable` to optional Spring web parameters","href":"java/spring/framework/nullablespringwebparameters"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Spring Boot 4.0 best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies best practices to Spring Boot 4.+ applications.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Spring Boot 3.5 best practices","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot3/springboot3bestpractices/"},{"name":"Migrate to Spring Boot 4.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_0-moderne-edition/"},{"name":"Migrate MockMvc to AssertJ assertions","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratemockmvctoassertj/"},{"name":"Add `@Nullable` to optional Spring web parameters","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/nullablespringwebparameters/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

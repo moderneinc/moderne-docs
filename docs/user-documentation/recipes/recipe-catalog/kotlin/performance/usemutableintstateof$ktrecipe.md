@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `mutableIntStateOf` instead of `mutableStateOf<Int>` in Compose"}
-  description={"Compose's `mutableIntStateOf` keeps the wrapped value as a primitive `Int`, avoiding the autobox-and-unbox cost that `mutableStateOf<Int>` pays on every read and write inside a recomposition."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseMutableIntStateOf$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/usemutableintstateof$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `mutableIntStateOf` instead of `mutableStateOf<Int>` in Compose</RecipeHeader.Title>
+
+<RecipeHeader.Description>Compose's `mutableIntStateOf` keeps the wrapped value as a primitive `Int`, avoiding the autobox-and-unbox cost that `mutableStateOf<Int>` pays on every read and write inside a recomposition.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseMutableIntStateOf$KtRecipe","displayName":"Use `mutableIntStateOf` instead of `mutableStateOf<Int>` in Compose","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

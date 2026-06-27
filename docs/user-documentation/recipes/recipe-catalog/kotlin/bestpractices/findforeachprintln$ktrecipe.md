@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `forEach { println(it) }` patterns"}
-  description={"`forEach { println(it) }` is the loop-form `for (x in xs) println(x)` — verify whether the print is debug-only. If it is intended output, consider `joinToString(\"\\n\").let(::println)` to write the whole thing in one syscall."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindForEachPrintln$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findforeachprintln$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `forEach { println(it) }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`forEach { println(it) }` is the loop-form `for (x in xs) println(x)` — verify whether the print is debug-only. If it is intended output, consider `joinToString("\n").let(::println)` to write the whole thing in one syscall.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindForEachPrintln$KtRecipe","displayName":"Find `forEach { println(it) }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

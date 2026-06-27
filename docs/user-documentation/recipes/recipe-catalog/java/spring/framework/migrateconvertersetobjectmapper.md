@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `setObjectMapper` with constructor injection"}
-  description={"Folds `setObjectMapper` calls on `MappingJackson2HttpMessageConverter` into the constructor. If the converter is instantiated in the same block with no other invocations, the setter call is replaced with constructor injection. Otherwise, a TODO comment is added."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.MigrateConverterSetObjectMapper"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateconvertersetobjectmapper.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `setObjectMapper` with constructor injection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Folds `setObjectMapper` calls on `MappingJackson2HttpMessageConverter` into the constructor. If the converter is instantiated in the same block with no other invocations, the setter call is replaced with constructor injection. Otherwise, a TODO comment is added.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.databind.ObjectMapper;\nimport org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;\n\nclass WebConfig {\n    MappingJackson2HttpMessageConverter converter(ObjectMapper mapper) {\n        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();\n        converter.setObjectMapper(mapper);\n        return converter;\n    }\n}\n","after":"import com.fasterxml.jackson.databind.ObjectMapper;\nimport org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;\n\nclass WebConfig {\n    MappingJackson2HttpMessageConverter converter(ObjectMapper mapper) {\n        return new MappingJackson2HttpMessageConverter(mapper);\n    }\n}\n","diff":"@@ -6,3 +6,1 @@\nclass WebConfig {\n    MappingJackson2HttpMessageConverter converter(ObjectMapper mapper) {\n-       MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();\n-       converter.setObjectMapper(mapper);\n-       return converter;\n+       return new MappingJackson2HttpMessageConverter(mapper);\n    }\n","newFile":false}]}]}>
 

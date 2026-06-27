@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply Compose autofix rewrites"}
-  description={"Autofix-only Compose bundle: promotes `remember { mutableStateOf(emptyList/Map()) }` to the snapshot-aware `mutableStateListOf` / `mutableStateMapOf` containers. The bulk of Compose remediation is judgement-call work flagged by `Compose` — for diff-only output, use this recipe instead."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.ImproveKotlinCompose$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/improvekotlincompose$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `remember { mutableStateOf(emptyList/Map()) }` candidates for snapshot-aware containers","href":"kotlin/compose/usespecializedcomposestatecontainers$ktrecipe"}]}>
+<RecipeHeader.Title>Apply Compose autofix rewrites</RecipeHeader.Title>
+
+<RecipeHeader.Description>Autofix-only Compose bundle: promotes `remember { mutableStateOf(emptyList/Map()) }` to the snapshot-aware `mutableStateListOf` / `mutableStateMapOf` containers. The bulk of Compose remediation is judgement-call work flagged by `Compose` — for diff-only output, use this recipe instead.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `remember { mutableStateOf(emptyList/Map()) }` candidates for snapshot-aware containers","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/usespecializedcomposestatecontainers$ktrecipe/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `Bean.isNullable()`"}
-  description={"`Bean.isNullable()` has been removed in CDI 4.0.0, and now always returns `false`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.RemoveBeanIsNullable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removebeanisnullable.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `Bean.isNullable()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Bean.isNullable()` has been removed in CDI 4.0.0, and now always returns `false`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.enterprise.inject.spi.Bean;\n\nclass Test {\n    void test(Bean<?> bean) {\n        if (bean.isNullable()) {\n            System.out.println(\"is null\");\n        } else {\n            System.out.println(\"not null\");\n        }\n    }\n}\n","after":"import jakarta.enterprise.inject.spi.Bean;\n\nclass Test {\n    void test(Bean<?> bean) {\n        System.out.println(\"not null\");\n    }\n}\n","diff":"@@ -5,5 +5,1 @@\nclass Test {\n    void test(Bean<?> bean) {\n-       if (bean.isNullable()) {\n-           System.out.println(\"is null\");\n-       } else {\n-           System.out.println(\"not null\");\n-       }\n+       System.out.println(\"not null\");\n    }\n","newFile":false}]}]}>
 

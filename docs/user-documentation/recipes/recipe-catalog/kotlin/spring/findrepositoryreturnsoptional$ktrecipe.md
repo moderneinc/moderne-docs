@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring Data repository methods returning `Optional<T>`"}
-  description={"On the JVM, `Optional<T>` is the only way to model 'maybe absent' in Java APIs. In Kotlin, `T?` is the language-native equivalent — Spring Data auto-detects nullable return types since 2.0. Convert `Optional<T>` returns to `T?`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindRepositoryReturnsOptional$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findrepositoryreturnsoptional$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Spring Data repository methods returning `Optional<T>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>On the JVM, `Optional<T>` is the only way to model 'maybe absent' in Java APIs. In Kotlin, `T?` is the language-native equivalent — Spring Data auto-detects nullable return types since 2.0. Convert `Optional<T>` returns to `T?`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindRepositoryReturnsOptional$KtRecipe","displayName":"Find Spring Data repository methods returning `Optional<T>`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

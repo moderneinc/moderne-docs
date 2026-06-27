@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Slack token literals (`xoxb-`/`xoxp-`/`xoxa-`/`xoxr-`/`xoxs-`)"}
-  description={"Slack bot/user/app tokens follow the `xox[abprs]-` pattern. A leaked token lets a third party read channels, post as your bot, and pull workspace metadata."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindSlackTokenLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findslacktokenliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Slack token literals (`xoxb-`/`xoxp-`/`xoxa-`/`xoxr-`/`xoxs-`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Slack bot/user/app tokens follow the `xox[abprs]-` pattern. A leaked token lets a third party read channels, post as your bot, and pull workspace metadata.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindSlackTokenLiteral$KtRecipe","displayName":"Find Slack token literals (`xoxb-`/`xoxp-`/`xoxa-`/`xoxr-`/`xoxs-`)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

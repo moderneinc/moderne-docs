@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJStringRules.AbstractStringAssertStringIsEmpty`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractStringAssertStringIsEmpty {\n    \n    @BeforeTemplate\n    void before(AbstractStringAssert<?> stringAssert) {\n        stringAssert.isEqualTo(\"\");\n    }\n    \n    @AfterTemplate\n    void after(AbstractStringAssert<?> stringAssert) {\n        stringAssert.isEmpty();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AbstractStringAssertStringIsEmptyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstringrulesrecipes$abstractstringassertstringisemptyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJStringRules.AbstractStringAssertStringIsEmpty`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractStringAssertStringIsEmpty {
+    
+    @BeforeTemplate
+    void before(AbstractStringAssert<?> stringAssert) {
+        stringAssert.isEqualTo("");
+    }
+    
+    @AfterTemplate
+    void after(AbstractStringAssert<?> stringAssert) {
+        stringAssert.isEmpty();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AbstractStringAssertStringIsEmptyRecipe","displayName":"Refaster template `AssertJStringRules.AbstractStringAssertStringIsEmpty`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

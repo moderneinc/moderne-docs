@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `HandlerResult.hasExceptionHandler()` to `getExceptionHandler()`"}
-  description={"`org.springframework.web.reactive.HandlerResult.hasExceptionHandler()` was deprecated, in favor of `getExceptionHandler()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateHandlerResultHasExceptionHandlerMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratehandlerresulthasexceptionhandlermethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `HandlerResult.hasExceptionHandler()` to `getExceptionHandler()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`org.springframework.web.reactive.HandlerResult.hasExceptionHandler()` was deprecated, in favor of `getExceptionHandler()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.web.reactive.HandlerResult;\nclass MyHandler {\n    void configureHandler(HandlerResult result) {\n        if (result.hasExceptionHandler()) {\n            // do something\n        }\n    }\n}\n","after":"import org.springframework.web.reactive.HandlerResult;\nclass MyHandler {\n    void configureHandler(HandlerResult result) {\n        if (result.getExceptionHandler() != null) {\n            // do something\n        }\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\nclass MyHandler {\n    void configureHandler(HandlerResult result) {\n-       if (result.hasExceptionHandler()) {\n+       if (result.getExceptionHandler() != null) {\n            // do something\n","newFile":false}]}]}>
 

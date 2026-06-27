@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unsafe reflection vulnerabilities"}
-  description={"Detects when user-controlled input flows into reflection-based class loading or instantiation without proper validation, which could allow an attacker to instantiate arbitrary classes (CWE-470)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["CWE-470"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.security.FindUnsafeReflectionInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/security/findunsafereflectioninjection.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find unsafe reflection vulnerabilities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects when user-controlled input flows into reflection-based class loading or instantiation without proper validation, which could allow an attacker to instantiate arbitrary classes (CWE-470).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.http.HttpServletRequest;\n\nclass PluginLoader {\n    Object load(HttpServletRequest request) throws Exception {\n        String className = request.getParameter(\"plugin\");\n        return Class.forName(className).getDeclaredConstructor().newInstance();\n    }\n}\n","after":"import javax.servlet.http.HttpServletRequest;\n\nclass PluginLoader {\n    Object load(HttpServletRequest request) throws Exception {\n        String className = request.getParameter(\"plugin\");\n        return /*~~(UNSAFE_REFLECTION use)~~>*/Class.forName(className).getDeclaredConstructor().newInstance();\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n    Object load(HttpServletRequest request) throws Exception {\n        String className = request.getParameter(\"plugin\");\n-       return Class.forName(className).getDeclaredConstructor().newInstance();\n+       return /*~~(UNSAFE_REFLECTION use)~~>*/Class.forName(className).getDeclaredConstructor().newInstance();\n    }\n","newFile":false}]}]}>
 

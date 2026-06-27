@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `x.compareTo(y) <op> 0` patterns"}
-  description={"`x.compareTo(y) > 0` is the long form of `x > y` for any `Comparable<T>` — and `>`/`<`/`>=`/`<=` are defined on `Comparable` to use exactly that call. The operator form reads as the comparison it is, and the bytecode emitted is identical."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindCompareToInsteadOfOperator$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findcomparetoinsteadofoperator$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `x.compareTo(y) <op> 0` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`x.compareTo(y) > 0` is the long form of `x > y` for any `Comparable<T>` — and `>`/`<`/`>=`/`<=` are defined on `Comparable` to use exactly that call. The operator form reads as the comparison it is, and the bytecode emitted is identical.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindCompareToInsteadOfOperator$KtRecipe","displayName":"Find `x.compareTo(y) <op> 0` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

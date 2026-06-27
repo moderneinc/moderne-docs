@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `suspend fun` declarations returning `Job` / `Deferred`"}
-  description={"A `suspend fun foo(): Job` is almost always a confusion of two patterns — either the function should suspend and return a value (drop the `Job`/`Deferred`), or it should launch and return the handle (drop `suspend`, and call `coroutineScope { launch { … } }` internally)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindSuspendFunctionReturningJob$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findsuspendfunctionreturningjob$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `suspend fun` declarations returning `Job` / `Deferred`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `suspend fun foo(): Job` is almost always a confusion of two patterns — either the function should suspend and return a value (drop the `Job`/`Deferred`), or it should launch and return the handle (drop `suspend`, and call `coroutineScope { launch { … } }` internally).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindSuspendFunctionReturningJob$KtRecipe","displayName":"Find `suspend fun` declarations returning `Job` / `Deferred`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

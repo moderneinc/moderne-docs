@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `lombok-mapstruct-binding` when both MapStruct and Lombok are used"}
-  description={"Add the `lombok-mapstruct-binding` annotation processor as needed when both MapStruct and Lombok are used."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java17"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.AddLombokMapstructBinding"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/addlombokmapstructbinding.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle dependency","href":"gradle/adddependency"},{"name":"Add `lombok-mapstruct-binding` dependency for Maven when both MapStruct and Lombok are used","href":"java/migrate/addlombokmapstructbindingmavendependencyonly"},{"name":"Add an annotation processor to `maven-compiler-plugin`","href":"maven/addannotationprocessor"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"java/dependencies/dependencyinsight"},{"name":"Dependency insight for Gradle and Maven","href":"java/dependencies/dependencyinsight"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Add `lombok-mapstruct-binding` when both MapStruct and Lombok are used</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add the `lombok-mapstruct-binding` annotation processor as needed when both MapStruct and Lombok are used.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle dependency","href":"/user-documentation/recipes/recipe-catalog/gradle/adddependency/"},{"name":"Add `lombok-mapstruct-binding` dependency for Maven when both MapStruct and Lombok are used","href":"/user-documentation/recipes/recipe-catalog/java/migrate/addlombokmapstructbindingmavendependencyonly/"},{"name":"Add an annotation processor to `maven-compiler-plugin`","href":"/user-documentation/recipes/recipe-catalog/maven/addannotationprocessor/"}]} preconditions={[{"name":"Dependency insight for Gradle and Maven","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyinsight/"},{"name":"Dependency insight for Gradle and Maven","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyinsight/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

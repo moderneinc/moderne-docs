@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Entity Framework / Dapper / ADO.NET database access"}
-  description={"Detect Entity Framework Core DbContext subclasses, DbSet<T> properties, [Table]/[Column]/[Key] annotated entity classes, Dapper Query/Execute calls, and raw SqlConnection usage."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindEntityFrameworkConnections"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findentityframeworkconnections.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Entity Framework / Dapper / ADO.NET database access</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect Entity Framework Core DbContext subclasses, DbSet&lt;T> properties, [Table]/[Column]/[Key] annotated entity classes, Dapper Query/Execute calls, and raw SqlConnection usage.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindEntityFrameworkConnections","displayName":"Find Entity Framework / Dapper / ADO.NET database access","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

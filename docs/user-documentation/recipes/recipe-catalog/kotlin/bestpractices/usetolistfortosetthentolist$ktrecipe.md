@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `distinct()` instead of `toSet().toList()`"}
-  description={"`distinct()` returns a `List` with duplicates removed in one pass. `toSet().toList()` allocates a set and then copies its contents into a list — two allocations to do the same job, and the order semantics differ subtly because hash-based sets don't preserve insertion order across all platforms."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.UseToListForToSetThenToList$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetolistfortosetthentolist$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `distinct()` instead of `toSet().toList()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`distinct()` returns a `List` with duplicates removed in one pass. `toSet().toList()` allocates a set and then copies its contents into a list — two allocations to do the same job, and the order semantics differ subtly because hash-based sets don't preserve insertion order across all platforms.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.UseToListForToSetThenToList$KtRecipe","displayName":"Use `distinct()` instead of `toSet().toList()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

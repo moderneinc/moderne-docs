@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add radix to `parseInt`"}
-  description={"Adds the radix parameter (base 10) to `parseInt()` calls that are missing it, preventing potential parsing issues."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.cleanup.add-parse-int-radix"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/cleanup/add-parse-int-radix.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add radix to `parseInt`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the radix parameter (base 10) to `parseInt()` calls that are missing it, preventing potential parsing issues.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.javascript.cleanup.add-parse-int-radix","displayName":"Add radix to `parseInt`","npmPackage":"@openrewrite/rewrite"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find missing non-generic interface implementation"}
-  description={"Detect types implementing `IComparable<T>` without `IComparable`, or `IEquatable<T>` without proper Equals override."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindImplementNonGenericInterface"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findimplementnongenericinterface.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find missing non-generic interface implementation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect types implementing `IComparable<T>` without `IComparable`, or `IEquatable<T>` without proper Equals override.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindImplementNonGenericInterface","displayName":"Find missing non-generic interface implementation","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

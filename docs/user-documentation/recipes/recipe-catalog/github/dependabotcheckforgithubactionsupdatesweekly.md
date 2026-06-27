@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Check for github-actions updates weekly"}
-  description={"Set dependabot to check for github-actions updates weekly."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["github","demo","dependabot","dependencies"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.DependabotCheckForGithubActionsUpdatesWeekly"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/dependabotcheckforgithubactionsupdatesweekly.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change dependabot schedule interval","href":"github/changedependabotscheduleinterval"}]}>
+<RecipeHeader.Title>Check for github-actions updates weekly</RecipeHeader.Title>
+
+<RecipeHeader.Description>Set dependabot to check for github-actions updates weekly.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change dependabot schedule interval","href":"/user-documentation/recipes/recipe-catalog/github/changedependabotscheduleinterval/"}]}>
 
 ## Definition
 

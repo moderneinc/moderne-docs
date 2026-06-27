@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `FragmentManager.executePendingTransactions()` calls"}
-  description={"`executePendingTransactions()` forces synchronous fragment-transaction execution on the calling thread — usually a workaround for code that races a not-yet-attached fragment. Prefer `commitNow()`/`commitNowAllowingStateLoss()` at the call site that scheduled the transaction, or restructure the call to read state from the resulting fragment's `onViewCreated`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindFragmentManagerExecutePendingTransactions$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findfragmentmanagerexecutependingtransactions$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `FragmentManager.executePendingTransactions()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`executePendingTransactions()` forces synchronous fragment-transaction execution on the calling thread — usually a workaround for code that races a not-yet-attached fragment. Prefer `commitNow()`/`commitNowAllowingStateLoss()` at the call site that scheduled the transaction, or restructure the call to read state from the resulting fragment's `onViewCreated`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindFragmentManagerExecutePendingTransactions$KtRecipe","displayName":"Find `FragmentManager.executePendingTransactions()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

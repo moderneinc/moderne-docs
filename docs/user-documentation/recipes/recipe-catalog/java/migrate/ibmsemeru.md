@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to IBM Semeru Runtimes"}
-  description={"This recipe will apply changes commonly needed when upgrading Java versions. The solutions provided in this list are solutions only available in IBM Semeru Runtimes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java11"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.IBMSemeru"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/ibmsemeru.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `com.ibm.net.ssl.www2.protocol.https.Handler` instead of `com.sun.net.ssl.internal.www.protocol.https.Handler`","href":"java/migrate/jredonotusesunnetsslinternalwwwprotocolhttpshandler"},{"name":"Use `com.ibm.net.ssl.www2.protocol` instead of `com.sun.net.ssl.internal.www.protocol`","href":"java/migrate/jredonotusesunnetsslinternalwwwprotocol"},{"name":"Use `com.ibm.jsse2` instead of `com.sun.net.ssl.internal.ssl`","href":"java/migrate/jredonotusesunnetsslinternalsslprovider"},{"name":"Use `javax.net.ssl` instead of `com.sun.net.ssl`","href":"java/migrate/jredonotusesunnetsslapis"},{"name":"Do not package `java.xml.ws` module in WebSphere Liberty applications","href":"java/migrate/removedjavaxmlwsmoduleprovided"},{"name":"Do not package `java.xml.bind` and `java.activation` modules in WebSphere Liberty applications","href":"java/migrate/removedjaxbmoduleprovided"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to IBM Semeru Runtimes</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when upgrading Java versions. The solutions provided in this list are solutions only available in IBM Semeru Runtimes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `com.ibm.net.ssl.www2.protocol.https.Handler` instead of `com.sun.net.ssl.internal.www.protocol.https.Handler`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jredonotusesunnetsslinternalwwwprotocolhttpshandler/"},{"name":"Use `com.ibm.net.ssl.www2.protocol` instead of `com.sun.net.ssl.internal.www.protocol`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jredonotusesunnetsslinternalwwwprotocol/"},{"name":"Use `com.ibm.jsse2` instead of `com.sun.net.ssl.internal.ssl`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jredonotusesunnetsslinternalsslprovider/"},{"name":"Use `javax.net.ssl` instead of `com.sun.net.ssl`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jredonotusesunnetsslapis/"},{"name":"Do not package `java.xml.ws` module in WebSphere Liberty applications","href":"/user-documentation/recipes/recipe-catalog/java/migrate/removedjavaxmlwsmoduleprovided/"},{"name":"Do not package `java.xml.bind` and `java.activation` modules in WebSphere Liberty applications","href":"/user-documentation/recipes/recipe-catalog/java/migrate/removedjaxbmoduleprovided/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Struts date tag format patterns"}
-  description={"Converts SimpleDateFormat patterns in `<s:date>` tags to DateTimeFormatter-compatible patterns. Struts 6.0 uses DateTimeFormatter instead of SimpleDateFormat, which has different pattern letter meanings."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate6.MigrateDateTagFormat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratedatetagformat.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Struts date tag format patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts SimpleDateFormat patterns in `<s:date>` tags to DateTimeFormatter-compatible patterns. Struts 6.0 uses DateTimeFormatter instead of SimpleDateFormat, which has different pattern letter meanings.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.struts.migrate6.MigrateDateTagFormat","displayName":"Migrate Struts date tag format patterns","groupId":"org.openrewrite.recipe","artifactId":"rewrite-struts","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STRUTS","requiresConfiguration":false}}>
 

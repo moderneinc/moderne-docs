@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change import"}
-  description={"Changes an import from one module/member to another, updating all type attributions."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.change-import"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/change-import.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Change import</RecipeHeader.Title>
+
+<RecipeHeader.Description>Changes an import from one module/member to another, updating all type attributions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldModule","required":true,"description":"The module to change imports from","example":"react-dom/test-utils"},{"type":"String","name":"oldMember","required":true,"description":"The member to change (or 'default' for default imports, '*' for namespace imports)","example":"act"},{"type":"String","name":"newModule","required":true,"description":"The module to change imports to","example":"react"},{"type":"String","name":"newMember","required":false,"description":"The new member name. If not specified, keeps the same member name.","example":"act"},{"type":"String","name":"newAlias","required":false,"description":"Optional alias for the new import. Required when newMember is 'default' or '*'."}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`"}
-  description={"Replace `org.apache.commons.lang3.Validate.notNull(Object, String, Object[])` with `Objects.requireNonNull(Object, String)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceValidateNotNullHavingVarargsWithObjectsRequireNonNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replacevalidatenotnullhavingvarargswithobjectsrequirenonnull.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `org.apache.commons.lang3.Validate#notNull` with `Objects#requireNonNull`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `org.apache.commons.lang3.Validate.notNull(Object, String, Object[])` with `Objects.requireNonNull(Object, String)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.commons.lang3.Validate;\nclass Test {\n    void test(Object obj) {\n        Validate.notNull(obj, \"Object should not be null\");\n    }\n}\n","after":"import java.util.Objects;\n\nclass Test {\n    void test(Object obj) {\n        Objects.requireNonNull(obj, \"Object should not be null\");\n    }\n}\n","diff":"@@ -1,1 +1,2 @@\n-import org.apache.commons.lang3.Validate;\n+import java.util.Objects;\n+\nclass Test {\n@@ -4,1 +5,1 @@\nclass Test {\n    void test(Object obj) {\n-       Validate.notNull(obj, \"Object should not be null\");\n+       Objects.requireNonNull(obj, \"Object should not be null\");\n    }\n","newFile":false}]}]}>
 

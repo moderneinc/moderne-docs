@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enable Virtual Threads on Java 21"}
-  description={"Set `spring.threads.virtual.enabled` to `true` in `application.properties` or `application.yml`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.EnableVirtualThreads"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/enablevirtualthreads.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add a spring configuration property","href":"java/spring/addspringproperty"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"java/search/hasjavaversion"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Enable Virtual Threads on Java 21</RecipeHeader.Title>
+
+<RecipeHeader.Description>Set `spring.threads.virtual.enabled` to `true` in `application.properties` or `application.yml`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add a spring configuration property","href":"/user-documentation/recipes/recipe-catalog/java/spring/addspringproperty/"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

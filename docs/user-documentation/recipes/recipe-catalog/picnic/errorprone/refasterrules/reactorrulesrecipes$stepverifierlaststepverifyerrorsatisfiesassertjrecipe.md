@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ReactorRules.StepVerifierLastStepVerifyErrorSatisfiesAssertJ`"}
-  description={"Prefer `StepVerifier.LastStep#verifyErrorSatisfies(Consumer)` with AssertJ over more contrived alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$StepVerifierLastStepVerifyErrorSatisfiesAssertJRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes$stepverifierlaststepverifyerrorsatisfiesassertjrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ReactorRules.StepVerifierLastStepVerifyErrorSatisfiesAssertJ`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `StepVerifier.LastStep#verifyErrorSatisfies(Consumer)` with AssertJ over more contrived alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$StepVerifierLastStepVerifyErrorSatisfiesAssertJRecipe","displayName":"Refaster template `ReactorRules.StepVerifierLastStepVerifyErrorSatisfiesAssertJ`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

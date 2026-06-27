@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `RestTemplate` to `RestClient`"}
-  description={"Migrates Spring's `RestTemplate` to the modern `RestClient` API introduced in Spring Framework 6.1. `RestClient` provides a fluent, synchronous API that is the recommended approach for new development. This recipe converts constructor calls, type declarations, and common method invocations (`getForObject`, `getForEntity`, `postForObject`, `postForEntity`, `patchForObject`, `put`, `delete`, `headForHeaders`, `postForLocation`, `optionsForAllow`, `exchange`) to their `RestClient` equivalents."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.MigrateRestTemplateToRestClient"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateresttemplatetorestclient.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"}]}>
+<RecipeHeader.Title>Migrate `RestTemplate` to `RestClient`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Spring's `RestTemplate` to the modern `RestClient` API introduced in Spring Framework 6.1. `RestClient` provides a fluent, synchronous API that is the recommended approach for new development. This recipe converts constructor calls, type declarations, and common method invocations (`getForObject`, `getForEntity`, `postForObject`, `postForEntity`, `patchForObject`, `put`, `delete`, `headForHeaders`, `postForLocation`, `optionsForAllow`, `exchange`) to their `RestClient` equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"}]}>
 
 ## Definition
 

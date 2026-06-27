@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJRules.AssertThatSetContainsExactlyOneElement`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatSetContainsExactlyOneElement<S, T extends S> {\n    \n    @BeforeTemplate\n    ObjectEnumerableAssert<?, S> before(Set<S> set, T element) {\n        return assertThat(set).containsOnly(element);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ObjectEnumerableAssert<?, S> after(Set<S> set, T element) {\n        return assertThat(set).containsExactly(element);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatSetContainsExactlyOneElementRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatsetcontainsexactlyoneelementrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJRules.AssertThatSetContainsExactlyOneElement`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatSetContainsExactlyOneElement<S, T extends S> {
+    
+    @BeforeTemplate
+    ObjectEnumerableAssert<?, S> before(Set<S> set, T element) {
+        return assertThat(set).containsOnly(element);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    ObjectEnumerableAssert<?, S> after(Set<S> set, T element) {
+        return assertThat(set).containsExactly(element);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatSetContainsExactlyOneElementRecipe","displayName":"Refaster template `AssertJRules.AssertThatSetContainsExactlyOneElement`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

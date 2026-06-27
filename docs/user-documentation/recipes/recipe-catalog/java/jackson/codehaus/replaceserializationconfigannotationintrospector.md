@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate serialization annotation processor"}
-  description={"Migrate serialization annotation processor to use the codehaus config method."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.codehaus.ReplaceSerializationConfigAnnotationIntrospector"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/replaceserializationconfigannotationintrospector.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate serialization annotation processor</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate serialization annotation processor to use the codehaus config method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.jackson.codehaus.ReplaceSerializationConfigAnnotationIntrospector","displayName":"Migrate serialization annotation processor","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
 

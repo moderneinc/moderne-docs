@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find throw/catch shape smells"}
-  description={"Search-only bundle for throw shapes inside catch blocks: bare-`RuntimeException`/`Exception` wrappers that discard contextual messages, useless `catch { throw e }` blocks, and rethrows of new exception types that don't pass the caught exception as `cause`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindThrowCatchSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findthrowcatchsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `throw RuntimeException(e)` inside a catch block","href":"kotlin/functional/findwrappingexceptionincatch$ktrecipe"},{"name":"Find `catch (e: Exception) { throw e }` patterns","href":"kotlin/functional/findcatchandrethrowsameexception$ktrecipe"},{"name":"Find `catch (e: Exception) { throw OtherException(...) }` without `e` as cause","href":"kotlin/functional/findcatchandrethrownewexceptionwithoutcause$ktrecipe"}]}>
+<RecipeHeader.Title>Find throw/catch shape smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle for throw shapes inside catch blocks: bare-`RuntimeException`/`Exception` wrappers that discard contextual messages, useless `catch { throw e }` blocks, and rethrows of new exception types that don't pass the caught exception as `cause`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `throw RuntimeException(e)` inside a catch block","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findwrappingexceptionincatch$ktrecipe/"},{"name":"Find `catch (e: Exception) { throw e }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchandrethrowsameexception$ktrecipe/"},{"name":"Find `catch (e: Exception) { throw OtherException(...) }` without `e` as cause","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchandrethrownewexceptionwithoutcause$ktrecipe/"}]}>
 
 ## Definition
 

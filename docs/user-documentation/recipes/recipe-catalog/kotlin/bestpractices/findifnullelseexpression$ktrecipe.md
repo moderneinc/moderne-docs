@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (x == null) null else x.foo()` patterns"}
-  description={"An `if (x == null) null else x.foo()` collapses to the safe-call `x?.foo()`. The safe-call is structurally null-aware — the longhand re-checks for null without surfacing the absent case in the type system."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindIfNullElseExpression$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findifnullelseexpression$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (x == null) null else x.foo()` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `if (x == null) null else x.foo()` collapses to the safe-call `x?.foo()`. The safe-call is structurally null-aware — the longhand re-checks for null without surfacing the absent case in the type system.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindIfNullElseExpression$KtRecipe","displayName":"Find `if (x == null) null else x.foo()` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

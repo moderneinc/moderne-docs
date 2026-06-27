@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove self-assignments"}
-  description={"Remove statements that assign a variable to itself (`x = x`, `self.x = self.x`), since they have no effect."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={["RSPEC-S1656","python","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.codequality.RemoveSelfAssignment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/codequality/removeselfassignment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove self-assignments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove statements that assign a variable to itself (`x = x`, `self.x = self.x`), since they have no effect.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.codequality.RemoveSelfAssignment","displayName":"Remove self-assignments","pipPackage":"openrewrite-migrate-python"}}>
 

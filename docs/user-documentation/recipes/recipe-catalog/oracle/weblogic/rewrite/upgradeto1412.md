@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to WebLogic 14.1.2"}
-  description={"This recipe will apply changes required for migrating to WebLogic 14.1.2"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["java","weblogic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.UpgradeTo1412"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradeto1412.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Update the WebLogic version to 14.1.2","href":"oracle/weblogic/rewrite/updatebuildtoweblogic1412"},{"name":"Report types deprecated or removed in WebLogic version 14.1.2","href":"oracle/weblogic/rewrite/checkandcommentoutdeprecations1412"},{"name":"JSF 1.x to Jakarta Server Faces 2.3 on WebLogic 14.1.2 or older","href":"oracle/weblogic/rewrite/facesmigrationtojakartafaces2x"},{"name":"Migrate WebLogic Schemas to 14.1.2","href":"oracle/weblogic/rewrite/migrateweblogicschemasto1412"},{"name":"Mitigation of Java XML Bind Deprecation in Java 11 vs WebLogic 14.1.2","href":"oracle/weblogic/rewrite/weblogic1412javaxmlbindmitigation"}]}>
+<RecipeHeader.Title>Migrate to WebLogic 14.1.2</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes required for migrating to WebLogic 14.1.2</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Update the WebLogic version to 14.1.2","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/updatebuildtoweblogic1412/"},{"name":"Report types deprecated or removed in WebLogic version 14.1.2","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/checkandcommentoutdeprecations1412/"},{"name":"JSF 1.x to Jakarta Server Faces 2.3 on WebLogic 14.1.2 or older","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/facesmigrationtojakartafaces2x/"},{"name":"Migrate WebLogic Schemas to 14.1.2","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/migrateweblogicschemasto1412/"},{"name":"Mitigation of Java XML Bind Deprecation in Java 11 vs WebLogic 14.1.2","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/weblogic1412javaxmlbindmitigation/"}]}>
 
 ## Definition
 

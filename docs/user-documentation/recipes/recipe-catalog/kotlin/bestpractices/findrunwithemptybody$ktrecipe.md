@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `run { }` calls with an empty body"}
-  description={"`run { }` is a scope function for evaluating a block as an expression with an implicit `this` receiver. If the block is empty, the call evaluates to `Unit` and does nothing — drop it."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindRunWithEmptyBody$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findrunwithemptybody$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `run { }` calls with an empty body</RecipeHeader.Title>
+
+<RecipeHeader.Description>`run { }` is a scope function for evaluating a block as an expression with an implicit `this` receiver. If the block is empty, the call evaluates to `Unit` and does nothing — drop it.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindRunWithEmptyBody$KtRecipe","displayName":"Find `run { }` calls with an empty body","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

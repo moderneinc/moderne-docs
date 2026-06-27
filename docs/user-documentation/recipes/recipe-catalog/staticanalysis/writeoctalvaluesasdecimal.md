@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Write octal values as decimal"}
-  description={"Developers may not recognize octal values as such, mistaking them instead for decimal values. Because a leading zero silently switches the literal to base-8, what looks like `010` actually represents `8`, which is a common source of subtle numeric bugs."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1314"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.WriteOctalValuesAsDecimal"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/writeoctalvaluesasdecimal.md"}
-/>
+>
+
+<RecipeHeader.Title>Write octal values as decimal</RecipeHeader.Title>
+
+<RecipeHeader.Description>Developers may not recognize octal values as such, mistaking them instead for decimal values. Because a leading zero silently switches the literal to base-8, what looks like `010` actually represents `8`, which is a common source of subtle numeric bugs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test() {\n        int m = 010;\n        short m2 = 010;\n        int n = 0x01;\n        int o = 0b01;\n        int p = 12;\n        int q = 1;\n        long r = 0L;\n        float s = 0.01f;\n        double t = 0.01;\n    }\n}\n","after":"class Test {\n    void test() {\n        int m = 8;\n        short m2 = 8;\n        int n = 0x01;\n        int o = 0b01;\n        int p = 12;\n        int q = 1;\n        long r = 0L;\n        float s = 0.01f;\n        double t = 0.01;\n    }\n}\n","diff":"@@ -3,2 +3,2 @@\nclass Test {\n    void test() {\n-       int m = 010;\n-       short m2 = 010;\n+       int m = 8;\n+       short m2 = 8;\n        int n = 0x01;\n","newFile":false}]}]}>
 

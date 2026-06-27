@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `OptionalRules.OptionalOfNullable`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class OptionalOfNullable<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"TernaryOperatorOptionalNegativeFiltering\")\n    Optional<T> before(@Nullable\n    T object) {\n        return object == null ? Optional.empty() : Optional.of(object);\n    }\n    \n    @AfterTemplate\n    Optional<T> after(T object) {\n        return Optional.ofNullable(object);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,34 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalOfNullableRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/optionalrulesrecipes$optionalofnullablerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `OptionalRules.OptionalOfNullable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class OptionalOfNullable<T> {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "TernaryOperatorOptionalNegativeFiltering")
+    Optional<T> before(@Nullable
+    T object) {
+        return object == null ? Optional.empty() : Optional.of(object);
+    }
+    
+    @AfterTemplate
+    Optional<T> after(T object) {
+        return Optional.ofNullable(object);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalOfNullableRecipe","displayName":"Refaster template `OptionalRules.OptionalOfNullable`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Fix permissive `X509TrustManager` implementations"}
-  description={"Replaces empty `checkClientTrusted` and `checkServerTrusted` method bodies on `javax.net.ssl.X509TrustManager` implementations with a `throw new CertificateException(\"Not trusted\")` so the trust manager fails closed instead of accepting any certificate."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-295","RSPEC-S4830"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.FixPermissiveTrustManager"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/fixpermissivetrustmanager.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Fix permissive `X509TrustManager` implementations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces empty `checkClientTrusted` and `checkServerTrusted` method bodies on `javax.net.ssl.X509TrustManager` implementations with a `throw new CertificateException("Not trusted")` so the trust manager fails closed instead of accepting any certificate.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.security.cert.X509Certificate;\nimport javax.net.ssl.X509TrustManager;\n\nclass PermissiveTrustManager implements X509TrustManager {\n    @Override\n    public void checkClientTrusted(X509Certificate[] chain, String authType) {\n    }\n\n    @Override\n    public void checkServerTrusted(X509Certificate[] chain, String authType) {\n    }\n\n    @Override\n    public X509Certificate[] getAcceptedIssuers() {\n        return new X509Certificate[0];\n    }\n}\n","after":"import java.security.cert.CertificateException;\nimport java.security.cert.X509Certificate;\nimport javax.net.ssl.X509TrustManager;\n\nclass PermissiveTrustManager implements X509TrustManager {\n    @Override\n    public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {\n        throw new CertificateException(\"Not trusted\");\n    }\n\n    @Override\n    public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {\n        throw new CertificateException(\"Not trusted\");\n    }\n\n    @Override\n    public X509Certificate[] getAcceptedIssuers() {\n        return new X509Certificate[0];\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import java.security.cert.CertificateException;\nimport java.security.cert.X509Certificate;\n@@ -6,1 +7,2 @@\nclass PermissiveTrustManager implements X509TrustManager {\n    @Override\n-   public void checkClientTrusted(X509Certificate[] chain, String authType) {\n+   public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {\n+       throw new CertificateException(\"Not trusted\");\n    }\n@@ -10,1 +12,2 @@\n\n    @Override\n-   public void checkServerTrusted(X509Certificate[] chain, String authType) {\n+   public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {\n+       throw new CertificateException(\"Not trusted\");\n    }\n","newFile":false}]}]}>
 

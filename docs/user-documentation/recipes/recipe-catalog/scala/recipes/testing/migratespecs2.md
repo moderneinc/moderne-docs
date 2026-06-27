@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate specs2 to ScalaTest or MUnit"}
-  description={"Finds imports of `org.specs2`. Consider migrating to ScalaTest or MUnit."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.testing.MigrateSpecs2"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/testing/migratespecs2.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate specs2 to ScalaTest or MUnit</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of `org.specs2`. Consider migrating to ScalaTest or MUnit.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import org.specs2.mutable.Specification\n\nclass MySpec {\n    val x = 1\n}\n","after":"/*~~(specs2 usage found; consider migrating to ScalaTest or MUnit)~~>*/import org.specs2.mutable.Specification\n\nclass MySpec {\n    val x = 1\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.specs2.mutable.Specification\n+/*~~(specs2 usage found; consider migrating to ScalaTest or MUnit)~~>*/import org.specs2.mutable.Specification\n\n","newFile":false}]}]}>
 

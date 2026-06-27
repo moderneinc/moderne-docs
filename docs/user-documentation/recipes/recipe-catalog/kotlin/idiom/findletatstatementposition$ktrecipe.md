@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `?.let { }` calls at statement position"}
-  description={"`x?.let { … }` at statement position discards its return value, behaving identically to `x?.also { … }` but reading as a transform. `also` makes the side-effect-only intent explicit."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindLetAtStatementPosition$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletatstatementposition$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `?.let { }` calls at statement position</RecipeHeader.Title>
+
+<RecipeHeader.Description>`x?.let { … }` at statement position discards its return value, behaving identically to `x?.also { … }` but reading as a transform. `also` makes the side-effect-only intent explicit.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindLetAtStatementPosition$KtRecipe","displayName":"Find `?.let { }` calls at statement position","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

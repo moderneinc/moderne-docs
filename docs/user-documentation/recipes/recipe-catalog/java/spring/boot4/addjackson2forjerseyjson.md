@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Jackson2 for Jersey using JSON"}
-  description={"Check whether a module uses Jersey on combination with JSON and adds the needed `spring-boot-jackson` dependency and conditionally `spring-boot-jackson2` dependency."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.AddJackson2ForJerseyJson"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/addjackson2forjerseyjson.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Find Maven and Gradle dependencies","href":"java/dependencies/finddependency"}]}>
+<RecipeHeader.Title>Add Jackson2 for Jersey using JSON</RecipeHeader.Title>
+
+<RecipeHeader.Description>Check whether a module uses Jersey on combination with JSON and adds the needed `spring-boot-jackson` dependency and conditionally `spring-boot-jackson2` dependency.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Find Maven and Gradle dependencies","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/finddependency/"}]}>
 
 ## Definition
 

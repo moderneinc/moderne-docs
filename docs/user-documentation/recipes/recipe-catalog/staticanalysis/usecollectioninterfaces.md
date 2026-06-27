@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Collection` interfaces"}
-  description={"Use `Deque`, `List`, `Map`, `ConcurrentMap`, `Queue`, and `Set` instead of implemented collections. Replaces the return type of public method declarations and the variable type public variable declarations. Programming to an interface rather than a concrete collection type decouples callers from a specific implementation, making it easier to swap data structures later without breaking dependent code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1319"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UseCollectionInterfaces"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/usecollectioninterfaces.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Collection` interfaces</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `Deque`, `List`, `Map`, `ConcurrentMap`, `Queue`, and `Set` instead of implemented collections. Replaces the return type of public method declarations and the variable type public variable declarations. Programming to an interface rather than a concrete collection type decouples callers from a specific implementation, making it easier to swap data structures later without breaking dependent code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.HashSet;\n\nclass Test {\n    public HashSet method() {\n        return new HashSet<>();\n    }\n}\n","after":"import java.util.HashSet;\nimport java.util.Set;\n\nclass Test {\n    public Set method() {\n        return new HashSet<>();\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport java.util.HashSet;\n+import java.util.Set;\n\n@@ -4,1 +5,1 @@\n\nclass Test {\n-   public HashSet method() {\n+   public Set method() {\n        return new HashSet<>();\n","newFile":false}]}]}>
 

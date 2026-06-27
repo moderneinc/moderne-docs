@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `CompletableFuture` usage in Kotlin"}
-  description={"`CompletableFuture<T>` is the JVM equivalent of a `Deferred<T>` or single-emission `Flow<T>`. In Kotlin, `suspend fun`/`Flow` integrate with structured concurrency, cancellation, and exception handling at the language level — prefer them inside Kotlin modules and bridge with `kotlinx-coroutines-jdk8` at the boundary."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindCompletableFutureUsage$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findcompletablefutureusage$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `CompletableFuture` usage in Kotlin</RecipeHeader.Title>
+
+<RecipeHeader.Description>`CompletableFuture<T>` is the JVM equivalent of a `Deferred<T>` or single-emission `Flow<T>`. In Kotlin, `suspend fun`/`Flow` integrate with structured concurrency, cancellation, and exception handling at the language level — prefer them inside Kotlin modules and bridge with `kotlinx-coroutines-jdk8` at the boundary.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindCompletableFutureUsage$KtRecipe","displayName":"Find `CompletableFuture` usage in Kotlin","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

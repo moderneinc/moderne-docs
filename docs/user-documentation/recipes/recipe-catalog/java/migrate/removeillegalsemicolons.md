@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove illegal semicolons"}
-  description={"Remove semicolons after package declarations and imports, no longer accepted in Java 21 as of [JDK-8027682](https://bugs.openjdk.org/browse/JDK-8027682)."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.RemoveIllegalSemicolons"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/removeillegalsemicolons.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove extra semicolons","href":"staticanalysis/removeextrasemicolons"}]}>
+<RecipeHeader.Title>Remove illegal semicolons</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove semicolons after package declarations and imports, no longer accepted in Java 21 as of [JDK-8027682](https://bugs.openjdk.org/browse/JDK-8027682).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove extra semicolons","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/removeextrasemicolons/"}]}>
 
 ## Definition
 

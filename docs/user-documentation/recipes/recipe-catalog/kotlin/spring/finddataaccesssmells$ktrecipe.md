@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring Data / repository access smells"}
-  description={"Repository call patterns that hide a problem: `repo.findById(id).get()` (use `findByIdOrNull` or `getReferenceById`) and `findByIdOrNull(id!!)` (contradictory nullability)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindDataAccessSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/finddataaccesssmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `repo.findById(id).get()` chains","href":"kotlin/spring/findjparepositoryfindbyidwithoutoptional$ktrecipe"},{"name":"Find `findByIdOrNull(id!!)` calls","href":"kotlin/spring/findfindbyidornullwithnonnullableid$ktrecipe"}]}>
+<RecipeHeader.Title>Find Spring Data / repository access smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Repository call patterns that hide a problem: `repo.findById(id).get()` (use `findByIdOrNull` or `getReferenceById`) and `findByIdOrNull(id!!)` (contradictory nullability).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `repo.findById(id).get()` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findjparepositoryfindbyidwithoutoptional$ktrecipe/"},{"name":"Find `findByIdOrNull(id!!)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findfindbyidornullwithnonnullableid$ktrecipe/"}]}>
 
 ## Definition
 

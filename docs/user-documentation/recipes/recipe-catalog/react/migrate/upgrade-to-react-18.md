@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to React 18"}
-  description={"Migrate deprecated APIs for React 18 compatibility. Includes all React 16 and 17 migrations plus the createRoot API migration, removal of unstable_batchedUpdates, unmountComponentAtNode replacement, and render callback removal."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.migrate.upgrade-to-react-18"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-18.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade to React 17","href":"react/migrate/upgrade-to-react-17"},{"name":"Replace `ReactDOM.render` with `createRoot`","href":"react/18/replace-reactdom-render"},{"name":"Remove `unstable_batchedUpdates`","href":"react/18/remove-unstable-batched-updates"},{"name":"Replace `unmountComponentAtNode` with `createRoot().unmount()`","href":"react/18/replace-unmount-component-at-node"},{"name":"Remove `ReactDOM.render` callback argument","href":"react/18/replace-render-callback"}]}>
+<RecipeHeader.Title>Upgrade to React 18</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate deprecated APIs for React 18 compatibility. Includes all React 16 and 17 migrations plus the createRoot API migration, removal of unstable_batchedUpdates, unmountComponentAtNode replacement, and render callback removal.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade to React 17","href":"/user-documentation/recipes/recipe-catalog/react/migrate/upgrade-to-react-17/"},{"name":"Replace `ReactDOM.render` with `createRoot`","href":"/user-documentation/recipes/recipe-catalog/react/18/replace-reactdom-render/"},{"name":"Remove `unstable_batchedUpdates`","href":"/user-documentation/recipes/recipe-catalog/react/18/remove-unstable-batched-updates/"},{"name":"Replace `unmountComponentAtNode` with `createRoot().unmount()`","href":"/user-documentation/recipes/recipe-catalog/react/18/replace-unmount-component-at-node/"},{"name":"Remove `ReactDOM.render` callback argument","href":"/user-documentation/recipes/recipe-catalog/react/18/replace-render-callback/"}]}>
 
 ## Definition
 

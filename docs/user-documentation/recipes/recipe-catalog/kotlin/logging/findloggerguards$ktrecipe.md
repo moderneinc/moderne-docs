@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find redundant logger level-check guards"}
-  description={"Bundles `if (log.isXxxEnabled) ...` finders. With kotlin-logging's lambda form or SLF4J's `{}` placeholder form, the level check is built into the call."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindLoggerGuards$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerguards$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `if (log.isTraceEnabled) ...` guards","href":"kotlin/logging/findistraceenabledguard$ktrecipe"},{"name":"Find `if (log.isDebugEnabled) ...` guards","href":"kotlin/logging/findisdebugenabledguard$ktrecipe"},{"name":"Find `if (log.isInfoEnabled) ...` guards","href":"kotlin/logging/findisinfoenabledguard$ktrecipe"},{"name":"Find `if (log.isWarnEnabled) ...` guards","href":"kotlin/logging/findiswarnenabledguard$ktrecipe"},{"name":"Find `if (log.isErrorEnabled) ...` guards","href":"kotlin/logging/findiserrorenabledguard$ktrecipe"}]}>
+<RecipeHeader.Title>Find redundant logger level-check guards</RecipeHeader.Title>
+
+<RecipeHeader.Description>Bundles `if (log.isXxxEnabled) ...` finders. With kotlin-logging's lambda form or SLF4J's `{}` placeholder form, the level check is built into the call.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `if (log.isTraceEnabled) ...` guards","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findistraceenabledguard$ktrecipe/"},{"name":"Find `if (log.isDebugEnabled) ...` guards","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findisdebugenabledguard$ktrecipe/"},{"name":"Find `if (log.isInfoEnabled) ...` guards","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findisinfoenabledguard$ktrecipe/"},{"name":"Find `if (log.isWarnEnabled) ...` guards","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findiswarnenabledguard$ktrecipe/"},{"name":"Find `if (log.isErrorEnabled) ...` guards","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findiserrorenabledguard$ktrecipe/"}]}>
 
 ## Definition
 

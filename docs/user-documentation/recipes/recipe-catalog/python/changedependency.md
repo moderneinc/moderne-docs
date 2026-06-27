@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Python dependency"}
-  description={"Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.ChangeDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/changedependency.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Change Python dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change a dependency to a different package. Supports `pyproject.toml`, `requirements.txt`, and `Pipfile`. Searches all dependency scopes. When the matching package manager (`uv` or `pipenv`) is available, the corresponding lock file (`uv.lock` or `Pipfile.lock`) is regenerated. Not safe to use as a precondition: invokes the package manager and publishes per-project state shared with other dependency recipes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldPackageName","required":true,"description":"The current PyPI package name to replace.","example":"requests"},{"type":"String","name":"newPackageName","required":true,"description":"The new PyPI package name.","example":"httpx"},{"type":"String","name":"newVersion","required":false,"description":"Optional new PEP 508 version constraint. If not specified, the original version constraint is preserved.","example":">=0.24.0"}]}>
 

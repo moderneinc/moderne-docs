@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Hamcrest assertions to JUnit Jupiter"}
-  description={"Migrate Hamcrest `assertThat(..)` to JUnit Jupiter `Assertions`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["testing","assertj","hamcrest"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.hamcrest.MigrateHamcrestToJUnit5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/migratehamcresttojunit5.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use consistent Hamcrest matcher imports","href":"java/testing/hamcrest/consistenthamcrestmatcherimports"},{"name":"Reorder method arguments","href":"java/reordermethodarguments"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Migrate from Hamcrest `instanceOf` matcher to JUnit 5","href":"java/testing/hamcrest/hamcrestinstanceoftojunit5"},{"name":"Migrate from Hamcrest `Matcher` to JUnit 5","href":"java/testing/hamcrest/hamcrestmatchertojunit5"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate Hamcrest assertions to JUnit Jupiter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Hamcrest `assertThat(..)` to JUnit Jupiter `Assertions`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use consistent Hamcrest matcher imports","href":"/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/consistenthamcrestmatcherimports/"},{"name":"Reorder method arguments","href":"/user-documentation/recipes/recipe-catalog/java/reordermethodarguments/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Migrate from Hamcrest `instanceOf` matcher to JUnit 5","href":"/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/hamcrestinstanceoftojunit5/"},{"name":"Migrate from Hamcrest `Matcher` to JUnit 5","href":"/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/hamcrestmatchertojunit5/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

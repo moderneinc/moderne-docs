@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`"}
-  description={"Replace runners with the JUnit Jupiter extension equivalent."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.RunnerToExtension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/runnertoextension.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace runners with the JUnit Jupiter extension equivalent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"runners","required":true,"description":"The fully qualified class names of the JUnit 4 runners to replace. Sometimes several runners are replaced by a single JUnit Jupiter extension.","example":"[ org.springframework.test.context.junit4.SpringRunner ]"},{"type":"String","name":"extension","required":true,"description":"The fully qualified class names of the JUnit Jupiter extension.","example":"org.springframework.test.context.junit.jupiter.SpringExtension"}]}>
 

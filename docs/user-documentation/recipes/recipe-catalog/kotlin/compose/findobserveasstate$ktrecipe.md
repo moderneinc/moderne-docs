@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LiveData.observeAsState()` calls — prefer `collectAsStateWithLifecycle()`"}
-  description={"`observeAsState()` ties subscription to the composition, not to the lifecycle owner — collection keeps running while the host activity is `STOPPED`. Migrate to `StateFlow` and `collectAsStateWithLifecycle()` (or stay on LiveData and use `androidx.lifecycle.compose.observeAsState`, which is lifecycle-aware in newer versions)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindObserveAsState$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findobserveasstate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LiveData.observeAsState()` calls — prefer `collectAsStateWithLifecycle()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`observeAsState()` ties subscription to the composition, not to the lifecycle owner — collection keeps running while the host activity is `STOPPED`. Migrate to `StateFlow` and `collectAsStateWithLifecycle()` (or stay on LiveData and use `androidx.lifecycle.compose.observeAsState`, which is lifecycle-aware in newer versions).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindObserveAsState$KtRecipe","displayName":"Find `LiveData.observeAsState()` calls — prefer `collectAsStateWithLifecycle()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

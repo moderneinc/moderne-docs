@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find a LaunchDarkly feature flag"}
-  description={"Find a LaunchDarkly feature flag."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-feature-flags"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.featureflags.launchdarkly.search.FindFeatureFlag"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/search/findfeatureflag.md"}
-/>
+>
+
+<RecipeHeader.Title>Find a LaunchDarkly feature flag</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find a LaunchDarkly feature flag.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"FeatureFlagType","name":"flagType","required":false,"description":"The feature flag's type.","example":"Bool"},{"type":"String","name":"featureKey","required":false,"description":"The unique key for the feature flag.","example":"flag-key-123abc"}]}>
 

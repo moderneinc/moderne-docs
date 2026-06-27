@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find eager log-message construction"}
-  description={"Bundles the trace/debug/info/warn/error eager-interpolation and string-concatenation finders. Every hit is a candidate for migration to kotlin-logging's lambda form (`log.debug { \"...\" }`) or SLF4J's parameterized form (`log.debug(\"x={}\", x)`)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindEagerLogMessages$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerlogmessages$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find eager string interpolation in `log.trace(...)`","href":"kotlin/logging/findeagerstringinterpolationinlogtrace$ktrecipe"},{"name":"Find eager string interpolation in `log.debug(...)`","href":"kotlin/logging/findeagerstringinterpolationinlogdebug$ktrecipe"},{"name":"Find eager string interpolation in `log.info(...)`","href":"kotlin/logging/findeagerstringinterpolationinloginfo$ktrecipe"},{"name":"Find eager string interpolation in `log.warn(...)`","href":"kotlin/logging/findeagerstringinterpolationinlogwarn$ktrecipe"},{"name":"Find eager string interpolation in `log.error(...)`","href":"kotlin/logging/findeagerstringinterpolationinlogerror$ktrecipe"},{"name":"Find string concatenation in `log.trace(...)`","href":"kotlin/logging/findstringconcatinlogtrace$ktrecipe"},{"name":"Find string concatenation in `log.debug(...)`","href":"kotlin/logging/findstringconcatinlogdebug$ktrecipe"},{"name":"Find string concatenation in `log.info(...)`","href":"kotlin/logging/findstringconcatinloginfo$ktrecipe"},{"name":"Find string concatenation in `log.warn(...)`","href":"kotlin/logging/findstringconcatinlogwarn$ktrecipe"},{"name":"Find string concatenation in `log.error(...)`","href":"kotlin/logging/findstringconcatinlogerror$ktrecipe"}]}>
+<RecipeHeader.Title>Find eager log-message construction</RecipeHeader.Title>
+
+<RecipeHeader.Description>Bundles the trace/debug/info/warn/error eager-interpolation and string-concatenation finders. Every hit is a candidate for migration to kotlin-logging's lambda form (`log.debug { "..." }`) or SLF4J's parameterized form (`log.debug("x={}", x)`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find eager string interpolation in `log.trace(...)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinlogtrace$ktrecipe/"},{"name":"Find eager string interpolation in `log.debug(...)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinlogdebug$ktrecipe/"},{"name":"Find eager string interpolation in `log.info(...)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinloginfo$ktrecipe/"},{"name":"Find eager string interpolation in `log.warn(...)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinlogwarn$ktrecipe/"},{"name":"Find eager string interpolation in `log.error(...)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinlogerror$ktrecipe/"},{"name":"Find string concatenation in `log.trace(...)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinlogtrace$ktrecipe/"},{"name":"Find string concatenation in `log.debug(...)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinlogdebug$ktrecipe/"},{"name":"Find string concatenation in `log.info(...)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinloginfo$ktrecipe/"},{"name":"Find string concatenation in `log.warn(...)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinlogwarn$ktrecipe/"},{"name":"Find string concatenation in `log.error(...)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinlogerror$ktrecipe/"}]}>
 
 ## Definition
 

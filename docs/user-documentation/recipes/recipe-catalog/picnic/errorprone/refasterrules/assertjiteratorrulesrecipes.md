@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJIteratorRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `Iterator`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJIteratorRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJIteratorRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiteratorrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJIteratorRules.AssertThatHasNext`","href":"picnic/errorprone/refasterrules/assertjiteratorrulesrecipes$assertthathasnextrecipe"},{"name":"Refaster template `AssertJIteratorRules.AssertThatIsExhausted`","href":"picnic/errorprone/refasterrules/assertjiteratorrulesrecipes$assertthatisexhaustedrecipe"}]}>
+<RecipeHeader.Title>`AssertJIteratorRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `Iterator`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJIteratorRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJIteratorRules.AssertThatHasNext`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiteratorrulesrecipes$assertthathasnextrecipe/"},{"name":"Refaster template `AssertJIteratorRules.AssertThatIsExhausted`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiteratorrulesrecipes$assertthatisexhaustedrecipe/"}]}>
 
 ## Definition
 

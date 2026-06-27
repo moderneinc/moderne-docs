@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated `javax.annotation` packages to `jakarta.annotation`"}
-  description={"Java EE has been rebranded to Jakarta EE, necessitating a package relocation."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["annotation","javax","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus30.JavaxAnnotationMigrationToJakartaAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxannotationmigrationtojakartaannotation.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Maven dependency version","href":"maven/upgradedependencyversion"},{"name":"Migrate deprecated `javax.annotation` packages to `jakarta.annotation`","href":"quarkus/updates/core/quarkus30/changejavaxannotationtojakarta"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"}]}>
+<RecipeHeader.Title>Migrate deprecated `javax.annotation` packages to `jakarta.annotation`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java EE has been rebranded to Jakarta EE, necessitating a package relocation.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Maven dependency version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion/"},{"name":"Migrate deprecated `javax.annotation` packages to `jakarta.annotation`","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/changejavaxannotationtojakarta/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"}]}>
 
 ## Definition
 

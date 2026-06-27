@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use 'not' pattern instead of negation"}
-  description={"Detect `!(x is Type)` patterns that can use `x is not Type`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseNotPattern"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usenotpattern.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use 'not' pattern instead of negation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `!(x is Type)` patterns that can use `x is not Type`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseNotPattern","displayName":"Use 'not' pattern instead of negation","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

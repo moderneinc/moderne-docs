@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify reflection hint registrations for Spring Framework 7.0"}
-  description={"Removes deprecated `MemberCategory` arguments from `registerType()` calls on `ReflectionHints`. In Spring Framework 7.0, registering a reflection hint for a type now implies methods, constructors, and fields introspection. All `MemberCategory` values except `INVOKE_*` have been deprecated. This recipe removes those deprecated arguments, simplifying code like `hints.reflection().registerType(MyType.class, MemberCategory.DECLARED_FIELDS)` to `hints.reflection().registerType(MyType.class)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.SimplifyReflectionHintRegistration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/simplifyreflectionhintregistration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify reflection hint registrations for Spring Framework 7.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes deprecated `MemberCategory` arguments from `registerType()` calls on `ReflectionHints`. In Spring Framework 7.0, registering a reflection hint for a type now implies methods, constructors, and fields introspection. All `MemberCategory` values except `INVOKE_*` have been deprecated. This recipe removes those deprecated arguments, simplifying code like `hints.reflection().registerType(MyType.class, MemberCategory.DECLARED_FIELDS)` to `hints.reflection().registerType(MyType.class)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.aot.hint.MemberCategory;\nimport org.springframework.aot.hint.RuntimeHints;\n\nclass MyHintsRegistrar {\n    void registerHints(RuntimeHints hints) {\n        hints.reflection().registerType(String.class, MemberCategory.DECLARED_FIELDS);\n    }\n}\n","after":"import org.springframework.aot.hint.RuntimeHints;\n\nclass MyHintsRegistrar {\n    void registerHints(RuntimeHints hints) {\n        hints.reflection().registerType(String.class);\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import org.springframework.aot.hint.MemberCategory;\nimport org.springframework.aot.hint.RuntimeHints;\n@@ -6,1 +5,1 @@\nclass MyHintsRegistrar {\n    void registerHints(RuntimeHints hints) {\n-       hints.reflection().registerType(String.class, MemberCategory.DECLARED_FIELDS);\n+       hints.reflection().registerType(String.class);\n    }\n","newFile":false}]}]}>
 

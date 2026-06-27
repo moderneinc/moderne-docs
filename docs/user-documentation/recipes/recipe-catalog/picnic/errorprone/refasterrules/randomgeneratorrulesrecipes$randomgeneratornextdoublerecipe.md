@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `RandomGeneratorRules.RandomGeneratorNextDouble`"}
-  description={"Prefer `RandomGenerator#nextDouble(double)` over alternatives that yield a smaller domain of values and may result in `Double#isInfinite() inifinity`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextDoubleRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextdoublerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `RandomGeneratorRules.RandomGeneratorNextDouble`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `RandomGenerator#nextDouble(double)` over alternatives that yield a smaller domain of values and may result in `Double#isInfinite() inifinity`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextDoubleRecipe","displayName":"Refaster template `RandomGeneratorRules.RandomGeneratorNextDouble`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

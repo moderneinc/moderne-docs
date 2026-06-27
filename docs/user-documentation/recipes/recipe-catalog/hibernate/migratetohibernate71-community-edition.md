@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Hibernate 7.1.x"}
-  description={"This recipe will apply changes commonly needed when migrating to Hibernate 7.1.x."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-hibernate"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hibernate.MigrateToHibernate71"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate71-community-edition.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Hibernate 7.0.x","href":"hibernate/migratetohibernate70-community-edition"},{"name":"Migrate Hibernate Types to Hypersistence Utils for Hibernate 7.1","href":"hibernate/migratetohypersistenceutilshibernate71"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Hibernate 7.1.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when migrating to Hibernate 7.1.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Hibernate 7.0.x","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate70-community-edition/"},{"name":"Migrate Hibernate Types to Hypersistence Utils for Hibernate 7.1","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratetohypersistenceutilshibernate71/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

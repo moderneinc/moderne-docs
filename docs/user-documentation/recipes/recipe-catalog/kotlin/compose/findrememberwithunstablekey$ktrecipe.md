@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `remember(mutableListOf(...), …)` and similar unstable-key calls"}
-  description={"A `remember(key, calc)` whose key is a fresh allocation — `mutableListOf(...)`, `arrayOf(...)`, `listOf(...)` — is structurally a new key on every recomposition. The cache resets every time, defeating the entire purpose of `remember`. Pass the underlying values that *do* survive recomposition (or stable references) as the keys."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindRememberWithUnstableKey$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findrememberwithunstablekey$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `remember(mutableListOf(...), …)` and similar unstable-key calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `remember(key, calc)` whose key is a fresh allocation — `mutableListOf(...)`, `arrayOf(...)`, `listOf(...)` — is structurally a new key on every recomposition. The cache resets every time, defeating the entire purpose of `remember`. Pass the underlying values that *do* survive recomposition (or stable references) as the keys.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindRememberWithUnstableKey$KtRecipe","displayName":"Find `remember(mutableListOf(...), …)` and similar unstable-key calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

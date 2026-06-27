@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`ImmutableMultisetRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `ImmutableMultiset`s.\n[Source](https://error-prone.picnic.tech/refasterrules/ImmutableMultisetRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableMultisetRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablemultisetrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `ImmutableMultisetRules.ImmutableMultisetBuilder`","href":"picnic/errorprone/refasterrules/immutablemultisetrulesrecipes$immutablemultisetbuilderrecipe"},{"name":"Refaster template `ImmutableMultisetRules.EmptyImmutableMultiset`","href":"picnic/errorprone/refasterrules/immutablemultisetrulesrecipes$emptyimmutablemultisetrecipe"},{"name":"Refaster template `ImmutableMultisetRules.IterableToImmutableMultiset`","href":"picnic/errorprone/refasterrules/immutablemultisetrulesrecipes$iterabletoimmutablemultisetrecipe"},{"name":"Refaster template `ImmutableMultisetRules.StreamToImmutableMultiset`","href":"picnic/errorprone/refasterrules/immutablemultisetrulesrecipes$streamtoimmutablemultisetrecipe"}]}>
+<RecipeHeader.Title>`ImmutableMultisetRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `ImmutableMultiset`s. [Source](https://error-prone.picnic.tech/refasterrules/ImmutableMultisetRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `ImmutableMultisetRules.ImmutableMultisetBuilder`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablemultisetrulesrecipes$immutablemultisetbuilderrecipe/"},{"name":"Refaster template `ImmutableMultisetRules.EmptyImmutableMultiset`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablemultisetrulesrecipes$emptyimmutablemultisetrecipe/"},{"name":"Refaster template `ImmutableMultisetRules.IterableToImmutableMultiset`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablemultisetrulesrecipes$iterabletoimmutablemultisetrecipe/"},{"name":"Refaster template `ImmutableMultisetRules.StreamToImmutableMultiset`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablemultisetrulesrecipes$streamtoimmutablemultisetrecipe/"}]}>
 
 ## Definition
 

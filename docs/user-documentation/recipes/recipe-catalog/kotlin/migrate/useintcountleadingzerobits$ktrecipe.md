@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Int.countLeadingZeroBits()` instead of `Integer.numberOfLeadingZeros`"}
-  description={"`Integer.numberOfLeadingZeros(i)` becomes `i.countLeadingZeroBits()` — the multiplatform Kotlin extension reads as a receiver call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseIntCountLeadingZeroBits$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useintcountleadingzerobits$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Int.countLeadingZeroBits()` instead of `Integer.numberOfLeadingZeros`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Integer.numberOfLeadingZeros(i)` becomes `i.countLeadingZeroBits()` — the multiplatform Kotlin extension reads as a receiver call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseIntCountLeadingZeroBits$KtRecipe","displayName":"Use `Int.countLeadingZeroBits()` instead of `Integer.numberOfLeadingZeros`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

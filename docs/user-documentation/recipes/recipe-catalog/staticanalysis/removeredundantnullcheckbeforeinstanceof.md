@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant null checks before instanceof"}
-  description={"Removes redundant null checks before instanceof operations since instanceof returns false for null. Removing the extra check simplifies the conditional and makes the null-safety guarantee of `instanceof` more visible to readers."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1697"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveRedundantNullCheckBeforeInstanceof"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removeredundantnullcheckbeforeinstanceof.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove redundant null checks before instanceof</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes redundant null checks before instanceof operations since instanceof returns false for null. Removing the extra check simplifies the conditional and makes the null-safety guarantee of `instanceof` more visible to readers.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void foo(String s) {\n        if (s != null && s instanceof String) {\n            System.out.println(\"String value: \" + s);\n        }\n    }\n}\n","after":"class A {\n    void foo(String s) {\n        if (s instanceof String) {\n            System.out.println(\"String value: \" + s);\n        }\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n    void foo(String s) {\n-       if (s != null && s instanceof String) {\n+       if (s instanceof String) {\n            System.out.println(\"String value: \" + s);\n","newFile":false}]}]}>
 

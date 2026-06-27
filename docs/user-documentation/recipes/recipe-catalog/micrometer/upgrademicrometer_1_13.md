@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Micrometer 1.13"}
-  description={"Migrate applications to the latest Micrometer 1.13 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions as described in the [Micrometer 1.13 migration guide](https://github.com/micrometer-metrics/micrometer/wiki/1.13-Migration-Guide)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["micrometer"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micrometer"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.micrometer.UpgradeMicrometer_1_13"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/micrometer/upgrademicrometer_1_13.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Migrate to Micrometer 1.13</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Micrometer 1.13 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions as described in the [Micrometer 1.13 migration guide](https://github.com/micrometer-metrics/micrometer/wiki/1.13-Migration-Guide).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

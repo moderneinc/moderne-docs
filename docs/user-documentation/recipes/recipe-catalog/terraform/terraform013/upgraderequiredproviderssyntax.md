@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade `required_providers` to object syntax"}
-  description={"In Terraform 0.13+, `required_providers` entries should use the object syntax with explicit `source` and `version` attributes instead of a plain version string. For example, `aws = \"~> 3.0\"` becomes `aws = { source = \"hashicorp/aws\", version = \"~> 3.0\" }`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.terraform013.UpgradeRequiredProvidersSyntax"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/terraform013/upgraderequiredproviderssyntax.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Upgrade `required_providers` to object syntax</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Terraform 0.13+, `required_providers` entries should use the object syntax with explicit `source` and `version` attributes instead of a plain version string. For example, `aws = "~> 3.0"` becomes `aws = { source = "hashicorp/aws", version = "~> 3.0" }`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"defaultNamespace","required":false,"description":"The default registry namespace to use for provider source addresses. Defaults to `hashicorp`.","example":"hashicorp"}]}>
 

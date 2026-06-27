@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `DisposableEffect { … }` blocks missing an `onDispose { }`"}
-  description={"`DisposableEffect`'s contract is to return a `DisposableEffectResult` from `onDispose { … }` — without it, the compiler should reject the block, but easy mistakes (early `return`, wrong receiver) silently bypass cleanup. Confirm the final statement of every `DisposableEffect` lambda is an `onDispose { }` call so resources are released on leave-the-composition."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindDisposableEffectMissingOnDispose$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/finddisposableeffectmissingondispose$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `DisposableEffect { … }` blocks missing an `onDispose { }`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`DisposableEffect`'s contract is to return a `DisposableEffectResult` from `onDispose { … }` — without it, the compiler should reject the block, but easy mistakes (early `return`, wrong receiver) silently bypass cleanup. Confirm the final statement of every `DisposableEffect` lambda is an `onDispose { }` call so resources are released on leave-the-composition.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindDisposableEffectMissingOnDispose$KtRecipe","displayName":"Find `DisposableEffect { … }` blocks missing an `onDispose { }`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

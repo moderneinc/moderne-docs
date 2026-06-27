@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Encapsulate public mutable fields"}
-  description={"Finds public `var` fields in classes. Public mutable fields break encapsulation; consider using a private var with accessor methods."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.EncapsulateField"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/encapsulatefield.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Encapsulate public mutable fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds public `var` fields in classes. Public mutable fields break encapsulation; consider using a private var with accessor methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Counter {\n    var count = 0\n}\n","after":"class Counter {\n    /*~~(Public mutable field; consider using private var with accessor methods)~~>*/var count = 0\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Counter {\n-   var count = 0\n+   /*~~(Public mutable field; consider using private var with accessor methods)~~>*/var count = 0\n}\n","newFile":false}]}]}>
 

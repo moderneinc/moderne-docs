@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use StringComparison"}
-  description={"Replace case-insensitive string comparisons using `ToLower()`/`ToUpper()` with overloads that accept `StringComparison.OrdinalIgnoreCase`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UseStringComparison"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/usestringcomparison.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use StringComparison</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace case-insensitive string comparisons using `ToLower()`/`ToUpper()` with overloads that accept `StringComparison.OrdinalIgnoreCase`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UseStringComparison","displayName":"Use StringComparison","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

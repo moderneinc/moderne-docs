@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary `assertEquals` delta argument for integral types"}
-  description={"Remove the delta argument from `assertEquals()` when both expected and actual are `int` or `long` types, since the delta is meaningless for exact integer comparison. Integer arguments get unnecessarily upcasted to `double` when a delta is provided."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.AssertEqualsIntegralDeltaToAssertEquals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertequalsintegraldeltatoassertequals.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary `assertEquals` delta argument for integral types</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove the delta argument from `assertEquals()` when both expected and actual are `int` or `long` types, since the delta is meaningless for exact integer comparison. Integer arguments get unnecessarily upcasted to `double` when a delta is provided.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.junit.jupiter.api.Assertions.assertEquals;\n\npublic class Test {\n    void test() {\n        assertEquals(1, 2, 0);\n    }\n}\n","after":"import static org.junit.jupiter.api.Assertions.assertEquals;\n\npublic class Test {\n    void test() {\n        assertEquals(1, 2);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\npublic class Test {\n    void test() {\n-       assertEquals(1, 2, 0);\n+       assertEquals(1, 2);\n    }\n","newFile":false}]}]}>
 

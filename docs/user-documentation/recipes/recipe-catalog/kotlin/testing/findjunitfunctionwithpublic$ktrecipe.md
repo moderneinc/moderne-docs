@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `public` modifier on JUnit 5 test functions"}
-  description={"JUnit 5 dropped the JUnit 4 requirement that test methods be public — package-private (Java) or no modifier (Kotlin default) is the convention. Each `public fun test...()` is a JUnit 4 holdover that can be dropped."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindJUnitFunctionWithPublic$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findjunitfunctionwithpublic$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `public` modifier on JUnit 5 test functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>JUnit 5 dropped the JUnit 4 requirement that test methods be public — package-private (Java) or no modifier (Kotlin default) is the convention. Each `public fun test...()` is a JUnit 4 holdover that can be dropped.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindJUnitFunctionWithPublic$KtRecipe","displayName":"Find `public` modifier on JUnit 5 test functions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

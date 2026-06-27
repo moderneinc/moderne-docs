@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from `@ApiResponses` to `@ApiResponses`"}
-  description={"Changes the namespace of the `@ApiResponses` and `@ApiResponse` annotations and converts its attributes (ex. code -> responseCode, message -> description, response -> content)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["openapi","swagger"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.MigrateApiResponsesToApiResponses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiresponsestoapiresponses.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change annotation attribute name","href":"java/changeannotationattributename"},{"name":"Change annotation attribute name","href":"java/changeannotationattributename"},{"name":"Convert API response codes to strings","href":"openapi/swagger/convertapiresponsecodestostrings"},{"name":"Convert API response to content annotation","href":"openapi/swagger/convertapiresponsetocontent"},{"name":"Convert API responseHeaders to headers","href":"openapi/swagger/convertapiresponseheaderstoheaders"}]}>
+<RecipeHeader.Title>Migrate from `@ApiResponses` to `@ApiResponses`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Changes the namespace of the `@ApiResponses` and `@ApiResponse` annotations and converts its attributes (ex. code -> responseCode, message -> description, response -> content).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change annotation attribute name","href":"/user-documentation/recipes/recipe-catalog/java/changeannotationattributename/"},{"name":"Change annotation attribute name","href":"/user-documentation/recipes/recipe-catalog/java/changeannotationattributename/"},{"name":"Convert API response codes to strings","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/convertapiresponsecodestostrings/"},{"name":"Convert API response to content annotation","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/convertapiresponsetocontent/"},{"name":"Convert API responseHeaders to headers","href":"/user-documentation/recipes/recipe-catalog/openapi/swagger/convertapiresponseheaderstoheaders/"}]}>
 
 ## Definition
 

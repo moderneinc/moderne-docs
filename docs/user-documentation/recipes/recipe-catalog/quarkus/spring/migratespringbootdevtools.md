@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Spring Boot DevTools"}
-  description={"Removes Spring Boot DevTools dependency and configuration. Quarkus has built-in dev mode with hot reload that replaces DevTools functionality."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","quarkus","migration","devtools"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.MigrateSpringBootDevTools"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringbootdevtools.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Delete property by key","href":"properties/deleteproperty"},{"name":"Delete property by key","href":"properties/deleteproperty"},{"name":"Delete property by key","href":"properties/deleteproperty"},{"name":"Delete property by key","href":"properties/deleteproperty"},{"name":"Delete property by key","href":"properties/deleteproperty"},{"name":"Delete key","href":"yaml/deletekey"},{"name":"Delete key","href":"yaml/deletekey"}]}>
+<RecipeHeader.Title>Remove Spring Boot DevTools</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes Spring Boot DevTools dependency and configuration. Quarkus has built-in dev mode with hot reload that replaces DevTools functionality.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Delete property by key","href":"/user-documentation/recipes/recipe-catalog/properties/deleteproperty/"},{"name":"Delete property by key","href":"/user-documentation/recipes/recipe-catalog/properties/deleteproperty/"},{"name":"Delete property by key","href":"/user-documentation/recipes/recipe-catalog/properties/deleteproperty/"},{"name":"Delete property by key","href":"/user-documentation/recipes/recipe-catalog/properties/deleteproperty/"},{"name":"Delete property by key","href":"/user-documentation/recipes/recipe-catalog/properties/deleteproperty/"},{"name":"Delete key","href":"/user-documentation/recipes/recipe-catalog/yaml/deletekey/"},{"name":"Delete key","href":"/user-documentation/recipes/recipe-catalog/yaml/deletekey/"}]}>
 
 ## Definition
 

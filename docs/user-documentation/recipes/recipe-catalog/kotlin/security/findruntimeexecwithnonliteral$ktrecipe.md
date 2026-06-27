@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Runtime.getRuntime().exec(...)` calls with non-literal arguments"}
-  description={"`Runtime.exec(...)` passes its argument to the shell on some platforms — concatenating any user input invites command injection. Use `ProcessBuilder(arrayOf(\"prog\", arg))` so each argument is passed as a discrete argv slot."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindRuntimeExecWithNonLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findruntimeexecwithnonliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Runtime.getRuntime().exec(...)` calls with non-literal arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Runtime.exec(...)` passes its argument to the shell on some platforms — concatenating any user input invites command injection. Use `ProcessBuilder(arrayOf("prog", arg))` so each argument is passed as a discrete argv slot.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindRuntimeExecWithNonLiteral$KtRecipe","displayName":"Find `Runtime.getRuntime().exec(...)` calls with non-literal arguments","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

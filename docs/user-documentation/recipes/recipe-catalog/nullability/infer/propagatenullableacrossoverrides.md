@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Propagate `@Nullable` across override relationships"}
-  description={"Enforces NullAway override consistency by propagating existing JSpecify `@Nullable` annotations through `@Override` relationships. Because return types are covariant, a `@Nullable` return on an overriding method is propagated up to the supertype method it overrides. Because parameters are contravariant, a `@Nullable` parameter on a supertype method is propagated down to the corresponding parameter of every overriding method. Methods are matched across files by their erased signature `name(paramTypes)` plus a declaring-type subtype relationship. Conservative by design: it never widens a legal covariant return narrowing (a `@Nullable` supertype return overridden by a non-null return is left alone), skips primitive and `void` returns and already-annotated positions, and does nothing when a participating type cannot be resolved. Multi-hop hierarchies converge over successive recipe cycles. Only Java sources are modified; Kotlin and Groovy express nullability in the type system, which their compilers already enforce."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.infer.PropagateNullableAcrossOverrides"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/infer/propagatenullableacrossoverrides.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Propagate `@Nullable` across override relationships</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforces NullAway override consistency by propagating existing JSpecify `@Nullable` annotations through `@Override` relationships. Because return types are covariant, a `@Nullable` return on an overriding method is propagated up to the supertype method it overrides. Because parameters are contravariant, a `@Nullable` parameter on a supertype method is propagated down to the corresponding parameter of every overriding method. Methods are matched across files by their erased signature `name(paramTypes)` plus a declaring-type subtype relationship. Conservative by design: it never widens a legal covariant return narrowing (a `@Nullable` supertype return overridden by a non-null return is left alone), skips primitive and `void` returns and already-annotated positions, and does nothing when a participating type cannot be resolved. Multi-hop hierarchies converge over successive recipe cycles. Only Java sources are modified; Kotlin and Groovy express nullability in the type system, which their compilers already enforce.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"import org.jspecify.annotations.Nullable;\n\nclass ServiceImpl implements Service {\n    @Override\n    public @Nullable String find() {\n        return null;\n    }\n}\n"},"variants":[{"language":"java","before":"interface Service {\n    String find();\n}\n","after":"import org.jspecify.annotations.Nullable;\n\ninterface Service {\n    @Nullable\n    String find();\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.jspecify.annotations.Nullable;\n+\ninterface Service {\n@@ -2,0 +4,1 @@\ninterface Service {\n+   @Nullable\n    String find();\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `var` for primitive and String variables"}
-  description={"Try to apply local variable type inference `var` to primitive and String literal variables where possible. This recipe will not touch variable declarations with initializers containing ternary operators."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.var.UseVarForPrimitive"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/var/usevarforprimitive.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `var` for primitive and String variables</RecipeHeader.Title>
+
+<RecipeHeader.Description>Try to apply local variable type inference `var` to primitive and String literal variables where possible. This recipe will not touch variable declarations with initializers containing ternary operators.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.app;\n\nclass A {\n  void m() {\n      char ch = '�';\n  }\n}\n","after":"package com.example.app;\n\nclass A {\n  void m() {\n      var ch = '�';\n  }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass A {\n  void m() {\n-     char ch = '�';\n+     var ch = '�';\n  }\n","newFile":false}]}]}>
 

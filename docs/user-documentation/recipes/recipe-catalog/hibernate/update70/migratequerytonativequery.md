@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate @Query to @NativeQuery for unsupported JPQL"}
-  description={"Converts Spring Data `@Query` annotations to `@NativeQuery` when the JPQL query contains patterns unsupported by Hibernate 7's stricter JPQL parser, such as multi-argument `trunc(date, 'format')`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.MigrateQueryToNativeQuery"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/migratequerytonativequery.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate @Query to @NativeQuery for unsupported JPQL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts Spring Data `@Query` annotations to `@NativeQuery` when the JPQL query contains patterns unsupported by Hibernate 7's stricter JPQL parser, such as multi-argument `trunc(date, 'format')`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.data.jpa.repository.Query;\n\ninterface PlanRepository {\n    @Query(\"select p from Plan p where trunc(p.date, 'DD') >= trunc(:d, 'DD')\")\n    Object findPlans();\n}\n","after":"import org.springframework.data.jpa.repository.NativeQuery;\n\ninterface PlanRepository {\n    @NativeQuery(\"select p from Plan p where trunc(p.date, 'DD') >= trunc(:d, 'DD')\")\n    Object findPlans();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.data.jpa.repository.Query;\n+import org.springframework.data.jpa.repository.NativeQuery;\n\n@@ -4,1 +4,1 @@\n\ninterface PlanRepository {\n-   @Query(\"select p from Plan p where trunc(p.date, 'DD') >= trunc(:d, 'DD')\")\n+   @NativeQuery(\"select p from Plan p where trunc(p.date, 'DD') >= trunc(:d, 'DD')\")\n    Object findPlans();\n","newFile":false}]}]}>
 

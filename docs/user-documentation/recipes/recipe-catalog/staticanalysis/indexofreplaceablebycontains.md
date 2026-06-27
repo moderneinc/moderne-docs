@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`indexOf()` replaceable by `contains()`"}
-  description={"Checking if a value is included in a `String` or `List` using `indexOf(value)>-1` or `indexOf(value)>=0` can be replaced with `contains(value)`. Using `contains()` expresses the intent more directly and avoids the mental overhead of interpreting index comparisons."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2692"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.IndexOfReplaceableByContains"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/indexofreplaceablebycontains.md"}
-/>
+>
+
+<RecipeHeader.Title>`indexOf()` replaceable by `contains()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Checking if a value is included in a `String` or `List` using `indexOf(value)>-1` or `indexOf(value)>=0` can be replaced with `contains(value)`. Using `contains()` expresses the intent more directly and avoids the mental overhead of interpreting index comparisons.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    static boolean hasIndex(String str) {\n        if (str.indexOf(\"str\") > -1) {\n        }\n        return str.indexOf(\"str\") >= 0;\n    }\n}\n","after":"class Test {\n    static boolean hasIndex(String str) {\n        if (str.contains(\"str\")) {\n        }\n        return str.contains(\"str\");\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    static boolean hasIndex(String str) {\n-       if (str.indexOf(\"str\") > -1) {\n+       if (str.contains(\"str\")) {\n        }\n@@ -5,1 +5,1 @@\n        if (str.indexOf(\"str\") > -1) {\n        }\n-       return str.indexOf(\"str\") >= 0;\n+       return str.contains(\"str\");\n    }\n","newFile":false}]}]}>
 

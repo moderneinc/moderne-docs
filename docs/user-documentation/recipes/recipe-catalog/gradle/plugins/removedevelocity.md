@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Develocity"}
-  description={"Remove the Develocity plugin and configuration from the Gradle build and settings files."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.RemoveDevelocity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/plugins/removedevelocity.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove Gradle plugin","href":"gradle/plugins/removebuildplugin"},{"name":"Remove Gradle settings plugin","href":"gradle/plugins/removesettingsplugin"},{"name":"Remove Gradle plugin","href":"gradle/plugins/removebuildplugin"},{"name":"Remove Gradle settings plugin","href":"gradle/plugins/removesettingsplugin"},{"name":"Remove Develocity configuration","href":"gradle/plugins/removedevelocityconfiguration"}]}>
+<RecipeHeader.Title>Remove Develocity</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove the Develocity plugin and configuration from the Gradle build and settings files.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove Gradle plugin","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/removebuildplugin/"},{"name":"Remove Gradle settings plugin","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/removesettingsplugin/"},{"name":"Remove Gradle plugin","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/removebuildplugin/"},{"name":"Remove Gradle settings plugin","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/removesettingsplugin/"},{"name":"Remove Develocity configuration","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/removedevelocityconfiguration/"}]}>
 
 ## Definition
 

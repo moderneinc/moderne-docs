@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Estimate comprehension token usage"}
-  description={"Estimate the input token counts that would be sent to an LLM for method comprehension, without actually calling a model. Uses OpenAI's tokenizer locally. Outputs to the MethodDescriptions table with blank descriptions."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.ComprehendCodeTokenCounter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/comprehendcodetokencounter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Estimate comprehension token usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Estimate the input token counts that would be sent to an LLM for method comprehension, without actually calling a model. Uses OpenAI's tokenizer locally. Outputs to the MethodDescriptions table with blank descriptions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.ComprehendCodeTokenCounter","displayName":"Estimate comprehension token usage","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

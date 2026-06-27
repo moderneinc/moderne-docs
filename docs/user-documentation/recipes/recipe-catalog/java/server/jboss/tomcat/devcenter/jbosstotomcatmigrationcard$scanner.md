@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JBoss to Tomcat migration scanner"}
-  description={"Scans for JBoss and Tomcat configuration files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.tomcat.devcenter.JBossToTomcatMigrationCard$Scanner"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/tomcat/devcenter/jbosstotomcatmigrationcard$scanner.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>JBoss to Tomcat migration scanner</RecipeHeader.Title>
+
+<RecipeHeader.Description>Scans for JBoss and Tomcat configuration files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.java.server.jboss.tomcat.devcenter.JBossToTomcatMigrationCard$Scanner","displayName":"JBoss to Tomcat migration scanner","groupId":"io.moderne.recipe","artifactId":"rewrite-java-application-server","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_JAVA_APPLICATION_SERVER","requiresConfiguration":false}}>
 

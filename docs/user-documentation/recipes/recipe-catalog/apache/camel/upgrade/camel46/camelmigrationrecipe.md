@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.5` application to `camel 4.6`"}
-  description={"Migrates `camel 4.5` application to `camel 4.6`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel46.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel46/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Renamed classes for elasticsearch,opensearch and spring regis","href":"apache/camel/upgrade/camel46/renamedclasses"},{"name":"Renamed streamCaching to streamCache on the route","href":"apache/camel/upgrade/camel46/yamstreamcaching"},{"name":"Bean property to properties.","href":"apache/camel/upgrade/camel46/yamldsl46recipe"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/camel46/xmldsl46recipe"},{"name":"Renamed dependencies","href":"apache/camel/upgrade/camel46/renameddependencies"}]}>
+<RecipeHeader.Title>Migrates `camel 4.5` application to `camel 4.6`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.5` application to `camel 4.6`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Renamed classes for elasticsearch,opensearch and spring regis","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel46/renamedclasses/"},{"name":"Renamed streamCaching to streamCache on the route","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel46/yamstreamcaching/"},{"name":"Bean property to properties.","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel46/yamldsl46recipe/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel46/xmldsl46recipe/"},{"name":"Renamed dependencies","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel46/renameddependencies/"}]}>
 
 ## Definition
 

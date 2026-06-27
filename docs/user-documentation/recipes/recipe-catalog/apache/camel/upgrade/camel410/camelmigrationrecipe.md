@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.9` application to `camel 4.10`"}
-  description={"Migrates `camel 4.9` application to `camel 4.10`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel410.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel410/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/camel410/xmldsl410recipe"},{"name":"Renamed constants in camel-smb","href":"apache/camel/upgrade/camel410/camelsmb"},{"name":"Renamed constants in camel-azure-files","href":"apache/camel/upgrade/camel410/camelazurefiles"},{"name":"Update properties and yaml configurations file","href":"apache/camel/upgrade/updatepropertiesandyamlkeys"}]}>
+<RecipeHeader.Title>Migrates `camel 4.9` application to `camel 4.10`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.9` application to `camel 4.10`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel410/xmldsl410recipe/"},{"name":"Renamed constants in camel-smb","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel410/camelsmb/"},{"name":"Renamed constants in camel-azure-files","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel410/camelazurefiles/"},{"name":"Update properties and yaml configurations file","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/updatepropertiesandyamlkeys/"}]}>
 
 ## Definition
 

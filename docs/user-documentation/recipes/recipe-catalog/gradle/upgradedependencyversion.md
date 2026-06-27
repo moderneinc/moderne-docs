@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Gradle dependency versions"}
-  description={"Upgrade the version of a dependency in a build.gradle file. Supports updating dependency declarations of various forms:\n * `String` notation: `\"group:artifact:version\"` \n * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`\nCan update version numbers which are defined earlier in the same file in variable declarations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,20 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.UpgradeDependencyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/upgradedependencyversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade Gradle dependency versions</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Upgrade the version of a dependency in a build.gradle file. Supports updating dependency declarations of various forms:
+ * `String` notation: `"group:artifact:version"` 
+ * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`
+Can update version numbers which are defined earlier in the same file in variable declarations.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"com.fasterxml.jackson*"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"jackson-module*"},{"type":"String","name":"newVersion","required":false,"description":"An exact version number or node-style semver selector used to select the version number. You can also use `latest.release` for the latest available version and `latest.patch` if the current version is a valid semantic version. For more details, you can look at the documentation page of [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors). Defaults to `latest.release`.","example":"29.X"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'newVersion' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select Guava 29.0-jre","example":"-jre"}]}>
 

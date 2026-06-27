@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Data MongoDB to Quarkus Panache MongoDB"}
-  description={"Migrates Spring Data MongoDB repositories to Quarkus MongoDB with Panache. Converts MongoRepository interfaces to PanacheMongoRepository pattern."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","quarkus","panache","migration","mongodb"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.MigrateSpringDataMongodb"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringdatamongodb.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Convert MongoRepository to PanacheMongoRepository","href":"quarkus/spring/mongorepositorytopanachemongorepository"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Migrate Spring Data MongoDB to Quarkus Panache MongoDB</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Spring Data MongoDB repositories to Quarkus MongoDB with Panache. Converts MongoRepository interfaces to PanacheMongoRepository pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Convert MongoRepository to PanacheMongoRepository","href":"/user-documentation/recipes/recipe-catalog/quarkus/spring/mongorepositorytopanachemongorepository/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

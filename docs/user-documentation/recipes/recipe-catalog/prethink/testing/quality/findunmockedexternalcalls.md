@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unmocked external calls in tests"}
-  description={"Detect direct HTTP, database, and network calls in unit tests that are not mocked. These cause flaky and slow tests. Integration tests (annotated with @SpringBootTest, @Testcontainers, etc.) are excluded."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindUnmockedExternalCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findunmockedexternalcalls.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find unmocked external calls in tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect direct HTTP, database, and network calls in unit tests that are not mocked. These cause flaky and slow tests. Integration tests (annotated with @SpringBootTest, @Testcontainers, etc.) are excluded.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.junit.jupiter.api.Test;\nimport org.springframework.web.client.RestTemplate;\n\nclass MyServiceTest {\n    @Test\n    void testCallsExternalService() {\n        RestTemplate restTemplate = new RestTemplate();\n        String result = restTemplate.getForObject(\"http://example.com/api\", String.class);\n    }\n}\n"},"variants":[]}]}>
 

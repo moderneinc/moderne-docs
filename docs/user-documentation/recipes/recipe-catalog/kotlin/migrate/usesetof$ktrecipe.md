@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `setOf(x)` instead of `Collections.singleton(x)`"}
-  description={"`java.util.Collections.singleton(x)` is JVM-only; Kotlin's multiplatform `setOf(x)` produces an immutable single-element set."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseSetOf$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usesetof$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `setOf(x)` instead of `Collections.singleton(x)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Collections.singleton(x)` is JVM-only; Kotlin's multiplatform `setOf(x)` produces an immutable single-element set.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseSetOf$KtRecipe","displayName":"Use `setOf(x)` instead of `Collections.singleton(x)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Close unclosed static mocks"}
-  description={"Ensures that all `mockStatic` calls are properly closed. If `mockStatic` is in lifecycle methods like `@BeforeEach` or `@BeforeAll`, creates a class variable and closes it in `@AfterEach` or `@AfterAll`. If `mockStatic` is inside a test method, wraps it in a try-with-resources block."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.CloseUnclosedStaticMocks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/closeunclosedstaticmocks.md"}
-/>
+>
+
+<RecipeHeader.Title>Close unclosed static mocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensures that all `mockStatic` calls are properly closed. If `mockStatic` is in lifecycle methods like `@BeforeEach` or `@BeforeAll`, creates a class variable and closes it in `@AfterEach` or `@AfterAll`. If `mockStatic` is inside a test method, wraps it in a try-with-resources block.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.mockito.Mockito.mockStatic;\n\nclass TestClass {\n    @Test\n    void test() {\n        mockStatic(A.class);\n        assertEquals(A.getNumber(), 42);\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport org.mockito.MockedStatic;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.mockito.Mockito.mockStatic;\n\nclass TestClass {\n    @Test\n    void test() {\n        try (MockedStatic<A> mockedStaticA = mockStatic(A.class)) {\n            assertEquals(A.getNumber(), 42);\n        }\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.junit.jupiter.api.Test;\n+import org.mockito.MockedStatic;\n\n@@ -9,2 +10,3 @@\n    @Test\n    void test() {\n-       mockStatic(A.class);\n-       assertEquals(A.getNumber(), 42);\n+       try (MockedStatic<A> mockedStaticA = mockStatic(A.class)) {\n+           assertEquals(A.getNumber(), 42);\n+       }\n    }\n","newFile":false}]}]}>
 

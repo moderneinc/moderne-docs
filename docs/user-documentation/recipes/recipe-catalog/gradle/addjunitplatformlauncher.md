@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add JUnit Platform Launcher"}
-  description={"Add the JUnit Platform Launcher to the buildscript dependencies."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.AddJUnitPlatformLauncher"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/addjunitplatformlauncher.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle dependency","href":"gradle/adddependency"}]}>
+<RecipeHeader.Title>Add JUnit Platform Launcher</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add the JUnit Platform Launcher to the buildscript dependencies.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle dependency","href":"/user-documentation/recipes/recipe-catalog/gradle/adddependency/"}]}>
 
 ## Definition
 

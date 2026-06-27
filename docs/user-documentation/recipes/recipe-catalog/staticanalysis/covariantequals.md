@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Covariant equals"}
-  description={"Checks that classes and records which define a covariant `equals()` method also override method `equals(Object)`. Covariant `equals()` means a method that is similar to `equals(Object)`, but with a covariant parameter type (any subtype of `Object`). Without a proper `equals(Object)` override, collections and other framework code that rely on the standard signature will silently use `Object.equals`, leading to incorrect behavior."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2162"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CovariantEquals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/covariantequals.md"}
-/>
+>
+
+<RecipeHeader.Title>Covariant equals</RecipeHeader.Title>
+
+<RecipeHeader.Description>Checks that classes and records which define a covariant `equals()` method also override method `equals(Object)`. Covariant `equals()` means a method that is similar to `equals(Object)`, but with a covariant parameter type (any subtype of `Object`). Without a proper `equals(Object)` override, collections and other framework code that rely on the standard signature will silently use `Object.equals`, leading to incorrect behavior.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    int n;\n\n    public boolean equals(Test tee) {\n        return n == tee.n;\n    }\n}\n","after":"class Test {\n    int n;\n\n    @Override\n    public boolean equals(Object obj) {\n        if (obj == this) return true;\n        if (obj == null || getClass() != obj.getClass()) return false;\n        Test tee = (Test) obj;\n        return n == tee.n;\n    }\n}\n","diff":"@@ -4,1 +4,5 @@\n    int n;\n\n-   public boolean equals(Test tee) {\n+   @Override\n+   public boolean equals(Object obj) {\n+       if (obj == this) return true;\n+       if (obj == null || getClass() != obj.getClass()) return false;\n+       Test tee = (Test) obj;\n        return n == tee.n;\n","newFile":false}]}]}>
 

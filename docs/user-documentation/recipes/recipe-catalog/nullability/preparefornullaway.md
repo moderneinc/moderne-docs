@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prepare a codebase for NullAway"}
-  description={"The end-to-end, code-level preparation for enabling [NullAway](https://github.com/uber/NullAway): standardize nullability annotations to JSpecify, infer and add `@Nullable` everywhere a value is provably nullable, and apply the null-safety code refactors (lazily-initialized fields get `@MonotonicNonNull`; nullable field reads are hoisted into locals so the checker can refine them). This covers the safe, automatic transformations. The deliberately-gated rollout steps — marking `@NullMarked` scopes (`io.moderne.nullability.scope.*`) and wiring NullAway into the build (`io.moderne.nullability.build.*`) — are intentionally NOT included here; run them per module once `io.moderne.nullability.search.NullAwayReadinessReport` shows that module is clean."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["nullaway","jspecify","nullability"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.PrepareForNullAway"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/preparefornullaway.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate existing nullability annotations to JSpecify","href":"nullability/migrate/migratenullabilitytojspecify"},{"name":"Infer and add `@Nullable` annotations","href":"nullability/infer/infernullability"},{"name":"Remove a redundant declaration-position `@Nullable` on a method return","href":"nullability/cleanup/removeredundantnullableonmethodreturn"},{"name":"Relocate a misplaced leading `@Nullable` on a primitive array to the array reference","href":"nullability/cleanup/relocatenullabletoarrayreference"},{"name":"Move a leading `@Nullable` to the type-use position","href":"nullability/cleanup/movenullabletotypeuseposition"},{"name":"Use `@MonotonicNonNull` for lazily-initialized fields","href":"nullability/cleanup/usemonotonicnonnullforlazyinitializedfield"},{"name":"Upgrade a lazily-initialized `@Nullable` field to `@MonotonicNonNull`","href":"nullability/infer/upgradelazilyinitializedfieldtomonotonicnonnull"},{"name":"Hoist a guarded `@Nullable` field read into a local variable","href":"nullability/cleanup/hoistnullablefieldreadintolocal"}]}>
+<RecipeHeader.Title>Prepare a codebase for NullAway</RecipeHeader.Title>
+
+<RecipeHeader.Description>The end-to-end, code-level preparation for enabling [NullAway](https://github.com/uber/NullAway): standardize nullability annotations to JSpecify, infer and add `@Nullable` everywhere a value is provably nullable, and apply the null-safety code refactors (lazily-initialized fields get `@MonotonicNonNull`; nullable field reads are hoisted into locals so the checker can refine them). This covers the safe, automatic transformations. The deliberately-gated rollout steps — marking `@NullMarked` scopes (`io.moderne.nullability.scope.*`) and wiring NullAway into the build (`io.moderne.nullability.build.*`) — are intentionally NOT included here; run them per module once `io.moderne.nullability.search.NullAwayReadinessReport` shows that module is clean.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate existing nullability annotations to JSpecify","href":"/user-documentation/recipes/recipe-catalog/nullability/migrate/migratenullabilitytojspecify/"},{"name":"Infer and add `@Nullable` annotations","href":"/user-documentation/recipes/recipe-catalog/nullability/infer/infernullability/"},{"name":"Remove a redundant declaration-position `@Nullable` on a method return","href":"/user-documentation/recipes/recipe-catalog/nullability/cleanup/removeredundantnullableonmethodreturn/"},{"name":"Relocate a misplaced leading `@Nullable` on a primitive array to the array reference","href":"/user-documentation/recipes/recipe-catalog/nullability/cleanup/relocatenullabletoarrayreference/"},{"name":"Move a leading `@Nullable` to the type-use position","href":"/user-documentation/recipes/recipe-catalog/nullability/cleanup/movenullabletotypeuseposition/"},{"name":"Use `@MonotonicNonNull` for lazily-initialized fields","href":"/user-documentation/recipes/recipe-catalog/nullability/cleanup/usemonotonicnonnullforlazyinitializedfield/"},{"name":"Upgrade a lazily-initialized `@Nullable` field to `@MonotonicNonNull`","href":"/user-documentation/recipes/recipe-catalog/nullability/infer/upgradelazilyinitializedfieldtomonotonicnonnull/"},{"name":"Hoist a guarded `@Nullable` field read into a local variable","href":"/user-documentation/recipes/recipe-catalog/nullability/cleanup/hoistnullablefieldreadintolocal/"}]}>
 
 ## Definition
 

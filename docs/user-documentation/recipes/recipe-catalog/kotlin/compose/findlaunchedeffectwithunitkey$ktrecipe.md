@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LaunchedEffect(Unit) { … }` blocks"}
-  description={"`LaunchedEffect(Unit) { … }` runs exactly once per composition lifetime — that's intentional for one-shot startup work, but it is also the easiest spelling when the author wanted lifecycle-aware re-launch on a real key. Confirm `Unit` was intentional and not a placeholder for the actual dependencies the effect reads."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindLaunchedEffectWithUnitKey$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlaunchedeffectwithunitkey$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LaunchedEffect(Unit) { … }` blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>`LaunchedEffect(Unit) { … }` runs exactly once per composition lifetime — that's intentional for one-shot startup work, but it is also the easiest spelling when the author wanted lifecycle-aware re-launch on a real key. Confirm `Unit` was intentional and not a placeholder for the actual dependencies the effect reads.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindLaunchedEffectWithUnitKey$KtRecipe","displayName":"Find `LaunchedEffect(Unit) { … }` blocks","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

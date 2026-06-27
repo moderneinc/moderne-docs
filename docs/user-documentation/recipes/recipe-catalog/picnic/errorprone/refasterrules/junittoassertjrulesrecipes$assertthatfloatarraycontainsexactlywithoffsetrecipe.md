@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `JUnitToAssertJRules.AssertThatFloatArrayContainsExactlyWithOffset`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatFloatArrayContainsExactlyWithOffset {\n    \n    @BeforeTemplate\n    void before(float[] actual, float[] expected, float delta) {\n        assertArrayEquals(expected, actual, delta);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(float[] actual, float[] expected, float delta) {\n        assertThat(actual).containsExactly(expected, offset(delta));\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatFloatArrayContainsExactlyWithOffsetRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatfloatarraycontainsexactlywithoffsetrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatFloatArrayContainsExactlyWithOffset`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatFloatArrayContainsExactlyWithOffset {
+    
+    @BeforeTemplate
+    void before(float[] actual, float[] expected, float delta) {
+        assertArrayEquals(expected, actual, delta);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(float[] actual, float[] expected, float delta) {
+        assertThat(actual).containsExactly(expected, offset(delta));
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatFloatArrayContainsExactlyWithOffsetRecipe","displayName":"Refaster template `JUnitToAssertJRules.AssertThatFloatArrayContainsExactlyWithOffset`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

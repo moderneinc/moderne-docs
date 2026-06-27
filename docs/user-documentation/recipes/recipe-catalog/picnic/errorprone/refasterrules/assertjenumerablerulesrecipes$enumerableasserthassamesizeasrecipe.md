@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSameSizeAs`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class EnumerableAssertHasSameSizeAs<S, E> {\n    \n    @BeforeTemplate\n    EnumerableAssert<?, S> before(EnumerableAssert<?, S> enumAssert, Iterable<E> iterable) {\n        return enumAssert.hasSize(Iterables.size(iterable));\n    }\n    \n    @BeforeTemplate\n    EnumerableAssert<?, S> before(EnumerableAssert<?, S> enumAssert, Collection<E> iterable) {\n        return enumAssert.hasSize(iterable.size());\n    }\n    \n    @BeforeTemplate\n    EnumerableAssert<?, S> before(EnumerableAssert<?, S> enumAssert, E[] iterable) {\n        return enumAssert.hasSize(iterable.length);\n    }\n    \n    @BeforeTemplate\n    EnumerableAssert<?, S> before(EnumerableAssert<?, S> enumAssert, CharSequence iterable) {\n        return enumAssert.hasSize(iterable.length());\n    }\n    \n    @AfterTemplate\n    EnumerableAssert<?, S> after(EnumerableAssert<?, S> enumAssert, Iterable<E> iterable) {\n        return enumAssert.hasSameSizeAs(iterable);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,47 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJEnumerableRulesRecipes$EnumerableAssertHasSameSizeAsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassamesizeasrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJEnumerableRules.EnumerableAssertHasSameSizeAs`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class EnumerableAssertHasSameSizeAs<S, E> {
+    
+    @BeforeTemplate
+    EnumerableAssert<?, S> before(EnumerableAssert<?, S> enumAssert, Iterable<E> iterable) {
+        return enumAssert.hasSize(Iterables.size(iterable));
+    }
+    
+    @BeforeTemplate
+    EnumerableAssert<?, S> before(EnumerableAssert<?, S> enumAssert, Collection<E> iterable) {
+        return enumAssert.hasSize(iterable.size());
+    }
+    
+    @BeforeTemplate
+    EnumerableAssert<?, S> before(EnumerableAssert<?, S> enumAssert, E[] iterable) {
+        return enumAssert.hasSize(iterable.length);
+    }
+    
+    @BeforeTemplate
+    EnumerableAssert<?, S> before(EnumerableAssert<?, S> enumAssert, CharSequence iterable) {
+        return enumAssert.hasSize(iterable.length());
+    }
+    
+    @AfterTemplate
+    EnumerableAssert<?, S> after(EnumerableAssert<?, S> enumAssert, Iterable<E> iterable) {
+        return enumAssert.hasSameSizeAs(iterable);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJEnumerableRulesRecipes$EnumerableAssertHasSameSizeAsRecipe","displayName":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSameSizeAs`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

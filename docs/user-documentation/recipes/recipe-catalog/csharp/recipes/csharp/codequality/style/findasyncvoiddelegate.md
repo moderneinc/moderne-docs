@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find async void delegate"}
-  description={"Detect async lambdas used as delegates where the return type is void. Use `Func<Task>` instead of `Action` for async delegates."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindAsyncVoidDelegate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findasyncvoiddelegate.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find async void delegate</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect async lambdas used as delegates where the return type is void. Use `Func<Task>` instead of `Action` for async delegates.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindAsyncVoidDelegate","displayName":"Find async void delegate","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

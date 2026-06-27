@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `java.util.Collections` / `Arrays` factory usage inside Kotlin"}
-  description={"`Arrays.asList`, `Collections.emptyList`, `Collections.singletonList`, and `Collections.unmodifiableList` (plus Set/Map siblings) all have idiomatic Kotlin stdlib replacements — `listOf`, `emptyList<T>()`, `setOf`, `mapOf`, and `.toList()`/`.toSet()`/`.toMap()` for immutable copies."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindJavaUtilCollectionsFriction$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilcollectionsfriction$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Arrays.asList(...)` calls","href":"kotlin/interop/findjavautilarraysaslist$ktrecipe"},{"name":"Find `Collections.emptyList/Set/Map()` calls","href":"kotlin/interop/findjavautilcollectionsemptylist$ktrecipe"},{"name":"Find `Collections.singletonList/Set/Map(...)` calls","href":"kotlin/interop/findjavautilcollectionssingleton$ktrecipe"},{"name":"Find `Collections.unmodifiableList/Set/Map(...)` wrappers","href":"kotlin/interop/findjavautilcollectionsunmodifiable$ktrecipe"}]}>
+<RecipeHeader.Title>Find `java.util.Collections` / `Arrays` factory usage inside Kotlin</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Arrays.asList`, `Collections.emptyList`, `Collections.singletonList`, and `Collections.unmodifiableList` (plus Set/Map siblings) all have idiomatic Kotlin stdlib replacements — `listOf`, `emptyList<T>()`, `setOf`, `mapOf`, and `.toList()`/`.toSet()`/`.toMap()` for immutable copies.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Arrays.asList(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilarraysaslist$ktrecipe/"},{"name":"Find `Collections.emptyList/Set/Map()` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilcollectionsemptylist$ktrecipe/"},{"name":"Find `Collections.singletonList/Set/Map(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilcollectionssingleton$ktrecipe/"},{"name":"Find `Collections.unmodifiableList/Set/Map(...)` wrappers","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilcollectionsunmodifiable$ktrecipe/"}]}>
 
 ## Definition
 

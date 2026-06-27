@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET test coverage"}
-  description={"Identify xUnit ([Fact]/[Theory]), NUnit ([Test]/[TestCase]) and MSTest ([TestMethod]/[DataTestMethod]) test methods in C# source and record them in the test mapping table for downstream coverage linking."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDotnetTestCoverage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnettestcoverage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET test coverage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify xUnit ([Fact]/[Theory]), NUnit ([Test]/[TestCase]) and MSTest ([TestMethod]/[DataTestMethod]) test methods in C# source and record them in the test mapping table for downstream coverage linking.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindDotnetTestCoverage","displayName":"Find .NET test coverage","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

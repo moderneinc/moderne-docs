@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move getter from context to ExtendedCamelContext."}
-  description={"Move getter from context to ExtendedCamelContext"}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.customRecipes.MoveGetterToExtendedCamelContext"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/movegettertoextendedcamelcontext.md"}
-/>
+>
+
+<RecipeHeader.Title>Move getter from context to ExtendedCamelContext.</RecipeHeader.Title>
+
+<RecipeHeader.Description>Move getter from context to ExtendedCamelContext</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldMethodName","required":true,"description":"Name of the method on external camel context.","example":"TODO Provide a usage example for the docs"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `setCredentials` to ApacheHttpClient 5.x `CredentialsStore`"}
-  description={"Migrates `BasicCredentialsProvider` methods`setCredentials` to the new `CredentialsStore` interface."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.CredentialsStoreSetCredentials"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/credentialsstoresetcredentials.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Find method usages","href":"java/search/findmethods"}]}>
+<RecipeHeader.Title>Migrate `setCredentials` to ApacheHttpClient 5.x `CredentialsStore`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `BasicCredentialsProvider` methods`setCredentials` to the new `CredentialsStore` interface.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"}]}>
 
 ## Definition
 

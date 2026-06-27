@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant overriding member"}
-  description={"Remove overriding member that only calls the base implementation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantOverridingMember"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeredundantoverridingmember.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant overriding member</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove overriding member that only calls the base implementation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantOverridingMember","displayName":"Remove redundant overriding member","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

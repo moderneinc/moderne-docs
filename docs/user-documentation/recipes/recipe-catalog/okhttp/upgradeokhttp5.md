@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to OkHttp 5.x"}
-  description={"This recipe will apply changes commonly needed when migrating to OkHttp 5.x."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-okhttp"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.okhttp.UpgradeOkHttp5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/okhttp/upgradeokhttp5.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to OkHttp 4.x","href":"okhttp/upgradeokhttp4"},{"name":"Migrate OkHttp dependencies to 5.x","href":"okhttp/upgradeokhttp5dependencies"},{"name":"Reorder the arguments of `RequestBody.create()`","href":"okhttp/reorderrequestbodycreatearguments"}]}>
+<RecipeHeader.Title>Migrate to OkHttp 5.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when migrating to OkHttp 5.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to OkHttp 4.x","href":"/user-documentation/recipes/recipe-catalog/okhttp/upgradeokhttp4/"},{"name":"Migrate OkHttp dependencies to 5.x","href":"/user-documentation/recipes/recipe-catalog/okhttp/upgradeokhttp5dependencies/"},{"name":"Reorder the arguments of `RequestBody.create()`","href":"/user-documentation/recipes/recipe-catalog/okhttp/reorderrequestbodycreatearguments/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer the Java standard library instead of Apache Commons"}
-  description={"Prefer the Java standard library instead of Apache Commons. These recipes replace various Apache Commons utilities with their JDK equivalents, where available in Java 11+."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","commons"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.PreferJavaStandardLibrary"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/preferjavastandardlibrary.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Prefer `java.util.Base64`","href":"apache/commons/codec/apachebase64tojavabase64"},{"name":"`ApacheCommonsFileUtils` Refaster recipes","href":"apache/commons/io/apachecommonsfileutilsrecipes"},{"name":"Prefer `java.nio.file.Files`","href":"apache/commons/io/apachefileutilstojavafiles"},{"name":"Prefer `java.nio.charset.StandardCharsets`","href":"apache/commons/io/usestandardcharsets"},{"name":"Prefer `System.lineSeparator()`","href":"apache/commons/io/usesystemlineseparator"},{"name":"`ApacheCommonsStringUtils` Refaster recipes","href":"apache/commons/lang/apachecommonsstringutilsrecipes"},{"name":"Replace StringUtils#defaultIfBlank(String, String) with JDK equivalent","href":"apache/commons/lang/defaultifblanktojdk"},{"name":"Replace any StringUtils#isBlank(String) and #isNotBlank(String)","href":"apache/commons/lang/isblanktojdk"},{"name":"Replace any StringUtils#isEmpty(String) and #isNotEmpty(String)","href":"apache/commons/lang/isnotemptytojdk"},{"name":"Prefer `java.nio.charset.StandardCharsets`","href":"apache/commons/lang3/usestandardcharsets"}]}>
+<RecipeHeader.Title>Prefer the Java standard library instead of Apache Commons</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Java standard library instead of Apache Commons. These recipes replace various Apache Commons utilities with their JDK equivalents, where available in Java 11+.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Prefer `java.util.Base64`","href":"/user-documentation/recipes/recipe-catalog/apache/commons/codec/apachebase64tojavabase64/"},{"name":"`ApacheCommonsFileUtils` Refaster recipes","href":"/user-documentation/recipes/recipe-catalog/apache/commons/io/apachecommonsfileutilsrecipes/"},{"name":"Prefer `java.nio.file.Files`","href":"/user-documentation/recipes/recipe-catalog/apache/commons/io/apachefileutilstojavafiles/"},{"name":"Prefer `java.nio.charset.StandardCharsets`","href":"/user-documentation/recipes/recipe-catalog/apache/commons/io/usestandardcharsets/"},{"name":"Prefer `System.lineSeparator()`","href":"/user-documentation/recipes/recipe-catalog/apache/commons/io/usesystemlineseparator/"},{"name":"`ApacheCommonsStringUtils` Refaster recipes","href":"/user-documentation/recipes/recipe-catalog/apache/commons/lang/apachecommonsstringutilsrecipes/"},{"name":"Replace StringUtils#defaultIfBlank(String, String) with JDK equivalent","href":"/user-documentation/recipes/recipe-catalog/apache/commons/lang/defaultifblanktojdk/"},{"name":"Replace any StringUtils#isBlank(String) and #isNotBlank(String)","href":"/user-documentation/recipes/recipe-catalog/apache/commons/lang/isblanktojdk/"},{"name":"Replace any StringUtils#isEmpty(String) and #isNotEmpty(String)","href":"/user-documentation/recipes/recipe-catalog/apache/commons/lang/isnotemptytojdk/"},{"name":"Prefer `java.nio.charset.StandardCharsets`","href":"/user-documentation/recipes/recipe-catalog/apache/commons/lang3/usestandardcharsets/"}]}>
 
 ## Definition
 

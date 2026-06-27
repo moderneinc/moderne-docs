@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find annotation"}
-  description={"Find annotations that optionally match a given value."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.search.FindMissingOrInvalidAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/search/findmissingorinvalidannotation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find annotations that optionally match a given value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"annotationName","required":true,"description":"The name of the annotation to search for the existence of.","example":"mycompany.io/annotation"},{"type":"String","name":"value","required":false,"description":"An optional regex that will validate values that match.","example":"value.*"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

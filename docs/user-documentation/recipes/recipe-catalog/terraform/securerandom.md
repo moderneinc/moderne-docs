@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use a long enough byte length for `random` resources"}
-  description={"Use a long enough byte length for `random` resources."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.SecureRandom"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/securerandom.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use a long enough byte length for `random` resources</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use a long enough byte length for `random` resources.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Integer","name":"byteLength","required":false,"description":"The minimum byte length to use."}]}>
 

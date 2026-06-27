@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace redundant `String` method calls with self"}
-  description={"Replace redundant `substring(..)` and `toString()` method calls with the `String` self."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.StringRulesRecipes$RedundantCallRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/stringrulesrecipes$redundantcallrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace redundant `String` method calls with self</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace redundant `substring(..)` and `toString()` method calls with the `String` self.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.StringRulesRecipes$RedundantCallRecipe","displayName":"Replace redundant `String` method calls with self","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

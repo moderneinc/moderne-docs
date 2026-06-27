@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from OpenJPA to EclipseLink JPA"}
-  description={"These recipes help migrate Java Persistence applications using OpenJPA to EclipseLink JPA."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["javaee7","deprecated"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.openJPAToEclipseLink"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/openjpatoeclipselink.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"`@ElementCollection` annotations must be accompanied by a defined `@Column` annotation","href":"java/migrate/javax/addcolumnannotation"},{"name":"`@Entity` objects with constructors must also have a default constructor","href":"java/migrate/javax/adddefaultconstructortoentityclass"},{"name":"Attributes with automatically generated values require configuration","href":"java/migrate/javax/addtablegenerator"},{"name":"Unannotated collection attributes require a Transient annotation","href":"java/migrate/javax/addtransientannotationtocollections"},{"name":"Unannotated entity attributes require a Transient annotation","href":"java/migrate/javax/addtransientannotationtoentity"},{"name":"Private accessor methods must have a `@Transient` annotation","href":"java/migrate/javax/addtransientannotationtoprivateaccessor"},{"name":"`@Embeddable` classes cannot have an `@Id` annotation when referenced by an `@EmbeddedId` annotation","href":"java/migrate/javax/removeembeddableid"},{"name":"Remove the `@Temporal` annotation for some `java.sql` attributes","href":"java/migrate/javax/removetemporalannotation"},{"name":"`@JoinColumn` annotations must be used with relationship mappings","href":"java/migrate/javax/usejoincolumnformapping"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate from OpenJPA to EclipseLink JPA</RecipeHeader.Title>
+
+<RecipeHeader.Description>These recipes help migrate Java Persistence applications using OpenJPA to EclipseLink JPA.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"`@ElementCollection` annotations must be accompanied by a defined `@Column` annotation","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/addcolumnannotation/"},{"name":"`@Entity` objects with constructors must also have a default constructor","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/adddefaultconstructortoentityclass/"},{"name":"Attributes with automatically generated values require configuration","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/addtablegenerator/"},{"name":"Unannotated collection attributes require a Transient annotation","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/addtransientannotationtocollections/"},{"name":"Unannotated entity attributes require a Transient annotation","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/addtransientannotationtoentity/"},{"name":"Private accessor methods must have a `@Transient` annotation","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/addtransientannotationtoprivateaccessor/"},{"name":"`@Embeddable` classes cannot have an `@Id` annotation when referenced by an `@EmbeddedId` annotation","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/removeembeddableid/"},{"name":"Remove the `@Temporal` annotation for some `java.sql` attributes","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/removetemporalannotation/"},{"name":"`@JoinColumn` annotations must be used with relationship mappings","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/usejoincolumnformapping/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

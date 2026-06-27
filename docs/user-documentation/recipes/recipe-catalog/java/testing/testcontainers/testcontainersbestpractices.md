@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Testcontainers best practices"}
-  description={"Apply best practices to Testcontainers usage."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testcontainers.TestContainersBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainersbestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Apache Kafka Native container","href":"java/testing/testcontainers/migratetokafkanative"},{"name":"Migrate from `oracle-xe` to `oracle-free`","href":"java/testing/testcontainers/migratetooraclefree"},{"name":"Migrate to testcontainers-java 2.x","href":"java/testing/testcontainers/testcontainers2migration"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Testcontainers best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply best practices to Testcontainers usage.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Apache Kafka Native container","href":"/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/migratetokafkanative/"},{"name":"Migrate from `oracle-xe` to `oracle-free`","href":"/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/migratetooraclefree/"},{"name":"Migrate to testcontainers-java 2.x","href":"/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/testcontainers2migration/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

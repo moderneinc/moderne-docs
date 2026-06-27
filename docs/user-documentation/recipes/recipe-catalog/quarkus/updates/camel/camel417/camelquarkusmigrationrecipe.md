@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.16` application to `camel 4.17`"}
-  description={"Migrates `camel 4.16` Quarkus application to `camel 4.17`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.camel.camel417.CamelQuarkusMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/camel/camel417/camelquarkusmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrates `camel 4.16` application to `camel 4.17`","href":"apache/camel/upgrade/camel417/camelmigrationrecipe"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"}]}>
+<RecipeHeader.Title>Migrates `camel 4.16` application to `camel 4.17`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.16` Quarkus application to `camel 4.17`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrates `camel 4.16` application to `camel 4.17`","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel417/camelmigrationrecipe/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"}]}>
 
 ## Definition
 

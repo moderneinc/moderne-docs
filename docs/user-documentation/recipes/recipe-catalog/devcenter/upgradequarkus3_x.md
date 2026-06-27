@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Quarkus 3.26"}
-  description={"Upgrades Quarkus dependencies to version 3.26.x, including core, extensions, and tooling."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.UpgradeQuarkus3_x"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/upgradequarkus3_x.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Quarkus 2.x migration from Quarkus 1.x","href":"quarkus/quarkus2/quarkus1to2migration"},{"name":"Upgrade Maven dependency version","href":"maven/upgradedependencyversion"},{"name":"Upgrade Maven dependency version","href":"maven/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Upgrade to Quarkus 3.26</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrades Quarkus dependencies to version 3.26.x, including core, extensions, and tooling.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Quarkus 2.x migration from Quarkus 1.x","href":"/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/quarkus1to2migration/"},{"name":"Upgrade Maven dependency version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion/"},{"name":"Upgrade Maven dependency version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename a file"}
-  description={"Rename a file while keeping it in the same directory."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.RenameFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/renamefile.md"}
-/>
+>
+
+<RecipeHeader.Title>Rename a file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rename a file while keeping it in the same directory.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fileMatcher","required":true,"description":"Matching files will be renamed. This is a glob expression.","example":"**/application-*.yml"},{"type":"String","name":"fileName","required":true,"description":"Just the file name without the folder path that precedes it.","example":"application.yml"}]}>
 

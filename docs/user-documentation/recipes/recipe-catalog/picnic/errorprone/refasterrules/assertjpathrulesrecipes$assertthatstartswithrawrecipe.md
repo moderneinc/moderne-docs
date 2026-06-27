@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJPathRules.AssertThatStartsWithRaw`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatStartsWithRaw {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Path actual, Path other) {\n        return assertThat(actual.startsWith(other)).isTrue();\n    }\n    \n    @AfterTemplate\n    AbstractPathAssert<?> after(Path actual, Path other) {\n        return assertThat(actual).startsWithRaw(other);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatStartsWithRawRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjpathrulesrecipes$assertthatstartswithrawrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJPathRules.AssertThatStartsWithRaw`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatStartsWithRaw {
+    
+    @BeforeTemplate
+    AbstractBooleanAssert<?> before(Path actual, Path other) {
+        return assertThat(actual.startsWith(other)).isTrue();
+    }
+    
+    @AfterTemplate
+    AbstractPathAssert<?> after(Path actual, Path other) {
+        return assertThat(actual).startsWithRaw(other);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatStartsWithRawRecipe","displayName":"Refaster template `AssertJPathRules.AssertThatStartsWithRaw`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

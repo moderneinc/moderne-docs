@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `PoolingAsyncClientConnectionManagerBuilder` for configuration"}
-  description={"Moves method calls that exist on both `PoolingAsyncClientConnectionManager` and `PoolingAsyncClientConnectionManagerBuilder` into the builder chain."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.UsePoolingAsyncClientConnectionManagerBuilder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/usepoolingasyncclientconnectionmanagerbuilder.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `PoolingAsyncClientConnectionManagerBuilder` for configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Moves method calls that exist on both `PoolingAsyncClientConnectionManager` and `PoolingAsyncClientConnectionManagerBuilder` into the builder chain.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.hc.client5.http.impl.nio.PoolingAsyncClientConnectionManager;\nimport org.apache.hc.client5.http.impl.nio.PoolingAsyncClientConnectionManagerBuilder;\n\nclass A {\n    void method() {\n        PoolingAsyncClientConnectionManager cm = PoolingAsyncClientConnectionManagerBuilder.create().build();\n        cm.setMaxTotal(100);\n    }\n}\n","after":"import org.apache.hc.client5.http.impl.nio.PoolingAsyncClientConnectionManager;\nimport org.apache.hc.client5.http.impl.nio.PoolingAsyncClientConnectionManagerBuilder;\n\nclass A {\n    void method() {\n        PoolingAsyncClientConnectionManager cm = PoolingAsyncClientConnectionManagerBuilder.create()\n                .setMaxConnTotal(100)\n                .build();\n    }\n}\n","diff":"@@ -6,2 +6,3 @@\nclass A {\n    void method() {\n-       PoolingAsyncClientConnectionManager cm = PoolingAsyncClientConnectionManagerBuilder.create().build();\n-       cm.setMaxTotal(100);\n+       PoolingAsyncClientConnectionManager cm = PoolingAsyncClientConnectionManagerBuilder.create()\n+               .setMaxConnTotal(100)\n+               .build();\n    }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Camel YAML DSL routePolicy renaming"}
-  description={"Apache Camel YAML DSL migration from version 4.18 to 4.19. Renames routePolicy to routePolicyRef."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel419.YamlDsl419RoutePolicyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel419/yamldsl419routepolicyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Camel YAML DSL routePolicy renaming</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apache Camel YAML DSL migration from version 4.18 to 4.19. Renames routePolicy to routePolicyRef.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.apache.camel.upgrade.camel419.YamlDsl419RoutePolicyRecipe","displayName":"Camel YAML DSL routePolicy renaming","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

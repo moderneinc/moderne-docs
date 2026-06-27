@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find serialization seeds"}
-  description={"Java serialization writes and Jackson read/write calls (`ObjectOutputStream.writeObject`, `ObjectMapper.readValue`, `ObjectMapper.writeValue*`). Each match is a position where Kotlin objects cross an external wire/disk format boundary."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindSerializationSeeds$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findserializationseeds$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `ObjectOutputStream.writeObject(...)` calls","href":"kotlin/search/findobjectoutputstreamwriteobject$ktrecipe"},{"name":"Find Jackson `ObjectMapper.readValue(...)` calls","href":"kotlin/search/findjacksonobjectmapperreadvalue$ktrecipe"},{"name":"Find Jackson `ObjectMapper.writeValue*(...)` calls","href":"kotlin/search/findjacksonobjectmapperwritevalue$ktrecipe"}]}>
+<RecipeHeader.Title>Find serialization seeds</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java serialization writes and Jackson read/write calls (`ObjectOutputStream.writeObject`, `ObjectMapper.readValue`, `ObjectMapper.writeValue*`). Each match is a position where Kotlin objects cross an external wire/disk format boundary.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `ObjectOutputStream.writeObject(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findobjectoutputstreamwriteobject$ktrecipe/"},{"name":"Find Jackson `ObjectMapper.readValue(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findjacksonobjectmapperreadvalue$ktrecipe/"},{"name":"Find Jackson `ObjectMapper.writeValue*(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findjacksonobjectmapperwritevalue$ktrecipe/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to StreamsUncaughtExceptionHandler API"}
-  description={"Migrates from the JVM-level Thread.UncaughtExceptionHandler to Kafka Streams' StreamsUncaughtExceptionHandler API introduced in version 2.8. This new API provides explicit control over how the Streams client should respond to uncaught exceptions (REPLACE_THREAD, SHUTDOWN_CLIENT, or SHUTDOWN_APPLICATION)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.streams.MigrateStreamsUncaughtExceptionHandler"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/streams/migratestreamsuncaughtexceptionhandler.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate to StreamsUncaughtExceptionHandler API</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates from the JVM-level Thread.UncaughtExceptionHandler to Kafka Streams' StreamsUncaughtExceptionHandler API introduced in version 2.8. This new API provides explicit control over how the Streams client should respond to uncaught exceptions (REPLACE_THREAD, SHUTDOWN_CLIENT, or SHUTDOWN_APPLICATION).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.kafka.streams.KafkaStreams;\n\nclass StreamsApp {\n    void configure(KafkaStreams streams) {\n        streams.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {\n            @Override\n            public void uncaughtException(Thread t, Throwable e) {\n                System.err.println(\"Stream thread \" + t.getName() + \" threw exception: \" + e);\n            }\n        });\n    }\n}\n","after":"import org.apache.kafka.streams.KafkaStreams;\nimport org.apache.kafka.streams.errors.StreamsUncaughtExceptionHandler;\nimport org.apache.kafka.streams.errors.StreamsUncaughtExceptionHandler.StreamThreadExceptionResponse;\n\nclass StreamsApp {\n    void configure(KafkaStreams streams) {\n        streams.setUncaughtExceptionHandler(new StreamsUncaughtExceptionHandler() {\n            @Override\n            public StreamThreadExceptionResponse handle(Throwable e) {\n                System.err.println(\"Stream thread \" + Thread.currentThread().getName() + \" threw exception: \" + e);\n                return StreamThreadExceptionResponse.SHUTDOWN_CLIENT;\n            }\n        });\n    }\n}\n","diff":"@@ -2,0 +2,2 @@\nimport org.apache.kafka.streams.KafkaStreams;\n+import org.apache.kafka.streams.errors.StreamsUncaughtExceptionHandler;\n+import org.apache.kafka.streams.errors.StreamsUncaughtExceptionHandler.StreamThreadExceptionResponse;\n\n@@ -5,1 +7,1 @@\nclass StreamsApp {\n    void configure(KafkaStreams streams) {\n-       streams.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {\n+       streams.setUncaughtExceptionHandler(new StreamsUncaughtExceptionHandler() {\n            @Override\n@@ -7,2 +9,3 @@\n        streams.setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {\n            @Override\n-           public void uncaughtException(Thread t, Throwable e) {\n-               System.err.println(\"Stream thread \" + t.getName() + \" threw exception: \" + e);\n+           public StreamThreadExceptionResponse handle(Throwable e) {\n+               System.err.println(\"Stream thread \" + Thread.currentThread().getName() + \" threw exception: \" + e);\n+               return StreamThreadExceptionResponse.SHUTDOWN_CLIENT;\n            }\n","newFile":false}]}]}>
 

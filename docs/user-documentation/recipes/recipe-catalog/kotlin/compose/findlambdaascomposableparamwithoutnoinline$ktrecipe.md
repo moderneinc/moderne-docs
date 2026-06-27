@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find lambda parameters on `@Composable` functions"}
-  description={"Function-typed parameters are unstable from Compose's stability inferrer perspective unless the lambda reference is stable (e.g., function reference or `remember`d). For frequently-recomposed composables, accept a `(T) -> Unit` and document caller responsibility, or fold the callback into a stable holder. Flag for review when the API is performance-sensitive."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindLambdaAsComposableParamWithoutNoinline$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlambdaascomposableparamwithoutnoinline$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find lambda parameters on `@Composable` functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Function-typed parameters are unstable from Compose's stability inferrer perspective unless the lambda reference is stable (e.g., function reference or `remember`d). For frequently-recomposed composables, accept a `(T) -> Unit` and document caller responsibility, or fold the callback into a stable holder. Flag for review when the API is performance-sensitive.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindLambdaAsComposableParamWithoutNoinline$KtRecipe","displayName":"Find lambda parameters on `@Composable` functions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Pattern.compile` calls inside collection lambdas"}
-  description={"`Pattern.compile(...)` parses the pattern up front; running it inside a `map`/`filter`/`forEach` lambda recompiles the pattern for every element. Hoist the `Pattern` to a top-level property."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindPatternCompileInCollectionLambdas$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findpatterncompileincollectionlambdas$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Pattern.compile` calls inside collection lambdas</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Pattern.compile(...)` parses the pattern up front; running it inside a `map`/`filter`/`forEach` lambda recompiles the pattern for every element. Hoist the `Pattern` to a top-level property.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindPatternCompileInCollectionLambdas$KtRecipe","displayName":"Find `Pattern.compile` calls inside collection lambdas","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary case label"}
-  description={"Remove case labels from switch section that has default label."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveUnnecessaryCaseLabel"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeunnecessarycaselabel.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary case label</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove case labels from switch section that has default label.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveUnnecessaryCaseLabel","displayName":"Remove unnecessary case label","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

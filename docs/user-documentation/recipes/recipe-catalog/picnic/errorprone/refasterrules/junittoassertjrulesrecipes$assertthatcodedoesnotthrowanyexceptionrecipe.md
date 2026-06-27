@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `JUnitToAssertJRules.AssertThatCodeDoesNotThrowAnyException`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatCodeDoesNotThrowAnyException {\n    \n    @BeforeTemplate\n    void before(Executable throwingCallable) {\n        assertDoesNotThrow(throwingCallable);\n    }\n    \n    @BeforeTemplate\n    void before(ThrowingSupplier<?> throwingCallable) {\n        assertDoesNotThrow(throwingCallable);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(ThrowingCallable throwingCallable) {\n        assertThatCode(throwingCallable).doesNotThrowAnyException();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,38 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatCodeDoesNotThrowAnyExceptionRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatcodedoesnotthrowanyexceptionrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatCodeDoesNotThrowAnyException`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatCodeDoesNotThrowAnyException {
+    
+    @BeforeTemplate
+    void before(Executable throwingCallable) {
+        assertDoesNotThrow(throwingCallable);
+    }
+    
+    @BeforeTemplate
+    void before(ThrowingSupplier<?> throwingCallable) {
+        assertDoesNotThrow(throwingCallable);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(ThrowingCallable throwingCallable) {
+        assertThatCode(throwingCallable).doesNotThrowAnyException();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatCodeDoesNotThrowAnyExceptionRecipe","displayName":"Refaster template `JUnitToAssertJRules.AssertThatCodeDoesNotThrowAnyException`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

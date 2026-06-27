@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `StringUtils.capitalise(String)` with JDK provided API"}
-  description={"Replace Maven Shared `StringUtils.capitalise(String str)` with JDK provided API."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.maven.shared.MavenSharedStringUtilsRecipes$CapitaliseRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/maven/shared/mavensharedstringutilsrecipes$capitaliserecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `StringUtils.capitalise(String)` with JDK provided API</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace Maven Shared `StringUtils.capitalise(String str)` with JDK provided API.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.apache.maven.shared.MavenSharedStringUtilsRecipes$CapitaliseRecipe","displayName":"Replace `StringUtils.capitalise(String)` with JDK provided API","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 

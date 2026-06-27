@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find image by name"}
-  description={"The image name to search for in containers and initContainers."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.search.FindImage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/search/findimage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find image by name</RecipeHeader.Title>
+
+<RecipeHeader.Description>The image name to search for in containers and initContainers.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"repository","required":false,"description":"The repository part of the image name to search for in containers and initContainers.","example":"gcr.io"},{"type":"String","name":"imageName","required":true,"description":"The image name to search for in containers and initContainers.","example":"nginx"},{"type":"String","name":"imageTag","required":false,"description":"The tag part of the image name to search for in containers and initContainers.","example":"v1.2.3"},{"type":"boolean","name":"includeInitContainers","required":false,"description":"Boolean to indicate whether or not to treat initContainers/image identically to containers/image.","example":"false"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

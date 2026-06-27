@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJObjectRules.AssertThatIsNull`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsNull<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatIsSameAs\")\n    void before(T object) {\n        assertThat(object == null).isTrue();\n    }\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatIsSameAs\")\n    void before2(T object) {\n        assertThat(object != null).isFalse();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(T object) {\n        assertThat(object).isNull();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,40 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes$AssertThatIsNullRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisnullrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJObjectRules.AssertThatIsNull`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIsNull<T> {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "AssertThatIsSameAs")
+    void before(T object) {
+        assertThat(object == null).isTrue();
+    }
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "AssertThatIsSameAs")
+    void before2(T object) {
+        assertThat(object != null).isFalse();
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(T object) {
+        assertThat(object).isNull();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes$AssertThatIsNullRecipe","displayName":"Refaster template `AssertJObjectRules.AssertThatIsNull`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

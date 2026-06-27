@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find functions with nesting depth greater than 4"}
-  description={"Deeply nested control flow is the canonical hard-to-read code smell. For human reviewers and LLM agents alike, nesting beyond 4 levels signals the body should be split or flattened with early returns."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindDeepNesting$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/finddeepnesting$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find functions with nesting depth greater than 4</RecipeHeader.Title>
+
+<RecipeHeader.Description>Deeply nested control flow is the canonical hard-to-read code smell. For human reviewers and LLM agents alike, nesting beyond 4 levels signals the body should be split or flattened with early returns.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindDeepNesting$KtRecipe","displayName":"Find functions with nesting depth greater than 4","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

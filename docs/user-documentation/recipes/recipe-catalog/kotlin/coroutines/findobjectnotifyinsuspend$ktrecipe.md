@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Object.notify` / `notifyAll` calls inside `suspend` functions"}
-  description={"Monitor-based signaling (`notify`/`notifyAll`) doesn't compose with coroutine cancellation or structured concurrency. Replace with a `Channel`, `MutableSharedFlow`, or `CompletableDeferred` to wake suspended coroutines."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindObjectNotifyInSuspend$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findobjectnotifyinsuspend$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Object.notify` / `notifyAll` calls inside `suspend` functions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Monitor-based signaling (`notify`/`notifyAll`) doesn't compose with coroutine cancellation or structured concurrency. Replace with a `Channel`, `MutableSharedFlow`, or `CompletableDeferred` to wake suspended coroutines.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindObjectNotifyInSuspend$KtRecipe","displayName":"Find `Object.notify` / `notifyAll` calls inside `suspend` functions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

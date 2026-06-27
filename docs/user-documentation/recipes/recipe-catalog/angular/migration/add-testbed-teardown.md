@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add TestBed module teardown"}
-  description={"Adds `{ teardown: { destroyAfterEach: true } }` as the third argument to `TestBed.initTestEnvironment()` calls. Angular 13 changed the default teardown behavior, and this ensures explicit opt-in for module teardown after each test."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.add-testbed-teardown"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/add-testbed-teardown.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add TestBed module teardown</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `{ teardown: { destroyAfterEach: true } }` as the third argument to `TestBed.initTestEnvironment()` calls. Angular 13 changed the default teardown behavior, and this ensures explicit opt-in for module teardown after each test.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.add-testbed-teardown","displayName":"Add TestBed module teardown","npmPackage":"@openrewrite/recipes-angular"}}>
 

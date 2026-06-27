@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `removeAt(lastIndex)` instead of `removeLast()`"}
-  description={"`MutableList.removeLast()` was deprecated in Kotlin 2.0 alongside `removeFirst()` for the same SequencedCollection conflict. Prefer `removeAt(lastIndex)`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseRemoveAtLastIndexForRemoveLast$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useremoveatlastindexforremovelast$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `removeAt(lastIndex)` instead of `removeLast()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`MutableList.removeLast()` was deprecated in Kotlin 2.0 alongside `removeFirst()` for the same SequencedCollection conflict. Prefer `removeAt(lastIndex)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseRemoveAtLastIndexForRemoveLast$KtRecipe","displayName":"Use `removeAt(lastIndex)` instead of `removeLast()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

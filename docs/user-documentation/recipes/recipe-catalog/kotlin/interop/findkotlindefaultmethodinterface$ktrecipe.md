@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find interface declarations with default-method bodies"}
-  description={"An `interface I { fun foo() { … } }` exposes the body to Java callers only on JDK-8+ targets and only when the Kotlin compiler emits real default methods (`@JvmDefault` / `-Xjvm-default=all`). Without the right compiler flags, the body lives in a synthetic `DefaultImpls` and Java sees an abstract method."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindKotlinDefaultMethodInterface$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findkotlindefaultmethodinterface$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find interface declarations with default-method bodies</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `interface I { fun foo() { … } }` exposes the body to Java callers only on JDK-8+ targets and only when the Kotlin compiler emits real default methods (`@JvmDefault` / `-Xjvm-default=all`). Without the right compiler flags, the body lives in a synthetic `DefaultImpls` and Java sees an abstract method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindKotlinDefaultMethodInterface$KtRecipe","displayName":"Find interface declarations with default-method bodies","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

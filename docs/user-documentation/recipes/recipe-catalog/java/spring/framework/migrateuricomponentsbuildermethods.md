@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated `UriComponentsBuilder` methods"}
-  description={"Migrates deprecated methods in `org.springframework.web.util.UriComponentsBuilder`: `fromHttpRequest` and `parseForwardedFor` to `ForwardedHeaderUtils`, and `fromHttpUrl` to `fromUriString`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateUriComponentsBuilderMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateuricomponentsbuildermethods.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate deprecated `UriComponentsBuilder` methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates deprecated methods in `org.springframework.web.util.UriComponentsBuilder`: `fromHttpRequest` and `parseForwardedFor` to `ForwardedHeaderUtils`, and `fromHttpUrl` to `fromUriString`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.net.InetSocketAddress;\nimport org.springframework.http.HttpRequest;\nimport org.springframework.web.util.UriComponentsBuilder;\n\nclass A {\n    void test() {\n        HttpRequest request;\n        InetSocketAddress inetSocketAddress;\n        UriComponentsBuilder.fromHttpRequest(request).queryParam(\"foo\", \"bar\");\n        UriComponentsBuilder.parseForwardedFor(request, inetSocketAddress);\n    }\n}\n","after":"import java.net.InetSocketAddress;\nimport org.springframework.http.HttpRequest;\nimport org.springframework.web.util.ForwardedHeaderUtils;\n\nclass A {\n    void test() {\n        HttpRequest request;\n        InetSocketAddress inetSocketAddress;\n        ForwardedHeaderUtils.adaptFromForwardedHeaders(request.getURI(), request.getHeaders()).queryParam(\"foo\", \"bar\");\n        ForwardedHeaderUtils.parseForwardedFor(request.getURI(), request.getHeaders(), inetSocketAddress);\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport java.net.InetSocketAddress;\nimport org.springframework.http.HttpRequest;\n-import org.springframework.web.util.UriComponentsBuilder;\n+import org.springframework.web.util.ForwardedHeaderUtils;\n\n@@ -9,2 +9,2 @@\n        HttpRequest request;\n        InetSocketAddress inetSocketAddress;\n-       UriComponentsBuilder.fromHttpRequest(request).queryParam(\"foo\", \"bar\");\n-       UriComponentsBuilder.parseForwardedFor(request, inetSocketAddress);\n+       ForwardedHeaderUtils.adaptFromForwardedHeaders(request.getURI(), request.getHeaders()).queryParam(\"foo\", \"bar\");\n+       ForwardedHeaderUtils.parseForwardedFor(request.getURI(), request.getHeaders(), inetSocketAddress);\n    }\n","newFile":false}]}]}>
 

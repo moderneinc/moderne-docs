@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary parentheses"}
-  description={"Removes unnecessary parentheses from code where extra parentheses pairs are redundant. Redundant parentheses add visual noise and can obscure the actual structure of an expression, making code harder to read at a glance."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1110","RSPEC-S1611"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UnnecessaryParentheses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryparentheses.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary parentheses</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes unnecessary parentheses from code where extra parentheses pairs are redundant. Redundant parentheses add visual noise and can obscure the actual structure of an expression, making code harder to read at a glance.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.*;\n\nclass Test {\n    int square(int a, int b) {\n        int square = (a * b);\n\n        int sumOfSquares = 0;\n        for (int i = (0); i < 10; i++) {\n            sumOfSquares += (square(i * i, i));\n        }\n        double num = (10.0);\n\n        List<String> list = Arrays.asList(\"a1\", \"b1\", \"c1\");\n        list.stream()\n                .filter((s) -> s.startsWith(\"c\"))\n                .forEach(System.out::println);\n\n        return (square);\n    }\n}\n","after":"import java.util.*;\n\nclass Test {\n    int square(int a, int b) {\n        int square = a * b;\n\n        int sumOfSquares = 0;\n        for (int i = 0; i < 10; i++) {\n            sumOfSquares += square(i * i, i);\n        }\n        double num = 10.0;\n\n        List<String> list = Arrays.asList(\"a1\", \"b1\", \"c1\");\n        list.stream()\n                .filter(s -> s.startsWith(\"c\"))\n                .forEach(System.out::println);\n\n        return square;\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    int square(int a, int b) {\n-       int square = (a * b);\n+       int square = a * b;\n\n@@ -8,2 +8,2 @@\n\n        int sumOfSquares = 0;\n-       for (int i = (0); i < 10; i++) {\n-           sumOfSquares += (square(i * i, i));\n+       for (int i = 0; i < 10; i++) {\n+           sumOfSquares += square(i * i, i);\n        }\n@@ -11,1 +11,1 @@\n            sumOfSquares += (square(i * i, i));\n        }\n-       double num = (10.0);\n+       double num = 10.0;\n\n@@ -15,1 +15,1 @@\n        List<String> list = Arrays.asList(\"a1\", \"b1\", \"c1\");\n        list.stream()\n-               .filter((s) -> s.startsWith(\"c\"))\n+               .filter(s -> s.startsWith(\"c\"))\n                .forEach(System.out::println);\n@@ -18,1 +18,1 @@\n                .forEach(System.out::println);\n\n-       return (square);\n+       return square;\n    }\n","newFile":false}]}]}>
 

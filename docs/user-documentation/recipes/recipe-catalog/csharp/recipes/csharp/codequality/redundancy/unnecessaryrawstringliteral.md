@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary raw string literal"}
-  description={"Convert raw string literal to regular string when not needed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UnnecessaryRawStringLiteral"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/unnecessaryrawstringliteral.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary raw string literal</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert raw string literal to regular string when not needed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UnnecessaryRawStringLiteral","displayName":"Remove unnecessary raw string literal","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

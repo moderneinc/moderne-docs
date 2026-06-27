@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Files.writeString(...)` calls"}
-  description={"Each `java.nio.file.Files.writeString` call commits text to disk via the NIO API. Useful as an individual write seed and a position where charset and `OpenOption`s should be reviewed."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindFilesWriteString$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findfileswritestring$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Files.writeString(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `java.nio.file.Files.writeString` call commits text to disk via the NIO API. Useful as an individual write seed and a position where charset and `OpenOption`s should be reviewed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindFilesWriteString$KtRecipe","displayName":"Find `Files.writeString(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

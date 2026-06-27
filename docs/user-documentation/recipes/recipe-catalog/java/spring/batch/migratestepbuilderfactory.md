@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `StepBuilderFactory` to `StepBuilder`"}
-  description={"`StepBuilderFactory` was deprecated in spring-batch 5.x. It is replaced by `StepBuilder`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.MigrateStepBuilderFactory"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/migratestepbuilderfactory.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `StepBuilderFactory` to `StepBuilder`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`StepBuilderFactory` was deprecated in spring-batch 5.x. It is replaced by `StepBuilder`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.batch.core.Step;\nimport org.springframework.batch.core.configuration.annotation.StepBuilderFactory;\nimport org.springframework.batch.core.step.tasklet.Tasklet;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.context.annotation.Bean;\n\nclass MyJobConfig {\n\n    @Autowired\n    private StepBuilderFactory stepBuilderFactory;\n\n    @Bean\n    Step myStep(Tasklet myTasklet) {\n        return this.stepBuilderFactory.get(\"myStep\")\n                .tasklet(myTasklet)\n                .build();\n    }\n}\n","after":"import org.springframework.batch.core.Step;\nimport org.springframework.batch.core.repository.JobRepository;\nimport org.springframework.batch.core.step.builder.StepBuilder;\nimport org.springframework.batch.core.step.tasklet.Tasklet;\nimport org.springframework.context.annotation.Bean;\n\nclass MyJobConfig {\n\n    @Bean\n    Step myStep(Tasklet myTasklet, JobRepository jobRepository) {\n        return new StepBuilder(\"myStep\", jobRepository)\n                .tasklet(myTasklet)\n                .build();\n    }\n}\n","diff":"@@ -2,1 +2,2 @@\nimport org.springframework.batch.core.Step;\n-import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;\n+import org.springframework.batch.core.repository.JobRepository;\n+import org.springframework.batch.core.step.builder.StepBuilder;\nimport org.springframework.batch.core.step.tasklet.Tasklet;\n@@ -4,1 +5,0 @@\nimport org.springframework.batch.core.configuration.annotation.StepBuilderFactory;\nimport org.springframework.batch.core.step.tasklet.Tasklet;\n-import org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.context.annotation.Bean;\n@@ -9,3 +9,0 @@\nclass MyJobConfig {\n\n-   @Autowired\n-   private StepBuilderFactory stepBuilderFactory;\n-\n    @Bean\n@@ -13,2 +10,2 @@\n\n    @Bean\n-   Step myStep(Tasklet myTasklet) {\n-       return this.stepBuilderFactory.get(\"myStep\")\n+   Step myStep(Tasklet myTasklet, JobRepository jobRepository) {\n+       return new StepBuilder(\"myStep\", jobRepository)\n                .tasklet(myTasklet)\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `emptySet<T>()` instead of `setOf<T>()`"}
-  description={"`setOf()` with no entries delegates to `emptySet()`. Call the named factory directly to make the empty-by-construction intent visible."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.UseEmptySetForSetOfNoArgs$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/useemptysetforsetofnoargs$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `emptySet<T>()` instead of `setOf<T>()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`setOf()` with no entries delegates to `emptySet()`. Call the named factory directly to make the empty-by-construction intent visible.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.stdlib.UseEmptySetForSetOfNoArgs$KtRecipe","displayName":"Use `emptySet<T>()` instead of `setOf<T>()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

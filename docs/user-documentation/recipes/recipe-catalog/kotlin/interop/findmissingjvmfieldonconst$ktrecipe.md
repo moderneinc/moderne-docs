@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `const val` / companion `val` declarations missing `@JvmField`"}
-  description={"A companion-object `val` without `@JvmField` is exposed to Java as `Outer.Companion.getX()` — a getter on a synthetic singleton. `@JvmField` lifts the property to a true static `public final` field on `Outer`, matching the Java idiom of named constants."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindMissingJvmFieldOnConst$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmfieldonconst$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `const val` / companion `val` declarations missing `@JvmField`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A companion-object `val` without `@JvmField` is exposed to Java as `Outer.Companion.getX()` — a getter on a synthetic singleton. `@JvmField` lifts the property to a true static `public final` field on `Outer`, matching the Java idiom of named constants.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindMissingJvmFieldOnConst$KtRecipe","displayName":"Find `const val` / companion `val` declarations missing `@JvmField`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adds Mockito extensions to Mockito tests"}
-  description={"Adds `@ExtendWith(MockitoExtension.class)` to JUnit 5 tests or `@RunWith(MockitoJUnitRunner.class)` to JUnit 4 tests using Mockito annotations like `@Mock` or `@Captor`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.AddMockitoExtensionIfAnnotationsUsed"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/addmockitoextensionifannotationsused.md"}
-/>
+>
+
+<RecipeHeader.Title>Adds Mockito extensions to Mockito tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `@ExtendWith(MockitoExtension.class)` to JUnit 5 tests or `@RunWith(MockitoJUnitRunner.class)` to JUnit 4 tests using Mockito annotations like `@Mock` or `@Captor`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport org.mockito.Mock;\n\nclass Test {\n    @Mock\n    Service service;\n    @Test\n    void test() {}\n}\n","after":"import org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.Mock;\nimport org.mockito.junit.jupiter.MockitoExtension;\n\n@ExtendWith(MockitoExtension.class)\nclass Test {\n    @Mock\n    Service service;\n    @Test\n    void test() {}\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.junit.jupiter.api.Test;\n+import org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.Mock;\n@@ -3,0 +4,1 @@\nimport org.junit.jupiter.api.Test;\nimport org.mockito.Mock;\n+import org.mockito.junit.jupiter.MockitoExtension;\n\n@@ -4,0 +6,1 @@\nimport org.mockito.Mock;\n\n+@ExtendWith(MockitoExtension.class)\nclass Test {\n","newFile":false}]}]}>
 

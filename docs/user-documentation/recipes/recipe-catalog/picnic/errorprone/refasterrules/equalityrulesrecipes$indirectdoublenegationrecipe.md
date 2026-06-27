@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `EqualityRules.IndirectDoubleNegation`"}
-  description={"Don't negate an inequality test or use the ternary operator to compare two booleans; directly test for equality instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1244","RSPEC-S1940"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.EqualityRulesRecipes$IndirectDoubleNegationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/equalityrulesrecipes$indirectdoublenegationrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `EqualityRules.IndirectDoubleNegation`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Don't negate an inequality test or use the ternary operator to compare two booleans; directly test for equality instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.EqualityRulesRecipes$IndirectDoubleNegationRecipe","displayName":"Refaster template `EqualityRules.IndirectDoubleNegation`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

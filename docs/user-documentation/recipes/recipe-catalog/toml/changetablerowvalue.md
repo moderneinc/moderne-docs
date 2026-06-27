@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change TOML table row value"}
-  description={"Change a value in a TOML table row when the identifying property matches the specified matcher."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-toml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.toml.ChangeTableRowValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/toml/changetablerowvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Change TOML table row value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change a value in a TOML table row when the identifying property matches the specified matcher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"tableName","required":true,"description":"The name of the TOML array table containing the row to update.","example":"package.contributors"},{"type":"String","name":"identifyingKey","required":true,"description":"The key within a table row to match on.","example":"name"},{"type":"String","name":"identifyingValue","required":true,"description":"The value to match. Can be a regular expression if useRegex is true.","example":"Alice Smith"},{"type":"Boolean","name":"useRegex","required":false,"description":"Whether to interpret the identifying value as a regular expression. Default is false."},{"type":"String","name":"propertyKey","required":true,"description":"The key of the property to update within the matched row.","example":"email"},{"type":"String","name":"newValue","required":false,"description":"The new value to set for the property. If null, the property will be removed.","example":"\"alice.new@example.com\""}]}>
 

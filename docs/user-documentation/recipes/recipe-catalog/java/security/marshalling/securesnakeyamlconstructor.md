@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Secure the use of SnakeYAML's constructor"}
-  description={"See the [paper](https://github.com/mbechler/marshalsec) on this subject."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-502","CWE-94"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.marshalling.SecureSnakeYamlConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/marshalling/securesnakeyamlconstructor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Secure the use of SnakeYAML's constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>See the [paper](https://github.com/mbechler/marshalsec) on this subject.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.yaml.snakeyaml.Yaml;\n\nclass Test {\n    Object o = new Yaml();\n}\n","after":"import org.yaml.snakeyaml.LoaderOptions;\nimport org.yaml.snakeyaml.Yaml;\nimport org.yaml.snakeyaml.constructor.SafeConstructor;\n\nclass Test {\n    Object o = new Yaml(new SafeConstructor(new LoaderOptions()));\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.yaml.snakeyaml.LoaderOptions;\nimport org.yaml.snakeyaml.Yaml;\n@@ -2,0 +3,1 @@\nimport org.yaml.snakeyaml.Yaml;\n+import org.yaml.snakeyaml.constructor.SafeConstructor;\n\n@@ -4,1 +6,1 @@\n\nclass Test {\n-   Object o = new Yaml();\n+   Object o = new Yaml(new SafeConstructor(new LoaderOptions()));\n}\n","newFile":false}]}]}>
 

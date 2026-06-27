@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `PowerMock.mockStatic()` with `Mockito.mockStatic()`"}
-  description={"Replaces `PowerMockito.mockStatic()` by `Mockito.mockStatic()`. Removes the `@PrepareForTest` annotation."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.PowerMockitoMockStaticToMockito"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockitomockstatictomockito.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `PowerMock.mockStatic()` with `Mockito.mockStatic()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `PowerMockito.mockStatic()` by `Mockito.mockStatic()`. Removes the `@PrepareForTest` annotation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.mockito.Mockito.mockStatic;\n\nimport java.util.Calendar;\n\nimport org.junit.jupiter.api.Test;\nimport org.powermock.core.classloader.annotations.PrepareForTest;\n\n@PrepareForTest({Calendar.class})\npublic class MyTest {\n\n    @Test\n    void testStaticMethod() {\n        mockStatic(Calendar.class);\n    }\n}\n","after":"import static org.mockito.Mockito.mockStatic;\n\nimport java.util.Calendar;\n\nimport org.junit.jupiter.api.AfterEach;\nimport org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\nimport org.mockito.MockedStatic;\n\npublic class MyTest {\n\n    private MockedStatic<Calendar> mockedCalendar;\n\n    @BeforeEach\n    void setUpStaticMocks() {\n        mockedCalendar = mockStatic(Calendar.class);\n    }\n\n    @AfterEach\n    void tearDownStaticMocks() {\n        mockedCalendar.closeOnDemand();\n    }\n\n    @Test\n    void testStaticMethod() {\n    }\n}\n","diff":"@@ -5,0 +5,2 @@\nimport java.util.Calendar;\n\n+import org.junit.jupiter.api.AfterEach;\n+import org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\n@@ -6,1 +8,1 @@\n\nimport org.junit.jupiter.api.Test;\n-import org.powermock.core.classloader.annotations.PrepareForTest;\n+import org.mockito.MockedStatic;\n\n@@ -8,1 +10,0 @@\nimport org.powermock.core.classloader.annotations.PrepareForTest;\n\n-@PrepareForTest({Calendar.class})\npublic class MyTest {\n@@ -11,0 +12,12 @@\npublic class MyTest {\n\n+   private MockedStatic<Calendar> mockedCalendar;\n+\n+   @BeforeEach\n+   void setUpStaticMocks() {\n+       mockedCalendar = mockStatic(Calendar.class);\n+   }\n+\n+   @AfterEach\n+   void tearDownStaticMocks() {\n+       mockedCalendar.closeOnDemand();\n+   }\n+\n    @Test\n@@ -13,1 +26,0 @@\n    @Test\n    void testStaticMethod() {\n-       mockStatic(Calendar.class);\n    }\n","newFile":false}]}]}>
 

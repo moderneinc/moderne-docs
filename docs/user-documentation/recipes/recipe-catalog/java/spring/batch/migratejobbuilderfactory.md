@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `JobBuilderFactory` to `JobBuilder`"}
-  description={"`JobBuilderFactory` was deprecated in spring-batch 5.x. It is replaced by `JobBuilder`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.MigrateJobBuilderFactory"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/migratejobbuilderfactory.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `JobBuilderFactory` to `JobBuilder`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`JobBuilderFactory` was deprecated in spring-batch 5.x. It is replaced by `JobBuilder`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.batch.core.Job;\nimport org.springframework.batch.core.Step;\nimport org.springframework.batch.core.configuration.annotation.JobBuilderFactory;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.context.annotation.Bean;\n\nclass MyJobConfig {\n\n    @Autowired\n    private JobBuilderFactory jobBuilderFactory;\n\n    @Bean\n    Job myJob(Step step) {\n        return this.jobBuilderFactory.get(\"myJob\")\n            .start(step)\n            .build();\n    }\n}\n","after":"import org.springframework.batch.core.Job;\nimport org.springframework.batch.core.Step;\nimport org.springframework.batch.core.job.builder.JobBuilder;\nimport org.springframework.batch.core.repository.JobRepository;\nimport org.springframework.context.annotation.Bean;\n\nclass MyJobConfig {\n\n    @Bean\n    Job myJob(Step step, JobRepository jobRepository) {\n        return new JobBuilder(\"myJob\", jobRepository)\n            .start(step)\n            .build();\n    }\n}\n","diff":"@@ -3,2 +3,2 @@\nimport org.springframework.batch.core.Job;\nimport org.springframework.batch.core.Step;\n-import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;\n-import org.springframework.beans.factory.annotation.Autowired;\n+import org.springframework.batch.core.job.builder.JobBuilder;\n+import org.springframework.batch.core.repository.JobRepository;\nimport org.springframework.context.annotation.Bean;\n@@ -9,3 +9,0 @@\nclass MyJobConfig {\n\n-   @Autowired\n-   private JobBuilderFactory jobBuilderFactory;\n-\n    @Bean\n@@ -13,2 +10,2 @@\n\n    @Bean\n-   Job myJob(Step step) {\n-       return this.jobBuilderFactory.get(\"myJob\")\n+   Job myJob(Step step, JobRepository jobRepository) {\n+       return new JobBuilder(\"myJob\", jobRepository)\n            .start(step)\n","newFile":false}]}]}>
 

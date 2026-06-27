@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`JUnitRules` Refaster recipes"}
-  description={"Refaster rules related to JUnit expressions and statements.\n[Source](https://error-prone.picnic.tech/refasterrules/JUnitRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junitrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `JUnitRules.ArgumentsEnumeration`","href":"picnic/errorprone/refasterrules/junitrulesrecipes$argumentsenumerationrecipe"}]}>
+<RecipeHeader.Title>`JUnitRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to JUnit expressions and statements. [Source](https://error-prone.picnic.tech/refasterrules/JUnitRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `JUnitRules.ArgumentsEnumeration`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junitrulesrecipes$argumentsenumerationrecipe/"}]}>
 
 ## Definition
 

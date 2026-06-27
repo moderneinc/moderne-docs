@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Properly use declaration-site type variance for well-known types"}
-  description={"When using a method parameter like `Function<IN, OUT>`, it should rather be `Function<? super IN, ? extends OUT>`. This recipe checks for method parameters of well-known types."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1217"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonDeclarationSiteTypeVariances"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/commondeclarationsitetypevariances.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Properly use declaration-site type variance","href":"staticanalysis/declarationsitetypevariance"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Properly use declaration-site type variance for well-known types</RecipeHeader.Title>
+
+<RecipeHeader.Description>When using a method parameter like `Function<IN, OUT>`, it should rather be `Function<? super IN, ? extends OUT>`. This recipe checks for method parameters of well-known types.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Properly use declaration-site type variance","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/declarationsitetypevariance/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

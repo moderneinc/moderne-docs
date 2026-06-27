@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add or correct Jenkins plugins BOM"}
-  description={"Adds [Jenkins plugins BOM](https://www.jenkins.io/doc/developer/plugin-development/dependency-management/#jenkins-plugin-bom) at the latest release if the project depends on any managed versions or an outdated BOM is present. BOMs are expected to be synchronized to Jenkins LTS versions, so this will also remove any mismatched BOMs (Such as using Jenkins 2.387.3, but importing bom-2.319.x). If the expected BOM is already added, the version will not be upgraded."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.AddPluginsBom"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/addpluginsbom.md"}
-/>
+>
+
+<RecipeHeader.Title>Add or correct Jenkins plugins BOM</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds [Jenkins plugins BOM](https://www.jenkins.io/doc/developer/plugin-development/dependency-management/#jenkins-plugin-bom) at the latest release if the project depends on any managed versions or an outdated BOM is present. BOMs are expected to be synchronized to Jenkins LTS versions, so this will also remove any mismatched BOMs (Such as using Jenkins 2.387.3, but importing bom-2.319.x). If the expected BOM is already added, the version will not be upgraded.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"xml","code":"<project>\n    <parent>\n        <groupId>org.jenkins-ci.plugins</groupId>\n        <artifactId>plugin</artifactId>\n        <version>4.86</version>\n        <relativePath/>\n    </parent>\n    <artifactId>foo</artifactId>\n    <properties>\n        <jenkins.version>2.440.3</jenkins.version>\n    </properties>\n    <repositories>\n        <repository>\n            <id>maven-central</id>\n            <url>https://repo1.maven.org/maven2/</url>\n        </repository>\n        <repository>\n            <id>repo.jenkins-ci.org</id>\n            <url>https://repo.jenkins-ci.org/public/</url>\n        </repository>\n    </repositories>\n    <dependencies>\n        <dependency>\n            <groupId>org.jenkins-ci.plugins</groupId>\n            <artifactId>ant</artifactId>\n            <version>1.9</version>\n        </dependency>\n    </dependencies>\n</project>\n"},"variants":[]}]}>
 

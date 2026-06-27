@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert setter methods to annotations"}
-  description={"Convert trivial setter methods to `@Setter` annotations on their respective fields."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["lombok"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lombok.UseLombokSetter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/uselomboksetter.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert setter methods to annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert trivial setter methods to `@Setter` annotations on their respective fields.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n\n    int foo = 9;\n\n    public void setFoo(int foo) {\n        this.foo = foo;\n    }\n}\n","after":"import lombok.Setter;\n\nclass A {\n\n    @Setter\n    int foo = 9;\n}\n","diff":"@@ -1,0 +1,2 @@\n+import lombok.Setter;\n+\nclass A {\n@@ -3,0 +5,1 @@\nclass A {\n\n+   @Setter\n    int foo = 9;\n@@ -4,4 +7,0 @@\n\n    int foo = 9;\n-\n-   public void setFoo(int foo) {\n-       this.foo = foo;\n-   }\n}\n","newFile":false}]}]}>
 

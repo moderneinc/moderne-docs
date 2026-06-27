@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Exposed Gradle dependencies to 1.0"}
-  description={"Update JetBrains Exposed Gradle dependencies for the 1.0.0 migration. Upgrades dependency versions and handles the `exposed-migration` module split."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={["gradle","kotlin","exposed"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.exposed.ExposedUpgradeGradleDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/exposed/exposedupgradegradledependencies.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Change Gradle dependency artifact","href":"gradle/changedependencyartifactid"}]}>
+<RecipeHeader.Title>Upgrade Exposed Gradle dependencies to 1.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update JetBrains Exposed Gradle dependencies for the 1.0.0 migration. Upgrades dependency versions and handles the `exposed-migration` module split.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Change Gradle dependency artifact","href":"/user-documentation/recipes/recipe-catalog/gradle/changedependencyartifactid/"}]}>
 
 ## Definition
 

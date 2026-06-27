@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Composable` functions whose name starts with a lowercase letter"}
-  description={"Compose convention: composables that emit UI use `PascalCase` to set them apart from regular Kotlin functions in IDE auto-complete and stack traces. Lowercase-named composables either should be renamed or, if they return a value rather than emit UI, marked `@ReadOnlyComposable` to signal they don't compose."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindLowercaseComposableFunction$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlowercasecomposablefunction$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Composable` functions whose name starts with a lowercase letter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Compose convention: composables that emit UI use `PascalCase` to set them apart from regular Kotlin functions in IDE auto-complete and stack traces. Lowercase-named composables either should be renamed or, if they return a value rather than emit UI, marked `@ReadOnlyComposable` to signal they don't compose.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindLowercaseComposableFunction$KtRecipe","displayName":"Find `@Composable` functions whose name starts with a lowercase letter","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Gradle task eager creation to lazy registration"}
-  description={"Changes eager task creation `task exampleName(type: ExampleType)` to lazy registration `tasks.register(\"exampleName\", ExampleType)`. Also supports Kotlin DSL: `task<ExampleType>(\"exampleName\")` to `tasks.register<ExampleType>(\"exampleName\")`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.ChangeTaskToTasksRegister"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/changetasktotasksregister.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Gradle task eager creation to lazy registration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Changes eager task creation `task exampleName(type: ExampleType)` to lazy registration `tasks.register("exampleName", ExampleType)`. Also supports Kotlin DSL: `task<ExampleType>("exampleName")` to `tasks.register<ExampleType>("exampleName")`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"task taskName(type: Copy) {\n    from 'src/main/resources'\n    into 'build/generated-resources'\n}\n","after":"tasks.register(\"taskName\", Copy) {\n    from 'src/main/resources'\n    into 'build/generated-resources'\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -1,1 +1,1 @@\n-task taskName(type: Copy) {\n+tasks.register(\"taskName\", Copy) {\n    from 'src/main/resources'\n","newFile":false}]}]}>
 

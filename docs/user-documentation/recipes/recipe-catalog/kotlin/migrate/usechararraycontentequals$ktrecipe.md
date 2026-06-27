@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `CharArray.contentEquals()` instead of `Arrays.equals(a, b)`"}
-  description={"`java.util.Arrays.equals(a: char[], b: char[])` is JVM-only; `a.contentEquals(b)` is the multiplatform Kotlin extension."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseCharArrayContentEquals$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechararraycontentequals$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `CharArray.contentEquals()` instead of `Arrays.equals(a, b)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Arrays.equals(a: char[], b: char[])` is JVM-only; `a.contentEquals(b)` is the multiplatform Kotlin extension.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseCharArrayContentEquals$KtRecipe","displayName":"Use `CharArray.contentEquals()` instead of `Arrays.equals(a, b)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

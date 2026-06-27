@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates to Apache Commons Collections 4.x"}
-  description={"Migrate applications to the latest Apache Commons Collections 4.x release. This recipe modifies application's build files, make changes to deprecated/preferred APIs, and migrates configuration settings that have changes between versions."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","collections","commons"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.collections.UpgradeApacheCommonsCollections_3_4"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/collections/upgradeapachecommonscollections_3_4.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change static field access to static method access","href":"java/changestaticfieldtomethod"},{"name":"Change static field access to static method access","href":"java/changestaticfieldtomethod"},{"name":"Rename package name","href":"java/changepackage"}]}>
+<RecipeHeader.Title>Migrates to Apache Commons Collections 4.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Apache Commons Collections 4.x release. This recipe modifies application's build files, make changes to deprecated/preferred APIs, and migrates configuration settings that have changes between versions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change static field access to static method access","href":"/user-documentation/recipes/recipe-catalog/java/changestaticfieldtomethod/"},{"name":"Change static field access to static method access","href":"/user-documentation/recipes/recipe-catalog/java/changestaticfieldtomethod/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]}>
 
 ## Definition
 

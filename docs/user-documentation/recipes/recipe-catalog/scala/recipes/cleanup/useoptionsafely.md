@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Option` safely"}
-  description={"Finds calls to `.get` on `Option` values. Calling `.get` on `Option` can throw `NoSuchElementException`; prefer `getOrElse`, `map`, `fold`, or pattern matching."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.UseOptionSafely"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/useoptionsafely.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Option` safely</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds calls to `.get` on `Option` values. Calling `.get` on `Option` can throw `NoSuchElementException`; prefer `getOrElse`, `map`, `fold`, or pattern matching.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    val opt: Option[String] = Some(\"hello\")\n    val value = opt.get\n}\n","after":"class Example {\n    val opt: Option[String] = Some(\"hello\")\n    val value = /*~~(Calling .get on Option is unsafe; prefer getOrElse, map, fold, or pattern matching)~~>*/opt.get\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    val opt: Option[String] = Some(\"hello\")\n-   val value = opt.get\n+   val value = /*~~(Calling .get on Option is unsafe; prefer getOrElse, map, fold, or pattern matching)~~>*/opt.get\n}\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove trailing comma in Kotlin"}
-  description={"Remove trailing commas in variable, parameter, and class property lists."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-kotlin"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.cleanup.RemoveTrailingComma"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/cleanup/removetrailingcomma.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove trailing comma in Kotlin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove trailing commas in variable, parameter, and class property lists.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"fun method(arg1: String,\n           arg2: String,\n) {}\n","after":"fun method(arg1: String,\n           arg2: String\n) {}\n","diff":"@@ -2,1 +2,1 @@\nfun method(arg1: String,\n-          arg2: String,\n+          arg2: String\n) {}\n","newFile":false}]}]}>
 

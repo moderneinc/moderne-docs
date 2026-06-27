@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `@AllArgsConstructor` where applicable"}
-  description={"Prefer the Lombok `@AllArgsConstructor` annotation over explicitly written out constructors that assign all non-static fields."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lombok.UseAllArgsConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/useallargsconstructor.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `@AllArgsConstructor` where applicable</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Lombok `@AllArgsConstructor` annotation over explicitly written out constructors that assign all non-static fields.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    private final String name;\n    private int age;\n\n    public A(String name, int age) {\n        this.name = name;\n        this.age = age;\n    }\n}\n","after":"import lombok.AllArgsConstructor;\n\n@AllArgsConstructor\nclass A {\n    private final String name;\n    private int age;\n}\n","diff":"@@ -1,0 +1,3 @@\n+import lombok.AllArgsConstructor;\n+\n+@AllArgsConstructor\nclass A {\n@@ -4,5 +7,0 @@\n    private final String name;\n    private int age;\n-\n-   public A(String name, int age) {\n-       this.name = name;\n-       this.age = age;\n-   }\n}\n","newFile":false}]}]}>
 

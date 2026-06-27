@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Gradle property"}
-  description={"Add a property to the `gradle.properties` file."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.AddProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/addproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Add Gradle property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a property to the `gradle.properties` file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"key","required":true,"description":"The name of the property to add.","example":"org.gradle.caching"},{"type":"String","name":"value","required":true,"description":"The value of the property to add.","example":"true"},{"type":"Boolean","name":"overwrite","required":true,"description":"If a property with the same key exists, overwrite.","example":"true"},{"type":"String","name":"filePattern","required":false,"description":"A glob expression that can be used to constrain which directories or source files should be searched. When not set, all source files are searched.","example":"**/*.properties"}]}>
 

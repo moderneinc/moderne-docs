@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `firstOrNull { predicate }` instead of `filter { predicate }.firstOrNull()`"}
-  description={"Folding the predicate into `firstOrNull` short-circuits on the first match and avoids materializing the intermediate filtered list."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseFirstOrNullWithPredicate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/usefirstornullwithpredicate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `firstOrNull { predicate }` instead of `filter { predicate }.firstOrNull()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Folding the predicate into `firstOrNull` short-circuits on the first match and avoids materializing the intermediate filtered list.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseFirstOrNullWithPredicate$KtRecipe","displayName":"Use `firstOrNull { predicate }` instead of `filter { predicate }.firstOrNull()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

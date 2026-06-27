@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Copy YAML value"}
-  description={"Copies a YAML value from one key to another. The existing key/value pair remains unaffected by this change. Attempts to merge the copied value into the new key if it already exists. By default, attempts to create the new key if it does not exist."}
   type={"Single recipe"}
   languages={["YAML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-yaml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.yaml.CopyValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/yaml/copyvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Copy YAML value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Copies a YAML value from one key to another. The existing key/value pair remains unaffected by this change. Attempts to merge the copied value into the new key if it already exists. By default, attempts to create the new key if it does not exist.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldKeyPath","required":true,"description":"A [JsonPath](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expression to locate a YAML key/value pair to copy.","example":"$.source.kind"},{"type":"String","name":"oldFilePath","required":false,"description":"The file path to the YAML file to copy the value from. If `null` then the value will be copied from any yaml file it appears within.","example":"src/main/resources/application.yaml"},{"type":"String","name":"newKey","required":true,"description":"A [JsonPath](https://docs.openrewrite.org/reference/jsonpath-and-jsonpathmatcher-reference) expression defining where the value should be written.","example":"$.dest.kind"},{"type":"String","name":"newFilePath","required":false,"description":"The file path to the YAML file to copy the value to. If `null` then the value will be copied only into the same file it was found in.","example":"src/main/resources/application.yaml"},{"type":"Boolean","name":"createNewKeys","required":false,"description":"When the key path does _not_ match any keys, create new keys on the spot. Default is `true`."}]}>
 

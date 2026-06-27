@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remediate vulnerabilities from the OWASP Top Ten"}
-  description={"[OWASP](https://owasp.org) publishes a list of the most impactful common security vulnerabilities. These recipes identify and remediate vulnerabilities from the OWASP Top Ten."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.OwaspTopTen"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/owasptopten.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remediate OWASP A01:2021 Broken access control","href":"java/security/owaspa01"},{"name":"Remediate OWASP A02:2021 Cryptographic failures","href":"java/security/owaspa02"},{"name":"Remediate OWASP A03:2021 Injection","href":"java/security/owaspa03"},{"name":"Remediate OWASP A05:2021 Security misconfiguration","href":"java/security/owaspa05"},{"name":"Remediate OWASP A06:2021 Vulnerable and outdated components","href":"java/security/owaspa06"},{"name":"Remediate OWASP A08:2021 Software and data integrity failures","href":"java/security/owaspa08"}]}>
+<RecipeHeader.Title>Remediate vulnerabilities from the OWASP Top Ten</RecipeHeader.Title>
+
+<RecipeHeader.Description>[OWASP](https://owasp.org) publishes a list of the most impactful common security vulnerabilities. These recipes identify and remediate vulnerabilities from the OWASP Top Ten.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remediate OWASP A01:2021 Broken access control","href":"/user-documentation/recipes/recipe-catalog/java/security/owaspa01/"},{"name":"Remediate OWASP A02:2021 Cryptographic failures","href":"/user-documentation/recipes/recipe-catalog/java/security/owaspa02/"},{"name":"Remediate OWASP A03:2021 Injection","href":"/user-documentation/recipes/recipe-catalog/java/security/owaspa03/"},{"name":"Remediate OWASP A05:2021 Security misconfiguration","href":"/user-documentation/recipes/recipe-catalog/java/security/owaspa05/"},{"name":"Remediate OWASP A06:2021 Vulnerable and outdated components","href":"/user-documentation/recipes/recipe-catalog/java/security/owaspa06/"},{"name":"Remediate OWASP A08:2021 Software and data integrity failures","href":"/user-documentation/recipes/recipe-catalog/java/security/owaspa08/"}]}>
 
 ## Definition
 

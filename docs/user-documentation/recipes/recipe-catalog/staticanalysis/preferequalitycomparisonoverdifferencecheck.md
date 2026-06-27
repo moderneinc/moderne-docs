@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer direct comparison of numbers"}
-  description={"Replace `a - b == 0` with `a == b`, `a - b != 0` with `a != b`, `a - b < 0` with `a < b`, and similar transformations for all comparison operators to improve readability and avoid overflow issues."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.PreferEqualityComparisonOverDifferenceCheck"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/preferequalitycomparisonoverdifferencecheck.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer direct comparison of numbers</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `a - b == 0` with `a == b`, `a - b != 0` with `a != b`, `a - b < 0` with `a < b`, and similar transformations for all comparison operators to improve readability and avoid overflow issues.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    boolean test(int a, int b) {\n        return a - b == 0;\n    }\n}\n","after":"class Test {\n    boolean test(int a, int b) {\n        return a == b;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    boolean test(int a, int b) {\n-       return a - b == 0;\n+       return a == b;\n    }\n","newFile":false}]}]}>
 

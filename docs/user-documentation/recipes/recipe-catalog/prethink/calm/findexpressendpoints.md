@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Express endpoints"}
-  description={"Identify REST/HTTP endpoints in Express and Fastify applications. Detects app.get(), router.post(), and similar route definition patterns."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindExpressEndpoints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findexpressendpoints.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Express endpoints</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify REST/HTTP endpoints in Express and Fastify applications. Detects app.get(), router.post(), and similar route definition patterns.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindExpressEndpoints","displayName":"Find Express endpoints","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

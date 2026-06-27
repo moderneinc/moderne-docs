@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to @TargetEmbeddable"}
-  description={"Migrates code using removed @Target to to Hibernate 7.0's @TargetEmbeddable equivalent. Removes misused @Target annotations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.MigrateToTargetEmbeddable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/migratetotargetembeddable.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate to @TargetEmbeddable</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates code using removed @Target to to Hibernate 7.0's @TargetEmbeddable equivalent. Removes misused @Target annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.persistence.Embedded;\nimport jakarta.persistence.Entity;\nimport org.hibernate.annotations.Target;\n\n@Entity\npublic class Drawing {\n    @Embedded\n    @Target(Circle.class)\n    private Shape circle;\n}\n","after":"import jakarta.persistence.Embedded;\nimport jakarta.persistence.Entity;\nimport org.hibernate.annotations.TargetEmbeddable;\n\n@Entity\npublic class Drawing {\n    @Embedded\n    @TargetEmbeddable(Circle.class)\n    private Shape circle;\n}\n","diff":"@@ -3,1 +3,1 @@\nimport jakarta.persistence.Embedded;\nimport jakarta.persistence.Entity;\n-import org.hibernate.annotations.Target;\n+import org.hibernate.annotations.TargetEmbeddable;\n\n@@ -8,1 +8,1 @@\npublic class Drawing {\n    @Embedded\n-   @Target(Circle.class)\n+   @TargetEmbeddable(Circle.class)\n    private Shape circle;\n","newFile":false}]}]}>
 

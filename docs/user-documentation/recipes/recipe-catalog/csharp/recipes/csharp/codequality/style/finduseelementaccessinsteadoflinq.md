@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find ElementAt() that could use indexer"}
-  description={"Detect LINQ `.ElementAt(index)` calls that could be replaced with direct indexer access `[index]`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseElementAccessInsteadOfLinq"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finduseelementaccessinsteadoflinq.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find ElementAt() that could use indexer</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect LINQ `.ElementAt(index)` calls that could be replaced with direct indexer access `[index]`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseElementAccessInsteadOfLinq","displayName":"Find ElementAt() that could use indexer","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

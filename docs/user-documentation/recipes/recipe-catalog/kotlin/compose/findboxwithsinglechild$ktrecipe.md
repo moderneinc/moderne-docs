@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Box { … }` with a single child"}
-  description={"A `Box { OneChild() }` adds a layout node and a measurement pass for no compositional benefit — the child could be invoked directly with the same `Modifier`. Either pull the modifier onto the child or use the explicit `Box` placement APIs if alignment is doing real work."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindBoxWithSingleChild$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findboxwithsinglechild$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Box { … }` with a single child</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `Box { OneChild() }` adds a layout node and a measurement pass for no compositional benefit — the child could be invoked directly with the same `Modifier`. Either pull the modifier onto the child or use the explicit `Box` placement APIs if alignment is doing real work.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindBoxWithSingleChild$KtRecipe","displayName":"Find `Box { … }` with a single child","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

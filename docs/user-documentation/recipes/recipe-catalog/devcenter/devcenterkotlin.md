@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"DevCenter Kotlin"}
-  description={"This is a DevCenter helping you to track general Kotlin Modernisations."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.DevCenterKotlin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/devcenterkotlin.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Library upgrade","href":"devcenter/libraryupgrade"},{"name":"Move to a later Kotlin version","href":"devcenter/kotlinversionupgrade"},{"name":"Move to JUnit 6","href":"devcenter/junitjupiterupgrade"},{"name":"OWASP top ten","href":"devcenter/securitystarter"},{"name":"Find organization statistics","href":"devcenter/findorganizationstatistics"},{"name":"Find committers on repositories","href":"search/findcommitters"}]}>
+<RecipeHeader.Title>DevCenter Kotlin</RecipeHeader.Title>
+
+<RecipeHeader.Description>This is a DevCenter helping you to track general Kotlin Modernisations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Library upgrade","href":"/user-documentation/recipes/recipe-catalog/devcenter/libraryupgrade/"},{"name":"Move to a later Kotlin version","href":"/user-documentation/recipes/recipe-catalog/devcenter/kotlinversionupgrade/"},{"name":"Move to JUnit 6","href":"/user-documentation/recipes/recipe-catalog/devcenter/junitjupiterupgrade/"},{"name":"OWASP top ten","href":"/user-documentation/recipes/recipe-catalog/devcenter/securitystarter/"},{"name":"Find organization statistics","href":"/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics/"},{"name":"Find committers on repositories","href":"/user-documentation/recipes/recipe-catalog/search/findcommitters/"}]}>
 
 ## Definition
 

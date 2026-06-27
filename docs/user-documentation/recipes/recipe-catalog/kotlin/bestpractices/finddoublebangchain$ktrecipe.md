@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find chained `!!` assertions in a single expression"}
-  description={"`x!!.y!!.z` chains multiple `!!` assertions in one expression. Each one is a separate NPE risk with no diagnostic. Either the intermediate values are non-null (and the assertions can be dropped) or the chain should be modeled with `?.let { }` to surface the absent case explicitly."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindDoubleBangChain$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/finddoublebangchain$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find chained `!!` assertions in a single expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>`x!!.y!!.z` chains multiple `!!` assertions in one expression. Each one is a separate NPE risk with no diagnostic. Either the intermediate values are non-null (and the assertions can be dropped) or the chain should be modeled with `?.let { }` to surface the absent case explicitly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindDoubleBangChain$KtRecipe","displayName":"Find chained `!!` assertions in a single expression","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

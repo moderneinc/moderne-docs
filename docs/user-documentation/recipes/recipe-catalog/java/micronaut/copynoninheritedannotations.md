@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Copy non-inherited annotations from super class"}
-  description={"As of Micronaut 3.x only [annotations](https://github.com/micronaut-projects/micronaut-core/blob/3.0.x/src/main/docs/guide/appendix/breaks.adoc#annotation-inheritance) that are explicitly meta-annotated with `@Inherited` are inherited from parent classes and interfaces."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.CopyNonInheritedAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/copynoninheritedannotations.md"}
-/>
+>
+
+<RecipeHeader.Title>Copy non-inherited annotations from super class</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of Micronaut 3.x only [annotations](https://github.com/micronaut-projects/micronaut-core/blob/3.0.x/src/main/docs/guide/appendix/breaks.adoc#annotation-inheritance) that are explicitly meta-annotated with `@Inherited` are inherited from parent classes and interfaces.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package abc;\nimport io.micronaut.http.annotation.Controller;\nimport io.micronaut.http.annotation.Get;\n\npublic class SuperClass {\n\n    @Controller\n    public class MyController extends MiddleController {\n        @Get\n        public String info() {\n            return \"system info: \";\n        }\n    }\n}\n","after":"package abc;\nimport io.micronaut.http.annotation.Controller;\nimport io.micronaut.http.annotation.Get;\nimport io.micronaut.runtime.context.scope.Refreshable;\n\npublic class SuperClass {\n\n    @Controller\n    @Refreshable\n    public class MyController extends MiddleController {\n        @Get\n        public String info() {\n            return \"system info: \";\n        }\n    }\n}\n","diff":"@@ -4,0 +4,1 @@\nimport io.micronaut.http.annotation.Controller;\nimport io.micronaut.http.annotation.Get;\n+import io.micronaut.runtime.context.scope.Refreshable;\n\n@@ -8,0 +9,1 @@\n\n    @Controller\n+   @Refreshable\n    public class MyController extends MiddleController {\n","newFile":false},{"language":"java","before":"package abc;\nimport io.micronaut.runtime.context.scope.Refreshable;\n\n@Refreshable\npublic abstract class BaseController {\n}\n\npublic abstract class MiddleController extends BaseController {\n}\n","after":"package abc;\nimport io.micronaut.runtime.context.scope.Refreshable;\n\n@Refreshable\npublic abstract class BaseController {\n}\n\n@Refreshable\npublic abstract class MiddleController extends BaseController {\n}\n","diff":"@@ -8,0 +8,1 @@\n}\n\n+@Refreshable\npublic abstract class MiddleController extends BaseController {\n","newFile":false}]}]}>
 

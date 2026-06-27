@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Map.of(..)`"}
-  description={"Prefer `Map.of(..)` instead of using `Collections.singletonMap()` in Java 9 or higher. Note that the resulting `Map` is not behaviorally equivalent: `Map.of(..)` throws `NullPointerException` when probed with `containsKey(null)`, `containsValue(null)`, or `get(null)`, whereas `Collections.singletonMap(..)` returns `false`/`null`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.MigrateCollectionsSingletonMap"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/migratecollectionssingletonmap.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Map.of(..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Map.of(..)` instead of using `Collections.singletonMap()` in Java 9 or higher. Note that the resulting `Map` is not behaviorally equivalent: `Map.of(..)` throws `NullPointerException` when probed with `containsKey(null)`, `containsValue(null)`, or `get(null)`, whereas `Collections.singletonMap(..)` returns `false`/`null`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.*;\n\nclass Test {\n    void take(Map<String, Object> m) {}\n    void call(String key, Object value) {\n        take(Collections.singletonMap(key, value));\n    }\n}\n","after":"import java.util.Map;\n\nclass Test {\n    void take(Map<String, Object> m) {}\n    void call(String key, Object value) {\n        take(Map.of(key, value));\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import java.util.*;\n+import java.util.Map;\n\n@@ -6,1 +6,1 @@\n    void take(Map<String, Object> m) {}\n    void call(String key, Object value) {\n-       take(Collections.singletonMap(key, value));\n+       take(Map.of(key, value));\n    }\n","newFile":false}]}]}>
 

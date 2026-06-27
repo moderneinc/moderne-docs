@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `open class` declarations without overridable members"}
-  description={"The `open` modifier on a class only matters if subclasses override something. A bare `open class Foo` (or one whose members are all `final`) signals an intent — \"this class is meant to be extended\" — that the type system can't actually enforce. Either declare specific members `open` (and drop the class-level `open`) or remove the modifier entirely."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindOpenClassWithoutOverrides$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findopenclasswithoutoverrides$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `open class` declarations without overridable members</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `open` modifier on a class only matters if subclasses override something. A bare `open class Foo` (or one whose members are all `final`) signals an intent — "this class is meant to be extended" — that the type system can't actually enforce. Either declare specific members `open` (and drop the class-level `open`) or remove the modifier entirely.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindOpenClassWithoutOverrides$KtRecipe","displayName":"Find `open class` declarations without overridable members","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

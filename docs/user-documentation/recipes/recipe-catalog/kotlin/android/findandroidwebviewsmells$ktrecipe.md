@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Android WebView smells"}
-  description={"WebView call sites that need a security review: `WebView.loadUrl(...)` (URL trust boundary) and `WebSettings.setJavaScriptEnabled(true)` (script-execution trust boundary). For untrusted content, Chrome Custom Tabs (`CustomTabsIntent`) is the safer alternative."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindAndroidWebViewSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidwebviewsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `WebView.loadUrl(...)` calls","href":"kotlin/android/findwebviewloadurl$ktrecipe"},{"name":"Find `WebSettings.setJavaScriptEnabled(true)` calls","href":"kotlin/android/findwebviewjavascriptenabled$ktrecipe"}]}>
+<RecipeHeader.Title>Find Android WebView smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>WebView call sites that need a security review: `WebView.loadUrl(...)` (URL trust boundary) and `WebSettings.setJavaScriptEnabled(true)` (script-execution trust boundary). For untrusted content, Chrome Custom Tabs (`CustomTabsIntent`) is the safer alternative.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `WebView.loadUrl(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findwebviewloadurl$ktrecipe/"},{"name":"Find `WebSettings.setJavaScriptEnabled(true)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findwebviewjavascriptenabled$ktrecipe/"}]}>
 
 ## Definition
 

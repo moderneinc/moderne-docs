@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace ConditionOutcome.inverse() with constructor"}
-  description={"Replace deprecated `ConditionOutcome.inverse(ConditionOutcome outcome)` calls with `new ConditionOutcome(!outcome.isMatch(), outcome.getConditionMessage())`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.ReplaceConditionalOutcomeInverse"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/replaceconditionaloutcomeinverse.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace ConditionOutcome.inverse() with constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated `ConditionOutcome.inverse(ConditionOutcome outcome)` calls with `new ConditionOutcome(!outcome.isMatch(), outcome.getConditionMessage())`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.autoconfigure.condition.ConditionOutcome;\n\nclass Test {\n    ConditionOutcome test(ConditionOutcome outcome) {\n        return ConditionOutcome.inverse(outcome);\n    }\n}\n","after":"import org.springframework.boot.autoconfigure.condition.ConditionOutcome;\n\nclass Test {\n    ConditionOutcome test(ConditionOutcome outcome) {\n        return new ConditionOutcome(!outcome.isMatch(), outcome.getConditionMessage());\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    ConditionOutcome test(ConditionOutcome outcome) {\n-       return ConditionOutcome.inverse(outcome);\n+       return new ConditionOutcome(!outcome.isMatch(), outcome.getConditionMessage());\n    }\n","newFile":false}]}]}>
 

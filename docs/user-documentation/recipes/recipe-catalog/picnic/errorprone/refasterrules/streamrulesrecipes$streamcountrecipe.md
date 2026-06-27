@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StreamRules.StreamCount`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamCount<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4266\")\n    long before(Stream<T> stream) {\n        return stream.collect(counting());\n    }\n    \n    @AfterTemplate\n    long after(Stream<T> stream) {\n        return stream.count();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4266"]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamCountRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/streamrulesrecipes$streamcountrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StreamRules.StreamCount`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class StreamCount<T> {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "java:S4266")
+    long before(Stream<T> stream) {
+        return stream.collect(counting());
+    }
+    
+    @AfterTemplate
+    long after(Stream<T> stream) {
+        return stream.count();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamCountRecipe","displayName":"Refaster template `StreamRules.StreamCount`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

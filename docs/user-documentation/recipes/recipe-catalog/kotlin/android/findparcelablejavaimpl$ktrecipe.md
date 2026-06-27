@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Kotlin classes implementing `Parcelable` without `@Parcelize`"}
-  description={"Manual `writeToParcel` / `CREATOR` implementations are pure boilerplate that the `kotlin-parcelize` plugin generates for any class annotated `@Parcelize`. Each manual implementation is a candidate for migration to the annotation."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindParcelableJavaImpl$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findparcelablejavaimpl$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Kotlin classes implementing `Parcelable` without `@Parcelize`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Manual `writeToParcel` / `CREATOR` implementations are pure boilerplate that the `kotlin-parcelize` plugin generates for any class annotated `@Parcelize`. Each manual implementation is a candidate for migration to the annotation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindParcelableJavaImpl$KtRecipe","displayName":"Find Kotlin classes implementing `Parcelable` without `@Parcelize`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring WS 4.0"}
-  description={"Migrate applications to Spring WS 4.0. This recipe handles the removal of Apache Axiom support in Spring WS 4.0.x by migrating Axiom-based SOAP message handling to SAAJ (SOAP with Attachments API for Java). Note that Spring WS 4.1+ restores Axiom support if upgrading to that version is preferred."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","spring-ws"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.ws.UpgradeSpringWs_4_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/ws/upgradespringws_4_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate Spring WS Axiom to SAAJ","href":"java/spring/ws/migrateaxiomtosaaj"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring WS 4.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to Spring WS 4.0. This recipe handles the removal of Apache Axiom support in Spring WS 4.0.x by migrating Axiom-based SOAP message handling to SAAJ (SOAP with Attachments API for Java). Note that Spring WS 4.1+ restores Axiom support if upgrading to that version is preferred.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate Spring WS Axiom to SAAJ","href":"/user-documentation/recipes/recipe-catalog/java/spring/ws/migrateaxiomtosaaj/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

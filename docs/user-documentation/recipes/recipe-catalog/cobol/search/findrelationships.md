@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find COBOL relationships"}
-  description={"Build a list of relationships for diagramming and exploration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-cobol"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.cobol.search.FindRelationships"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cobol/search/findrelationships.md"}
-/>
+>
+
+<RecipeHeader.Title>Find COBOL relationships</RecipeHeader.Title>
+
+<RecipeHeader.Description>Build a list of relationships for diagramming and exploration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.cobol.search.FindRelationships","displayName":"Find COBOL relationships","groupId":"org.openrewrite","artifactId":"rewrite-cobol","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_COBOL","requiresConfiguration":false}}>
 

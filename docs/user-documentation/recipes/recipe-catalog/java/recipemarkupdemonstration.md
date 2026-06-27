@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Demonstrate rendering of `Markup` markers"}
-  description={"Tooling may decide to elide or display differently markup of different levels."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.RecipeMarkupDemonstration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipemarkupdemonstration.md"}
-/>
+>
+
+<RecipeHeader.Title>Demonstrate rendering of `Markup` markers</RecipeHeader.Title>
+
+<RecipeHeader.Description>Tooling may decide to elide or display differently markup of different levels.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"level","required":true,"description":"The `Markup#Level` to add."}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change XML attribute key"}
-  description={"Change an attributes key on XML elements using an XPath expression."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.ChangeTagAttributeKey"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/changetagattributekey.md"}
-/>
+>
+
+<RecipeHeader.Title>Change XML attribute key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change an attributes key on XML elements using an XPath expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"xPath","required":true,"description":"XPath expression to match the attribute.","example":"//a4j:ajax/@reRender"},{"type":"String","name":"newAttributeName","required":true,"description":"The new name for the attribute.","example":"render"}]}>
 

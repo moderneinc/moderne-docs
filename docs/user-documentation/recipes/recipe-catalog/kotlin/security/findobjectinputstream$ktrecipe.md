@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `ObjectInputStream(...)` constructions"}
-  description={"Java native deserialization is the source of the CVE-2015-4852 / Apache Commons gadget-chain family — any classpath gadget can fire on `readObject`. Replace with a JSON or Protobuf decoder; if you must keep Java serialization, install an `ObjectInputFilter`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindObjectInputStream$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findobjectinputstream$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `ObjectInputStream(...)` constructions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java native deserialization is the source of the CVE-2015-4852 / Apache Commons gadget-chain family — any classpath gadget can fire on `readObject`. Replace with a JSON or Protobuf decoder; if you must keep Java serialization, install an `ObjectInputFilter`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindObjectInputStream$KtRecipe","displayName":"Find `ObjectInputStream(...)` constructions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

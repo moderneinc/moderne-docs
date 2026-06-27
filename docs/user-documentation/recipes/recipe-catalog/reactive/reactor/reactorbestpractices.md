@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Reactor Best Practices"}
-  description={"This recipe applies best practices for using Reactor."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["reactor"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.reactive.reactor.ReactorBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorbestpractices.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"`ReactorRules` Refaster recipes","href":"picnic/errorprone/refasterrules/reactorrulesrecipes"}]}>
+<RecipeHeader.Title>Reactor Best Practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe applies best practices for using Reactor.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"`ReactorRules` Refaster recipes","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes/"}]}>
 
 ## Definition
 

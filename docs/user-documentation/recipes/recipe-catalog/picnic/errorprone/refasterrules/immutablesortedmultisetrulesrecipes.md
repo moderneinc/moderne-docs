@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`ImmutableSortedMultisetRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `ImmutableSortedMultiset`s.\n[Source](https://error-prone.picnic.tech/refasterrules/ImmutableSortedMultisetRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableSortedMultisetRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `ImmutableSortedMultisetRules.ImmutableSortedMultisetBuilder`","href":"picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$immutablesortedmultisetbuilderrecipe"},{"name":"Refaster template `ImmutableSortedMultisetRules.ImmutableSortedMultisetNaturalOrderBuilder`","href":"picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$immutablesortedmultisetnaturalorderbuilderrecipe"},{"name":"Refaster template `ImmutableSortedMultisetRules.ImmutableSortedMultisetReverseOrderBuilder`","href":"picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$immutablesortedmultisetreverseorderbuilderrecipe"},{"name":"Refaster template `ImmutableSortedMultisetRules.EmptyImmutableSortedMultiset`","href":"picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$emptyimmutablesortedmultisetrecipe"},{"name":"Refaster template `ImmutableSortedMultisetRules.IterableToImmutableSortedMultiset`","href":"picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$iterabletoimmutablesortedmultisetrecipe"},{"name":"Refaster template `ImmutableSortedMultisetRules.StreamToImmutableSortedMultiset`","href":"picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$streamtoimmutablesortedmultisetrecipe"}]}>
+<RecipeHeader.Title>`ImmutableSortedMultisetRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `ImmutableSortedMultiset`s. [Source](https://error-prone.picnic.tech/refasterrules/ImmutableSortedMultisetRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `ImmutableSortedMultisetRules.ImmutableSortedMultisetBuilder`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$immutablesortedmultisetbuilderrecipe/"},{"name":"Refaster template `ImmutableSortedMultisetRules.ImmutableSortedMultisetNaturalOrderBuilder`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$immutablesortedmultisetnaturalorderbuilderrecipe/"},{"name":"Refaster template `ImmutableSortedMultisetRules.ImmutableSortedMultisetReverseOrderBuilder`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$immutablesortedmultisetreverseorderbuilderrecipe/"},{"name":"Refaster template `ImmutableSortedMultisetRules.EmptyImmutableSortedMultiset`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$emptyimmutablesortedmultisetrecipe/"},{"name":"Refaster template `ImmutableSortedMultisetRules.IterableToImmutableSortedMultiset`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$iterabletoimmutablesortedmultisetrecipe/"},{"name":"Refaster template `ImmutableSortedMultisetRules.StreamToImmutableSortedMultiset`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmultisetrulesrecipes$streamtoimmutablesortedmultisetrecipe/"}]}>
 
 ## Definition
 

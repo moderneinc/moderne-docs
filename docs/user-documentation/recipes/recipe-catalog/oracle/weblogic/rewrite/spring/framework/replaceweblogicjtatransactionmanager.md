@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Removed WebLogicJtaTransactionManager from Spring Framework 5.3.x to 6.2.x"}
-  description={"Replace removed WebLogicJtaTransactionManager with JtaTransactionManager from Spring Framework 6.2.x."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["JtaTransactionManager","weblogic","springframework"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.spring.framework.ReplaceWebLogicJtaTransactionManager"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/spring/framework/replaceweblogicjtatransactionmanager.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove method invocations","href":"java/removemethodinvocations"},{"name":"Remove method invocations","href":"java/removemethodinvocations"}]}>
+<RecipeHeader.Title>Replace Removed WebLogicJtaTransactionManager from Spring Framework 5.3.x to 6.2.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace removed WebLogicJtaTransactionManager with JtaTransactionManager from Spring Framework 6.2.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"}]}>
 
 ## Definition
 

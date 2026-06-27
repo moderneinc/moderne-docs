@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `LongStreamRules.LongStreamAllMatch`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class LongStreamAllMatch {\n    \n    @BeforeTemplate\n    boolean before(LongStream stream, LongPredicate predicate) {\n        return stream.noneMatch(predicate.negate());\n    }\n    \n    @AfterTemplate\n    boolean after(LongStream stream, LongPredicate predicate) {\n        return stream.allMatch(predicate);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.LongStreamRulesRecipes$LongStreamAllMatchRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamallmatchrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `LongStreamRules.LongStreamAllMatch`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class LongStreamAllMatch {
+    
+    @BeforeTemplate
+    boolean before(LongStream stream, LongPredicate predicate) {
+        return stream.noneMatch(predicate.negate());
+    }
+    
+    @AfterTemplate
+    boolean after(LongStream stream, LongPredicate predicate) {
+        return stream.allMatch(predicate);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.LongStreamRulesRecipes$LongStreamAllMatchRecipe","displayName":"Refaster template `LongStreamRules.LongStreamAllMatch`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

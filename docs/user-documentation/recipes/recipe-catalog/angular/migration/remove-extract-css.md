@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `extractCss` from `angular.json`"}
-  description={"Removes the deprecated `extractCss` build option from `angular.json`. In Angular 11, CSS extraction became the default behavior for production builds and the option was deprecated."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-extract-css"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-extract-css.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `extractCss` from `angular.json`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the deprecated `extractCss` build option from `angular.json`. In Angular 11, CSS extraction became the default behavior for production builds and the option was deprecated.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.remove-extract-css","displayName":"Remove `extractCss` from `angular.json`","npmPackage":"@openrewrite/recipes-angular"}}>
 

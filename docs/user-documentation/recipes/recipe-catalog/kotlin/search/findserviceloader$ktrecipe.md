@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `ServiceLoader.load(...)` calls"}
-  description={"`ServiceLoader.load` walks META-INF/services at boot time and instantiates each provider via reflection. The set of loaded classes isn't visible to static analysis — each call is a fan-out point for a reviewer to understand."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindServiceLoader$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findserviceloader$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `ServiceLoader.load(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`ServiceLoader.load` walks META-INF/services at boot time and instantiates each provider via reflection. The set of loaded classes isn't visible to static analysis — each call is a fan-out point for a reviewer to understand.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindServiceLoader$KtRecipe","displayName":"Find `ServiceLoader.load(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

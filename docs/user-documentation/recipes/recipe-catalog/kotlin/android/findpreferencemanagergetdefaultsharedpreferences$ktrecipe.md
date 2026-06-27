@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `PreferenceManager.getDefaultSharedPreferences(...)` calls"}
-  description={"`android.preference.*` (framework) was deprecated in API 29. AndroidX `androidx.preference.*` is the supported path, and even there the modern shape for KV state is Jetpack DataStore (`Preferences DataStore` for key/value, `Proto DataStore` for typed records) — which works in `suspend` contexts and survives process death without main-thread blocking."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindPreferenceManagerGetDefaultSharedPreferences$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findpreferencemanagergetdefaultsharedpreferences$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `PreferenceManager.getDefaultSharedPreferences(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`android.preference.*` (framework) was deprecated in API 29. AndroidX `androidx.preference.*` is the supported path, and even there the modern shape for KV state is Jetpack DataStore (`Preferences DataStore` for key/value, `Proto DataStore` for typed records) — which works in `suspend` contexts and survives process death without main-thread blocking.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindPreferenceManagerGetDefaultSharedPreferences$KtRecipe","displayName":"Find `PreferenceManager.getDefaultSharedPreferences(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

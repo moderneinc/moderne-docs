@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Shorten assignment to compound operator form"}
-  description={"Convert ``target = target op value`` into ``target op= value`` for arithmetic operators (+, -, *, /, %)."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.AugAssign"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/augassign.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Shorten assignment to compound operator form</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert ``target = target op value`` into ``target op= value`` for arithmetic operators (+, -, *, /, %).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.AugAssign","displayName":"Shorten assignment to compound operator form","pipPackage":"openrewrite-static-analysis"}}>
 

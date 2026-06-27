@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Axonframework 4.x Jakarta"}
-  description={"Migration file to upgrade from an Axon Framework Javax-specific project to Jakarta."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.axonframework.migration.UpgradeAxonFramework_4_Jakarta"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/axonframework/migration/upgradeaxonframework_4_jakarta.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Maven dependency version","href":"maven/upgradedependencyversion"},{"name":"Migrate to Jakarta EE 9","href":"java/migrate/jakarta/javaxmigrationtojakarta"},{"name":"Change Maven dependency","href":"maven/changedependencygroupidandartifactid"},{"name":"Change Maven dependency","href":"maven/changedependencygroupidandartifactid"},{"name":"Change Maven dependency","href":"maven/changedependencygroupidandartifactid"},{"name":"Change Maven dependency","href":"maven/changedependencygroupidandartifactid"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Upgrade to Axonframework 4.x Jakarta</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migration file to upgrade from an Axon Framework Javax-specific project to Jakarta.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Maven dependency version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion/"},{"name":"Migrate to Jakarta EE 9","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxmigrationtojakarta/"},{"name":"Change Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencygroupidandartifactid/"},{"name":"Change Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencygroupidandartifactid/"},{"name":"Change Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencygroupidandartifactid/"},{"name":"Change Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencygroupidandartifactid/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

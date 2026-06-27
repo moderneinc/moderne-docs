@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ImmutableMapRules.ImmutableMapOfEntries`"}
-  description={"Prefer `ImmutableMap#ofEntries(Map.Entry[])` over alternatives that don't communicate the immutability of the resulting map at the type level."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableMapRulesRecipes$ImmutableMapOfEntriesRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablemaprulesrecipes$immutablemapofentriesrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ImmutableMapRules.ImmutableMapOfEntries`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `ImmutableMap#ofEntries(Map.Entry[])` over alternatives that don't communicate the immutability of the resulting map at the type level.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableMapRulesRecipes$ImmutableMapOfEntriesRecipe","displayName":"Refaster template `ImmutableMapRules.ImmutableMapOfEntries`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

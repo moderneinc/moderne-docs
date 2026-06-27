@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adds offset and length arguments to the write method of SharedOutputBuffer"}
-  description={"In Apache Http Client 5.x migration, the shortened form of the `write(byte[])` has been removed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.OutputBufferWriteAddOffsetAndLengthArguments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/outputbufferwriteaddoffsetandlengtharguments.md"}
-/>
+>
+
+<RecipeHeader.Title>Adds offset and length arguments to the write method of SharedOutputBuffer</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Apache Http Client 5.x migration, the shortened form of the `write(byte[])` has been removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.apache.httpclient5.OutputBufferWriteAddOffsetAndLengthArguments","displayName":"Adds offset and length arguments to the write method of SharedOutputBuffer","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unconditional secrets inheritance"}
-  description={"Detects when reusable workflows unconditionally inherit all parent secrets via `secrets: inherit`. This practice can lead to over-privileged workflows and potential secret exposure to called workflows that may not need access to all secrets. Consider explicitly passing only required secrets. Based on [zizmor's secrets-inherit audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/secrets_inherit.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.SecretsInherit"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/secretsinherit.md"}
-/>
+>
+
+<RecipeHeader.Title>Find unconditional secrets inheritance</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects when reusable workflows unconditionally inherit all parent secrets via `secrets: inherit`. This practice can lead to over-privileged workflows and potential secret exposure to called workflows that may not need access to all secrets. Consider explicitly passing only required secrets. Based on [zizmor's secrets-inherit audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/secrets_inherit.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"on: push\njobs:\n  call-workflow:\n    uses: ./.github/workflows/reusable.yml\n    secrets: inherit\n    with:\n      environment: production\n","after":"on: push\njobs:\n  call-workflow:\n    uses: ./.github/workflows/reusable.yml\n    ~~(This reusable workflow unconditionally inherits all parent secrets. Consider explicitly passing only the required secrets to follow the principle of least privilege and reduce the risk of secret exposure to called workflows.)~~>secrets: inherit\n    with:\n      environment: production\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -5,1 +5,1 @@\n  call-workflow:\n    uses: ./.github/workflows/reusable.yml\n-   secrets: inherit\n+   ~~(This reusable workflow unconditionally inherits all parent secrets. Consider explicitly passing only the required secrets to follow the principle of least privilege and reduce the risk of secret exposure to called workflows.)~~>secrets: inherit\n    with:\n","newFile":false}]}]}>
 

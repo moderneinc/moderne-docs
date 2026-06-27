@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Collections.emptyList/Set/Map()` calls"}
-  description={"`Collections.emptyList()` (and its `emptySet`/`emptyMap` siblings) predate Kotlin's stdlib factories. `emptyList<T>()`/`emptySet<T>()`/`emptyMap<K, V>()` carry the same singletons, infer the type parameter at the call site, and don't drag the `java.util.Collections` import into Kotlin code."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindJavaUtilCollectionsEmptyList$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilcollectionsemptylist$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Collections.emptyList/Set/Map()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Collections.emptyList()` (and its `emptySet`/`emptyMap` siblings) predate Kotlin's stdlib factories. `emptyList<T>()`/`emptySet<T>()`/`emptyMap<K, V>()` carry the same singletons, infer the type parameter at the call site, and don't drag the `java.util.Collections` import into Kotlin code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindJavaUtilCollectionsEmptyList$KtRecipe","displayName":"Find `Collections.emptyList/Set/Map()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

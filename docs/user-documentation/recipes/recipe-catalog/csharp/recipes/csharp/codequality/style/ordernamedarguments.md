@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Order named arguments by parameters"}
-  description={"Reorder named arguments to match parameter order."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.OrderNamedArguments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/ordernamedarguments.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Order named arguments by parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reorder named arguments to match parameter order.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.OrderNamedArguments","displayName":"Order named arguments by parameters","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

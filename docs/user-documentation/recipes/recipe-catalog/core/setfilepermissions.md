@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Set file permission attributes"}
-  description={"Set a file's read, write and executable permission attributes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.SetFilePermissions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/core/setfilepermissions.md"}
-/>
+>
+
+<RecipeHeader.Title>Set file permission attributes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Set a file's read, write and executable permission attributes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fileMatcher","required":true,"description":"Permissions will be applied to matching files. This is a glob expression.","example":"**/gradlew.bat"},{"type":"Boolean","name":"isReadable","required":true,"description":"File read permission."},{"type":"Boolean","name":"isWritable","required":true,"description":"File write permission."},{"type":"Boolean","name":"isExecutable","required":true,"description":"Files executable permission."}]}>
 

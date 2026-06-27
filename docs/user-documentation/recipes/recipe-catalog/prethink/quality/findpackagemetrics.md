@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find package quality metrics"}
-  description={"Compute per-package architectural quality metrics including afferent/efferent coupling, instability, abstractness, distance from the main sequence, and dependency cycle detection using Tarjan's strongly connected components algorithm."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.quality.FindPackageMetrics"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/quality/findpackagemetrics.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find package quality metrics</RecipeHeader.Title>
+
+<RecipeHeader.Description>Compute per-package architectural quality metrics including afferent/efferent coupling, instability, abstractness, distance from the main sequence, and dependency cycle detection using Tarjan's strongly connected components algorithm.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example.solo;\n\npublic class Standalone {\n    public String greet() {\n        return \"hello\";\n    }\n}\n"},"variants":[]}]}>
 

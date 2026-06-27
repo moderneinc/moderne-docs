@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Make implausibly long `@Timeout` values explicit in minutes"}
-  description={"JUnit Jupiter's `@Timeout` defaults to `TimeUnit.SECONDS`, so a value such as `@Timeout(10000)` is interpreted as almost three hours, which is most likely a mistake where milliseconds were intended. This recipe rewrites such implausibly large second-based timeouts to the equivalent number of minutes, for instance `@Timeout(value = 167, unit = TimeUnit.MINUTES)`, preserving the original (likely erroneous) semantics while making the mistake far more visible for review."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.ImplausibleTimeoutToMinutes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/implausibletimeouttominutes.md"}
-/>
+>
+
+<RecipeHeader.Title>Make implausibly long `@Timeout` values explicit in minutes</RecipeHeader.Title>
+
+<RecipeHeader.Description>JUnit Jupiter's `@Timeout` defaults to `TimeUnit.SECONDS`, so a value such as `@Timeout(10000)` is interpreted as almost three hours, which is most likely a mistake where milliseconds were intended. This recipe rewrites such implausibly large second-based timeouts to the equivalent number of minutes, for instance `@Timeout(value = 167, unit = TimeUnit.MINUTES)`, preserving the original (likely erroneous) semantics while making the mistake far more visible for review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Integer","name":"thresholdSeconds","required":false,"description":"Timeouts of at least this many seconds (when the time unit is the default `SECONDS`) are considered implausibly long and are rewritten to the equivalent number of minutes. Defaults to `1000` seconds, about 17 minutes.","example":"1000"}]}>
 

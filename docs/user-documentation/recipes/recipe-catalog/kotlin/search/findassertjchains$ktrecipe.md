@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find AssertJ `assertThat(...)` assertion chains"}
-  description={"AssertJ chains are the heart of the test suite's verification logic. Surfacing them helps a reviewer or LLM agent locate the assertions in a long test method and reason about coverage."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindAssertJChains$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findassertjchains$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find AssertJ `assertThat(...)` assertion chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>AssertJ chains are the heart of the test suite's verification logic. Surfacing them helps a reviewer or LLM agent locate the assertions in a long test method and reason about coverage.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindAssertJChains$KtRecipe","displayName":"Find AssertJ `assertThat(...)` assertion chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

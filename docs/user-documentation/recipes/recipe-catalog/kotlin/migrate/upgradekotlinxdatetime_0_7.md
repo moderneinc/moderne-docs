@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to `kotlinx-datetime` 0.7"}
-  description={"Migrate from kotlinx-datetime 0.6.x to 0.7.x. This includes replacing `kotlinx.datetime.Instant` and `kotlinx.datetime.Clock` with their `kotlin.time` equivalents and replacing deprecated method calls."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UpgradeKotlinxDatetime_0_7"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlinxdatetime_0_7.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace deprecated `kotlinx-datetime` methods","href":"jetbrains/kotlinx/replacedeprecatedkotlinxdatetime0methods"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Migrate to `kotlinx-datetime` 0.7</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from kotlinx-datetime 0.6.x to 0.7.x. This includes replacing `kotlinx.datetime.Instant` and `kotlinx.datetime.Clock` with their `kotlin.time` equivalents and replacing deprecated method calls.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace deprecated `kotlinx-datetime` methods","href":"/user-documentation/recipes/recipe-catalog/jetbrains/kotlinx/replacedeprecatedkotlinxdatetime0methods/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]}>
 
 ## Definition
 

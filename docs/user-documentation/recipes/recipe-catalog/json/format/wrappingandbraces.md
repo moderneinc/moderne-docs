@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JSON new lines"}
-  description={"Split members into separate lines in JSON."}
   type={"Single recipe"}
   languages={["JSON"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-json"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.json.format.WrappingAndBraces"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/json/format/wrappingandbraces.md"}
-/>
+>
+
+<RecipeHeader.Title>JSON new lines</RecipeHeader.Title>
+
+<RecipeHeader.Description>Split members into separate lines in JSON.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"json","before":"{\"a\": 3,\"b\": 5}\n","after":"{\n\"a\": 3,\n\"b\": 5\n}\n","diff":"@@ -1,1 +1,4 @@\n-{\"a\": 3,\"b\": 5}\n+{\n+\"a\": 3,\n+\"b\": 5\n+}\n\n","newFile":false}]}]}>
 

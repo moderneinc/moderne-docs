@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Renamed dependencies"}
-  description={"Renamed dependencies."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel46.renamedDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel46/renameddependencies.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Maven dependency","href":"maven/changedependencygroupidandartifactid"},{"name":"Change Maven dependency","href":"maven/changedependencygroupidandartifactid"}]}>
+<RecipeHeader.Title>Renamed dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renamed dependencies.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencygroupidandartifactid/"},{"name":"Change Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencygroupidandartifactid/"}]}>
 
 ## Definition
 

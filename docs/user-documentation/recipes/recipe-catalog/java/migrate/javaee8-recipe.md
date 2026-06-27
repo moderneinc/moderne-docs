@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to JavaEE8"}
-  description={"These recipes help with the Migration to Java EE 8, flagging and updating deprecated methods."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["javaee8","deprecated"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javaee8"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javaee8-recipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Migrate to JavaEE7","href":"java/migrate/javaee7-recipe"},{"name":"Replace `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` with `isRequestedSessionIdFromURL()`","href":"java/migrate/javaee8/servletisrequestedsessionidfromurl"},{"name":"Flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references","href":"java/migrate/javaee8/apachedefaultprovider"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to JavaEE8</RecipeHeader.Title>
+
+<RecipeHeader.Description>These recipes help with the Migration to Java EE 8, flagging and updating deprecated methods.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Migrate to JavaEE7","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee7-recipe/"},{"name":"Replace `HttpServletRequestWrapper.isRequestedSessionIdFromUrl()` with `isRequestedSessionIdFromURL()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/servletisrequestedsessionidfromurl/"},{"name":"Flags any `org.apache.bval.jsr*` (bval 1.1) and `org.apache.bval.jsr303*` (bval 1.0) package references","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javaee8/apachedefaultprovider/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

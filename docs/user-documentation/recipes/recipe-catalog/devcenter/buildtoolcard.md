@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Build tool"}
-  description={"Track build tool versions across repositories."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.BuildToolCard"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/buildtoolcard.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Build tool</RecipeHeader.Title>
+
+<RecipeHeader.Description>Track build tool versions across repositories.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"cardName","required":true,"description":"The display name of the DevCenter card.","example":"Upgrade to Gradle 9"},{"type":"String","name":"buildTool","required":true,"description":"The build tool to track."},{"type":"String","name":"targetVersion","required":true,"description":"The target version of the build tool. Specify the version out to the desired patch version.","example":"9.0.0"},{"type":"String","name":"fixRecipeId","required":false,"description":"The recipe to use to upgrade the build tool.","example":"org.openrewrite.gradle.MigrateToGradle9"}]}>
 

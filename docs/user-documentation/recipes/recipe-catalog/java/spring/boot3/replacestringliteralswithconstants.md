@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace String literals with Spring constants"}
-  description={"Replace String literals with Spring constants where applicable."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","boot"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.ReplaceStringLiteralsWithConstants"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacestringliteralswithconstants.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace String literals with `HttpHeaders` constants","href":"java/spring/http/replacestringliteralswithhttpheadersconstants"},{"name":"Replace String literals with `MediaType` constants","href":"java/spring/http/replacestringliteralswithmediatypeconstants"},{"name":"Simplify unnecessary `MediaType.parseMediaType()` and `MediaType.valueOf()` calls","href":"java/spring/http/simplifymediatypeparsecalls"},{"name":"Simplify WebTestClient expressions","href":"java/spring/http/simplifywebtestclientcalls"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"},{"name":"Find annotations","href":"java/search/findannotations"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Replace String literals with Spring constants</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace String literals with Spring constants where applicable.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace String literals with `HttpHeaders` constants","href":"/user-documentation/recipes/recipe-catalog/java/spring/http/replacestringliteralswithhttpheadersconstants/"},{"name":"Replace String literals with `MediaType` constants","href":"/user-documentation/recipes/recipe-catalog/java/spring/http/replacestringliteralswithmediatypeconstants/"},{"name":"Simplify unnecessary `MediaType.parseMediaType()` and `MediaType.valueOf()` calls","href":"/user-documentation/recipes/recipe-catalog/java/spring/http/simplifymediatypeparsecalls/"},{"name":"Simplify WebTestClient expressions","href":"/user-documentation/recipes/recipe-catalog/java/spring/http/simplifywebtestclientcalls/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"},{"name":"Find annotations","href":"/user-documentation/recipes/recipe-catalog/java/search/findannotations/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

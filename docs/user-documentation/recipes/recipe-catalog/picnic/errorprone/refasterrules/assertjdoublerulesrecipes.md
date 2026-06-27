@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJDoubleRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `double`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJDoubleRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJDoubleRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdoublerulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsCloseToWithOffset`","href":"picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisclosetowithoffsetrecipe"},{"name":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsEqualTo`","href":"picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisequaltorecipe"},{"name":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsNotEqualTo`","href":"picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisnotequaltorecipe"},{"name":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsZero`","href":"picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertiszerorecipe"},{"name":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsNotZero`","href":"picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisnotzerorecipe"},{"name":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsOne`","href":"picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisonerecipe"}]}>
+<RecipeHeader.Title>`AssertJDoubleRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `double`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJDoubleRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsCloseToWithOffset`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisclosetowithoffsetrecipe/"},{"name":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisequaltorecipe/"},{"name":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisnotequaltorecipe/"},{"name":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertiszerorecipe/"},{"name":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsNotZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisnotzerorecipe/"},{"name":"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsOne`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjdoublerulesrecipes$abstractdoubleassertisonerecipe/"}]}>
 
 ## Definition
 

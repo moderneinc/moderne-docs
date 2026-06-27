@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from `oracle-xe` to `oracle-free`"}
-  description={"Oracle Database Free is the successor of Oracle XE. Migrate from `org.testcontainers:oracle-xe` to `org.testcontainers:oracle-free`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testcontainers.MigrateToOracleFree"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/migratetooraclefree.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace container image name","href":"java/testing/testcontainers/replacecontainerimagename"},{"name":"Change type","href":"java/changetype"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate from `oracle-xe` to `oracle-free`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Oracle Database Free is the successor of Oracle XE. Migrate from `org.testcontainers:oracle-xe` to `org.testcontainers:oracle-free`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace container image name","href":"/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/replacecontainerimagename/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

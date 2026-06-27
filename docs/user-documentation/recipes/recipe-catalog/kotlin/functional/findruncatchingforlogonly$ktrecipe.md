@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `runCatching { }.onFailure { log… }` chains with no further handling"}
-  description={"`runCatching { … }.onFailure { log.error(\"…\", it) }` — when nothing follows the `onFailure` — succeeds-on-error rather than just observing. Often fine, but worth a glance: usually the caller still needs to know success/failure happened (return the `Result`, or chain `.getOrElse { fallback }`)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindRunCatchingForLogOnly$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingforlogonly$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `runCatching { }.onFailure { log… }` chains with no further handling</RecipeHeader.Title>
+
+<RecipeHeader.Description>`runCatching { … }.onFailure { log.error("…", it) }` — when nothing follows the `onFailure` — succeeds-on-error rather than just observing. Often fine, but worth a glance: usually the caller still needs to know success/failure happened (return the `Result`, or chain `.getOrElse { fallback }`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindRunCatchingForLogOnly$KtRecipe","displayName":"Find `runCatching { }.onFailure { log… }` chains with no further handling","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

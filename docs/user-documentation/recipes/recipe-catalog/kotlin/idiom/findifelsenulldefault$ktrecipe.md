@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (cond) value else null` patterns"}
-  description={"`if (cond) value else null` is `value.takeIf { cond }` (when `value` doesn't depend on `cond`) — the extension makes the predicate's role visible at the call site."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindIfElseNullDefault$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifelsenulldefault$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (cond) value else null` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`if (cond) value else null` is `value.takeIf { cond }` (when `value` doesn't depend on `cond`) — the extension makes the predicate's role visible at the call site.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindIfElseNullDefault$KtRecipe","displayName":"Find `if (cond) value else null` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

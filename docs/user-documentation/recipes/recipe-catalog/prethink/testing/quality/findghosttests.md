@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find ghost tests"}
-  description={"Detect methods that look like tests but will not be executed by the test runner, and tests skipped without a documented reason."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindGhostTests"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findghosttests.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find ghost tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect methods that look like tests but will not be executed by the test runner, and tests skipped without a documented reason.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\npublic class MyTest {\n    public void testFoo() {\n        // this looks like a test but has no @Test annotation\n    }\n}\n"},"variants":[]}]}>
 

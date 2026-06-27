@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert Spring Web annotations to JAX-RS"}
-  description={"Converts Spring Web annotations such as `@RestController`, `@RequestMapping`, `@GetMapping`, etc., to their JAX-RS equivalents like `@Path`, `@GET`, etc."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.WebToJaxRs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/webtojaxrs.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert Spring Web annotations to JAX-RS</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts Spring Web annotations such as `@RestController`, `@RequestMapping`, `@GetMapping`, etc., to their JAX-RS equivalents like `@Path`, `@GET`, etc.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.web.bind.annotation.RestController;\nimport org.springframework.web.bind.annotation.GetMapping;\n\n@RestController\npublic class UserController {\n\n    @GetMapping(\"/users\")\n    public String getUsers() {\n        return \"users\";\n    }\n}\n","after":"import jakarta.ws.rs.GET;\nimport jakarta.ws.rs.Path;\n\n@Path(\"\")\npublic class UserController {\n\n    @GET\n    @Path(\"/users\")\n    public String getUsers() {\n        return \"users\";\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.springframework.web.bind.annotation.RestController;\n-import org.springframework.web.bind.annotation.GetMapping;\n+import jakarta.ws.rs.GET;\n+import jakarta.ws.rs.Path;\n\n@@ -4,1 +4,1 @@\nimport org.springframework.web.bind.annotation.GetMapping;\n\n-@RestController\n+@Path(\"\")\npublic class UserController {\n@@ -7,1 +7,2 @@\npublic class UserController {\n\n-   @GetMapping(\"/users\")\n+   @GET\n+   @Path(\"/users\")\n    public String getUsers() {\n","newFile":false}]}]}>
 

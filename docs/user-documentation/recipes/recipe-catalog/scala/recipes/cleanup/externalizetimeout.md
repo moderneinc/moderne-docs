@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Externalize hardcoded timeouts"}
-  description={"Finds hardcoded timeout values such as `Duration(5, ...)`, `5.seconds`, or `Timeout(...)` with numeric literals. Consider making timeouts configurable."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.ExternalizeTimeout"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/externalizetimeout.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Externalize hardcoded timeouts</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds hardcoded timeout values such as `Duration(5, ...)`, `5.seconds`, or `Timeout(...)` with numeric literals. Consider making timeouts configurable.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import scala.concurrent.duration._\nobject Config {\n  def timeout(): Unit = {\n    val t = Duration(5, \"seconds\")\n  }\n}\n","after":"import scala.concurrent.duration._\nobject Config {\n  /*~~(Hardcoded timeout; consider making configurable)~~>*/def timeout(): Unit = {\n    val t = Duration(5, \"seconds\")\n  }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport scala.concurrent.duration._\nobject Config {\n- def timeout(): Unit = {\n+ /*~~(Hardcoded timeout; consider making configurable)~~>*/def timeout(): Unit = {\n    val t = Duration(5, \"seconds\")\n","newFile":false}]}]}>
 

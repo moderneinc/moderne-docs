@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Transfer @JsonSerialize arguments from Codehaus to FasterXML"}
-  description={"Transfer @JsonSerialize annotation arguments (using, contentUsing, keyUsing, nullUsing) from Codehaus to FasterXML. If the argument was set already, it will not be transferred."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.codehaus.TransferJsonSerializeArgumentsFromCodehausToFasterXML"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/codehaus/transferjsonserializeargumentsfromcodehaustofasterxml.md"}
-/>
+>
+
+<RecipeHeader.Title>Transfer @JsonSerialize arguments from Codehaus to FasterXML</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transfer @JsonSerialize annotation arguments (using, contentUsing, keyUsing, nullUsing) from Codehaus to FasterXML. If the argument was set already, it will not be transferred.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.jackson.codehaus.TransferJsonSerializeArgumentsFromCodehausToFasterXML","displayName":"Transfer @JsonSerialize arguments from Codehaus to FasterXML","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
 

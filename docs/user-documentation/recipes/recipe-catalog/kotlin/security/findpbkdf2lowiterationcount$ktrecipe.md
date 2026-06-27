@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `PBEKeySpec(..., iterations, ...)` with low iteration counts"}
-  description={"OWASP's PBKDF2 guidance (2023) recommends 600,000 iterations for SHA-256, 210,000 for SHA-512. Counts below 10,000 leak passwords to cheap GPU brute force."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindPbkdf2LowIterationCount$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findpbkdf2lowiterationcount$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `PBEKeySpec(..., iterations, ...)` with low iteration counts</RecipeHeader.Title>
+
+<RecipeHeader.Description>OWASP's PBKDF2 guidance (2023) recommends 600,000 iterations for SHA-256, 210,000 for SHA-512. Counts below 10,000 leak passwords to cheap GPU brute force.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindPbkdf2LowIterationCount$KtRecipe","displayName":"Find `PBEKeySpec(..., iterations, ...)` with low iteration counts","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

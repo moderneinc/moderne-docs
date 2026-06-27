@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `timers.active()` and `timers._unrefActive()` usage"}
-  description={"`timers.active()` (DEP0126) and `timers._unrefActive()` (DEP0127) were deprecated and removed in Node.js 24. Use `timeout.refresh()` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0126","DEP0127"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.timers.find-timers-active"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/timers/find-timers-active.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated `timers.active()` and `timers._unrefActive()` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>`timers.active()` (DEP0126) and `timers._unrefActive()` (DEP0127) were deprecated and removed in Node.js 24. Use `timeout.refresh()` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.timers.find-timers-active","displayName":"Find deprecated `timers.active()` and `timers._unrefActive()` usage","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

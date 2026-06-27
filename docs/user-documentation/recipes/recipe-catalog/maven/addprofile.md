@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Maven profile"}
-  description={"Add a maven profile to a `pom.xml` file."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.AddProfile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/addprofile.md"}
-/>
+>
+
+<RecipeHeader.Title>Add Maven profile</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a maven profile to a `pom.xml` file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"id","required":true,"description":"The profile id.","example":"default"},{"type":"String","name":"activation","required":false,"description":"activation details of a maven profile, provided as raw XML.","example":"<activation><foo>foo</foo></activation>"},{"type":"String","name":"properties","required":false,"description":"properties of a maven profile, provided as raw XML.","example":"<properties><foo>foo</foo><bar>bar</bar></properties>"},{"type":"String","name":"build","required":false,"description":"build details of a maven profile, provided as raw XML.","example":"<build><foo>foo</foo></build>"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify boolean literal comparisons"}
-  description={"Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={["python","code-quality","RSPEC-S1125"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.codequality.SimplifyBooleanLiteral"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/codequality/simplifybooleanliteral.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify boolean literal comparisons</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace comparisons against boolean literals (`== True`, `!= False`, `is True`, etc.) with the simpler equivalent boolean expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.codequality.SimplifyBooleanLiteral","displayName":"Simplify boolean literal comparisons","pipPackage":"openrewrite-migrate-python"}}>
 

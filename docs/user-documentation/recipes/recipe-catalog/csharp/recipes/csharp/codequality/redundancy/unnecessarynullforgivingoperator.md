@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary null-forgiving operator"}
-  description={"Remove ! operator where expression is already non-nullable."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UnnecessaryNullForgivingOperator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/unnecessarynullforgivingoperator.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary null-forgiving operator</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove ! operator where expression is already non-nullable.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UnnecessaryNullForgivingOperator","displayName":"Remove unnecessary null-forgiving operator","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

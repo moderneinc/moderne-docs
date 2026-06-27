@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate antPathRequestMatcher to pathPatternRequestMatcher"}
-  description={"In Spring Security 6.5, `AntPathRequestMatcher` is deprecated in favor of `PathPatternRequestMatcher`. This recipe migrates static method calls and constructor usage to the new pattern in both Java and Kotlin sources."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.security6.MigrateAntPathRequestMatcher"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/migrateantpathrequestmatcher.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate antPathRequestMatcher to pathPatternRequestMatcher</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Security 6.5, `AntPathRequestMatcher` is deprecated in favor of `PathPatternRequestMatcher`. This recipe migrates static method calls and constructor usage to the new pattern in both Java and Kotlin sources.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\nimport org.springframework.security.web.util.matcher.AntPathRequestMatcher;\n\nclass SecurityConfig {\n    SecurityFilterChain createFrom(HttpSecurity httpSecurity) throws Exception {\n        httpSecurity\n            .authorizeHttpRequests(req ->\n                req.requestMatchers(AntPathRequestMatcher.antMatcher(\"/images/**\")).permitAll());\n        return httpSecurity.build();\n    }\n}\n","after":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\nimport org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;\n\nclass SecurityConfig {\n    SecurityFilterChain createFrom(HttpSecurity httpSecurity) throws Exception {\n        httpSecurity\n            .authorizeHttpRequests(req ->\n                req.requestMatchers(PathPatternRequestMatcher.withDefaults().matcher(\"/images/**\")).permitAll());\n        return httpSecurity.build();\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\n-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;\n+import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;\n\n@@ -9,1 +9,1 @@\n        httpSecurity\n            .authorizeHttpRequests(req ->\n-               req.requestMatchers(AntPathRequestMatcher.antMatcher(\"/images/**\")).permitAll());\n+               req.requestMatchers(PathPatternRequestMatcher.withDefaults().matcher(\"/images/**\")).permitAll());\n        return httpSecurity.build();\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `File.readText()` calls"}
-  description={"Each `File.readText` call reads bytes off the filesystem — a trust-boundary position where the file's content becomes program data. Useful as an individual read seed for path-traversal or cold-path latency analysis."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindFileReadText$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findfilereadtext$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `File.readText()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `File.readText` call reads bytes off the filesystem — a trust-boundary position where the file's content becomes program data. Useful as an individual read seed for path-traversal or cold-path latency analysis.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindFileReadText$KtRecipe","displayName":"Find `File.readText()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

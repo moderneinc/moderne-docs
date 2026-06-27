@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJMapRules.AssertThatMapContainsOnlyKeys`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatMapContainsOnlyKeys<K, V> {\n    \n    @BeforeTemplate\n    AbstractCollectionAssert<?, Collection<? extends K>, K, ?> before(Map<K, V> map, Iterable<? extends K> keys) {\n        return assertThat(map.keySet()).hasSameElementsAs(keys);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    MapAssert<K, V> after(Map<K, V> map, Iterable<? extends K> keys) {\n        return assertThat(map).containsOnlyKeys(keys);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AssertThatMapContainsOnlyKeysRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapcontainsonlykeysrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJMapRules.AssertThatMapContainsOnlyKeys`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatMapContainsOnlyKeys<K, V> {
+    
+    @BeforeTemplate
+    AbstractCollectionAssert<?, Collection<? extends K>, K, ?> before(Map<K, V> map, Iterable<? extends K> keys) {
+        return assertThat(map.keySet()).hasSameElementsAs(keys);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    MapAssert<K, V> after(Map<K, V> map, Iterable<? extends K> keys) {
+        return assertThat(map).containsOnlyKeys(keys);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes$AssertThatMapContainsOnlyKeysRecipe","displayName":"Refaster template `AssertJMapRules.AssertThatMapContainsOnlyKeys`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

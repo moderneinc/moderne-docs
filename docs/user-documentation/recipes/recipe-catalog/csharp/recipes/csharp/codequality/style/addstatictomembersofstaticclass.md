@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add static modifier to all members of static class"}
-  description={"Ensure all members of a static class are also declared static."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.AddStaticToMembersOfStaticClass"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/addstatictomembersofstaticclass.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add static modifier to all members of static class</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure all members of a static class are also declared static.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.AddStaticToMembersOfStaticClass","displayName":"Add static modifier to all members of static class","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

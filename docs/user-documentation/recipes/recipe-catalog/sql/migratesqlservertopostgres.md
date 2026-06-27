@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate SQL Server to PostgreSQL"}
-  description={"Converts Microsoft SQL Server-specific SQL syntax and functions to PostgreSQL equivalents."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["sqlserver","postgresql","migration","mssql","sql"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.sql.MigrateSqlServerToPostgres"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/sql/migratesqlservertopostgres.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Convert SQL Server functions to PostgreSQL","href":"sql/convertsqlserverfunctionstopostgres"},{"name":"Convert SQL Server data types to PostgreSQL","href":"sql/convertsqlserverdatatypestopostgres"},{"name":"Format SQL in string text blocks","href":"sql/formatsql"}]}>
+<RecipeHeader.Title>Migrate SQL Server to PostgreSQL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts Microsoft SQL Server-specific SQL syntax and functions to PostgreSQL equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Convert SQL Server functions to PostgreSQL","href":"/user-documentation/recipes/recipe-catalog/sql/convertsqlserverfunctionstopostgres/"},{"name":"Convert SQL Server data types to PostgreSQL","href":"/user-documentation/recipes/recipe-catalog/sql/convertsqlserverdatatypestopostgres/"},{"name":"Format SQL in string text blocks","href":"/user-documentation/recipes/recipe-catalog/sql/formatsql/"}]}>
 
 ## Definition
 

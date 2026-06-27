@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"URIs created with an HTTP scheme"}
-  description={"This is a sample recipe demonstrating a simple application of local data flow analysis."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.meta:rewrite-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.search.UriCreatedWithHttpScheme"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/search/uricreatedwithhttpscheme.md"}
-/>
+>
+
+<RecipeHeader.Title>URIs created with an HTTP scheme</RecipeHeader.Title>
+
+<RecipeHeader.Description>This is a sample recipe demonstrating a simple application of local data flow analysis.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.net.URI;\nclass Test {\n    void test() {\n        String s = \"http://test\";\n        String t = s;\n        if(System.currentTimeMillis() > 0) {\n            System.out.println(URI.create(t));\n        } else {\n            System.out.println(URI.create(t));\n        }\n    }\n}\n","after":"import java.net.URI;\nclass Test {\n    void test() {\n        String s = \"https://test\";\n        String t = s;\n        if(System.currentTimeMillis() > 0) {\n            System.out.println(URI.create(t));\n        } else {\n            System.out.println(URI.create(t));\n        }\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\nclass Test {\n    void test() {\n-       String s = \"http://test\";\n+       String s = \"https://test\";\n        String t = s;\n","newFile":false}]}]}>
 

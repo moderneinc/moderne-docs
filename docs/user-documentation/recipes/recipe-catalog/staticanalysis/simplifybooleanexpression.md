@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify boolean expression"}
-  description={"Checks for overly complicated boolean expressions, such as `if (b == true)`, `b || true`, `!false`, etc. Needlessly complex boolean logic makes code harder to reason about and increases the chance of introducing errors during future modifications."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1125"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SimplifyBooleanExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/simplifybooleanexpression.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify boolean expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>Checks for overly complicated boolean expressions, such as `if (b == true)`, `b || true`, `!false`, etc. Needlessly complex boolean logic makes code harder to reason about and increases the chance of introducing errors during future modifications.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"kotlin","code":"fun getSymbol() : String? {\n    return null\n}\n"},"variants":[{"language":"kotlin","before":"val isPositive = getSymbol().equals(\"+\") == true\n","after":"val isPositive = getSymbol().equals(\"+\")\n","diff":"@@ -1,1 +1,1 @@\n-val isPositive = getSymbol().equals(\"+\") == true\n+val isPositive = getSymbol().equals(\"+\")\n\n","newFile":false}]},{"variants":[{"language":"java","before":"public class A {\n    boolean a;\n    {\n        if(true == a) {\n        }\n    }\n}\n","after":"public class A {\n    boolean a;\n    {\n        if(a) {\n        }\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\n    boolean a;\n    {\n-       if(true == a) {\n+       if(a) {\n        }\n","newFile":false}]}]}>
 

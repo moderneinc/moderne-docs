@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find manual credentials instead of trusted publishing"}
-  description={"Find workflows that use manual credentials for publishing instead of OIDC trusted publishing. Trusted publishing eliminates the need for long-lived API tokens and provides better security through short-lived, automatically-rotated tokens. Based on [zizmor's use-trusted-publishing audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/use_trusted_publishing.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.TrustedPublishing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/trustedpublishing.md"}
-/>
+>
+
+<RecipeHeader.Title>Find manual credentials instead of trusted publishing</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find workflows that use manual credentials for publishing instead of OIDC trusted publishing. Trusted publishing eliminates the need for long-lived API tokens and provides better security through short-lived, automatically-rotated tokens. Based on [zizmor's use-trusted-publishing audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/use_trusted_publishing.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Publish to PyPI\non: push\njobs:\n  publish:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: pypa/gh-action-pypi-publish@v1.5.0\n        with:\n          password: ${{ secrets.PYPI_API_TOKEN }}\n          repository-url: https://upload.pypi.org/legacy/\n","after":"name: Publish to PyPI\non: push\njobs:\n  publish:\n    runs-on: ubuntu-latest\n    steps:\n      - ~~(Uses manual credentials instead of trusted publishing. Consider using OIDC trusted publishing for better security.)~~>uses: pypa/gh-action-pypi-publish@v1.5.0\n        with:\n          ~~(Manual credential used here)~~>password: ${{ secrets.PYPI_API_TOKEN }}\n          repository-url: https://upload.pypi.org/legacy/\n","diff":"--- .github/workflows/publish.yml\n+++ .github/workflows/publish.yml\n@@ -7,1 +7,1 @@\n    runs-on: ubuntu-latest\n    steps:\n-     - uses: pypa/gh-action-pypi-publish@v1.5.0\n+     - ~~(Uses manual credentials instead of trusted publishing. Consider using OIDC trusted publishing for better security.)~~>uses: pypa/gh-action-pypi-publish@v1.5.0\n        with:\n@@ -9,1 +9,1 @@\n      - uses: pypa/gh-action-pypi-publish@v1.5.0\n        with:\n-         password: ${{ secrets.PYPI_API_TOKEN }}\n+         ~~(Manual credential used here)~~>password: ${{ secrets.PYPI_API_TOKEN }}\n          repository-url: https://upload.pypi.org/legacy/\n","newFile":false}]}]}>
 

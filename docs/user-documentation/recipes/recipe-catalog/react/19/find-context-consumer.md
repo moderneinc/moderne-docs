@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Context.Consumer` usage"}
-  description={"Finds usage of the deprecated `<Context.Consumer>` pattern. In React 19, use the `use()` hook instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.find-context-consumer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/find-context-consumer.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Context.Consumer` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usage of the deprecated `<Context.Consumer>` pattern. In React 19, use the `use()` hook instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.19.find-context-consumer","displayName":"Find `Context.Consumer` usage","npmPackage":"@openrewrite/recipes-react"}}>
 

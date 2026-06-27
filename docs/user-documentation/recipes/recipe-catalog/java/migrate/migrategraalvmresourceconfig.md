@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate GraalVM resource-config.json to glob patterns"}
-  description={"Migrates GraalVM native-image resource-config.json files from the legacy regex pattern format (JDK 21 and earlier) to the new glob pattern format (JDK 23+). Converts `pattern` entries to `glob` entries and restructures the format. Note: `excludes` are no longer supported in the new format and will be removed."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.MigrateGraalVMResourceConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/migrategraalvmresourceconfig.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate GraalVM resource-config.json to glob patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates GraalVM native-image resource-config.json files from the legacy regex pattern format (JDK 21 and earlier) to the new glob pattern format (JDK 23+). Converts `pattern` entries to `glob` entries and restructures the format. Note: `excludes` are no longer supported in the new format and will be removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"json","before":"{\n  \"resources\": {\n    \"includes\": [\n      {\"pattern\": \".*\\\\.txt\"},\n      {\"pattern\": \"META-INF/.*\"}\n    ]\n  }\n}\n","after":"{\n  \"resources\": [\n      {\"glob\": \"**/*.txt\"},\n      {\"glob\": \"META-INF/**\"}\n    ]\n}\n","diff":"--- META-INF/native-image/resource-config.json\n+++ META-INF/native-image/resource-config.json\n@@ -2,4 +2,3 @@\n{\n- \"resources\": {\n-   \"includes\": [\n-     {\"pattern\": \".*\\\\.txt\"},\n-     {\"pattern\": \"META-INF/.*\"}\n+ \"resources\": [\n+     {\"glob\": \"**/*.txt\"},\n+     {\"glob\": \"META-INF/**\"}\n    ]\n@@ -7,1 +6,0 @@\n      {\"pattern\": \"META-INF/.*\"}\n    ]\n- }\n}\n","newFile":false}]}]}>
 

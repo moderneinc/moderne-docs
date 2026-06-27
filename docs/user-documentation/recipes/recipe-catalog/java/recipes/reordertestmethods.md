@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Show `@DocumentExample`s first"}
-  description={"Reorders `RewriteTest` methods to place `defaults` first, followed by any `@DocumentExample`s."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.ReorderTestMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/reordertestmethods.md"}
-/>
+>
+
+<RecipeHeader.Title>Show `@DocumentExample`s first</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reorders `RewriteTest` methods to place `defaults` first, followed by any `@DocumentExample`s.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.java.cleanup;\n\nimport org.junit.jupiter.api.AfterEach;\nimport org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\nimport org.openrewrite.DocumentExample;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.test.RecipeSpec;\nimport org.openrewrite.test.RewriteTest;\n\nimport static org.openrewrite.java.Assertions.java;\n\nclass UnnecessaryParenthesesTest implements RewriteTest {\n\n    private static void leadingHelperMethod() {\n        // This method should not affect the ordering of test methods.\n    }\n\n    @Test\n    void test2() {\n        rewriteRun(\n          java(\n            \"\"\"\n              BEFORE\n              \"\"\",\n            \"\"\"\n              AFTER\n              \"\"\"\n          )\n        );\n    }\n\n    @Override\n    public void defaults(RecipeSpec spec) {\n        spec.recipe(Recipe.noop());\n    }\n\n    @BeforeEach void foo(){}\n\n    @AfterEach void bar(){}\n\n    @DocumentExample\n    @Test\n    void test1() {\n        rewriteRun(\n          java(\n            \"\"\"\n              BEFORE\n              \"\"\",\n            \"\"\"\n              AFTER\n              \"\"\"\n          )\n        );\n    }\n\n    private static void trailingHelperMethod() {\n        // This method should not affect the ordering of test methods.\n    }\n}\n","after":"package org.openrewrite.java.cleanup;\n\nimport org.junit.jupiter.api.AfterEach;\nimport org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\nimport org.openrewrite.DocumentExample;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.test.RecipeSpec;\nimport org.openrewrite.test.RewriteTest;\n\nimport static org.openrewrite.java.Assertions.java;\n\nclass UnnecessaryParenthesesTest implements RewriteTest {\n\n    private static void leadingHelperMethod() {\n        // This method should not affect the ordering of test methods.\n    }\n\n    @BeforeEach void foo(){}\n\n    @AfterEach void bar(){}\n\n    @Override\n    public void defaults(RecipeSpec spec) {\n        spec.recipe(Recipe.noop());\n    }\n\n    @DocumentExample\n    @Test\n    void test1() {\n        rewriteRun(\n          java(\n            \"\"\"\n              BEFORE\n              \"\"\",\n            \"\"\"\n              AFTER\n              \"\"\"\n          )\n        );\n    }\n\n    @Test\n    void test2() {\n        rewriteRun(\n          java(\n            \"\"\"\n              BEFORE\n              \"\"\",\n            \"\"\"\n              AFTER\n              \"\"\"\n          )\n        );\n    }\n\n    private static void trailingHelperMethod() {\n        // This method should not affect the ordering of test methods.\n    }\n}\n","diff":"@@ -19,0 +19,10 @@\n    }\n\n+   @BeforeEach void foo(){}\n+\n+   @AfterEach void bar(){}\n+\n+   @Override\n+   public void defaults(RecipeSpec spec) {\n+       spec.recipe(Recipe.noop());\n+   }\n+\n+   @DocumentExample\n    @Test\n@@ -20,1 +30,1 @@\n\n    @Test\n-   void test2() {\n+   void test1() {\n        rewriteRun(\n@@ -33,10 +43,0 @@\n    }\n\n-   @Override\n-   public void defaults(RecipeSpec spec) {\n-       spec.recipe(Recipe.noop());\n-   }\n-\n-   @BeforeEach void foo(){}\n-\n-   @AfterEach void bar(){}\n-\n-   @DocumentExample\n    @Test\n@@ -44,1 +44,1 @@\n    @DocumentExample\n    @Test\n-   void test1() {\n+   void test2() {\n        rewriteRun(\n","newFile":false}]}]}>
 

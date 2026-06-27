@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Log4j 2.x `Logger.isEnabled(Level.TRACE)` with SLF4J's `Logger.isTraceEnabled()`"}
-  description={"Replace calls to `org.apache.logging.log4j.Logger.isEnabled(Level.TRACE)` (or `Level.ALL`) with `org.slf4j.Logger.isTraceEnabled()`, since SLF4J has no `ALL` level."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.Log4j2IsEnabledToSlf4jRecipes$LoggerIsEnabledLevelTraceRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledleveltracerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace Log4j 2.x `Logger.isEnabled(Level.TRACE)` with SLF4J's `Logger.isTraceEnabled()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace calls to `org.apache.logging.log4j.Logger.isEnabled(Level.TRACE)` (or `Level.ALL`) with `org.slf4j.Logger.isTraceEnabled()`, since SLF4J has no `ALL` level.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.logging.slf4j.Log4j2IsEnabledToSlf4jRecipes$LoggerIsEnabledLevelTraceRecipe","displayName":"Replace Log4j 2.x `Logger.isEnabled(Level.TRACE)` with SLF4J's `Logger.isTraceEnabled()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 

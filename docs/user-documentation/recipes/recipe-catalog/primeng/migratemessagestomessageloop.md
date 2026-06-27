@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `<p-messages>` to `<p-message>` with `@for` loop"}
-  description={"Rewrites `<p-messages [value]=\"expr\">…</p-messages>` to `@for (msg of expr; track msg) { <p-message [severity]=\"msg.severity\" [text]=\"msg.detail\"></p-message> }`. The `Messages` component was removed in PrimeNG 18 in favor of looping over the new `Message` component. Each rewritten site is recorded in the `ManualMigrationSteps` data table for follow-up review."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.MigrateMessagesToMessageLoop"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/migratemessagestomessageloop.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `<p-messages>` to `<p-message>` with `@for` loop</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rewrites `<p-messages [value]="expr">…</p-messages>` to `@for (msg of expr; track msg) { <p-message [severity]="msg.severity" [text]="msg.detail"></p-message> }`. The `Messages` component was removed in PrimeNG 18 in favor of looping over the new `Message` component. Each rewritten site is recorded in the `ManualMigrationSteps` data table for follow-up review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.primeng.MigrateMessagesToMessageLoop","displayName":"Migrate `<p-messages>` to `<p-message>` with `@for` loop","npmPackage":"@openrewrite/recipes-angular"}}>
 

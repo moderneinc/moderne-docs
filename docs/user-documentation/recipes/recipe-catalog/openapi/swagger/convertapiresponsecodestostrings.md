@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert API response codes to strings"}
-  description={"Convert API response codes to strings. Handles literal integers, local constant references, and external constant field accesses."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.ConvertApiResponseCodesToStrings"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/convertapiresponsecodestostrings.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert API response codes to strings</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert API response codes to strings. Handles literal integers, local constant references, and external constant field accesses.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import io.swagger.v3.oas.annotations.responses.ApiResponse;\nimport org.springframework.http.ResponseEntity;\n\nclass A {\n    @ApiResponse(responseCode = 200, description = \"OK\")\n    ResponseEntity<User> method() { return null; }\n}\n","after":"import io.swagger.v3.oas.annotations.responses.ApiResponse;\nimport org.springframework.http.ResponseEntity;\n\nclass A {\n    @ApiResponse(responseCode = \"200\", description = \"OK\")\n    ResponseEntity<User> method() { return null; }\n}\n","diff":"@@ -5,1 +5,1 @@\n\nclass A {\n-   @ApiResponse(responseCode = 200, description = \"OK\")\n+   @ApiResponse(responseCode = \"200\", description = \"OK\")\n    ResponseEntity<User> method() { return null; }\n","newFile":false}]}]}>
 

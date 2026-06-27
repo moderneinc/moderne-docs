@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Java 8"}
-  description={"This recipe will apply changes commonly needed when upgrading to Java 8. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java8"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeToJava8"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava8.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Java 7","href":"java/migrate/upgradetojava7"},{"name":"Upgrade Java version","href":"java/migrate/upgradejavaversion"},{"name":"MBean and MXBean interfaces must be public","href":"java/migrate/mxbeanrule"},{"name":"Migrate Bouncy Castle to `jdk18on`","href":"java/migrate/bouncecastlefromjdk15ontojdk18on"},{"name":"Remove method invocations","href":"java/removemethodinvocations"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Java 8</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when upgrading to Java 8. This recipe will also replace deprecated API with equivalents when there is a clear migration strategy.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Java 7","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava7/"},{"name":"Upgrade Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion/"},{"name":"MBean and MXBean interfaces must be public","href":"/user-documentation/recipes/recipe-catalog/java/migrate/mxbeanrule/"},{"name":"Migrate Bouncy Castle to `jdk18on`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/bouncecastlefromjdk15ontojdk18on/"},{"name":"Remove method invocations","href":"/user-documentation/recipes/recipe-catalog/java/removemethodinvocations/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

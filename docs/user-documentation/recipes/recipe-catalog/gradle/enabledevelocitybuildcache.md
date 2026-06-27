@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enable Develocity build cache"}
-  description={"Adds `buildCache` configuration to `develocity` where not yet present."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.EnableDevelocityBuildCache"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/enabledevelocitybuildcache.md"}
-/>
+>
+
+<RecipeHeader.Title>Enable Develocity build cache</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `buildCache` configuration to `develocity` where not yet present.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"remoteEnabled","required":false,"description":"Value for `//develocity/buildCache/remote/enabled`.","example":"true"},{"type":"String","name":"remotePushEnabled","required":false,"description":"Value for `//develocity/buildCache/remote/storeEnabled`.","example":"System.getenv(\"CI\") != null"}]}>
 

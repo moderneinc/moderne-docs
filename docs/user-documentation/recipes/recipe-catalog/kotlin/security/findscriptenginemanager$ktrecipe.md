@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `ScriptEngineManager.getEngineByName(...)` calls"}
-  description={"Constructing a `ScriptEngine` at all is usually a smell — once present, the engine is one `eval(...)` away from a remote-code-execution finding. Confirm the engine is loaded from a trusted source and the inputs it receives are not user-controlled."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindScriptEngineManager$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findscriptenginemanager$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `ScriptEngineManager.getEngineByName(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Constructing a `ScriptEngine` at all is usually a smell — once present, the engine is one `eval(...)` away from a remote-code-execution finding. Confirm the engine is loaded from a trusted source and the inputs it receives are not user-controlled.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindScriptEngineManager$KtRecipe","displayName":"Find `ScriptEngineManager.getEngineByName(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

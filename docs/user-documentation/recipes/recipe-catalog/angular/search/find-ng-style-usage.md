@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `NgStyle` usage"}
-  description={"Finds imports of `NgStyle` from `@angular/common`. The `ngStyle` directive is soft deprecated in Angular 21 in favor of native `[style.*]` bindings."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-ng-style-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-ng-style-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `NgStyle` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds imports of `NgStyle` from `@angular/common`. The `ngStyle` directive is soft deprecated in Angular 21 in favor of native `[style.*]` bindings.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-ng-style-usage","displayName":"Find `NgStyle` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

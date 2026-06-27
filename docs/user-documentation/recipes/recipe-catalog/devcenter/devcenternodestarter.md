@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"DevCenter for Node.js"}
-  description={"A default DevCenter configuration for Node.js repositories. Track Node.js version adoption across your organization."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.DevCenterNodeStarter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/devcenternodestarter.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Move to a later Node.js version","href":"devcenter/nodeversionupgrade"},{"name":"Find organization statistics","href":"devcenter/findorganizationstatistics"},{"name":"Find committers on repositories","href":"search/findcommitters"}]}>
+<RecipeHeader.Title>DevCenter for Node.js</RecipeHeader.Title>
+
+<RecipeHeader.Description>A default DevCenter configuration for Node.js repositories. Track Node.js version adoption across your organization.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Move to a later Node.js version","href":"/user-documentation/recipes/recipe-catalog/devcenter/nodeversionupgrade/"},{"name":"Find organization statistics","href":"/user-documentation/recipes/recipe-catalog/devcenter/findorganizationstatistics/"},{"name":"Find committers on repositories","href":"/user-documentation/recipes/recipe-catalog/search/findcommitters/"}]}>
 
 ## Definition
 

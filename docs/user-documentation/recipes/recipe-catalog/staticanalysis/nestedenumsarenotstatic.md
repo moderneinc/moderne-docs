@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Nested enums are not static"}
-  description={"Remove static modifier from nested enum types since they are implicitly static. The redundant modifier adds visual noise and may mislead readers into thinking there is a non-static alternative."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2786"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.NestedEnumsAreNotStatic"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/nestedenumsarenotstatic.md"}
-/>
+>
+
+<RecipeHeader.Title>Nested enums are not static</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove static modifier from nested enum types since they are implicitly static. The redundant modifier adds visual noise and may mislead readers into thinking there is a non-static alternative.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n\n    static enum ABC {\n        A, B, C\n    }\n\n    private static enum DEF {\n        D, E, F\n    }\n}\n","after":"class A {\n\n    enum ABC {\n        A, B, C\n    }\n\n    private enum DEF {\n        D, E, F\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n\n-   static enum ABC {\n+   enum ABC {\n        A, B, C\n@@ -7,1 +7,1 @@\n    }\n\n-   private static enum DEF {\n+   private enum DEF {\n        D, E, F\n","newFile":false}]}]}>
 

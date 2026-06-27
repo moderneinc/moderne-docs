@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Node.js fragile test data"}
-  description={"Detect hardcoded dates, timing-dependent assertions, and hardcoded ports in JavaScript and TypeScript test files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindNodeFragileTestData"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodefragiletestdata.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Node.js fragile test data</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect hardcoded dates, timing-dependent assertions, and hardcoded ports in JavaScript and TypeScript test files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"javascript","code":"const deadline = new Date(\"2023-06-15T00:00:00Z\");\nexpect(deadline.getFullYear()).toBe(2023);\n"},"variants":[]}]}>
 

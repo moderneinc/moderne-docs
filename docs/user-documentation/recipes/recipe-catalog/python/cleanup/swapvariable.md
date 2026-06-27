@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify temp-variable swap to tuple unpacking"}
-  description={"Detect the three-line swap idiom (`tmp = x; x = y; y = tmp`) and condense it into `x, y = y, x` using tuple unpacking."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SwapVariable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/swapvariable.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify temp-variable swap to tuple unpacking</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect the three-line swap idiom (`tmp = x; x = y; y = tmp`) and condense it into `x, y = y, x` using tuple unpacking.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SwapVariable","displayName":"Simplify temp-variable swap to tuple unpacking","pipPackage":"openrewrite-static-analysis"}}>
 

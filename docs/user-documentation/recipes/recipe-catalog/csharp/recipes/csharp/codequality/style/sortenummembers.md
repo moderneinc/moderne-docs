@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Sort enum members"}
-  description={"Sort enum members by their resolved constant value."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.SortEnumMembers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/sortenummembers.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Sort enum members</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sort enum members by their resolved constant value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.SortEnumMembers","displayName":"Sort enum members","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

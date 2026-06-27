@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Go HTTP clients"}
-  description={"Detect outbound HTTP calls made through net/http, resty, go-retryablehttp, or imroc/req."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindGoHttpClients"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findgohttpclients.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Go HTTP clients</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect outbound HTTP calls made through net/http, resty, go-retryablehttp, or imroc/req.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindGoHttpClients","displayName":"Find Go HTTP clients","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary Spring `@RunWith`"}
-  description={"Remove `@RunWith` annotations on Spring tests."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.UnnecessarySpringRunWith"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/unnecessaryspringrunwith.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`","href":"java/testing/junit5/runnertoextension"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove unnecessary Spring `@RunWith`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `@RunWith` annotations on Spring tests.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/runnertoextension/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

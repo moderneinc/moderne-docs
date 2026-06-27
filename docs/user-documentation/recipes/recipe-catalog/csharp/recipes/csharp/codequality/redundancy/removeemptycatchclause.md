@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find empty catch clause"}
-  description={"Find empty catch clauses that silently swallow exceptions without any logging or handling."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEmptyCatchClause"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeemptycatchclause.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find empty catch clause</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find empty catch clauses that silently swallow exceptions without any logging or handling.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEmptyCatchClause","displayName":"Find empty catch clause","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"ScoreManager: explain(), update()"}
-  description={"Use `explain()` and `update()` instead of `explainScore()`, `updateScore()` and `getSummary()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/ai.timefold.solver.migration.v8.ScoreManagerMethodsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/timefold/solver/migration/v8/scoremanagermethodsrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>ScoreManager: explain(), update()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `explain()` and `update()` instead of `explainScore()`, `updateScore()` and `getSummary()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"ai.timefold.solver.migration.v8.ScoreManagerMethodsRecipe","displayName":"ScoreManager: explain(), update()","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

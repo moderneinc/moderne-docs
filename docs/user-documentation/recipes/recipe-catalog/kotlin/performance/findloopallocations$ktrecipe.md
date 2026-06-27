@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find collection construction inside loops"}
-  description={"Flags `listOf` / `mutableListOf` / `mutableMapOf` calls that allocate a fresh collection on every loop iteration. Hoist constants or `clear()`-and-reuse a single instance."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindLoopAllocations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findloopallocations$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `listOf(...)` calls inside loops","href":"kotlin/performance/findlistofinloops$ktrecipe"},{"name":"Find `mutableListOf<T>()` allocations inside loops","href":"kotlin/performance/findmutablelistofinloops$ktrecipe"},{"name":"Find `mutableMapOf<K, V>()` allocations inside loops","href":"kotlin/performance/findmutablemapofinloops$ktrecipe"}]}>
+<RecipeHeader.Title>Find collection construction inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flags `listOf` / `mutableListOf` / `mutableMapOf` calls that allocate a fresh collection on every loop iteration. Hoist constants or `clear()`-and-reuse a single instance.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `listOf(...)` calls inside loops","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findlistofinloops$ktrecipe/"},{"name":"Find `mutableListOf<T>()` allocations inside loops","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findmutablelistofinloops$ktrecipe/"},{"name":"Find `mutableMapOf<K, V>()` allocations inside loops","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findmutablemapofinloops$ktrecipe/"}]}>
 
 ## Definition
 

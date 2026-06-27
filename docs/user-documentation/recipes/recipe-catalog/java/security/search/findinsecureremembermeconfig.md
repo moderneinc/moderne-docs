@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find insecure Spring Security RememberMe configuration"}
-  description={"Finds Spring Security RememberMe configurations with insecure settings: `useSecureCookie(false)` (allows cookie transmission over HTTP), `alwaysRemember(true)` (bypasses user opt-in), or `tokenValiditySeconds(...)` set longer than 30 days (extends the window in which a stolen remember-me cookie can be replayed)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["security","CWE-539","CWE-384"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindInsecureRememberMeConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findinsecureremembermeconfig.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find insecure Spring Security RememberMe configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds Spring Security RememberMe configurations with insecure settings: `useSecureCookie(false)` (allows cookie transmission over HTTP), `alwaysRemember(true)` (bypasses user opt-in), or `tokenValiditySeconds(...)` set longer than 30 days (extends the window in which a stolen remember-me cookie can be replayed).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\n\nclass SecurityConfig {\n    void configure(HttpSecurity http) throws Exception {\n        http.rememberMe().useSecureCookie(false);\n    }\n}\n","after":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\n\nclass SecurityConfig {\n    void configure(HttpSecurity http) throws Exception {\n        /*~~(RememberMe cookie permitted over HTTP (CWE-614))~~>*/http.rememberMe().useSecureCookie(false);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass SecurityConfig {\n    void configure(HttpSecurity http) throws Exception {\n-       http.rememberMe().useSecureCookie(false);\n+       /*~~(RememberMe cookie permitted over HTTP (CWE-614))~~>*/http.rememberMe().useSecureCookie(false);\n    }\n","newFile":false}]}]}>
 

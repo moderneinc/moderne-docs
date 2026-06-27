@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Automatically select recipe examples from the unit test cases of a recipe"}
-  description={"Add `@DocumentExample` to the first non-issue and not a disabled unit test of a recipe as an example, if there are not any examples yet."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.SelectRecipeExamples"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/selectrecipeexamples.md"}
-/>
+>
+
+<RecipeHeader.Title>Automatically select recipe examples from the unit test cases of a recipe</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add `@DocumentExample` to the first non-issue and not a disabled unit test of a recipe as an example, if there are not any examples yet.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.java.cleanup;\n\nimport org.junit.jupiter.api.Test;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.test.RecipeSpec;\nimport org.openrewrite.test.RewriteTest;\n\nimport static org.openrewrite.java.Assertions.java;\n\nclass UnnecessaryParenthesesTest implements RewriteTest {\n\n    @Override\n    public void defaults(RecipeSpec spec) {\n        spec.recipe(Recipe.noop());\n    }\n\n    @Test\n    void test1() {\n        rewriteRun(\n          java(\n            \"\"\"\n              BEFORE\n              \"\"\",\n            \"\"\"\n              AFTER\n              \"\"\"\n          )\n        );\n    }\n\n    @Test\n    void test2() {\n        rewriteRun(\n          java(\n            \"\"\"\n              BEFORE\n              \"\"\",\n            \"\"\"\n              AFTER\n              \"\"\"\n          )\n        );\n    }\n}\n","after":"package org.openrewrite.java.cleanup;\n\nimport org.junit.jupiter.api.Test;\nimport org.openrewrite.DocumentExample;\nimport org.openrewrite.Recipe;\nimport org.openrewrite.test.RecipeSpec;\nimport org.openrewrite.test.RewriteTest;\n\nimport static org.openrewrite.java.Assertions.java;\n\nclass UnnecessaryParenthesesTest implements RewriteTest {\n\n    @Override\n    public void defaults(RecipeSpec spec) {\n        spec.recipe(Recipe.noop());\n    }\n\n    @DocumentExample\n    @Test\n    void test1() {\n        rewriteRun(\n          java(\n            \"\"\"\n              BEFORE\n              \"\"\",\n            \"\"\"\n              AFTER\n              \"\"\"\n          )\n        );\n    }\n\n    @Test\n    void test2() {\n        rewriteRun(\n          java(\n            \"\"\"\n              BEFORE\n              \"\"\",\n            \"\"\"\n              AFTER\n              \"\"\"\n          )\n        );\n    }\n}\n","diff":"@@ -4,0 +4,1 @@\n\nimport org.junit.jupiter.api.Test;\n+import org.openrewrite.DocumentExample;\nimport org.openrewrite.Recipe;\n@@ -17,0 +18,1 @@\n    }\n\n+   @DocumentExample\n    @Test\n","newFile":false}]}]}>
 

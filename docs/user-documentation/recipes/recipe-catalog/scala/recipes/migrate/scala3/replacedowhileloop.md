@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace do-while loops (removed in Scala 3)"}
-  description={"Finds `do-while` loops which were removed in Scala 3. Rewrite using a `while` loop with initial execution of the loop body."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.scala3.ReplaceDoWhileLoop"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/scala3/replacedowhileloop.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace do-while loops (removed in Scala 3)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `do-while` loops which were removed in Scala 3. Rewrite using a `while` loop with initial execution of the loop body.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  def count(): Unit = {\n    var i = 0\n    do {\n      i += 1\n    } while (i < 10)\n  }\n}\n","after":"/*~~(do-while loop removed in Scala 3; use while loop with initial execution)~~>*/object Test {\n  def count(): Unit = {\n    var i = 0\n    do {\n      i += 1\n    } while (i < 10)\n  }\n}\n","diff":"@@ -1,1 +1,1 @@\n-object Test {\n+/*~~(do-while loop removed in Scala 3; use while loop with initial execution)~~>*/object Test {\n  def count(): Unit = {\n","newFile":false}]}]}>
 

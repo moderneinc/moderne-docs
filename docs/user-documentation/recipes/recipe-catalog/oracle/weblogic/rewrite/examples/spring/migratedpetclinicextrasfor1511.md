@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add WebLogic 15.1.1 PetClinic extras"}
-  description={"Run migration extras for migrated Spring Framework PetClinic example run on WebLogic 15.1.1."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["examples","weblogic","petclinic","springframework"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.examples.spring.MigratedPetClinicExtrasFor1511"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/examples/spring/migratedpetclinicextrasfor1511.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change cacheManager to use the SimpleCacheManager","href":"oracle/weblogic/rewrite/examples/spring/changecachemanagertosimplecachemanager"},{"name":"Add implicit TLD with taglib 3.0","href":"oracle/weblogic/rewrite/examples/addimplicittldfilewithtaglib3_0"}]}>
+<RecipeHeader.Title>Add WebLogic 15.1.1 PetClinic extras</RecipeHeader.Title>
+
+<RecipeHeader.Description>Run migration extras for migrated Spring Framework PetClinic example run on WebLogic 15.1.1.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change cacheManager to use the SimpleCacheManager","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/examples/spring/changecachemanagertosimplecachemanager/"},{"name":"Add implicit TLD with taglib 3.0","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/examples/addimplicittldfilewithtaglib3_0/"}]}>
 
 ## Definition
 

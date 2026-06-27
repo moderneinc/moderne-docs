@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `OptionalRules.MapOptionalToBoolean`"}
-  description={"Prefer `Optional#filter(Predicate)` over `Optional#map(Function)` when converting an `Optional` to a boolean."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$MapOptionalToBooleanRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/optionalrulesrecipes$mapoptionaltobooleanrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `OptionalRules.MapOptionalToBoolean`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Optional#filter(Predicate)` over `Optional#map(Function)` when converting an `Optional` to a boolean.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$MapOptionalToBooleanRecipe","displayName":"Refaster template `OptionalRules.MapOptionalToBoolean`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

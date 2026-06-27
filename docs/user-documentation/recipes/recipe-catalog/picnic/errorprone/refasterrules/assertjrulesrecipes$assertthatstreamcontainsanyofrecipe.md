@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJRules.AssertThatStreamContainsAnyOf`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatStreamContainsAnyOf<S, T extends S, U extends T> {\n    \n    @BeforeTemplate\n    IterableAssert<T> before(Stream<S> stream, U[] array, Collector<S, ?, ? extends Iterable<T>> collector) {\n        return assertThat(stream.collect(collector)).containsAnyOf(array);\n    }\n    \n    @BeforeTemplate\n    AbstractCollectionAssert<?, Collection<? extends T>, T, ObjectAssert<T>> before2(Stream<S> stream, U[] array, Collector<S, ?, ? extends Collection<T>> collector) {\n        return assertThat(stream.collect(collector)).containsAnyOf(array);\n    }\n    \n    @BeforeTemplate\n    ListAssert<T> before3(Stream<S> stream, U[] array, Collector<S, ?, ? extends List<T>> collector) {\n        return assertThat(stream.collect(collector)).containsAnyOf(array);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ListAssert<S> after(Stream<S> stream, U[] array) {\n        return assertThat(stream).containsAnyOf(array);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,43 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsAnyOfRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainsanyofrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJRules.AssertThatStreamContainsAnyOf`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatStreamContainsAnyOf<S, T extends S, U extends T> {
+    
+    @BeforeTemplate
+    IterableAssert<T> before(Stream<S> stream, U[] array, Collector<S, ?, ? extends Iterable<T>> collector) {
+        return assertThat(stream.collect(collector)).containsAnyOf(array);
+    }
+    
+    @BeforeTemplate
+    AbstractCollectionAssert<?, Collection<? extends T>, T, ObjectAssert<T>> before2(Stream<S> stream, U[] array, Collector<S, ?, ? extends Collection<T>> collector) {
+        return assertThat(stream.collect(collector)).containsAnyOf(array);
+    }
+    
+    @BeforeTemplate
+    ListAssert<T> before3(Stream<S> stream, U[] array, Collector<S, ?, ? extends List<T>> collector) {
+        return assertThat(stream.collect(collector)).containsAnyOf(array);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    ListAssert<S> after(Stream<S> stream, U[] array) {
+        return assertThat(stream).containsAnyOf(array);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsAnyOfRecipe","displayName":"Refaster template `AssertJRules.AssertThatStreamContainsAnyOf`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

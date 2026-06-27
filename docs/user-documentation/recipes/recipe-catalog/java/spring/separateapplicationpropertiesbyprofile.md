@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Separate `application.properties` by profile"}
-  description={"Separating `application.properties` into separate files based on profiles."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.SeparateApplicationPropertiesByProfile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/separateapplicationpropertiesbyprofile.md"}
-/>
+>
+
+<RecipeHeader.Title>Separate `application.properties` by profile</RecipeHeader.Title>
+
+<RecipeHeader.Description>Separating `application.properties` into separate files based on profiles.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"parent"},"variants":[{"language":"properties","before":"","after":"app.config.currentEnvironment=LOCAL\n","newFile":true},{"language":"properties","before":"line1=line1\n","after":"line1=line1\noauth2.clientId=9999999999999999999999\nservice.domainUrl= https://this.is.my.dev.url.com\napp.config.currentEnvironment=DEV\n","diff":"--- application-dev.properties\n+++ application-dev.properties\n@@ -2,0 +2,3 @@\nline1=line1\n+oauth2.clientId=9999999999999999999999\n+service.domainUrl= https://this.is.my.dev.url.com\n+app.config.currentEnvironment=DEV\n\n","newFile":false},{"language":"properties","before":"spring.application.name=Openrewrite-PR-Service\n#PR-Service\nbase-url.PR-services=http://my.url.com\nexchange-token=1234567890\nexchange-tokens=${base-url.PR-services}/exchange-token\n!---\nspring.config.activate.on-profile=dev\noauth2.clientId=9999999999999999999999\nservice.domainUrl= https://this.is.my.dev.url.com\napp.config.currentEnvironment=DEV\n#---\nspring.config.activate.on-profile=local\napp.config.currentEnvironment=LOCAL\n\n\n#---\n#### XX Configuration ####\nspring.config.activate.on-profile=prod\noauth2.clientId=77777777777777\nservice.domainUrl=https://this.is.my.prod.url.com\n","after":"spring.application.name=Openrewrite-PR-Service\n#PR-Service\nbase-url.PR-services=http://my.url.com\nexchange-token=1234567890\nexchange-tokens=${base-url.PR-services}/exchange-token\n","diff":"--- application.properties\n+++ application.properties\n@@ -6,8 +6,0 @@\nexchange-token=1234567890\nexchange-tokens=${base-url.PR-services}/exchange-token\n-!---\n-spring.config.activate.on-profile=dev\n-oauth2.clientId=9999999999999999999999\n-service.domainUrl= https://this.is.my.dev.url.com\n-app.config.currentEnvironment=DEV\n-#---\n-spring.config.activate.on-profile=local\n-app.config.currentEnvironment=LOCAL\n\n@@ -15,7 +7,0 @@\napp.config.currentEnvironment=LOCAL\n\n-\n-#---\n-#### XX Configuration ####\n-spring.config.activate.on-profile=prod\n-oauth2.clientId=77777777777777\n-service.domainUrl=https://this.is.my.prod.url.com\n-\n","newFile":false}]}]}>
 

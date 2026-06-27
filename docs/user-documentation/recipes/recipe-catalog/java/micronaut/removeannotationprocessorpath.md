@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Maven annotation processor path"}
-  description={"Remove the Maven annotation processor path that matches the given groupId and artifactId."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.RemoveAnnotationProcessorPath"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/removeannotationprocessorpath.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove Maven annotation processor path</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove the Maven annotation processor path that matches the given groupId and artifactId.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The groupId to use.","example":"corp.internal.openrewrite.recipe"},{"type":"String","name":"artifactId","required":true,"description":"The artifactId to use.","example":"my-new-annotation-processor"}]}>
 

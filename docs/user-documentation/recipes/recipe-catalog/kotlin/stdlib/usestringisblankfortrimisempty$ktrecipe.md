@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `isBlank()` instead of `trim().isEmpty()` on a `String`"}
-  description={"`trim().isEmpty()` allocates a trimmed copy just to check whether the result has no characters. `isBlank()` answers the same question by scanning in place."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.UseStringIsBlankForTrimIsEmpty$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usestringisblankfortrimisempty$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `isBlank()` instead of `trim().isEmpty()` on a `String`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`trim().isEmpty()` allocates a trimmed copy just to check whether the result has no characters. `isBlank()` answers the same question by scanning in place.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.stdlib.UseStringIsBlankForTrimIsEmpty$KtRecipe","displayName":"Use `isBlank()` instead of `trim().isEmpty()` on a `String`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

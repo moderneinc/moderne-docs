@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJIterableRules.AssertThatIterableHasOneElementEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIterableHasOneElementEqualTo<S, E extends S> {\n    \n    @BeforeTemplate\n    ObjectAssert<S> before(Iterable<S> iterable, E element) {\n        return assertThat(Iterables.getOnlyElement(iterable)).isEqualTo(element);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    IterableAssert<S> after(Iterable<S> iterable, E element) {\n        return assertThat(iterable).containsExactly(element);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes$AssertThatIterableHasOneElementEqualToRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterablehasoneelementequaltorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJIterableRules.AssertThatIterableHasOneElementEqualTo`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIterableHasOneElementEqualTo<S, E extends S> {
+    
+    @BeforeTemplate
+    ObjectAssert<S> before(Iterable<S> iterable, E element) {
+        return assertThat(Iterables.getOnlyElement(iterable)).isEqualTo(element);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    IterableAssert<S> after(Iterable<S> iterable, E element) {
+        return assertThat(iterable).containsExactly(element);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes$AssertThatIterableHasOneElementEqualToRecipe","displayName":"Refaster template `AssertJIterableRules.AssertThatIterableHasOneElementEqualTo`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find uninitialized `@NonNull` fields (NullAway field-init)"}
-  description={"Marks instance fields that would trigger NullAway's \"@NonNull field not initialized\" error: a non-static, non-primitive field that does not carry a nullability annotation, has no initializer, is not `final`, is not a dependency-injection / framework field (`@Inject`, `@Autowired`, `@Resource`, `@Mock`, `@Value`, `@Bean`, `@EJB`, `@PersistenceContext`, `@Spy`, `@InjectMocks`, `@Captor`), and is not unconditionally assigned in every declared constructor. A class with no constructors leaves such a field definitely unassigned. \"Unconditionally assigned\" is approximated as a `this.f = ...` or `f = ...` statement at the top level of a constructor body (not nested in an `if`, loop, `try`, `switch`, or lambda). Java sources only; Kotlin and Groovy express field initialization in the type system."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.search.FindUninitializedNonNullField"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/search/finduninitializednonnullfield.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find uninitialized `@NonNull` fields (NullAway field-init)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Marks instance fields that would trigger NullAway's "@NonNull field not initialized" error: a non-static, non-primitive field that does not carry a nullability annotation, has no initializer, is not `final`, is not a dependency-injection / framework field (`@Inject`, `@Autowired`, `@Resource`, `@Mock`, `@Value`, `@Bean`, `@EJB`, `@PersistenceContext`, `@Spy`, `@InjectMocks`, `@Captor`), and is not unconditionally assigned in every declared constructor. A class with no constructors leaves such a field definitely unassigned. "Unconditionally assigned" is approximated as a `this.f = ...` or `f = ...` statement at the top level of a constructor body (not nested in an `if`, loop, `try`, `switch`, or lambda). Java sources only; Kotlin and Groovy express field initialization in the type system.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    String name;\n}\n","after":"class Test {\n    /*~~(@NonNull field is not initialized (NullAway field-init))~~>*/String name;\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Test {\n-   String name;\n+   /*~~(@NonNull field is not initialized (NullAway field-init))~~>*/String name;\n}\n","newFile":false}]}]}>
 

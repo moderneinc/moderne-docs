@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (x != null) x.foo()` that could use `?.`"}
-  description={"An `if (x != null) x.foo()` ladder reads as a manual nullable dispatch where Kotlin already has `x?.foo()`. The safe-call form is shorter and folds into expression position, where the `if` cannot."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindIfNotNullThenCall$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findifnotnullthencall$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (x != null) x.foo()` that could use `?.`</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `if (x != null) x.foo()` ladder reads as a manual nullable dispatch where Kotlin already has `x?.foo()`. The safe-call form is shorter and folds into expression position, where the `if` cannot.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindIfNotNullThenCall$KtRecipe","displayName":"Find `if (x != null) x.foo()` that could use `?.`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

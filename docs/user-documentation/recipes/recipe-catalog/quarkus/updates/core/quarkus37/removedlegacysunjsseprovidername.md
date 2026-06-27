@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `SunJSSE` instead of `com.sun.net.ssl.internal.ssl.Provider`"}
-  description={"The `com.sun.net.ssl.internal.ssl.Provider` provider name was removed."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["java17"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus37.RemovedLegacySunJSSEProviderName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/removedlegacysunjsseprovidername.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `String` literal","href":"java/replacestringliteralvalue"}]}>
+<RecipeHeader.Title>Use `SunJSSE` instead of `com.sun.net.ssl.internal.ssl.Provider`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `com.sun.net.ssl.internal.ssl.Provider` provider name was removed.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `String` literal","href":"/user-documentation/recipes/recipe-catalog/java/replacestringliteralvalue/"}]}>
 
 ## Definition
 

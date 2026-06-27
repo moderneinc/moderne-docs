@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename `RequestContext.jstPresent` to `JSTL_PRESENT`"}
-  description={"Renames the protected static field `RequestContext.jstPresent` to `JSTL_PRESENT` in Spring Framework 7.0. This field was renamed as part of a codebase-wide effort to use uppercase for classpath-related static final field names (see https://github.com/spring-projects/spring-framework/issues/35525)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","framework"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.RenameRequestContextJstlPresent"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/renamerequestcontextjstlpresent.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Rename `RequestContext.jstPresent` to `JSTL_PRESENT`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames the protected static field `RequestContext.jstPresent` to `JSTL_PRESENT` in Spring Framework 7.0. This field was renamed as part of a codebase-wide effort to use uppercase for classpath-related static final field names (see https://github.com/spring-projects/spring-framework/issues/35525).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

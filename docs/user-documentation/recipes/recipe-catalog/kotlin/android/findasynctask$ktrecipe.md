@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `AsyncTask` instantiations"}
-  description={"`AsyncTask` was deprecated in API 30. The Kotlin replacement is `viewModelScope.launch { withContext(Dispatchers.IO) { … } }` or another coroutine-aware framework. Each match is a candidate for migration."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindAsyncTask$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findasynctask$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `AsyncTask` instantiations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`AsyncTask` was deprecated in API 30. The Kotlin replacement is `viewModelScope.launch { withContext(Dispatchers.IO) { … } }` or another coroutine-aware framework. Each match is a candidate for migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindAsyncTask$KtRecipe","displayName":"Find `AsyncTask` instantiations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

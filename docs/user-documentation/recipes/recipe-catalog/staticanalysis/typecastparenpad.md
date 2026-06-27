@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Typecast parenthesis padding"}
-  description={"Fixes whitespace padding between a typecast type identifier and the enclosing left and right parentheses. For example, when configured to remove spacing, `( int ) 0L;` becomes `(int) 0L;`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.TypecastParenPad"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/typecastparenpad.md"}
-/>
+>
+
+<RecipeHeader.Title>Typecast parenthesis padding</RecipeHeader.Title>
+
+<RecipeHeader.Description>Fixes whitespace padding between a typecast type identifier and the enclosing left and right parentheses. For example, when configured to remove spacing, `( int ) 0L;` becomes `(int) 0L;`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void m() {\n        int i = ( int ) 0L;\n        int j = (int) 0L;\n        int k = (int)0L;\n        int l = ( int )0L;\n    }\n}\n","after":"class A {\n    void m() {\n        int i = (int) 0L;\n        int j = (int) 0L;\n        int k = (int) 0L;\n        int l = (int) 0L;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n    void m() {\n-       int i = ( int ) 0L;\n+       int i = (int) 0L;\n        int j = (int) 0L;\n@@ -5,2 +5,2 @@\n        int i = ( int ) 0L;\n        int j = (int) 0L;\n-       int k = (int)0L;\n-       int l = ( int )0L;\n+       int k = (int) 0L;\n+       int l = (int) 0L;\n    }\n","newFile":false}]}]}>
 

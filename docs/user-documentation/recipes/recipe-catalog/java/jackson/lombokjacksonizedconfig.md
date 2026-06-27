@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update `lombok.config` for Jackson 3 compatibility"}
-  description={"When `@Jacksonized` is used, Lombok generates Jackson annotations. By default it generates Jackson 2.x annotations. This recipe adds `lombok.jacksonized.jacksonVersion += 3` to `lombok.config` so Lombok generates Jackson 3 compatible annotations."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.LombokJacksonizedConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/lombokjacksonizedconfig.md"}
-/>
+>
+
+<RecipeHeader.Title>Update `lombok.config` for Jackson 3 compatibility</RecipeHeader.Title>
+
+<RecipeHeader.Description>When `@Jacksonized` is used, Lombok generates Jackson annotations. By default it generates Jackson 2.x annotations. This recipe adds `lombok.jacksonized.jacksonVersion += 3` to `lombok.config` so Lombok generates Jackson 3 compatible annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.jackson.LombokJacksonizedConfig","displayName":"Update `lombok.config` for Jackson 3 compatibility","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
 

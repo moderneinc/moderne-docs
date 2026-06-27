@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `try { x } catch (e: Exception) { null }` patterns"}
-  description={"Swallowing every exception into `null` discards diagnostic information and conflates 'no value' with 'I lost the cause'. `runCatching { x }.getOrNull()` matches the shape, and `.onFailure { … }` keeps a hook for diagnostics if you decide you want one later."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindTryCatchReturningNull$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findtrycatchreturningnull$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `try { x } catch (e: Exception) { null }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Swallowing every exception into `null` discards diagnostic information and conflates 'no value' with 'I lost the cause'. `runCatching { x }.getOrNull()` matches the shape, and `.onFailure { … }` keeps a hook for diagnostics if you decide you want one later.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindTryCatchReturningNull$KtRecipe","displayName":"Find `try { x } catch (e: Exception) { null }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

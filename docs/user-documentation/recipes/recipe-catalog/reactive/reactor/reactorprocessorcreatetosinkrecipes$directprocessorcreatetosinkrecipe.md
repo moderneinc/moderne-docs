@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `DirectProcessor.create()` with `Sinks.many().multicast().directBestEffort()`"}
-  description={"As of 3.5 DirectProcessor is deprecated and Sinks are preferred."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.reactive.reactor.ReactorProcessorCreateToSinkRecipes$DirectProcessorCreateToSinkRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorprocessorcreatetosinkrecipes$directprocessorcreatetosinkrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `DirectProcessor.create()` with `Sinks.many().multicast().directBestEffort()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of 3.5 DirectProcessor is deprecated and Sinks are preferred.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.reactive.reactor.ReactorProcessorCreateToSinkRecipes$DirectProcessorCreateToSinkRecipe","displayName":"Replace `DirectProcessor.create()` with `Sinks.many().multicast().directBestEffort()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-reactive-streams","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_REACTIVE_STREAMS","requiresConfiguration":false}}>
 

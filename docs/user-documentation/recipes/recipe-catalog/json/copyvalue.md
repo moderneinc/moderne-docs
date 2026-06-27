@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Copy JSON value"}
-  description={"Copies a JSON value from one key to another. The existing key/value pair remains unaffected by this change. Attempts to create the new key if it does not exist."}
   type={"Single recipe"}
   languages={["JSON"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-json"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.json.CopyValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/json/copyvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Copy JSON value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Copies a JSON value from one key to another. The existing key/value pair remains unaffected by this change. Attempts to create the new key if it does not exist.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"sourceKeyPath","required":true,"description":"A [JSONPath](https://www.rfc-editor.org/rfc/rfc9535.html) expression to locate a JSON value to copy.","example":"$.source.kind"},{"type":"String","name":"sourceFilePath","required":false,"description":"The file path to the JSON file to copy the value from. If `null` then the value will be copied from any JSON file it appears within.","example":"src/main/resources/application.json"},{"type":"String","name":"destinationKeyPath","required":true,"description":"A [JSONPath](https://www.rfc-editor.org/rfc/rfc9535.html) expression to locate the *parent* JSON entry.","example":"'$.subjects.*' or '$.' or '$.x[1].y.*' etc."},{"type":"String","name":"destinationKey","required":true,"description":"The key to create.","example":"myKey"},{"type":"String","name":"destinationFilePath","required":false,"description":"The file path to the JSON file to copy the value to. If `null` then the value will be copied only into the same file it was found in.","example":"src/main/resources/application.json"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET service components"}
-  description={"Detect IServiceCollection.AddSingleton/AddScoped/AddTransient/AddHttpClient registrations and emit one row per registered service."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDotnetServiceComponents"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetservicecomponents.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET service components</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect IServiceCollection.AddSingleton/AddScoped/AddTransient/AddHttpClient registrations and emit one row per registered service.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindDotnetServiceComponents","displayName":"Find .NET service components","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

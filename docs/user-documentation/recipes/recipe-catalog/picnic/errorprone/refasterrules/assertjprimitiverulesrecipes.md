@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJPrimitiveRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over primitive values.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJPrimitiveRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJPrimitiveRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjprimitiverulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJPrimitiveRules.AssertThatIsEqualTo`","href":"picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatisequaltorecipe"},{"name":"Refaster template `AssertJPrimitiveRules.AssertThatIsNotEqualTo`","href":"picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatisnotequaltorecipe"},{"name":"Refaster template `AssertJPrimitiveRules.AssertThatIsLessThan`","href":"picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatislessthanrecipe"},{"name":"Refaster template `AssertJPrimitiveRules.AssertThatIsLessThanOrEqualTo`","href":"picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatislessthanorequaltorecipe"},{"name":"Refaster template `AssertJPrimitiveRules.AssertThatIsGreaterThan`","href":"picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatisgreaterthanrecipe"},{"name":"Refaster template `AssertJPrimitiveRules.AssertThatIsGreaterThanOrEqualTo`","href":"picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatisgreaterthanorequaltorecipe"}]}>
+<RecipeHeader.Title>`AssertJPrimitiveRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over primitive values. [Source](https://error-prone.picnic.tech/refasterrules/AssertJPrimitiveRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJPrimitiveRules.AssertThatIsEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatisequaltorecipe/"},{"name":"Refaster template `AssertJPrimitiveRules.AssertThatIsNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatisnotequaltorecipe/"},{"name":"Refaster template `AssertJPrimitiveRules.AssertThatIsLessThan`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatislessthanrecipe/"},{"name":"Refaster template `AssertJPrimitiveRules.AssertThatIsLessThanOrEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatislessthanorequaltorecipe/"},{"name":"Refaster template `AssertJPrimitiveRules.AssertThatIsGreaterThan`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatisgreaterthanrecipe/"},{"name":"Refaster template `AssertJPrimitiveRules.AssertThatIsGreaterThanOrEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjprimitiverulesrecipes$assertthatisgreaterthanorequaltorecipe/"}]}>
 
 ## Definition
 

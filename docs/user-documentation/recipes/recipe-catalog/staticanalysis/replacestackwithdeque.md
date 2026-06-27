@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `java.util.Stack` with `java.util.Deque`"}
-  description={"From the Javadoc of `Stack`:\n> A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class.\n\n`Stack` inherits from `Vector`, which carries unnecessary synchronization overhead in single-threaded contexts and exposes non-stack operations like random index access."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1149"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceStackWithDeque"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replacestackwithdeque.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `java.util.Stack` with `java.util.Deque`</RecipeHeader.Title>
+
+<RecipeHeader.Description>From the Javadoc of `Stack`: > A more complete and consistent set of LIFO stack operations is provided by the Deque interface and its implementations, which should be used in preference to this class.  `Stack` inherits from `Vector`, which carries unnecessary synchronization overhead in single-threaded contexts and exposes non-stack operations like random index access.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Stack;\n\nclass Test {\n    void test() {\n        Stack<Integer> stack = new Stack<>();\n        stack.add(1);\n        stack.add(2);\n    }\n}\n","after":"import java.util.ArrayDeque;\nimport java.util.Deque;\nimport java.util.Stack;\n\nclass Test {\n    void test() {\n        Deque<Integer> stack = new ArrayDeque<>();\n        stack.add(1);\n        stack.add(2);\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import java.util.ArrayDeque;\n+import java.util.Deque;\nimport java.util.Stack;\n@@ -5,1 +7,1 @@\nclass Test {\n    void test() {\n-       Stack<Integer> stack = new Stack<>();\n+       Deque<Integer> stack = new ArrayDeque<>();\n        stack.add(1);\n","newFile":false}]}]}>
 

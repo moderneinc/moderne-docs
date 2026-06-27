@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change logger fields to `private`"}
-  description={"Ensures that logger fields are declared as `private` to encapsulate logging mechanics within the class."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.ChangeLoggersToPrivate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/changeloggerstoprivate.md"}
-/>
+>
+
+<RecipeHeader.Title>Change logger fields to `private`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensures that logger fields are declared as `private` to encapsulate logging mechanics within the class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\nclass Test {\n    public static final Logger LOGGER = LoggerFactory.getLogger(Test.class);\n}\n","after":"import org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\nclass Test {\n    private static final Logger LOGGER = LoggerFactory.getLogger(Test.class);\n}\n","diff":"@@ -5,1 +5,1 @@\n\nclass Test {\n-   public static final Logger LOGGER = LoggerFactory.getLogger(Test.class);\n+   private static final Logger LOGGER = LoggerFactory.getLogger(Test.class);\n}\n","newFile":false}]}]}>
 

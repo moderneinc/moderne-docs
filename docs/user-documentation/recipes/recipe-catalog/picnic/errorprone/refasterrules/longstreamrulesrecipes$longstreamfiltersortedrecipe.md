@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `LongStreamRules.LongStreamFilterSorted`"}
-  description={"Apply `LongStream#filter(LongPredicate)` before `LongStream#sorted()` to reduce the number of elements to sort."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.LongStreamRulesRecipes$LongStreamFilterSortedRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamfiltersortedrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `LongStreamRules.LongStreamFilterSorted`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply `LongStream#filter(LongPredicate)` before `LongStream#sorted()` to reduce the number of elements to sort.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.LongStreamRulesRecipes$LongStreamFilterSortedRecipe","displayName":"Refaster template `LongStreamRules.LongStreamFilterSorted`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

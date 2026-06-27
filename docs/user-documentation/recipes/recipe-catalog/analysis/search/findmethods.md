@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find method usages"}
-  description={"Find method usages by pattern."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.meta:rewrite-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.search.FindMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/search/findmethods.md"}
-/>
+>
+
+<RecipeHeader.Title>Find method usages</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find method usages by pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern that is used to find matching method invocations.","example":"java.util.List add(..)"},{"type":"Boolean","name":"matchOverrides","required":false,"description":"When enabled, find methods that are overrides of the method pattern."},{"type":"String","name":"flow","required":false,"description":"When enabled, show the data or taint flow of the method invocation."}]}>
 

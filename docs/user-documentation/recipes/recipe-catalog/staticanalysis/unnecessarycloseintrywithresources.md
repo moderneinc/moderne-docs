@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unnecessary close in try-with-resources"}
-  description={"Remove unnecessary `AutoCloseable#close()` statements in try-with-resources. Try-with-resources already guarantees that each declared resource is closed when the block exits, so an explicit `close()` call is redundant and can be confusing."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4087"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UnnecessaryCloseInTryWithResources"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessarycloseintrywithresources.md"}
-/>
+>
+
+<RecipeHeader.Title>Unnecessary close in try-with-resources</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unnecessary `AutoCloseable#close()` statements in try-with-resources. Try-with-resources already guarantees that each declared resource is closed when the block exits, so an explicit `close()` call is redundant and can be confusing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.FileWriter;\nimport java.util.Scanner;\n\nclass A {\n    public void doSomething() {\n        try (FileWriter fileWriter = new FileWriter(\"test\"); Scanner scanner = new Scanner(\"abc\")) {\n            fileWriter.write('c');\n            scanner.close();\n        }\n    }\n}\n","after":"import java.io.FileWriter;\nimport java.util.Scanner;\n\nclass A {\n    public void doSomething() {\n        try (FileWriter fileWriter = new FileWriter(\"test\"); Scanner scanner = new Scanner(\"abc\")) {\n            fileWriter.write('c');\n        }\n    }\n}\n","diff":"@@ -8,1 +8,0 @@\n        try (FileWriter fileWriter = new FileWriter(\"test\"); Scanner scanner = new Scanner(\"abc\")) {\n            fileWriter.write('c');\n-           scanner.close();\n        }\n","newFile":false}]}]}>
 

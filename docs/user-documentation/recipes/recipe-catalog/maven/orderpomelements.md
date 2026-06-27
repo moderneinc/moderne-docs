@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Order POM elements"}
-  description={"Order POM elements according to the [recommended](https://maven.apache.org/developers/conventions/code.html#pom-code-convention) order."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S3423"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.OrderPomElements"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/orderpomelements.md"}
-/>
+>
+
+<RecipeHeader.Title>Order POM elements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Order POM elements according to the [recommended](https://maven.apache.org/developers/conventions/code.html#pom-code-convention) order.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <artifactId>my-project</artifactId>\n    <groupId>my.org.project</groupId>\n    <version>4.3.0</version>\n    <build>\n        <plugins>\n            <plugin>\n                <configuration>\n                    <source>1.8</source>\n                    <target>1.8</target>\n                </configuration>\n                <version>3.8.1</version>\n                <artifactId>maven-compiler-plugin</artifactId>\n                <groupId>org.apache.maven.plugins</groupId>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>my.org.project</groupId>\n    <artifactId>my-project</artifactId>\n    <version>4.3.0</version>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.apache.maven.plugins</groupId>\n                <artifactId>maven-compiler-plugin</artifactId>\n                <version>3.8.1</version>\n                <configuration>\n                    <source>1.8</source>\n                    <target>1.8</target>\n                </configuration>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -3,1 +3,0 @@\n<project>\n    <modelVersion>4.0.0</modelVersion>\n-   <artifactId>my-project</artifactId>\n    <groupId>my.org.project</groupId>\n@@ -5,0 +4,1 @@\n    <artifactId>my-project</artifactId>\n    <groupId>my.org.project</groupId>\n+   <artifactId>my-project</artifactId>\n    <version>4.3.0</version>\n@@ -9,0 +9,3 @@\n        <plugins>\n            <plugin>\n+               <groupId>org.apache.maven.plugins</groupId>\n+               <artifactId>maven-compiler-plugin</artifactId>\n+               <version>3.8.1</version>\n                <configuration>\n@@ -13,3 +16,0 @@\n                    <target>1.8</target>\n                </configuration>\n-               <version>3.8.1</version>\n-               <artifactId>maven-compiler-plugin</artifactId>\n-               <groupId>org.apache.maven.plugins</groupId>\n            </plugin>\n","newFile":false}]}]}>
 

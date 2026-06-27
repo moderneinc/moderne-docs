@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Maven plugin dependencies"}
-  description={"Applies the specified dependencies to a Maven plugin. Will not add the plugin if it does not already exist in the pom."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ChangePluginDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/changeplugindependencies.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Maven plugin dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies the specified dependencies to a Maven plugin. Will not add the plugin if it does not already exist in the pom.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate 'org.openrewrite.maven:rewrite-maven-plugin:VERSION'.","example":"org.openrewrite.maven"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate 'org.openrewrite.maven:rewrite-maven-plugin:VERSION'.","example":"rewrite-maven-plugin"},{"type":"String","name":"dependencies","required":false,"description":"Plugin dependencies provided as dependency coordinates of format \"groupId:artifactId:version\". When supplying multiple coordinates separate them with \",\". Supplying `null` will remove any existing plugin dependencies.","example":"org.openrewrite.recipe:rewrite-spring:1.0.0, org.openrewrite.recipe:rewrite-testing-frameworks:1.0.0"}]}>
 

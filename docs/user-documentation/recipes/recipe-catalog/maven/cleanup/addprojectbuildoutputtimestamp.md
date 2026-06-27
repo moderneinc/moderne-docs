@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `project.build.outputTimestamp` for reproducible builds"}
-  description={"Adds the `project.build.outputTimestamp` property, which Maven uses to make build outputs reproducible by stamping archive entries with a fixed timestamp instead of the current time. An existing value is preserved. See [Configuring for Reproducible Builds](https://maven.apache.org/guides/mini/guide-reproducible-builds.html)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.cleanup.AddProjectBuildOutputTimestamp"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/cleanup/addprojectbuildoutputtimestamp.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Maven project property","href":"maven/addproperty"}]}>
+<RecipeHeader.Title>Add `project.build.outputTimestamp` for reproducible builds</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the `project.build.outputTimestamp` property, which Maven uses to make build outputs reproducible by stamping archive entries with a fixed timestamp instead of the current time. An existing value is preserved. See [Configuring for Reproducible Builds](https://maven.apache.org/guides/mini/guide-reproducible-builds.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Maven project property","href":"/user-documentation/recipes/recipe-catalog/maven/addproperty/"}]}>
 
 ## Definition
 

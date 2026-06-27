@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add or update child tag"}
-  description={"Adds or updates a child element below the parent(s) matching the provided `parentXPath` expression. If a child with the same name already exists, it will be replaced by default. Otherwise, a new child will be added. This ensures idempotent behaviour."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.AddOrUpdateChildTag"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/addorupdatechildtag.md"}
-/>
+>
+
+<RecipeHeader.Title>Add or update child tag</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds or updates a child element below the parent(s) matching the provided `parentXPath` expression. If a child with the same name already exists, it will be replaced by default. Otherwise, a new child will be added. This ensures idempotent behaviour.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"parentXPath","required":true,"description":"XPath identifying the parent to which a child tag must be added","example":"/project//plugin//configuration"},{"type":"String","name":"newChildTag","required":true,"description":"The XML of the new child to add or update on the parent tag.","example":"<skip>true</skip>"},{"type":"Boolean","name":"replaceExisting","required":false,"description":"Set to `false` to not replace the child tag if it already exists. Defaults to true."}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `len()` emptiness check with truthiness"}
-  description={"Rewrite ``len(seq) > 0`` / ``len(seq) != 0`` to ``seq`` and ``len(seq) == 0`` to ``not seq``, leveraging Python's built-in truthiness for collections."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifyLenComparison"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifylencomparison.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `len()` emptiness check with truthiness</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rewrite ``len(seq) > 0`` / ``len(seq) != 0`` to ``seq`` and ``len(seq) == 0`` to ``not seq``, leveraging Python's built-in truthiness for collections.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyLenComparison","displayName":"Replace `len()` emptiness check with truthiness","pipPackage":"openrewrite-static-analysis"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace String concatenation with `String.valueOf()`"}
-  description={"Replace inefficient string concatenation patterns like `\"\" + ...` with `String.valueOf(...)`. This improves code readability and may have minor performance benefits. The empty string prefix `\"\" +` is an indirect way to convert a value to a `String`, while `String.valueOf()` clearly communicates the conversion intent."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1153"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceStringConcatenationWithStringValueOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replacestringconcatenationwithstringvalueof.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace String concatenation with `String.valueOf()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace inefficient string concatenation patterns like `"" + ...` with `String.valueOf(...)`. This improves code readability and may have minor performance benefits. The empty string prefix `"" +` is an indirect way to convert a value to a `String`, while `String.valueOf()` clearly communicates the conversion intent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void method() {\n        String s = \"\" + 1;\n    }\n}\n","after":"class Test {\n    void method() {\n        String s = String.valueOf(1);\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    void method() {\n-       String s = \"\" + 1;\n+       String s = String.valueOf(1);\n    }\n","newFile":false}]}]}>
 

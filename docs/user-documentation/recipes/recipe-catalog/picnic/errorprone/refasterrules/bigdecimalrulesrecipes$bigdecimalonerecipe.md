@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `BigDecimalRules.BigDecimalOne`"}
-  description={"Prefer using the constant `BigDecimal#ONE` when possible."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalOneRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalonerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `BigDecimalRules.BigDecimalOne`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer using the constant `BigDecimal#ONE` when possible.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalOneRecipe","displayName":"Refaster template `BigDecimalRules.BigDecimalOne`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

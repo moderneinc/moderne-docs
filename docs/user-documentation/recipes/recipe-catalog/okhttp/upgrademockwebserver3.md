@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to MockWebServer3 (core module)"}
-  description={"Migrate from the legacy `mockwebserver` artifact to `mockwebserver3` core module without JUnit dependency."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-okhttp"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.okhttp.UpgradeMockWebServer3"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/okhttp/upgrademockwebserver3.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Rename package name","href":"java/changepackage"}]}>
+<RecipeHeader.Title>Migrate to MockWebServer3 (core module)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from the legacy `mockwebserver` artifact to `mockwebserver3` core module without JUnit dependency.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]}>
 
 ## Definition
 

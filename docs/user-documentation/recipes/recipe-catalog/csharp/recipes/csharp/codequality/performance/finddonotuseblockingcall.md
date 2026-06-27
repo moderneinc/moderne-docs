@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Do not use blocking calls on tasks"}
-  description={"Avoid `.Wait()`, `.Result`, and `.GetAwaiter().GetResult()` on tasks. These can cause deadlocks. Use `await` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindDoNotUseBlockingCall"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/finddonotuseblockingcall.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Do not use blocking calls on tasks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Avoid `.Wait()`, `.Result`, and `.GetAwaiter().GetResult()` on tasks. These can cause deadlocks. Use `await` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindDoNotUseBlockingCall","displayName":"Do not use blocking calls on tasks","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

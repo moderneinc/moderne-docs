@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JCL to Log4j 2.x API"}
-  description={"Transforms code written using Apache Commons Logging to use Log4j 2.x API."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["logging","commons-logging","log4j"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.log4j.CommonsLoggingToLog4j"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/log4j/commonsloggingtolog4j.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Simplify a call chain","href":"java/simplifymethodchain"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Replace any Lombok log annotations with target logging framework annotation","href":"java/logging/changelomboklogannotation"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate JCL to Log4j 2.x API</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms code written using Apache Commons Logging to use Log4j 2.x API.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Simplify a call chain","href":"/user-documentation/recipes/recipe-catalog/java/simplifymethodchain/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Replace any Lombok log annotations with target logging framework annotation","href":"/user-documentation/recipes/recipe-catalog/java/logging/changelomboklogannotation/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

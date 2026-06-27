@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find structured-concurrency leaks"}
-  description={"Coroutine builders that escape the structured-concurrency tree: `GlobalScope` builders, raw `Job()` / `CoroutineScope(...)` allocations, and `suspendCoroutine` calls that ignore cancellation. Each match is a `SearchResult` for review."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindStructuredConcurrencyLeaks$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findstructuredconcurrencyleaks$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `GlobalScope.launch` calls","href":"kotlin/coroutines/findglobalscopelaunch$ktrecipe"},{"name":"Find `GlobalScope.async` calls","href":"kotlin/coroutines/findglobalscopeasync$ktrecipe"},{"name":"Find `GlobalScope.produce` calls","href":"kotlin/coroutines/findglobalscopeproduce$ktrecipe"},{"name":"Find `GlobalScope.actor` calls","href":"kotlin/coroutines/findglobalscopeactor$ktrecipe"},{"name":"Find raw `Job()` allocations","href":"kotlin/coroutines/findjobascontext$ktrecipe"},{"name":"Find raw `CoroutineScope(...)` constructions","href":"kotlin/coroutines/findbarecoroutinescopector$ktrecipe"},{"name":"Find `suspendCoroutine` calls","href":"kotlin/coroutines/findsuspendcoroutinewithoutcancellation$ktrecipe"}]}>
+<RecipeHeader.Title>Find structured-concurrency leaks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Coroutine builders that escape the structured-concurrency tree: `GlobalScope` builders, raw `Job()` / `CoroutineScope(...)` allocations, and `suspendCoroutine` calls that ignore cancellation. Each match is a `SearchResult` for review.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `GlobalScope.launch` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findglobalscopelaunch$ktrecipe/"},{"name":"Find `GlobalScope.async` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findglobalscopeasync$ktrecipe/"},{"name":"Find `GlobalScope.produce` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findglobalscopeproduce$ktrecipe/"},{"name":"Find `GlobalScope.actor` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findglobalscopeactor$ktrecipe/"},{"name":"Find raw `Job()` allocations","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findjobascontext$ktrecipe/"},{"name":"Find raw `CoroutineScope(...)` constructions","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findbarecoroutinescopector$ktrecipe/"},{"name":"Find `suspendCoroutine` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findsuspendcoroutinewithoutcancellation$ktrecipe/"}]}>
 
 ## Definition
 

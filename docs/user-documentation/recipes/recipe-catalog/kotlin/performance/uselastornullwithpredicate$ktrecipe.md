@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `lastOrNull { predicate }` instead of `filter { predicate }.lastOrNull()`"}
-  description={"Folding the predicate into `lastOrNull` avoids materializing the intermediate filtered list."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseLastOrNullWithPredicate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/uselastornullwithpredicate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `lastOrNull { predicate }` instead of `filter { predicate }.lastOrNull()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Folding the predicate into `lastOrNull` avoids materializing the intermediate filtered list.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseLastOrNullWithPredicate$KtRecipe","displayName":"Use `lastOrNull { predicate }` instead of `filter { predicate }.lastOrNull()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`@Embeddable` classes cannot have an `@Id` annotation when referenced by an `@EmbeddedId` annotation"}
-  description={"According to the Java Persistence API (JPA) specification, if an entity defines an attribute with an `@EmbeddedId` annotation, the embeddable class cannot contain an attribute with an `@Id` annotation. If both the `@EmbeddedId` annotation and the `@Id` annotation are defined, OpenJPA ignores the `@Id` annotation, whereas EclipseLink throws an exception."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.RemoveEmbeddableId"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/removeembeddableid.md"}
-/>
+>
+
+<RecipeHeader.Title>`@Embeddable` classes cannot have an `@Id` annotation when referenced by an `@EmbeddedId` annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>According to the Java Persistence API (JPA) specification, if an entity defines an attribute with an `@EmbeddedId` annotation, the embeddable class cannot contain an attribute with an `@Id` annotation. If both the `@EmbeddedId` annotation and the `@Id` annotation are defined, OpenJPA ignores the `@Id` annotation, whereas EclipseLink throws an exception.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"import javax.persistence.EmbeddedId;\nimport javax.persistence.Entity;\n\n@Entity\npublic class MainEntity {\n   @EmbeddedId\n   private EmbeddableObject eo;\n}\n"},"variants":[{"language":"java","before":"import javax.persistence.Embeddable;\nimport javax.persistence.Id;\n\n@Embeddable\npublic class EmbeddableObject {\n    @Id\n    private int field;\n}\n","after":"import javax.persistence.Embeddable;\n\n@Embeddable\npublic class EmbeddableObject {\n    private int field;\n}\n","diff":"@@ -2,1 +2,0 @@\nimport javax.persistence.Embeddable;\n-import javax.persistence.Id;\n\n@@ -6,1 +5,0 @@\n@Embeddable\npublic class EmbeddableObject {\n-   @Id\n    private int field;\n","newFile":false}]}]}>
 

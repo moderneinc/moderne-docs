@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `MockitoTestExecutionListener` (TestNG projects)"}
-  description={"Replace `MockitoTestExecutionListener` in projects that have TestNG as a dependency. Uses `MockitoAnnotations.openMocks(this)` with `@BeforeMethod`/`@AfterMethod` as the replacement."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.ReplaceMockitoTestExecutionListenerForTestNG"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacemockitotestexecutionlistenerfortestng.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization","href":"java/testing/mockito/replacemockitotestexecutionlistener"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Replace `MockitoTestExecutionListener` (TestNG projects)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `MockitoTestExecutionListener` in projects that have TestNG as a dependency. Uses `MockitoAnnotations.openMocks(this)` with `@BeforeMethod`/`@AfterMethod` as the replacement.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `MockitoTestExecutionListener` with the equivalent Mockito test initialization","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/replacemockitotestexecutionlistener/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

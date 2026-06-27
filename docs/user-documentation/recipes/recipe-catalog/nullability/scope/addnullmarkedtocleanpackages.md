@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@NullMarked` to packages that are ready for NullAway"}
-  description={"Automatically adds the JSpecify `@NullMarked` annotation to a package — by annotating its existing `package-info.java` or generating one — but only when every Java class in the package is \"ready\", i.e. would not produce a fresh NullAway error once the scope is marked. A package fails the readiness gate (and is left unmarked) if any class in it has: (1) an uninitialized non-null instance field (the `FindUninitializedNonNullField` condition: non-`@Nullable`, non-`final`, non-`static`, reference-typed, no initializer, not assigned in every constructor, not dependency-injection-annotated); (2) a method whose body can return a provably-null value but whose return type is not `@Nullable`; or (3) a field initialized to a provably-null value that is not `@Nullable`. An `@Override` method that returns null without `@Nullable` is also treated as a blocker. Packages whose sources live under a generated marker path (`/generated/`, `/build/generated`, `/generated-sources/`) or whose classes carry a `@Generated` annotation are skipped. The recipe is idempotent and operates per leaf package; it never marks parent packages transitively. Java sources only."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.scope.AddNullMarkedToCleanPackages"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/scope/addnullmarkedtocleanpackages.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@NullMarked` to packages that are ready for NullAway</RecipeHeader.Title>
+
+<RecipeHeader.Description>Automatically adds the JSpecify `@NullMarked` annotation to a package — by annotating its existing `package-info.java` or generating one — but only when every Java class in the package is "ready", i.e. would not produce a fresh NullAway error once the scope is marked. A package fails the readiness gate (and is left unmarked) if any class in it has: (1) an uninitialized non-null instance field (the `FindUninitializedNonNullField` condition: non-`@Nullable`, non-`final`, non-`static`, reference-typed, no initializer, not assigned in every constructor, not dependency-injection-annotated); (2) a method whose body can return a provably-null value but whose return type is not `@Nullable`; or (3) a field initialized to a provably-null value that is not `@Nullable`. An `@Override` method that returns null without `@Nullable` is also treated as a blocker. Packages whose sources live under a generated marker path (`/generated/`, `/build/generated`, `/generated-sources/`) or whose classes carry a `@Generated` annotation are skipped. The recipe is idempotent and operates per leaf package; it never marks parent packages transitively. Java sources only.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.jspecify.annotations.Nullable;\n\nclass Clean {\n    String name = \"x\";\n\n    @Nullable\n    String maybeNull() {\n        return null;\n    }\n}\n"},"variants":[{"language":"java","before":"package com.example;\n","after":"@NullMarked\npackage com.example;\n\nimport org.jspecify.annotations.NullMarked;\n","diff":"--- src/main/java/com/example/package-info.java\n+++ src/main/java/com/example/package-info.java\n@@ -1,0 +1,1 @@\n+@NullMarked\npackage com.example;\n@@ -3,0 +4,2 @@\npackage com.example;\n\n+import org.jspecify.annotations.NullMarked;\n+\n","newFile":false}]}]}>
 

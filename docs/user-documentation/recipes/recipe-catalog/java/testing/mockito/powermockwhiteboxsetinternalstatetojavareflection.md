@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace PowerMock `Whitebox.setInternalState()` with Java reflection"}
-  description={"Replace `Whitebox.setInternalState(Object, String, Object)` and `Whitebox.setInternalState(Object, String, Object, Class)` with `java.lang.reflect.Field` access. The 3-arg overload looks up the field on the target's class; the 4-arg where-overload uses the supplied Class to resolve fields declared on a superclass."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.PowerMockWhiteboxSetInternalStateToJavaReflection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/powermockwhiteboxsetinternalstatetojavareflection.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace PowerMock `Whitebox.setInternalState()` with Java reflection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `Whitebox.setInternalState(Object, String, Object)` and `Whitebox.setInternalState(Object, String, Object, Class)` with `java.lang.reflect.Field` access. The 3-arg overload looks up the field on the target's class; the 4-arg where-overload uses the supplied Class to resolve fields declared on a superclass.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.PowerMockWhiteboxSetInternalStateToJavaReflection","displayName":"Replace PowerMock `Whitebox.setInternalState()` with Java reflection","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

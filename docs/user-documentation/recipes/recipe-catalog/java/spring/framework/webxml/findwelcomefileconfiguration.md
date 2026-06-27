@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add landing page controller for welcome file configuration"}
-  description={"Generates a `LandingPageController` when `welcome-file-list` is found in `web.xml` or `context-root` in `jboss-web.xml`. When migrating to Spring Framework 5.3+, applications that rely on these server-side landing page configurations need a `@Controller` with a `@RequestMapping` for `/` to avoid 404 errors, as Spring MVC can take over the root mapping. Skips generation if a controller already maps to `/`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.webxml.FindWelcomeFileConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/webxml/findwelcomefileconfiguration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add landing page controller for welcome file configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Generates a `LandingPageController` when `welcome-file-list` is found in `web.xml` or `context-root` in `jboss-web.xml`. When migrating to Spring Framework 5.3+, applications that rely on these server-side landing page configurations need a `@Controller` with a `@RequestMapping` for `/` to avoid 404 errors, as Spring MVC can take over the root mapping. Skips generation if a controller already maps to `/`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example.web.controller;\n\nimport org.springframework.stereotype.Controller;\nimport org.springframework.web.bind.annotation.RequestMapping;\n\n@Controller\npublic class UserController {\n    @RequestMapping(\"/users\")\n    public String users() {\n        return \"users\";\n    }\n}\n"},"variants":[{"language":"java","before":"","after":"package com.example.web.controller;\n\nimport org.springframework.stereotype.Controller;\nimport org.springframework.web.bind.annotation.RequestMapping;\n\n/**\n * Landing page controller generated to handle root URL mapping.\n * <p>\n * This controller was generated because a welcome-file-list was found in web.xml\n * and/or a context-root was found in jboss-web.xml. With Spring MVC taking over\n * URL handling, an explicit controller mapping is needed to serve the landing page.\n */\n@Controller\npublic class LandingPageController {\n\n    @RequestMapping({\"/\"})\n    public String landingPage() {\n        return \"index\";\n    }\n}\n","newFile":true}]}]}>
 

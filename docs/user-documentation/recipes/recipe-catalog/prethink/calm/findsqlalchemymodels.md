@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find SQLAlchemy and Django ORM models"}
-  description={"Identify ORM model classes in Python applications. Detects SQLAlchemy models with DeclarativeBase inheritance, Flask-SQLAlchemy models with db.Model, and Django ORM models extending models.Model."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindSQLAlchemyModels"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findsqlalchemymodels.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find SQLAlchemy and Django ORM models</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify ORM model classes in Python applications. Detects SQLAlchemy models with DeclarativeBase inheritance, Flask-SQLAlchemy models with db.Model, and Django ORM models extending models.Model.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"pyproject","code":"[project]\nname = \"test-app\"\nversion = \"0.1.0\"\ndependencies = [\"sqlalchemy>=2.0\"]\n"},"variants":[]}]}>
 

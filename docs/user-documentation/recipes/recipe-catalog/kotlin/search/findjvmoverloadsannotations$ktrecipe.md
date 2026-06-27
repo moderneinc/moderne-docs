@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@JvmOverloads` annotations"}
-  description={"`@JvmOverloads` emits N synthetic Java overloads for a Kotlin function with default parameters. Each annotation is a hint the function is part of the Java-facing surface; reordering parameters or changing defaults breaks the synthetic overloads."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindJvmOverloadsAnnotations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findjvmoverloadsannotations$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@JvmOverloads` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@JvmOverloads` emits N synthetic Java overloads for a Kotlin function with default parameters. Each annotation is a hint the function is part of the Java-facing surface; reordering parameters or changing defaults breaks the synthetic overloads.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindJvmOverloadsAnnotations$KtRecipe","displayName":"Find `@JvmOverloads` annotations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade inadequate cryptographic key sizes"}
-  description={"Rewrites cryptographic key-size literals that fall below current minimums. RSA/DSA/DH < 2048 bits are upgraded to 2048; EC < 224 bits are upgraded to 256 (when the algorithm is resolvable from `KeyPairGenerator.getInstance(...)`); symmetric (AES) < 128 bits to 128; weak named EC curves (e.g. `secp112r1`, `prime192v1`) to `secp256r1`. Companion fix recipe to `FindInadequateKeySize`. Note: changing key sizes can break interop with existing artifacts; review before applying."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-326","RSPEC-S4426"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.UpgradeInadequateKeySize"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/upgradeinadequatekeysize.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Upgrade inadequate cryptographic key sizes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rewrites cryptographic key-size literals that fall below current minimums. RSA/DSA/DH &lt; 2048 bits are upgraded to 2048; EC &lt; 224 bits are upgraded to 256 (when the algorithm is resolvable from `KeyPairGenerator.getInstance(...)`); symmetric (AES) &lt; 128 bits to 128; weak named EC curves (e.g. `secp112r1`, `prime192v1`) to `secp256r1`. Companion fix recipe to `FindInadequateKeySize`. Note: changing key sizes can break interop with existing artifacts; review before applying.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.security.KeyPairGenerator;\nimport java.security.NoSuchAlgorithmException;\n\nclass A {\n    void generateKey() throws NoSuchAlgorithmException {\n        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\");\n        kpg.initialize(1024);\n    }\n}\n","after":"import java.security.KeyPairGenerator;\nimport java.security.NoSuchAlgorithmException;\n\nclass A {\n    void generateKey() throws NoSuchAlgorithmException {\n        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\");\n        kpg.initialize(2048);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    void generateKey() throws NoSuchAlgorithmException {\n        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\");\n-       kpg.initialize(1024);\n+       kpg.initialize(2048);\n    }\n","newFile":false}]}]}>
 

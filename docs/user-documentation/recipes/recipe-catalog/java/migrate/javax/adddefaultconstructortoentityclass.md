@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`@Entity` objects with constructors must also have a default constructor"}
-  description={"When a Java Persistence API (JPA) entity class has a constructor with arguments, the class must also have a default, no-argument constructor. The OpenJPA implementation automatically generates the no-argument constructor, but the EclipseLink implementation does not."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.AddDefaultConstructorToEntityClass"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/adddefaultconstructortoentityclass.md"}
-/>
+>
+
+<RecipeHeader.Title>`@Entity` objects with constructors must also have a default constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>When a Java Persistence API (JPA) entity class has a constructor with arguments, the class must also have a default, no-argument constructor. The OpenJPA implementation automatically generates the no-argument constructor, but the EclipseLink implementation does not.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.persistence.Entity;\nimport javax.persistence.Id;\n\n@Entity\npublic class MissingNoArgConstructorEntity {\n    @Id\n    private int id;\n\n    public MissingNoArgConstructorEntity(int id) {\n        this.id = id;\n    }\n}\n","after":"import javax.persistence.Entity;\nimport javax.persistence.Id;\n\n@Entity\npublic class MissingNoArgConstructorEntity {\n\n    public MissingNoArgConstructorEntity() {\n    }\n    @Id\n    private int id;\n\n    public MissingNoArgConstructorEntity(int id) {\n        this.id = id;\n    }\n}\n","diff":"@@ -6,0 +6,3 @@\n@Entity\npublic class MissingNoArgConstructorEntity {\n+\n+   public MissingNoArgConstructorEntity() {\n+   }\n    @Id\n","newFile":false}]}]}>
 

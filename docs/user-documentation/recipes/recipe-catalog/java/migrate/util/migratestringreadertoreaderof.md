@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Reader.of(CharSequence)` for non-synchronized readers"}
-  description={"Migrate `new StringReader(String)` to `Reader.of(CharSequence)` in Java 25+. This only applies when assigning to `Reader` variables or returning from methods that return `Reader`. The new method creates non-synchronized readers which are more efficient when thread-safety is not required."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.MigrateStringReaderToReaderOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/migratestringreadertoreaderof.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Reader.of(CharSequence)` for non-synchronized readers</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate `new StringReader(String)` to `Reader.of(CharSequence)` in Java 25+. This only applies when assigning to `Reader` variables or returning from methods that return `Reader`. The new method creates non-synchronized readers which are more efficient when thread-safety is not required.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.Reader;\nimport java.io.StringReader;\n\nclass Test {\n    void test(String content) {\n        Reader reader = new StringReader(content);\n    }\n}\n","after":"import java.io.Reader;\n\nclass Test {\n    void test(String content) {\n        Reader reader = Reader.of(content);\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport java.io.Reader;\n-import java.io.StringReader;\n\n@@ -6,1 +5,1 @@\nclass Test {\n    void test(String content) {\n-       Reader reader = new StringReader(content);\n+       Reader reader = Reader.of(content);\n    }\n","newFile":false}]}]}>
 

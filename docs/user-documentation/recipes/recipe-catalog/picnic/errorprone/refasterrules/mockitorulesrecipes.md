@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`MockitoRules` Refaster recipes"}
-  description={"Refaster rules related to Mockito expressions and statements.\n[Source](https://error-prone.picnic.tech/refasterrules/MockitoRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.MockitoRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mockitorulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `MockitoRules.Never`","href":"picnic/errorprone/refasterrules/mockitorulesrecipes$neverrecipe"},{"name":"Refaster template `MockitoRules.VerifyOnce`","href":"picnic/errorprone/refasterrules/mockitorulesrecipes$verifyoncerecipe"},{"name":"Refaster template `MockitoRules.InvocationOnMockGetArguments`","href":"picnic/errorprone/refasterrules/mockitorulesrecipes$invocationonmockgetargumentsrecipe"}]}>
+<RecipeHeader.Title>`MockitoRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to Mockito expressions and statements. [Source](https://error-prone.picnic.tech/refasterrules/MockitoRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `MockitoRules.Never`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mockitorulesrecipes$neverrecipe/"},{"name":"Refaster template `MockitoRules.VerifyOnce`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mockitorulesrecipes$verifyoncerecipe/"},{"name":"Refaster template `MockitoRules.InvocationOnMockGetArguments`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mockitorulesrecipes$invocationonmockgetargumentsrecipe/"}]}>
 
 ## Definition
 

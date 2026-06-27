@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Char.isWhitespace()` instead of `Character.isWhitespace(c)`"}
-  description={"Prefer the multiplatform Kotlin extension `c.isWhitespace()` over the JVM-only `Character.isWhitespace(c)`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseCharIsWhitespace$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usechariswhitespace$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Char.isWhitespace()` instead of `Character.isWhitespace(c)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the multiplatform Kotlin extension `c.isWhitespace()` over the JVM-only `Character.isWhitespace(c)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseCharIsWhitespace$KtRecipe","displayName":"Use `Char.isWhitespace()` instead of `Character.isWhitespace(c)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

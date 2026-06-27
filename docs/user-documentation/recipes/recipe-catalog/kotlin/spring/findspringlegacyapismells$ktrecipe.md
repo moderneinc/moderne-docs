@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring legacy / deprecated API smells"}
-  description={"`RestTemplate` (in maintenance mode — use `WebClient` or `RestClient`), `@EnableWebMvc` on a Boot application (disables auto-config), `HttpServletRequest` parameters in controllers (use binding annotations), `@Controller` whose handlers all return data (consider `@RestController`), and `@Autowired` Logger fields (use companion `LoggerFactory`)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringLegacyApiSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringlegacyapismells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `RestTemplate` allocations","href":"kotlin/spring/findresttemplateusage$ktrecipe"},{"name":"Find `@EnableWebMvc` on a Spring Boot application","href":"kotlin/spring/findenablewebmvconbootapp$ktrecipe"},{"name":"Find `HttpServletRequest` parameters in controllers","href":"kotlin/spring/findhttpservletrequestparameter$ktrecipe"},{"name":"Find `@Controller` classes whose methods all return data (consider `@RestController`)","href":"kotlin/spring/findcontrollerinsteadofrestcontroller$ktrecipe"},{"name":"Find `@Autowired lateinit var` Logger fields","href":"kotlin/spring/findautowiredlogger$ktrecipe"}]}>
+<RecipeHeader.Title>Find Spring legacy / deprecated API smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>`RestTemplate` (in maintenance mode — use `WebClient` or `RestClient`), `@EnableWebMvc` on a Boot application (disables auto-config), `HttpServletRequest` parameters in controllers (use binding annotations), `@Controller` whose handlers all return data (consider `@RestController`), and `@Autowired` Logger fields (use companion `LoggerFactory`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `RestTemplate` allocations","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findresttemplateusage$ktrecipe/"},{"name":"Find `@EnableWebMvc` on a Spring Boot application","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findenablewebmvconbootapp$ktrecipe/"},{"name":"Find `HttpServletRequest` parameters in controllers","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findhttpservletrequestparameter$ktrecipe/"},{"name":"Find `@Controller` classes whose methods all return data (consider `@RestController`)","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findcontrollerinsteadofrestcontroller$ktrecipe/"},{"name":"Find `@Autowired lateinit var` Logger fields","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredlogger$ktrecipe/"}]}>
 
 ## Definition
 

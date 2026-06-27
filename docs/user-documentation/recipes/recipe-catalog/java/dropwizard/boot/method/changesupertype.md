@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change supertype"}
-  description={"Changes the supertype of a class, optionally converting from extends to implements."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.method.ChangeSuperType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/method/changesupertype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Change supertype</RecipeHeader.Title>
+
+<RecipeHeader.Description>Changes the supertype of a class, optionally converting from extends to implements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"targetClass","required":true,"description":"The fully qualified name of the class whose superclass should be changed.","example":"com.myorg.MyClass"},{"type":"String","name":"newSuperclass","required":true,"description":"The fully qualified name of the new superclass to extend or interface to implement.","example":"com.myorg.NewSuperclass"},{"type":"Boolean","name":"keepTypeParameters","required":false,"description":"Whether to keep existing type parameters on the target class declaration."},{"type":"Boolean","name":"convertToInterface","required":false,"description":"If the new supertype is an interface, setting this to true converts 'extends' to 'implements'."},{"type":"Boolean","name":"removeUnnecessaryOverrides","required":false,"description":"Remove method Override annotations that override methods from the *old* superclass but are no longer necessary with the new superclass."}]}>
 

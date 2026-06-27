@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Keep classes small (max 30 members)"}
-  description={"Finds classes with more than 30 members. Large classes are harder to maintain; consider splitting into smaller classes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.KeepClassesSmall"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/keepclassessmall.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Keep classes small (max 30 members)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds classes with more than 30 members. Large classes are harder to maintain; consider splitting into smaller classes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class BigService {\n    val f1 = 1\n    val f2 = 2\n    val f3 = 3\n    val f4 = 4\n    val f5 = 5\n    val f6 = 6\n    val f7 = 7\n    val f8 = 8\n    val f9 = 9\n    val f10 = 10\n    val f11 = 11\n    val f12 = 12\n    val f13 = 13\n    val f14 = 14\n    val f15 = 15\n    val f16 = 16\n    val f17 = 17\n    val f18 = 18\n    val f19 = 19\n    val f20 = 20\n    val f21 = 21\n    val f22 = 22\n    val f23 = 23\n    val f24 = 24\n    val f25 = 25\n    val f26 = 26\n    val f27 = 27\n    val f28 = 28\n    val f29 = 29\n    val f30 = 30\n    val f31 = 31\n}\n","after":"/*~~(Class has too many members; consider splitting)~~>*/class BigService {\n    val f1 = 1\n    val f2 = 2\n    val f3 = 3\n    val f4 = 4\n    val f5 = 5\n    val f6 = 6\n    val f7 = 7\n    val f8 = 8\n    val f9 = 9\n    val f10 = 10\n    val f11 = 11\n    val f12 = 12\n    val f13 = 13\n    val f14 = 14\n    val f15 = 15\n    val f16 = 16\n    val f17 = 17\n    val f18 = 18\n    val f19 = 19\n    val f20 = 20\n    val f21 = 21\n    val f22 = 22\n    val f23 = 23\n    val f24 = 24\n    val f25 = 25\n    val f26 = 26\n    val f27 = 27\n    val f28 = 28\n    val f29 = 29\n    val f30 = 30\n    val f31 = 31\n}\n","diff":"@@ -1,1 +1,1 @@\n-class BigService {\n+/*~~(Class has too many members; consider splitting)~~>*/class BigService {\n    val f1 = 1\n","newFile":false}]}]}>
 

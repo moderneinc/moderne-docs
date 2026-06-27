@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Quarkus Updates Aggregate 3.8.3"}
-  description={"Quarkus update recipes to upgrade your application to 3.8.3."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.MigrateToQuarkus_v3_8_3"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_8_3.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.8.0","href":"quarkus/migratetoquarkus_v3_8_0"},{"name":"io.quarkus.updates.core.quarkus383.GraalSDK","href":"quarkus/updates/core/quarkus383/graalsdk"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
+<RecipeHeader.Title>Quarkus Updates Aggregate 3.8.3</RecipeHeader.Title>
+
+<RecipeHeader.Description>Quarkus update recipes to upgrade your application to 3.8.3.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.8.0","href":"/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_8_0/"},{"name":"io.quarkus.updates.core.quarkus383.GraalSDK","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus383/graalsdk/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

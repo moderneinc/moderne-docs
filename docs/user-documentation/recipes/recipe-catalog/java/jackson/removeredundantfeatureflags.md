@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant Jackson 3 feature flag configurations"}
-  description={"Remove `ObjectMapper` feature flag configurations that set values to their new Jackson 3 defaults. For example, `disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)` and `configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)` are redundant since this is now disabled by default in Jackson 3."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.RemoveRedundantFeatureFlags"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/removeredundantfeatureflags.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove redundant Jackson 3 feature flag configurations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `ObjectMapper` feature flag configurations that set values to their new Jackson 3 defaults. For example, `disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)` and `configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)` are redundant since this is now disabled by default in Jackson 3.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"featureName","required":true,"description":"The fully qualified feature flag name that has a new default in Jackson 3. Format: `ClassName.FEATURE_NAME` (e.g., `MapperFeature.SORT_PROPERTIES_ALPHABETICALLY`).","example":"MapperFeature.SORT_PROPERTIES_ALPHABETICALLY"},{"type":"Boolean","name":"newDefaultValue","required":true,"description":"The new default boolean value for this feature flag in Jackson 3.","example":"true"}]}>
 

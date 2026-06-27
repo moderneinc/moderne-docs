@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Flag deprecated suffix pattern matching usage for manual review"}
-  description={"Handles deprecated `setUseSuffixPatternMatch()` and `setUseRegisteredSuffixPatternMatch()` calls. When suffix pattern matching is explicitly enabled, adds TODO comments and search markers since there is no automatic migration path. When explicitly disabled, the call is safely removed since `false` is already the default since Spring Framework 5.3."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.FlagSuffixPatternMatchUsage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/flagsuffixpatternmatchusage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Flag deprecated suffix pattern matching usage for manual review</RecipeHeader.Title>
+
+<RecipeHeader.Description>Handles deprecated `setUseSuffixPatternMatch()` and `setUseRegisteredSuffixPatternMatch()` calls. When suffix pattern matching is explicitly enabled, adds TODO comments and search markers since there is no automatic migration path. When explicitly disabled, the call is safely removed since `false` is already the default since Spring Framework 5.3.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Configuration;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n    @Override\n    public void configurePathMatch(PathMatchConfigurer configurer) {\n        configurer.setUseSuffixPatternMatch(true);\n    }\n}\n","after":"import org.springframework.context.annotation.Configuration;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n    @Override\n    public void configurePathMatch(PathMatchConfigurer configurer) {\n        // TODO: Suffix pattern matching has been removed in Spring Framework 7.0. If your application relies on URL extensions like /users.json or /users.xml, migrate to content negotiation via Accept headers or use favorParameter(true) with a query parameter. See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-7.0-Release-Notes\n/*~~(Suffix pattern matching has been removed in Spring Framework 7.0. This configuration requires manual migration.)~~>*/configurer.setUseSuffixPatternMatch(true);\n    }\n}\n","diff":"@@ -9,1 +9,2 @@\n    @Override\n    public void configurePathMatch(PathMatchConfigurer configurer) {\n-       configurer.setUseSuffixPatternMatch(true);\n+       // TODO: Suffix pattern matching has been removed in Spring Framework 7.0. If your application relies on URL extensions like /users.json or /users.xml, migrate to content negotiation via Accept headers or use favorParameter(true) with a query parameter. See https://github.com/spring-projects/spring-framework/wiki/Spring-Framework-7.0-Release-Notes\n+/*~~(Suffix pattern matching has been removed in Spring Framework 7.0. This configuration requires manual migration.)~~>*/configurer.setUseSuffixPatternMatch(true);\n    }\n","newFile":false}]}]}>
 

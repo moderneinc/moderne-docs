@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`"}
-  description={"Replace deprecated `bytesRead` property on zlib streams with `bytesWritten`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0108"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.zlib.replace-bytes-read"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/zlib/replace-bytes-read.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated `bytesRead` property on zlib streams with `bytesWritten`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.zlib.replace-bytes-read","displayName":"Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

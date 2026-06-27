@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Maven project property value"}
-  description={"Changes the specified Maven project property value leaving the key intact."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ChangePropertyValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/changepropertyvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Maven project property value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Changes the specified Maven project property value leaving the key intact.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"key","required":true,"description":"The name of the property key whose value is to be changed.","example":"junit.version"},{"type":"String","name":"newValue","required":true,"description":"Value to apply to the matching property.","example":"4.13"},{"type":"Boolean","name":"addIfMissing","required":false,"description":"Add the property if it is missing from the pom file."},{"type":"Boolean","name":"trustParent","required":false,"description":"Even if the parent defines a property with the same key, trust it even if the value isn't the same. Useful when you want to wait for the parent to have its value changed first. The parent is not trusted by default."}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Cats Effect 2 to Cats Effect 3"}
-  description={"Finds Cats Effect 2 imports by detecting `cats.effect.IO` without `cats.effect.unsafe`, or CE2-specific types like `ContextShift` and `Timer`. Consider migrating to Cats Effect 3."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.ecosystem.MigrateCatsEffect2To3"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/ecosystem/migratecatseffect2to3.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Cats Effect 2 to Cats Effect 3</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds Cats Effect 2 imports by detecting `cats.effect.IO` without `cats.effect.unsafe`, or CE2-specific types like `ContextShift` and `Timer`. Consider migrating to Cats Effect 3.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import cats.effect.IO\n\nobject Main {\n  val program: IO[Unit] = IO(println(\"hello\"))\n}\n","after":"/*~~(Cats Effect 2 detected; consider migrating to Cats Effect 3)~~>*/import cats.effect.IO\n\nobject Main {\n  val program: IO[Unit] = IO(println(\"hello\"))\n}\n","diff":"@@ -1,1 +1,1 @@\n-import cats.effect.IO\n+/*~~(Cats Effect 2 detected; consider migrating to Cats Effect 3)~~>*/import cats.effect.IO\n\n","newFile":false}]}]}>
 

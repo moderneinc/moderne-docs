@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"io.quarkus.updates.core.quarkus324.AddHibernateAnnotationProcessorIfOldJpaModelgenDependency"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus324.AddHibernateAnnotationProcessorIfOldJpaModelgenDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus324/addhibernateannotationprocessorifoldjpamodelgendependency.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add an annotation processor to the Maven Compiler plugin configuration","href":"quarkus/updates/core/quarkus37/addmavencompilerannotationprocessor"}]} preconditions={[{"name":"Find Maven dependency","href":"maven/search/finddependency"}]}>
+<RecipeHeader.Title>io.quarkus.updates.core.quarkus324.AddHibernateAnnotationProcessorIfOldJpaModelgenDependency</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add an annotation processor to the Maven Compiler plugin configuration","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/addmavencompilerannotationprocessor/"}]} preconditions={[{"name":"Find Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/search/finddependency/"}]}>
 
 ## Definition
 

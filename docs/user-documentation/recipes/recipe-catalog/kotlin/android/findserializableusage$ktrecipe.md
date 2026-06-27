@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Kotlin classes implementing `java.io.Serializable`"}
-  description={"`java.io.Serializable` is reflection-based and slow on Android — it allocates substantially more than `Parcelable` and pulls in field-by-field reflection at deserialize time. For inter-component transport, prefer `@Parcelize` (`kotlin-parcelize`) or `kotlinx.serialization`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindSerializableUsage$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findserializableusage$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Kotlin classes implementing `java.io.Serializable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.io.Serializable` is reflection-based and slow on Android — it allocates substantially more than `Parcelable` and pulls in field-by-field reflection at deserialize time. For inter-component transport, prefer `@Parcelize` (`kotlin-parcelize`) or `kotlinx.serialization`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindSerializableUsage$KtRecipe","displayName":"Find Kotlin classes implementing `java.io.Serializable`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

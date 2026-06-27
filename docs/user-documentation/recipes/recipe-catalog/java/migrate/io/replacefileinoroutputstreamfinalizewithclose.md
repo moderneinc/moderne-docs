@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace invocations of `finalize()` on `FileInputStream` and `FileOutputStream` with `close()`"}
-  description={"Replace invocations of the deprecated `finalize()` method on `FileInputStream` and `FileOutputStream` with `close()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["JDK-8212050"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.io.ReplaceFileInOrOutputStreamFinalizeWithClose"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/io/replacefileinoroutputstreamfinalizewithclose.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace invocations of `finalize()` on `FileInputStream` and `FileOutputStream` with `close()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace invocations of the deprecated `finalize()` method on `FileInputStream` and `FileOutputStream` with `close()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.FileInputStream;\nimport java.io.IOException;\n\nclass FooBar {\n   public void test() throws IOException {\n       FileInputStream obj = new FileInputStream(\"foo\");\n       obj.finalize();\n   }\n}\n","after":"import java.io.FileInputStream;\nimport java.io.IOException;\n\nclass FooBar {\n   public void test() throws IOException {\n       FileInputStream obj = new FileInputStream(\"foo\");\n       obj.close();\n   }\n}\n","diff":"@@ -7,1 +7,1 @@\n   public void test() throws IOException {\n       FileInputStream obj = new FileInputStream(\"foo\");\n-      obj.finalize();\n+      obj.close();\n   }\n","newFile":false}]}]}>
 

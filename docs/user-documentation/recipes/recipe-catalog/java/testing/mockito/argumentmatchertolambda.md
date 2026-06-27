@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `ArgumentMatcher<T>` anonymous class to lambda"}
-  description={"Converts anonymous `ArgumentMatcher<T>` implementations with `matches(Object)` to lambda expressions with the correct parameter type. In Mockito 1.x, `ArgumentMatcher<T>` extended Hamcrest's `BaseMatcher` and `matches` always took `Object`. In Mockito 2+, `ArgumentMatcher<T>` is a functional interface where `matches` takes `T`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.ArgumentMatcherToLambda"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/argumentmatchertolambda.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `ArgumentMatcher<T>` anonymous class to lambda</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts anonymous `ArgumentMatcher<T>` implementations with `matches(Object)` to lambda expressions with the correct parameter type. In Mockito 1.x, `ArgumentMatcher<T>` extended Hamcrest's `BaseMatcher` and `matches` always took `Object`. In Mockito 2+, `ArgumentMatcher<T>` is a functional interface where `matches` takes `T`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.mockito.ArgumentMatcher;\n\nclass MyTest {\n    ArgumentMatcher<String> matcher = new ArgumentMatcher<String>() {\n        @Override\n        public boolean matches(Object argument) {\n            return ((String) argument).startsWith(\"prefix\");\n        }\n    };\n}\n","after":"import org.mockito.ArgumentMatcher;\n\nclass MyTest {\n    ArgumentMatcher<String> matcher = (ArgumentMatcher<String>) argument -> argument.startsWith(\"prefix\");\n}\n","diff":"@@ -4,6 +4,1 @@\n\nclass MyTest {\n-   ArgumentMatcher<String> matcher = new ArgumentMatcher<String>() {\n-       @Override\n-       public boolean matches(Object argument) {\n-           return ((String) argument).startsWith(\"prefix\");\n-       }\n-   };\n+   ArgumentMatcher<String> matcher = (ArgumentMatcher<String>) argument -> argument.startsWith(\"prefix\");\n}\n","newFile":false}]}]}>
 

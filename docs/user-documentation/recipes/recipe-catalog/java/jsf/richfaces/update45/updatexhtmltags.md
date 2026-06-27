@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate RichFaces tags in `xhtml` files"}
-  description={"Migrate RichFaces tags in `xhtml` files to RichFaces 4."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["richfaces","jsf"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.jsf.richfaces.update45.UpdateXHTMLTags"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/update45/updatexhtmltags.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Convert height/width attributes to `extendedDataTable` style","href":"java/jsf/richfaces/convertextendeddatatableheighttostyle"},{"name":"Change XML tag name","href":"xml/changetagname"},{"name":"Change XML tag name","href":"xml/changetagname"},{"name":"Change XML tag name","href":"xml/changetagname"},{"name":"Change XML tag name","href":"xml/changetagname"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Remove XML tag","href":"xml/removexmltag"},{"name":"Find and replace","href":"text/findandreplace"},{"name":"Change XML attribute key","href":"xml/changetagattributekey"},{"name":"Change XML attribute key","href":"xml/changetagattributekey"},{"name":"Change XML attribute key","href":"xml/changetagattributekey"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Find files","href":"core/findsourcefiles"}]}>
+<RecipeHeader.Title>Migrate RichFaces tags in `xhtml` files</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate RichFaces tags in `xhtml` files to RichFaces 4.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Convert height/width attributes to `extendedDataTable` style","href":"/user-documentation/recipes/recipe-catalog/java/jsf/richfaces/convertextendeddatatableheighttostyle/"},{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"},{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"},{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"},{"name":"Change XML tag name","href":"/user-documentation/recipes/recipe-catalog/xml/changetagname/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Remove XML tag","href":"/user-documentation/recipes/recipe-catalog/xml/removexmltag/"},{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"},{"name":"Change XML attribute key","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattributekey/"},{"name":"Change XML attribute key","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattributekey/"},{"name":"Change XML attribute key","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattributekey/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Find files","href":"/user-documentation/recipes/recipe-catalog/core/findsourcefiles/"}]}>
 
 ## Definition
 

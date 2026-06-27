@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Modernize Kotlin functional / `Result` ergonomics"}
-  description={"Search-only recipes that surface `kotlin.Result` / `runCatching { }` smells and try/catch shapes that map cleanly to Kotlin idioms (`.fold(...)`, `.getOrNull()`, `.getOrDefault(...)`, `?:`, `?.let { }`, `requireNotNull`, `checkNotNull`). Most of the actual rewrites involve moving statements between try-body / catch-body / Result-chain shapes, which the declarative `rewrite { } to { }` DSL doesn't model yet — so each match is a `SearchResult` for human review."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.Functional$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/functional$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `runCatching { }` smells","href":"kotlin/functional/findruncatchingsmells$ktrecipe"},{"name":"Find raw `try`/`catch` smells","href":"kotlin/functional/findtrycatchsmells$ktrecipe"},{"name":"Find `Result<T>` API ergonomics opportunities","href":"kotlin/functional/findresultergonomics$ktrecipe"},{"name":"Find throw/catch shape smells","href":"kotlin/functional/findthrowcatchsmells$ktrecipe"},{"name":"Find nullability idiom opportunities","href":"kotlin/functional/findnullabilityergonomics$ktrecipe"}]}>
+<RecipeHeader.Title>Modernize Kotlin functional / `Result` ergonomics</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only recipes that surface `kotlin.Result` / `runCatching { }` smells and try/catch shapes that map cleanly to Kotlin idioms (`.fold(...)`, `.getOrNull()`, `.getOrDefault(...)`, `?:`, `?.let { }`, `requireNotNull`, `checkNotNull`). Most of the actual rewrites involve moving statements between try-body / catch-body / Result-chain shapes, which the declarative `rewrite { } to { }` DSL doesn't model yet — so each match is a `SearchResult` for human review.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `runCatching { }` smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingsmells$ktrecipe/"},{"name":"Find raw `try`/`catch` smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findtrycatchsmells$ktrecipe/"},{"name":"Find `Result<T>` API ergonomics opportunities","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findresultergonomics$ktrecipe/"},{"name":"Find throw/catch shape smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findthrowcatchsmells$ktrecipe/"},{"name":"Find nullability idiom opportunities","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findnullabilityergonomics$ktrecipe/"}]}>
 
 ## Definition
 

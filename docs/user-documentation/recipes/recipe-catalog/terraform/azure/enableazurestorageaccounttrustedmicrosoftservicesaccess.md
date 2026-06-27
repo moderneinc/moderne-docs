@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enable Azure Storage Account Trusted Microsoft Services access"}
-  description={"Certain Microsoft services that interact with storage accounts operate from networks that cannot be granted access through network rules. Using this configuration, you can allow the set of trusted Microsoft services to bypass those network rules."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["Azure","CKV_AZURE_36","terraform"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.azure.EnableAzureStorageAccountTrustedMicrosoftServicesAccess"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/azure/enableazurestorageaccounttrustedmicrosoftservicesaccess.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"},{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Enable Azure Storage Account Trusted Microsoft Services access</RecipeHeader.Title>
+
+<RecipeHeader.Description>Certain Microsoft services that interact with storage accounts operate from networks that cannot be granted access through network rules. Using this configuration, you can allow the set of trusted Microsoft services to bypass those network rules.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"},{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

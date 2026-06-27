@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate web.xml from Struts 1 to Struts 2"}
-  description={"Converts Struts 1 ActionServlet configuration to Struts 2 StrutsPrepareAndExecuteFilter."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate2.MigrateWebXml"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate2/migratewebxml.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate web.xml from Struts 1 to Struts 2</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts Struts 1 ActionServlet configuration to Struts 2 StrutsPrepareAndExecuteFilter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<web-app>\n    <servlet>\n        <servlet-name>action</servlet-name>\n        <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>\n        <init-param>\n            <param-name>config</param-name>\n            <param-value>/WEB-INF/struts-config.xml</param-value>\n        </init-param>\n        <load-on-startup>1</load-on-startup>\n    </servlet>\n    <servlet-mapping>\n        <servlet-name>action</servlet-name>\n        <url-pattern>*.do</url-pattern>\n    </servlet-mapping>\n</web-app>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<web-app>\n    <filter>\n        <filter-name>action</filter-name>\n        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>\n    </filter>\n    <filter-mapping>\n        <filter-name>action</filter-name>\n        <url-pattern>/*</url-pattern>\n    </filter-mapping>\n</web-app>\n","diff":"--- web.xml\n+++ web.xml\n@@ -3,13 +3,8 @@\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<web-app>\n-   <servlet>\n-       <servlet-name>action</servlet-name>\n-       <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>\n-       <init-param>\n-           <param-name>config</param-name>\n-           <param-value>/WEB-INF/struts-config.xml</param-value>\n-       </init-param>\n-       <load-on-startup>1</load-on-startup>\n-   </servlet>\n-   <servlet-mapping>\n-       <servlet-name>action</servlet-name>\n-       <url-pattern>*.do</url-pattern>\n-   </servlet-mapping>\n+   <filter>\n+       <filter-name>action</filter-name>\n+       <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>\n+   </filter>\n+   <filter-mapping>\n+       <filter-name>action</filter-name>\n+       <url-pattern>/*</url-pattern>\n+   </filter-mapping>\n</web-app>\n","newFile":false}]}]}>
 

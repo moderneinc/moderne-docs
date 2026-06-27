@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `mutableMapOf<K,V>().also { it.put(...) }` patterns"}
-  description={"Same shape as `mutableListOf().also { it.add(...) }` for maps. The builder form (`buildMap { put(...) }`) makes the entries visible without the side-channel `it.put`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindMutableMapAlsoPut$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findmutablemapalsoput$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `mutableMapOf<K,V>().also { it.put(...) }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Same shape as `mutableListOf().also { it.add(...) }` for maps. The builder form (`buildMap { put(...) }`) makes the entries visible without the side-channel `it.put`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindMutableMapAlsoPut$KtRecipe","displayName":"Find `mutableMapOf<K,V>().also { it.put(...) }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

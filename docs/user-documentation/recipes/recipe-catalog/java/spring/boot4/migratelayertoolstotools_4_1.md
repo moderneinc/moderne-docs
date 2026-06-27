@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `layertools` jarmode to `tools`"}
-  description={"The `layertools` jar mode was deprecated in Spring Boot 3.3 and removed in Spring Boot 4.1. Replace `-Djarmode=layertools` invocations (commonly found in Dockerfiles and shell scripts) with `-Djarmode=tools`, which provides equivalent and expanded functionality."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot","docker"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.MigrateLayertoolsToTools_4_1"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/migratelayertoolstotools_4_1.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find and replace","href":"text/findandreplace"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate `layertools` jarmode to `tools`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `layertools` jar mode was deprecated in Spring Boot 3.3 and removed in Spring Boot 4.1. Replace `-Djarmode=layertools` invocations (commonly found in Dockerfiles and shell scripts) with `-Djarmode=tools`, which provides equivalent and expanded functionality.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find and replace","href":"/user-documentation/recipes/recipe-catalog/text/findandreplace/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

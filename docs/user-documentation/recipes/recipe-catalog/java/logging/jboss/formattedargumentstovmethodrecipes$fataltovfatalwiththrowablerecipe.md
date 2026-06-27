@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `FormattedArgumentsToVMethod.FatalToVFatalWithThrowable`"}
-  description={"Recipe created for the following Refaster template:\n```java\npublic static class FatalToVFatalWithThrowable {\n    \n    @BeforeTemplate\n    void before(Logger logger, String message, Object[] args, Throwable t) {\n        logger.fatal((Object)message, args, t);\n    }\n    \n    @AfterTemplate\n    void after(Logger logger, String message, Object[] args, Throwable t) {\n        logger.fatalv(message, args, t);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.jboss.FormattedArgumentsToVMethodRecipes$FatalToVFatalWithThrowableRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/jboss/formattedargumentstovmethodrecipes$fataltovfatalwiththrowablerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `FormattedArgumentsToVMethod.FatalToVFatalWithThrowable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+public static class FatalToVFatalWithThrowable {
+    
+    @BeforeTemplate
+    void before(Logger logger, String message, Object[] args, Throwable t) {
+        logger.fatal((Object)message, args, t);
+    }
+    
+    @AfterTemplate
+    void after(Logger logger, String message, Object[] args, Throwable t) {
+        logger.fatalv(message, args, t);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.logging.jboss.FormattedArgumentsToVMethodRecipes$FatalToVFatalWithThrowableRecipe","displayName":"Refaster template `FormattedArgumentsToVMethod.FatalToVFatalWithThrowable`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUnit `assertTrue(a == null)` to `assertNull(a)`"}
-  description={"Using `assertNull(a)` is simpler and more clear."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.AssertTrueNullToAssertNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttruenulltoassertnull.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace JUnit `assertTrue(a == null)` to `assertNull(a)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using `assertNull(a)` is simpler and more clear.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.cleanup.AssertTrueNullToAssertNull","displayName":"Replace JUnit `assertTrue(a == null)` to `assertNull(a)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

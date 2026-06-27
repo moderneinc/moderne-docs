@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add a comment to a `Maven` dependency or plugin"}
-  description={"Adds a comment as the first element in a `Maven` dependency or plugin."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.AddCommentToMavenDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/addcommenttomavendependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Add a comment to a `Maven` dependency or plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds a comment as the first element in a `Maven` dependency or plugin.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"xPath","required":true,"description":"An XPath expression used to find matching tags.","example":"/project/dependencies/dependency"},{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`.","example":"com.google.guava"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`.","example":"guava"},{"type":"String","name":"commentText","required":true,"description":"The text to add as a comment..","example":"This is excluded due to CVE <X> and will be removed when we upgrade the next version is available."}]}>
 

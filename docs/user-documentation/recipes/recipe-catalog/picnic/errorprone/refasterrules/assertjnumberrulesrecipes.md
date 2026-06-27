@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJNumberRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over numeric values.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJNumberRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJNumberRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjnumberrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJNumberRules.NumberAssertIsPositive`","href":"picnic/errorprone/refasterrules/assertjnumberrulesrecipes$numberassertispositiverecipe"},{"name":"Refaster template `AssertJNumberRules.NumberAssertIsNotPositive`","href":"picnic/errorprone/refasterrules/assertjnumberrulesrecipes$numberassertisnotpositiverecipe"},{"name":"Refaster template `AssertJNumberRules.NumberAssertIsNegative`","href":"picnic/errorprone/refasterrules/assertjnumberrulesrecipes$numberassertisnegativerecipe"},{"name":"Refaster template `AssertJNumberRules.NumberAssertIsNotNegative`","href":"picnic/errorprone/refasterrules/assertjnumberrulesrecipes$numberassertisnotnegativerecipe"}]}>
+<RecipeHeader.Title>`AssertJNumberRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over numeric values. [Source](https://error-prone.picnic.tech/refasterrules/AssertJNumberRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJNumberRules.NumberAssertIsPositive`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjnumberrulesrecipes$numberassertispositiverecipe/"},{"name":"Refaster template `AssertJNumberRules.NumberAssertIsNotPositive`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjnumberrulesrecipes$numberassertisnotpositiverecipe/"},{"name":"Refaster template `AssertJNumberRules.NumberAssertIsNegative`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjnumberrulesrecipes$numberassertisnegativerecipe/"},{"name":"Refaster template `AssertJNumberRules.NumberAssertIsNotNegative`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjnumberrulesrecipes$numberassertisnotnegativerecipe/"}]}>
 
 ## Definition
 

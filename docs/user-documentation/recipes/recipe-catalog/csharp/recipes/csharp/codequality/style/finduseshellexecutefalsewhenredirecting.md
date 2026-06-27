@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find redirect without UseShellExecute=false"}
-  description={"Detect `ProcessStartInfo` that sets `RedirectStandard*` without explicitly setting `UseShellExecute = false`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseShellExecuteFalseWhenRedirecting"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finduseshellexecutefalsewhenredirecting.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find redirect without UseShellExecute=false</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `ProcessStartInfo` that sets `RedirectStandard*` without explicitly setting `UseShellExecute = false`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseShellExecuteFalseWhenRedirecting","displayName":"Find redirect without UseShellExecute=false","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

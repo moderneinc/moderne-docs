@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use short-circuit operator"}
-  description={"Replace bitwise `&` with `&&` and `|` with `||` in boolean contexts."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseShortCircuitOperator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/useshortcircuitoperator.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use short-circuit operator</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace bitwise `&` with `&&` and `|` with `||` in boolean contexts.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseShortCircuitOperator","displayName":"Use short-circuit operator","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

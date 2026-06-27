@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add the Develocity Maven extension"}
-  description={"To integrate the Develocity Maven extension into Maven projects, ensure that the `develocity-maven-extension` is added to the `.mvn/extensions.xml` file if not already present. Additionally, configure the extension by adding the `.mvn/develocity.xml` configuration file."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.AddDevelocityMavenExtension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/adddevelocitymavenextension.md"}
-/>
+>
+
+<RecipeHeader.Title>Add the Develocity Maven extension</RecipeHeader.Title>
+
+<RecipeHeader.Description>To integrate the Develocity Maven extension into Maven projects, ensure that the `develocity-maven-extension` is added to the `.mvn/extensions.xml` file if not already present. Additionally, configure the extension by adding the `.mvn/develocity.xml` configuration file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"version","required":false,"description":"A maven-compatible version number to select the gradle-enterprise-maven-extension version.","example":"1.17.4"},{"type":"String","name":"server","required":true,"description":"The URL of the Develocity server.","example":"https://scans.gradle.com/"},{"type":"Boolean","name":"allowUntrustedServer","required":false,"description":"When set to `true` the extension will be configured to allow unencrypted http connections with the server. If set to `false` or omitted, the extension will refuse to communicate without transport layer security enabled.","example":"true"},{"type":"Boolean","name":"fileFingerprints","required":false,"description":"When set to `true` the extension will capture additional information about the inputs to Maven goals. This increases the size of build scans, but is useful for diagnosing issues with goal caching. ","example":"true"},{"type":"Boolean","name":"uploadInBackground","required":false,"description":"When set to `false` the extension will not upload build scan in the background. By default, build scans are uploaded in the background after the build has finished to avoid blocking the build process.","example":"false"},{"type":"PublishCriteria","name":"publishCriteria","required":false,"description":"When set to `Always` the extension will publish build scans of every single build. This is the default behavior when omitted.When set to `Failure` the extension will only publish build scans when the build fails. When set to `Demand` the extension will only publish build scans when explicitly requested.","example":"Always"}]}>
 

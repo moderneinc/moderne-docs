@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates `camel 4.16` application to `camel 4.17`"}
-  description={"Migrates `camel 4.16` application to `camel 4.17`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel417.CamelMigrationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel417/camelmigrationrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"},{"name":"Camel YML transform changes","href":"apache/camel/upgrade/camel417/yamltransform417recipe"}]}>
+<RecipeHeader.Title>Migrates `camel 4.16` application to `camel 4.17`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `camel 4.16` application to `camel 4.17`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Camel YML transform changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel417/yamltransform417recipe/"}]}>
 
 ## Definition
 

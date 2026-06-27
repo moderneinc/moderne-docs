@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find jobs missing timeout"}
-  description={"Find GitHub Actions jobs missing a timeout."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.FindMissingTimeout"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/findmissingtimeout.md"}
-/>
+>
+
+<RecipeHeader.Title>Find jobs missing timeout</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find GitHub Actions jobs missing a timeout.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"jobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: Run a one-line script\n        run: echo Hello, world!\n","after":"jobs:\n  ~~(missing: $.jobs.*.timeout-minutes)~~>build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - name: Run a one-line script\n        run: echo Hello, world!\n","diff":"--- .github/workflows/build.yml\n+++ .github/workflows/build.yml\n@@ -2,1 +2,1 @@\njobs:\n- build:\n+ ~~(missing: $.jobs.*.timeout-minutes)~~>build:\n    runs-on: ubuntu-latest\n","newFile":false}]}]}>
 

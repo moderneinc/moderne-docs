@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert ``else: if`` to ``elif``"}
-  description={"When an ``else`` clause contains nothing but an ``if``, rewrite it as ``elif`` to eliminate extra nesting."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.MergeElseIfIntoElif"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/mergeelseifintoelif.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert ``else: if`` to ``elif``</RecipeHeader.Title>
+
+<RecipeHeader.Description>When an ``else`` clause contains nothing but an ``if``, rewrite it as ``elif`` to eliminate extra nesting.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.MergeElseIfIntoElif","displayName":"Convert ``else: if`` to ``elif``","pipPackage":"openrewrite-static-analysis"}}>
 

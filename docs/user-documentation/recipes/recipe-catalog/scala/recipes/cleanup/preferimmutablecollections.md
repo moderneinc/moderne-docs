@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer immutable collections"}
-  description={"Replaces imports of `scala.collection.mutable.*` with `scala.collection.immutable.*`. Idiomatic Scala prefers immutable collections."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.PreferImmutableCollections"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferimmutablecollections.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer immutable collections</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces imports of `scala.collection.mutable.*` with `scala.collection.immutable.*`. Idiomatic Scala prefers immutable collections.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import scala.collection.mutable.Map\n\nclass Example {\n    val m = Map.empty[String, Int]\n}\n","after":"import scala.collection.immutable.Map\n\nclass Example {\n    val m = Map.empty[String, Int]\n}\n","diff":"@@ -1,1 +1,1 @@\n-import scala.collection.mutable.Map\n+import scala.collection.immutable.Map\n\n","newFile":false}]}]}>
 

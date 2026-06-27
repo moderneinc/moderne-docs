@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add explicit JAXB API dependencies and runtime"}
-  description={"This recipe will add explicit dependencies for Jakarta EE 8 when a Java 8 application is using JAXB. Any existing dependencies will be upgraded to the latest version of Jakarta EE 8. The artifacts are moved to Jakarta EE 8 version 2.x which allows for the continued use of the `javax.xml.bind` namespace. Running a full javax to Jakarta migration using `org.openrewrite.java.migrate.jakarta.JavaxMigrationToJakarta` will update to versions greater than 3.x which necessitates the package change as well."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jaxb","glassfish","javax","java11","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.AddJaxbDependenciesWithRuntime"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbdependencieswithruntime.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add explicit JAXB API dependencies","href":"java/migrate/javax/addjaxbapidependencies"},{"name":"Use latest JAXB API and runtime for Jakarta EE 8","href":"java/migrate/javax/addjaxbruntime"},{"name":"Remove redundant explicit dependency and plugin versions","href":"maven/removeredundantdependencyversions"},{"name":"Remove redundant explicit dependency and plugin versions","href":"maven/removeredundantdependencyversions"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Add explicit JAXB API dependencies and runtime</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will add explicit dependencies for Jakarta EE 8 when a Java 8 application is using JAXB. Any existing dependencies will be upgraded to the latest version of Jakarta EE 8. The artifacts are moved to Jakarta EE 8 version 2.x which allows for the continued use of the `javax.xml.bind` namespace. Running a full javax to Jakarta migration using `org.openrewrite.java.migrate.jakarta.JavaxMigrationToJakarta` will update to versions greater than 3.x which necessitates the package change as well.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add explicit JAXB API dependencies","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbapidependencies/"},{"name":"Use latest JAXB API and runtime for Jakarta EE 8","href":"/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbruntime/"},{"name":"Remove redundant explicit dependency and plugin versions","href":"/user-documentation/recipes/recipe-catalog/maven/removeredundantdependencyversions/"},{"name":"Remove redundant explicit dependency and plugin versions","href":"/user-documentation/recipes/recipe-catalog/maven/removeredundantdependencyversions/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

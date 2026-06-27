@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use ThenBy instead of second OrderBy"}
-  description={"Replace `items.OrderBy(a).OrderBy(b)` with `items.OrderBy(a).ThenBy(b)`. A second `OrderBy` discards the first sort; `ThenBy` preserves it as a secondary key."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseOrderByThenBy"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/useorderbythenby.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use ThenBy instead of second OrderBy</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `items.OrderBy(a).OrderBy(b)` with `items.OrderBy(a).ThenBy(b)`. A second `OrderBy` discards the first sort; `ThenBy` preserves it as a secondary key.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.UseOrderByThenBy","displayName":"Use ThenBy instead of second OrderBy","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

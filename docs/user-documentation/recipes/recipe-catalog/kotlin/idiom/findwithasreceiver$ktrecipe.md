@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `with(x) { ... }` used as an expression"}
-  description={"`with(x) { … }` returns the lambda result, which makes it interchangeable with `x.run { … }`. The extension form chains better in safe-call sequences (`x?.run { … }`) and reads as receiver-style throughout."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindWithAsReceiver$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findwithasreceiver$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `with(x) { ... }` used as an expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>`with(x) { … }` returns the lambda result, which makes it interchangeable with `x.run { … }`. The extension form chains better in safe-call sequences (`x?.run { … }`) and reads as receiver-style throughout.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindWithAsReceiver$KtRecipe","displayName":"Find `with(x) { ... }` used as an expression","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

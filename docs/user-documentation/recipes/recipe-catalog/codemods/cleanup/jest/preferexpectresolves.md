@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer await expect(...).resolves over expect(await ...) syntax"}
-  description={"Prefer await expect(...).resolves over expect(await ...) syntax\nSee rule details for [jest/prefer-expect-resolves](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-expect-resolves.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ESLint","eslint-plugin-jest","Jest"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.jest.PreferExpectResolves"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/jest/preferexpectresolves.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Prefer await expect(...).resolves over expect(await ...) syntax</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer await expect(...).resolves over expect(await ...) syntax See rule details for [jest/prefer-expect-resolves](https://github.com/jest-community/eslint-plugin-jest/blob/HEAD/docs/rules/prefer-expect-resolves.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

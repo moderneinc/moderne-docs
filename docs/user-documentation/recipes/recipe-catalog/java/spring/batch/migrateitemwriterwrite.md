@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `ItemWriter`"}
-  description={"In `ItemWriter` the signature of the `write()` method has changed in spring-batch 5.x."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.batch.MigrateItemWriterWrite"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/migrateitemwriterwrite.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `ItemWriter`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In `ItemWriter` the signature of the `write()` method has changed in spring-batch 5.x.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\nimport org.springframework.batch.item.ItemWriter;\n\npublic class ConsoleItemWriter<T> implements ItemWriter<T> {\n\n    @Override\n    public void write(final List<? extends T> items) throws Exception {\n        for (final T item : items) {\n            System.out.println(item.toString());\n        }\n    }\n}\n","after":"import org.springframework.batch.item.Chunk;\nimport org.springframework.batch.item.ItemWriter;\n\npublic class ConsoleItemWriter<T> implements ItemWriter<T> {\n\n    @Override\n    public void write(final Chunk<? extends T> items) throws Exception {\n        for (final T item : items) {\n            System.out.println(item.toString());\n        }\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import java.util.List;\n+import org.springframework.batch.item.Chunk;\nimport org.springframework.batch.item.ItemWriter;\n@@ -7,1 +7,1 @@\n\n    @Override\n-   public void write(final List<? extends T> items) throws Exception {\n+   public void write(final Chunk<? extends T> items) throws Exception {\n        for (final T item : items) {\n","newFile":false}]}]}>
 

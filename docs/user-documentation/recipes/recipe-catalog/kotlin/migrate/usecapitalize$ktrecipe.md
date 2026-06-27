@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `replaceFirstChar { … }` instead of `capitalize()`"}
-  description={"`String.capitalize()` was deprecated in Kotlin 1.5 in favor of the locale-explicit `replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseCapitalize$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecapitalize$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `replaceFirstChar { … }` instead of `capitalize()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`String.capitalize()` was deprecated in Kotlin 1.5 in favor of the locale-explicit `replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseCapitalize$KtRecipe","displayName":"Use `replaceFirstChar { … }` instead of `capitalize()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

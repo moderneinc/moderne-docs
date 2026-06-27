@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find and replace"}
-  description={"Textual find and replace, optionally interpreting the search query as a Regular Expression (regex). When operating on source files that are language-specific Lossless Semantic Tree, such as Java or XML, this operation converts the source file to plain text for the rest of the recipe run. So if you are combining this recipe with language-specific recipes in a single recipe run put all the language-specific recipes before this recipe."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.text.FindAndReplace"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/text/findandreplace.md"}
-/>
+>
+
+<RecipeHeader.Title>Find and replace</RecipeHeader.Title>
+
+<RecipeHeader.Description>Textual find and replace, optionally interpreting the search query as a Regular Expression (regex). When operating on source files that are language-specific Lossless Semantic Tree, such as Java or XML, this operation converts the source file to plain text for the rest of the recipe run. So if you are combining this recipe with language-specific recipes in a single recipe run put all the language-specific recipes before this recipe.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"find","required":true,"description":"The text to find (and replace). This snippet can be multiline.","example":"blacklist"},{"type":"String","name":"replace","required":false,"description":"The replacement text for `find`. This snippet can be multiline.","example":"denylist"},{"type":"Boolean","name":"regex","required":false,"description":"Default false. If true, `find` will be interpreted as a [Regular Expression](https://en.wikipedia.org/wiki/Regular_expression), and capture group contents will be available in `replace`."},{"type":"Boolean","name":"caseSensitive","required":false,"description":"If `true` the search will be sensitive to case. Default `false`."},{"type":"Boolean","name":"multiline","required":false,"description":"When performing a regex search setting this to `true` allows \"^\" and \"$\" to match the beginning and end of lines, respectively. When performing a regex search when this is `false` \"^\" and \"$\" will match only the beginning and ending of the entire source file, respectively.Has no effect when not performing a regex search. Default `false`."},{"type":"Boolean","name":"dotAll","required":false,"description":"When performing a regex search setting this to `true` allows \".\" to match line terminators.Has no effect when not performing a regex search. Default `false`."},{"type":"String","name":"filePattern","required":false,"description":"A glob expression that can be used to constrain which directories or source files should be searched. Multiple patterns may be specified, separated by a semicolon `;`. If multiple patterns are supplied any of the patterns matching will be interpreted as a match. When not set, all source files are searched.","example":"**/*.java"},{"type":"Boolean","name":"plaintextOnly","required":false,"description":"Only alter files that are parsed as plaintext to prevent language-specific LST information loss. Defaults to false."}]}>
 

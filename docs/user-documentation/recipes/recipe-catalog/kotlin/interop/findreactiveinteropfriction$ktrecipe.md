@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find reactive-framework return types in Kotlin"}
-  description={"RxJava's `Observable`/`Flowable`/`Single`/`Maybe`/`Completable` and Reactor's `Mono`/`Flux` predate Kotlin coroutines. Each match is a candidate for migration to `suspend fun` (single-shot) or `Flow<T>` (stream); the corresponding `kotlinx-coroutines-rx*`/`-reactor` adapters cover the boundary to downstream Java callers."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindReactiveInteropFriction$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findreactiveinteropfriction$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `io.reactivex.Observable`/`Flowable`/`Single`/`Maybe` usage in Kotlin","href":"kotlin/interop/findrxobservableinkotlin$ktrecipe"},{"name":"Find Reactor `Mono`/`Flux` returns in Kotlin","href":"kotlin/interop/findreactorpublisherinkotlin$ktrecipe"}]}>
+<RecipeHeader.Title>Find reactive-framework return types in Kotlin</RecipeHeader.Title>
+
+<RecipeHeader.Description>RxJava's `Observable`/`Flowable`/`Single`/`Maybe`/`Completable` and Reactor's `Mono`/`Flux` predate Kotlin coroutines. Each match is a candidate for migration to `suspend fun` (single-shot) or `Flow<T>` (stream); the corresponding `kotlinx-coroutines-rx*`/`-reactor` adapters cover the boundary to downstream Java callers.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `io.reactivex.Observable`/`Flowable`/`Single`/`Maybe` usage in Kotlin","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findrxobservableinkotlin$ktrecipe/"},{"name":"Find Reactor `Mono`/`Flux` returns in Kotlin","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findreactorpublisherinkotlin$ktrecipe/"}]}>
 
 ## Definition
 

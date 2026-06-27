@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Array.contentDeepToString()` instead of `Arrays.deepToString(arr)`"}
-  description={"`java.util.Arrays.deepToString(arr)` recursively unrolls nested arrays; `arr.contentDeepToString()` is the multiplatform Kotlin extension producing the same representation."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseArrayContentDeepToString$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usearraycontentdeeptostring$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Array.contentDeepToString()` instead of `Arrays.deepToString(arr)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Arrays.deepToString(arr)` recursively unrolls nested arrays; `arr.contentDeepToString()` is the multiplatform Kotlin extension producing the same representation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseArrayContentDeepToString$KtRecipe","displayName":"Use `Array.contentDeepToString()` instead of `Arrays.deepToString(arr)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

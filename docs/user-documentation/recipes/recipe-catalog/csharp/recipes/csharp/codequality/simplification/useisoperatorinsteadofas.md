@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use 'is' operator instead of 'as' operator"}
-  description={"Replace 'as' operator followed by null check with 'is' operator."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseIsOperatorInsteadOfAs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/useisoperatorinsteadofas.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use 'is' operator instead of 'as' operator</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace 'as' operator followed by null check with 'is' operator.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseIsOperatorInsteadOfAs","displayName":"Use 'is' operator instead of 'as' operator","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

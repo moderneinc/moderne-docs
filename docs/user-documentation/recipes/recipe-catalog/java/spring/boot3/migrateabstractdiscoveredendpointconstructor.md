@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `AbstractDiscoveredEndpoint` deprecated constructor"}
-  description={"The boolean-parameter constructor of `AbstractDiscoveredEndpoint` has been deprecated in Spring Boot 3.4. This recipe transforms it to use the new constructor with an `Access` parameter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.MigrateAbstractDiscoveredEndpointConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateabstractdiscoveredendpointconstructor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `AbstractDiscoveredEndpoint` deprecated constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>The boolean-parameter constructor of `AbstractDiscoveredEndpoint` has been deprecated in Spring Boot 3.4. This recipe transforms it to use the new constructor with an `Access` parameter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.actuate.endpoint.EndpointId;\nimport org.springframework.boot.actuate.endpoint.Operation;\nimport org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredEndpoint;\nimport org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer;\n\nimport java.util.Collection;\n\npublic class CustomDiscoveredEndpoint extends AbstractDiscoveredEndpoint<Operation> {\n    public CustomDiscoveredEndpoint(EndpointDiscoverer<?, ?> discoverer,\n                                    Object endpointBean,\n                                    EndpointId id,\n                                    Collection<? extends Operation> operations) {\n        super(discoverer, endpointBean, id, true, operations);\n    }\n}\n","after":"import org.springframework.boot.actuate.endpoint.Access;\nimport org.springframework.boot.actuate.endpoint.EndpointId;\nimport org.springframework.boot.actuate.endpoint.Operation;\nimport org.springframework.boot.actuate.endpoint.annotation.AbstractDiscoveredEndpoint;\nimport org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer;\n\nimport java.util.Collection;\n\npublic class CustomDiscoveredEndpoint extends AbstractDiscoveredEndpoint<Operation> {\n    public CustomDiscoveredEndpoint(EndpointDiscoverer<?, ?> discoverer,\n                                    Object endpointBean,\n                                    EndpointId id,\n                                    Collection<? extends Operation> operations) {\n        super(discoverer, endpointBean, id, Access.READ_ONLY, operations);\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.springframework.boot.actuate.endpoint.Access;\nimport org.springframework.boot.actuate.endpoint.EndpointId;\n@@ -13,1 +14,1 @@\n                                    EndpointId id,\n                                    Collection<? extends Operation> operations) {\n-       super(discoverer, endpointBean, id, true, operations);\n+       super(discoverer, endpointBean, id, Access.READ_ONLY, operations);\n    }\n","newFile":false}]}]}>
 

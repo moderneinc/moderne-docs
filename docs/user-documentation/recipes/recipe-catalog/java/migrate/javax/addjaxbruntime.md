@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use latest JAXB API and runtime for Jakarta EE 8"}
-  description={"Update build files to use the latest JAXB runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater. The recipe will add a JAXB run-time, in Gradle `compileOnly`+`testImplementation` and Maven `provided` scope, to any project that has a transitive dependency on the JAXB API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jaxb","glassfish","javax","javaee","java11","jakarta"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.AddJaxbRuntime"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxbruntime.md"}
-/>
+>
+
+<RecipeHeader.Title>Use latest JAXB API and runtime for Jakarta EE 8</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update build files to use the latest JAXB runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater. The recipe will add a JAXB run-time, in Gradle `compileOnly`+`testImplementation` and Maven `provided` scope, to any project that has a transitive dependency on the JAXB API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"runtime","required":true,"description":"Which implementation of the JAXB run-time that will be added to maven projects that have transitive dependencies on the JAXB API","example":"glassfish"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `toTypedArray()` instead of `toList().toTypedArray()`"}
-  description={"`toTypedArray()` accepts any `Collection`; the intermediate `toList()` just allocates a list that's immediately discarded."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.UseToTypedArrayForToListThenToTypedArray$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usetotypedarrayfortolistthentotypedarray$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `toTypedArray()` instead of `toList().toTypedArray()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`toTypedArray()` accepts any `Collection`; the intermediate `toList()` just allocates a list that's immediately discarded.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.UseToTypedArrayForToListThenToTypedArray$KtRecipe","displayName":"Use `toTypedArray()` instead of `toList().toTypedArray()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

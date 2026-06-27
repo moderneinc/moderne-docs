@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `WebClient.bodyToMono(X::class.java)` calls"}
-  description={"In suspending controllers and services, `bodyToMono(X::class.java).awaitSingle()` is more naturally spelled as `awaitBody<X>()` from `kotlinx-coroutines-reactor`. The reified form removes the `::class.java` token and the `.awaitSingle()` chain."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindWebClientWithoutAwait$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebclientwithoutawait$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `WebClient.bodyToMono(X::class.java)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>In suspending controllers and services, `bodyToMono(X::class.java).awaitSingle()` is more naturally spelled as `awaitBody<X>()` from `kotlinx-coroutines-reactor`. The reified form removes the `::class.java` token and the `.awaitSingle()` chain.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindWebClientWithoutAwait$KtRecipe","displayName":"Find `WebClient.bodyToMono(X::class.java)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

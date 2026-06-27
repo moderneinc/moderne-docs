@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Plan JBoss migration"}
-  description={"Analyzes the repository to plan a JBoss migration, identifying JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and recording them in a data table."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.PlanJBossMigration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/planjbossmigration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Plan JBoss migration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Analyzes the repository to plan a JBoss migration, identifying JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and recording them in a data table.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<jboss-web>\n    <context-root>/myapp</context-root>\n    <virtual-host>default-host</virtual-host>\n</jboss-web>\n","after":"<!--~~>--><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<jboss-web>\n    <context-root>/myapp</context-root>\n    <virtual-host>default-host</virtual-host>\n</jboss-web>\n","diff":"@@ -1,1 +1,1 @@\n-<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n+<!--~~>--><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<jboss-web>\n","newFile":false}]}]}>
 

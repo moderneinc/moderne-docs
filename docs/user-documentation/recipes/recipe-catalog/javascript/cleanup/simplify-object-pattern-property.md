@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify object pattern properties"}
-  description={"Simplifies object destructuring patterns where the property name and variable name are the same (e.g., `{ x: x }` becomes `{ x }`)."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.cleanup.simplify-object-pattern-property"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/cleanup/simplify-object-pattern-property.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify object pattern properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplifies object destructuring patterns where the property name and variable name are the same (e.g., `{ x: x }` becomes `{ x }`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.javascript.cleanup.simplify-object-pattern-property","displayName":"Simplify object pattern properties","npmPackage":"@openrewrite/recipes-react"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate KStream to KTable conversion to use `toTable()` method"}
-  description={"In Kafka Streams 2.5, a new `toTable()` method was added to simplify converting a KStream to a KTable. This recipe replaces the manual aggregation pattern `.groupByKey().reduce((oldVal, newVal) -> newVal)` with the more concise `.toTable()` method."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.streams.MigrateKStreamToTable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/streams/migratekstreamtotable.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate KStream to KTable conversion to use `toTable()` method</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Kafka Streams 2.5, a new `toTable()` method was added to simplify converting a KStream to a KTable. This recipe replaces the manual aggregation pattern `.groupByKey().reduce((oldVal, newVal) -> newVal)` with the more concise `.toTable()` method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.kafka.streams.kstream.KStream;\nimport org.apache.kafka.streams.kstream.KTable;\n\nclass StreamProcessor {\n    void process(KStream<String, String> stream) {\n        stream\n            .groupByKey()\n            .reduce((oldVal, newVal) -> newVal);\n    }\n}\n","after":"import org.apache.kafka.streams.kstream.KStream;\nimport org.apache.kafka.streams.kstream.KTable;\n\nclass StreamProcessor {\n    void process(KStream<String, String> stream) {\n        stream\n            .toTable();\n    }\n}\n","diff":"@@ -7,2 +7,1 @@\n    void process(KStream<String, String> stream) {\n        stream\n-           .groupByKey()\n-           .reduce((oldVal, newVal) -> newVal);\n+           .toTable();\n    }\n","newFile":false}]}]}>
 

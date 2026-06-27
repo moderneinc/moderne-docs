@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Long#compareUnsigned`"}
-  description={"Prefer `java.lang.Long#compareUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#compare` or `com.google.common.primitives.UnsignedLongs#compareUnsigned`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.PreferLongCompareUnsigned"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferlongcompareunsigned.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Prefer `Long#compareUnsigned`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `java.lang.Long#compareUnsigned` instead of using `com.google.common.primitives.UnsignedLongs#compare` or `com.google.common.primitives.UnsignedLongs#compareUnsigned`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

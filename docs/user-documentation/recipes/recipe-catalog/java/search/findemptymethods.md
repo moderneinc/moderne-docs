@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find methods with empty bodies"}
-  description={"Find methods with empty bodies and single public no arg constructors."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S1186"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindEmptyMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/findemptymethods.md"}
-/>
+>
+
+<RecipeHeader.Title>Find methods with empty bodies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find methods with empty bodies and single public no arg constructors.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"matchOverrides","required":false,"description":"When enabled, find methods that are overrides of the method pattern."}]}>
 

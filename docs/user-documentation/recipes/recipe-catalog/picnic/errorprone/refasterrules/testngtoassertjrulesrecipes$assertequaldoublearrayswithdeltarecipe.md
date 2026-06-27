@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TestNGToAssertJRules.AssertEqualDoubleArraysWithDelta`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertEqualDoubleArraysWithDelta {\n    \n    @BeforeTemplate\n    void before(double[] actual, double[] expected, double delta) {\n        assertEquals(actual, expected, delta);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(double[] actual, double[] expected, double delta) {\n        assertThat(actual).containsExactly(expected, offset(delta));\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualDoubleArraysWithDeltaRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaldoublearrayswithdeltarecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TestNGToAssertJRules.AssertEqualDoubleArraysWithDelta`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertEqualDoubleArraysWithDelta {
+    
+    @BeforeTemplate
+    void before(double[] actual, double[] expected, double delta) {
+        assertEquals(actual, expected, delta);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(double[] actual, double[] expected, double delta) {
+        assertThat(actual).containsExactly(expected, offset(delta));
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualDoubleArraysWithDeltaRecipe","displayName":"Refaster template `TestNGToAssertJRules.AssertEqualDoubleArraysWithDelta`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

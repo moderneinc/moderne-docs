@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use non-deprecated SingleConstraintAssertion methods"}
-  description={"Use `penalizesBy/rewardsWith(String, int)` instead of `penalizesBy/rewardsWith(int, String)` on `SingleConstraintAssertion` tests."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/ai.timefold.solver.migration.v8.SingleConstraintAssertionMethodsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/timefold/solver/migration/v8/singleconstraintassertionmethodsrecipe.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Reorder method arguments","href":"java/reordermethodarguments"},{"name":"Reorder method arguments","href":"java/reordermethodarguments"},{"name":"Reorder method arguments","href":"java/reordermethodarguments"}]}>
+<RecipeHeader.Title>Use non-deprecated SingleConstraintAssertion methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `penalizesBy/rewardsWith(String, int)` instead of `penalizesBy/rewardsWith(int, String)` on `SingleConstraintAssertion` tests.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Reorder method arguments","href":"/user-documentation/recipes/recipe-catalog/java/reordermethodarguments/"},{"name":"Reorder method arguments","href":"/user-documentation/recipes/recipe-catalog/java/reordermethodarguments/"},{"name":"Reorder method arguments","href":"/user-documentation/recipes/recipe-catalog/java/reordermethodarguments/"}]}>
 
 ## Definition
 

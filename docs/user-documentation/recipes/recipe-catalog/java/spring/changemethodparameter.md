@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change parameter type for a method declaration"}
-  description={"Change parameter type for a method declaration, identified by a method pattern."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.ChangeMethodParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/changemethodparameter.md"}
-/>
+>
+
+<RecipeHeader.Title>Change parameter type for a method declaration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change parameter type for a method declaration, identified by a method pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern that is used to find the method declarations to modify.","example":"com.yourorg.A foo(int, int)"},{"type":"String","name":"parameterType","required":true,"description":"The new type of the parameter that gets updated.","example":"java.lang.String"},{"type":"Integer","name":"parameterIndex","required":true,"description":"A zero-based index that indicates the position at which the parameter will be added.","example":"0"}]}>
 

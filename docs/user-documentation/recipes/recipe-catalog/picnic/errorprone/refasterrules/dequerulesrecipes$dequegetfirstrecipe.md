@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `DequeRules.DequeGetFirst`"}
-  description={"Prefer `Deque#pollFirst()` over less clear alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.DequeRulesRecipes$DequeGetFirstRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/dequerulesrecipes$dequegetfirstrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `DequeRules.DequeGetFirst`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Deque#pollFirst()` over less clear alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.DequeRulesRecipes$DequeGetFirstRecipe","displayName":"Refaster template `DequeRules.DequeGetFirst`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

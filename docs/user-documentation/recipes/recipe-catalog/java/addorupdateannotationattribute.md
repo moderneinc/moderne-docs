@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add or update annotation attribute"}
-  description={"Some annotations accept arguments. This recipe sets an existing argument to the specified value, or adds the argument if it is not already set."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.AddOrUpdateAnnotationAttribute"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/addorupdateannotationattribute.md"}
-/>
+>
+
+<RecipeHeader.Title>Add or update annotation attribute</RecipeHeader.Title>
+
+<RecipeHeader.Description>Some annotations accept arguments. This recipe sets an existing argument to the specified value, or adds the argument if it is not already set.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"annotationType","required":true,"description":"The fully qualified name of the annotation.","example":"org.junit.Test"},{"type":"String","name":"attributeName","required":false,"description":"The name of attribute to change. If omitted defaults to 'value'.","example":"timeout"},{"type":"String","name":"attributeValue","required":false,"description":"The value to set the attribute to. If the attribute is an array, provide values separated by comma to add multiple attributes at once. Set to `null` to remove the attribute.","example":"500"},{"type":"String","name":"oldAttributeValue","required":false,"description":"The current value of the attribute, this can be used to filter where the change is applied. Set to `null` for wildcard behavior.","example":"400"},{"type":"Boolean","name":"addOnly","required":false,"description":"If `true`, disables upgrading existing annotation attribute values, thus the recipe will only add the attribute if it does not already exist. If omitted or `false`, the recipe adds the attribute if missing or updates its value if present."},{"type":"Boolean","name":"appendArray","required":false,"description":"If the attribute is an array and attribute is present, setting this option to `true` will append the value(s). Duplicate values will not be added. If omitted or `false`, the recipe will replace the existing value(s) with the new value(s)."}]}>
 

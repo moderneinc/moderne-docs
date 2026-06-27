@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Data 2.3"}
-  description={"Migrate applications to the latest Spring Data 2.3 release."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.data.UpgradeSpringData_2_3"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/data/upgradespringdata_2_3.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `JpaSort.of(..)`","href":"java/spring/data/migratejpasort"},{"name":"Use `QuerydslPredicateExecutor<T>`","href":"java/spring/data/migratequerydsljparepository"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Use `new SimpleMongoClientDbFactory(String)`","href":"java/spring/data/refactorsimplemongodbfactory"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Data 2.3</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Data 2.3 release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `JpaSort.of(..)`","href":"/user-documentation/recipes/recipe-catalog/java/spring/data/migratejpasort/"},{"name":"Use `QuerydslPredicateExecutor<T>`","href":"/user-documentation/recipes/recipe-catalog/java/spring/data/migratequerydsljparepository/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Use `new SimpleMongoClientDbFactory(String)`","href":"/user-documentation/recipes/recipe-catalog/java/spring/data/refactorsimplemongodbfactory/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

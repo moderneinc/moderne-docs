@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate removed Spring `Assert` methods"}
-  description={"Assert methods without a message argument have been removed in Spring Framework 6.0."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateSpringAssert"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratespringassert.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add a literal method argument","href":"java/addliteralmethodargument"},{"name":"Add a literal method argument","href":"java/addliteralmethodargument"},{"name":"Add a literal method argument","href":"java/addliteralmethodargument"},{"name":"Add a literal method argument","href":"java/addliteralmethodargument"},{"name":"Add a literal method argument","href":"java/addliteralmethodargument"},{"name":"Add a literal method argument","href":"java/addliteralmethodargument"},{"name":"Add a literal method argument","href":"java/addliteralmethodargument"},{"name":"Add a literal method argument","href":"java/addliteralmethodargument"},{"name":"Add a literal method argument","href":"java/addliteralmethodargument"},{"name":"Add a literal method argument","href":"java/addliteralmethodargument"},{"name":"Add a literal method argument","href":"java/addliteralmethodargument"},{"name":"Add a literal method argument","href":"java/addliteralmethodargument"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate removed Spring `Assert` methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Assert methods without a message argument have been removed in Spring Framework 6.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"},{"name":"Add a literal method argument","href":"/user-documentation/recipes/recipe-catalog/java/addliteralmethodargument/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

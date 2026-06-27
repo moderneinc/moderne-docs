@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add paragraph to documentation comment"}
-  description={"Format multi-line documentation comments with paragraph elements."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.AddParagraphToDocComment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/formatting/addparagraphtodoccomment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add paragraph to documentation comment</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format multi-line documentation comments with paragraph elements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.AddParagraphToDocComment","displayName":"Add paragraph to documentation comment","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

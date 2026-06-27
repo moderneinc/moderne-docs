@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find raw `try`/`catch` smells"}
-  description={"Search-only bundle for try/catch shapes worth reviewing: collapse-to-null and collapse-to-default branches (candidates for `runCatching { }.getOrNull()` / `.getOrDefault(...)`), empty catches that lose every detail of the failure, broad `catch (Exception)` / `catch (Throwable)` clauses, catches that absorb the exception without logging or rethrowing, `e.printStackTrace()` calls that should be logger calls, nested try/catch trees, and catch parameters that are bound but never read."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindTryCatchSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findtrycatchsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `try { x } catch (e: Exception) { null }` patterns","href":"kotlin/functional/findtrycatchreturningnull$ktrecipe"},{"name":"Find `try { x } catch (e: Exception) { default }` patterns","href":"kotlin/functional/findtrycatchreturningdefault$ktrecipe"},{"name":"Find empty catch blocks","href":"kotlin/functional/findtrycatchswallowingexception$ktrecipe"},{"name":"Find broad `catch (e: Exception)` / `catch (e: Throwable)` clauses","href":"kotlin/functional/findcatchallexception$ktrecipe"},{"name":"Find non-empty catch blocks that neither log nor rethrow","href":"kotlin/functional/findcatchwithoutlogging$ktrecipe"},{"name":"Find `e.printStackTrace()` calls inside a catch block","href":"kotlin/functional/findprintstacktraceincatch$ktrecipe"},{"name":"Find `try { } catch { }` nested inside another `try { } catch { }`","href":"kotlin/functional/findnestedtrycatch$ktrecipe"},{"name":"Find `catch (e: Exception)` clauses whose body never references `e`","href":"kotlin/functional/findcatchbindingunusedexception$ktrecipe"}]}>
+<RecipeHeader.Title>Find raw `try`/`catch` smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle for try/catch shapes worth reviewing: collapse-to-null and collapse-to-default branches (candidates for `runCatching { }.getOrNull()` / `.getOrDefault(...)`), empty catches that lose every detail of the failure, broad `catch (Exception)` / `catch (Throwable)` clauses, catches that absorb the exception without logging or rethrowing, `e.printStackTrace()` calls that should be logger calls, nested try/catch trees, and catch parameters that are bound but never read.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `try { x } catch (e: Exception) { null }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findtrycatchreturningnull$ktrecipe/"},{"name":"Find `try { x } catch (e: Exception) { default }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findtrycatchreturningdefault$ktrecipe/"},{"name":"Find empty catch blocks","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findtrycatchswallowingexception$ktrecipe/"},{"name":"Find broad `catch (e: Exception)` / `catch (e: Throwable)` clauses","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchallexception$ktrecipe/"},{"name":"Find non-empty catch blocks that neither log nor rethrow","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchwithoutlogging$ktrecipe/"},{"name":"Find `e.printStackTrace()` calls inside a catch block","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findprintstacktraceincatch$ktrecipe/"},{"name":"Find `try { } catch { }` nested inside another `try { } catch { }`","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findnestedtrycatch$ktrecipe/"},{"name":"Find `catch (e: Exception)` clauses whose body never references `e`","href":"/user-documentation/recipes/recipe-catalog/kotlin/functional/findcatchbindingunusedexception$ktrecipe/"}]}>
 
 ## Definition
 

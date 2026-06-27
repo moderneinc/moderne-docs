@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"RewriteTest classes should not be public"}
-  description={"Remove the public modifier from classes that implement RewriteTest."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.RewriteTestClassesShouldNotBePublic"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/rewritetestclassesshouldnotbepublic.md"}
-/>
+>
+
+<RecipeHeader.Title>RewriteTest classes should not be public</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove the public modifier from classes that implement RewriteTest.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.test.RecipeSpec;\nimport org.openrewrite.test.RewriteTest;\n\n// org.openrewrite.java.testing.cleanup.TestsShouldNotBePublicTest skips classes that override defaults()\npublic class ATest implements RewriteTest {\n    @Override\n    public void defaults(RecipeSpec spec) {\n    }\n}\n","after":"import org.openrewrite.test.RecipeSpec;\nimport org.openrewrite.test.RewriteTest;\n\n// org.openrewrite.java.testing.cleanup.TestsShouldNotBePublicTest skips classes that override defaults()\nclass ATest implements RewriteTest {\n    @Override\n    public void defaults(RecipeSpec spec) {\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\n\n// org.openrewrite.java.testing.cleanup.TestsShouldNotBePublicTest skips classes that override defaults()\n-public class ATest implements RewriteTest {\n+class ATest implements RewriteTest {\n    @Override\n","newFile":false}]}]}>
 

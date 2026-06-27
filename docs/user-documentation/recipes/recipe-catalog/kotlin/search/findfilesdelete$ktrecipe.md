@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Files.delete(...)` / `Files.deleteIfExists(...)` calls"}
-  description={"Each call deletes a file from disk — a destructive filesystem operation. Flag as a seed for review of path provenance, e.g. whether the path is attacker-controlled and whether the deletion is intentional."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindFilesDelete$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findfilesdelete$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Files.delete(...)` / `Files.deleteIfExists(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each call deletes a file from disk — a destructive filesystem operation. Flag as a seed for review of path provenance, e.g. whether the path is attacker-controlled and whether the deletion is intentional.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindFilesDelete$KtRecipe","displayName":"Find `Files.delete(...)` / `Files.deleteIfExists(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

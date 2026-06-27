@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to solution-style tsconfig"}
-  description={"Migrates a project to use a solution-style `tsconfig.json`. The original `tsconfig.json` content is moved to `tsconfig.base.json` (with project-specific fields removed), and `tsconfig.json` is replaced with a solution-style config that references the project's TypeScript configurations. Other tsconfig files that extend `./tsconfig.json` are updated to extend `./tsconfig.base.json`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.migrate-to-solution-style-tsconfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/migrate-to-solution-style-tsconfig.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate to solution-style tsconfig</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates a project to use a solution-style `tsconfig.json`. The original `tsconfig.json` content is moved to `tsconfig.base.json` (with project-specific fields removed), and `tsconfig.json` is replaced with a solution-style config that references the project's TypeScript configurations. Other tsconfig files that extend `./tsconfig.json` are updated to extend `./tsconfig.base.json`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.migrate-to-solution-style-tsconfig","displayName":"Migrate to solution-style tsconfig","npmPackage":"@openrewrite/recipes-angular"}}>
 

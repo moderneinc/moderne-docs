@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJStreamRules.AssertThatIsNotEmpty`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsNotEmpty<T, S> {\n    \n    @BeforeTemplate\n    void before(Stream<T> stream) {\n        assertThat(stream.count()).isNotEqualTo(0);\n    }\n    \n    @BeforeTemplate\n    void before2(Stream<T> stream) {\n        assertThat(stream.findAny()).isPresent();\n    }\n    \n    @BeforeTemplate\n    void before3(Stream<T> stream) {\n        assertThat(stream.findFirst()).isPresent();\n    }\n    \n    @BeforeTemplate\n    void before4(Stream<T> stream) {\n        assertThat(stream.toArray()).isNotEmpty();\n    }\n    \n    @BeforeTemplate\n    void before5(Stream<T> stream, IntFunction<S[]> generator) {\n        assertThat(stream.toArray(generator)).isNotEmpty();\n    }\n    \n    @BeforeTemplate\n    void before6(Stream<T> stream) {\n        assertThat(stream.toList()).isNotEmpty();\n    }\n    \n    @BeforeTemplate\n    void before7(Stream<T> stream, Collector<? super T, ?, ? extends Iterable<S>> collector) {\n        assertThat(stream.collect(collector)).isNotEmpty();\n    }\n    \n    @BeforeTemplate\n    void before8(Stream<T> stream, Collector<? super T, ?, ? extends Collection<S>> collector) {\n        assertThat(stream.collect(collector)).isNotEmpty();\n    }\n    \n    @BeforeTemplate\n    void before9(Stream<T> stream, Collector<? super T, ?, ? extends List<S>> collector) {\n        assertThat(stream.collect(collector)).isNotEmpty();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Stream<T> stream) {\n        assertThat(stream).isNotEmpty();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,73 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatIsNotEmptyRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatisnotemptyrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJStreamRules.AssertThatIsNotEmpty`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIsNotEmpty<T, S> {
+    
+    @BeforeTemplate
+    void before(Stream<T> stream) {
+        assertThat(stream.count()).isNotEqualTo(0);
+    }
+    
+    @BeforeTemplate
+    void before2(Stream<T> stream) {
+        assertThat(stream.findAny()).isPresent();
+    }
+    
+    @BeforeTemplate
+    void before3(Stream<T> stream) {
+        assertThat(stream.findFirst()).isPresent();
+    }
+    
+    @BeforeTemplate
+    void before4(Stream<T> stream) {
+        assertThat(stream.toArray()).isNotEmpty();
+    }
+    
+    @BeforeTemplate
+    void before5(Stream<T> stream, IntFunction<S[]> generator) {
+        assertThat(stream.toArray(generator)).isNotEmpty();
+    }
+    
+    @BeforeTemplate
+    void before6(Stream<T> stream) {
+        assertThat(stream.toList()).isNotEmpty();
+    }
+    
+    @BeforeTemplate
+    void before7(Stream<T> stream, Collector<? super T, ?, ? extends Iterable<S>> collector) {
+        assertThat(stream.collect(collector)).isNotEmpty();
+    }
+    
+    @BeforeTemplate
+    void before8(Stream<T> stream, Collector<? super T, ?, ? extends Collection<S>> collector) {
+        assertThat(stream.collect(collector)).isNotEmpty();
+    }
+    
+    @BeforeTemplate
+    void before9(Stream<T> stream, Collector<? super T, ?, ? extends List<S>> collector) {
+        assertThat(stream.collect(collector)).isNotEmpty();
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(Stream<T> stream) {
+        assertThat(stream).isNotEmpty();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatIsNotEmptyRecipe","displayName":"Refaster template `AssertJStreamRules.AssertThatIsNotEmpty`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

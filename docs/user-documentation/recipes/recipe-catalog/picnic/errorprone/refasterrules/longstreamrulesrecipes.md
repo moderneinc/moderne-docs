@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`LongStreamRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `LongStream`s.\n[Source](https://error-prone.picnic.tech/refasterrules/LongStreamRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.LongStreamRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `LongStreamRules.LongStreamClosedOpenRange`","href":"picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamclosedopenrangerecipe"},{"name":"Refaster template `LongStreamRules.ConcatOneLongStream`","href":"picnic/errorprone/refasterrules/longstreamrulesrecipes$concatonelongstreamrecipe"},{"name":"Refaster template `LongStreamRules.ConcatTwoLongStreams`","href":"picnic/errorprone/refasterrules/longstreamrulesrecipes$concattwolongstreamsrecipe"},{"name":"Refaster template `LongStreamRules.LongStreamFilterSorted`","href":"picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamfiltersortedrecipe"},{"name":"Refaster template `LongStreamRules.LongStreamIsEmpty`","href":"picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamisemptyrecipe"},{"name":"Refaster template `LongStreamRules.LongStreamIsNotEmpty`","href":"picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamisnotemptyrecipe"},{"name":"Refaster template `LongStreamRules.LongStreamMin`","href":"picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamminrecipe"},{"name":"Refaster template `LongStreamRules.LongStreamNoneMatch`","href":"picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamnonematchrecipe"},{"name":"Refaster template `LongStreamRules.LongStreamAnyMatch`","href":"picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamanymatchrecipe"},{"name":"Refaster template `LongStreamRules.LongStreamAllMatch`","href":"picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamallmatchrecipe"},{"name":"Refaster template `LongStreamRules.LongStreamTakeWhile`","href":"picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamtakewhilerecipe"}]}>
+<RecipeHeader.Title>`LongStreamRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `LongStream`s. [Source](https://error-prone.picnic.tech/refasterrules/LongStreamRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `LongStreamRules.LongStreamClosedOpenRange`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamclosedopenrangerecipe/"},{"name":"Refaster template `LongStreamRules.ConcatOneLongStream`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes$concatonelongstreamrecipe/"},{"name":"Refaster template `LongStreamRules.ConcatTwoLongStreams`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes$concattwolongstreamsrecipe/"},{"name":"Refaster template `LongStreamRules.LongStreamFilterSorted`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamfiltersortedrecipe/"},{"name":"Refaster template `LongStreamRules.LongStreamIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamisemptyrecipe/"},{"name":"Refaster template `LongStreamRules.LongStreamIsNotEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamisnotemptyrecipe/"},{"name":"Refaster template `LongStreamRules.LongStreamMin`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamminrecipe/"},{"name":"Refaster template `LongStreamRules.LongStreamNoneMatch`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamnonematchrecipe/"},{"name":"Refaster template `LongStreamRules.LongStreamAnyMatch`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamanymatchrecipe/"},{"name":"Refaster template `LongStreamRules.LongStreamAllMatch`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamallmatchrecipe/"},{"name":"Refaster template `LongStreamRules.LongStreamTakeWhile`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/longstreamrulesrecipes$longstreamtakewhilerecipe/"}]}>
 
 ## Definition
 

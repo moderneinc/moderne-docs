@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify boolean expression"}
-  description={"Simplifies redundant boolean comparisons such as `x == true` to `x` and `x == false` to `!x`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.SimplifyBooleanExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/simplifybooleanexpression.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify boolean expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplifies redundant boolean comparisons such as `x == true` to `x` and `x == false` to `!x`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Test {\n    val a = (1 > 0) == true\n}\n","after":"class Test {\n    val a = (1 > 0)\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Test {\n-   val a = (1 > 0) == true\n+   val a = (1 > 0)\n}\n","newFile":false}]}]}>
 

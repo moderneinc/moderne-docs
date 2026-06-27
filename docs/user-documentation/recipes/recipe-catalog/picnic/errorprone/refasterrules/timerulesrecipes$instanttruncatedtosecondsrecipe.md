@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TimeRules.InstantTruncatedToSeconds`"}
-  description={"Prefer `Instant#truncatedTo(TemporalUnit)` over less obvious alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TimeRulesRecipes$InstantTruncatedToSecondsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/timerulesrecipes$instanttruncatedtosecondsrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TimeRules.InstantTruncatedToSeconds`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Instant#truncatedTo(TemporalUnit)` over less obvious alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$InstantTruncatedToSecondsRecipe","displayName":"Refaster template `TimeRules.InstantTruncatedToSeconds`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

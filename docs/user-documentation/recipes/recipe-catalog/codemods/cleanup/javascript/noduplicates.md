@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Forbid repeated import of the same module in multiple places"}
-  description={"Forbid repeated import of the same module in multiple places\nSee rule details for [import/no-duplicates](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-duplicates.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.javascript.NoDuplicates"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/noduplicates.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Forbid repeated import of the same module in multiple places</RecipeHeader.Title>
+
+<RecipeHeader.Description>Forbid repeated import of the same module in multiple places See rule details for [import/no-duplicates](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-duplicates.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

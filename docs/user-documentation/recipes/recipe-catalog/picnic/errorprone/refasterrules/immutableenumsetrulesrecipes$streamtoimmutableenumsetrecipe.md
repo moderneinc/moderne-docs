@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Sets#toImmutableEnumSet()` when possible, as it is more efficient than `ImmutableSet#toImmutableSet()` and produces a more compact object"}
-  description={"<strong>Warning:</strong> this rule is not completely behavior preserving: while the\n original code produces a set that iterates over its elements in encounter order, the\n replacement code iterates over the elements in enum definition order."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$StreamToImmutableEnumSetRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutableenumsetrulesrecipes$streamtoimmutableenumsetrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Sets#toImmutableEnumSet()` when possible, as it is more efficient than `ImmutableSet#toImmutableSet()` and produces a more compact object</RecipeHeader.Title>
+
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rule is not completely behavior preserving: while the  original code produces a set that iterates over its elements in encounter order, the  replacement code iterates over the elements in enum definition order.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$StreamToImmutableEnumSetRecipe","displayName":"Use `Sets#toImmutableEnumSet()` when possible, as it is more efficient than `ImmutableSet#toImmutableSet()` and produces a more compact object","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

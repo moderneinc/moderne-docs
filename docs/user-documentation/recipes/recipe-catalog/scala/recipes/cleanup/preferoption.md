@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Option` over `null`"}
-  description={"Replaces `null` literal with `None`. Idiomatic Scala uses `Option` instead of null."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.PreferOption"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferoption.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer `Option` over `null`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `null` literal with `None`. Idiomatic Scala uses `Option` instead of null.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  val x: String = null\n}\n","after":"object Test {\n  val x: String = None\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Test {\n- val x: String = null\n+ val x: String = None\n}\n","newFile":false}]}]}>
 

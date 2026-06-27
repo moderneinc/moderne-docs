@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJFileRules.AssertThatHasNoParent`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasNoParent {\n    \n    @BeforeTemplate\n    void before(File actual) {\n        assertThat(actual.getParent()).isNull();\n    }\n    \n    @AfterTemplate\n    void after(File actual) {\n        assertThat(actual).hasNoParent();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes$AssertThatHasNoParentRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjfilerulesrecipes$assertthathasnoparentrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJFileRules.AssertThatHasNoParent`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatHasNoParent {
+    
+    @BeforeTemplate
+    void before(File actual) {
+        assertThat(actual.getParent()).isNull();
+    }
+    
+    @AfterTemplate
+    void after(File actual) {
+        assertThat(actual).hasNoParent();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes$AssertThatHasNoParentRecipe","displayName":"Refaster template `AssertJFileRules.AssertThatHasNoParent`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

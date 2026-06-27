@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert MongoRepository to PanacheMongoRepository"}
-  description={"Transforms Spring Data `MongoRepository<T, ID>` interfaces to Quarkus `PanacheMongoRepository<T>`, dropping the ID type parameter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.MongoRepositoryToPanacheMongoRepository"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/mongorepositorytopanachemongorepository.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert MongoRepository to PanacheMongoRepository</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms Spring Data `MongoRepository<T, ID>` interfaces to Quarkus `PanacheMongoRepository<T>`, dropping the ID type parameter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.quarkus.spring.MongoRepositoryToPanacheMongoRepository","displayName":"Convert MongoRepository to PanacheMongoRepository","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring-to-quarkus","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING_TO_QUARKUS","requiresConfiguration":false}}>
 

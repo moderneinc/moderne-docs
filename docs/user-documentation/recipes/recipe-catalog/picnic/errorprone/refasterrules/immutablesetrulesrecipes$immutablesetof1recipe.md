@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ImmutableSetRules.ImmutableSetOf1`"}
-  description={"Prefer `ImmutableSet#of(Object)` over more contrived alternatives or alternatives that don't communicate the immutability of the resulting set at the type level."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableSetRulesRecipes$ImmutableSetOf1Recipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesetrulesrecipes$immutablesetof1recipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ImmutableSetRules.ImmutableSetOf1`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `ImmutableSet#of(Object)` over more contrived alternatives or alternatives that don't communicate the immutability of the resulting set at the type level.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableSetRulesRecipes$ImmutableSetOf1Recipe","displayName":"Refaster template `ImmutableSetRules.ImmutableSetOf1`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

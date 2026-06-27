@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find build- and source-hygiene smells"}
-  description={"Wildcard imports and similar source-organization smells that obscure where names come from."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindBuildHygiene$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findbuildhygiene$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `import x.*` wildcard imports","href":"kotlin/search/findwildcardimports$ktrecipe"}]}>
+<RecipeHeader.Title>Find build- and source-hygiene smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Wildcard imports and similar source-organization smells that obscure where names come from.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `import x.*` wildcard imports","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findwildcardimports$ktrecipe/"}]}>
 
 ## Definition
 

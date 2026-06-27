@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"io.quarkus.updates.core.quarkus313.UpdateTestOIDCAuthServerUrl"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus313.UpdateTestOIDCAuthServerUrl"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus313/updatetestoidcauthserverurl.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change property value","href":"properties/changepropertyvalue"}]}>
+<RecipeHeader.Title>io.quarkus.updates.core.quarkus313.UpdateTestOIDCAuthServerUrl</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change property value","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertyvalue/"}]}>
 
 ## Definition
 

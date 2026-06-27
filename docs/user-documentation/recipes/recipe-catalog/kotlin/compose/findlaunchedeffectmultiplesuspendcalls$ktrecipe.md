@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LaunchedEffect` bodies with several distinct suspend calls"}
-  description={"A `LaunchedEffect` lambda that issues several distinct top-level suspend calls is usually doing two things: a long-running collector plus an unrelated kickoff. Split them into separate `LaunchedEffect`s keyed independently so canceling one doesn't cancel the other on key changes."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindLaunchedEffectMultipleSuspendCalls$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlaunchedeffectmultiplesuspendcalls$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LaunchedEffect` bodies with several distinct suspend calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `LaunchedEffect` lambda that issues several distinct top-level suspend calls is usually doing two things: a long-running collector plus an unrelated kickoff. Split them into separate `LaunchedEffect`s keyed independently so canceling one doesn't cancel the other on key changes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindLaunchedEffectMultipleSuspendCalls$KtRecipe","displayName":"Find `LaunchedEffect` bodies with several distinct suspend calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

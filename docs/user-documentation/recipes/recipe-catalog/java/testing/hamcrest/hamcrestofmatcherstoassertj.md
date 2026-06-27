@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `anyOf` Hamcrest Matcher to AssertJ"}
-  description={"Migrate the `anyOf` Hamcrest Matcher to AssertJ's `satisfiesAnyOf` assertion."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.hamcrest.HamcrestOfMatchersToAssertJ"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/hamcrest/hamcrestofmatcherstoassertj.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `anyOf` Hamcrest Matcher to AssertJ</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate the `anyOf` Hamcrest Matcher to AssertJ's `satisfiesAnyOf` assertion.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\n\nimport static org.hamcrest.MatcherAssert.assertThat;\nimport static org.hamcrest.Matchers.allOf;\nimport static org.hamcrest.Matchers.equalTo;\nimport static org.hamcrest.Matchers.hasLength;\n\nclass MyTest {\n    @Test\n    void testMethod() {\n        assertThat(\"hello world\", allOf(equalTo(\"hello world\"), hasLength(12)));\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\n\nimport static org.hamcrest.MatcherAssert.assertThat;\nimport static org.hamcrest.Matchers.equalTo;\nimport static org.hamcrest.Matchers.hasLength;\n\nclass MyTest {\n    @Test\n    void testMethod() {\n        org.assertj.core.api.Assertions.assertThat(\"hello world\")\n                .satisfies(\n                        arg -> assertThat(arg, equalTo(\"hello world\")),\n                        arg -> assertThat(arg, hasLength(12))\n                );\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\n\nimport static org.hamcrest.MatcherAssert.assertThat;\n-import static org.hamcrest.Matchers.allOf;\nimport static org.hamcrest.Matchers.equalTo;\n@@ -11,1 +10,5 @@\n    @Test\n    void testMethod() {\n-       assertThat(\"hello world\", allOf(equalTo(\"hello world\"), hasLength(12)));\n+       org.assertj.core.api.Assertions.assertThat(\"hello world\")\n+               .satisfies(\n+                       arg -> assertThat(arg, equalTo(\"hello world\")),\n+                       arg -> assertThat(arg, hasLength(12))\n+               );\n    }\n","newFile":false}]}]}>
 

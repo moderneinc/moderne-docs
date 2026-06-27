@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move `@Nullable` method annotations to the return type"}
-  description={"This is the way the cool kids do it."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.NullableOnMethodReturnType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/nullableonmethodreturntype.md"}
-/>
+>
+
+<RecipeHeader.Title>Move `@Nullable` method annotations to the return type</RecipeHeader.Title>
+
+<RecipeHeader.Description>This is the way the cool kids do it.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.internal.lang.Nullable;\nclass Test {\n    @Nullable\n    public String test() {\n    }\n}\n","after":"import org.openrewrite.internal.lang.Nullable;\nclass Test {\n    public @Nullable String test() {\n    }\n}\n","diff":"@@ -3,2 +3,1 @@\nimport org.openrewrite.internal.lang.Nullable;\nclass Test {\n-   @Nullable\n-   public String test() {\n+   public @Nullable String test() {\n    }\n","newFile":false}]}]}>
 

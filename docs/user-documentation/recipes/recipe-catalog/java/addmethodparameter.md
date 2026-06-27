@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add method parameter to a method declaration"}
-  description={"Adds a new method parameter to an existing method declaration."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.AddMethodParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/addmethodparameter.md"}
-/>
+>
+
+<RecipeHeader.Title>Add method parameter to a method declaration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds a new method parameter to an existing method declaration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern that is used to find the method declarations to modify.","example":"com.yourorg.A foo(int, int)"},{"type":"String","name":"parameterType","required":true,"description":"The type of the parameter that gets added.","example":"java.lang.String"},{"type":"String","name":"parameterName","required":true,"description":"The name of the parameter that gets added.","example":"name"},{"type":"Integer","name":"parameterIndex","required":false,"description":"A zero-based index that indicates the position at which the parameter will be added. At the end by default.","example":"0"}]}>
 

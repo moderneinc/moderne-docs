@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Removes @Import(BeanValidatorPluginsConfiguration.class)"}
-  description={"As Springdoc OpenAPI supports Bean Validation out of the box, the BeanValidatorPluginsConfiguration is no longer supported nor needed. Thus remove @Import(BeanValidatorPluginsConfiguration.class)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.doc.RemoveBeanValidatorPluginsConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/doc/removebeanvalidatorpluginsconfiguration.md"}
-/>
+>
+
+<RecipeHeader.Title>Removes @Import(BeanValidatorPluginsConfiguration.class)</RecipeHeader.Title>
+
+<RecipeHeader.Description>As Springdoc OpenAPI supports Bean Validation out of the box, the BeanValidatorPluginsConfiguration is no longer supported nor needed. Thus remove @Import(BeanValidatorPluginsConfiguration.class).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Configuration;\nimport org.springframework.context.annotation.Import;\nimport springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;\n\n@Configuration\n@Import(BeanValidatorPluginsConfiguration.class)\nclass ApplicationConfiguration {}\n","after":"import org.springframework.context.annotation.Configuration;\n\n@Configuration\nclass ApplicationConfiguration {}\n","diff":"@@ -2,2 +2,0 @@\nimport org.springframework.context.annotation.Configuration;\n-import org.springframework.context.annotation.Import;\n-import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;\n\n@@ -6,1 +4,0 @@\n\n@Configuration\n-@Import(BeanValidatorPluginsConfiguration.class)\nclass ApplicationConfiguration {}\n","newFile":false}]}]}>
 

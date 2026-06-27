@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply Kotlin null-safety and scope-function idioms"}
-  description={"Search-only recipes covering the two most-cited stylistic categories in IntelliJ's Kotlin inspections: null-safety (`if (x != null)` ladders, `!!`, `requireNotNull` polish, `mapNotNull` / `listOfNotNull` adoption, unsafe casts) and scope-function ergonomics (the 12 well-defined `let`/`run`/`with`/`apply`/`also` correctness rules). Each match is a `SearchResult` for review — nothing is rewritten automatically."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.NullSafetyAndScopeFunctions$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/nullsafetyandscopefunctions$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find manual null-check idioms","href":"kotlin/idiom/findnullcheckidioms$ktrecipe"},{"name":"Find `let { }` ergonomics","href":"kotlin/idiom/findletidioms$ktrecipe"},{"name":"Find scope-function correctness swaps","href":"kotlin/idiom/findscopefunctionswaps$ktrecipe"},{"name":"Find null-assertion polish opportunities","href":"kotlin/idiom/findnullassertionpolish$ktrecipe"},{"name":"Find collection null-safety idioms","href":"kotlin/idiom/findcollectionnullsafety$ktrecipe"},{"name":"Find cast and nullable-shape idioms","href":"kotlin/idiom/findcastandnullableshapes$ktrecipe"}]}>
+<RecipeHeader.Title>Apply Kotlin null-safety and scope-function idioms</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only recipes covering the two most-cited stylistic categories in IntelliJ's Kotlin inspections: null-safety (`if (x != null)` ladders, `!!`, `requireNotNull` polish, `mapNotNull` / `listOfNotNull` adoption, unsafe casts) and scope-function ergonomics (the 12 well-defined `let`/`run`/`with`/`apply`/`also` correctness rules). Each match is a `SearchResult` for review — nothing is rewritten automatically.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find manual null-check idioms","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnullcheckidioms$ktrecipe/"},{"name":"Find `let { }` ergonomics","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletidioms$ktrecipe/"},{"name":"Find scope-function correctness swaps","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findscopefunctionswaps$ktrecipe/"},{"name":"Find null-assertion polish opportunities","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnullassertionpolish$ktrecipe/"},{"name":"Find collection null-safety idioms","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findcollectionnullsafety$ktrecipe/"},{"name":"Find cast and nullable-shape idioms","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findcastandnullableshapes$ktrecipe/"}]}>
 
 ## Definition
 

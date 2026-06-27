@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Module uses type"}
-  description={"Intended to be used primarily as a precondition for other recipes, this recipe checks if a module uses a specified type. Only files belonging to modules that use the specified type are marked with a `SearchResult` marker. This is more specific than `UsesType` which only marks the files that directly use the type."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.ModuleUsesType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/moduleusestype.md"}
-/>
+>
+
+<RecipeHeader.Title>Module uses type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Intended to be used primarily as a precondition for other recipes, this recipe checks if a module uses a specified type. Only files belonging to modules that use the specified type are marked with a `SearchResult` marker. This is more specific than `UsesType` which only marks the files that directly use the type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fullyQualifiedTypeName","required":true,"description":"A fully-qualified type name, optionally with a `*` wildcard to match any type in a package or `..` to match types in subpackages as well.","example":"org.springframework..*"},{"type":"Boolean","name":"includeImplicit","required":false,"description":"When enabled, implicit usages of types (such as through method return types and parameter types) will also be considered. Default is false."}]}>
 

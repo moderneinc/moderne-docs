@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Downgrade Jakarta Servlet API to 5.0 when using Jetty"}
-  description={"Jetty does not yet support Servlet 6.0. This recipe will detect the presence of the `spring-boot-starter-jetty` as a first-order dependency and will add the maven property `jakarta-servlet.version` setting it's value to `5.0.0`. This will downgrade the `jakarta-servlet` artifact if the pom's parent extends from the spring-boot-parent."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["spring","jetty","boot"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.DowngradeServletApiWhenUsingJetty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/downgradeservletapiwhenusingjetty.md"}
-/>
+>
+
+<RecipeHeader.Title>Downgrade Jakarta Servlet API to 5.0 when using Jetty</RecipeHeader.Title>
+
+<RecipeHeader.Description>Jetty does not yet support Servlet 6.0. This recipe will detect the presence of the `spring-boot-starter-jetty` as a first-order dependency and will add the maven property `jakarta-servlet.version` setting it's value to `5.0.0`. This will downgrade the `jakarta-servlet` artifact if the pom's parent extends from the spring-boot-parent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>com.example</groupId>\n  <artifactId>demo</artifactId>\n  <version>0.0.1-SNAPSHOT</version>\n  <name>demo</name>\n  <description>Demo project for Spring Boot</description>\n  <properties>\n    <java.version>17</java.version>\n  </properties>\n  <dependencies>\n    <dependency>\n      <groupId>org.springframework.boot</groupId>\n      <artifactId>spring-boot-starter-jetty</artifactId>\n      <version>3.0.1</version>\n    </dependency>\n  </dependencies>\n</project>\n","after":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>com.example</groupId>\n  <artifactId>demo</artifactId>\n  <version>0.0.1-SNAPSHOT</version>\n  <name>demo</name>\n  <description>Demo project for Spring Boot</description>\n  <properties>\n    <jakarta-servlet.version>5.0.0</jakarta-servlet.version>\n    <java.version>17</java.version>\n  </properties>\n  <dependencies>\n    <dependency>\n      <groupId>org.springframework.boot</groupId>\n      <artifactId>spring-boot-starter-jetty</artifactId>\n      <version>3.0.1</version>\n    </dependency>\n  </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -9,0 +9,1 @@\n  <description>Demo project for Spring Boot</description>\n  <properties>\n+   <jakarta-servlet.version>5.0.0</jakarta-servlet.version>\n    <java.version>17</java.version>\n","newFile":false}]}]}>
 

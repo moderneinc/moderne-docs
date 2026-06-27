@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Go service endpoints"}
-  description={"Detect HTTP endpoints registered via net/http, gin, echo, chi, gorilla/mux, and fiber routers."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindGoServiceEndpoints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findgoserviceendpoints.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Go service endpoints</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect HTTP endpoints registered via net/http, gin, echo, chi, gorilla/mux, and fiber routers.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindGoServiceEndpoints","displayName":"Find Go service endpoints","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

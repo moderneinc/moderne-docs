@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find licenses in use in third-party dependencies"}
-  description={"Locates and reports on all licenses in use."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyLicenseCheck"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/dependencylicensecheck.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find licenses in use in third-party dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Locates and reports on all licenses in use.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"scope","required":true,"description":"Match dependencies with the specified scope","example":"compile"},{"type":"Boolean","name":"addMarkers","required":false,"description":"Report each license transitively used by a dependency in search results."}]}>
 

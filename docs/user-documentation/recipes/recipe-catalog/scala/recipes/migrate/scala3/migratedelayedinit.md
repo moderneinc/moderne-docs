@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from `DelayedInit`/`App` to `@main`"}
-  description={"Finds classes or objects extending `DelayedInit` or `App`. The `DelayedInit` trait was deprecated in Scala 2.13 and removed in Scala 3. Use `@main` annotation instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.scala3.MigrateDelayedInit"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/scala3/migratedelayedinit.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate from `DelayedInit`/`App` to `@main`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds classes or objects extending `DelayedInit` or `App`. The `DelayedInit` trait was deprecated in Scala 2.13 and removed in Scala 3. Use `@main` annotation instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Main extends App {\n  println(\"Hello, world!\")\n}\n","after":"/*~~(DelayedInit/App trait is deprecated; use @main annotation in Scala 3)~~>*/object Main extends App {\n  println(\"Hello, world!\")\n}\n","diff":"@@ -1,1 +1,1 @@\n-object Main extends App {\n+/*~~(DelayedInit/App trait is deprecated; use @main annotation in Scala 3)~~>*/object Main extends App {\n  println(\"Hello, world!\")\n","newFile":false}]}]}>
 

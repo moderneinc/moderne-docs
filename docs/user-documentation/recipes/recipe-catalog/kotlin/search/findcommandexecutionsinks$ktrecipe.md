@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find process-execution sinks (`Runtime.exec`, `ProcessBuilder.start`)"}
-  description={"Spawning a process with attacker-controlled arguments is the canonical command-injection sink. Each call here is a position where a reviewer or LLM agent should verify that the argument list is statically built or properly quoted."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindCommandExecutionSinks$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findcommandexecutionsinks$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find process-execution sinks (`Runtime.exec`, `ProcessBuilder.start`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spawning a process with attacker-controlled arguments is the canonical command-injection sink. Each call here is a position where a reviewer or LLM agent should verify that the argument list is statically built or properly quoted.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindCommandExecutionSinks$KtRecipe","displayName":"Find process-execution sinks (`Runtime.exec`, `ProcessBuilder.start`)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

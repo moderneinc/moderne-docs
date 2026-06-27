@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert one-item `dict.update()` to bracket assignment"}
-  description={"When `.update()` receives a dictionary literal containing exactly one key, rewrite it as a direct key assignment for clarity and efficiency."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SimplifyDictionaryUpdate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/simplifydictionaryupdate.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert one-item `dict.update()` to bracket assignment</RecipeHeader.Title>
+
+<RecipeHeader.Description>When `.update()` receives a dictionary literal containing exactly one key, rewrite it as a direct key assignment for clarity and efficiency.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SimplifyDictionaryUpdate","displayName":"Convert one-item `dict.update()` to bracket assignment","pipPackage":"openrewrite-static-analysis"}}>
 

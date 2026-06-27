@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TestNGToAssertJRules.AssertUnequalFloatsWithDeltaWithMessage`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertUnequalFloatsWithDeltaWithMessage {\n    \n    @BeforeTemplate\n    void before(float actual, String message, float expected, float delta) {\n        assertNotEquals(actual, expected, delta, message);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(float actual, String message, float expected, float delta) {\n        assertThat(actual).withFailMessage(message).isNotCloseTo(expected, offset(delta));\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertUnequalFloatsWithDeltaWithMessageRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertunequalfloatswithdeltawithmessagerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TestNGToAssertJRules.AssertUnequalFloatsWithDeltaWithMessage`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertUnequalFloatsWithDeltaWithMessage {
+    
+    @BeforeTemplate
+    void before(float actual, String message, float expected, float delta) {
+        assertNotEquals(actual, expected, delta, message);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(float actual, String message, float expected, float delta) {
+        assertThat(actual).withFailMessage(message).isNotCloseTo(expected, offset(delta));
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertUnequalFloatsWithDeltaWithMessageRecipe","displayName":"Refaster template `TestNGToAssertJRules.AssertUnequalFloatsWithDeltaWithMessage`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

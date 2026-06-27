@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `ChannelInterceptorAdapter` with `ChannelInterceptor`"}
-  description={"As of 5.0 `ChannelInterceptor` has default methods (made possible by a Java 8 baseline) and can be implemented directly without the need for this adapter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.MigrateChannelInterceptorAdapter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratechannelinterceptoradapter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `ChannelInterceptorAdapter` with `ChannelInterceptor`</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of 5.0 `ChannelInterceptor` has default methods (made possible by a Java 8 baseline) and can be implemented directly without the need for this adapter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.messaging.support.ChannelInterceptorAdapter;\n\npublic class CustomChannelInterceptor extends ChannelInterceptorAdapter {\n    private final String someArg;\n    public CustomChannelInterceptor(String someArg) {\n        super();\n        this.someArg = someArg;\n    }\n}\n","after":"import org.springframework.messaging.support.ChannelInterceptor;\n\npublic class CustomChannelInterceptor implements ChannelInterceptor {\n    private final String someArg;\n    public CustomChannelInterceptor(String someArg) {\n        this.someArg = someArg;\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.messaging.support.ChannelInterceptorAdapter;\n+import org.springframework.messaging.support.ChannelInterceptor;\n\n@@ -3,1 +3,1 @@\nimport org.springframework.messaging.support.ChannelInterceptorAdapter;\n\n-public class CustomChannelInterceptor extends ChannelInterceptorAdapter {\n+public class CustomChannelInterceptor implements ChannelInterceptor {\n    private final String someArg;\n@@ -6,1 +6,0 @@\n    private final String someArg;\n    public CustomChannelInterceptor(String someArg) {\n-       super();\n        this.someArg = someArg;\n","newFile":false}]}]}>
 

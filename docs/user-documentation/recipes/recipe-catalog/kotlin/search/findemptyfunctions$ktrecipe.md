@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find functions with empty bodies"}
-  description={"An empty function body either belongs to a stub, an abstract-method override that intentionally does nothing, or forgotten work. For a reviewer or LLM agent reading the file, each match is a position where the contract claims something happens but nothing does."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindEmptyFunctions$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findemptyfunctions$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find functions with empty bodies</RecipeHeader.Title>
+
+<RecipeHeader.Description>An empty function body either belongs to a stub, an abstract-method override that intentionally does nothing, or forgotten work. For a reviewer or LLM agent reading the file, each match is a position where the contract claims something happens but nothing does.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindEmptyFunctions$KtRecipe","displayName":"Find functions with empty bodies","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

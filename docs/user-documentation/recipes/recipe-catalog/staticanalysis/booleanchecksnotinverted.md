@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Boolean checks should not be inverted"}
-  description={"Ensures that boolean checks are not unnecessarily inverted. Also fixes double negative boolean expressions. Negating a comparison and then inverting it adds cognitive overhead; using the direct operator (e.g., `>=` instead of `!(... < ...)`) is clearer and easier to reason about."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1940"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.BooleanChecksNotInverted"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/booleanchecksnotinverted.md"}
-/>
+>
+
+<RecipeHeader.Title>Boolean checks should not be inverted</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensures that boolean checks are not unnecessarily inverted. Also fixes double negative boolean expressions. Negating a comparison and then inverting it adds cognitive overhead; using the direct operator (e.g., `>=` instead of `!(... < ...)`) is clearer and easier to reason about.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class Test {\n    int i;\n    int a;\n    void test() {\n        if ( !(a == 2)) {\n        }\n        boolean b = !(i < 10);\n    }\n}\n","after":"public class Test {\n    int i;\n    int a;\n    void test() {\n        if ( a != 2) {\n        }\n        boolean b = i >= 10;\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\n    int a;\n    void test() {\n-       if ( !(a == 2)) {\n+       if ( a != 2) {\n        }\n@@ -7,1 +7,1 @@\n        if ( !(a == 2)) {\n        }\n-       boolean b = !(i < 10);\n+       boolean b = i >= 10;\n    }\n","newFile":false}]}]}>
 

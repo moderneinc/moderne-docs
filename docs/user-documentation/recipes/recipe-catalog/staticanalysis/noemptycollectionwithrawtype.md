@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Collections#emptyList()`, `emptyMap()`, and `emptySet()`"}
-  description={"Replaces `Collections#EMPTY_...` with methods that return generic types. The raw-typed constant fields bypass generics checks, which can hide type mismatches that only surface as `ClassCastException` at runtime."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1596"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.NoEmptyCollectionWithRawType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/noemptycollectionwithrawtype.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Collections#emptyList()`, `emptyMap()`, and `emptySet()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `Collections#EMPTY_...` with methods that return generic types. The raw-typed constant fields bypass generics checks, which can hide type mismatches that only surface as `ClassCastException` at runtime.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\n\nclass Test {\n    List<Integer> l = java.util.Collections.EMPTY_LIST;\n}\n","after":"import java.util.List;\n\nclass Test {\n    List<Integer> l = java.util.Collections.emptyList();\n}\n","diff":"@@ -4,1 +4,1 @@\n\nclass Test {\n-   List<Integer> l = java.util.Collections.EMPTY_LIST;\n+   List<Integer> l = java.util.Collections.emptyList();\n}\n","newFile":false}]}]}>
 

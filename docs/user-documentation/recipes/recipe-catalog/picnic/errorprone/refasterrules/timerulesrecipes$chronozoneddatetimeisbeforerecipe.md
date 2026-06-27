@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TimeRules.ChronoZonedDateTimeIsBefore`"}
-  description={"Prefer `ChronoZonedDateTime#isBefore(ChronoZonedDateTime)` over explicit comparison, as it yields more readable code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TimeRulesRecipes$ChronoZonedDateTimeIsBeforeRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/timerulesrecipes$chronozoneddatetimeisbeforerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TimeRules.ChronoZonedDateTimeIsBefore`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `ChronoZonedDateTime#isBefore(ChronoZonedDateTime)` over explicit comparison, as it yields more readable code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$ChronoZonedDateTimeIsBeforeRecipe","displayName":"Refaster template `TimeRules.ChronoZonedDateTimeIsBefore`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

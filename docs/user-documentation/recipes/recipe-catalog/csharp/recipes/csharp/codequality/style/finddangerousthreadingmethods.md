@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Do not use dangerous threading methods"}
-  description={"Avoid `Thread.Abort()`, `Thread.Suspend()`, and `Thread.Resume()`. These methods are unreliable and can corrupt state."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDangerousThreadingMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finddangerousthreadingmethods.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Do not use dangerous threading methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Avoid `Thread.Abort()`, `Thread.Suspend()`, and `Thread.Resume()`. These methods are unreliable and can corrupt state.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDangerousThreadingMethods","displayName":"Do not use dangerous threading methods","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

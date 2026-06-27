@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Review deprecated API declarations"}
-  description={"Finds declarations annotated with `@deprecated` in Scala code. Deprecated APIs should be reviewed for removal or migration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.ReviewDeprecatedApi"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/reviewdeprecatedapi.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Review deprecated API declarations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds declarations annotated with `@deprecated` in Scala code. Deprecated APIs should be reviewed for removal or migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Api {\n  @deprecated(\"use newMethod instead\", \"1.0\")\n  def oldMethod(): Unit = {}\n}\n","after":"object Api {\n  /*~~(Deprecated API; consider removal or migration plan)~~>*/@deprecated(\"use newMethod instead\", \"1.0\")\n  def oldMethod(): Unit = {}\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Api {\n- @deprecated(\"use newMethod instead\", \"1.0\")\n+ /*~~(Deprecated API; consider removal or migration plan)~~>*/@deprecated(\"use newMethod instead\", \"1.0\")\n  def oldMethod(): Unit = {}\n","newFile":false}]}]}>
 

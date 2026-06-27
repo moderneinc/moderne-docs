@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"'Collection.toArray()' should be passed an array of the proper type"}
-  description={"Using `Collection.toArray()` without parameters returns an `Object[]`, which requires casting. It is more efficient and clearer to use `Collection.toArray(new T[0])` instead. The parameterless form can cause a `ClassCastException` at runtime when the returned `Object[]` is cast to a more specific array type."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S3020"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CollectionToArrayShouldHaveProperType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/collectiontoarrayshouldhavepropertype.md"}
-/>
+>
+
+<RecipeHeader.Title>'Collection.toArray()' should be passed an array of the proper type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using `Collection.toArray()` without parameters returns an `Object[]`, which requires casting. It is more efficient and clearer to use `Collection.toArray(new T[0])` instead. The parameterless form can cause a `ClassCastException` at runtime when the returned `Object[]` is cast to a more specific array type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\n\nclass Test {\n    void test(List<String> list) {\n        String[] array = (String[]) list.toArray();\n    }\n}\n","after":"import java.util.List;\n\nclass Test {\n    void test(List<String> list) {\n        String[] array = list.toArray(new String[0]);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    void test(List<String> list) {\n-       String[] array = (String[]) list.toArray();\n+       String[] array = list.toArray(new String[0]);\n    }\n","newFile":false}]}]}>
 

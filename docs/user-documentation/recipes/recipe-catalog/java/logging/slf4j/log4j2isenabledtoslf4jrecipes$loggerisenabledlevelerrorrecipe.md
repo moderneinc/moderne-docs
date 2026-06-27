@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Log4j 2.x `Logger.isEnabled(Level.ERROR)` with SLF4J's `Logger.isErrorEnabled()`"}
-  description={"Replace calls to `org.apache.logging.log4j.Logger.isEnabled(Level.ERROR)` (or `Level.FATAL`) with `org.slf4j.Logger.isErrorEnabled()`, since SLF4J has no `FATAL` level."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.Log4j2IsEnabledToSlf4jRecipes$LoggerIsEnabledLevelErrorRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2isenabledtoslf4jrecipes$loggerisenabledlevelerrorrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace Log4j 2.x `Logger.isEnabled(Level.ERROR)` with SLF4J's `Logger.isErrorEnabled()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace calls to `org.apache.logging.log4j.Logger.isEnabled(Level.ERROR)` (or `Level.FATAL`) with `org.slf4j.Logger.isErrorEnabled()`, since SLF4J has no `FATAL` level.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.logging.slf4j.Log4j2IsEnabledToSlf4jRecipes$LoggerIsEnabledLevelErrorRecipe","displayName":"Replace Log4j 2.x `Logger.isEnabled(Level.ERROR)` with SLF4J's `Logger.isErrorEnabled()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 

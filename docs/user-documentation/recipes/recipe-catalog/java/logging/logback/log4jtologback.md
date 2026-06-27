@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Log4j 2.x to Logback"}
-  description={"Migrates usage of Apache Log4j 2.x to using `logback` as an SLF4J implementation directly. Note, this currently does not modify `log4j.properties` files."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["logging","log4j","logback"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.logback.Log4jToLogback"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/logback/log4jtologback.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate Log4j to SLF4J","href":"java/logging/slf4j/log4jtoslf4j"},{"name":"Migrate Log4j 2.x Appender to logback-classic equivalents","href":"java/logging/logback/log4jappendertologback"},{"name":"Migrate Log4j 2.x Layout to logback-classic equivalents","href":"java/logging/logback/log4jlayouttologback"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate Log4j 2.x to Logback</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates usage of Apache Log4j 2.x to using `logback` as an SLF4J implementation directly. Note, this currently does not modify `log4j.properties` files.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate Log4j to SLF4J","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4jtoslf4j/"},{"name":"Migrate Log4j 2.x Appender to logback-classic equivalents","href":"/user-documentation/recipes/recipe-catalog/java/logging/logback/log4jappendertologback/"},{"name":"Migrate Log4j 2.x Layout to logback-classic equivalents","href":"/user-documentation/recipes/recipe-catalog/java/logging/logback/log4jlayouttologback/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

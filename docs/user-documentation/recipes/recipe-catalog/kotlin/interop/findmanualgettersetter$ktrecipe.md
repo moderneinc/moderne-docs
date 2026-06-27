@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find manual `getX()` / `setX(v)` pairs in Kotlin classes"}
-  description={"A class that exposes state through hand-rolled `getX()`/`setX(v)` is reimplementing what `var x: T` already provides — Kotlin generates the same accessors on the JVM. Migrate to a property and let the compiler emit the getter/setter pair."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindManualGetterSetter$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findmanualgettersetter$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find manual `getX()` / `setX(v)` pairs in Kotlin classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>A class that exposes state through hand-rolled `getX()`/`setX(v)` is reimplementing what `var x: T` already provides — Kotlin generates the same accessors on the JVM. Migrate to a property and let the compiler emit the getter/setter pair.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindManualGetterSetter$KtRecipe","displayName":"Find manual `getX()` / `setX(v)` pairs in Kotlin classes","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

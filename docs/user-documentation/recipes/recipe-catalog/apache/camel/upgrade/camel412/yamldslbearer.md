@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Yaml DSL bearer from rest/securityDefinitions is renamed to bearerToken"}
-  description={"Rest definition in Yaml DSL with security constraints, then bearer in YAML and XML DSL has been renamed to bearerToken to be aligned with Java DSL."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel412.yamlDslBearer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel412/yamldslbearer.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change key","href":"yaml/changekey"}]}>
+<RecipeHeader.Title>Yaml DSL bearer from rest/securityDefinitions is renamed to bearerToken</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rest definition in Yaml DSL with security constraints, then bearer in YAML and XML DSL has been renamed to bearerToken to be aligned with Java DSL.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change key","href":"/user-documentation/recipes/recipe-catalog/yaml/changekey/"}]}>
 
 ## Definition
 

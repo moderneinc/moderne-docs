@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Spring `@Value` with CDI `@ConfigProperty`"}
-  description={"Transform Spring `@Value` annotations to MicroProfile `@ConfigProperty` with proper parameter mapping."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.ValueToCdiConfigProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/valuetocdiconfigproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace Spring `@Value` with CDI `@ConfigProperty`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transform Spring `@Value` annotations to MicroProfile `@ConfigProperty` with proper parameter mapping.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.beans.factory.annotation.Value;\n\nclass ConfigService {\n    @Value(\"${app.name}\")\n    private String appName;\n\n    @Value(\"30\")\n    private int timeout;\n}\n","after":"import org.eclipse.microprofile.config.inject.ConfigProperty;\n\nclass ConfigService {\n    @ConfigProperty(name = \"app.name\")\n    private String appName;\n\n    @ConfigProperty(name = \"app.timeout\", defaultValue = \"30\")\n    private int timeout;\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.beans.factory.annotation.Value;\n+import org.eclipse.microprofile.config.inject.ConfigProperty;\n\n@@ -4,1 +4,1 @@\n\nclass ConfigService {\n-   @Value(\"${app.name}\")\n+   @ConfigProperty(name = \"app.name\")\n    private String appName;\n@@ -7,1 +7,1 @@\n    private String appName;\n\n-   @Value(\"30\")\n+   @ConfigProperty(name = \"app.timeout\", defaultValue = \"30\")\n    private int timeout;\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate constructor injection to `inject()`"}
-  description={"Converts constructor parameter properties in Angular classes to field declarations using the `inject()` function. For example, `constructor(private svc: MyService) {}` becomes `private svc = inject(MyService);`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.migrate-constructor-to-inject"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/migrate-constructor-to-inject.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate constructor injection to `inject()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts constructor parameter properties in Angular classes to field declarations using the `inject()` function. For example, `constructor(private svc: MyService) {}` becomes `private svc = inject(MyService);`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.migrate-constructor-to-inject","displayName":"Migrate constructor injection to `inject()`","npmPackage":"@openrewrite/recipes-angular"}}>
 

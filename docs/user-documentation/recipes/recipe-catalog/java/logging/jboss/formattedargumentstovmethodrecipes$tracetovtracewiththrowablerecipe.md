@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `FormattedArgumentsToVMethod.TraceToVTraceWithThrowable`"}
-  description={"Recipe created for the following Refaster template:\n```java\npublic static class TraceToVTraceWithThrowable {\n    \n    @BeforeTemplate\n    void before(Logger logger, String message, Object[] args, Throwable t) {\n        logger.trace((Object)message, args, t);\n    }\n    \n    @AfterTemplate\n    void after(Logger logger, String message, Object[] args, Throwable t) {\n        logger.tracev(message, args, t);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.jboss.FormattedArgumentsToVMethodRecipes$TraceToVTraceWithThrowableRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/jboss/formattedargumentstovmethodrecipes$tracetovtracewiththrowablerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `FormattedArgumentsToVMethod.TraceToVTraceWithThrowable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+public static class TraceToVTraceWithThrowable {
+    
+    @BeforeTemplate
+    void before(Logger logger, String message, Object[] args, Throwable t) {
+        logger.trace((Object)message, args, t);
+    }
+    
+    @AfterTemplate
+    void after(Logger logger, String message, Object[] args, Throwable t) {
+        logger.tracev(message, args, t);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.logging.jboss.FormattedArgumentsToVMethodRecipes$TraceToVTraceWithThrowableRecipe","displayName":"Refaster template `FormattedArgumentsToVMethod.TraceToVTraceWithThrowable`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 

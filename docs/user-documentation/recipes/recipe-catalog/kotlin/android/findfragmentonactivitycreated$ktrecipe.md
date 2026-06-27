@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Fragment.onActivityCreated` overrides"}
-  description={"`Fragment.onActivityCreated(Bundle)` was deprecated in Fragment 1.3 because the host-activity lifecycle is no longer a reliable signal for fragment readiness. Move the work to `onViewCreated` (view-state setup) or to a `LifecycleObserver` on `viewLifecycleOwner` (cross-component coordination)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindFragmentOnActivityCreated$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findfragmentonactivitycreated$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Fragment.onActivityCreated` overrides</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Fragment.onActivityCreated(Bundle)` was deprecated in Fragment 1.3 because the host-activity lifecycle is no longer a reliable signal for fragment readiness. Move the work to `onViewCreated` (view-state setup) or to a `LifecycleObserver` on `viewLifecycleOwner` (cross-component coordination).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindFragmentOnActivityCreated$KtRecipe","displayName":"Find `Fragment.onActivityCreated` overrides","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

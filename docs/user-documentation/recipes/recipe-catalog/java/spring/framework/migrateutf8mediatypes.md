@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated Spring Web UTF8 `MediaType` enums"}
-  description={"Spring Web `MediaType#APPLICATION_JSON_UTF8` and `MediaType#APPLICATION_PROBLEM_JSON_UTF8` were deprecated in 5.2."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateUtf8MediaTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateutf8mediatypes.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate deprecated Spring Web UTF8 `MediaType` enums</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Web `MediaType#APPLICATION_JSON_UTF8` and `MediaType#APPLICATION_PROBLEM_JSON_UTF8` were deprecated in 5.2.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.http.MediaType;\n\nclass A {\n    void method() {\n        MediaType valueA = MediaType.APPLICATION_JSON_UTF8;\n        String valueB = MediaType.APPLICATION_JSON_UTF8_VALUE;\n        MediaType valueC = MediaType.APPLICATION_PROBLEM_JSON_UTF8;\n        String valueD = MediaType.APPLICATION_PROBLEM_JSON_UTF8_VALUE;\n    }\n}\n","after":"import org.springframework.http.MediaType;\n\nclass A {\n    void method() {\n        MediaType valueA = MediaType.APPLICATION_JSON;\n        String valueB = MediaType.APPLICATION_JSON_VALUE;\n        MediaType valueC = MediaType.APPLICATION_PROBLEM_JSON;\n        String valueD = MediaType.APPLICATION_PROBLEM_JSON_VALUE;\n    }\n}\n","diff":"@@ -5,4 +5,4 @@\nclass A {\n    void method() {\n-       MediaType valueA = MediaType.APPLICATION_JSON_UTF8;\n-       String valueB = MediaType.APPLICATION_JSON_UTF8_VALUE;\n-       MediaType valueC = MediaType.APPLICATION_PROBLEM_JSON_UTF8;\n-       String valueD = MediaType.APPLICATION_PROBLEM_JSON_UTF8_VALUE;\n+       MediaType valueA = MediaType.APPLICATION_JSON;\n+       String valueB = MediaType.APPLICATION_JSON_VALUE;\n+       MediaType valueC = MediaType.APPLICATION_PROBLEM_JSON;\n+       String valueD = MediaType.APPLICATION_PROBLEM_JSON_VALUE;\n    }\n","newFile":false}]}]}>
 

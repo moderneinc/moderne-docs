@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find exposed ports"}
-  description={"Find all `EXPOSE` instructions in Dockerfiles and report the exposed ports."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.search.FindExposedPorts"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/search/findexposedports.md"}
-/>
+>
+
+<RecipeHeader.Title>Find exposed ports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find all `EXPOSE` instructions in Dockerfiles and report the exposed ports.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"portPattern","required":false,"description":"A glob pattern to filter ports. For example, '80*' to find ports starting with 80. If not specified, all `EXPOSE` instructions are matched.","example":"80*"}]}>
 

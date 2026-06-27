@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Comment on `@MockitoSpyBean` and `@MockitoBean` in `@Configuration`"}
-  description={"**Deprecated**: use `io.moderne.java.spring.boot3.ReplaceMockitoBeanWithBeanMethod` instead, which rewrites the field into a working `@Bean` method rather than adding a TODO comment. As stated in [Spring Docs](https://docs.spring.io/spring-framework/reference/testing/annotations/integration-spring/annotation-mockitobean.html) `@MockitoSpyBean` and `@MockitoBean` will only work in tests, explicitly not in `@Configuration` annotated classes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.CommentOnMockAndSpyBeansInConfigSpring34"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/commentonmockandspybeansinconfigspring34.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Comment on `@MockitoSpyBean` and `@MockitoBean` in `@Configuration`</RecipeHeader.Title>
+
+<RecipeHeader.Description>**Deprecated**: use `io.moderne.java.spring.boot3.ReplaceMockitoBeanWithBeanMethod` instead, which rewrites the field into a working `@Bean` method rather than adding a TODO comment. As stated in [Spring Docs](https://docs.spring.io/spring-framework/reference/testing/annotations/integration-spring/annotation-mockitobean.html) `@MockitoSpyBean` and `@MockitoBean` will only work in tests, explicitly not in `@Configuration` annotated classes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Configuration;\nimport org.springframework.test.context.bean.override.mockito.MockitoSpyBean;\n\n@Configuration\npublic class TestConfig {\n\n    @MockitoSpyBean\n    private String mySpy;\n}\n","after":"import org.springframework.context.annotation.Configuration;\nimport org.springframework.test.context.bean.override.mockito.MockitoSpyBean;\n\n@Configuration\npublic class TestConfig {\n\n    // TODO migrate into a test class, see https://docs.spring.io/spring-framework/reference/testing/annotations/integration-spring/annotation-mockitobean.html\n            @MockitoSpyBean\n    private String mySpy;\n}\n","diff":"@@ -7,1 +7,2 @@\npublic class TestConfig {\n\n-   @MockitoSpyBean\n+   // TODO migrate into a test class, see https://docs.spring.io/spring-framework/reference/testing/annotations/integration-spring/annotation-mockitobean.html\n+           @MockitoSpyBean\n    private String mySpy;\n","newFile":false}]}]}>
 

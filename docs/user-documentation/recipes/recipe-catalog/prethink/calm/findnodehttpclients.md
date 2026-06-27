@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Node.js HTTP clients"}
-  description={"Identify HTTP client usage in Node.js applications. Detects axios, fetch, got, and superagent call patterns."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindNodeHttpClients"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findnodehttpclients.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Node.js HTTP clients</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify HTTP client usage in Node.js applications. Detects axios, fetch, got, and superagent call patterns.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindNodeHttpClients","displayName":"Find Node.js HTTP clients","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

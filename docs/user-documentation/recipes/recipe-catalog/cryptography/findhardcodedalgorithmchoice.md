@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hardcoded algorithm choices"}
-  description={"Detects hardcoded algorithm choices in cryptographic operations. Hardcoded algorithms prevent easy migration to stronger or quantum-resistant algorithms when needed. This is a critical crypto-agility issue that makes systems vulnerable to future attacks."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindHardcodedAlgorithmChoice"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedalgorithmchoice.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find hardcoded algorithm choices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects hardcoded algorithm choices in cryptographic operations. Hardcoded algorithms prevent easy migration to stronger or quantum-resistant algorithms when needed. This is a critical crypto-agility issue that makes systems vulnerable to future attacks.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.security.KeyPairGenerator;\nimport java.security.KeyPair;\n\npublic class KeyPairExample {\n    public KeyPair generateKeyPair() throws Exception {\n        KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\");\n        kpg.initialize(2048);\n        return kpg.generateKeyPair();\n    }\n}\n","after":"import java.security.KeyPairGenerator;\nimport java.security.KeyPair;\n\npublic class KeyPairExample {\n    public KeyPair generateKeyPair() throws Exception {\n        KeyPairGenerator kpg = /*~~(ALGORITHM use)~~>*/KeyPairGenerator.getInstance(\"RSA\");\n        kpg.initialize(2048);\n        return kpg.generateKeyPair();\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\npublic class KeyPairExample {\n    public KeyPair generateKeyPair() throws Exception {\n-       KeyPairGenerator kpg = KeyPairGenerator.getInstance(\"RSA\");\n+       KeyPairGenerator kpg = /*~~(ALGORITHM use)~~>*/KeyPairGenerator.getInstance(\"RSA\");\n        kpg.initialize(2048);\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `loaderImplementation` from Gradle"}
-  description={"Removes the Spring Boot Uber-Jar `loaderImplementation` configuration from Gradle build files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.RemoveGradleUberJarLoaderImplementationConfig"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/removegradleuberjarloaderimplementationconfig.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `loaderImplementation` from Gradle</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the Spring Boot Uber-Jar `loaderImplementation` configuration from Gradle build files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins {\n    id 'org.springframework.boot' version '3.4.0'\n}\n\nbootJar {\n    loaderImplementation = 'org.springframework.boot.loader.tools.LoaderImplementation.CLASSIC'\n    setLoaderImplementation('org.springframework.boot.loader.tools.LoaderImplementation.CLASSIC')\n}\n","after":"plugins {\n    id 'org.springframework.boot' version '3.4.0'\n}\n\nbootJar {\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -6,2 +6,0 @@\n\nbootJar {\n-   loaderImplementation = 'org.springframework.boot.loader.tools.LoaderImplementation.CLASSIC'\n-   setLoaderImplementation('org.springframework.boot.loader.tools.LoaderImplementation.CLASSIC')\n}\n","newFile":false}]}]}>
 

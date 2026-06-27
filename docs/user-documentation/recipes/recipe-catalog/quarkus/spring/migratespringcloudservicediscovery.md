@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Cloud Service Discovery to Quarkus"}
-  description={"Migrates Spring Cloud Service Discovery annotations and configurations to Quarkus equivalents. Converts @EnableDiscoveryClient and related patterns to Quarkus Stork service discovery."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","cloud","quarkus","migration","service-discovery"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.MigrateSpringCloudServiceDiscovery"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/migratespringcloudservicediscovery.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Change type","href":"java/changetype"},{"name":"Remove annotation","href":"java/removeannotation"}]}>
+<RecipeHeader.Title>Migrate Spring Cloud Service Discovery to Quarkus</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Spring Cloud Service Discovery annotations and configurations to Quarkus equivalents. Converts @EnableDiscoveryClient and related patterns to Quarkus Stork service discovery.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"}]}>
 
 ## Definition
 

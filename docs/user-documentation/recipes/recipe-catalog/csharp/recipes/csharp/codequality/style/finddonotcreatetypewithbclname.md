@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find type with BCL name"}
-  description={"Detect class declarations that use names from well-known BCL types like `Task`, `Action`, `String`, which can cause confusion."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotCreateTypeWithBCLName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finddonotcreatetypewithbclname.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find type with BCL name</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect class declarations that use names from well-known BCL types like `Task`, `Action`, `String`, which can cause confusion.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotCreateTypeWithBCLName","displayName":"Find type with BCL name","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

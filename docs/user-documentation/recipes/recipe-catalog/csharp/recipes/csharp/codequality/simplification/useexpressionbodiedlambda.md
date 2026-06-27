@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use expression-bodied lambda"}
-  description={"Convert block-body lambdas with a single statement to expression-body lambdas."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseExpressionBodiedLambda"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/useexpressionbodiedlambda.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use expression-bodied lambda</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert block-body lambdas with a single statement to expression-body lambdas.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseExpressionBodiedLambda","displayName":"Use expression-bodied lambda","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

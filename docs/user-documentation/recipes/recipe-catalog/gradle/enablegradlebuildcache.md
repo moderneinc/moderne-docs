@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enable Gradle build cache"}
-  description={"Enable the Gradle build cache. By enabling build cache the build outputs are stored externally and fetched from the cache when it is determined that those inputs have no changed, avoiding the expensive work of regenerating them. See the [Gradle Build Cache](https://docs.gradle.org/current/userguide/build_cache.html) for more information."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.EnableGradleBuildCache"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/enablegradlebuildcache.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle property","href":"gradle/addproperty"}]}>
+<RecipeHeader.Title>Enable Gradle build cache</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enable the Gradle build cache. By enabling build cache the build outputs are stored externally and fetched from the cache when it is determined that those inputs have no changed, avoiding the expensive work of regenerating them. See the [Gradle Build Cache](https://docs.gradle.org/current/userguide/build_cache.html) for more information.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle property","href":"/user-documentation/recipes/recipe-catalog/gradle/addproperty/"}]}>
 
 ## Definition
 

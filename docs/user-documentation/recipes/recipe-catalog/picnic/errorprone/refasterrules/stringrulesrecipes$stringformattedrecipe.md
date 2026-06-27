@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StringRules.StringFormatted`"}
-  description={"Prefer `String#formatted(Object...)` over `String#format(String, Object...)`, as the former works more nicely with text blocks, while the latter does not appear advantageous in any circumstance (assuming one targets JDK 15+)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringFormattedRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/stringrulesrecipes$stringformattedrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StringRules.StringFormatted`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `String#formatted(Object...)` over `String#format(String, Object...)`, as the former works more nicely with text blocks, while the latter does not appear advantageous in any circumstance (assuming one targets JDK 15+).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringFormattedRecipe","displayName":"Refaster template `StringRules.StringFormatted`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

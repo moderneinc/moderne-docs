@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJComparableRules.AssertThatIsLessThan`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsLessThan<T extends Comparable<? super T>> {\n    \n    @BeforeTemplate\n    AbstractIntegerAssert<?> before(T actual, T expected) {\n        return assertThat(actual.compareTo(expected)).isNegative();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractComparableAssert<?, ?> after(T actual, T expected) {\n        return assertThat(actual).isLessThan(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJComparableRulesRecipes$AssertThatIsLessThanRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatislessthanrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJComparableRules.AssertThatIsLessThan`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIsLessThan<T extends Comparable<? super T>> {
+    
+    @BeforeTemplate
+    AbstractIntegerAssert<?> before(T actual, T expected) {
+        return assertThat(actual.compareTo(expected)).isNegative();
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractComparableAssert<?, ?> after(T actual, T expected) {
+        return assertThat(actual).isLessThan(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJComparableRulesRecipes$AssertThatIsLessThanRecipe","displayName":"Refaster template `AssertJComparableRules.AssertThatIsLessThan`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

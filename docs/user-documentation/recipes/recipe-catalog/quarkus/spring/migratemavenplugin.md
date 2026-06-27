@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add or replace Spring Boot build plugin with Quarkus build plugin"}
-  description={"Remove Spring Boot Maven plugin if present and add Quarkus Maven plugin using the same version as the quarkus-bom."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","build","maven","quarkus","migration"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.MigrateMavenPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/migratemavenplugin.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove Maven plugin","href":"maven/removeplugin"},{"name":"Add Quarkus Maven plugin","href":"quarkus/spring/addquarkusmavenplugin"}]}>
+<RecipeHeader.Title>Add or replace Spring Boot build plugin with Quarkus build plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove Spring Boot Maven plugin if present and add Quarkus Maven plugin using the same version as the quarkus-bom.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove Maven plugin","href":"/user-documentation/recipes/recipe-catalog/maven/removeplugin/"},{"name":"Add Quarkus Maven plugin","href":"/user-documentation/recipes/recipe-catalog/quarkus/spring/addquarkusmavenplugin/"}]}>
 
 ## Definition
 

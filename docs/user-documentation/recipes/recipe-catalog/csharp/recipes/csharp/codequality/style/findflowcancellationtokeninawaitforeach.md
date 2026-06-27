@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find await foreach without CancellationToken"}
-  description={"Detect `await foreach` loops that don't pass a `CancellationToken` via `WithCancellation()` when one is available in the enclosing method."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindFlowCancellationTokenInAwaitForEach"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findflowcancellationtokeninawaitforeach.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find await foreach without CancellationToken</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `await foreach` loops that don't pass a `CancellationToken` via `WithCancellation()` when one is available in the enclosing method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindFlowCancellationTokenInAwaitForEach","displayName":"Find await foreach without CancellationToken","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

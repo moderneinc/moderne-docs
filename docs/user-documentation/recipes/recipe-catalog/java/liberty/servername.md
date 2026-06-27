@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `getProperty(\"wlp.server.name\")`"}
-  description={"`ServerName.getDisplayName()` is not available in Liberty."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-liberty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.liberty.ServerName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/liberty/servername.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `getProperty("wlp.server.name")`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`ServerName.getDisplayName()` is not available in Liberty.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.ibm.websphere.runtime.ServerName;\n\nclass ServerNameUsage {\n    void doX() {\n        ServerName.getFullName();\n    }\n}\n","after":"class ServerNameUsage {\n    void doX() {\n        System.getProperty(\"wlp.server.name\");\n    }\n}\n","diff":"@@ -1,2 +1,0 @@\n-import com.ibm.websphere.runtime.ServerName;\n-\nclass ServerNameUsage {\n@@ -5,1 +3,1 @@\nclass ServerNameUsage {\n    void doX() {\n-       ServerName.getFullName();\n+       System.getProperty(\"wlp.server.name\");\n    }\n","newFile":false}]}]}>
 

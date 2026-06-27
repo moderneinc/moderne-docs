@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `SecurityManager#checkMulticast(InetAddress)`"}
-  description={"Use `SecurityManager#checkMulticast(InetAddress)` instead of the deprecated `SecurityManager#checkMulticast(InetAddress, byte)` in Java 1.4 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["deprecated"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.MigrateSecurityManagerMulticast"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/migratesecuritymanagermulticast.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `SecurityManager#checkMulticast(InetAddress)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `SecurityManager#checkMulticast(InetAddress)` instead of the deprecated `SecurityManager#checkMulticast(InetAddress, byte)` in Java 1.4 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite;\n\nimport java.net.InetAddress;\nimport java.lang.SecurityManager;\n\nclass Test {\n    public void method() {\n        InetAddress maddr = InetAddress.getByName(\"127.0.0.1\");\n        byte b = 100;\n        new SecurityManager().checkMulticast(maddr, b);\n    }\n}\n","after":"package org.openrewrite;\n\nimport java.net.InetAddress;\nimport java.lang.SecurityManager;\n\nclass Test {\n    public void method() {\n        InetAddress maddr = InetAddress.getByName(\"127.0.0.1\");\n        byte b = 100;\n        new SecurityManager().checkMulticast(maddr);\n    }\n}\n","diff":"@@ -10,1 +10,1 @@\n        InetAddress maddr = InetAddress.getByName(\"127.0.0.1\");\n        byte b = 100;\n-       new SecurityManager().checkMulticast(maddr, b);\n+       new SecurityManager().checkMulticast(maddr);\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find non-deterministic end-of-line in strings"}
-  description={"Detect string literals containing `\\n` that may behave differently across platforms. Consider using `Environment.NewLine` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindNonDeterministicEndOfLine"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findnondeterministicendofline.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find non-deterministic end-of-line in strings</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect string literals containing `\n` that may behave differently across platforms. Consider using `Environment.NewLine` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindNonDeterministicEndOfLine","displayName":"Find non-deterministic end-of-line in strings","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

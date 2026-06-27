@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Hibernate for Jakarta EE 9"}
-  description={"Upgrade hibernate libraries to Jakarta EE9 versions."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["hibernate","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.hibernate.MigrateHibernateToJakartaEE9"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/hibernate/migratehibernatetojakartaee9.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Hibernate 6.1.x","href":"hibernate/migratetohibernate61"},{"name":"Add Hibernate ORM Core if has dependencies","href":"oracle/weblogic/rewrite/hibernate/addhibernateormcore61"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"}]}>
+<RecipeHeader.Title>Migrate to Hibernate for Jakarta EE 9</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade hibernate libraries to Jakarta EE9 versions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Hibernate 6.1.x","href":"/user-documentation/recipes/recipe-catalog/hibernate/migratetohibernate61/"},{"name":"Add Hibernate ORM Core if has dependencies","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/hibernate/addhibernateormcore61/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"}]}>
 
 ## Definition
 

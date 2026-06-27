@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `io.spring.dependency-management` plugin, if in use"}
-  description={"Prior to Spring Boot 2.0 the dependency management plugin was applied automatically as part of the overall spring boot plugin. Afterwards the dependency-management plugin must be applied explicitly, or Gradle's `platform()` feature may be used instead. This recipe makes usage of io-spring.dependency-management explicit in anticipation of upgrade to Spring Boot 2.0 or later."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.spring.AddSpringDependencyManagementPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/spring/addspringdependencymanagementplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `io.spring.dependency-management` plugin, if in use</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prior to Spring Boot 2.0 the dependency management plugin was applied automatically as part of the overall spring boot plugin. Afterwards the dependency-management plugin must be applied explicitly, or Gradle's `platform()` feature may be used instead. This recipe makes usage of io-spring.dependency-management explicit in anticipation of upgrade to Spring Boot 2.0 or later.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins {\n    id \"java\"\n    id \"org.springframework.boot\" version \"1.5.22.RELEASE\"\n}\nrepositories {\n    mavenCentral()\n}\ndependencyManagement { }\ndependencies {\n    compile \"org.springframework.boot:spring-boot-starter-web\"\n}\n","after":"plugins {\n    id \"java\"\n    id \"org.springframework.boot\" version \"1.5.22.RELEASE\"\n    id \"io.spring.dependency-management\" version \"1.0.6.RELEASE\"\n}\nrepositories {\n    mavenCentral()\n}\ndependencyManagement { }\ndependencies {\n    compile \"org.springframework.boot:spring-boot-starter-web\"\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -4,0 +4,1 @@\n    id \"java\"\n    id \"org.springframework.boot\" version \"1.5.22.RELEASE\"\n+   id \"io.spring.dependency-management\" version \"1.0.6.RELEASE\"\n}\n","newFile":false}]}]}>
 

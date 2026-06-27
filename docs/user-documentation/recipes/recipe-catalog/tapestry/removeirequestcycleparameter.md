@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `IRequestCycle` parameters"}
-  description={"Removes `IRequestCycle` parameters from methods. In Tapestry 5, event handler methods don't receive the request cycle as a parameter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.tapestry.RemoveIRequestCycleParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/tapestry/removeirequestcycleparameter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `IRequestCycle` parameters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `IRequestCycle` parameters from methods. In Tapestry 5, event handler methods don't receive the request cycle as a parameter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.tapestry.IRequestCycle;\n\npublic class MyPage {\n\n    public void onActionFromSubmit(IRequestCycle cycle) {\n        // some code\n    }\n}\n","after":"public class MyPage {\n\n    public void onActionFromSubmit() {\n        // some code\n    }\n}\n","diff":"@@ -1,2 +1,0 @@\n-import org.apache.tapestry.IRequestCycle;\n-\npublic class MyPage {\n@@ -5,1 +3,1 @@\npublic class MyPage {\n\n-   public void onActionFromSubmit(IRequestCycle cycle) {\n+   public void onActionFromSubmit() {\n        // some code\n","newFile":false}]}]}>
 

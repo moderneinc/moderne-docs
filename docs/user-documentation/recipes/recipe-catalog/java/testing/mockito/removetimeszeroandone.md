@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `Mockito.times(0)` and `Mockito.times(1)`"}
-  description={"Remove `Mockito.times(0)` and `Mockito.times(1)` from `Mockito.verify()` calls."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.RemoveTimesZeroAndOne"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/removetimeszeroandone.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `Mockito.times(0)` and `Mockito.times(1)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `Mockito.times(0)` and `Mockito.times(1)` from `Mockito.verify()` calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.mockito.Mockito.times;\nimport static org.mockito.Mockito.verify;\n\nclass MyTest {\n    void test(Object myObject) {\n        myObject.wait();\n        verify(myObject, times(0)).wait();\n    }\n}\n","after":"import static org.mockito.Mockito.never;\nimport static org.mockito.Mockito.verify;\n\nclass MyTest {\n    void test(Object myObject) {\n        myObject.wait();\n        verify(myObject, never()).wait();\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static org.mockito.Mockito.times;\n+import static org.mockito.Mockito.never;\nimport static org.mockito.Mockito.verify;\n@@ -7,1 +7,1 @@\n    void test(Object myObject) {\n        myObject.wait();\n-       verify(myObject, times(0)).wait();\n+       verify(myObject, never()).wait();\n    }\n","newFile":false}]}]}>
 

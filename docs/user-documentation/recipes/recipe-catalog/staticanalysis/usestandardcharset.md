@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `StandardCharset` constants"}
-  description={"Replaces `Charset.forName(java.lang.String)` with the equivalent `StandardCharset` constant. Using the predefined constants is both compile-time safe and avoids the need to handle `UnsupportedEncodingException` for charsets that are guaranteed to exist on every JVM."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4719"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UseStandardCharset"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/usestandardcharset.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `StandardCharset` constants</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `Charset.forName(java.lang.String)` with the equivalent `StandardCharset` constant. Using the predefined constants is both compile-time safe and avoids the need to handle `UnsupportedEncodingException` for charsets that are guaranteed to exist on every JVM.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.nio.charset.Charset;\n\nclass Test {\n    Charset US_ASCII = Charset.forName(\"US-ASCII\");\n    Charset ISO_8859_1 = Charset.forName(\"ISO-8859-1\");\n    Charset UTF_8 = Charset.forName(\"UTF-8\");\n    Charset UTF_16 = Charset.forName(\"UTF-16\");\n    Charset UTF_16BE = Charset.forName(\"UTF-16BE\");\n    Charset UTF_16LE = Charset.forName(\"UTF-16LE\");\n}\n","after":"import java.nio.charset.Charset;\nimport java.nio.charset.StandardCharsets;\n\nclass Test {\n    Charset US_ASCII = StandardCharsets.US_ASCII;\n    Charset ISO_8859_1 = StandardCharsets.ISO_8859_1;\n    Charset UTF_8 = StandardCharsets.UTF_8;\n    Charset UTF_16 = StandardCharsets.UTF_16;\n    Charset UTF_16BE = StandardCharsets.UTF_16BE;\n    Charset UTF_16LE = StandardCharsets.UTF_16LE;\n}\n","diff":"@@ -2,0 +2,1 @@\nimport java.nio.charset.Charset;\n+import java.nio.charset.StandardCharsets;\n\n@@ -4,6 +5,6 @@\n\nclass Test {\n-   Charset US_ASCII = Charset.forName(\"US-ASCII\");\n-   Charset ISO_8859_1 = Charset.forName(\"ISO-8859-1\");\n-   Charset UTF_8 = Charset.forName(\"UTF-8\");\n-   Charset UTF_16 = Charset.forName(\"UTF-16\");\n-   Charset UTF_16BE = Charset.forName(\"UTF-16BE\");\n-   Charset UTF_16LE = Charset.forName(\"UTF-16LE\");\n+   Charset US_ASCII = StandardCharsets.US_ASCII;\n+   Charset ISO_8859_1 = StandardCharsets.ISO_8859_1;\n+   Charset UTF_8 = StandardCharsets.UTF_8;\n+   Charset UTF_16 = StandardCharsets.UTF_16;\n+   Charset UTF_16BE = StandardCharsets.UTF_16BE;\n+   Charset UTF_16LE = StandardCharsets.UTF_16LE;\n}\n","newFile":false}]}]}>
 

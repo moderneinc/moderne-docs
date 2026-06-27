@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Default comes last"}
-  description={"Ensure the `default` case comes last after all the cases in a switch statement. Placing `default` at the end follows a widely expected convention, making it easy to find the fallback behavior at a glance."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4524"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.DefaultComesLast"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/defaultcomeslast.md"}
-/>
+>
+
+<RecipeHeader.Title>Default comes last</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure the `default` case comes last after all the cases in a switch statement. Placing `default` at the end follows a widely expected convention, making it easy to find the fallback behavior at a glance.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    int n;\n    {\n        switch (n) {\n            case 1:\n                break;\n            case 2:\n                break;\n            default:\n                System.out.println(\"default\");\n                break;\n            case 3:\n                System.out.println(\"case3\");\n        }\n    }\n}\n","after":"class Test {\n    int n;\n    {\n        switch (n) {\n            case 1:\n                break;\n            case 2:\n                break;\n            case 3:\n                System.out.println(\"case3\");\n                break;\n            default:\n                System.out.println(\"default\");\n        }\n    }\n}\n","diff":"@@ -9,3 +9,0 @@\n            case 2:\n                break;\n-           default:\n-               System.out.println(\"default\");\n-               break;\n            case 3:\n@@ -14,0 +11,3 @@\n            case 3:\n                System.out.println(\"case3\");\n+               break;\n+           default:\n+               System.out.println(\"default\");\n        }\n","newFile":false}]}]}>
 

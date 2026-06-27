@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary `: Unit` return type"}
-  description={"Removes the explicit `Unit` return type annotation from Scala methods. In Scala, methods returning `Unit` do not need the `: Unit` annotation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.RemoveUnitReturnType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/removeunitreturntype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary `: Unit` return type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the explicit `Unit` return type annotation from Scala methods. In Scala, methods returning `Unit` do not need the `: Unit` annotation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    def greet(): Unit = {\n        println(\"hello\")\n    }\n}\n","after":"class Example {\n    def greet() = {\n        println(\"hello\")\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Example {\n-   def greet(): Unit = {\n+   def greet() = {\n        println(\"hello\")\n","newFile":false}]}]}>
 

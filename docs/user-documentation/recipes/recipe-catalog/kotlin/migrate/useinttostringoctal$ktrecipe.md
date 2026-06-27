@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Int.toString(8)` instead of `Integer.toOctalString`"}
-  description={"`Integer.toOctalString(i)` is JVM-only; the multiplatform `i.toString(8)` produces the same octal text."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseIntToStringOctal$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/useinttostringoctal$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Int.toString(8)` instead of `Integer.toOctalString`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Integer.toOctalString(i)` is JVM-only; the multiplatform `i.toString(8)` produces the same octal text.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseIntToStringOctal$KtRecipe","displayName":"Use `Int.toString(8)` instead of `Integer.toOctalString`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

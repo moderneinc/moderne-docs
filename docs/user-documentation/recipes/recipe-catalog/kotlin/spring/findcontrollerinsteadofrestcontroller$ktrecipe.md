@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Controller` classes whose methods all return data (consider `@RestController`)"}
-  description={"A `@Controller` class needs `@ResponseBody` on each handler that returns data; `@RestController` applies `@ResponseBody` to every method in one annotation. Where every method on a `@Controller` is data-returning, `@RestController` reads more cleanly. Flag for review — view-rendering controllers are correct as-is."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindControllerInsteadOfRestController$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findcontrollerinsteadofrestcontroller$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Controller` classes whose methods all return data (consider `@RestController`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `@Controller` class needs `@ResponseBody` on each handler that returns data; `@RestController` applies `@ResponseBody` to every method in one annotation. Where every method on a `@Controller` is data-returning, `@RestController` reads more cleanly. Flag for review — view-rendering controllers are correct as-is.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindControllerInsteadOfRestController$KtRecipe","displayName":"Find `@Controller` classes whose methods all return data (consider `@RestController`)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

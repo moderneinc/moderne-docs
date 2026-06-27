@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `Replace.NONE` from `@AutoConfigureTestDatabase`"}
-  description={"`Replace.NONE` is the default value for `@AutoConfigureTestDatabase` since Spring Boot 3.4."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.RemoveReplaceNoneFromAutoConfigureTestDatabase"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/removereplacenonefromautoconfiguretestdatabase.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `Replace.NONE` from `@AutoConfigureTestDatabase`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Replace.NONE` is the default value for `@AutoConfigureTestDatabase` since Spring Boot 3.4.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.java.spring.boot3.RemoveReplaceNoneFromAutoConfigureTestDatabase","displayName":"Remove `Replace.NONE` from `@AutoConfigureTestDatabase`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

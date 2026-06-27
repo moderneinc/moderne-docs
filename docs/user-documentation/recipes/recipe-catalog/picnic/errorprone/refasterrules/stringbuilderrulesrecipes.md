@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`StringBuilderRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `StringBuilder`s.\n[Source](https://error-prone.picnic.tech/refasterrules/StringBuilderRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StringBuilderRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/stringbuilderrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Prefer `StringBuilder#repeat(CharSequence, int)` over less efficient alternatives","href":"picnic/errorprone/refasterrules/stringbuilderrulesrecipes$stringbuilderrepeatrecipe"}]}>
+<RecipeHeader.Title>`StringBuilderRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `StringBuilder`s. [Source](https://error-prone.picnic.tech/refasterrules/StringBuilderRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Prefer `StringBuilder#repeat(CharSequence, int)` over less efficient alternatives","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/stringbuilderrulesrecipes$stringbuilderrepeatrecipe/"}]}>
 
 ## Definition
 

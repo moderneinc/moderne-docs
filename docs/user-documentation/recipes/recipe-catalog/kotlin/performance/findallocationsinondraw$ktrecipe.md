@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find graphics allocations inside `View.onDraw`"}
-  description={"Android views call `onDraw` on every frame. Allocating `Paint`, `Path`, `Rect`, `RectF`, `Region`, `Matrix`, or `Bitmap` instances per draw causes GC pressure and dropped frames — hoist them into field initializers or `lazy { }` properties."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindAllocationsInOnDraw$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findallocationsinondraw$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find graphics allocations inside `View.onDraw`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Android views call `onDraw` on every frame. Allocating `Paint`, `Path`, `Rect`, `RectF`, `Region`, `Matrix`, or `Bitmap` instances per draw causes GC pressure and dropped frames — hoist them into field initializers or `lazy { }` properties.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindAllocationsInOnDraw$KtRecipe","displayName":"Find graphics allocations inside `View.onDraw`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

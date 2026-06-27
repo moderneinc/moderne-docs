@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename `_` identifier to `__`"}
-  description={"Renames single-underscore identifiers to double-underscore in Java source files with source compatibility of Java 8 or below. In Java 9+, `_` is a reserved keyword and causes a compile error."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.RenameUnderscoreIdentifier"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/renameunderscoreidentifier.md"}
-/>
+>
+
+<RecipeHeader.Title>Rename `_` identifier to `__`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames single-underscore identifiers to double-underscore in Java source files with source compatibility of Java 8 or below. In Java 9+, `_` is a reserved keyword and causes a compile error.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    int test() {\n        int UNDERSCORE = 1;\n        return UNDERSCORE;\n    }\n}\n","after":"class Test {\n    int test() {\n        int __ = 1;\n        return __;\n    }\n}\n","diff":"@@ -3,2 +3,2 @@\nclass Test {\n    int test() {\n-       int UNDERSCORE = 1;\n-       return UNDERSCORE;\n+       int __ = 1;\n+       return __;\n    }\n","newFile":false}]}]}>
 

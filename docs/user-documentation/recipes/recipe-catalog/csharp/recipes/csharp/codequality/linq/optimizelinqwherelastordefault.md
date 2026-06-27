@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Optimize LINQ Where().LastOrDefault()"}
-  description={"Replace `.Where(predicate).LastOrDefault()` with `.LastOrDefault(predicate)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereLastOrDefault"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/optimizelinqwherelastordefault.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Optimize LINQ Where().LastOrDefault()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `.Where(predicate).LastOrDefault()` with `.LastOrDefault(predicate)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereLastOrDefault","displayName":"Optimize LINQ Where().LastOrDefault()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

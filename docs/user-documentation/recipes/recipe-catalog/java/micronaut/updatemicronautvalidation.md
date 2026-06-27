@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update to Micronaut Validation 4.x"}
-  description={"This recipe will add jakarta validation dependency if needed, migrate from javax.validation if needed, and update micronaut validation dependencies."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.UpdateMicronautValidation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/updatemicronautvalidation.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename package name","href":"java/changepackage"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Remove Maven annotation processor path","href":"java/micronaut/removeannotationprocessorpath"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle dependency","href":"gradle/adddependency"},{"name":"Add Maven annotation processor path","href":"java/micronaut/addannotationprocessorpath"}]}>
+<RecipeHeader.Title>Update to Micronaut Validation 4.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will add jakarta validation dependency if needed, migrate from javax.validation if needed, and update micronaut validation dependencies.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Remove Maven annotation processor path","href":"/user-documentation/recipes/recipe-catalog/java/micronaut/removeannotationprocessorpath/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle dependency","href":"/user-documentation/recipes/recipe-catalog/gradle/adddependency/"},{"name":"Add Maven annotation processor path","href":"/user-documentation/recipes/recipe-catalog/java/micronaut/addannotationprocessorpath/"}]}>
 
 ## Definition
 

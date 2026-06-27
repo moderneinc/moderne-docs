@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose stability issues"}
-  description={"Surface declarations where Compose's stability inferrer will refuse to mark a parameter, property, or class as stable: `MutableList`/`MutableMap`/`MutableSet` parameters, read-only `List` parameters, `@Stable`/`@Immutable` annotations applied to classes with `var` fields, and `data class` declarations holding `List<T>` properties."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposeStabilityIssues$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposestabilityissues$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `@Composable` functions with `MutableList`/`MutableMap`/`MutableSet` parameters","href":"kotlin/compose/findmutablecollectionascomposableparam$ktrecipe"},{"name":"Find `@Composable` functions with `List`/`Map`/`Set` parameters","href":"kotlin/compose/findlistascomposableparam$ktrecipe"},{"name":"Find `@Stable` on classes with `var` properties","href":"kotlin/compose/findstableannotationonmutableclass$ktrecipe"},{"name":"Find `@Immutable` on classes with `var` properties","href":"kotlin/compose/findimmutableannotationonmutableclass$ktrecipe"},{"name":"Find `@Stable` classes holding mutable-collection properties","href":"kotlin/compose/findstableannotationonclasswithmutablecollection$ktrecipe"},{"name":"Find `data class` declarations with `List<T>` properties","href":"kotlin/compose/finddataclasswithlistproperty$ktrecipe"},{"name":"Find lambda parameters on `@Composable` functions","href":"kotlin/compose/findlambdaascomposableparamwithoutnoinline$ktrecipe"},{"name":"Find `Array<T>` parameters on `@Composable` functions","href":"kotlin/compose/findarrayparameteroncomposable$ktrecipe"},{"name":"Find `Flow<T>` / `StateFlow<T>` parameters on `@Composable` functions","href":"kotlin/compose/findflowparameteroncomposable$ktrecipe"},{"name":"Find `android.content.Context` parameters on `@Composable` functions","href":"kotlin/compose/findcontextparameteroncomposable$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose stability issues</RecipeHeader.Title>
+
+<RecipeHeader.Description>Surface declarations where Compose's stability inferrer will refuse to mark a parameter, property, or class as stable: `MutableList`/`MutableMap`/`MutableSet` parameters, read-only `List` parameters, `@Stable`/`@Immutable` annotations applied to classes with `var` fields, and `data class` declarations holding `List<T>` properties.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `@Composable` functions with `MutableList`/`MutableMap`/`MutableSet` parameters","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findmutablecollectionascomposableparam$ktrecipe/"},{"name":"Find `@Composable` functions with `List`/`Map`/`Set` parameters","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlistascomposableparam$ktrecipe/"},{"name":"Find `@Stable` on classes with `var` properties","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findstableannotationonmutableclass$ktrecipe/"},{"name":"Find `@Immutable` on classes with `var` properties","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findimmutableannotationonmutableclass$ktrecipe/"},{"name":"Find `@Stable` classes holding mutable-collection properties","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findstableannotationonclasswithmutablecollection$ktrecipe/"},{"name":"Find `data class` declarations with `List<T>` properties","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/finddataclasswithlistproperty$ktrecipe/"},{"name":"Find lambda parameters on `@Composable` functions","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlambdaascomposableparamwithoutnoinline$ktrecipe/"},{"name":"Find `Array<T>` parameters on `@Composable` functions","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findarrayparameteroncomposable$ktrecipe/"},{"name":"Find `Flow<T>` / `StateFlow<T>` parameters on `@Composable` functions","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findflowparameteroncomposable$ktrecipe/"},{"name":"Find `android.content.Context` parameters on `@Composable` functions","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findcontextparameteroncomposable$ktrecipe/"}]}>
 
 ## Definition
 

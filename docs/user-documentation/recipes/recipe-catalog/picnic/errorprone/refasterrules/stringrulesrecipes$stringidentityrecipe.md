@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StringRules.StringIdentity`"}
-  description={"Avoid unnecessary creation of new `String` objects."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2129"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIdentityRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/stringrulesrecipes$stringidentityrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StringRules.StringIdentity`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Avoid unnecessary creation of new `String` objects.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringIdentityRecipe","displayName":"Refaster template `StringRules.StringIdentity`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

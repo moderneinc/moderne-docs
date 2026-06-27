@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Single `@DocumentExample` per test class"}
-  description={"Ensures there's only one `@DocumentExample` annotated `@Test` method per test class, as that looks best in our documentation. `@ParameterizedTest` methods are not supported."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.SingleDocumentExample"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/singledocumentexample.md"}
-/>
+>
+
+<RecipeHeader.Title>Single `@DocumentExample` per test class</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensures there's only one `@DocumentExample` annotated `@Test` method per test class, as that looks best in our documentation. `@ParameterizedTest` methods are not supported.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport org.openrewrite.DocumentExample;\nimport org.openrewrite.test.RewriteTest;\n\nimport static org.openrewrite.java.Assertions.java;\n\nclass UnnecessaryParenthesesTest implements RewriteTest {\n    @DocumentExample\n    @Test\n    void test1() {\n        rewriteRun(\n          java(\n            \"\"\"\n              BEFORE\n              \"\"\",\n            \"\"\"\n              AFTER\n              \"\"\"\n          )\n        );\n    }\n\n    @DocumentExample\n    @Test\n    void test2() {\n        rewriteRun(\n          java(\n            \"\"\"\n              BEFORE\n              \"\"\",\n            \"\"\"\n              AFTER\n              \"\"\"\n          )\n        );\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport org.openrewrite.DocumentExample;\nimport org.openrewrite.test.RewriteTest;\n\nimport static org.openrewrite.java.Assertions.java;\n\nclass UnnecessaryParenthesesTest implements RewriteTest {\n    @DocumentExample\n    @Test\n    void test1() {\n        rewriteRun(\n          java(\n            \"\"\"\n              BEFORE\n              \"\"\",\n            \"\"\"\n              AFTER\n              \"\"\"\n          )\n        );\n    }\n\n    @Test\n    void test2() {\n        rewriteRun(\n          java(\n            \"\"\"\n              BEFORE\n              \"\"\",\n            \"\"\"\n              AFTER\n              \"\"\"\n          )\n        );\n    }\n}\n","diff":"@@ -23,1 +23,0 @@\n    }\n\n-   @DocumentExample\n    @Test\n","newFile":false}]}]}>
 

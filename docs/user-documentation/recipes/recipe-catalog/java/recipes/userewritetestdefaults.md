@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refactor RewriteTest to use defaults method"}
-  description={"When all `rewriteRun` methods in a test class use the same RecipeSpec configuration, refactor to use the `defaults` method instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.UseRewriteTestDefaults"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/userewritetestdefaults.md"}
-/>
+>
+
+<RecipeHeader.Title>Refactor RewriteTest to use defaults method</RecipeHeader.Title>
+
+<RecipeHeader.Description>When all `rewriteRun` methods in a test class use the same RecipeSpec configuration, refactor to use the `defaults` method instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport org.openrewrite.test.RewriteTest;\n\nclass MyTest implements RewriteTest {\n    @Test\n    void test1() {\n        rewriteRun(\n            spec -> spec.recipe(new org.openrewrite.java.recipes.MissingOptionExample()),\n            org.openrewrite.java.Assertions.java(\"class A {}\", \"class A {}\")\n        );\n    }\n\n    @Test\n    void test2() {\n        rewriteRun(\n            spec -> spec.recipe(new org.openrewrite.java.recipes.MissingOptionExample()),\n            org.openrewrite.java.Assertions.java(\"class B {}\", \"class B {}\")\n        );\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport org.openrewrite.test.RecipeSpec;\nimport org.openrewrite.test.RewriteTest;\n\nclass MyTest implements RewriteTest {\n\n    @Override\n    public void defaults(RecipeSpec spec) {\n        spec.recipe(new org.openrewrite.java.recipes.MissingOptionExample());\n    }\n\n    @Test\n    void test1() {\n        rewriteRun(\n            org.openrewrite.java.Assertions.java(\"class A {}\", \"class A {}\")\n        );\n    }\n\n    @Test\n    void test2() {\n        rewriteRun(\n            org.openrewrite.java.Assertions.java(\"class B {}\", \"class B {}\")\n        );\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.junit.jupiter.api.Test;\n+import org.openrewrite.test.RecipeSpec;\nimport org.openrewrite.test.RewriteTest;\n@@ -5,0 +6,6 @@\n\nclass MyTest implements RewriteTest {\n+\n+   @Override\n+   public void defaults(RecipeSpec spec) {\n+       spec.recipe(new org.openrewrite.java.recipes.MissingOptionExample());\n+   }\n+\n    @Test\n@@ -8,1 +15,0 @@\n    void test1() {\n        rewriteRun(\n-           spec -> spec.recipe(new org.openrewrite.java.recipes.MissingOptionExample()),\n            org.openrewrite.java.Assertions.java(\"class A {}\", \"class A {}\")\n@@ -16,1 +22,0 @@\n    void test2() {\n        rewriteRun(\n-           spec -> spec.recipe(new org.openrewrite.java.recipes.MissingOptionExample()),\n            org.openrewrite.java.Assertions.java(\"class B {}\", \"class B {}\")\n","newFile":false}]}]}>
 

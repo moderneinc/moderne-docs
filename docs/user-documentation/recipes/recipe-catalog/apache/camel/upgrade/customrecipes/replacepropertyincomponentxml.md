@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Camel XMl DSL changes"}
-  description={"Apache Camel XML DSL migration from version 4.9 o 4.10."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.customRecipes.ReplacePropertyInComponentXml"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyincomponentxml.md"}
-/>
+>
+
+<RecipeHeader.Title>Camel XMl DSL changes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apache Camel XML DSL migration from version 4.9 o 4.10.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"component","required":true,"description":"Component name.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to rename.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"newPropertyKey","required":true,"description":"The prefix to be replaced with.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"valuePrefix","required":false,"description":"This value is appended before the current value of the modified method.","example":"file:"}]}>
 

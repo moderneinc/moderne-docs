@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Stable` on classes with `var` properties"}
-  description={"`@Stable` is a contract: callers may skip recomposition when input references compare equal, and the class promises that `equals`/`hashCode` reflect all observable state. A `var` property breaks both halves — the value can mutate without anyone updating the snapshot system, so the annotation lies and downstream `@Composable`s silently skip required recompositions."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindStableAnnotationOnMutableClass$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findstableannotationonmutableclass$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Stable` on classes with `var` properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@Stable` is a contract: callers may skip recomposition when input references compare equal, and the class promises that `equals`/`hashCode` reflect all observable state. A `var` property breaks both halves — the value can mutate without anyone updating the snapshot system, so the annotation lies and downstream `@Composable`s silently skip required recompositions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindStableAnnotationOnMutableClass$KtRecipe","displayName":"Find `@Stable` on classes with `var` properties","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJIterableRules.AssertThatContainsAll`"}
-  description={"Prefer `AbstractIterableAssert#containsAll(Iterable)` over less explicit alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes$AssertThatContainsAllRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatcontainsallrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJIterableRules.AssertThatContainsAll`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `AbstractIterableAssert#containsAll(Iterable)` over less explicit alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes$AssertThatContainsAllRecipe","displayName":"Refaster template `AssertJIterableRules.AssertThatContainsAll`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

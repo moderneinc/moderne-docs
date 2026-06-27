@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find missing WithCancellation on async enumerables"}
-  description={"Detect async enumerable iteration without `.WithCancellation()`. Async enumerables should forward CancellationToken via WithCancellation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindMissingWithCancellation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findmissingwithcancellation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find missing WithCancellation on async enumerables</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect async enumerable iteration without `.WithCancellation()`. Async enumerables should forward CancellationToken via WithCancellation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindMissingWithCancellation","displayName":"Find missing WithCancellation on async enumerables","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@Configuration` to classes with `@EnableXXXSecurity` annotations"}
-  description={"Prior to Spring Security 6, `@EnableXXXSecurity` implicitly had `@Configuration`. `Configuration` was removed from the definitions of the `@EnableSecurity` definitions in Spring Security 6. Consequently classes annotated with `@EnableXXXSecurity` coming from pre-Boot 3 should have `@Configuration` annotation added."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.ConfigurationOverEnableSecurity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/configurationoverenablesecurity.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `@Configuration` to classes with `@EnableXXXSecurity` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prior to Spring Security 6, `@EnableXXXSecurity` implicitly had `@Configuration`. `Configuration` was removed from the definitions of the `@EnableSecurity` definitions in Spring Security 6. Consequently classes annotated with `@EnableXXXSecurity` coming from pre-Boot 3 should have `@Configuration` annotation added.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"boolean","name":"forceAddConfiguration","required":true,"description":"Force add `@Configuration` regardless current Boot version.","example":"true"}]}>
 

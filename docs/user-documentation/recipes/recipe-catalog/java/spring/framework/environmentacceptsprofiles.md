@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Environment#acceptsProfiles(Profiles)`"}
-  description={"`Environment#acceptsProfiles(String...)` was deprecated in Spring Framework 5.1."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.EnvironmentAcceptsProfiles"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/environmentacceptsprofiles.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Environment#acceptsProfiles(Profiles)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Environment#acceptsProfiles(String...)` was deprecated in Spring Framework 5.1.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.core.env.Environment;\n\nclass Test {\n    static boolean method(Environment env) {\n        return env.acceptsProfiles(\"production\");\n    }\n}\n","after":"import org.springframework.core.env.Environment;\nimport org.springframework.core.env.Profiles;\n\nclass Test {\n    static boolean method(Environment env) {\n        return env.acceptsProfiles(Profiles.of(\"production\"));\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.springframework.core.env.Environment;\n+import org.springframework.core.env.Profiles;\n\n@@ -5,1 +6,1 @@\nclass Test {\n    static boolean method(Environment env) {\n-       return env.acceptsProfiles(\"production\");\n+       return env.acceptsProfiles(Profiles.of(\"production\"));\n    }\n","newFile":false}]}]}>
 

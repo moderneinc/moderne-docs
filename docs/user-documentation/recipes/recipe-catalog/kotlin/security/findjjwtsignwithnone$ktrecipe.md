@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `JwtBuilder.signWith(SignatureAlgorithm.NONE, ...)` patterns"}
-  description={"`alg=none` lets anyone forge a JWT — there is no signature to verify. Use HS256 (with a strong secret) or RS256/ES256 (with an asymmetric key pair)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindJjwtSignWithNone$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findjjwtsignwithnone$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `JwtBuilder.signWith(SignatureAlgorithm.NONE, ...)` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`alg=none` lets anyone forge a JWT — there is no signature to verify. Use HS256 (with a strong secret) or RS256/ES256 (with an asymmetric key pair).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindJjwtSignWithNone$KtRecipe","displayName":"Find `JwtBuilder.signWith(SignatureAlgorithm.NONE, ...)` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

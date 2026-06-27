@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find eager string interpolation in `log.warn(...)`"}
-  description={"Warning logs are usually enabled in production, so eager interpolation is less of a hot-path issue — but the parameterized form (`log.warn(\"x={}\", x)`) still keeps the message template stable for log aggregators that group by template hash."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindEagerStringInterpolationInLogWarn$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinlogwarn$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find eager string interpolation in `log.warn(...)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Warning logs are usually enabled in production, so eager interpolation is less of a hot-path issue — but the parameterized form (`log.warn("x={}", x)`) still keeps the message template stable for log aggregators that group by template hash.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindEagerStringInterpolationInLogWarn$KtRecipe","displayName":"Find eager string interpolation in `log.warn(...)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

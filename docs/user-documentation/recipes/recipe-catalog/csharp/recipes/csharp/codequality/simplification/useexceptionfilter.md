@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use exception filter"}
-  description={"Detect catch blocks with if/throw pattern that could use a when clause."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseExceptionFilter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/useexceptionfilter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use exception filter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect catch blocks with if/throw pattern that could use a when clause.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseExceptionFilter","displayName":"Use exception filter","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

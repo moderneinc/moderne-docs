@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `return`/`yield` outside function"}
-  description={"Remove `return` and `yield` statements that are not inside any function or method definition."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.ReturnOrYieldOutsideFunction"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/returnoryieldoutsidefunction.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `return`/`yield` outside function</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `return` and `yield` statements that are not inside any function or method definition.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.ReturnOrYieldOutsideFunction","displayName":"Remove `return`/`yield` outside function","pipPackage":"openrewrite-static-analysis"}}>
 

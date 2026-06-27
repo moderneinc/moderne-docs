@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Increment Maven project version"}
-  description={"Increase Maven project version by incrementing either the major, minor, or patch version as defined by [semver](https://semver.org/). Other versioning schemes are not supported."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.IncrementProjectVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/incrementprojectversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Increment Maven project version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Increase Maven project version by incrementing either the major, minor, or patch version as defined by [semver](https://semver.org/). Other versioning schemes are not supported.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The group ID of the Maven project to change its version. This can be a glob expression.","example":"org.openrewrite"},{"type":"String","name":"artifactId","required":true,"description":"The artifact ID of the Maven project to change its version. This can be a glob expression.","example":"*"},{"type":"SemverDigit","name":"digit","required":true,"description":"`MAJOR` increments the first digit, `MINOR` increments the second digit, and `PATCH` increments the third digit.","example":"PATCH"}]}>
 

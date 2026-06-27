@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `DriverManager#setLogWriter(java.io.PrintWriter)`"}
-  description={"Use `DriverManager#setLogWriter(java.io.PrintWriter)` instead of the deprecated `DriverManager#setLogStream(java.io.PrintStream)` in Java 1.2 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["deprecated"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.sql.MigrateDriverManagerSetLogStream"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/sql/migratedrivermanagersetlogstream.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `DriverManager#setLogWriter(java.io.PrintWriter)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `DriverManager#setLogWriter(java.io.PrintWriter)` instead of the deprecated `DriverManager#setLogStream(java.io.PrintStream)` in Java 1.2 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite;\n\nimport java.sql.DriverManager;\n\nclass Test {\n    public void method() {\n        DriverManager.setLogStream(System.out);\n    }\n}\n","after":"package org.openrewrite;\n\nimport java.sql.DriverManager;\n\nclass Test {\n    public void method() {\n        DriverManager.setLogWriter(new java.io.PrintWriter(System.out));\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass Test {\n    public void method() {\n-       DriverManager.setLogStream(System.out);\n+       DriverManager.setLogWriter(new java.io.PrintWriter(System.out));\n    }\n","newFile":false}]}]}>
 

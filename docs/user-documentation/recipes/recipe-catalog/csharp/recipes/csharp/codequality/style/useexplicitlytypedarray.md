@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use explicitly typed array"}
-  description={"Use explicitly or implicitly typed array."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseExplicitlyTypedArray"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/useexplicitlytypedarray.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use explicitly typed array</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use explicitly or implicitly typed array.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseExplicitlyTypedArray","displayName":"Use explicitly typed array","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

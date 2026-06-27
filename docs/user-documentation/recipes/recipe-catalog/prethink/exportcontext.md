@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Export context files"}
-  description={"Export DataTables to CSV files in `.moderne/context/` along with a markdown description file. The markdown file describes the context and includes schema information for each data table."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-prethink"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.prethink.ExportContext"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/exportcontext.md"}
-/>
+>
+
+<RecipeHeader.Title>Export context files</RecipeHeader.Title>
+
+<RecipeHeader.Description>Export DataTables to CSV files in `.moderne/context/` along with a markdown description file. The markdown file describes the context and includes schema information for each data table.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"displayName","required":true,"description":"The display name for this context, shown in agent configurations.","example":"Test Coverage"},{"type":"String","name":"shortDescription","required":true,"description":"A brief description of what context this provides to the model.","example":"Maps test methods to implementation methods they verify"},{"type":"String","name":"longDescription","required":true,"description":"A detailed description of the context and how to use it.","example":"This context maps each test method to the implementation methods it calls..."},{"type":"List","name":"dataTables","required":true,"description":"Fully qualified class names of DataTables to export to CSV.","example":"org.openrewrite.prethink.table.TestMapping"}]}>
 

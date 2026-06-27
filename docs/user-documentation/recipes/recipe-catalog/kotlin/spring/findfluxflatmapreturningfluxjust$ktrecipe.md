@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Flux.flatMap { x -> Mono.just(f(x)) }` patterns"}
-  description={"A `Flux.flatMap` whose lambda only wraps a value back into `Mono.just` (or `Flux.just`) is doing the work of `map`. Drop the publisher boxing and the runtime cost of subscribing to a one-shot inner publisher per element."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindFluxFlatMapReturningFluxJust$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxflatmapreturningfluxjust$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Flux.flatMap { x -> Mono.just(f(x)) }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `Flux.flatMap` whose lambda only wraps a value back into `Mono.just` (or `Flux.just`) is doing the work of `map`. Drop the publisher boxing and the runtime cost of subscribing to a one-shot inner publisher per element.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindFluxFlatMapReturningFluxJust$KtRecipe","displayName":"Find `Flux.flatMap { x -> Mono.just(f(x)) }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

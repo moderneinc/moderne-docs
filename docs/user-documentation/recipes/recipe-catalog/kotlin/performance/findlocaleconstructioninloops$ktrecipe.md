@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Locale(...)` allocations inside loops"}
-  description={"`Locale(\"en\", \"US\")` walks the locale provider list on every construction. For common locales prefer the cached constants on `Locale` (e.g. `Locale.US`, `Locale.ENGLISH`). Otherwise hoist a single `Locale` out of the loop."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindLocaleConstructionInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findlocaleconstructioninloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Locale(...)` allocations inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Locale("en", "US")` walks the locale provider list on every construction. For common locales prefer the cached constants on `Locale` (e.g. `Locale.US`, `Locale.ENGLISH`). Otherwise hoist a single `Locale` out of the loop.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindLocaleConstructionInLoops$KtRecipe","displayName":"Find `Locale(...)` allocations inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

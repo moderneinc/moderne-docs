@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify AssertJ assertions on SequencedCollection"}
-  description={"Simplify AssertJ assertions on SequencedCollection by using dedicated assertion methods. For example, `assertThat(sequencedCollection.getLast())` can be simplified to `assertThat(sequencedCollection).last()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.SimplifySequencedCollectionAssertions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifysequencedcollectionassertions.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify AssertJ assertions on SequencedCollection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify AssertJ assertions on SequencedCollection by using dedicated assertion methods. For example, `assertThat(sequencedCollection.getLast())` can be simplified to `assertThat(sequencedCollection).last()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    void testMethod() {\n        List<String> list = List.of(\"a\", \"b\", \"c\");\n        assertThat(list.getLast()).isEqualTo(\"c\");\n    }\n}\n","after":"import java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    void testMethod() {\n        List<String> list = List.of(\"a\", \"b\", \"c\");\n        assertThat(list).last().isEqualTo(\"c\");\n    }\n}\n","diff":"@@ -8,1 +8,1 @@\n    void testMethod() {\n        List<String> list = List.of(\"a\", \"b\", \"c\");\n-       assertThat(list.getLast()).isEqualTo(\"c\");\n+       assertThat(list).last().isEqualTo(\"c\");\n    }\n","newFile":false}]}]}>
 

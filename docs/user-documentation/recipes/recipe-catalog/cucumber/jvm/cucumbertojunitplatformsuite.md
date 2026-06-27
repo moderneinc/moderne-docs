@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Cucumber to JUnit test `@Suite`"}
-  description={"Migrates Cucumber tests to JUnit test `@Suite`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["cucumber","testing"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-cucumber-jvm"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.cucumber.jvm.CucumberToJunitPlatformSuite"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumbertojunitplatformsuite.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `@Cucumber` with `@Suite`","href":"cucumber/jvm/cucumberannotationtosuite"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]}>
+<RecipeHeader.Title>Cucumber to JUnit test `@Suite`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Cucumber tests to JUnit test `@Suite`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `@Cucumber` with `@Suite`","href":"/user-documentation/recipes/recipe-catalog/cucumber/jvm/cucumberannotationtosuite/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]}>
 
 ## Definition
 

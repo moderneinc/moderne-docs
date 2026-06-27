@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Forbid import statements with CommonJS module.exports"}
-  description={"Forbid import statements with CommonJS module.exports\nSee rule details for [import/no-import-module-exports](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-import-module-exports.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.javascript.NoImportModuleExports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/noimportmoduleexports.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Forbid import statements with CommonJS module.exports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Forbid import statements with CommonJS module.exports See rule details for [import/no-import-module-exports](https://github.com/import-js/eslint-plugin-import/blob/HEAD/docs/rules/no-import-module-exports.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

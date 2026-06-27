@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `BugCheckerRules.ASTHelpersGetStartPosition`"}
-  description={"Prefer `ASTHelpers#getStartPosition(Tree)` over alternatives that require casting."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.BugCheckerRulesRecipes$ASTHelpersGetStartPositionRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bugcheckerrulesrecipes$asthelpersgetstartpositionrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `BugCheckerRules.ASTHelpersGetStartPosition`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `ASTHelpers#getStartPosition(Tree)` over alternatives that require casting.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.BugCheckerRulesRecipes$ASTHelpersGetStartPositionRecipe","displayName":"Refaster template `BugCheckerRules.ASTHelpersGetStartPosition`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

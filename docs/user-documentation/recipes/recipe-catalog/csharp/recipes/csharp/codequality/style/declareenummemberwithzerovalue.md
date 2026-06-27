@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Declare enum member with zero value"}
-  description={"Ensure [Flags] enums have a member explicitly assigned the value 0."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.DeclareEnumMemberWithZeroValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/declareenummemberwithzerovalue.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Declare enum member with zero value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure [Flags] enums have a member explicitly assigned the value 0.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.DeclareEnumMemberWithZeroValue","displayName":"Declare enum member with zero value","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

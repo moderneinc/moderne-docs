@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated `javax.annotation` packages to `jakarta.annotation`"}
-  description={"Java EE has been rebranded to Jakarta EE, necessitating a package relocation. Excludes `javax.annotation.processing`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["javax","batch","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus30.ChangeJavaxAnnotationToJakarta"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/changejavaxannotationtojakarta.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate deprecated `javax.annotation` packages to `jakarta.annotation`","href":"quarkus/updates/core/quarkus30/javaxannotationpackagetojakarta"},{"name":"Migrate deprecated `javax.annotation.security` packages to `jakarta.annotation.security`","href":"quarkus/updates/core/quarkus30/javaxannotationsecuritypackagetojakarta"},{"name":"Migrate deprecated `javax.annotation.sql` packages to `jakarta.annotation.sql`","href":"quarkus/updates/core/quarkus30/javaxannotationsqlpackagetojakarta"}]}>
+<RecipeHeader.Title>Migrate deprecated `javax.annotation` packages to `jakarta.annotation`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java EE has been rebranded to Jakarta EE, necessitating a package relocation. Excludes `javax.annotation.processing`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate deprecated `javax.annotation` packages to `jakarta.annotation`","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxannotationpackagetojakarta/"},{"name":"Migrate deprecated `javax.annotation.security` packages to `jakarta.annotation.security`","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxannotationsecuritypackagetojakarta/"},{"name":"Migrate deprecated `javax.annotation.sql` packages to `jakarta.annotation.sql`","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus30/javaxannotationsqlpackagetojakarta/"}]}>
 
 ## Definition
 

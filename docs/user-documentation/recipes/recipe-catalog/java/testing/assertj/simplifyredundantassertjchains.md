@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify redundant AssertJ assertion chains"}
-  description={"Removes redundant AssertJ assertions when chained methods already provide the same or stronger guarantees."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.SimplifyRedundantAssertJChains"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyredundantassertjchains.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify redundant AssertJ assertion chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes redundant AssertJ assertions when chained methods already provide the same or stronger guarantees.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass Test {\n    void test(String str) {\n        assertThat(str).isNotNull().isNotEmpty();\n        assertThat(str).isNotNull().isEmpty();\n        assertThat(str).isNotNull().isBlank();\n        assertThat(str).isNotNull().isNotBlank();\n        assertThat(str).isNotNull().hasSize(5);\n        assertThat(str).isNotNull().contains(\"test\");\n        assertThat(str).isNotNull().startsWith(\"pre\");\n        assertThat(str).isNotNull().endsWith(\"fix\");\n        assertThat(str).isNotNull().matches(\".*pattern.*\");\n        assertThat(str).isNotNull().isEqualToIgnoringCase(\"TEST\");\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass Test {\n    void test(String str) {\n        assertThat(str).isNotEmpty();\n        assertThat(str).isEmpty();\n        assertThat(str).isBlank();\n        assertThat(str).isNotBlank();\n        assertThat(str).hasSize(5);\n        assertThat(str).contains(\"test\");\n        assertThat(str).startsWith(\"pre\");\n        assertThat(str).endsWith(\"fix\");\n        assertThat(str).matches(\".*pattern.*\");\n        assertThat(str).isEqualToIgnoringCase(\"TEST\");\n    }\n}\n","diff":"@@ -5,10 +5,10 @@\nclass Test {\n    void test(String str) {\n-       assertThat(str).isNotNull().isNotEmpty();\n-       assertThat(str).isNotNull().isEmpty();\n-       assertThat(str).isNotNull().isBlank();\n-       assertThat(str).isNotNull().isNotBlank();\n-       assertThat(str).isNotNull().hasSize(5);\n-       assertThat(str).isNotNull().contains(\"test\");\n-       assertThat(str).isNotNull().startsWith(\"pre\");\n-       assertThat(str).isNotNull().endsWith(\"fix\");\n-       assertThat(str).isNotNull().matches(\".*pattern.*\");\n-       assertThat(str).isNotNull().isEqualToIgnoringCase(\"TEST\");\n+       assertThat(str).isNotEmpty();\n+       assertThat(str).isEmpty();\n+       assertThat(str).isBlank();\n+       assertThat(str).isNotBlank();\n+       assertThat(str).hasSize(5);\n+       assertThat(str).contains(\"test\");\n+       assertThat(str).startsWith(\"pre\");\n+       assertThat(str).endsWith(\"fix\");\n+       assertThat(str).matches(\".*pattern.*\");\n+       assertThat(str).isEqualToIgnoringCase(\"TEST\");\n    }\n","newFile":false}]}]}>
 

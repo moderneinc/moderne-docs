@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JSON indent"}
-  description={"Format tabs and indents in JSON."}
   type={"Single recipe"}
   languages={["JSON"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-json"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.json.format.Indents"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/json/format/indents.md"}
-/>
+>
+
+<RecipeHeader.Title>JSON indent</RecipeHeader.Title>
+
+<RecipeHeader.Description>Format tabs and indents in JSON.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"json","before":"{\n\"a\": 3,\n\"b\": 5\n}\n","after":"{\n  \"a\": 3,\n  \"b\": 5\n}\n","diff":"@@ -2,2 +2,2 @@\n{\n-\"a\": 3,\n-\"b\": 5\n+ \"a\": 3,\n+ \"b\": 5\n}\n","newFile":false}]}]}>
 

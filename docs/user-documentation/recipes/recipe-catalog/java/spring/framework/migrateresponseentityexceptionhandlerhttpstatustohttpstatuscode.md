@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `ResponseEntityExceptionHandler` from HttpStatus to HttpStatusCode"}
-  description={"With Spring 6 `HttpStatus` was replaced by `HttpStatusCode` in most method signatures in the `ResponseEntityExceptionHandler`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateResponseEntityExceptionHandlerHttpStatusToHttpStatusCode"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateresponseentityexceptionhandlerhttpstatustohttpstatuscode.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `ResponseEntityExceptionHandler` from HttpStatus to HttpStatusCode</RecipeHeader.Title>
+
+<RecipeHeader.Description>With Spring 6 `HttpStatus` was replaced by `HttpStatusCode` in most method signatures in the `ResponseEntityExceptionHandler`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.http.HttpHeaders;\nimport org.springframework.http.HttpStatus;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.context.request.WebRequest;\nimport org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;\n\nclass GlobalExceptionHandler extends ResponseEntityExceptionHandler {\n\n    @Override\n    protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {\n        // Imagine we log or manipulate the status here somehow\n        return super.handleExceptionInternal(ex, body, headers, status, request);\n    }\n}\n","after":"import org.springframework.http.HttpHeaders;\nimport org.springframework.http.HttpStatusCode;\nimport org.springframework.http.ResponseEntity;\nimport org.springframework.web.context.request.WebRequest;\nimport org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;\n\nclass GlobalExceptionHandler extends ResponseEntityExceptionHandler {\n\n    @Override\n    protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatusCode status, WebRequest request) {\n        // Imagine we log or manipulate the status here somehow\n        return super.handleExceptionInternal(ex, body, headers, status, request);\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nimport org.springframework.http.HttpHeaders;\n-import org.springframework.http.HttpStatus;\n+import org.springframework.http.HttpStatusCode;\nimport org.springframework.http.ResponseEntity;\n@@ -10,1 +10,1 @@\n\n    @Override\n-   protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatus status, WebRequest request) {\n+   protected ResponseEntity<Object> handleExceptionInternal(Exception ex, Object body, HttpHeaders headers, HttpStatusCode status, WebRequest request) {\n        // Imagine we log or manipulate the status here somehow\n","newFile":false}]}]}>
 

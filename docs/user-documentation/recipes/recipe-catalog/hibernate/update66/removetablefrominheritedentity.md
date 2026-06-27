@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove table from single table inherited entity"}
-  description={"For Single Table Inherited Entities Hibernate ignores the `@Table` annotation on child entities. From Version 6.6 it is considered an error."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update66.RemoveTableFromInheritedEntity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update66/removetablefrominheritedentity.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove table from single table inherited entity</RecipeHeader.Title>
+
+<RecipeHeader.Description>For Single Table Inherited Entities Hibernate ignores the `@Table` annotation on child entities. From Version 6.6 it is considered an error.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"import jakarta.persistence.Entity;\nimport jakarta.persistence.Inheritance;\nimport jakarta.persistence.InheritanceType;\n\n@Entity\n@Inheritance(strategy = InheritanceType.SINGLE_TABLE)\nclass Person {}\n"},"variants":[{"language":"java","before":"import jakarta.persistence.Entity;\nimport jakarta.persistence.Table;\n\n@Entity\n@Table(name = \"Accountant\")\nclass Accountant extends Person {}\n","after":"import jakarta.persistence.Entity;\n\n@Entity\nclass Accountant extends Person {}\n","diff":"@@ -2,1 +2,0 @@\nimport jakarta.persistence.Entity;\n-import jakarta.persistence.Table;\n\n@@ -5,1 +4,0 @@\n\n@Entity\n-@Table(name = \"Accountant\")\nclass Accountant extends Person {}\n","newFile":false}]}]}>
 

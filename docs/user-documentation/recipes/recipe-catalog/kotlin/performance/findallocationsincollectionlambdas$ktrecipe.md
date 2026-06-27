@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find expensive allocations inside collection lambdas"}
-  description={"Search-only recipes that flag heavyweight allocations sitting inside the trailing lambda of a `map` / `filter` / `forEach` / `flatMap` call. Each such lambda runs once per element — the same allocation-cost profile as a loop body."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindAllocationsInCollectionLambdas$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findallocationsincollectionlambdas$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Regex` allocations inside collection lambdas","href":"kotlin/performance/findregexallocationsincollectionlambdas$ktrecipe"},{"name":"Find `Pattern.compile` calls inside collection lambdas","href":"kotlin/performance/findpatterncompileincollectionlambdas$ktrecipe"},{"name":"Find `String.format` calls inside collection lambdas","href":"kotlin/performance/findstringformatincollectionlambdas$ktrecipe"},{"name":"Find `LoggerFactory.getLogger` calls inside collection lambdas","href":"kotlin/performance/findloggerfactorygetloggerincollectionlambdas$ktrecipe"},{"name":"Find Jackson `ObjectMapper()` allocations inside collection lambdas","href":"kotlin/performance/findobjectmapperincollectionlambdas$ktrecipe"},{"name":"Find `Gson()` allocations inside collection lambdas","href":"kotlin/performance/findgsonincollectionlambdas$ktrecipe"}]}>
+<RecipeHeader.Title>Find expensive allocations inside collection lambdas</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only recipes that flag heavyweight allocations sitting inside the trailing lambda of a `map` / `filter` / `forEach` / `flatMap` call. Each such lambda runs once per element — the same allocation-cost profile as a loop body.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Regex` allocations inside collection lambdas","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findregexallocationsincollectionlambdas$ktrecipe/"},{"name":"Find `Pattern.compile` calls inside collection lambdas","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findpatterncompileincollectionlambdas$ktrecipe/"},{"name":"Find `String.format` calls inside collection lambdas","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findstringformatincollectionlambdas$ktrecipe/"},{"name":"Find `LoggerFactory.getLogger` calls inside collection lambdas","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findloggerfactorygetloggerincollectionlambdas$ktrecipe/"},{"name":"Find Jackson `ObjectMapper()` allocations inside collection lambdas","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findobjectmapperincollectionlambdas$ktrecipe/"},{"name":"Find `Gson()` allocations inside collection lambdas","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findgsonincollectionlambdas$ktrecipe/"}]}>
 
 ## Definition
 

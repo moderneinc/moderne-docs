@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Flux.fromIterable(listOf(...))` patterns"}
-  description={"When the source list is a constant `listOf(a, b, c)` known at compile time, `Flux.just(a, b, c)` is the same shape with one fewer allocation (no intermediate `List`). `fromIterable` only earns its keep when the iterable is already in hand."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindFluxFromIterableWithList$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxfromiterablewithlist$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Flux.fromIterable(listOf(...))` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>When the source list is a constant `listOf(a, b, c)` known at compile time, `Flux.just(a, b, c)` is the same shape with one fewer allocation (no intermediate `List`). `fromIterable` only earns its keep when the iterable is already in hand.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindFluxFromIterableWithList$KtRecipe","displayName":"Find `Flux.fromIterable(listOf(...))` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

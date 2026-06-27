@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Gradle or Maven dependency versions"}
-  description={"For Gradle projects, upgrade the version of a dependency in a `build.gradle` file. Supports updating dependency declarations of various forms:\n * `String` notation: `\"group:artifact:version\"` \n * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`\nIt is possible to update version numbers which are defined earlier in the same file in variable declarations.\n\nFor Maven projects, upgrade the version of a dependency by specifying a group ID and (optionally) an artifact ID using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,22 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-java-dependencies"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.dependencies.UpgradeDependencyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade Gradle or Maven dependency versions</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+For Gradle projects, upgrade the version of a dependency in a `build.gradle` file. Supports updating dependency declarations of various forms:
+ * `String` notation: `"group:artifact:version"` 
+ * `Map` notation: `group: 'group', name: 'artifact', version: 'version'`
+It is possible to update version numbers which are defined earlier in the same file in variable declarations.
+
+For Maven projects, upgrade the version of a dependency by specifying a group ID and (optionally) an artifact ID using Node Semver advanced range selectors, allowing more precise control over version updates to patch or minor releases.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"com.fasterxml.jackson*"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`. This can be a glob expression.","example":"jackson-module*"},{"type":"String","name":"newVersion","required":true,"description":"An exact version number or node-style semver selector used to select the version number. ","example":"29.X"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'version' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select Guava 29.0-jre","example":"-jre"},{"type":"Boolean","name":"overrideManagedVersion","required":false,"description":"For Maven project only, This flag can be set to explicitly override a managed dependency's version. The default for this flag is `false`."},{"type":"List","name":"retainVersions","required":false,"description":"For Maven project only, accepts a list of GAVs. For each GAV, if it is a project direct dependency, and it is removed from dependency management after the changes from this recipe, then it will be retained with an explicit version. The version can be omitted from the GAV to use the old value from dependency management.","example":"com.jcraft:jsch"}]}>
 

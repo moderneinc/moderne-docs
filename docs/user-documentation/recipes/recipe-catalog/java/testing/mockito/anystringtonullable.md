@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Mockito 1.x `anyString()` with `nullable(String.class)`"}
-  description={"Since Mockito 2.10 `anyString()` no longer matches null values. Use `nullable(Class)` instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.AnyStringToNullable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/anystringtonullable.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace Mockito 1.x `anyString()` with `nullable(String.class)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Since Mockito 2.10 `anyString()` no longer matches null values. Use `nullable(Class)` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"class Example {\n    String greet(String name) {\n        return \"Hello \" + name;\n    }\n}\n"},"variants":[{"language":"java","before":"import static org.mockito.Mockito.anyString;\nimport static org.mockito.Mockito.mock;\nimport static org.mockito.Mockito.when;\n\nclass MyTest {\n    void test() {\n        Example example = mock(Example.class);\n        when(example.greet(anyString())).thenReturn(\"Hello world\");\n    }\n}\n","after":"import static org.mockito.ArgumentMatchers.nullable;\nimport static org.mockito.Mockito.mock;\nimport static org.mockito.Mockito.when;\n\nclass MyTest {\n    void test() {\n        Example example = mock(Example.class);\n        when(example.greet(nullable(String.class))).thenReturn(\"Hello world\");\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static org.mockito.Mockito.anyString;\n+import static org.mockito.ArgumentMatchers.nullable;\nimport static org.mockito.Mockito.mock;\n@@ -8,1 +8,1 @@\n    void test() {\n        Example example = mock(Example.class);\n-       when(example.greet(anyString())).thenReturn(\"Hello world\");\n+       when(example.greet(nullable(String.class))).thenReturn(\"Hello world\");\n    }\n","newFile":false}]}]}>
 

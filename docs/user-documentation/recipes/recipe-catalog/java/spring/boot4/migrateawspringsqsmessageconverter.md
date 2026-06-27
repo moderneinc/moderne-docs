@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate awspring SQS default converter `setObjectMapper` to constructor injection"}
-  description={"In spring-cloud-aws 4.0 `AbstractMessagingMessageConverter.setObjectMapper(...)` was removed and the `JsonMapper` is supplied through the `SqsMessagingMessageConverter` constructor. Rewrites `SqsTemplate.builder().configureDefaultConverter(c -> c.setObjectMapper(mapper))` to `SqsTemplate.builder().messageConverter(new SqsMessagingMessageConverter(mapper))`, or adds a TODO comment when the configurer does more than set the object mapper."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.MigrateAwspringSqsMessageConverter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/migrateawspringsqsmessageconverter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate awspring SQS default converter `setObjectMapper` to constructor injection</RecipeHeader.Title>
+
+<RecipeHeader.Description>In spring-cloud-aws 4.0 `AbstractMessagingMessageConverter.setObjectMapper(...)` was removed and the `JsonMapper` is supplied through the `SqsMessagingMessageConverter` constructor. Rewrites `SqsTemplate.builder().configureDefaultConverter(c -> c.setObjectMapper(mapper))` to `SqsTemplate.builder().messageConverter(new SqsMessagingMessageConverter(mapper))`, or adds a TODO comment when the configurer does more than set the object mapper.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"import io.awspring.cloud.sqs.operations.SqsTemplate\nimport tools.jackson.databind.json.JsonMapper\n\nclass Config {\n    fun messagingTemplate(objectMapper: JsonMapper): Any {\n        return SqsTemplate.builder()\n            .configureDefaultConverter { converter -> converter.setObjectMapper(objectMapper) }\n            .build()\n    }\n}\n","after":"import io.awspring.cloud.sqs.operations.SqsTemplate\nimport tools.jackson.databind.json.JsonMapper\n\nclass Config {\n    fun messagingTemplate(objectMapper: JsonMapper): Any {\n        return SqsTemplate.builder()\n            // TODO: setObjectMapper was removed from the default converter in spring-cloud-aws 4.0. Supply the JsonMapper via the SqsMessagingMessageConverter constructor and pass it to .messageConverter(...) instead.\n            .configureDefaultConverter { converter -> converter.setObjectMapper(objectMapper) }\n            .build()\n    }\n}\n","diff":"@@ -7,0 +7,1 @@\n    fun messagingTemplate(objectMapper: JsonMapper): Any {\n        return SqsTemplate.builder()\n+           // TODO: setObjectMapper was removed from the default converter in spring-cloud-aws 4.0. Supply the JsonMapper via the SqsMessagingMessageConverter constructor and pass it to .messageConverter(...) instead.\n            .configureDefaultConverter { converter -> converter.setObjectMapper(objectMapper) }\n","newFile":false}]},{"variants":[{"language":"java","before":"import io.awspring.cloud.sqs.operations.SqsTemplate;\nimport tools.jackson.databind.json.JsonMapper;\n\nclass Config {\n    Object messagingTemplate(JsonMapper objectMapper) {\n        return SqsTemplate.builder()\n                .configureDefaultConverter(converter -> converter.setObjectMapper(objectMapper))\n                .build();\n    }\n}\n","after":"import io.awspring.cloud.sqs.operations.SqsTemplate;\nimport io.awspring.cloud.sqs.support.converter.SqsMessagingMessageConverter;\nimport tools.jackson.databind.json.JsonMapper;\n\nclass Config {\n    Object messagingTemplate(JsonMapper objectMapper) {\n        return SqsTemplate.builder()\n                .messageConverter(new SqsMessagingMessageConverter(objectMapper))\n                .build();\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport io.awspring.cloud.sqs.operations.SqsTemplate;\n+import io.awspring.cloud.sqs.support.converter.SqsMessagingMessageConverter;\nimport tools.jackson.databind.json.JsonMapper;\n@@ -7,1 +8,1 @@\n    Object messagingTemplate(JsonMapper objectMapper) {\n        return SqsTemplate.builder()\n-               .configureDefaultConverter(converter -> converter.setObjectMapper(objectMapper))\n+               .messageConverter(new SqsMessagingMessageConverter(objectMapper))\n                .build();\n","newFile":false}]}]}>
 

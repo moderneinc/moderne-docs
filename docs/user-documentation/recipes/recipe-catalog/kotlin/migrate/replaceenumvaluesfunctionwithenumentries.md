@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `enumValues<T>()` with `enumEntries<T>()`"}
-  description={"Replace calls to `enumValues<T>()` with `enumEntries<T>()`. The `enumEntries` function returns an efficient immutable list instead of creating a new array. Deprecated since Kotlin 1.9, recommended replacement for Kotlin 2.x."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.ReplaceEnumValuesFunctionWithEnumEntries"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/replaceenumvaluesfunctionwithenumentries.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `enumValues<T>()` with `enumEntries<T>()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace calls to `enumValues<T>()` with `enumEntries<T>()`. The `enumEntries` function returns an efficient immutable list instead of creating a new array. Deprecated since Kotlin 1.9, recommended replacement for Kotlin 2.x.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"enum class Color { RED, GREEN, BLUE }\nfun test() {\n    val v = enumValues<Color>()\n}\n","after":"enum class Color { RED, GREEN, BLUE }\nfun test() {\n    val v = enumEntries<Color>()\n}\n","diff":"@@ -3,1 +3,1 @@\nenum class Color { RED, GREEN, BLUE }\nfun test() {\n-   val v = enumValues<Color>()\n+   val v = enumEntries<Color>()\n}\n","newFile":false}]}]}>
 

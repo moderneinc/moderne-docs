@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@SpringBootTest` to classes using `DropwizardAppExtension`"}
-  description={"Adds `@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)` to test classes that contain a `DropwizardAppExtension` field, when no Spring test annotation is already present."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.test.AddSpringBootTestForDropwizardAppExtension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/addspringboottestfordropwizardappextension.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@SpringBootTest` to classes using `DropwizardAppExtension`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)` to test classes that contain a `DropwizardAppExtension` field, when no Spring test annotation is already present.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"import io.dropwizard.core.Application;\nimport io.dropwizard.core.Configuration;\nimport io.dropwizard.core.setup.Environment;\npublic class TestApp extends Application<Configuration> {\n    @Override public void run(Configuration c, Environment e) {}\n}\n"},"variants":[{"language":"java","before":"import io.dropwizard.core.Configuration;\nimport io.dropwizard.testing.junit5.DropwizardAppExtension;\n\nabstract class AbstractComponentTest {\n    static final DropwizardAppExtension<Configuration> DROPWIZARD =\n        new DropwizardAppExtension<>(TestApp.class, \"server.yml\");\n}\n","after":"import io.dropwizard.core.Configuration;\nimport io.dropwizard.testing.junit5.DropwizardAppExtension;\nimport org.springframework.boot.test.context.SpringBootTest;\n\n@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)\nabstract class AbstractComponentTest {\n    static final DropwizardAppExtension<Configuration> DROPWIZARD =\n        new DropwizardAppExtension<>(TestApp.class, \"server.yml\");\n}\n","diff":"@@ -3,0 +3,1 @@\nimport io.dropwizard.core.Configuration;\nimport io.dropwizard.testing.junit5.DropwizardAppExtension;\n+import org.springframework.boot.test.context.SpringBootTest;\n\n@@ -4,0 +5,1 @@\nimport io.dropwizard.testing.junit5.DropwizardAppExtension;\n\n+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)\nabstract class AbstractComponentTest {\n","newFile":false}]}]}>
 

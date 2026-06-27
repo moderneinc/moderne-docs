@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Kotlin collection extensions instead of `java.util.Collections`"}
-  description={"Replaces JVM-only `java.util.Collections` static helpers with the multiplatform Kotlin equivalents: `list.sort()`, `list.reverse()`, `list.shuffle()`, `listOf(x)`/`setOf(x)`, and `Collection.max()`/`min()`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseKotlinCollections$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlincollections$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `MutableList.sort()` instead of `Collections.sort(list)`","href":"kotlin/migrate/uselistsort$ktrecipe"},{"name":"Use `MutableList.reverse()` instead of `Collections.reverse(list)`","href":"kotlin/migrate/uselistreverse$ktrecipe"},{"name":"Use `MutableList.shuffle()` instead of `Collections.shuffle(list)`","href":"kotlin/migrate/uselistshuffle$ktrecipe"},{"name":"Use `listOf(x)` instead of `Collections.singletonList(x)`","href":"kotlin/migrate/uselistof$ktrecipe"},{"name":"Use `setOf(x)` instead of `Collections.singleton(x)`","href":"kotlin/migrate/usesetof$ktrecipe"},{"name":"Use `Collection.max()` instead of `Collections.max(coll)`","href":"kotlin/migrate/usecollectionmax$ktrecipe"},{"name":"Use `Collection.min()` instead of `Collections.min(coll)`","href":"kotlin/migrate/usecollectionmin$ktrecipe"}]}>
+<RecipeHeader.Title>Use Kotlin collection extensions instead of `java.util.Collections`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces JVM-only `java.util.Collections` static helpers with the multiplatform Kotlin equivalents: `list.sort()`, `list.reverse()`, `list.shuffle()`, `listOf(x)`/`setOf(x)`, and `Collection.max()`/`min()`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `MutableList.sort()` instead of `Collections.sort(list)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselistsort$ktrecipe/"},{"name":"Use `MutableList.reverse()` instead of `Collections.reverse(list)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselistreverse$ktrecipe/"},{"name":"Use `MutableList.shuffle()` instead of `Collections.shuffle(list)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselistshuffle$ktrecipe/"},{"name":"Use `listOf(x)` instead of `Collections.singletonList(x)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselistof$ktrecipe/"},{"name":"Use `setOf(x)` instead of `Collections.singleton(x)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usesetof$ktrecipe/"},{"name":"Use `Collection.max()` instead of `Collections.max(coll)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecollectionmax$ktrecipe/"},{"name":"Use `Collection.min()` instead of `Collections.min(coll)`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usecollectionmin$ktrecipe/"}]}>
 
 ## Definition
 

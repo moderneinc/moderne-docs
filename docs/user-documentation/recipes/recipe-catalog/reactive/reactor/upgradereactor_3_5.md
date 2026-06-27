@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Reactor 3.5"}
-  description={"Adopt to [breaking changes in Reactor 3.5](https://projectreactor.io/docs/core/3.4.26/api/deprecated-list.html)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["reactor"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.reactive.reactor.UpgradeReactor_3_5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/reactive/reactor/upgradereactor_3_5.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Replace various `Processor.create` calls with their `Sinks` equivalent","href":"reactive/reactor/reactorprocessorcreatetosinkrecipes"},{"name":"Replace various `Processor.cache` calls with their `Sinks` equivalent","href":"reactive/reactor/reactorprocessorcachetosinkrecipes"},{"name":"Replace `doAfterSuccessOrError` calls with `tap` operator","href":"reactive/reactor/reactordoaftersuccessorerrortotap"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"}]}>
+<RecipeHeader.Title>Migrate to Reactor 3.5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adopt to [breaking changes in Reactor 3.5](https://projectreactor.io/docs/core/3.4.26/api/deprecated-list.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Replace various `Processor.create` calls with their `Sinks` equivalent","href":"/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorprocessorcreatetosinkrecipes/"},{"name":"Replace various `Processor.cache` calls with their `Sinks` equivalent","href":"/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorprocessorcachetosinkrecipes/"},{"name":"Replace `doAfterSuccessOrError` calls with `tap` operator","href":"/user-documentation/recipes/recipe-catalog/reactive/reactor/reactordoaftersuccessorerrortotap/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"}]}>
 
 ## Definition
 

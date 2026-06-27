@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJBigDecimalRules.AbstractBigDecimalAssertIsNotEqualByComparingTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractBigDecimalAssertIsNotEqualByComparingTo {\n    \n    @BeforeTemplate\n    AbstractBigDecimalAssert<?> before(AbstractBigDecimalAssert<?> bigDecimalAssert, BigDecimal n) {\n        return Refaster.anyOf(bigDecimalAssert.isNotCloseTo(n, offset(BigDecimal.ZERO)), bigDecimalAssert.isNotCloseTo(n, withPercentage(0)));\n    }\n    \n    @AfterTemplate\n    AbstractBigDecimalAssert<?> after(AbstractBigDecimalAssert<?> bigDecimalAssert, BigDecimal n) {\n        return bigDecimalAssert.isNotEqualByComparingTo(n);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJBigDecimalRulesRecipes$AbstractBigDecimalAssertIsNotEqualByComparingToRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbigdecimalrulesrecipes$abstractbigdecimalassertisnotequalbycomparingtorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJBigDecimalRules.AbstractBigDecimalAssertIsNotEqualByComparingTo`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractBigDecimalAssertIsNotEqualByComparingTo {
+    
+    @BeforeTemplate
+    AbstractBigDecimalAssert<?> before(AbstractBigDecimalAssert<?> bigDecimalAssert, BigDecimal n) {
+        return Refaster.anyOf(bigDecimalAssert.isNotCloseTo(n, offset(BigDecimal.ZERO)), bigDecimalAssert.isNotCloseTo(n, withPercentage(0)));
+    }
+    
+    @AfterTemplate
+    AbstractBigDecimalAssert<?> after(AbstractBigDecimalAssert<?> bigDecimalAssert, BigDecimal n) {
+        return bigDecimalAssert.isNotEqualByComparingTo(n);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJBigDecimalRulesRecipes$AbstractBigDecimalAssertIsNotEqualByComparingToRecipe","displayName":"Refaster template `AssertJBigDecimalRules.AbstractBigDecimalAssertIsNotEqualByComparingTo`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

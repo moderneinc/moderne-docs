@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from IBM Runtimes to Oracle Runtimes"}
-  description={"This recipe will apply changes commonly needed when upgrading Java versions. The solutions provided in this list are solutions necessary for migrating from IBM Runtimes to Oracle Runtimes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["java11"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.IBMJDKtoOracleJDK"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/ibmjdktooraclejdk.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `com.sun.security.auth.module.Krb5LoginModule` instead of `com.ibm.security.auth.module.Krb5LoginModule`","href":"java/migrate/krb5loginmoduleclass"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate from IBM Runtimes to Oracle Runtimes</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when upgrading Java versions. The solutions provided in this list are solutions necessary for migrating from IBM Runtimes to Oracle Runtimes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `com.sun.security.auth.module.Krb5LoginModule` instead of `com.ibm.security.auth.module.Krb5LoginModule`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/krb5loginmoduleclass/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `WebTestClient` test classes that don't use `StepVerifier`"}
-  description={"`WebTestClient` makes the call, but assertions on a `Mono<T>` body typically need `StepVerifier.create(...).expectNext(...).verifyComplete()` to fully drain the publisher and assert ordering. Without it, a reactive bug can hide behind the test's premature completion."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindReactiveTestWithoutStepVerifier$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findreactivetestwithoutstepverifier$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `WebTestClient` test classes that don't use `StepVerifier`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`WebTestClient` makes the call, but assertions on a `Mono<T>` body typically need `StepVerifier.create(...).expectNext(...).verifyComplete()` to fully drain the publisher and assert ordering. Without it, a reactive bug can hide behind the test's premature completion.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindReactiveTestWithoutStepVerifier$KtRecipe","displayName":"Find `WebTestClient` test classes that don't use `StepVerifier`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

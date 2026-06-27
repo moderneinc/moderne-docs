@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `minBy { selector }` instead of `sortedBy { selector }.first()`"}
-  description={"`sortedBy(f).first()` does an O(n log n) sort just to read the minimum-by-`f`. `minBy(f)` finds it in a single linear pass."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseMinByForSortedByFirst$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/useminbyforsortedbyfirst$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `minBy { selector }` instead of `sortedBy { selector }.first()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`sortedBy(f).first()` does an O(n log n) sort just to read the minimum-by-`f`. `minBy(f)` finds it in a single linear pass.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseMinByForSortedByFirst$KtRecipe","displayName":"Use `minBy { selector }` instead of `sortedBy { selector }.first()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

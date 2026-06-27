@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find closure in GetOrAdd/AddOrUpdate factory"}
-  description={"Detect closures in lambdas passed to `GetOrAdd` or `AddOrUpdate`. Use the factory overload that accepts a state argument to avoid allocations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindAvoidClosureInMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findavoidclosureinmethod.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find closure in GetOrAdd/AddOrUpdate factory</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect closures in lambdas passed to `GetOrAdd` or `AddOrUpdate`. Use the factory overload that accepts a state argument to avoid allocations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindAvoidClosureInMethod","displayName":"Find closure in GetOrAdd/AddOrUpdate factory","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

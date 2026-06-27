@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add a nested block to a Terraform resource"}
-  description={"Add a nested block (e.g. `parameter { ... }`) to a Terraform resource if no matching instance exists. When `keyMatchers` is provided, the recipe deduplicates by attribute keys so it works correctly with repeatable blocks like `aws_db_parameter_group.parameter`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.AddResourceNestedBlock"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/addresourcenestedblock.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add a nested block to a Terraform resource</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a nested block (e.g. `parameter { ... }`) to a Terraform resource if no matching instance exists. When `keyMatchers` is provided, the recipe deduplicates by attribute keys so it works correctly with repeatable blocks like `aws_db_parameter_group.parameter`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"resourceType","required":true,"description":"A Terraform resource type, without the quotes.","example":"aws_db_parameter_group"},{"type":"String","name":"resourceNamePattern","required":false,"description":"A regular expression matched against the resource's local name (the second label). If omitted, all resources of `resourceType` are considered.","example":"rds_.*"},{"type":"List","name":"resourceAttrMatchers","required":false,"description":"A list of `attr=valueRegex` entries. The resource is considered a match only if every entry matches an attribute on the resource (AND semantics). Useful to narrow scoping by `family`, `engine`, etc.","example":"family=mysql.*|mariadb.*"},{"type":"List","name":"keyMatchers","required":false,"description":"A list of `attr=valueRegex` entries identifying an existing nested block instance (e.g. `name=local_infile` for `aws_db_parameter_group.parameter`). If a sibling block of the same type matches every key, the nested block is considered already present and not inserted. Without `keyMatchers`, the recipe falls back to skipping insertion when any sibling block of the same type exists (suitable for single-instance blocks like `lifecycle` / `timeouts`).","example":"name=local_infile"},{"type":"String","name":"block","required":true,"description":"Raw multiline HCL of the nested block to insert, including the block type header and any labels. The block type (and labels) used for sibling lookup are derived from this value.","example":"parameter {\n  name  = \"local_infile\"\n  value = \"0\"\n}"},{"type":"String","name":"position","required":false,"description":"Where to place the new block within the resource body: `first` or `last`. Defaults to `last`.","example":"last"}]}>
 

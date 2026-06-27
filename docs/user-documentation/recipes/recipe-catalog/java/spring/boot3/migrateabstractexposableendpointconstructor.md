@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `AbstractExposableEndpoint` deprecated constructor"}
-  description={"The boolean-parameter constructor of `AbstractExposableEndpoint` has been deprecated in Spring Boot 3.4. This recipe transforms it to use the new constructor with an `Access` parameter instead of boolean `enableByDefault`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.MigrateAbstractExposableEndpointConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateabstractexposableendpointconstructor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `AbstractExposableEndpoint` deprecated constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>The boolean-parameter constructor of `AbstractExposableEndpoint` has been deprecated in Spring Boot 3.4. This recipe transforms it to use the new constructor with an `Access` parameter instead of boolean `enableByDefault`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.actuate.endpoint.AbstractExposableEndpoint;\nimport org.springframework.boot.actuate.endpoint.EndpointId;\nimport org.springframework.boot.actuate.endpoint.Operation;\nimport java.util.Collection;\n\npublic class CustomEndpoint extends AbstractExposableEndpoint<Operation> {\n    public CustomEndpoint(EndpointId id, Collection<Operation> operations) {\n        super(id, true, operations);\n    }\n}\n","after":"import org.springframework.boot.actuate.endpoint.AbstractExposableEndpoint;\nimport org.springframework.boot.actuate.endpoint.Access;\nimport org.springframework.boot.actuate.endpoint.EndpointId;\nimport org.springframework.boot.actuate.endpoint.Operation;\nimport java.util.Collection;\n\npublic class CustomEndpoint extends AbstractExposableEndpoint<Operation> {\n    public CustomEndpoint(EndpointId id, Collection<Operation> operations) {\n        super(id, Access.READ_ONLY, operations);\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.springframework.boot.actuate.endpoint.AbstractExposableEndpoint;\n+import org.springframework.boot.actuate.endpoint.Access;\nimport org.springframework.boot.actuate.endpoint.EndpointId;\n@@ -8,1 +9,1 @@\npublic class CustomEndpoint extends AbstractExposableEndpoint<Operation> {\n    public CustomEndpoint(EndpointId id, Collection<Operation> operations) {\n-       super(id, true, operations);\n+       super(id, Access.READ_ONLY, operations);\n    }\n","newFile":false}]}]}>
 

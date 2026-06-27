@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade property's value to version"}
-  description={"If the current value is < given version, upgrade it."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.UpgradeVersionProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/upgradeversionproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade property's value to version</RecipeHeader.Title>
+
+<RecipeHeader.Description>If the current value is &lt; given version, upgrade it.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"key","required":true,"description":"The name of the property key to change.","example":"jenkins.version"},{"type":"String","name":"minimumVersion","required":true,"description":"Value to apply to the matching property if < this.","example":"2.375.1"}]}>
 

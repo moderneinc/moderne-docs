@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `capitalize` and `decapitalize`"}
-  description={"Replace `String.capitalize()` with `String.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }` and `String.decapitalize()` with `String.replaceFirstChar { it.lowercase() }`. These were deprecated in Kotlin 1.5 and become errors in Kotlin 2.1."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={["kotlin"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.ReplaceDeprecatedCapitalizeAndDecapitalize"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedcapitalizeanddecapitalize.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace Kotlin method","href":"kotlin/replace/replacekotlinmethod"},{"name":"Replace Kotlin method","href":"kotlin/replace/replacekotlinmethod"}]}>
+<RecipeHeader.Title>Replace deprecated `capitalize` and `decapitalize`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `String.capitalize()` with `String.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }` and `String.decapitalize()` with `String.replaceFirstChar { it.lowercase() }`. These were deprecated in Kotlin 1.5 and become errors in Kotlin 2.1.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace Kotlin method","href":"/user-documentation/recipes/recipe-catalog/kotlin/replace/replacekotlinmethod/"},{"name":"Replace Kotlin method","href":"/user-documentation/recipes/recipe-catalog/kotlin/replace/replacekotlinmethod/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify AssertJ assertions on `null` reference comparisons"}
-  description={"Replace `assertThat(x == null).isTrue()` and its variants with the dedicated `assertThat(x).isNull()` / `assertThat(x).isNotNull()`. Beyond being more expressive, this avoids the compilation error that results when the `null` literal ends up as the `assertThat` argument (e.g. `assertThat(null == x).isTrue()` becoming `assertThat(null).isSameAs(x)`)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S5838"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.SimplifyAssertJNullRelatedAssertion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyassertjnullrelatedassertion.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify AssertJ assertions on `null` reference comparisons</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `assertThat(x == null).isTrue()` and its variants with the dedicated `assertThat(x).isNull()` / `assertThat(x).isNotNull()`. Beyond being more expressive, this avoids the compilation error that results when the `null` literal ends up as the `assertThat` argument (e.g. `assertThat(null == x).isTrue()` becoming `assertThat(null).isSameAs(x)`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.SimplifyAssertJNullRelatedAssertion","displayName":"Simplify AssertJ assertions on `null` reference comparisons","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find code smells"}
-  description={"Detect code smells including God Class, Feature Envy, and Data Class using composite metric thresholds with severity ratings."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.quality.FindCodeSmells"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/quality/findcodesmells.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find code smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect code smells including God Class, Feature Envy, and Data Class using composite metric thresholds with severity ratings.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\n/**\n * Intentionally bloated class to trigger God Class detection.\n * WMC >= 47 (each method has if/else = CC 2, 24 methods = WMC 48).\n * TCC < 0.33 (each method accesses a different field).\n * ATFD > 5 (methods directly access public fields of Other).\n */\npublic class BigService {\n    private int f1;\n    private int f2;\n    private int f3;\n    private int f4;\n    private int f5;\n    private int f6;\n    private int f7;\n    private int f8;\n    private int f9;\n    private int f10;\n    private int f11;\n    private int f12;\n    private int f13;\n    private int f14;\n    private int f15;\n    private int f16;\n    private int f17;\n    private int f18;\n    private int f19;\n    private int f20;\n    private int f21;\n    private int f22;\n    private int f23;\n    private int f24;\n\n    public int method1(Other ext) {\n        if (ext.x > 0) { return ext.y; }\n        return f1;\n    }\n    public int method2(Other ext) {\n        if (ext.y > 0) { return ext.z; }\n        return f2;\n    }\n    public int method3(Other ext) {\n        if (ext.z > 0) { return ext.w; }\n        return f3;\n    }\n    public int method4(Other ext) {\n        if (ext.w > 0) { return ext.v; }\n        return f4;\n    }\n    public int method5(Other ext) {\n        if (ext.v > 0) { return ext.u; }\n        return f5;\n    }\n    public int method6(Other ext) {\n        if (ext.u > 0) { return ext.t; }\n        return f6;\n    }\n    public int method7(Other ext) {\n        if (ext.x > 0) { return ext.y; }\n        return f7;\n    }\n    public int method8(Other ext) {\n        if (ext.y > 0) { return ext.z; }\n        return f8;\n    }\n    public int method9(Other ext) {\n        if (ext.z > 0) { return ext.w; }\n        return f9;\n    }\n    public int method10(Other ext) {\n        if (ext.w > 0) { return ext.v; }\n        return f10;\n    }\n    public int method11(Other ext) {\n        if (ext.v > 0) { return ext.u; }\n        return f11;\n    }\n    public int method12(Other ext) {\n        if (ext.u > 0) { return ext.t; }\n        return f12;\n    }\n    public int method13(Other ext) {\n        if (ext.x > 0) { return ext.y; }\n        return f13;\n    }\n    public int method14(Other ext) {\n        if (ext.y > 0) { return ext.z; }\n        return f14;\n    }\n    public int method15(Other ext) {\n        if (ext.z > 0) { return ext.w; }\n        return f15;\n    }\n    public int method16(Other ext) {\n        if (ext.w > 0) { return ext.v; }\n        return f16;\n    }\n    public int method17(Other ext) {\n        if (ext.v > 0) { return ext.u; }\n        return f17;\n    }\n    public int method18(Other ext) {\n        if (ext.u > 0) { return ext.t; }\n        return f18;\n    }\n    public int method19(Other ext) {\n        if (ext.x > 0) { return ext.y; }\n        return f19;\n    }\n    public int method20(Other ext) {\n        if (ext.y > 0) { return ext.z; }\n        return f20;\n    }\n    public int method21(Other ext) {\n        if (ext.z > 0) { return ext.w; }\n        return f21;\n    }\n    public int method22(Other ext) {\n        if (ext.w > 0) { return ext.v; }\n        return f22;\n    }\n    public int method23(Other ext) {\n        if (ext.v > 0) { return ext.u; }\n        return f23;\n    }\n    public int method24(Other ext) {\n        if (ext.u > 0) { return ext.t; }\n        return f24;\n    }\n}\n"},"variants":[]}]}>
 

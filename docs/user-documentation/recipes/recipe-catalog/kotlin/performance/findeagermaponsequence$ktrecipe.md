@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `seq.toList().map { ... }` patterns"}
-  description={"Calling `.toList()` on a `Sequence` and then `.map { … }` materializes the full sequence into a `List` and then walks it again — defeating the lazy-pipeline purpose of `Sequence`. Drop the `toList()` so the `map` stays in the sequence."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindEagerMapOnSequence$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findeagermaponsequence$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `seq.toList().map { ... }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Calling `.toList()` on a `Sequence` and then `.map { … }` materializes the full sequence into a `List` and then walks it again — defeating the lazy-pipeline purpose of `Sequence`. Drop the `toList()` so the `map` stays in the sequence.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindEagerMapOnSequence$KtRecipe","displayName":"Find `seq.toList().map { ... }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

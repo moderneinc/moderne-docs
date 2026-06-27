@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Cloud properties to 2020"}
-  description={"Migrate properties found in `application.properties` and `application.yml`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","cloud"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.cloud2020.SpringCloudProperties_2020"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/cloud2020/springcloudproperties_2020.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change the key of a Spring application property","href":"java/spring/changespringpropertykey"},{"name":"Change the key of a Spring application property","href":"java/spring/changespringpropertykey"},{"name":"Comment out Spring properties","href":"java/spring/commentoutspringpropertykey"},{"name":"Comment out Spring properties","href":"java/spring/commentoutspringpropertykey"},{"name":"Comment out Spring properties","href":"java/spring/commentoutspringpropertykey"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate Spring Cloud properties to 2020</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate properties found in `application.properties` and `application.yml`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change the key of a Spring application property","href":"/user-documentation/recipes/recipe-catalog/java/spring/changespringpropertykey/"},{"name":"Change the key of a Spring application property","href":"/user-documentation/recipes/recipe-catalog/java/spring/changespringpropertykey/"},{"name":"Comment out Spring properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/commentoutspringpropertykey/"},{"name":"Comment out Spring properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/commentoutspringpropertykey/"},{"name":"Comment out Spring properties","href":"/user-documentation/recipes/recipe-catalog/java/spring/commentoutspringpropertykey/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

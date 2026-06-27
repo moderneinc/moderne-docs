@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Standardize `@classmethod` first parameter to `cls`"}
-  description={"Ensure that `@classmethod` methods use `cls` as their first parameter, as required by PEP 8, and update all body references."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={["python","cleanup","naming","pep8"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.ClassMethodFirstArgName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/classmethodfirstargname.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Standardize `@classmethod` first parameter to `cls`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure that `@classmethod` methods use `cls` as their first parameter, as required by PEP 8, and update all body references.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.ClassMethodFirstArgName","displayName":"Standardize `@classmethod` first parameter to `cls`","pipPackage":"openrewrite-static-analysis"}}>
 

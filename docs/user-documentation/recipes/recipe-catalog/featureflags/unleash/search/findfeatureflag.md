@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find an Unleash feature flag"}
-  description={"Find an Unleash feature flag."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-feature-flags"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.featureflags.unleash.search.FindFeatureFlag"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/featureflags/unleash/search/findfeatureflag.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find a feature flag","href":"featureflags/search/findfeatureflag"}]}>
+<RecipeHeader.Title>Find an Unleash feature flag</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find an Unleash feature flag.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find a feature flag","href":"/user-documentation/recipes/recipe-catalog/featureflags/search/findfeatureflag/"}]}>
 
 ## Definition
 

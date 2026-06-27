@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add a spring configuration property"}
-  description={"Add a spring configuration property to a configuration file if it does not already exist in that file."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.AddSpringProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/addspringproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Add a spring configuration property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a spring configuration property to a configuration file if it does not already exist in that file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"property","required":true,"description":"The property key to add.","example":"management.metrics.enable.process.files"},{"type":"String","name":"value","required":true,"description":"The value of the new property key.","example":"true"},{"type":"String","name":"comment","required":false,"description":"A comment that will be added to the new property.","example":"This is a comment"},{"type":"List","name":"pathExpressions","required":false,"description":"Each value in this list represents a glob expression that is used to match which files will be modified. If this value is not present, this recipe will query the execution context for reasonable defaults. (\"**/application.yml\", \"**/application.yml\", and \"**/application.properties\".","example":"[\"**/application.yml\"]"}]}>
 

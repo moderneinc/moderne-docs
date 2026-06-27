@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Maven project properties"}
-  description={"Finds the specified Maven project properties within a pom.xml."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.search.FindProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/search/findproperties.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Maven project properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds the specified Maven project properties within a pom.xml.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"propertyPattern","required":true,"description":"Regular expression pattern used to match property tag names.","example":"guava.*"},{"type":"String","name":"valuePattern","required":false,"description":"Regular expression pattern used to match property values.","example":"28.*"}]}>
 

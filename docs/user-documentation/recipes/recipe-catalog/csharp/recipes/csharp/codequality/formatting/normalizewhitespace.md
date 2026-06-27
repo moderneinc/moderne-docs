@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Normalize whitespace"}
-  description={"Normalize whitespace for consistent formatting."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.NormalizeWhitespace"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/formatting/normalizewhitespace.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Normalize whitespace</RecipeHeader.Title>
+
+<RecipeHeader.Description>Normalize whitespace for consistent formatting.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Formatting.NormalizeWhitespace","displayName":"Normalize whitespace","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

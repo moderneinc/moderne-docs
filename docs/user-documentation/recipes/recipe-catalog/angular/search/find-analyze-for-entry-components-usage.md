@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated `ANALYZE_FOR_ENTRY_COMPONENTS` usage"}
-  description={"Finds usages of the deprecated `ANALYZE_FOR_ENTRY_COMPONENTS` injection token from `@angular/core`. `ANALYZE_FOR_ENTRY_COMPONENTS` was deprecated in Angular 9 and removed in Angular 13."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-analyze-for-entry-components-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-analyze-for-entry-components-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated `ANALYZE_FOR_ENTRY_COMPONENTS` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of the deprecated `ANALYZE_FOR_ENTRY_COMPONENTS` injection token from `@angular/core`. `ANALYZE_FOR_ENTRY_COMPONENTS` was deprecated in Angular 9 and removed in Angular 13.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-analyze-for-entry-components-usage","displayName":"Find deprecated `ANALYZE_FOR_ENTRY_COMPONENTS` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find string-allocation smells"}
-  description={"Flags `s = s + \"…\"`-inside-loop patterns that allocate a fresh `String` on every iteration. The `StringBuilder.length`-vs-`size` rewrite lives in the autofix bundle."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindStringConcatSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findstringconcatsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `s = s + \"...\"` string concatenation inside loops","href":"kotlin/performance/findstringplusinloop$ktrecipe"}]}>
+<RecipeHeader.Title>Find string-allocation smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flags `s = s + "…"`-inside-loop patterns that allocate a fresh `String` on every iteration. The `StringBuilder.length`-vs-`size` rewrite lives in the autofix bundle.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `s = s + \"...\"` string concatenation inside loops","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findstringplusinloop$ktrecipe/"}]}>
 
 ## Definition
 

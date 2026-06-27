@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"XSLT transformation"}
-  description={"Apply the specified XSLT transformation on matching files. Note that there are no format matching guarantees when running this recipe."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.XsltTransformation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/xslttransformation.md"}
-/>
+>
+
+<RecipeHeader.Title>XSLT transformation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply the specified XSLT transformation on matching files. Note that there are no format matching guarantees when running this recipe.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"xslt","required":false,"description":"The transformation to be applied.","example":"<xsl:stylesheet ...>...</xsl:stylesheet>"},{"type":"String","name":"xsltResource","required":false,"description":"Recipe transformation provided as a classpath resource.","example":"/changePlugin.xslt"},{"type":"String","name":"filePattern","required":true,"description":"A glob expression that can be used to constrain which directories or source files should be searched. Multiple patterns may be specified, separated by a semicolon `;`. If multiple patterns are supplied any of the patterns matching will be interpreted as a match.","example":"**/*.xml"}]}>
 

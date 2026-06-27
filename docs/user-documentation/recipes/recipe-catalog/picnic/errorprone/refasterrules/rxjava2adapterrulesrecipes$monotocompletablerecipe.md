@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `RxJava2AdapterRules.MonoToCompletable`"}
-  description={"Use `RxJava2Adapter#monoToCompletable` to convert a `Mono` to a `Completable`, and do so using the fluent API style."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.RxJava2AdapterRulesRecipes$MonoToCompletableRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/rxjava2adapterrulesrecipes$monotocompletablerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `RxJava2AdapterRules.MonoToCompletable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `RxJava2Adapter#monoToCompletable` to convert a `Mono` to a `Completable`, and do so using the fluent API style.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.RxJava2AdapterRulesRecipes$MonoToCompletableRecipe","displayName":"Refaster template `RxJava2AdapterRules.MonoToCompletable`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

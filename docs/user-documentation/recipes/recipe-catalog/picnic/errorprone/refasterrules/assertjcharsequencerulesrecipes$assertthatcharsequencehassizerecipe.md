@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceHasSize`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatCharSequenceHasSize {\n    \n    @BeforeTemplate\n    AbstractAssert<?, ?> before(CharSequence charSequence, int length) {\n        return assertThat(charSequence.length()).isEqualTo(length);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractAssert<?, ?> after(CharSequence charSequence, int length) {\n        return assertThat(charSequence).hasSize(length);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJCharSequenceRulesRecipes$AssertThatCharSequenceHasSizeRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatcharsequencehassizerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceHasSize`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatCharSequenceHasSize {
+    
+    @BeforeTemplate
+    AbstractAssert<?, ?> before(CharSequence charSequence, int length) {
+        return assertThat(charSequence.length()).isEqualTo(length);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractAssert<?, ?> after(CharSequence charSequence, int length) {
+        return assertThat(charSequence).hasSize(length);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJCharSequenceRulesRecipes$AssertThatCharSequenceHasSizeRecipe","displayName":"Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceHasSize`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

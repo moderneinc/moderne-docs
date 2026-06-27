@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find end-of-life Docker base images"}
-  description={"Identifies Docker base images that have reached end-of-life. Using EOL images poses security risks as they no longer receive security updates. Detected images include EOL versions of Debian, Ubuntu, Alpine, Python, and Node.js."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.search.FindEndOfLifeImages"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/search/findendoflifeimages.md"}
-/>
+>
+
+<RecipeHeader.Title>Find end-of-life Docker base images</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identifies Docker base images that have reached end-of-life. Using EOL images poses security risks as they no longer receive security updates. Detected images include EOL versions of Debian, Ubuntu, Alpine, Python, and Node.js.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"includeApproaching","required":false,"description":"If true, also flag images that will reach EOL within the next 6 months.","example":"true"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `AutoConfiguration#imports`"}
-  description={"Use `AutoConfiguration#imports` instead of the deprecated entry `EnableAutoConfiguration` in `spring.factories` when defining autoconfiguration classes."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MoveAutoConfigurationToImportsFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/moveautoconfigurationtoimportsfile.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `AutoConfiguration#imports`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `AutoConfiguration#imports` instead of the deprecated entry `EnableAutoConfiguration` in `spring.factories` when defining autoconfiguration classes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"preserveFactoriesFile","required":false,"description":"Don't delete the `spring.factories` for backward compatibility."}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `org.springframework.util.Base64Utils` to `java.io.Base64`"}
-  description={"Replaces usages of deprecated `org.springframework.util.Base64Utils` with `java.util.Base64`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateBase64Utils"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratebase64utils.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `org.springframework.util.Base64Utils` to `java.io.Base64`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces usages of deprecated `org.springframework.util.Base64Utils` with `java.util.Base64`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.nio.charset.StandardCharsets;\nimport org.springframework.util.Base64Utils;\n\nclass Test {\n    void test(byte[] bBytes) {\n        String key = \"abc\";\n        byte[] encoded1 = Base64Utils.encode(key.getBytes(StandardCharsets.UTF_8));\n        byte[] decoded1 = Base64Utils.decode(key.getBytes(StandardCharsets.UTF_8));\n        byte[] encoded2 = Base64Utils.encodeUrlSafe(key.getBytes(StandardCharsets.UTF_8));\n        byte[] decoded2 = Base64Utils.decodeUrlSafe(key.getBytes(StandardCharsets.UTF_8));\n        String encoded3 = Base64Utils.encodeToString(key.getBytes(StandardCharsets.UTF_8));\n        byte[] decoded3 = Base64Utils.decodeFromString(key);\n        String encoded4 = Base64Utils.encodeToUrlSafeString(key.getBytes(StandardCharsets.UTF_8));\n        byte[] decoded4 = Base64Utils.decodeFromUrlSafeString(key);\n    }\n}\n","after":"import java.nio.charset.StandardCharsets;\nimport java.util.Base64;\n\nclass Test {\n    void test(byte[] bBytes) {\n        String key = \"abc\";\n        byte[] encoded1 = Base64.getEncoder().encode(key.getBytes(StandardCharsets.UTF_8));\n        byte[] decoded1 = Base64.getDecoder().decode(key.getBytes(StandardCharsets.UTF_8));\n        byte[] encoded2 = Base64.getUrlEncoder().encode(key.getBytes(StandardCharsets.UTF_8));\n        byte[] decoded2 = Base64.getUrlDecoder().decode(key.getBytes(StandardCharsets.UTF_8));\n        String encoded3 = Base64.getEncoder().encodeToString(key.getBytes(StandardCharsets.UTF_8));\n        byte[] decoded3 = Base64.getDecoder().decode(key);\n        String encoded4 = Base64.getUrlEncoder().encodeToString(key.getBytes(StandardCharsets.UTF_8));\n        byte[] decoded4 = Base64.getUrlDecoder().decode(key);\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nimport java.nio.charset.StandardCharsets;\n-import org.springframework.util.Base64Utils;\n+import java.util.Base64;\n\n@@ -7,8 +7,8 @@\n    void test(byte[] bBytes) {\n        String key = \"abc\";\n-       byte[] encoded1 = Base64Utils.encode(key.getBytes(StandardCharsets.UTF_8));\n-       byte[] decoded1 = Base64Utils.decode(key.getBytes(StandardCharsets.UTF_8));\n-       byte[] encoded2 = Base64Utils.encodeUrlSafe(key.getBytes(StandardCharsets.UTF_8));\n-       byte[] decoded2 = Base64Utils.decodeUrlSafe(key.getBytes(StandardCharsets.UTF_8));\n-       String encoded3 = Base64Utils.encodeToString(key.getBytes(StandardCharsets.UTF_8));\n-       byte[] decoded3 = Base64Utils.decodeFromString(key);\n-       String encoded4 = Base64Utils.encodeToUrlSafeString(key.getBytes(StandardCharsets.UTF_8));\n-       byte[] decoded4 = Base64Utils.decodeFromUrlSafeString(key);\n+       byte[] encoded1 = Base64.getEncoder().encode(key.getBytes(StandardCharsets.UTF_8));\n+       byte[] decoded1 = Base64.getDecoder().decode(key.getBytes(StandardCharsets.UTF_8));\n+       byte[] encoded2 = Base64.getUrlEncoder().encode(key.getBytes(StandardCharsets.UTF_8));\n+       byte[] decoded2 = Base64.getUrlDecoder().decode(key.getBytes(StandardCharsets.UTF_8));\n+       String encoded3 = Base64.getEncoder().encodeToString(key.getBytes(StandardCharsets.UTF_8));\n+       byte[] decoded3 = Base64.getDecoder().decode(key);\n+       String encoded4 = Base64.getUrlEncoder().encodeToString(key.getBytes(StandardCharsets.UTF_8));\n+       byte[] decoded4 = Base64.getUrlDecoder().decode(key);\n    }\n","newFile":false}]}]}>
 

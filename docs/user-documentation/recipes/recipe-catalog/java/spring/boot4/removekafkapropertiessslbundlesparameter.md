@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `SslBundles` parameter from `KafkaProperties` build methods"}
-  description={"In Spring Boot 4.0, the `SslBundles` parameter was removed from `KafkaProperties.buildProducerProperties`, `buildConsumerProperties`, `buildAdminProperties`, and `buildStreamsProperties`. This recipe removes the argument from method calls."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.RemoveKafkaPropertiesSslBundlesParameter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/removekafkapropertiessslbundlesparameter.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Delete method argument","href":"java/deletemethodargument"},{"name":"Delete method argument","href":"java/deletemethodargument"},{"name":"Delete method argument","href":"java/deletemethodargument"},{"name":"Delete method argument","href":"java/deletemethodargument"},{"name":"Delete method argument","href":"java/deletemethodargument"},{"name":"Delete method argument","href":"java/deletemethodargument"},{"name":"Delete method argument","href":"java/deletemethodargument"},{"name":"Delete method argument","href":"java/deletemethodargument"}]}>
+<RecipeHeader.Title>Remove `SslBundles` parameter from `KafkaProperties` build methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Boot 4.0, the `SslBundles` parameter was removed from `KafkaProperties.buildProducerProperties`, `buildConsumerProperties`, `buildAdminProperties`, and `buildStreamsProperties`. This recipe removes the argument from method calls.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove build extension by name"}
-  description={"Remove a Gradle build extension from `settings.gradle(.kts)` or `build.gradle(.kts)` files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.RemoveExtension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/removeextension.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove build extension by name</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove a Gradle build extension from `settings.gradle(.kts)` or `build.gradle(.kts)` files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodName","required":true,"description":"The name of the build extension to remove, e.g., `buildCache`.","example":"buildCache"}]}>
 

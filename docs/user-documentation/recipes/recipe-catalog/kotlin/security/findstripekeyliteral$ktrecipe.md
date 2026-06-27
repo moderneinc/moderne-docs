@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Stripe API key literals (`sk_live_…` / `sk_test_…`)"}
-  description={"Stripe secret keys grant full account access; `sk_live_…` lets the holder create charges on your account. Rotate at dashboard.stripe.com/apikeys."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindStripeKeyLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findstripekeyliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Stripe API key literals (`sk_live_…` / `sk_test_…`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Stripe secret keys grant full account access; `sk_live_…` lets the holder create charges on your account. Rotate at dashboard.stripe.com/apikeys.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindStripeKeyLiteral$KtRecipe","displayName":"Find Stripe API key literals (`sk_live_…` / `sk_test_…`)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

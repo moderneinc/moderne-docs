@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change XML tag name"}
-  description={"Alters the name of XML tags matching the provided expression."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.ChangeTagName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/changetagname.md"}
-/>
+>
+
+<RecipeHeader.Title>Change XML tag name</RecipeHeader.Title>
+
+<RecipeHeader.Description>Alters the name of XML tags matching the provided expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"elementName","required":true,"description":"The name of the element whose attribute's value is to be changed. Interpreted as an XPath expression.","example":"/settings/servers/server/username"},{"type":"String","name":"newName","required":true,"description":"The new name for the tag.","example":"user"}]}>
 

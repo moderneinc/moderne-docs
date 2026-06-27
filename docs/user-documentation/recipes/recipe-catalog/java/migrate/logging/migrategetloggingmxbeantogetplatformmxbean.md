@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `ManagementFactory#getPlatformMXBean(PlatformLoggingMXBean.class)`"}
-  description={"Use `ManagementFactory#getPlatformMXBean(PlatformLoggingMXBean.class)` instead of the deprecated `LogManager#getLoggingMXBean()` in Java 9 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["deprecated"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.logging.MigrateGetLoggingMXBeanToGetPlatformMXBean"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/logging/migrategetloggingmxbeantogetplatformmxbean.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `ManagementFactory#getPlatformMXBean(PlatformLoggingMXBean.class)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `ManagementFactory#getPlatformMXBean(PlatformLoggingMXBean.class)` instead of the deprecated `LogManager#getLoggingMXBean()` in Java 9 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.logging.LoggingMXBean;\nimport java.util.logging.LogManager;\n\nclass Test {\n    static void method() {\n        LoggingMXBean loggingBean = LogManager.getLoggingMXBean();\n    }\n}\n","after":"import java.lang.management.ManagementFactory;\nimport java.lang.management.PlatformLoggingMXBean;\n\nclass Test {\n    static void method() {\n        PlatformLoggingMXBean loggingBean = ManagementFactory.getPlatformMXBean(PlatformLoggingMXBean.class);\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import java.util.logging.LoggingMXBean;\n-import java.util.logging.LogManager;\n+import java.lang.management.ManagementFactory;\n+import java.lang.management.PlatformLoggingMXBean;\n\n@@ -6,1 +6,1 @@\nclass Test {\n    static void method() {\n-       LoggingMXBean loggingBean = LogManager.getLoggingMXBean();\n+       PlatformLoggingMXBean loggingBean = ManagementFactory.getPlatformMXBean(PlatformLoggingMXBean.class);\n    }\n","newFile":false}]}]}>
 

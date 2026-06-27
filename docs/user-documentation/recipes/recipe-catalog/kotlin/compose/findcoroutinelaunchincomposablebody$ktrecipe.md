@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `scope.launch { … }` calls inside a `@Composable` body"}
-  description={"`scope.launch { … }` in a `@Composable` body starts a new coroutine on every recomposition — none of them get cancelled until the scope dies. Use `LaunchedEffect(key) { … }`, which is automatically cancelled and restarted by the composition's lifecycle."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindCoroutineLaunchInComposableBody$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcoroutinelaunchincomposablebody$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `scope.launch { … }` calls inside a `@Composable` body</RecipeHeader.Title>
+
+<RecipeHeader.Description>`scope.launch { … }` in a `@Composable` body starts a new coroutine on every recomposition — none of them get cancelled until the scope dies. Use `LaunchedEffect(key) { … }`, which is automatically cancelled and restarted by the composition's lifecycle.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindCoroutineLaunchInComposableBody$KtRecipe","displayName":"Find `scope.launch { … }` calls inside a `@Composable` body","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

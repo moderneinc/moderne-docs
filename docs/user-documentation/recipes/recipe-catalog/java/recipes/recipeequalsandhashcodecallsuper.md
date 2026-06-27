@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use of `@EqualsAndHashCode` on `Recipe`"}
-  description={"Recipes are value objects, so should use `@EqualsAndHashCode(callSuper = false)`. While in most cases recipes do not extend other classes and so the option is moot, as a matter of stylistic consistency and to enforce the idea that recipes are value objects, this value should be set to `false`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.RecipeEqualsAndHashCodeCallSuper"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/recipeequalsandhashcodecallsuper.md"}
-/>
+>
+
+<RecipeHeader.Title>Use of `@EqualsAndHashCode` on `Recipe`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Recipes are value objects, so should use `@EqualsAndHashCode(callSuper = false)`. While in most cases recipes do not extend other classes and so the option is moot, as a matter of stylistic consistency and to enforce the idea that recipes are value objects, this value should be set to `false`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.Recipe;\nimport lombok.EqualsAndHashCode;\nimport lombok.Value;\n\n@Value\n@EqualsAndHashCode(callSuper = true)\nclass MyRecipe extends Recipe {\n}\n","after":"import org.openrewrite.Recipe;\nimport lombok.EqualsAndHashCode;\nimport lombok.Value;\n\n@Value\n@EqualsAndHashCode(callSuper = false)\nclass MyRecipe extends Recipe {\n}\n","diff":"@@ -6,1 +6,1 @@\n\n@Value\n-@EqualsAndHashCode(callSuper = true)\n+@EqualsAndHashCode(callSuper = false)\nclass MyRecipe extends Recipe {\n","newFile":false}]}]}>
 

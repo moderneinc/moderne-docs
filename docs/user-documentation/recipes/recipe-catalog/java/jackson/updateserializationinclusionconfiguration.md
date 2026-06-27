@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update configuration of serialization inclusion in `ObjectMapper` for Jackson 3"}
-  description={"In Jackson 3, `mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL)` is no longer supported and should be replaced by `changeDefaultPropertyInclusion()` for both `valueInclusion` and `contentInclusion`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.UpdateSerializationInclusionConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/updateserializationinclusionconfiguration.md"}
-/>
+>
+
+<RecipeHeader.Title>Update configuration of serialization inclusion in `ObjectMapper` for Jackson 3</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Jackson 3, `mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL)` is no longer supported and should be replaced by `changeDefaultPropertyInclusion()` for both `valueInclusion` and `contentInclusion`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.annotation.JsonInclude;\nimport com.fasterxml.jackson.databind.json.JsonMapper;\n\nclass Test {\n    void configure() {\n        JsonMapper.builder()\n          .serializationInclusion(JsonInclude.Include.NON_NULL)\n          .build();\n    }\n}\n","after":"import com.fasterxml.jackson.annotation.JsonInclude;\nimport com.fasterxml.jackson.databind.json.JsonMapper;\n\nclass Test {\n    void configure() {\n        JsonMapper.builder()\n          .changeDefaultPropertyInclusion(incl -> incl.withContentInclusion(JsonInclude.Include.NON_NULL).withValueInclusion(JsonInclude.Include.NON_NULL))\n          .build();\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    void configure() {\n        JsonMapper.builder()\n-         .serializationInclusion(JsonInclude.Include.NON_NULL)\n+         .changeDefaultPropertyInclusion(incl -> incl.withContentInclusion(JsonInclude.Include.NON_NULL).withValueInclusion(JsonInclude.Include.NON_NULL))\n          .build();\n","newFile":false}]}]}>
 

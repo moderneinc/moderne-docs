@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"No C-style array declarations"}
-  description={"Change C-Style array declarations `int i[];` to `int[] i;`. Keeping the brackets with the type groups all type information in one place, so readers do not have to inspect both the type and the variable name to determine whether something is an array."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1197"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UseJavaStyleArrayDeclarations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/usejavastylearraydeclarations.md"}
-/>
+>
+
+<RecipeHeader.Title>No C-style array declarations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change C-Style array declarations `int i[];` to `int[] i;`. Keeping the brackets with the type groups all type information in one place, so readers do not have to inspect both the type and the variable name to determine whether something is an array.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    int i[];\n    int j[][];\n    int c[], d[];\n\n    void someMethod(int i[]) {\n    }\n}\n","after":"class A {\n    int[] i;\n    int[][] j;\n    int[] c, d;\n\n    void someMethod(int[] i) {\n    }\n}\n","diff":"@@ -2,3 +2,3 @@\nclass A {\n-   int i[];\n-   int j[][];\n-   int c[], d[];\n+   int[] i;\n+   int[][] j;\n+   int[] c, d;\n\n@@ -6,1 +6,1 @@\n    int c[], d[];\n\n-   void someMethod(int i[]) {\n+   void someMethod(int[] i) {\n    }\n","newFile":false}]}]}>
 

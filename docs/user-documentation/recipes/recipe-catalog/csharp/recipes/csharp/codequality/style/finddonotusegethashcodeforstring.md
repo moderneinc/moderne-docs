@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find GetType() on Type instance"}
-  description={"Detect `.GetType()` called on an object that is already a `System.Type`. Use `typeof()` directly."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotUseGetHashCodeForString"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finddonotusegethashcodeforstring.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find GetType() on Type instance</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `.GetType()` called on an object that is already a `System.Type`. Use `typeof()` directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindDoNotUseGetHashCodeForString","displayName":"Find GetType() on Type instance","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

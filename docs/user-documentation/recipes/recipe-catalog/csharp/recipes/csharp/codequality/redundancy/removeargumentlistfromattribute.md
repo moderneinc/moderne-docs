@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove argument list from attribute"}
-  description={"Remove empty argument list from attribute."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveArgumentListFromAttribute"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeargumentlistfromattribute.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove argument list from attribute</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove empty argument list from attribute.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveArgumentListFromAttribute","displayName":"Remove argument list from attribute","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

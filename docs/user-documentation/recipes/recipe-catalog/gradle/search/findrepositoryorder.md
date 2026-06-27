@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Gradle repository order"}
-  description={"Determine the order in which dependencies will be resolved for each `build.gradle` based on its defined repositories as determined when the LST was produced."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.search.FindRepositoryOrder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/search/findrepositoryorder.md"}
-/>
+>
+
+<RecipeHeader.Title>Gradle repository order</RecipeHeader.Title>
+
+<RecipeHeader.Description>Determine the order in which dependencies will be resolved for each `build.gradle` based on its defined repositories as determined when the LST was produced.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"groovy","code":"plugins {\n    id 'java'\n}\n\nrepositories {\n    maven { url 'https://repo.spring.io/milestone' }\n}\n"},"variants":[]}]}>
 

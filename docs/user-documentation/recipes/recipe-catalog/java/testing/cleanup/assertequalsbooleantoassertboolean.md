@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUnit `assertEquals(false, <boolean>)` to `assertFalse(<boolean>)` / `assertTrue(<boolean>)`"}
-  description={"Using `assertFalse` or `assertTrue` is simpler and more clear."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.AssertEqualsBooleanToAssertBoolean"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertequalsbooleantoassertboolean.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace JUnit `assertEquals(false, <boolean>)` to `assertFalse(<boolean>)` / `assertTrue(<boolean>)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using `assertFalse` or `assertTrue` is simpler and more clear.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import static org.junit.jupiter.api.Assertions.assertEquals;\n\npublic class Test {\n    void test() {\n        String a = \"a\";\n        String c = \"c\";\n        boolean b = false;\n        assertEquals(false, b);\n        assertEquals(false, a.equals(c));\n        assertEquals(false, a.equals(c), \"message\");\n    }\n}\n","after":"import static org.junit.jupiter.api.Assertions.assertFalse;\n\npublic class Test {\n    void test() {\n        String a = \"a\";\n        String c = \"c\";\n        boolean b = false;\n        assertFalse(b);\n        assertFalse(a.equals(c));\n        assertFalse(a.equals(c), \"message\");\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static org.junit.jupiter.api.Assertions.assertEquals;\n+import static org.junit.jupiter.api.Assertions.assertFalse;\n\n@@ -8,3 +8,3 @@\n        String c = \"c\";\n        boolean b = false;\n-       assertEquals(false, b);\n-       assertEquals(false, a.equals(c));\n-       assertEquals(false, a.equals(c), \"message\");\n+       assertFalse(b);\n+       assertFalse(a.equals(c));\n+       assertFalse(a.equals(c), \"message\");\n    }\n","newFile":false}]}]}>
 

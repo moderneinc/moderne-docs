@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace 'camel.main.routeController' with `camel.routecontroller'"}
-  description={""}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel44.RouteControllerProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel44/routecontrollerproperties.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change property key","href":"properties/changepropertykey"},{"name":"Change prefix of property with Camel case","href":"apache/camel/upgrade/customrecipes/changepropertykeywithcasechange"},{"name":"Change prefix of property with Camel case","href":"apache/camel/upgrade/customrecipes/changepropertykeywithcasechange"}]}>
+<RecipeHeader.Title>Replace 'camel.main.routeController' with `camel.routecontroller'</RecipeHeader.Title>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/properties/changepropertykey/"},{"name":"Change prefix of property with Camel case","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/changepropertykeywithcasechange/"},{"name":"Change prefix of property with Camel case","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/changepropertykeywithcasechange/"}]}>
 
 ## Definition
 

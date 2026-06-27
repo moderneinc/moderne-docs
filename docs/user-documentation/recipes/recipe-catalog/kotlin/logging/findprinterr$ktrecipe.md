@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `System.err.println(...)` calls"}
-  description={"`System.err.println` writes to stderr — better than stdout for errors, but still bypasses whatever structured logger the application uses. Route through `log.error(\"...\", throwable)` so log aggregators see the context."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindPrintErr$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findprinterr$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `System.err.println(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`System.err.println` writes to stderr — better than stdout for errors, but still bypasses whatever structured logger the application uses. Route through `log.error("...", throwable)` so log aggregators see the context.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindPrintErr$KtRecipe","displayName":"Find `System.err.println(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

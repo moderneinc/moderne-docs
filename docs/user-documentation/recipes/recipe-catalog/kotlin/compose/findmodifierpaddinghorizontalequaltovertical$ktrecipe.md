@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `padding(start = x, end = x, top = y, bottom = y)` shorthand opportunities"}
-  description={"`Modifier.padding(start = 8.dp, end = 8.dp, top = 16.dp, bottom = 16.dp)` reads as four independent insets but really means \"8 horizontal, 16 vertical\". The shorter `padding(horizontal = 8.dp, vertical = 16.dp)` says that intent up front and survives a future change to one axis without re-pairing the values."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindModifierPaddingHorizontalEqualToVertical$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierpaddinghorizontalequaltovertical$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `padding(start = x, end = x, top = y, bottom = y)` shorthand opportunities</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Modifier.padding(start = 8.dp, end = 8.dp, top = 16.dp, bottom = 16.dp)` reads as four independent insets but really means "8 horizontal, 16 vertical". The shorter `padding(horizontal = 8.dp, vertical = 16.dp)` says that intent up front and survives a future change to one axis without re-pairing the values.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindModifierPaddingHorizontalEqualToVertical$KtRecipe","displayName":"Find `padding(start = x, end = x, top = y, bottom = y)` shorthand opportunities","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

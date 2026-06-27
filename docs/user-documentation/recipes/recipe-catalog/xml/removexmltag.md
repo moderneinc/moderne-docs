@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove XML tag"}
-  description={"Removes XML tags matching the provided expression."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.RemoveXmlTag"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/removexmltag.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove XML tag</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes XML tags matching the provided expression.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"xPath","required":true,"description":"An XPath expression used to find matching tags.","example":"/project/dependencies/dependency"},{"type":"String","name":"fileMatcher","required":false,"description":"If provided only matching files will be modified. This is a glob expression.","example":"'**/application-*.xml'"}]}>
 

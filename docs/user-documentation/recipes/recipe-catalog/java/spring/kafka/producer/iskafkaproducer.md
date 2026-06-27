@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Is likely a Kafka producer module"}
-  description={"Marks the project if it's likely a Kafka producer module."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.kafka.producer.IsKafkaProducer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/kafka/producer/iskafkaproducer.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Is likely a Kafka producer module</RecipeHeader.Title>
+
+<RecipeHeader.Description>Marks the project if it's likely a Kafka producer module.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"java","before":"import org.springframework.kafka.core.KafkaTemplate;\nimport org.springframework.stereotype.Service;\n\n@Service\nclass MyProducer {\n    private final KafkaTemplate<String, String> kafkaTemplate;\n\n    public MyProducer(KafkaTemplate<String, String> kafkaTemplate) {\n        this.kafkaTemplate = kafkaTemplate;\n    }\n\n    public void send(String message) {\n        this.kafkaTemplate.send(\"my-topic\", message);\n    }\n}\n","after":"/*~~(Module is likely a Kafka producer)~~>*/import org.springframework.kafka.core.KafkaTemplate;\nimport org.springframework.stereotype.Service;\n\n@Service\nclass MyProducer {\n    private final KafkaTemplate<String, String> kafkaTemplate;\n\n    public MyProducer(KafkaTemplate<String, String> kafkaTemplate) {\n        this.kafkaTemplate = kafkaTemplate;\n    }\n\n    public void send(String message) {\n        this.kafkaTemplate.send(\"my-topic\", message);\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.kafka.core.KafkaTemplate;\n+/*~~(Module is likely a Kafka producer)~~>*/import org.springframework.kafka.core.KafkaTemplate;\nimport org.springframework.stereotype.Service;\n","newFile":false}]}]}>
 

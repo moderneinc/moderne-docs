@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Action.async` with `Future` instead of blocking"}
-  description={"Finds Play controller actions (`Action {` or `Action.async {`) that contain `Await.result` blocking calls. Blocking inside Play Actions can exhaust the thread pool; use `Action.async` with `Future` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.play.UseAsyncPlayAction"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/play/useasyncplayaction.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Action.async` with `Future` instead of blocking</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds Play controller actions (`Action {` or `Action.async {`) that contain `Await.result` blocking calls. Blocking inside Play Actions can exhaust the thread pool; use `Action.async` with `Future` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object MyController {\n  def index = Action {\n    val data = Await.result(fetchData(), 5.seconds)\n    Ok(data)\n  }\n}\n","after":"object MyController {\n  /*~~(Blocking inside Play Action; use Action.async with Future)~~>*/def index = Action {\n    val data = Await.result(fetchData(), 5.seconds)\n    Ok(data)\n  }\n}\n","diff":"@@ -2,1 +2,1 @@\nobject MyController {\n- def index = Action {\n+ /*~~(Blocking inside Play Action; use Action.async with Future)~~>*/def index = Action {\n    val data = Await.result(fetchData(), 5.seconds)\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Framework to Spring Boot"}
-  description={"Migrate non Spring Boot applications to the latest compatible Spring Boot release. This recipe will modify an application's build files introducing Maven dependency management for Spring Boot, or adding the Gradle Spring Boot build plugin."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot.SpringToSpringBoot"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot/springtospringboot.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Spring Framework 3.x","href":"java/spring/framework/upgradespringframework_3_0"},{"name":"Migrate Spring Framework dependencies to Spring Boot","href":"java/spring/boot/migratespringframeworkdependenciestospringboot"},{"name":"Replace Spring Framework dependencies with Spring Boot starters","href":"java/spring/boot/replacespringframeworkdepswithbootstarters"},{"name":"Add `@SpringBootApplication` class","href":"java/spring/boot/addspringbootapplication"},{"name":"Add Spring Boot 4.0 modular starters","href":"java/spring/boot4/addmodularstarters"},{"name":"Mark embedded server as provided for WAR projects","href":"java/spring/boot/markembeddedserverprovidedforwar"},{"name":"Migrate `beans.xml` to Spring Framework configuration class","href":"java/spring/framework/beansxml/beansxmltoconfiguration"},{"name":"Migrate `web.xml` to `WebApplicationInitializer`","href":"java/spring/framework/webxml/webxmltowebapplicationinitializer"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Is likely not a Spring Boot project","href":"java/spring/boot/islikelynotspringboot"},{"name":"Is likely a Spring Framework project","href":"java/spring/framework/islikelyspringframework"}]}>
+<RecipeHeader.Title>Migrate Spring Framework to Spring Boot</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate non Spring Boot applications to the latest compatible Spring Boot release. This recipe will modify an application's build files introducing Maven dependency management for Spring Boot, or adding the Gradle Spring Boot build plugin.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Spring Framework 3.x","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/upgradespringframework_3_0/"},{"name":"Migrate Spring Framework dependencies to Spring Boot","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot/migratespringframeworkdependenciestospringboot/"},{"name":"Replace Spring Framework dependencies with Spring Boot starters","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot/replacespringframeworkdepswithbootstarters/"},{"name":"Add `@SpringBootApplication` class","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot/addspringbootapplication/"},{"name":"Add Spring Boot 4.0 modular starters","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/addmodularstarters/"},{"name":"Mark embedded server as provided for WAR projects","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot/markembeddedserverprovidedforwar/"},{"name":"Migrate `beans.xml` to Spring Framework configuration class","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/beansxml/beansxmltoconfiguration/"},{"name":"Migrate `web.xml` to `WebApplicationInitializer`","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/webxml/webxmltowebapplicationinitializer/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Is likely not a Spring Boot project","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot/islikelynotspringboot/"},{"name":"Is likely a Spring Framework project","href":"/user-documentation/recipes/recipe-catalog/java/spring/framework/islikelyspringframework/"}]}>
 
 ## Definition
 

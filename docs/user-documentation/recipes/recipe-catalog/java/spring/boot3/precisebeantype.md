@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Bean methods should return concrete types"}
-  description={"Replace Bean method return types with concrete types being returned. This is required for Spring 6 AOT."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.PreciseBeanType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/precisebeantype.md"}
-/>
+>
+
+<RecipeHeader.Title>Bean methods should return concrete types</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace Bean method return types with concrete types being returned. This is required for Spring 6 AOT.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Bean;\nimport java.util.List;\nimport java.util.ArrayList;\n\nclass A {\n    @Bean\n    List bean1() {\n        return new ArrayList();\n    }\n}\n","after":"import org.springframework.context.annotation.Bean;\nimport java.util.ArrayList;\n\nclass A {\n    @Bean\n    ArrayList bean1() {\n        return new ArrayList();\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport org.springframework.context.annotation.Bean;\n-import java.util.List;\nimport java.util.ArrayList;\n@@ -7,1 +6,1 @@\nclass A {\n    @Bean\n-   List bean1() {\n+   ArrayList bean1() {\n        return new ArrayList();\n","newFile":false}]}]}>
 

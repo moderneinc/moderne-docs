@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Avoid blocking calls (`Await.result`/`Await.ready`)"}
-  description={"Finds `Await.result` and `Await.ready` calls which block the current thread. Consider using non-blocking Future composition with map, flatMap, or for-comprehensions."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.concurrency.AvoidBlockingCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/concurrency/avoidblockingcalls.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Avoid blocking calls (`Await.result`/`Await.ready`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `Await.result` and `Await.ready` calls which block the current thread. Consider using non-blocking Future composition with map, flatMap, or for-comprehensions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import scala.concurrent.{Await, Future}\nimport scala.concurrent.duration._\n\nobject Service {\n  def fetchData(): Future[String] = Future.successful(\"data\")\n\n  def main(args: Array[String]): Unit = {\n    val result = Await.result(fetchData(), 5.seconds)\n    println(result)\n  }\n}\n","after":"import scala.concurrent.{Await, Future}\nimport scala.concurrent.duration._\n\nobject Service {\n  def fetchData(): Future[String] = Future.successful(\"data\")\n\n  /*~~(Blocking call found; consider using non-blocking Future composition)~~>*/def main(args: Array[String]): Unit = {\n    val result = Await.result(fetchData(), 5.seconds)\n    println(result)\n  }\n}\n","diff":"@@ -7,1 +7,1 @@\n  def fetchData(): Future[String] = Future.successful(\"data\")\n\n- def main(args: Array[String]): Unit = {\n+ /*~~(Blocking call found; consider using non-blocking Future composition)~~>*/def main(args: Array[String]): Unit = {\n    val result = Await.result(fetchData(), 5.seconds)\n","newFile":false}]}]}>
 

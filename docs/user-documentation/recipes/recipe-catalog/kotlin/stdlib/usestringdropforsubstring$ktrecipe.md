@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `drop(n)` instead of `substring(n)` on a `String`"}
-  description={"`drop(n)` is the named form for skipping the first `n` characters and returns the empty string for over-long `n` instead of throwing."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.UseStringDropForSubstring$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usestringdropforsubstring$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `drop(n)` instead of `substring(n)` on a `String`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`drop(n)` is the named form for skipping the first `n` characters and returns the empty string for over-long `n` instead of throwing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.stdlib.UseStringDropForSubstring$KtRecipe","displayName":"Use `drop(n)` instead of `substring(n)` on a `String`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

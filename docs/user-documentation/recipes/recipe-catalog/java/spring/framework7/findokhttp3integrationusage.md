@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring OkHttp3 integration usage"}
-  description={"Spring Framework 7.0 removes OkHttp3 integration classes. This recipe identifies usages of `OkHttp3ClientHttpRequestFactory` and `OkHttp3ClientHttpConnector` that need to be replaced. Consider migrating to Java's built-in `HttpClient` with `JdkClientHttpRequestFactory` or `JdkClientHttpConnector`, or to Apache HttpClient 5 with `HttpComponentsClientHttpRequestFactory`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.FindOkHttp3IntegrationUsage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/findokhttp3integrationusage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Spring OkHttp3 integration usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Framework 7.0 removes OkHttp3 integration classes. This recipe identifies usages of `OkHttp3ClientHttpRequestFactory` and `OkHttp3ClientHttpConnector` that need to be replaced. Consider migrating to Java's built-in `HttpClient` with `JdkClientHttpRequestFactory` or `JdkClientHttpConnector`, or to Apache HttpClient 5 with `HttpComponentsClientHttpRequestFactory`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.java.spring.framework7.FindOkHttp3IntegrationUsage","displayName":"Find Spring OkHttp3 integration usage","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

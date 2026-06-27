@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `AccessibleObject.setAccessible(true)` calls"}
-  description={"`setAccessible(true)` bypasses Java/Kotlin visibility. It's a strong signal of either a serialization library at work or a workaround for a missing API — either way, a reviewer/agent reading the code should be aware that visibility cannot be trusted here."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindSetAccessibleTrue$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findsetaccessibletrue$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `AccessibleObject.setAccessible(true)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`setAccessible(true)` bypasses Java/Kotlin visibility. It's a strong signal of either a serialization library at work or a workaround for a missing API — either way, a reviewer/agent reading the code should be aware that visibility cannot be trusted here.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindSetAccessibleTrue$KtRecipe","displayName":"Find `AccessibleObject.setAccessible(true)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

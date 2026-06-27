@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"No double brace initialization"}
-  description={"Replace `List`, `Map`, and `Set` double brace initialization with an initialization block. Double brace initialization creates an anonymous inner class that holds a hidden reference to the enclosing instance, which can cause memory leaks and serialization issues."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1171","RSPEC-S3599"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.NoDoubleBraceInitialization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/nodoublebraceinitialization.md"}
-/>
+>
+
+<RecipeHeader.Title>No double brace initialization</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `List`, `Map`, and `Set` double brace initialization with an initialization block. Double brace initialization creates an anonymous inner class that holds a hidden reference to the enclosing instance, which can cause memory leaks and serialization issues.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Set;\nimport java.util.LinkedHashSet;\nclass A {\n    void a() {\n        Integer CNT = 10;\n        final Set<Integer> keys = new LinkedHashSet<>(){{\n            for (int i = 0; i < CNT; i++) {\n                add(i);\n            }\n        }};\n    }\n}\n","after":"import java.util.Set;\nimport java.util.LinkedHashSet;\nclass A {\n    void a() {\n        Integer CNT = 10;\n        final Set<Integer> keys = new LinkedHashSet<>();\n        for (int i = 0; i < CNT; i++) {\n            keys.add(i);\n        }\n    }\n}\n","diff":"@@ -6,5 +6,4 @@\n    void a() {\n        Integer CNT = 10;\n-       final Set<Integer> keys = new LinkedHashSet<>(){{\n-           for (int i = 0; i < CNT; i++) {\n-               add(i);\n-           }\n-       }};\n+       final Set<Integer> keys = new LinkedHashSet<>();\n+       for (int i = 0; i < CNT; i++) {\n+           keys.add(i);\n+       }\n    }\n","newFile":false}]}]}>
 

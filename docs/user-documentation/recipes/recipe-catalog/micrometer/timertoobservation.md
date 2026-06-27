@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert Micrometer `Timer` to `Observations`"}
-  description={"Convert Micrometer `Timer` to `Observations` to instrument once, and get multiple benefits out of it."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micrometer"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.micrometer.TimerToObservation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/micrometer/timertoobservation.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert Micrometer `Timer` to `Observations`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert Micrometer `Timer` to `Observations` to instrument once, and get multiple benefits out of it.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import io.micrometer.core.instrument.MeterRegistry;\nimport io.micrometer.core.instrument.Timer;\n\nclass Test {\n    private MeterRegistry registry;\n\n    void test(Runnable arg) {\n        Timer.builder(\"my.timer\")\n                .register(registry)\n                .record(arg);\n    }\n}\n","after":"import io.micrometer.observation.Observation;\nimport io.micrometer.observation.ObservationRegistry;\n\nclass Test {\n    private ObservationRegistry registry;\n\n    void test(Runnable arg) {\n        Observation.createNotStarted(\"my.timer\", registry)\n                .observe(arg);\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import io.micrometer.core.instrument.MeterRegistry;\n-import io.micrometer.core.instrument.Timer;\n+import io.micrometer.observation.Observation;\n+import io.micrometer.observation.ObservationRegistry;\n\n@@ -5,1 +5,1 @@\n\nclass Test {\n-   private MeterRegistry registry;\n+   private ObservationRegistry registry;\n\n@@ -8,3 +8,2 @@\n\n    void test(Runnable arg) {\n-       Timer.builder(\"my.timer\")\n-               .register(registry)\n-               .record(arg);\n+       Observation.createNotStarted(\"my.timer\", registry)\n+               .observe(arg);\n    }\n","newFile":false}]}]}>
 

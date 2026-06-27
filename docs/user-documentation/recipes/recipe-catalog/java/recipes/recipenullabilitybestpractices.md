@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Recipe nullability best practices"}
-  description={"Use JSpecify nullable annotations; drop Nonnull annotations; use `NullMarked` on `package-info.java` instead."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.RecipeNullabilityBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/recipenullabilitybestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate from OpenRewrite annotations to JSpecify","href":"java/jspecify/migratefromopenrewriteannotations"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Migrate to JSpecify","href":"java/jspecify/migratetojspecify"},{"name":"Annotate methods which may return `null` with `@Nullable`","href":"staticanalysis/annotatenullablemethods"},{"name":"Move `@Nullable` method annotations to the return type","href":"staticanalysis/nullableonmethodreturntype"}]}>
+<RecipeHeader.Title>Recipe nullability best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use JSpecify nullable annotations; drop Nonnull annotations; use `NullMarked` on `package-info.java` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate from OpenRewrite annotations to JSpecify","href":"/user-documentation/recipes/recipe-catalog/java/jspecify/migratefromopenrewriteannotations/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Migrate to JSpecify","href":"/user-documentation/recipes/recipe-catalog/java/jspecify/migratetojspecify/"},{"name":"Annotate methods which may return `null` with `@Nullable`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/annotatenullablemethods/"},{"name":"Move `@Nullable` method annotations to the return type","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/nullableonmethodreturntype/"}]}>
 
 ## Definition
 

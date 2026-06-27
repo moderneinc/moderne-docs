@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update CircleCI image"}
-  description={"See the list of [pre-built CircleCI images](https://circleci.com/docs/2.0/circleci-images/)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.circleci.UpdateImage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/circleci/updateimage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Update CircleCI image</RecipeHeader.Title>
+
+<RecipeHeader.Description>See the list of [pre-built CircleCI images](https://circleci.com/docs/2.0/circleci-images/).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"image","required":true,"description":"Image to use.","example":"circleci/openjdk:jdk"}]}>
 

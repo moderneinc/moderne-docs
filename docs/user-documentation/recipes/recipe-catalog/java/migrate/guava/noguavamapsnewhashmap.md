@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `new HashMap<>()`"}
-  description={"Prefer the Java standard library over third-party usage of Guava in simple cases like this."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaMapsNewHashMap"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavamapsnewhashmap.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `new HashMap<>()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Java standard library over third-party usage of Guava in simple cases like this.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = Maps.newHashMap();\n}\n","after":"import java.util.HashMap;\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = new HashMap<>();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import com.google.common.collect.*;\n+import java.util.HashMap;\nimport java.util.Map;\n@@ -5,1 +5,1 @@\n\nclass Test {\n-   Map<Integer, Integer> cardinalsWorldSeries = Maps.newHashMap();\n+   Map<Integer, Integer> cardinalsWorldSeries = new HashMap<>();\n}\n","newFile":false}]}]}>
 

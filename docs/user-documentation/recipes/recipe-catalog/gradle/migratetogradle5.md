@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Gradle 5 from Gradle 4"}
-  description={"Migrate to version 5.x. See the Gradle upgrade guide from [version 4.x to 5.0](https://docs.gradle.org/current/userguide/upgrading_version_4.html) for more information."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.MigrateToGradle5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/migratetogradle5.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Update Gradle wrapper","href":"gradle/updategradlewrapper"}]}>
+<RecipeHeader.Title>Migrate to Gradle 5 from Gradle 4</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate to version 5.x. See the Gradle upgrade guide from [version 4.x to 5.0](https://docs.gradle.org/current/userguide/upgrading_version_4.html) for more information.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Update Gradle wrapper","href":"/user-documentation/recipes/recipe-catalog/gradle/updategradlewrapper/"}]}>
 
 ## Definition
 

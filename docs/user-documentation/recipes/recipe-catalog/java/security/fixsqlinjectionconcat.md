@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace SQL string concatenation with a `PreparedStatement`"}
-  description={"Rewrites JDBC `Statement.executeQuery`/`executeUpdate`/`execute`/`addBatch` calls whose argument is a string concatenation built from a literal SQL prefix plus simple variable operands into a `PreparedStatement` with `?` placeholders and `setX(i, ...)` bindings. Only fixes the narrow safe subset where the `Statement` is a local variable from `Connection.createStatement()` used for a single SQL execution; other cases are left for the `FindSqlInjection` recipe to surface."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-89"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.FixSqlInjectionConcat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/fixsqlinjectionconcat.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace SQL string concatenation with a `PreparedStatement`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rewrites JDBC `Statement.executeQuery`/`executeUpdate`/`execute`/`addBatch` calls whose argument is a string concatenation built from a literal SQL prefix plus simple variable operands into a `PreparedStatement` with `?` placeholders and `setX(i, ...)` bindings. Only fixes the narrow safe subset where the `Statement` is a local variable from `Connection.createStatement()` used for a single SQL execution; other cases are left for the `FindSqlInjection` recipe to surface.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.sql.*;\n\nclass A {\n    void query(Connection conn, String name) throws SQLException {\n        Statement stmt = conn.createStatement();\n        ResultSet rs = stmt.executeQuery(\"SELECT * FROM users WHERE name = '\" + name + \"'\");\n    }\n}\n","after":"import java.sql.*;\n\nclass A {\n    void query(Connection conn, String name) throws SQLException {\n        PreparedStatement stmt = conn.prepareStatement(\"SELECT * FROM users WHERE name = ?\");\n        stmt.setString(1, name);\n        ResultSet rs = stmt.executeQuery();\n    }\n}\n","diff":"@@ -5,2 +5,3 @@\nclass A {\n    void query(Connection conn, String name) throws SQLException {\n-       Statement stmt = conn.createStatement();\n-       ResultSet rs = stmt.executeQuery(\"SELECT * FROM users WHERE name = '\" + name + \"'\");\n+       PreparedStatement stmt = conn.prepareStatement(\"SELECT * FROM users WHERE name = ?\");\n+       stmt.setString(1, name);\n+       ResultSet rs = stmt.executeQuery();\n    }\n","newFile":false}]}]}>
 

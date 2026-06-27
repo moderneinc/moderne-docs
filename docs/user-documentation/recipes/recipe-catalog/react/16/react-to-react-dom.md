@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Split `React` DOM methods to `ReactDOM`"}
-  description={"Moves DOM-specific methods like `React.render()` and `React.findDOMNode()` to `ReactDOM` from the `react-dom` package."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.16.react-to-react-dom"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/16/react-to-react-dom.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Split `React` DOM methods to `ReactDOM`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Moves DOM-specific methods like `React.render()` and `React.findDOMNode()` to `ReactDOM` from the `react-dom` package.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.16.react-to-react-dom","displayName":"Split `React` DOM methods to `ReactDOM`","npmPackage":"@openrewrite/recipes-react"}}>
 

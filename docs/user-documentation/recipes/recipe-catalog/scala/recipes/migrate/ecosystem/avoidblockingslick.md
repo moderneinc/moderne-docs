@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Avoid blocking Slick database calls"}
-  description={"Finds methods that combine `Await.result` with `db.run`, indicating a blocking Slick database call. Use streaming or async patterns instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.ecosystem.AvoidBlockingSlick"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/ecosystem/avoidblockingslick.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Avoid blocking Slick database calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds methods that combine `Await.result` with `db.run`, indicating a blocking Slick database call. Use streaming or async patterns instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import scala.concurrent.Await\nimport scala.concurrent.duration._\n\nobject Repo {\n  def getUsers(db: Database): Seq[User] = {\n    val result = Await.result(db.run(users.result), 10.seconds)\n    result\n  }\n}\n","after":"import scala.concurrent.Await\nimport scala.concurrent.duration._\n\nobject Repo {\n  /*~~(Blocking Slick database call; use streaming or async patterns)~~>*/def getUsers(db: Database): Seq[User] = {\n    val result = Await.result(db.run(users.result), 10.seconds)\n    result\n  }\n}\n","diff":"@@ -5,1 +5,1 @@\n\nobject Repo {\n- def getUsers(db: Database): Seq[User] = {\n+ /*~~(Blocking Slick database call; use streaming or async patterns)~~>*/def getUsers(db: Database): Seq[User] = {\n    val result = Await.result(db.run(users.result), 10.seconds)\n","newFile":false}]}]}>
 

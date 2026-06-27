@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant explicit dependencies and versions"}
-  description={"Remove explicitly-specified dependency versions that are managed by a Gradle `platform`, `enforcedPlatform` or the `io.spring.dependency-management` plugin. Also removes redundant direct dependencies and dependency constraints that are already satisfied by transitive dependencies."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.RemoveRedundantDependencyVersions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/removeredundantdependencyversions.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove redundant explicit dependencies and versions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove explicitly-specified dependency versions that are managed by a Gradle `platform`, `enforcedPlatform` or the `io.spring.dependency-management` plugin. Also removes redundant direct dependencies and dependency constraints that are already satisfied by transitive dependencies.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupPattern","required":false,"description":"Group glob expression pattern used to match dependencies that should be managed.Group is the first part of a dependency coordinate `com.google.guava:guava:VERSION`.","example":"com.google.*"},{"type":"String","name":"artifactPattern","required":false,"description":"Artifact glob expression pattern used to match dependencies that should be managed.Artifact is the second part of a dependency coordinate `com.google.guava:guava:VERSION`.","example":"guava*"},{"type":"Comparator","name":"onlyIfManagedVersionIs","required":false,"description":"Only remove the explicit version if the managed version has the specified comparative relationship to the explicit version. For example, `gte` will only remove the explicit version if the managed version is the same or newer. Default `eq`."}]}>
 

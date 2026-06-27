@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert JPA Entity to Panache Entity"}
-  description={"Transforms standard JPA entities to extend Quarkus PanacheEntity, enabling the Active Record pattern with built-in CRUD operations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.JpaEntityToPanacheEntity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/jpaentitytopanacheentity.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert JPA Entity to Panache Entity</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms standard JPA entities to extend Quarkus PanacheEntity, enabling the Active Record pattern with built-in CRUD operations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.persistence.Entity;\nimport jakarta.persistence.Id;\nimport jakarta.persistence.GeneratedValue;\n\n@Entity\npublic class User {\n    @Id\n    @GeneratedValue\n    private Long id;\n\n    private String name;\n    private String email;\n\n    public Long getId() { return id; }\n    public void setId(Long id) { this.id = id; }\n    public String getName() { return name; }\n    public void setName(String name) { this.name = name; }\n    public String getEmail() { return email; }\n    public void setEmail(String email) { this.email = email; }\n}\n","after":"import io.quarkus.hibernate.orm.panache.PanacheEntity;\nimport jakarta.persistence.Entity;\n\n@Entity\npublic class User extends PanacheEntity {\n\n    private String name;\n    private String email;\n    public String getName() { return name; }\n    public void setName(String name) { this.name = name; }\n    public String getEmail() { return email; }\n    public void setEmail(String email) { this.email = email; }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import io.quarkus.hibernate.orm.panache.PanacheEntity;\nimport jakarta.persistence.Entity;\n@@ -2,2 +3,0 @@\nimport jakarta.persistence.Entity;\n-import jakarta.persistence.Id;\n-import jakarta.persistence.GeneratedValue;\n\n@@ -6,4 +5,1 @@\n\n@Entity\n-public class User {\n-   @Id\n-   @GeneratedValue\n-   private Long id;\n+public class User extends PanacheEntity {\n\n@@ -13,3 +9,0 @@\n    private String name;\n    private String email;\n-\n-   public Long getId() { return id; }\n-   public void setId(Long id) { this.id = id; }\n    public String getName() { return name; }\n","newFile":false}]}]}>
 

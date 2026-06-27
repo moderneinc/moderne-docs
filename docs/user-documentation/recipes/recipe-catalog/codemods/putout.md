@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Run Putout"}
-  description={"Run [Putout](https://github.com/coderaiser/putout) on your projects."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.Putout"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/putout.md"}
-/>
+>
+
+<RecipeHeader.Title>Run Putout</RecipeHeader.Title>
+
+<RecipeHeader.Description>Run [Putout](https://github.com/coderaiser/putout) on your projects.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Set","name":"rules","required":false,"description":"Names of rules to enable. If not provided, putout's default rules are used.","example":"remove-unused-variables"},{"type":"String","name":"printer","required":false,"description":"By default Putout uses its own [putout](https://github.com/coderaiser/putout?tab=readme-ov-file#printer) printer for formatting code. You can choose an alternative printer."}]}>
 

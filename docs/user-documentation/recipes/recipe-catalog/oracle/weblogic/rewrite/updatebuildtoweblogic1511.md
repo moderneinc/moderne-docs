@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update the WebLogic version to 15.1.1"}
-  description={"This recipe will update the WebLogic version to 15.1.1 for Maven build."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.UpdateBuildToWebLogic1511"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/updatebuildtoweblogic1511.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade `weblogic.version` Maven property","href":"oracle/weblogic/rewrite/upgradeweblogicmavenpropertyversion"},{"name":"Change Maven project property value","href":"maven/changepropertyvalue"},{"name":"Upgrade Maven parent project version","href":"maven/upgradeparentversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Update the WebLogic version to 15.1.1</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will update the WebLogic version to 15.1.1 for Maven build.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade `weblogic.version` Maven property","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradeweblogicmavenpropertyversion/"},{"name":"Change Maven project property value","href":"/user-documentation/recipes/recipe-catalog/maven/changepropertyvalue/"},{"name":"Upgrade Maven parent project version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradeparentversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"}]}>
 
 ## Definition
 

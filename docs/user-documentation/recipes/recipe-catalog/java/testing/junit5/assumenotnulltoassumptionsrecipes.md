@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Transform `Assume` methods to `Assumptions`"}
-  description={"Transform `Assume` methods without a direct counterpart to equivalent assumptions in `Assumptions`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.AssumeNotNullToAssumptionsRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/assumenotnulltoassumptionsrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Transform singlar `assumeNotNull(object)` to `assumeFalse(object == null)`","href":"java/testing/junit5/assumenotnulltoassumptionsrecipes$singleargrecipe"},{"name":"Transform variadic `assumeNotNull(objects...)` to a stream of `assumeFalse(object == null)`","href":"java/testing/junit5/assumenotnulltoassumptionsrecipes$varargsrecipe"}]}>
+<RecipeHeader.Title>Transform `Assume` methods to `Assumptions`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transform `Assume` methods without a direct counterpart to equivalent assumptions in `Assumptions`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Transform singlar `assumeNotNull(object)` to `assumeFalse(object == null)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/assumenotnulltoassumptionsrecipes$singleargrecipe/"},{"name":"Transform variadic `assumeNotNull(objects...)` to a stream of `assumeFalse(object == null)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/assumenotnulltoassumptionsrecipes$varargsrecipe/"}]}>
 
 ## Definition
 

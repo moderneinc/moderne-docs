@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"No primitive wrappers for #toString() or #compareTo(..)"}
-  description={"Primitive wrappers should not be instantiated only for `#toString()` or `#compareTo(..)` invocations. Allocating a wrapper object just to call a method that has a static equivalent is wasteful; the static versions avoid the unnecessary object creation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1158"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.NoPrimitiveWrappersForToStringOrCompareTo"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/noprimitivewrappersfortostringorcompareto.md"}
-/>
+>
+
+<RecipeHeader.Title>No primitive wrappers for #toString() or #compareTo(..)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Primitive wrappers should not be instantiated only for `#toString()` or `#compareTo(..)` invocations. Allocating a wrapper object just to call a method that has a static equivalent is wasteful; the static versions avoid the unnecessary object creation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class T {\n     String a = new Integer(3).toString();\n     String b = Long.valueOf(3).toString();\n     String c = Double.valueOf(3.0).toString();\n     String d = Float.valueOf(\"4\").toString();\n     String e = new Float(\"3\").toString();\n     String f = Boolean.valueOf(true).toString();\n     String G = Boolean.valueOf(\"true\").toString();\n}\n","after":"class T {\n     String a = Integer.toString(3);\n     String b = Long.toString(3);\n     String c = Double.toString(3.0);\n     String d = Float.valueOf(\"4\").toString();\n     String e = new Float(\"3\").toString();\n     String f = Boolean.toString(true);\n     String G = Boolean.valueOf(\"true\").toString();\n}\n","diff":"@@ -2,3 +2,3 @@\nclass T {\n-    String a = new Integer(3).toString();\n-    String b = Long.valueOf(3).toString();\n-    String c = Double.valueOf(3.0).toString();\n+    String a = Integer.toString(3);\n+    String b = Long.toString(3);\n+    String c = Double.toString(3.0);\n     String d = Float.valueOf(\"4\").toString();\n@@ -7,1 +7,1 @@\n     String d = Float.valueOf(\"4\").toString();\n     String e = new Float(\"3\").toString();\n-    String f = Boolean.valueOf(true).toString();\n+    String f = Boolean.toString(true);\n     String G = Boolean.valueOf(\"true\").toString();\n","newFile":false}]}]}>
 

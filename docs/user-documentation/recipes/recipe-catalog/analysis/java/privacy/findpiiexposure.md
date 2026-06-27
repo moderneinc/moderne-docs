@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find PII exposure in logs and external APIs"}
-  description={"Detects when Personally Identifiable Information (PII) is exposed through logging statements or sent to external APIs without proper sanitization. This helps prevent data leaks and ensures compliance with privacy regulations like GDPR and CCPA."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.privacy.FindPiiExposure"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/privacy/findpiiexposure.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find PII exposure in logs and external APIs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects when Personally Identifiable Information (PII) is exposed through logging statements or sent to external APIs without proper sanitization. This helps prevent data leaks and ensures compliance with privacy regulations like GDPR and CCPA.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\nclass UserService {\n    private static final Logger logger = LoggerFactory.getLogger(UserService.class);\n\n    static class User {\n        private String email;\n        private String ssn;\n        private String creditCardNumber;\n\n        public String getEmail() { return email; }\n        public String getSsn() { return ssn; }\n        public String getCreditCardNumber() { return creditCardNumber; }\n    }\n\n    void processUser(User user) {\n        logger.info(\"Processing user with email: \" + user.getEmail());\n        logger.debug(\"User SSN: {}\", user.getSsn());\n        logger.error(\"Failed to process credit card: \" + user.getCreditCardNumber());\n    }\n}\n","after":"import org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\nclass UserService {\n    private static final Logger logger = LoggerFactory.getLogger(UserService.class);\n\n    static class User {\n        private String email;\n        private String ssn;\n        private String creditCardNumber;\n\n        public String getEmail() { return email; }\n        public String getSsn() { return ssn; }\n        public String getCreditCardNumber() { return creditCardNumber; }\n    }\n\n    void processUser(User user) {\n        /*~~(PII logged)~~>*/logger.info(\"Processing user with email: \" + user.getEmail());\n        /*~~(PII logged)~~>*/logger.debug(\"User SSN: {}\", user.getSsn());\n        /*~~(PII logged)~~>*/logger.error(\"Failed to process credit card: \" + user.getCreditCardNumber());\n    }\n}\n","diff":"@@ -18,3 +18,3 @@\n\n    void processUser(User user) {\n-       logger.info(\"Processing user with email: \" + user.getEmail());\n-       logger.debug(\"User SSN: {}\", user.getSsn());\n-       logger.error(\"Failed to process credit card: \" + user.getCreditCardNumber());\n+       /*~~(PII logged)~~>*/logger.info(\"Processing user with email: \" + user.getEmail());\n+       /*~~(PII logged)~~>*/logger.debug(\"User SSN: {}\", user.getSsn());\n+       /*~~(PII logged)~~>*/logger.error(\"Failed to process credit card: \" + user.getCreditCardNumber());\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Async` methods on classes that aren't `open`"}
-  description={"Spring's `@Async` proxy is the same CGLIB subclass mechanism `@Transactional` uses; it can only intercept methods on a non-final, non-private surface. Mark the surrounding class and method `open`, or apply the `kotlin-spring` compiler plugin to do it for you."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindAsyncOnFinal$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findasynconfinal$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Async` methods on classes that aren't `open`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring's `@Async` proxy is the same CGLIB subclass mechanism `@Transactional` uses; it can only intercept methods on a non-final, non-private surface. Mark the surrounding class and method `open`, or apply the `kotlin-spring` compiler plugin to do it for you.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindAsyncOnFinal$KtRecipe","displayName":"Find `@Async` methods on classes that aren't `open`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

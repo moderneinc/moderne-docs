@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find HTTP response splitting vectors"}
-  description={"Finds calls to `HttpServletResponse.addHeader()`, `setHeader()`, and `addCookie()` which, when header values are derived from user input without CRLF sanitization, can allow HTTP response splitting attacks. Full taint-based detection requires rewrite-program-analysis; this recipe identifies the sink call sites for manual review."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security","CWE-644","CWE-113"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindHttpResponseSplitting"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findhttpresponsesplitting.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"},{"name":"Find method usages","href":"java/search/findmethods"}]}>
+<RecipeHeader.Title>Find HTTP response splitting vectors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds calls to `HttpServletResponse.addHeader()`, `setHeader()`, and `addCookie()` which, when header values are derived from user input without CRLF sanitization, can allow HTTP response splitting attacks. Full taint-based detection requires rewrite-program-analysis; this recipe identifies the sink call sites for manual review.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"},{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"}]}>
 
 ## Definition
 

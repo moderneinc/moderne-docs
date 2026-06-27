@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add a comment to a method"}
-  description={"Add a comment to a method."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/software.amazon.awssdk.v2migration.AddCommentToMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/addcommenttomethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Add a comment to a method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a comment to a method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A method pattern that is used to find matching method invocations.","example":"org.mockito.Matchers anyVararg()"},{"type":"String","name":"comment","required":true,"description":"A comment to add to this method.","example":"This method is not supported in AWS SDK for Java v2."}]}>
 

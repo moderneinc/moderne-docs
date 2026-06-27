@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJComparableRules.AssertThatIsNotEqualByComparingTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsNotEqualByComparingTo<T extends Comparable<? super T>> {\n    \n    @BeforeTemplate\n    AbstractIntegerAssert<?> before(T actual, T expected) {\n        return assertThat(actual.compareTo(expected)).isNotEqualTo(0);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractComparableAssert<?, ?> after(T actual, T expected) {\n        return assertThat(actual).isNotEqualByComparingTo(expected);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJComparableRulesRecipes$AssertThatIsNotEqualByComparingToRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatisnotequalbycomparingtorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJComparableRules.AssertThatIsNotEqualByComparingTo`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatIsNotEqualByComparingTo<T extends Comparable<? super T>> {
+    
+    @BeforeTemplate
+    AbstractIntegerAssert<?> before(T actual, T expected) {
+        return assertThat(actual.compareTo(expected)).isNotEqualTo(0);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractComparableAssert<?, ?> after(T actual, T expected) {
+        return assertThat(actual).isNotEqualByComparingTo(expected);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJComparableRulesRecipes$AssertThatIsNotEqualByComparingToRecipe","displayName":"Refaster template `AssertJComparableRules.AssertThatIsNotEqualByComparingTo`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update OpenTelemetry resource attributes"}
-  description={"The `service.group` resource attribute has been deprecated for OpenTelemetry in Spring Boot 3.5. Consider using alternative attributes or remove the deprecated attribute."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","opentelemetry","boot","observability"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.UpdateOpenTelemetryResourceAttributes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/updateopentelemetryresourceattributes.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Change the key of a Spring application property","href":"java/spring/changespringpropertykey"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Update OpenTelemetry resource attributes</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `service.group` resource attribute has been deprecated for OpenTelemetry in Spring Boot 3.5. Consider using alternative attributes or remove the deprecated attribute.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change the key of a Spring application property","href":"/user-documentation/recipes/recipe-catalog/java/spring/changespringpropertykey/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

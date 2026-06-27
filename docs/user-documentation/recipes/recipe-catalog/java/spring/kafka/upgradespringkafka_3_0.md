@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Kafka 3.0"}
-  description={"Migrate applications to the latest Spring Kafka 3.0 release."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","kafka"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.kafka.UpgradeSpringKafka_3_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_3_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Change `KafkaOperations.send*` return type to `CompletableFuture`","href":"java/spring/kafka/kafkaoperationssendreturntype"},{"name":"Use `Duration` in `KafkaTestUtils`","href":"java/spring/kafka/kafkatestutilsduration"},{"name":"Change type","href":"java/changetype"},{"name":"Remove `KafkaOperations.usingCompletableFuture()`","href":"java/spring/kafka/removeusingcompletablefuture"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Migrates Spring Kafka deprecated error handlers","href":"java/spring/kafka/upgradespringkafka_2_8_errorhandlers"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Kafka 3.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Kafka 3.0 release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Change `KafkaOperations.send*` return type to `CompletableFuture`","href":"/user-documentation/recipes/recipe-catalog/java/spring/kafka/kafkaoperationssendreturntype/"},{"name":"Use `Duration` in `KafkaTestUtils`","href":"/user-documentation/recipes/recipe-catalog/java/spring/kafka/kafkatestutilsduration/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Remove `KafkaOperations.usingCompletableFuture()`","href":"/user-documentation/recipes/recipe-catalog/java/spring/kafka/removeusingcompletablefuture/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Migrates Spring Kafka deprecated error handlers","href":"/user-documentation/recipes/recipe-catalog/java/spring/kafka/upgradespringkafka_2_8_errorhandlers/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

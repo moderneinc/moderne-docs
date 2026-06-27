@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsNotZero`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractIntegerAssertIsNotZero {\n    \n    @BeforeTemplate\n    AbstractIntegerAssert<?> before(AbstractIntegerAssert<?> intAssert) {\n        return intAssert.isNotZero();\n    }\n    \n    @AfterTemplate\n    AbstractIntegerAssert<?> after(AbstractIntegerAssert<?> intAssert) {\n        return intAssert.isNotEqualTo(0);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJIntegerRulesRecipes$AbstractIntegerAssertIsNotZeroRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjintegerrulesrecipes$abstractintegerassertisnotzerorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsNotZero`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AbstractIntegerAssertIsNotZero {
+    
+    @BeforeTemplate
+    AbstractIntegerAssert<?> before(AbstractIntegerAssert<?> intAssert) {
+        return intAssert.isNotZero();
+    }
+    
+    @AfterTemplate
+    AbstractIntegerAssert<?> after(AbstractIntegerAssert<?> intAssert) {
+        return intAssert.isNotEqualTo(0);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJIntegerRulesRecipes$AbstractIntegerAssertIsNotZeroRecipe","displayName":"Refaster template `AssertJIntegerRules.AbstractIntegerAssertIsNotZero`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

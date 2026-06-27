@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Sanitize log injection vulnerabilities"}
-  description={"Sanitizes user-controlled input before it flows into logging methods by stripping newline, carriage return, and tab characters that could enable log forging."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.security.SanitizeLogInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/security/sanitizeloginjection.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Sanitize log injection vulnerabilities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sanitizes user-controlled input before it flows into logging methods by stripping newline, carriage return, and tab characters that could enable log forging.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.http.HttpServletRequest;\nimport org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\nclass UserController {\n    private static final Logger logger = LoggerFactory.getLogger(UserController.class);\n\n    void handleRequest(HttpServletRequest request) {\n        String name = request.getParameter(\"name\");\n        logger.info(\"User logged in: \" + name);\n    }\n}\n","after":"import javax.servlet.http.HttpServletRequest;\nimport org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\n\nclass UserController {\n    private static final Logger logger = LoggerFactory.getLogger(UserController.class);\n\n    void handleRequest(HttpServletRequest request) {\n        String name = request.getParameter(\"name\");\n        logger.info(\"User logged in: \" + name.replaceAll(\"[\\n\\r\\t]\", \"_\"));\n    }\n}\n","diff":"@@ -10,1 +10,1 @@\n    void handleRequest(HttpServletRequest request) {\n        String name = request.getParameter(\"name\");\n-       logger.info(\"User logged in: \" + name);\n+       logger.info(\"User logged in: \" + name.replaceAll(\"[\\n\\r\\t]\", \"_\"));\n    }\n","newFile":false}]}]}>
 

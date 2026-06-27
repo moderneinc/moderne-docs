@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace duplicate `String` literals"}
-  description={"Replaces `String` literals with a length of 5 or greater repeated a minimum of 3 times. Qualified `String` literals include final Strings, method invocations, and new class invocations. Adds a new `private static final String` or uses an existing equivalent class field. A new variable name will be generated based on the literal value if an existing field does not exist. The generated name will append a numeric value to the variable name if a name already exists in the compilation unit. Centralizing repeated string values into constants makes refactoring safer and reduces the risk of inconsistent updates."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1192","RSPEC-S1889"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceDuplicateStringLiterals"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replaceduplicatestringliterals.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace duplicate `String` literals</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `String` literals with a length of 5 or greater repeated a minimum of 3 times. Qualified `String` literals include final Strings, method invocations, and new class invocations. Adds a new `private static final String` or uses an existing equivalent class field. A new variable name will be generated based on the literal value if an existing field does not exist. The generated name will append a numeric value to the variable name if a name already exists in the compilation unit. Centralizing repeated string values into constants makes refactoring safer and reduces the risk of inconsistent updates.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"includeTestSources","required":false,"description":"Changes only apply to main by default. `includeTestSources` will apply the recipe to `test` source files."}]}>
 

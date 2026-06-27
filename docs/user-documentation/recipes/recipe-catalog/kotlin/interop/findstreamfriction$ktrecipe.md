@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `java.util.stream.Stream` friction inside Kotlin"}
-  description={"Bundle every Stream-related search: declarations returning `Stream<T>`, `Collectors.toList()` terminals, `filter.map` chains, and `Stream.of` constructions. Each match has a Kotlin equivalent in `Sequence`/`Iterable`/`Flow` that's idiomatic at the same call site."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindStreamFriction$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findstreamfriction$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find functions returning `java.util.stream.Stream<T>`","href":"kotlin/interop/findstreamreturn$ktrecipe"},{"name":"Find `stream.collect(Collectors.toList())` calls","href":"kotlin/interop/findstreamcollectorstolist$ktrecipe"},{"name":"Find `stream.filter(...).map(...)` chains","href":"kotlin/interop/findstreamfiltermap$ktrecipe"},{"name":"Find `Stream.of(...)` calls","href":"kotlin/interop/findstreamofcall$ktrecipe"}]}>
+<RecipeHeader.Title>Find `java.util.stream.Stream` friction inside Kotlin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Bundle every Stream-related search: declarations returning `Stream<T>`, `Collectors.toList()` terminals, `filter.map` chains, and `Stream.of` constructions. Each match has a Kotlin equivalent in `Sequence`/`Iterable`/`Flow` that's idiomatic at the same call site.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find functions returning `java.util.stream.Stream<T>`","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findstreamreturn$ktrecipe/"},{"name":"Find `stream.collect(Collectors.toList())` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findstreamcollectorstolist$ktrecipe/"},{"name":"Find `stream.filter(...).map(...)` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findstreamfiltermap$ktrecipe/"},{"name":"Find `Stream.of(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findstreamofcall$ktrecipe/"}]}>
 
 ## Definition
 

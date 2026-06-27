@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Assertions#assume*(..)` and Hamcrest's `MatcherAssume#assume*(..)`"}
-  description={"Many of JUnit 4's `Assume#assume(..)` methods have no direct counterpart in JUnit 5 and require Hamcrest JUnit's `MatcherAssume`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["junit","testing","hamcrest"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.MigrateAssumptions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/migrateassumptions.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Reorder method arguments","href":"java/reordermethodarguments"},{"name":"Transform `Assume` methods to `Assumptions`","href":"java/testing/junit5/assumenotnulltoassumptionsrecipes"},{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use `Assertions#assume*(..)` and Hamcrest's `MatcherAssume#assume*(..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Many of JUnit 4's `Assume#assume(..)` methods have no direct counterpart in JUnit 5 and require Hamcrest JUnit's `MatcherAssume`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Reorder method arguments","href":"/user-documentation/recipes/recipe-catalog/java/reordermethodarguments/"},{"name":"Transform `Assume` methods to `Assumptions`","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/assumenotnulltoassumptionsrecipes/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

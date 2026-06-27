@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Optimize LINQ Where().Count()"}
-  description={"Replace `items.Where(predicate).Count()` with `items.Count(predicate)`. Passing the predicate directly to `Count` avoids an intermediate iterator."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereCount"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/optimizelinqwherecount.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Optimize LINQ Where().Count()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `items.Where(predicate).Count()` with `items.Count(predicate)`. Passing the predicate directly to `Count` avoids an intermediate iterator.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqWhereCount","displayName":"Optimize LINQ Where().Count()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

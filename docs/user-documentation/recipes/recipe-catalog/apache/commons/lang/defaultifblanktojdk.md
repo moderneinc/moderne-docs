@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace StringUtils#defaultIfBlank(String, String) with JDK equivalent"}
-  description={"Replace `StringUtils#defaultIfBlank(s, fallback)` with `s == null || s.isBlank() ? fallback : s`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","commons"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.lang.DefaultIfBlankToJdk"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/lang/defaultifblanktojdk.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace StringUtils#defaultIfBlank(String, String) with JDK equivalent</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `StringUtils#defaultIfBlank(s, fallback)` with `s == null || s.isBlank() ? fallback : s`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.commons.lang3.StringUtils;\n\nclass A {\n    String test(String input) {\n        return StringUtils.defaultIfBlank(input, \"default\");\n    }\n}\n","after":"class A {\n    String test(String input) {\n        return input == null || input.isBlank() ? \"default\" : input;\n    }\n}\n","diff":"@@ -1,2 +1,0 @@\n-import org.apache.commons.lang3.StringUtils;\n-\nclass A {\n@@ -5,1 +3,1 @@\nclass A {\n    String test(String input) {\n-       return StringUtils.defaultIfBlank(input, \"default\");\n+       return input == null || input.isBlank() ? \"default\" : input;\n    }\n","newFile":false}]}]}>
 

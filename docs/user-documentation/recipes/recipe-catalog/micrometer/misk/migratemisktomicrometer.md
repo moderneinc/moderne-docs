@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Misk metrics to Micrometer"}
-  description={"This recipe will move Misk metrics to Micrometer, where that is possible to do without a loss of fidelity."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micrometer"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.micrometer.misk.MigrateMiskToMicrometer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/micrometer/misk/migratemisktomicrometer.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Don't use an explicit empty label list","href":"micrometer/misk/noexplicitemptylabellist"},{"name":"Migrate Misk counter to Micrometer","href":"micrometer/misk/migrateemptylabelmiskcounter"}]}>
+<RecipeHeader.Title>Migrate Misk metrics to Micrometer</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will move Misk metrics to Micrometer, where that is possible to do without a loss of fidelity.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Don't use an explicit empty label list","href":"/user-documentation/recipes/recipe-catalog/micrometer/misk/noexplicitemptylabellist/"},{"name":"Migrate Misk counter to Micrometer","href":"/user-documentation/recipes/recipe-catalog/micrometer/misk/migrateemptylabelmiskcounter/"}]}>
 
 ## Definition
 

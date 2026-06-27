@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find SQL in code and resource files"}
-  description={"Find SQL in code (e.g. in string literals) and in resources like those ending with `.sql`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.sql.FindSql"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/sql/findsql.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find SQL in code and resource files</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find SQL in code (e.g. in string literals) and in resources like those ending with `.sql`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test() {\n        String sql = \"select * from table where id = 1\";\n    }\n}\n","after":"class Test {\n    void test() {\n        String sql = /*~~>*/\"select * from table where id = 1\";\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    void test() {\n-       String sql = \"select * from table where id = 1\";\n+       String sql = /*~~>*/\"select * from table where id = 1\";\n    }\n","newFile":false}]}]}>
 

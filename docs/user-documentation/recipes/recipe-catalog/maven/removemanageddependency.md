@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Maven managed dependency"}
-  description={"Removes a single managed dependency from the <dependencyManagement><dependencies> section of the pom.xml."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.RemoveManagedDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/removemanageddependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove Maven managed dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes a single managed dependency from the &lt;dependencyManagement>&lt;dependencies> section of the pom.xml.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a managed dependency coordinate `com.google.guava:guava:VERSION`.","example":"com.google.guava"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a managed dependency coordinate `com.google.guava:guava:VERSION`.","example":"guava"},{"type":"String","name":"scope","required":false,"description":"Only remove managed dependencies if they are in this scope. If `runtime`, this will also remove managed dependencies in the 'compile' scope because `compile` dependencies are part of the runtime dependency set.","example":"compile"}]}>
 

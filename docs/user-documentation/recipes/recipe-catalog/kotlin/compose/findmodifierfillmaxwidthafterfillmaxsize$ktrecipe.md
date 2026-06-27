@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Modifier.fillMaxSize().fillMaxWidth()` chains"}
-  description={"`fillMaxSize()` already constrains both width and height — appending `fillMaxWidth()` is redundant and signals the author wasn't sure which size operator they wanted. Drop the second call or swap to the single operator that captures the intent."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindModifierFillMaxWidthAfterFillMaxSize$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findmodifierfillmaxwidthafterfillmaxsize$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Modifier.fillMaxSize().fillMaxWidth()` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>`fillMaxSize()` already constrains both width and height — appending `fillMaxWidth()` is redundant and signals the author wasn't sure which size operator they wanted. Drop the second call or swap to the single operator that captures the intent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindModifierFillMaxWidthAfterFillMaxSize$KtRecipe","displayName":"Find `Modifier.fillMaxSize().fillMaxWidth()` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

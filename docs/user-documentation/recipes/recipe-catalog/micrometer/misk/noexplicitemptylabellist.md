@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Don't use an explicit empty label list"}
-  description={"`listOf()` is the default argument for the `labels` parameter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micrometer"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.micrometer.misk.NoExplicitEmptyLabelList"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/micrometer/misk/noexplicitemptylabellist.md"}
-/>
+>
+
+<RecipeHeader.Title>Don't use an explicit empty label list</RecipeHeader.Title>
+
+<RecipeHeader.Description>`listOf()` is the default argument for the `labels` parameter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import misk.metrics.v2.Metrics;\nimport static kotlin.collections.CollectionsKt.listOf;\n\nclass Test {\n  void test(Metrics metrics) {\n      metrics.counter(\"counter\", \"description\", listOf());\n      metrics.gauge(\"gauge\", \"description\", listOf());\n      metrics.peakGauge(\"peakGauge\", \"description\", listOf());\n  }\n}\n","after":"import misk.metrics.v2.Metrics;\nimport static kotlin.collections.CollectionsKt.listOf;\n\nclass Test {\n  void test(Metrics metrics) {\n      metrics.counter(\"counter\", \"description\");\n      metrics.gauge(\"gauge\", \"description\");\n      metrics.peakGauge(\"peakGauge\", \"description\");\n  }\n}\n","diff":"@@ -6,3 +6,3 @@\nclass Test {\n  void test(Metrics metrics) {\n-     metrics.counter(\"counter\", \"description\", listOf());\n-     metrics.gauge(\"gauge\", \"description\", listOf());\n-     metrics.peakGauge(\"peakGauge\", \"description\", listOf());\n+     metrics.counter(\"counter\", \"description\");\n+     metrics.gauge(\"gauge\", \"description\");\n+     metrics.peakGauge(\"peakGauge\", \"description\");\n  }\n","newFile":false}]}]}>
 

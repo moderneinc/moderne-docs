@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find classes with more than 25 methods"}
-  description={"A class with this many methods has likely accreted responsibility over time. Flag for splitting along the methods' natural seams — repository vs mapper, view-model vs presenter, etc."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindGodClasses$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findgodclasses$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find classes with more than 25 methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>A class with this many methods has likely accreted responsibility over time. Flag for splitting along the methods' natural seams — repository vs mapper, view-model vs presenter, etc.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindGodClasses$KtRecipe","displayName":"Find classes with more than 25 methods","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

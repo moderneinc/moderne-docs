@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove empty XML Tag"}
-  description={"Removes XML tags that do not have attributes or children, including self closing tags."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.RemoveEmptyXmlTags"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/removeemptyxmltags.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove empty XML Tag</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes XML tags that do not have attributes or children, including self closing tags.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>sample-app</artifactId>\n    <version>1.0-SNAPSHOT</version>\n    <pluginRepositories>\n    </pluginRepositories>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>sample-app</artifactId>\n    <version>1.0-SNAPSHOT</version>\n</project>\n","diff":"@@ -6,2 +6,0 @@\n    <artifactId>sample-app</artifactId>\n    <version>1.0-SNAPSHOT</version>\n-   <pluginRepositories>\n-   </pluginRepositories>\n</project>\n","newFile":false}]}]}>
 

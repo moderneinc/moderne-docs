@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `@Input()` to signal-based `input()`"}
-  description={"Converts `@Input()` decorated properties in Angular classes to signal-based `input()` declarations. For example, `@Input() name: string` becomes `name = input<string>()`, and `@Input({ required: true }) name!: string` becomes `name = input.required<string>()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.migrate-input-to-signal"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/migrate-input-to-signal.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `@Input()` to signal-based `input()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `@Input()` decorated properties in Angular classes to signal-based `input()` declarations. For example, `@Input() name: string` becomes `name = input<string>()`, and `@Input({ required: true }) name!: string` becomes `name = input.required<string>()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.migrate-input-to-signal","displayName":"Migrate `@Input()` to signal-based `input()`","npmPackage":"@openrewrite/recipes-angular"}}>
 

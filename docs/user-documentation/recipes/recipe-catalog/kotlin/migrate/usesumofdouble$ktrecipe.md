@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `sumOf` instead of `sumByDouble`"}
-  description={"`Iterable.sumByDouble { … }` was deprecated in Kotlin 1.5 in favor of the type-inferred `sumOf { … }`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseSumOfDouble$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usesumofdouble$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `sumOf` instead of `sumByDouble`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Iterable.sumByDouble { … }` was deprecated in Kotlin 1.5 in favor of the type-inferred `sumOf { … }`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseSumOfDouble$KtRecipe","displayName":"Use `sumOf` instead of `sumByDouble`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

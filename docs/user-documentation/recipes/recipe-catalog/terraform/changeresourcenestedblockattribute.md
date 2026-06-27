@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change a single attribute inside a Terraform resource's nested block"}
-  description={"Change the value of an attribute inside a specific instance of a nested block on a Terraform resource (e.g. set `value = \"0\"` on the `parameter { name = \"local_infile\" }` block of an `aws_db_parameter_group`). Use `keyMatchers` to identify a single instance among repeatable blocks."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.ChangeResourceNestedBlockAttribute"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/changeresourcenestedblockattribute.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Change a single attribute inside a Terraform resource's nested block</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the value of an attribute inside a specific instance of a nested block on a Terraform resource (e.g. set `value = "0"` on the `parameter { name = "local_infile" }` block of an `aws_db_parameter_group`). Use `keyMatchers` to identify a single instance among repeatable blocks.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"resourceType","required":true,"description":"A Terraform resource type, without the quotes.","example":"aws_db_parameter_group"},{"type":"String","name":"resourceNamePattern","required":false,"description":"A regular expression matched against the resource's local name (the second label). If omitted, all resources of `resourceType` are considered.","example":"rds_.*"},{"type":"List","name":"resourceAttrMatchers","required":false,"description":"A list of `attr=valueRegex` entries. The resource is considered a match only if every entry matches an attribute on the resource (AND semantics).","example":"family=mysql.*|mariadb.*"},{"type":"String","name":"blockType","required":true,"description":"The type of nested block to update (e.g. `parameter`, `tag`, `setting`).","example":"parameter"},{"type":"List","name":"keyMatchers","required":false,"description":"A list of `attr=valueRegex` entries identifying the specific nested block instance to update. If omitted, every block of the given `blockType` is updated.","example":"name=local_infile"},{"type":"String","name":"attributeName","required":true,"description":"The attribute inside the nested block whose value should change.","example":"value"},{"type":"String","name":"newValue","required":true,"description":"The new value to set. For quoted string attributes, provide the value without quotes.","example":"0"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `kotlinOptions` with `compilerOptions` in Gradle build files"}
-  description={"Migrate the deprecated `kotlinOptions` DSL block to `compilerOptions` in Gradle build files (Groovy and Kotlin DSL). Renames the block and, in the Kotlin DSL, modernizes the assignments inside it to the Provider-style setters (`jvmTarget.set(JvmTarget.JVM_X)`, `freeCompilerArgs.addAll(...)`) so the result compiles against the `compilerOptions` DSL. The `kotlinOptions` DSL was deprecated in Kotlin 2.0 and removed in Kotlin 2.2."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={["gradle","kotlin"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.ReplaceKotlinOptionsWithCompilerOptions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacekotlinoptionswithcompileroptions.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Rename the `kotlinOptions` block to `compilerOptions`","href":"kotlin/migrate/renamekotlinoptionstocompileroptions"},{"name":"Use the `jvmTarget` provider syntax in Kotlin `compilerOptions`","href":"kotlin/migrate/usejvmtargetprovidersyntax"},{"name":"Use `freeCompilerArgs.addAll(...)` in Kotlin `compilerOptions`","href":"kotlin/migrate/usefreecompilerargsaddall"}]}>
+<RecipeHeader.Title>Replace `kotlinOptions` with `compilerOptions` in Gradle build files</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate the deprecated `kotlinOptions` DSL block to `compilerOptions` in Gradle build files (Groovy and Kotlin DSL). Renames the block and, in the Kotlin DSL, modernizes the assignments inside it to the Provider-style setters (`jvmTarget.set(JvmTarget.JVM_X)`, `freeCompilerArgs.addAll(...)`) so the result compiles against the `compilerOptions` DSL. The `kotlinOptions` DSL was deprecated in Kotlin 2.0 and removed in Kotlin 2.2.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Rename the `kotlinOptions` block to `compilerOptions`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/renamekotlinoptionstocompileroptions/"},{"name":"Use the `jvmTarget` provider syntax in Kotlin `compilerOptions`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usejvmtargetprovidersyntax/"},{"name":"Use `freeCompilerArgs.addAll(...)` in Kotlin `compilerOptions`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usefreecompilerargsaddall/"}]}>
 
 ## Definition
 

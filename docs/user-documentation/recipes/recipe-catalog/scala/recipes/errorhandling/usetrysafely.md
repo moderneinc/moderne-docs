@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Try` safely without calling `.get`"}
-  description={"Finds calls to `.get` on `scala.util.Try` values that should use safer alternatives. Calling `.get` on a `Failure` throws the contained exception; prefer `getOrElse`, `map`, or pattern matching."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.errorhandling.UseTrySafely"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/errorhandling/usetrysafely.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Try` safely without calling `.get`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds calls to `.get` on `scala.util.Try` values that should use safer alternatives. Calling `.get` on a `Failure` throws the contained exception; prefer `getOrElse`, `map`, or pattern matching.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import scala.util.Try\nclass Example {\n    val result: Try[Int] = Try(42)\n    val value = result.get\n}\n","after":"import scala.util.Try\nclass Example {\n    val result: Try[Int] = Try(42)\n    val value = /*~~(Calling .get on Try can throw; use getOrElse, map, or pattern match)~~>*/result.get\n}\n","diff":"@@ -4,1 +4,1 @@\nclass Example {\n    val result: Try[Int] = Try(42)\n-   val value = result.get\n+   val value = /*~~(Calling .get on Try can throw; use getOrElse, map, or pattern match)~~>*/result.get\n}\n","newFile":false}]}]}>
 

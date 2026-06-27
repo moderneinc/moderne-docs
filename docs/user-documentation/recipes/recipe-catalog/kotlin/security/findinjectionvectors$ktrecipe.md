@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find injection vectors"}
-  description={"SQL string concatenation into `Statement`/`PreparedStatement`, command injection via `Runtime.exec` and `ProcessBuilder`, path traversal via `File` concatenation, unsafe reflection via `Class.forName(input)`, and dynamic-script evaluation via `ScriptEngine`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindInjectionVectors$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findinjectionvectors$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Statement.executeQuery(\"... \" + x)` calls","href":"kotlin/security/findsqlexecutequerywithconcat$ktrecipe"},{"name":"Find `Statement.execute(\"... \" + x)` / `executeUpdate` calls","href":"kotlin/security/findsqlexecutewithconcat$ktrecipe"},{"name":"Find `prepareStatement(\"... \" + x)` calls","href":"kotlin/security/findpreparestatementwithconcat$ktrecipe"},{"name":"Find `Runtime.getRuntime().exec(...)` calls with non-literal arguments","href":"kotlin/security/findruntimeexecwithnonliteral$ktrecipe"},{"name":"Find `ProcessBuilder(varargs)` constructions whose first arg is non-literal","href":"kotlin/security/findprocessbuilderwithnonliteral$ktrecipe"},{"name":"Find `File(\"...\" + input)` constructions","href":"kotlin/security/findfilepathconcat$ktrecipe"},{"name":"Find `Class.forName(...)` calls with non-literal arguments","href":"kotlin/security/findclassfornamewithnonliteral$ktrecipe"},{"name":"Find `ScriptEngine.eval(...)` calls","href":"kotlin/security/findscriptengineeval$ktrecipe"},{"name":"Find `ScriptEngineManager.getEngineByName(...)` calls","href":"kotlin/security/findscriptenginemanager$ktrecipe"},{"name":"Find `InitialContext.lookup(input)` calls with non-literal arguments","href":"kotlin/security/findjndilookupwithnonliteral$ktrecipe"},{"name":"Find `Paths.get(\"...\" + input)` calls","href":"kotlin/security/findpathsgetwithconcat$ktrecipe"},{"name":"Find `HttpServletResponse.sendRedirect(input)` calls with non-literal arguments","href":"kotlin/security/findresponsesendredirectwithnonliteral$ktrecipe"}]}>
+<RecipeHeader.Title>Find injection vectors</RecipeHeader.Title>
+
+<RecipeHeader.Description>SQL string concatenation into `Statement`/`PreparedStatement`, command injection via `Runtime.exec` and `ProcessBuilder`, path traversal via `File` concatenation, unsafe reflection via `Class.forName(input)`, and dynamic-script evaluation via `ScriptEngine`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Statement.executeQuery(\"... \" + x)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findsqlexecutequerywithconcat$ktrecipe/"},{"name":"Find `Statement.execute(\"... \" + x)` / `executeUpdate` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findsqlexecutewithconcat$ktrecipe/"},{"name":"Find `prepareStatement(\"... \" + x)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findpreparestatementwithconcat$ktrecipe/"},{"name":"Find `Runtime.getRuntime().exec(...)` calls with non-literal arguments","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findruntimeexecwithnonliteral$ktrecipe/"},{"name":"Find `ProcessBuilder(varargs)` constructions whose first arg is non-literal","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findprocessbuilderwithnonliteral$ktrecipe/"},{"name":"Find `File(\"...\" + input)` constructions","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findfilepathconcat$ktrecipe/"},{"name":"Find `Class.forName(...)` calls with non-literal arguments","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findclassfornamewithnonliteral$ktrecipe/"},{"name":"Find `ScriptEngine.eval(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findscriptengineeval$ktrecipe/"},{"name":"Find `ScriptEngineManager.getEngineByName(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findscriptenginemanager$ktrecipe/"},{"name":"Find `InitialContext.lookup(input)` calls with non-literal arguments","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findjndilookupwithnonliteral$ktrecipe/"},{"name":"Find `Paths.get(\"...\" + input)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findpathsgetwithconcat$ktrecipe/"},{"name":"Find `HttpServletResponse.sendRedirect(input)` calls with non-literal arguments","href":"/user-documentation/recipes/recipe-catalog/kotlin/security/findresponsesendredirectwithnonliteral$ktrecipe/"}]}>
 
 ## Definition
 

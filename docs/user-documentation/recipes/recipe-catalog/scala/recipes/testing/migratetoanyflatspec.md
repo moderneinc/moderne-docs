@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate from `FlatSpec` to `AnyFlatSpec`"}
-  description={"Renames `FlatSpec` to `AnyFlatSpec` in extends clauses and updates the import from `org.scalatest.FlatSpec` to `org.scalatest.flatspec.AnyFlatSpec` (ScalaTest 3.x)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.testing.MigrateToAnyFlatSpec"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/testing/migratetoanyflatspec.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate from `FlatSpec` to `AnyFlatSpec`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames `FlatSpec` to `AnyFlatSpec` in extends clauses and updates the import from `org.scalatest.FlatSpec` to `org.scalatest.flatspec.AnyFlatSpec` (ScalaTest 3.x).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import org.scalatest.FlatSpec\n\nclass MyTest extends FlatSpec {\n    \"A calculator\" should \"add numbers\" in {\n        val result = 1 + 1\n    }\n}\n","after":"import org.scalatest.flatspec.AnyFlatSpec\n\nclass MyTest extends AnyFlatSpec {\n    \"A calculator\" should \"add numbers\" in {\n        val result = 1 + 1\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.scalatest.FlatSpec\n+import org.scalatest.flatspec.AnyFlatSpec\n\n@@ -3,1 +3,1 @@\nimport org.scalatest.FlatSpec\n\n-class MyTest extends FlatSpec {\n+class MyTest extends AnyFlatSpec {\n    \"A calculator\" should \"add numbers\" in {\n","newFile":false}]}]}>
 

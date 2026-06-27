@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add scope annotation to injected classes"}
-  description={"Finds member variables annotated with `@Inject' and applies `@Dependent` scope annotation to the variable's type."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.AddScopeToInjectedClass"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addscopetoinjectedclass.md"}
-/>
+>
+
+<RecipeHeader.Title>Add scope annotation to injected classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds member variables annotated with `@Inject' and applies `@Dependent` scope annotation to the variable's type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.sample;\n\nimport javax.inject.Inject;\nimport com.sample.service.Bar;\n\npublic class Foo {\n\n    @Inject\n    Bar service;\n}\n"},"variants":[{"language":"java","before":"package com.sample.service;\n\npublic class Bar {}\n","after":"package com.sample.service;\n\nimport javax.enterprise.context.Dependent;\n\n@Dependent\npublic class Bar {}\n","diff":"@@ -3,0 +3,3 @@\npackage com.sample.service;\n\n+import javax.enterprise.context.Dependent;\n+\n+@Dependent\npublic class Bar {}\n","newFile":false}]}]}>
 

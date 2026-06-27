@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find string concatenation in `log.info(...)`"}
-  description={"`log.info(\"x=\" + x)` is the Java-1.4-era logging idiom — replaced in SLF4J by `log.info(\"x={}\", x)` so the template is stable and the work is deferred."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindStringConcatInLogInfo$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinloginfo$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find string concatenation in `log.info(...)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`log.info("x=" + x)` is the Java-1.4-era logging idiom — replaced in SLF4J by `log.info("x={}", x)` so the template is stable and the work is deferred.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindStringConcatInLogInfo$KtRecipe","displayName":"Find string concatenation in `log.info(...)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

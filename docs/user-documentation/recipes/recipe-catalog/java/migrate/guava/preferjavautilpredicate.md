@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `java.util.function.Predicate`"}
-  description={"Prefer `java.util.function.Predicate` instead of using `com.google.common.base.Predicate`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["RSPEC-S4738","guava"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.PreferJavaUtilPredicate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/preferjavautilpredicate.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Change Guava's `Predicate` into `java.util.function.Predicate` where possible","href":"java/migrate/guava/noguavapredicate"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Prefer `java.util.function.Predicate`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `java.util.function.Predicate` instead of using `com.google.common.base.Predicate`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Change Guava's `Predicate` into `java.util.function.Predicate` where possible","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavapredicate/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

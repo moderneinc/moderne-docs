@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Prisma usage"}
-  description={"Identify Prisma ORM usage in Node.js applications. Detects prisma.model.findMany() and similar Prisma Client query patterns."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindPrismaUsage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findprismausage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Prisma usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify Prisma ORM usage in Node.js applications. Detects prisma.model.findMany() and similar Prisma Client query patterns.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindPrismaUsage","displayName":"Find Prisma usage","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

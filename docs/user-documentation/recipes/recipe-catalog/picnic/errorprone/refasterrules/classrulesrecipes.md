@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`ClassRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with classes.\n[Source](https://error-prone.picnic.tech/refasterrules/ClassRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ClassRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/classrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `ClassRules.ClassIsInstance`","href":"picnic/errorprone/refasterrules/classrulesrecipes$classisinstancerecipe"},{"name":"Refaster template `ClassRules.ClassReferenceIsInstancePredicate`","href":"picnic/errorprone/refasterrules/classrulesrecipes$classreferenceisinstancepredicaterecipe"},{"name":"Refaster template `ClassRules.ClassReferenceCast`","href":"picnic/errorprone/refasterrules/classrulesrecipes$classreferencecastrecipe"}]}>
+<RecipeHeader.Title>`ClassRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with classes. [Source](https://error-prone.picnic.tech/refasterrules/ClassRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `ClassRules.ClassIsInstance`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/classrulesrecipes$classisinstancerecipe/"},{"name":"Refaster template `ClassRules.ClassReferenceIsInstancePredicate`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/classrulesrecipes$classreferenceisinstancepredicaterecipe/"},{"name":"Refaster template `ClassRules.ClassReferenceCast`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/classrulesrecipes$classreferencecastrecipe/"}]}>
 
 ## Definition
 

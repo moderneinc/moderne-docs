@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `React.FC` type annotation"}
-  description={"Removes `React.FC` and `FC` type annotations from functional components, moving the props type to the function parameter instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.remove-react-fc"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/remove-react-fc.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `React.FC` type annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `React.FC` and `FC` type annotations from functional components, moving the props type to the function parameter instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.19.remove-react-fc","displayName":"Remove `React.FC` type annotation","npmPackage":"@openrewrite/recipes-react"}}>
 

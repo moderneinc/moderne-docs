@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find empty `init { }` blocks"}
-  description={"An empty `init {}` block is a no-op. Remove it — every empty initializer is a place a future reader pauses before noticing it does nothing."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindEmptyInitBlock$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findemptyinitblock$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find empty `init { }` blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>An empty `init {}` block is a no-op. Remove it — every empty initializer is a place a future reader pauses before noticing it does nothing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindEmptyInitBlock$KtRecipe","displayName":"Find empty `init { }` blocks","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

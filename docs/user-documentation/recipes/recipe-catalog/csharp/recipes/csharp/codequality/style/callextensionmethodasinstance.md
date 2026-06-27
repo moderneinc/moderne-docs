@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Call extension method as instance method"}
-  description={"Use instance method syntax instead of static extension method call."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.CallExtensionMethodAsInstance"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/callextensionmethodasinstance.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Call extension method as instance method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use instance method syntax instead of static extension method call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.CallExtensionMethodAsInstance","displayName":"Call extension method as instance method","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

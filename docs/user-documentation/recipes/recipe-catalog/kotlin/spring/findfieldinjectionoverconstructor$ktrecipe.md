@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Autowired val` field declarations (not in ctor)"}
-  description={"A `@Autowired private val x: X` written as a class-body declaration (not a primary-constructor parameter) is functionally close to constructor injection but hides the dependency from the public constructor signature. Pull the parameter up into the primary constructor so callers and tests see the contract."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindFieldInjectionOverConstructor$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findfieldinjectionoverconstructor$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Autowired val` field declarations (not in ctor)</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `@Autowired private val x: X` written as a class-body declaration (not a primary-constructor parameter) is functionally close to constructor injection but hides the dependency from the public constructor signature. Pull the parameter up into the primary constructor so callers and tests see the contract.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindFieldInjectionOverConstructor$KtRecipe","displayName":"Find `@Autowired val` field declarations (not in ctor)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

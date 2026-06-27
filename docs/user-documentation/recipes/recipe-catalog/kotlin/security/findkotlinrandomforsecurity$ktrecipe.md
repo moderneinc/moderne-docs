@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `kotlin.random.Random.Default` references"}
-  description={"`kotlin.random.Random.Default` delegates to a platform default RNG that on JVM is `ThreadLocalRandom` — not cryptographically secure. For tokens, session IDs, salts, etc. use `java.security.SecureRandom`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindKotlinRandomForSecurity$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findkotlinrandomforsecurity$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `kotlin.random.Random.Default` references</RecipeHeader.Title>
+
+<RecipeHeader.Description>`kotlin.random.Random.Default` delegates to a platform default RNG that on JVM is `ThreadLocalRandom` — not cryptographically secure. For tokens, session IDs, salts, etc. use `java.security.SecureRandom`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindKotlinRandomForSecurity$KtRecipe","displayName":"Find `kotlin.random.Random.Default` references","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

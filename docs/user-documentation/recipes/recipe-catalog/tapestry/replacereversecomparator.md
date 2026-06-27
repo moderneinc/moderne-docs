@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `ReverseComparator` with `Collections.reverseOrder()`"}
-  description={"Replaces tapestry-contrib's `ReverseComparator` with the standard Java `Collections.reverseOrder()` method."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.tapestry.ReplaceReverseComparator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/tapestry/replacereversecomparator.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `ReverseComparator` with `Collections.reverseOrder()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces tapestry-contrib's `ReverseComparator` with the standard Java `Collections.reverseOrder()` method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Collections;\nimport java.util.List;\nimport java.util.ArrayList;\nimport org.apache.tapestry.contrib.table.model.common.ReverseComparator;\n\npublic class MyClass {\n    public void sortReverse(List<String> items) {\n        Collections.sort(items, new ReverseComparator<>(new NameComparator()));\n    }\n}\n","after":"import java.util.Collections;\nimport java.util.List;\nimport java.util.ArrayList;\n\npublic class MyClass {\n    public void sortReverse(List<String> items) {\n        Collections.sort(items, Collections.reverseOrder(new NameComparator()));\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\nimport java.util.List;\nimport java.util.ArrayList;\n-import org.apache.tapestry.contrib.table.model.common.ReverseComparator;\n\n@@ -8,1 +7,1 @@\npublic class MyClass {\n    public void sortReverse(List<String> items) {\n-       Collections.sort(items, new ReverseComparator<>(new NameComparator()));\n+       Collections.sort(items, Collections.reverseOrder(new NameComparator()));\n    }\n","newFile":false}]}]}>
 

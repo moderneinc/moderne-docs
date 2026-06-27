@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Gradle `dependencies` blocks"}
-  description={"Find the dependency handler containing any number of dependency definitions."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.search.FindDependencyHandler"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/search/finddependencyhandler.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Gradle `dependencies` blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find the dependency handler containing any number of dependency definitions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins {\n    id 'java-library'\n}\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    api 'com.google.guava:guava:23.0'\n}\n","after":"plugins {\n    id 'java-library'\n}\n\nrepositories {\n    mavenCentral()\n}\n\n/*~~>*/dependencies {\n    api 'com.google.guava:guava:23.0'\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -9,1 +9,1 @@\n}\n\n-dependencies {\n+/*~~>*/dependencies {\n    api 'com.google.guava:guava:23.0'\n","newFile":false}]}]}>
 

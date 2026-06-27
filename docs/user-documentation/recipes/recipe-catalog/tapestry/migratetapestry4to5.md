@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Tapestry 4 to Tapestry 5"}
-  description={"Migrates Apache Tapestry 4 applications to Tapestry 5. This includes package renames, removing base class inheritance, converting listener interfaces to annotations, and updating dependencies."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["tapestry","migration"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.tapestry.MigrateTapestry4To5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/tapestry/migratetapestry4to5.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove Tapestry 4 base classes","href":"tapestry/removetapestrybaseclasses"},{"name":"Convert Tapestry 4 listener interfaces to Tapestry 5 annotations","href":"tapestry/convertlistenerinterfaces"},{"name":"Remove `IRequestCycle` parameters","href":"tapestry/removeirequestcycleparameter"},{"name":"Convert annotated abstract method to field","href":"tapestry/convertannotatedmethodtofield"},{"name":"Convert annotated abstract method to field","href":"tapestry/convertannotatedmethodtofield"},{"name":"Convert Tapestry 4 `@Bean` to `@Property`","href":"tapestry/convertbeanannotation"},{"name":"Convert annotated abstract method to field","href":"tapestry/convertannotatedmethodtofield"},{"name":"Convert annotated abstract method to field","href":"tapestry/convertannotatedmethodtofield"},{"name":"Convert annotated abstract method to field","href":"tapestry/convertannotatedmethodtofield"},{"name":"Change Tapestry 4 types to Tapestry 5 equivalents","href":"tapestry/changetapestrytypes"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Change Tapestry 4 packages to Tapestry 5","href":"tapestry/changetapestrypackages"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Replace `ReverseComparator` with `Collections.reverseOrder()`","href":"tapestry/replacereversecomparator"},{"name":"Remove obsolete Tapestry form types","href":"tapestry/removeobsoleteformtypes"},{"name":"Update Tapestry dependencies","href":"tapestry/updatetapestrydependencies"}]}>
+<RecipeHeader.Title>Migrate Tapestry 4 to Tapestry 5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Apache Tapestry 4 applications to Tapestry 5. This includes package renames, removing base class inheritance, converting listener interfaces to annotations, and updating dependencies.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove Tapestry 4 base classes","href":"/user-documentation/recipes/recipe-catalog/tapestry/removetapestrybaseclasses/"},{"name":"Convert Tapestry 4 listener interfaces to Tapestry 5 annotations","href":"/user-documentation/recipes/recipe-catalog/tapestry/convertlistenerinterfaces/"},{"name":"Remove `IRequestCycle` parameters","href":"/user-documentation/recipes/recipe-catalog/tapestry/removeirequestcycleparameter/"},{"name":"Convert annotated abstract method to field","href":"/user-documentation/recipes/recipe-catalog/tapestry/convertannotatedmethodtofield/"},{"name":"Convert annotated abstract method to field","href":"/user-documentation/recipes/recipe-catalog/tapestry/convertannotatedmethodtofield/"},{"name":"Convert Tapestry 4 `@Bean` to `@Property`","href":"/user-documentation/recipes/recipe-catalog/tapestry/convertbeanannotation/"},{"name":"Convert annotated abstract method to field","href":"/user-documentation/recipes/recipe-catalog/tapestry/convertannotatedmethodtofield/"},{"name":"Convert annotated abstract method to field","href":"/user-documentation/recipes/recipe-catalog/tapestry/convertannotatedmethodtofield/"},{"name":"Convert annotated abstract method to field","href":"/user-documentation/recipes/recipe-catalog/tapestry/convertannotatedmethodtofield/"},{"name":"Change Tapestry 4 types to Tapestry 5 equivalents","href":"/user-documentation/recipes/recipe-catalog/tapestry/changetapestrytypes/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Change Tapestry 4 packages to Tapestry 5","href":"/user-documentation/recipes/recipe-catalog/tapestry/changetapestrypackages/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Replace `ReverseComparator` with `Collections.reverseOrder()`","href":"/user-documentation/recipes/recipe-catalog/tapestry/replacereversecomparator/"},{"name":"Remove obsolete Tapestry form types","href":"/user-documentation/recipes/recipe-catalog/tapestry/removeobsoleteformtypes/"},{"name":"Update Tapestry dependencies","href":"/user-documentation/recipes/recipe-catalog/tapestry/updatetapestrydependencies/"}]}>
 
 ## Definition
 

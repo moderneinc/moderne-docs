@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade `weblogic.version` Maven property"}
-  description={"Set the Maven weblogic.version property according to a node-style semver selector or to a specific version number."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.UpgradeWeblogicMavenPropertyVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/upgradeweblogicmavenpropertyversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade `weblogic.version` Maven property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Set the Maven weblogic.version property according to a node-style semver selector or to a specific version number.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"newVersion","required":true,"description":"An exact version number, or node-style semver selector used to select the version number.","example":"14.1.2-0-0"}]}>
 

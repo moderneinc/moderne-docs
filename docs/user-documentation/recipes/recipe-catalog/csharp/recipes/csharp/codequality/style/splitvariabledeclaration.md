@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Split variable declaration"}
-  description={"Split multi-variable declarations into separate declarations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.SplitVariableDeclaration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/splitvariabledeclaration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Split variable declaration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Split multi-variable declarations into separate declarations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.SplitVariableDeclaration","displayName":"Split variable declaration","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ImmutableListMultimapRules.TransformMultimapValuesToImmutableListMultimap2`"}
-  description={"Prefer creating an immutable copy of the result of `Multimaps#transformValues(Multimap, com.google.common.base.Function)` over creating and directly collecting a stream."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableListMultimapRulesRecipes$TransformMultimapValuesToImmutableListMultimap2Recipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablelistmultimaprulesrecipes$transformmultimapvaluestoimmutablelistmultimap2recipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ImmutableListMultimapRules.TransformMultimapValuesToImmutableListMultimap2`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer creating an immutable copy of the result of `Multimaps#transformValues(Multimap, com.google.common.base.Function)` over creating and directly collecting a stream.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableListMultimapRulesRecipes$TransformMultimapValuesToImmutableListMultimap2Recipe","displayName":"Refaster template `ImmutableListMultimapRules.TransformMultimapValuesToImmutableListMultimap2`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

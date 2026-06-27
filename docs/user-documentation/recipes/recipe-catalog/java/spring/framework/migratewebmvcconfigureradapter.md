@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `WebMvcConfigurerAdapter` with `WebMvcConfigurer`"}
-  description={"As of 5.0 `WebMvcConfigurer` has default methods (made possible by a Java 8 baseline) and can be implemented directly without the need for this adapter."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateWebMvcConfigurerAdapter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratewebmvcconfigureradapter.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `WebMvcConfigurerAdapter` with `WebMvcConfigurer`</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of 5.0 `WebMvcConfigurer` has default methods (made possible by a Java 8 baseline) and can be implemented directly without the need for this adapter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;\n\npublic class CustomMvcConfigurer extends WebMvcConfigurerAdapter {\n    private final String someArg;\n    public CustomMvcConfigurer(String someArg) {\n        super();\n        this.someArg = someArg;\n    }\n}\n","after":"import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\npublic class CustomMvcConfigurer implements WebMvcConfigurer {\n    private final String someArg;\n    public CustomMvcConfigurer(String someArg) {\n        this.someArg = someArg;\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;\n+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@@ -3,1 +3,1 @@\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;\n\n-public class CustomMvcConfigurer extends WebMvcConfigurerAdapter {\n+public class CustomMvcConfigurer implements WebMvcConfigurer {\n    private final String someArg;\n@@ -6,1 +6,0 @@\n    private final String someArg;\n    public CustomMvcConfigurer(String someArg) {\n-       super();\n        this.someArg = someArg;\n","newFile":false}]}]}>
 

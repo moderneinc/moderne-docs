@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Maven Compiler plugin annotation processor groupId, artifactId and/or the version"}
-  description={"Change the groupId, artifactId and/or the version of a specified Maven Compiler plugin annotation processor."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus37.ChangeMavenCompilerAnnotationProcessorGroupIdAndArtifactId"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus37/changemavencompilerannotationprocessorgroupidandartifactid.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Maven Compiler plugin annotation processor groupId, artifactId and/or the version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the groupId, artifactId and/or the version of a specified Maven Compiler plugin annotation processor.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldGroupId","required":true,"description":"The old groupId to replace. The groupId is the first part of a dependency coordinate `com.google.guava:guava:VERSION`. Supports glob expressions.","example":"org.hibernate"},{"type":"String","name":"oldArtifactId","required":true,"description":"The old artifactId to replace. The artifactId is the second part of a dependency coordinate `com.google.guava:guava:VERSION`. Supports glob expressions.","example":"hibernate-jpamodelgen"},{"type":"String","name":"newGroupId","required":false,"description":"The new groupId to use. Defaults to the existing group id.","example":"org.hibernate.orm"},{"type":"String","name":"newArtifactId","required":false,"description":"The new artifactId to use. Defaults to the existing artifact id.","example":"hibernate-jpamodelgen"},{"type":"String","name":"newVersion","required":false,"description":"An exact version number or node-style semver selector used to select the version number.","example":"29.X"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'version' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select Guava 29.0-jre","example":"-jre"},{"type":"Boolean","name":"overrideManagedVersion","required":false,"description":"If the new annotation processor has a managed version, this flag can be used to explicitly set the version on the annotation processor. The default for this flag is `false`."},{"type":"Boolean","name":"enforceManagedVersion","required":false,"description":"If the new annotation processor has a managed version, this flag can be used to explicitly set the version on the annotation processor with the version of the managed dependency. The default for this flag is `false`."},{"type":"Boolean","name":"removeVersionIfManaged","required":false,"description":"If the new annotation processor has a managed version, this flag can be used to remove the version on the annotation processor. The default for this flag is `false`."}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer block style for job dependencies"}
-  description={"Convert flow-style `needs` sequences (e.g. `needs: [dep1, dep2]`) to block-style in GitHub Actions workflow jobs when a job depends on more than one other job. Block style improves readability and produces cleaner diffs in source control."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.PreferBlockStyleJobDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/preferblockstylejobdependencies.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer block style for job dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert flow-style `needs` sequences (e.g. `needs: [dep1, dep2]`) to block-style in GitHub Actions workflow jobs when a job depends on more than one other job. Block style improves readability and produces cleaner diffs in source control.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"on: push\njobs:\n  deploy:\n    needs: [build, test, lint]\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n","after":"on: push\njobs:\n  deploy:\n    needs:\n      - build\n      - test\n      - lint\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n","diff":"--- .github/workflows/ci.yml\n+++ .github/workflows/ci.yml\n@@ -4,1 +4,4 @@\njobs:\n  deploy:\n-   needs: [build, test, lint]\n+   needs:\n+     - build\n+     - test\n+     - lint\n    runs-on: ubuntu-latest\n","newFile":false}]}]}>
 

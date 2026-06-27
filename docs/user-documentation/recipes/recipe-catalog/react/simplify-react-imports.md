@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify `React.xxx` to direct imports"}
-  description={"Converts `React.useState`, `React.useEffect`, and other React namespace accesses to direct named imports."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.simplify-react-imports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/simplify-react-imports.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify `React.xxx` to direct imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `React.useState`, `React.useEffect`, and other React namespace accesses to direct named imports.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.simplify-react-imports","displayName":"Simplify `React.xxx` to direct imports","npmPackage":"@openrewrite/recipes-react"}}>
 

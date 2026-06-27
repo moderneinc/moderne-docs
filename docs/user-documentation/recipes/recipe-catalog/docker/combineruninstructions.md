@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Combine consecutive `RUN` instructions"}
-  description={"Combines consecutive `RUN` instructions into a single instruction to reduce image layers. Only shell form `RUN` instructions without flags are combined."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.CombineRunInstructions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/combineruninstructions.md"}
-/>
+>
+
+<RecipeHeader.Title>Combine consecutive `RUN` instructions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Combines consecutive `RUN` instructions into a single instruction to reduce image layers. Only shell form `RUN` instructions without flags are combined.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"separator","required":false,"description":"The separator to use between combined commands. Defaults to ' && '.","example":" && "}]}>
 

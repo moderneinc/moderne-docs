@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Reformat private field names to camelCase"}
-  description={"Reformat private field names to camelCase to comply with Java naming convention. The recipe will not rename fields with default, protected or public access modifiers. The recipe will not rename private constants. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed. If a special character is removed the next valid alphanumeric will be capitalized. The recipe will not rename a field if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank. Consistent naming conventions improve code readability and help developers quickly understand the purpose and scope of fields."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S116","RSPEC-S3008"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RenamePrivateFieldsToCamelCase"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/renameprivatefieldstocamelcase.md"}
-/>
+>
+
+<RecipeHeader.Title>Reformat private field names to camelCase</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reformat private field names to camelCase to comply with Java naming convention. The recipe will not rename fields with default, protected or public access modifiers. The recipe will not rename private constants. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed. If a special character is removed the next valid alphanumeric will be capitalized. The recipe will not rename a field if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank. Consistent naming conventions improve code readability and help developers quickly understand the purpose and scope of fields.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    private int DoChange = 10;\n    public int DoNotChangePublicMember;\n    int DoNotChangeDefaultMember;\n\n    public int getTen() {\n        return DoChange;\n    }\n\n    public int getTwenty() {\n        return this.DoChange * 2;\n    }\n\n    public int getThirty() {\n        return DoChange * 3;\n    }\n}\n","after":"class Test {\n    private int doChange = 10;\n    public int DoNotChangePublicMember;\n    int DoNotChangeDefaultMember;\n\n    public int getTen() {\n        return doChange;\n    }\n\n    public int getTwenty() {\n        return this.doChange * 2;\n    }\n\n    public int getThirty() {\n        return doChange * 3;\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Test {\n-   private int DoChange = 10;\n+   private int doChange = 10;\n    public int DoNotChangePublicMember;\n@@ -7,1 +7,1 @@\n\n    public int getTen() {\n-       return DoChange;\n+       return doChange;\n    }\n@@ -11,1 +11,1 @@\n\n    public int getTwenty() {\n-       return this.DoChange * 2;\n+       return this.doChange * 2;\n    }\n@@ -15,1 +15,1 @@\n\n    public int getThirty() {\n-       return DoChange * 3;\n+       return doChange * 3;\n    }\n","newFile":false}]}]}>
 

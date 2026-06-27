@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Flag empty for loop body"}
-  description={"Flag `for` loops with empty bodies as potential dead code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEmptyForBody"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeemptyforbody.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Flag empty for loop body</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flag `for` loops with empty bodies as potential dead code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEmptyForBody","displayName":"Flag empty for loop body","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

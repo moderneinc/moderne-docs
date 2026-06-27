@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove garbage collection invocations"}
-  description={"Removes calls to `System.gc()` and `Runtime.gc()`. When to invoke garbage collection is best left to the JVM. Manual GC calls produce unpredictable results across different JVM implementations and can cause unnecessary application pauses."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1215"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveCallsToSystemGc"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removecallstosystemgc.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove garbage collection invocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes calls to `System.gc()` and `Runtime.gc()`. When to invoke garbage collection is best left to the JVM. Manual GC calls produce unpredictable results across different JVM implementations and can cause unnecessary application pauses.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"public class A {\n    public String gc() {\n       return \"here gc stands for good call\";\n    }\n\n    public static void main(String[] args) {\n        gc();\n        System.gc();\n        if (1 > 0) {\n            System.gc();\n        }\n    }\n}\n","after":"public class A {\n    public String gc() {\n       return \"here gc stands for good call\";\n    }\n\n    public static void main(String[] args) {\n        gc();\n    }\n}\n","diff":"@@ -8,4 +8,0 @@\n    public static void main(String[] args) {\n        gc();\n-       System.gc();\n-       if (1 > 0) {\n-           System.gc();\n-       }\n    }\n","newFile":false}]}]}>
 

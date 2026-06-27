@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Maven 4 parent inference"}
-  description={"Maven 4.1.0 supports automatic parent version inference when using a relative path. This recipe simplifies parent declarations by using the shorthand `<parent/>` form when the parent is in the default location (`..`), removing the explicit `<relativePath>`, `<groupId>`, `<artifactId>`, and `<version>` elements. Maven automatically infers these values from the parent POM."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.UseParentInference"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/useparentinference.md"}
-/>
+>
+
+<RecipeHeader.Title>Use Maven 4 parent inference</RecipeHeader.Title>
+
+<RecipeHeader.Description>Maven 4.1.0 supports automatic parent version inference when using a relative path. This recipe simplifies parent declarations by using the shorthand `<parent/>` form when the parent is in the default location (`..`), removing the explicit `<relativePath>`, `<groupId>`, `<artifactId>`, and `<version>` elements. Maven automatically infers these values from the parent POM.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"xml","code":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>parent</artifactId>\n    <version>1.0.0</version>\n    <packaging>pom</packaging>\n</project>\n"},"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <parent>\n        <groupId>com.example</groupId>\n        <artifactId>parent</artifactId>\n        <version>1.0.0</version>\n        <relativePath>..</relativePath>\n    </parent>\n    <artifactId>child</artifactId>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <parent/>\n    <artifactId>child</artifactId>\n</project>\n","diff":"--- child/pom.xml\n+++ child/pom.xml\n@@ -3,6 +3,1 @@\n<project>\n    <modelVersion>4.0.0</modelVersion>\n-   <parent>\n-       <groupId>com.example</groupId>\n-       <artifactId>parent</artifactId>\n-       <version>1.0.0</version>\n-       <relativePath>..</relativePath>\n-   </parent>\n+   <parent/>\n    <artifactId>child</artifactId>\n","newFile":false}]}]}>
 

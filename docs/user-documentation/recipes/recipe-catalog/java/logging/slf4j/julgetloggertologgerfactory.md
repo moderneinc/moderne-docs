@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUL Logger creation with SLF4J LoggerFactory"}
-  description={"Replace calls to `Logger.getLogger(Some.class.getName())` and `Logger.getLogger(Some.class.getCanonicalName())` with `LoggerFactory.getLogger(Some.class)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.JulGetLoggerToLoggerFactory"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julgetloggertologgerfactory.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace JUL Logger creation with SLF4J LoggerFactory</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace calls to `Logger.getLogger(Some.class.getName())` and `Logger.getLogger(Some.class.getCanonicalName())` with `LoggerFactory.getLogger(Some.class)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.logging.slf4j.JulGetLoggerToLoggerFactory","displayName":"Replace JUL Logger creation with SLF4J LoggerFactory","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 

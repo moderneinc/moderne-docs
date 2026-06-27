@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add missing `@BeforeEach`, `@AfterEach`, `@Test` to overriding methods"}
-  description={"Adds `@BeforeEach`, `@AfterEach`, `@Test` to methods overriding superclass methods if the annotations are present on the superclass method."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.AddMissingTestBeforeAfterAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/addmissingtestbeforeafterannotations.md"}
-/>
+>
+
+<RecipeHeader.Title>Add missing `@BeforeEach`, `@AfterEach`, `@Test` to overriding methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `@BeforeEach`, `@AfterEach`, `@Test` to methods overriding superclass methods if the annotations are present on the superclass method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"import org.junit.After;\nimport org.junit.Before;\nimport org.junit.Test;\n\npublic class AbstractTest {\n    @Before\n    public void before() {\n    }\n\n    @After\n    public void after() {\n    }\n\n    @Test\n    public void test() {\n    }\n}\n"},"variants":[{"language":"java","before":"public class A extends AbstractTest {\n    public void before() {\n    }\n\n    public void after() {\n    }\n\n    public void test() {\n    }\n}\n","after":"import org.junit.jupiter.api.AfterEach;\nimport org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\n\npublic class A extends AbstractTest {\n    @BeforeEach\n    public void before() {\n    }\n\n    @AfterEach\n    public void after() {\n    }\n\n    @Test\n    public void test() {\n    }\n}\n","diff":"@@ -1,0 +1,4 @@\n+import org.junit.jupiter.api.AfterEach;\n+import org.junit.jupiter.api.BeforeEach;\n+import org.junit.jupiter.api.Test;\n+\npublic class A extends AbstractTest {\n@@ -2,0 +6,1 @@\npublic class A extends AbstractTest {\n+   @BeforeEach\n    public void before() {\n@@ -5,0 +10,1 @@\n    }\n\n+   @AfterEach\n    public void after() {\n@@ -8,0 +14,1 @@\n    }\n\n+   @Test\n    public void test() {\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert Spring HealthIndicator to Quarkus HealthCheck"}
-  description={"Transforms Spring Boot Actuator `HealthIndicator` implementations to MicroProfile Health `HealthCheck` pattern used by Quarkus."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.SpringHealthIndicatorToQuarkus"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/springhealthindicatortoquarkus.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert Spring HealthIndicator to Quarkus HealthCheck</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms Spring Boot Actuator `HealthIndicator` implementations to MicroProfile Health `HealthCheck` pattern used by Quarkus.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.actuate.health.Health;\nimport org.springframework.boot.actuate.health.HealthIndicator;\n\npublic class CustomHealthIndicator implements HealthIndicator {\n    @Override\n    public Health health() {\n        return Health.up().build();\n    }\n}\n","after":"import org.springframework.boot.actuate.health.HealthCheckResponse;\nimport org.springframework.boot.actuate.health.HealthCheck;\n\npublic class CustomHealthIndicator implements HealthCheck {\n    @Override\n    public HealthCheckResponse call() {\n        return HealthCheckResponse.up().build();\n    }\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.springframework.boot.actuate.health.Health;\n-import org.springframework.boot.actuate.health.HealthIndicator;\n+import org.springframework.boot.actuate.health.HealthCheckResponse;\n+import org.springframework.boot.actuate.health.HealthCheck;\n\n@@ -4,1 +4,1 @@\nimport org.springframework.boot.actuate.health.HealthIndicator;\n\n-public class CustomHealthIndicator implements HealthIndicator {\n+public class CustomHealthIndicator implements HealthCheck {\n    @Override\n@@ -6,2 +6,2 @@\npublic class CustomHealthIndicator implements HealthIndicator {\n    @Override\n-   public Health health() {\n-       return Health.up().build();\n+   public HealthCheckResponse call() {\n+       return HealthCheckResponse.up().build();\n    }\n","newFile":false}]}]}>
 

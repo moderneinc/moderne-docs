@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJMapRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `Map`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJMapRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJMapRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJMapRules.AssertThatMapIsEmpty`","href":"picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapisemptyrecipe"},{"name":"Refaster template `AssertJMapRules.AbstractMapAssertContainsExactlyInAnyOrderEntriesOf`","href":"picnic/errorprone/refasterrules/assertjmaprulesrecipes$abstractmapassertcontainsexactlyinanyorderentriesofrecipe"},{"name":"Refaster template `AssertJMapRules.AbstractMapAssertContainsExactlyEntriesOf`","href":"picnic/errorprone/refasterrules/assertjmaprulesrecipes$abstractmapassertcontainsexactlyentriesofrecipe"},{"name":"Refaster template `AssertJMapRules.AbstractMapAssertHasSameSizeAs`","href":"picnic/errorprone/refasterrules/assertjmaprulesrecipes$abstractmapasserthassamesizeasrecipe"},{"name":"Refaster template `AssertJMapRules.AssertThatMapContainsKey`","href":"picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapcontainskeyrecipe"},{"name":"Refaster template `AssertJMapRules.AssertThatMapDoesNotContainKey`","href":"picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapdoesnotcontainkeyrecipe"},{"name":"Refaster template `AssertJMapRules.AssertThatMapContainsOnlyKey`","href":"picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapcontainsonlykeyrecipe"},{"name":"Refaster template `AssertJMapRules.AssertThatMapContainsOnlyKeys`","href":"picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapcontainsonlykeysrecipe"},{"name":"Refaster template `AssertJMapRules.AssertThatMapContainsValue`","href":"picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapcontainsvaluerecipe"},{"name":"Refaster template `AssertJMapRules.AssertThatMapDoesNotContainValue`","href":"picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapdoesnotcontainvaluerecipe"}]}>
+<RecipeHeader.Title>`AssertJMapRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `Map`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJMapRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJMapRules.AssertThatMapIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapisemptyrecipe/"},{"name":"Refaster template `AssertJMapRules.AbstractMapAssertContainsExactlyInAnyOrderEntriesOf`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$abstractmapassertcontainsexactlyinanyorderentriesofrecipe/"},{"name":"Refaster template `AssertJMapRules.AbstractMapAssertContainsExactlyEntriesOf`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$abstractmapassertcontainsexactlyentriesofrecipe/"},{"name":"Refaster template `AssertJMapRules.AbstractMapAssertHasSameSizeAs`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$abstractmapasserthassamesizeasrecipe/"},{"name":"Refaster template `AssertJMapRules.AssertThatMapContainsKey`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapcontainskeyrecipe/"},{"name":"Refaster template `AssertJMapRules.AssertThatMapDoesNotContainKey`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapdoesnotcontainkeyrecipe/"},{"name":"Refaster template `AssertJMapRules.AssertThatMapContainsOnlyKey`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapcontainsonlykeyrecipe/"},{"name":"Refaster template `AssertJMapRules.AssertThatMapContainsOnlyKeys`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapcontainsonlykeysrecipe/"},{"name":"Refaster template `AssertJMapRules.AssertThatMapContainsValue`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapcontainsvaluerecipe/"},{"name":"Refaster template `AssertJMapRules.AssertThatMapDoesNotContainValue`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjmaprulesrecipes$assertthatmapdoesnotcontainvaluerecipe/"}]}>
 
 ## Definition
 

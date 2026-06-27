@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change GitHub Action version"}
-  description={"Change the version of a GitHub Action in any workflow."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.ChangeActionVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/changeactionversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Change GitHub Action version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the version of a GitHub Action in any workflow.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"action","required":true,"description":"Name of the action to update.","example":"actions/setup-java"},{"type":"String","name":"version","required":true,"description":"Version to use.","example":"v4"}]}>
 

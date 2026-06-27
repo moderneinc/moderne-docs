@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `JUnitToAssertJRules.AssertThatCodeWithFailMessageSupplierDoesNotThrowAnyException`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatCodeWithFailMessageSupplierDoesNotThrowAnyException {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4449\")\n    void before(Executable throwingCallable, Supplier<@Nullable String> supplier) {\n        assertDoesNotThrow(throwingCallable, supplier);\n    }\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4449\")\n    void before(ThrowingSupplier<?> throwingCallable, Supplier<@Nullable String> supplier) {\n        assertDoesNotThrow(throwingCallable, supplier);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(ThrowingCallable throwingCallable, Supplier<@Nullable String> supplier) {\n        assertThatCode(throwingCallable).withFailMessage(supplier).doesNotThrowAnyException();\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4449"]}
@@ -31,7 +29,40 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatCodeWithFailMessageSupplierDoesNotThrowAnyExceptionRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatcodewithfailmessagesupplierdoesnotthrowanyexceptionrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatCodeWithFailMessageSupplierDoesNotThrowAnyException`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatCodeWithFailMessageSupplierDoesNotThrowAnyException {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "java:S4449")
+    void before(Executable throwingCallable, Supplier<@Nullable String> supplier) {
+        assertDoesNotThrow(throwingCallable, supplier);
+    }
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "java:S4449")
+    void before(ThrowingSupplier<?> throwingCallable, Supplier<@Nullable String> supplier) {
+        assertDoesNotThrow(throwingCallable, supplier);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(ThrowingCallable throwingCallable, Supplier<@Nullable String> supplier) {
+        assertThatCode(throwingCallable).withFailMessage(supplier).doesNotThrowAnyException();
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatCodeWithFailMessageSupplierDoesNotThrowAnyExceptionRecipe","displayName":"Refaster template `JUnitToAssertJRules.AssertThatCodeWithFailMessageSupplierDoesNotThrowAnyException`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

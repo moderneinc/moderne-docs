@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Log4j 1.x to SLF4J 1.x"}
-  description={"Transforms usages of Log4j 1.x to leveraging SLF4J 1.x directly. Note, this currently does not modify `log4j.properties` files."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["slf4j","logging","log4j"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.Log4j1ToSlf4j1"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j1toslf4j1.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Migrate Log4j 1.x to Log4j 2.x","href":"java/logging/log4j/log4j1tolog4j2"},{"name":"Migrate Log4j 2.x to SLF4J 1.x","href":"java/logging/slf4j/log4j2toslf4j1"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate Log4j 1.x to SLF4J 1.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms usages of Log4j 1.x to leveraging SLF4J 1.x directly. Note, this currently does not modify `log4j.properties` files.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Migrate Log4j 1.x to Log4j 2.x","href":"/user-documentation/recipes/recipe-catalog/java/logging/log4j/log4j1tolog4j2/"},{"name":"Migrate Log4j 2.x to SLF4J 1.x","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/log4j2toslf4j1/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

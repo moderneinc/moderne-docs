@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace springfox `@ApiIgnore` on method parameters with `@Parameter(hidden = true)`"}
-  description={"Springfox's `@ApiIgnore` is commonly placed on framework-injected controller parameters (`Principal`, `HttpServletRequest`, `Pageable`, ...). A flat `ChangeType` to `io.swagger.v3.oas.annotations.Hidden` produces code that does not compile, because `@Hidden` cannot target parameters. Convert parameter usages directly to `@io.swagger.v3.oas.annotations.Parameter(hidden = true)` and leave method/class-level `@ApiIgnore` for the subsequent `ChangeType` step."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-openapi"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.openapi.swagger.MigrateApiIgnoreParameterToParameterHidden"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/openapi/swagger/migrateapiignoreparametertoparameterhidden.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace springfox `@ApiIgnore` on method parameters with `@Parameter(hidden = true)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Springfox's `@ApiIgnore` is commonly placed on framework-injected controller parameters (`Principal`, `HttpServletRequest`, `Pageable`, ...). A flat `ChangeType` to `io.swagger.v3.oas.annotations.Hidden` produces code that does not compile, because `@Hidden` cannot target parameters. Convert parameter usages directly to `@io.swagger.v3.oas.annotations.Parameter(hidden = true)` and leave method/class-level `@ApiIgnore` for the subsequent `ChangeType` step.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import springfox.documentation.annotations.ApiIgnore;\n\nimport java.security.Principal;\n\nclass Example {\n    void handler(@ApiIgnore Principal principal) {\n    }\n}\n","after":"import io.swagger.v3.oas.annotations.Parameter;\n\nimport java.security.Principal;\n\nclass Example {\n    void handler(@Parameter(hidden = true) Principal principal) {\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import springfox.documentation.annotations.ApiIgnore;\n+import io.swagger.v3.oas.annotations.Parameter;\n\n@@ -6,1 +6,1 @@\n\nclass Example {\n-   void handler(@ApiIgnore Principal principal) {\n+   void handler(@Parameter(hidden = true) Principal principal) {\n    }\n","newFile":false}]}]}>
 

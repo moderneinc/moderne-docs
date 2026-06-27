@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `getLocalizedInputStream` and `getLocalizedOutputStream` with direct assignment"}
-  description={"Replaces `Runtime.getLocalizedInputStream(InputStream)` and `Runtime.getLocalizedOutputStream(OutputStream)` with their direct arguments. This modification is made because the previous implementation of `getLocalizedInputStream` and `getLocalizedOutputStream` merely returned the arguments provided."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.ReplaceLocalizedStreamMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/replacelocalizedstreammethods.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `getLocalizedInputStream` and `getLocalizedOutputStream` with direct assignment</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `Runtime.getLocalizedInputStream(InputStream)` and `Runtime.getLocalizedOutputStream(OutputStream)` with their direct arguments. This modification is made because the previous implementation of `getLocalizedInputStream` and `getLocalizedOutputStream` merely returned the arguments provided.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"localizedInputStreamMethodMatcher","required":false,"description":"The method pattern to match and replace.","example":"java.lang.Runtime getLocalizedInputStream(java.io.InputStream)"},{"type":"String","name":"localizedOutputStreamMethodMatcher","required":false,"description":"The method pattern to match and replace.","example":"java.lang.Runtime getLocalizedOutputStream(java.io.OutputStream)"}]}>
 

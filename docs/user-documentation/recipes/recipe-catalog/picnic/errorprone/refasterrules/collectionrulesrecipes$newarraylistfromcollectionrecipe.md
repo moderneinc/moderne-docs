@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `CollectionRules.NewArrayListFromCollection`"}
-  description={"Prefer `ArrayList#ArrayList(Collection)` over the Guava alternative."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$NewArrayListFromCollectionRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/collectionrulesrecipes$newarraylistfromcollectionrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `CollectionRules.NewArrayListFromCollection`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `ArrayList#ArrayList(Collection)` over the Guava alternative.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$NewArrayListFromCollectionRecipe","displayName":"Refaster template `CollectionRules.NewArrayListFromCollection`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Insecure JMS deserialization"}
-  description={"JMS `Object` messages depend on Java Serialization for marshalling/unmarshalling of the message payload when `ObjectMessage#getObject` is called. Deserialization of untrusted data can lead to security flaws."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-502"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.marshalling.InsecureJmsDeserialization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/marshalling/insecurejmsdeserialization.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Insecure JMS deserialization</RecipeHeader.Title>
+
+<RecipeHeader.Description>JMS `Object` messages depend on Java Serialization for marshalling/unmarshalling of the message payload when `ObjectMessage#getObject` is called. Deserialization of untrusted data can lead to security flaws.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.jms.*;\nclass Test implements MessageListener {\n    public void onMessage(Message message) {\n        ObjectMessage objectMessage = (ObjectMessage) message;\n        try {\n            Object object = objectMessage.getObject();\n        } catch (JMSException e) {\n            e.printStackTrace();\n        }\n    }\n}\n","after":"import javax.jms.*;\nclass Test implements MessageListener {\n    public void onMessage(Message message) {\n        ObjectMessage objectMessage = (ObjectMessage) message;\n        try {\n            Object object = /*~~>*/objectMessage.getObject();\n        } catch (JMSException e) {\n            e.printStackTrace();\n        }\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n        ObjectMessage objectMessage = (ObjectMessage) message;\n        try {\n-           Object object = objectMessage.getObject();\n+           Object object = /*~~>*/objectMessage.getObject();\n        } catch (JMSException e) {\n","newFile":false}]}]}>
 

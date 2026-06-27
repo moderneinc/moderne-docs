@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Collapse consecutive `assertThat` statements"}
-  description={"Collapse consecutive `assertThat` statements into single `assertThat` chained statement. This recipe ignores `assertThat` statements that have method invocation as parameter."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.CollapseConsecutiveAssertThatStatements"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/collapseconsecutiveassertthatstatements.md"}
-/>
+>
+
+<RecipeHeader.Title>Collapse consecutive `assertThat` statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Collapse consecutive `assertThat` statements into single `assertThat` chained statement. This recipe ignores `assertThat` statements that have method invocation as parameter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Arrays;\nimport java.util.List;\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    void test() {\n        List<String> listA = Arrays.asList(\"a\", \"b\", \"c\");\n        assertThat(listA).isNotNull();\n        assertThat(listA).hasSize(3);\n        assertThat(listA).containsExactly(\"a\", \"b\", \"c\");\n    }\n}\n","after":"import java.util.Arrays;\nimport java.util.List;\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    void test() {\n        List<String> listA = Arrays.asList(\"a\", \"b\", \"c\");\n        assertThat(listA)\n                .isNotNull()\n                .hasSize(3)\n                .containsExactly(\"a\", \"b\", \"c\");\n    }\n}\n","diff":"@@ -8,3 +8,4 @@\n    void test() {\n        List<String> listA = Arrays.asList(\"a\", \"b\", \"c\");\n-       assertThat(listA).isNotNull();\n-       assertThat(listA).hasSize(3);\n-       assertThat(listA).containsExactly(\"a\", \"b\", \"c\");\n+       assertThat(listA)\n+               .isNotNull()\n+               .hasSize(3)\n+               .containsExactly(\"a\", \"b\", \"c\");\n    }\n","newFile":false}]}]}>
 

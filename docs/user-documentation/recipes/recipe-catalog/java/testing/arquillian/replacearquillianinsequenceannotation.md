@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Arquillian JUnit 4 `@InSequence` to JUnit Jupiter `@Order`"}
-  description={"Transforms the Arquillian JUnit 4 `@InSequence` to the JUnit Jupiter `@Order`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.arquillian.ReplaceArquillianInSequenceAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/arquillian/replacearquillianinsequenceannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Arquillian JUnit 4 `@InSequence` to JUnit Jupiter `@Order`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms the Arquillian JUnit 4 `@InSequence` to the JUnit Jupiter `@Order`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.jboss.arquillian.junit.InSequence;\n\nclass A {\n    @InSequence(2)\n    void second() {}\n\n    @InSequence(1)\n    void first() {}\n}\n","after":"import org.junit.jupiter.api.MethodOrderer;\nimport org.junit.jupiter.api.Order;\nimport org.junit.jupiter.api.TestMethodOrder;\n\n@TestMethodOrder(MethodOrderer.OrderAnnotation.class)\nclass A {\n    @Order(2)\n    void second() {}\n\n    @Order(1)\n    void first() {}\n}\n","diff":"@@ -1,1 +1,3 @@\n-import org.jboss.arquillian.junit.InSequence;\n+import org.junit.jupiter.api.MethodOrderer;\n+import org.junit.jupiter.api.Order;\n+import org.junit.jupiter.api.TestMethodOrder;\n\n@@ -3,0 +5,1 @@\nimport org.jboss.arquillian.junit.InSequence;\n\n+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)\nclass A {\n@@ -4,1 +7,1 @@\n\nclass A {\n-   @InSequence(2)\n+   @Order(2)\n    void second() {}\n@@ -7,1 +10,1 @@\n    void second() {}\n\n-   @InSequence(1)\n+   @Order(1)\n    void first() {}\n","newFile":false}]}]}>
 

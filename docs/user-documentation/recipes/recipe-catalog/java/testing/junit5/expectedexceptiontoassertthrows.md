@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit 4 `ExpectedException` To JUnit Jupiter's `assertThrows()`"}
-  description={"Replace usages of JUnit 4's `@Rule ExpectedException` with JUnit 5's `Assertions.assertThrows()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.ExpectedExceptionToAssertThrows"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/expectedexceptiontoassertthrows.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit 4 `ExpectedException` To JUnit Jupiter's `assertThrows()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace usages of JUnit 4's `@Rule ExpectedException` with JUnit 5's `Assertions.assertThrows()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Rule;\nimport org.junit.Test;\nimport org.junit.rules.ExpectedException;\n\nclass MyTest {\n\n    @Rule\n    ExpectedException thrown = ExpectedException.none();\n\n    @Test\n    public void testEmptyPath() {\n        this.thrown.expect(IllegalArgumentException.class);\n        this.thrown.expectMessage(\"Invalid location: gs://\");\n        foo();\n    }\n    void foo() {\n    }\n}\n","after":"import org.junit.Test;\n\nimport static org.hamcrest.CoreMatchers.containsString;\nimport static org.hamcrest.MatcherAssert.assertThat;\nimport static org.junit.jupiter.api.Assertions.assertThrows;\n\nclass MyTest {\n\n    @Test\n    public void testEmptyPath() {\n        Throwable exception = assertThrows(IllegalArgumentException.class, () ->\n            foo());\n        assertThat(exception.getMessage(), containsString(\"Invalid location: gs://\"));\n    }\n    void foo() {\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import org.junit.Rule;\nimport org.junit.Test;\n@@ -3,1 +2,0 @@\nimport org.junit.Rule;\nimport org.junit.Test;\n-import org.junit.rules.ExpectedException;\n\n@@ -5,0 +3,4 @@\nimport org.junit.rules.ExpectedException;\n\n+import static org.hamcrest.CoreMatchers.containsString;\n+import static org.hamcrest.MatcherAssert.assertThat;\n+import static org.junit.jupiter.api.Assertions.assertThrows;\n+\nclass MyTest {\n@@ -7,3 +9,0 @@\nclass MyTest {\n\n-   @Rule\n-   ExpectedException thrown = ExpectedException.none();\n-\n    @Test\n@@ -12,3 +11,3 @@\n    @Test\n    public void testEmptyPath() {\n-       this.thrown.expect(IllegalArgumentException.class);\n-       this.thrown.expectMessage(\"Invalid location: gs://\");\n-       foo();\n+       Throwable exception = assertThrows(IllegalArgumentException.class, () ->\n+           foo());\n+       assertThat(exception.getMessage(), containsString(\"Invalid location: gs://\"));\n    }\n","newFile":false}]}]}>
 

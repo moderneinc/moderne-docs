@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Mono.zip(...)` calls"}
-  description={"`Mono.zip` waits for all of its sources to emit, then combines them. Useful when two requests are genuinely independent, but easy to misuse — flag for review to confirm the operands are independent and that the desired error semantics match `zip`'s eager-cancellation behaviour."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindMonoZipWithoutAllOperands$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findmonozipwithoutalloperands$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Mono.zip(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Mono.zip` waits for all of its sources to emit, then combines them. Useful when two requests are genuinely independent, but easy to misuse — flag for review to confirm the operands are independent and that the desired error semantics match `zip`'s eager-cancellation behaviour.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindMonoZipWithoutAllOperands$KtRecipe","displayName":"Find `Mono.zip(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

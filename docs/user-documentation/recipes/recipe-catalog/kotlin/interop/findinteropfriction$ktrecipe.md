@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Java↔Kotlin interop friction points"}
-  description={"Search-only bundle: every interop-flavored `Find*` recipe in this module. Covers `Optional`/`Stream`/`Collections` Java factories with Kotlin replacements, `CompletableFuture`/Rx/Reactor types with coroutine replacements, missing `@Jvm*` annotations on Kotlin-defined declarations Java callers reach for, and Java-style call shapes inside Kotlin source."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindInteropFriction$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findinteropfriction$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `java.util.Optional` friction inside Kotlin","href":"kotlin/interop/findoptionalfriction$ktrecipe"},{"name":"Find `CompletableFuture` usage in Kotlin","href":"kotlin/interop/findcompletablefutureusage$ktrecipe"},{"name":"Find functions returning `CompletableFuture<T>`","href":"kotlin/interop/findcompletablefuturereturn$ktrecipe"},{"name":"Find `java.util.stream.Stream` friction inside Kotlin","href":"kotlin/interop/findstreamfriction$ktrecipe"},{"name":"Find `java.util.Collections` / `Arrays` factory usage inside Kotlin","href":"kotlin/interop/findjavautilcollectionsfriction$ktrecipe"},{"name":"Find Kotlin declarations missing `@Jvm*` interop annotations","href":"kotlin/interop/findmissingjvmannotations$ktrecipe"},{"name":"Find Java-style call shapes inside Kotlin source","href":"kotlin/interop/findjavaidiomsinkotlin$ktrecipe"},{"name":"Find non-injected clock / I/O calls (testability)","href":"kotlin/interop/findclockandtestabilityfriction$ktrecipe"},{"name":"Find reactive-framework return types in Kotlin","href":"kotlin/interop/findreactiveinteropfriction$ktrecipe"}]}>
+<RecipeHeader.Title>Find Java↔Kotlin interop friction points</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle: every interop-flavored `Find*` recipe in this module. Covers `Optional`/`Stream`/`Collections` Java factories with Kotlin replacements, `CompletableFuture`/Rx/Reactor types with coroutine replacements, missing `@Jvm*` annotations on Kotlin-defined declarations Java callers reach for, and Java-style call shapes inside Kotlin source.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `java.util.Optional` friction inside Kotlin","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findoptionalfriction$ktrecipe/"},{"name":"Find `CompletableFuture` usage in Kotlin","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findcompletablefutureusage$ktrecipe/"},{"name":"Find functions returning `CompletableFuture<T>`","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findcompletablefuturereturn$ktrecipe/"},{"name":"Find `java.util.stream.Stream` friction inside Kotlin","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findstreamfriction$ktrecipe/"},{"name":"Find `java.util.Collections` / `Arrays` factory usage inside Kotlin","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilcollectionsfriction$ktrecipe/"},{"name":"Find Kotlin declarations missing `@Jvm*` interop annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingjvmannotations$ktrecipe/"},{"name":"Find Java-style call shapes inside Kotlin source","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavaidiomsinkotlin$ktrecipe/"},{"name":"Find non-injected clock / I/O calls (testability)","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findclockandtestabilityfriction$ktrecipe/"},{"name":"Find reactive-framework return types in Kotlin","href":"/user-documentation/recipes/recipe-catalog/kotlin/interop/findreactiveinteropfriction$ktrecipe/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unnecessary interpolation"}
-  description={"Remove unnecessary string interpolation, for example simplifying `$\"{x}\"` to `x.ToString()`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UnnecessaryInterpolation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/unnecessaryinterpolation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Unnecessary interpolation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unnecessary string interpolation, for example simplifying `$"{x}"` to `x.ToString()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UnnecessaryInterpolation","displayName":"Unnecessary interpolation","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

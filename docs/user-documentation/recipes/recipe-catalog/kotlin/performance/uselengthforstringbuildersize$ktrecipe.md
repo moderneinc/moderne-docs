@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `sb.length` instead of `sb.toString().length`"}
-  description={"Calling `toString()` on a `StringBuilder` allocates a snapshot `String` just to read its length. `StringBuilder` exposes `length` directly without the copy."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseLengthForStringBuilderSize$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/uselengthforstringbuildersize$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `sb.length` instead of `sb.toString().length`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Calling `toString()` on a `StringBuilder` allocates a snapshot `String` just to read its length. `StringBuilder` exposes `length` directly without the copy.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseLengthForStringBuilderSize$KtRecipe","displayName":"Use `sb.length` instead of `sb.toString().length`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

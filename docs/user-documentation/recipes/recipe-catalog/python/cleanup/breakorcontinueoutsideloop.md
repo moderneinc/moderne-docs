@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `break`/`continue` outside loop"}
-  description={"Remove `break` and `continue` statements that are not inside any for or while loop."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.BreakOrContinueOutsideLoop"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/breakorcontinueoutsideloop.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `break`/`continue` outside loop</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `break` and `continue` statements that are not inside any for or while loop.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.BreakOrContinueOutsideLoop","displayName":"Remove `break`/`continue` outside loop","pipPackage":"openrewrite-static-analysis"}}>
 

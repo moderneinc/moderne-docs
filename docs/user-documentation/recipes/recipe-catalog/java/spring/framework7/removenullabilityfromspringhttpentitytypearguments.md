@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Kotlin nullability from Spring HTTP entity type arguments"}
-  description={"Spring Framework 7 narrowed `HttpEntity<T>` (and its subtypes `ResponseEntity` and `RequestEntity`) to `<T : Any>`. This recipe removes Kotlin's `?` nullable marker from the type argument of these types in declared parameterized types and in explicit method-invocation type arguments, so Kotlin sources continue to compile."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework7.RemoveNullabilityFromSpringHttpEntityTypeArguments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework7/removenullabilityfromspringhttpentitytypearguments.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove Kotlin nullability from Spring HTTP entity type arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Framework 7 narrowed `HttpEntity<T>` (and its subtypes `ResponseEntity` and `RequestEntity`) to `<T : Any>`. This recipe removes Kotlin's `?` nullable marker from the type argument of these types in declared parameterized types and in explicit method-invocation type arguments, so Kotlin sources continue to compile.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"import org.springframework.http.HttpStatus\nimport org.springframework.http.ResponseEntity\n\nclass CustomerDetailsDto\n\nclass Controller {\n    fun getCustomerInfo(id: Int): ResponseEntity<CustomerDetailsDto?> =\n        ResponseEntity.status(HttpStatus.NO_CONTENT).build<CustomerDetailsDto?>()\n}\n","after":"import org.springframework.http.HttpStatus\nimport org.springframework.http.ResponseEntity\n\nclass CustomerDetailsDto\n\nclass Controller {\n    fun getCustomerInfo(id: Int): ResponseEntity<CustomerDetailsDto> =\n        ResponseEntity.status(HttpStatus.NO_CONTENT).build<CustomerDetailsDto>()\n}\n","diff":"@@ -7,2 +7,2 @@\n\nclass Controller {\n-   fun getCustomerInfo(id: Int): ResponseEntity<CustomerDetailsDto?> =\n-       ResponseEntity.status(HttpStatus.NO_CONTENT).build<CustomerDetailsDto?>()\n+   fun getCustomerInfo(id: Int): ResponseEntity<CustomerDetailsDto> =\n+       ResponseEntity.status(HttpStatus.NO_CONTENT).build<CustomerDetailsDto>()\n}\n","newFile":false}]}]}>
 

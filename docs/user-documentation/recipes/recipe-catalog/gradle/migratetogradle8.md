@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Gradle 8 from Gradle 7"}
-  description={"Migrate to version 8.x. See the Gradle upgrade guide from [version 7.x to 8.0](https://docs.gradle.org/current/userguide/upgrading_version_7.html) and [version 8.x to latest](https://docs.gradle.org/current/userguide/upgrading_version_8.html) for more information."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.MigrateToGradle8"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/migratetogradle8.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Gradle 7 from Gradle 6","href":"gradle/migratetogradle7"},{"name":"Update Gradle wrapper","href":"gradle/updategradlewrapper"},{"name":"Replace Gradle 8 introduced deprecations in JaCoCo report task","href":"gradle/gradle8/jacocoreportdeprecations"},{"name":"Add JUnit Platform Launcher","href":"gradle/addjunitplatformlauncher"},{"name":"Remove an enabled Gradle preview feature","href":"gradle/removeenablefeaturepreview"},{"name":"Remove an enabled Gradle preview feature","href":"gradle/removeenablefeaturepreview"},{"name":"Remove an enabled Gradle preview feature","href":"gradle/removeenablefeaturepreview"},{"name":"Use `=` assignment syntax for well-known Gradle properties","href":"gradle/useassignmentforpropertysyntax"}]}>
+<RecipeHeader.Title>Migrate to Gradle 8 from Gradle 7</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate to version 8.x. See the Gradle upgrade guide from [version 7.x to 8.0](https://docs.gradle.org/current/userguide/upgrading_version_7.html) and [version 8.x to latest](https://docs.gradle.org/current/userguide/upgrading_version_8.html) for more information.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Gradle 7 from Gradle 6","href":"/user-documentation/recipes/recipe-catalog/gradle/migratetogradle7/"},{"name":"Update Gradle wrapper","href":"/user-documentation/recipes/recipe-catalog/gradle/updategradlewrapper/"},{"name":"Replace Gradle 8 introduced deprecations in JaCoCo report task","href":"/user-documentation/recipes/recipe-catalog/gradle/gradle8/jacocoreportdeprecations/"},{"name":"Add JUnit Platform Launcher","href":"/user-documentation/recipes/recipe-catalog/gradle/addjunitplatformlauncher/"},{"name":"Remove an enabled Gradle preview feature","href":"/user-documentation/recipes/recipe-catalog/gradle/removeenablefeaturepreview/"},{"name":"Remove an enabled Gradle preview feature","href":"/user-documentation/recipes/recipe-catalog/gradle/removeenablefeaturepreview/"},{"name":"Remove an enabled Gradle preview feature","href":"/user-documentation/recipes/recipe-catalog/gradle/removeenablefeaturepreview/"},{"name":"Use `=` assignment syntax for well-known Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/useassignmentforpropertysyntax/"}]}>
 
 ## Definition
 

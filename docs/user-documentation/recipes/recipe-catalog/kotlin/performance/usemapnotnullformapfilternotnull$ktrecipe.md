@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `mapNotNull { f }` instead of `map { f }.filterNotNull()`"}
-  description={"`mapNotNull` drops nulls in the same pass that produces them. `map { f }.filterNotNull()` materializes the full `List<R?>` first."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseMapNotNullForMapFilterNotNull$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/usemapnotnullformapfilternotnull$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `mapNotNull { f }` instead of `map { f }.filterNotNull()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`mapNotNull` drops nulls in the same pass that produces them. `map { f }.filterNotNull()` materializes the full `List<R?>` first.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseMapNotNullForMapFilterNotNull$KtRecipe","displayName":"Use `mapNotNull { f }` instead of `map { f }.filterNotNull()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

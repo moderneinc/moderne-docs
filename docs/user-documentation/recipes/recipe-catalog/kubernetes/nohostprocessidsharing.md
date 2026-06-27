@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"No host process ID sharing"}
-  description={"Sharing the host process ID namespace breaks the isolation between container images and can make processes visible to other containers in the pod. This includes all information in the /proc directory, which can sometimes include passwords or keys, passed as environment variables."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kubernetes"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.NoHostProcessIdSharing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/nohostprocessidsharing.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"kubernetes/addconfiguration"}]}>
+<RecipeHeader.Title>No host process ID sharing</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sharing the host process ID namespace breaks the isolation between container images and can make processes visible to other containers in the pod. This includes all information in the /proc directory, which can sometimes include passwords or keys, passed as environment variables.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Kubernetes configuration","href":"/user-documentation/recipes/recipe-catalog/kubernetes/addconfiguration/"}]}>
 
 ## Definition
 

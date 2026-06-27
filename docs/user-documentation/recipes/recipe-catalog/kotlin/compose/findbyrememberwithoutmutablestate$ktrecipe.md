@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `by remember { … }` delegations whose body isn't a `mutableStateOf`"}
-  description={"`by remember { … }` pairs with a `MutableState<T>` so the property delegates its read/write through the snapshot system. If the `remember { }` body returns a plain `T`, the `by` does nothing useful — and is a strong hint the author forgot to wrap the value in `mutableStateOf(...)` or `derivedStateOf { … }`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindByRememberWithoutMutableState$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findbyrememberwithoutmutablestate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `by remember { … }` delegations whose body isn't a `mutableStateOf`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`by remember { … }` pairs with a `MutableState<T>` so the property delegates its read/write through the snapshot system. If the `remember { }` body returns a plain `T`, the `by` does nothing useful — and is a strong hint the author forgot to wrap the value in `mutableStateOf(...)` or `derivedStateOf { … }`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindByRememberWithoutMutableState$KtRecipe","displayName":"Find `by remember { … }` delegations whose body isn't a `mutableStateOf`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

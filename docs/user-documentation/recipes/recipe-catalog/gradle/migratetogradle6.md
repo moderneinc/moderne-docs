@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Gradle 6 from Gradle 5"}
-  description={"Migrate to version 6.x. See the Gradle upgrade guide from [version 5.x to 6.0](https://docs.gradle.org/current/userguide/upgrading_version_5.html) for more information."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.MigrateToGradle6"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/migratetogradle6.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Gradle 5 from Gradle 4","href":"gradle/migratetogradle5"},{"name":"Update Gradle wrapper","href":"gradle/updategradlewrapper"},{"name":"Change a Gradle dependency configuration","href":"gradle/changedependencyconfiguration"},{"name":"Change a Gradle dependency configuration","href":"gradle/changedependencyconfiguration"},{"name":"Change a Gradle dependency configuration","href":"gradle/changedependencyconfiguration"},{"name":"Remove an enabled Gradle preview feature","href":"gradle/removeenablefeaturepreview"},{"name":"Remove an enabled Gradle preview feature","href":"gradle/removeenablefeaturepreview"},{"name":"Remove an enabled Gradle preview feature","href":"gradle/removeenablefeaturepreview"}]}>
+<RecipeHeader.Title>Migrate to Gradle 6 from Gradle 5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate to version 6.x. See the Gradle upgrade guide from [version 5.x to 6.0](https://docs.gradle.org/current/userguide/upgrading_version_5.html) for more information.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Gradle 5 from Gradle 4","href":"/user-documentation/recipes/recipe-catalog/gradle/migratetogradle5/"},{"name":"Update Gradle wrapper","href":"/user-documentation/recipes/recipe-catalog/gradle/updategradlewrapper/"},{"name":"Change a Gradle dependency configuration","href":"/user-documentation/recipes/recipe-catalog/gradle/changedependencyconfiguration/"},{"name":"Change a Gradle dependency configuration","href":"/user-documentation/recipes/recipe-catalog/gradle/changedependencyconfiguration/"},{"name":"Change a Gradle dependency configuration","href":"/user-documentation/recipes/recipe-catalog/gradle/changedependencyconfiguration/"},{"name":"Remove an enabled Gradle preview feature","href":"/user-documentation/recipes/recipe-catalog/gradle/removeenablefeaturepreview/"},{"name":"Remove an enabled Gradle preview feature","href":"/user-documentation/recipes/recipe-catalog/gradle/removeenablefeaturepreview/"},{"name":"Remove an enabled Gradle preview feature","href":"/user-documentation/recipes/recipe-catalog/gradle/removeenablefeaturepreview/"}]}>
 
 ## Definition
 

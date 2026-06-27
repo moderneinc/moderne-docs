@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find zone.js-dependent test helper usage"}
-  description={"Finds `fakeAsync()`, `tick()`, and `waitForAsync()` calls from `@angular/core/testing`. These zone.js-dependent test helpers are incompatible with Vitest, the default test runner in Angular 21. Migrate to native async/await patterns instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-fake-async-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-fake-async-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find zone.js-dependent test helper usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `fakeAsync()`, `tick()`, and `waitForAsync()` calls from `@angular/core/testing`. These zone.js-dependent test helpers are incompatible with Vitest, the default test runner in Angular 21. Migrate to native async/await patterns instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-fake-async-usage","displayName":"Find zone.js-dependent test helper usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use modern date/time serialization defaults"}
-  description={"Remove redundant `@JsonFormat` annotations on `java.time` types that specify ISO-8601 patterns, as Jackson 3 uses ISO-8601 as the default format (with `WRITE_DATES_AS_TIMESTAMPS` now disabled by default)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.UseModernDateTimeSerialization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/usemoderndatetimeserialization.md"}
-/>
+>
+
+<RecipeHeader.Title>Use modern date/time serialization defaults</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove redundant `@JsonFormat` annotations on `java.time` types that specify ISO-8601 patterns, as Jackson 3 uses ISO-8601 as the default format (with `WRITE_DATES_AS_TIMESTAMPS` now disabled by default).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.annotation.JsonFormat;\nimport java.time.LocalDateTime;\n\nclass Event {\n    @JsonFormat(pattern = \"yyyy-MM-dd'T'HH:mm:ss\")\n    private LocalDateTime timestamp;\n}\n","after":"import java.time.LocalDateTime;\n\nclass Event {\n    private LocalDateTime timestamp;\n}\n","diff":"@@ -1,1 +1,0 @@\n-import com.fasterxml.jackson.annotation.JsonFormat;\nimport java.time.LocalDateTime;\n@@ -5,1 +4,0 @@\n\nclass Event {\n-   @JsonFormat(pattern = \"yyyy-MM-dd'T'HH:mm:ss\")\n    private LocalDateTime timestamp;\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"DevCenter for Apache Maven"}
-  description={"A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices. This DevCenter includes recipes to upgrade the parent POMs of Apache Maven, as well as a collection of best practices for Maven POMs."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.ApacheMavenDevCenter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/apachemavendevcenter.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Parent POM upgrade","href":"devcenter/parentpomupgrade"},{"name":"Parent POM upgrade","href":"devcenter/parentpomupgrade"},{"name":"Parent POM upgrade","href":"devcenter/parentpomupgrade"},{"name":"Move to a later Java version","href":"devcenter/javaversionupgrade"},{"name":"Apache Maven best practices","href":"devcenter/apachemavenbestpractices"}]}>
+<RecipeHeader.Title>DevCenter for Apache Maven</RecipeHeader.Title>
+
+<RecipeHeader.Description>A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices. This DevCenter includes recipes to upgrade the parent POMs of Apache Maven, as well as a collection of best practices for Maven POMs.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Parent POM upgrade","href":"/user-documentation/recipes/recipe-catalog/devcenter/parentpomupgrade/"},{"name":"Parent POM upgrade","href":"/user-documentation/recipes/recipe-catalog/devcenter/parentpomupgrade/"},{"name":"Parent POM upgrade","href":"/user-documentation/recipes/recipe-catalog/devcenter/parentpomupgrade/"},{"name":"Move to a later Java version","href":"/user-documentation/recipes/recipe-catalog/devcenter/javaversionupgrade/"},{"name":"Apache Maven best practices","href":"/user-documentation/recipes/recipe-catalog/devcenter/apachemavenbestpractices/"}]}>
 
 ## Definition
 

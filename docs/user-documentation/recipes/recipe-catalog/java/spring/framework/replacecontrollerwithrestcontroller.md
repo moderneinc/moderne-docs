@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `@Controller` with `@RestController`"}
-  description={"When a class is annotated with `@Controller` and either the class itself or all of its handler methods are annotated with `@ResponseBody`, the class can use `@RestController` instead. This removes the need for individual `@ResponseBody` annotations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S6833"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.ReplaceControllerWithRestController"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/replacecontrollerwithrestcontroller.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `@Controller` with `@RestController`</RecipeHeader.Title>
+
+<RecipeHeader.Description>When a class is annotated with `@Controller` and either the class itself or all of its handler methods are annotated with `@ResponseBody`, the class can use `@RestController` instead. This removes the need for individual `@ResponseBody` annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.stereotype.Controller;\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.ResponseBody;\n\n@Controller\n@ResponseBody\npublic class MyController {\n\n    @GetMapping(\"/hello\")\n    public String hello() {\n        return \"hello\";\n    }\n}\n","after":"import org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\npublic class MyController {\n\n    @GetMapping(\"/hello\")\n    public String hello() {\n        return \"hello\";\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import org.springframework.stereotype.Controller;\nimport org.springframework.web.bind.annotation.GetMapping;\n@@ -3,1 +2,1 @@\nimport org.springframework.stereotype.Controller;\nimport org.springframework.web.bind.annotation.GetMapping;\n-import org.springframework.web.bind.annotation.ResponseBody;\n+import org.springframework.web.bind.annotation.RestController;\n\n@@ -5,2 +4,1 @@\nimport org.springframework.web.bind.annotation.ResponseBody;\n\n-@Controller\n-@ResponseBody\n+@RestController\npublic class MyController {\n","newFile":false}]}]}>
 

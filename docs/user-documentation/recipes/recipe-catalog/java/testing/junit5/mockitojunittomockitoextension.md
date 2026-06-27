@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit 4 `MockitoJUnit` to JUnit Jupiter `MockitoExtension`"}
-  description={"Replaces `MockitoJUnit` rules with `MockitoExtension`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.MockitoJUnitToMockitoExtension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/mockitojunittomockitoextension.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit 4 `MockitoJUnit` to JUnit Jupiter `MockitoExtension`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `MockitoJUnit` rules with `MockitoExtension`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.extension.ExtendWith;\nimport org.junit.Rule;\nimport org.junit.Test;\nimport org.mockito.Mock;\nimport org.mockito.junit.jupiter.MockitoExtension;\nimport org.mockito.junit.MockitoJUnit;\nimport org.mockito.junit.MockitoRule;\n\nimport java.util.List;\n\nimport static org.mockito.Mockito.when;\n\n@ExtendWith(MockitoExtension.class)\npublic class MyTest {\n\n    @Rule\n    public MockitoRule rule = MockitoJUnit.rule().silent();\n\n    @Mock\n    private List<String> mockList;\n\n    @Test\n    public void testing() {\n        when(mockList.add(\"one\")).thenReturn(true);\n    }\n}\n","after":"import org.junit.jupiter.api.extension.ExtendWith;\nimport org.junit.Test;\nimport org.mockito.Mock;\nimport org.mockito.junit.jupiter.MockitoExtension;\nimport org.mockito.junit.jupiter.MockitoSettings;\nimport org.mockito.quality.Strictness;\n\nimport java.util.List;\n\nimport static org.mockito.Mockito.when;\n\n@ExtendWith(MockitoExtension.class)\n@MockitoSettings(strictness = Strictness.LENIENT)\npublic class MyTest {\n\n    @Mock\n    private List<String> mockList;\n\n    @Test\n    public void testing() {\n        when(mockList.add(\"one\")).thenReturn(true);\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport org.junit.jupiter.api.extension.ExtendWith;\n-import org.junit.Rule;\nimport org.junit.Test;\n@@ -6,2 +5,2 @@\nimport org.mockito.Mock;\nimport org.mockito.junit.jupiter.MockitoExtension;\n-import org.mockito.junit.MockitoJUnit;\n-import org.mockito.junit.MockitoRule;\n+import org.mockito.junit.jupiter.MockitoSettings;\n+import org.mockito.quality.Strictness;\n\n@@ -14,0 +13,1 @@\n\n@ExtendWith(MockitoExtension.class)\n+@MockitoSettings(strictness = Strictness.LENIENT)\npublic class MyTest {\n@@ -16,3 +16,0 @@\npublic class MyTest {\n\n-   @Rule\n-   public MockitoRule rule = MockitoJUnit.rule().silent();\n-\n    @Mock\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose effect-handler misuse"}
-  description={"Effect calls whose shape mismatches the effect's contract: `SideEffect(key) { }` (`SideEffect` takes no keys); `LaunchedEffect { }` with no key (use `LaunchedEffect(Unit)`); `LaunchedEffect` lambdas with several distinct suspend calls that probably want splitting."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindSideEffectSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findsideeffectsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `SideEffect(key) { … }` calls","href":"kotlin/compose/findsideeffectwithkey$ktrecipe"},{"name":"Find `LaunchedEffect { … }` calls with no key argument","href":"kotlin/compose/findlaunchedeffectwithoutkey$ktrecipe"},{"name":"Find `LaunchedEffect` bodies with several distinct suspend calls","href":"kotlin/compose/findlaunchedeffectmultiplesuspendcalls$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose effect-handler misuse</RecipeHeader.Title>
+
+<RecipeHeader.Description>Effect calls whose shape mismatches the effect's contract: `SideEffect(key) { }` (`SideEffect` takes no keys); `LaunchedEffect { }` with no key (use `LaunchedEffect(Unit)`); `LaunchedEffect` lambdas with several distinct suspend calls that probably want splitting.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `SideEffect(key) { … }` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findsideeffectwithkey$ktrecipe/"},{"name":"Find `LaunchedEffect { … }` calls with no key argument","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlaunchedeffectwithoutkey$ktrecipe/"},{"name":"Find `LaunchedEffect` bodies with several distinct suspend calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlaunchedeffectmultiplesuspendcalls$ktrecipe/"}]}>
 
 ## Definition
 

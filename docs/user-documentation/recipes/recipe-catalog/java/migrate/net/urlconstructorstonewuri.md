@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `new URL(String, ..)` to `new URI(String, ..).toURL()`"}
-  description={"Converts `new URL(String, ..)` constructors to `new URI(String, ..).toURL()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.net.URLConstructorsToNewURI"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/net/urlconstructorstonewuri.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `new URL(String, ..)` to `new URI(String, ..).toURL()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `new URL(String, ..)` constructors to `new URI(String, ..).toURL()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.net.URL;\n\nclass Test {\n    void urlConstructor(String spec) throws Exception {\n        URL url1 = new URL(spec);\n        URL url2 = new URL(spec, \"localhost\", \"file\");\n        URL url3 = new URL(spec, \"localhost\", 8080, \"file\");\n    }\n}\n","after":"import java.net.URI;\nimport java.net.URL;\n\nclass Test {\n    void urlConstructor(String spec) throws Exception {\n        URL url1 = new URL(spec);\n        URL url2 = new URI(spec, null, \"localhost\", -1, \"file\", null, null).toURL();\n        URL url3 = new URI(spec, null, \"localhost\", 8080, \"file\", null, null).toURL();\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import java.net.URI;\nimport java.net.URL;\n@@ -6,2 +7,2 @@\n    void urlConstructor(String spec) throws Exception {\n        URL url1 = new URL(spec);\n-       URL url2 = new URL(spec, \"localhost\", \"file\");\n-       URL url3 = new URL(spec, \"localhost\", 8080, \"file\");\n+       URL url2 = new URI(spec, null, \"localhost\", -1, \"file\", null, null).toURL();\n+       URL url3 = new URI(spec, null, \"localhost\", 8080, \"file\", null, null).toURL();\n    }\n","newFile":false}]}]}>
 

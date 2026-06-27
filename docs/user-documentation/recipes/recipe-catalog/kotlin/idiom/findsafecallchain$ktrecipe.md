@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find long `?.` safe-call chains"}
-  description={"`a?.b?.c?.d?.e` chains beyond 3 hops indicate a domain object hierarchy with too many nullable boundaries — the chain hides which boundary is the real concern. Flatten with `let` blocks at the boundary that matters, or refactor to non-nullable intermediates."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindSafeCallChain$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findsafecallchain$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find long `?.` safe-call chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>`a?.b?.c?.d?.e` chains beyond 3 hops indicate a domain object hierarchy with too many nullable boundaries — the chain hides which boundary is the real concern. Flatten with `let` blocks at the boundary that matters, or refactor to non-nullable intermediates.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindSafeCallChain$KtRecipe","displayName":"Find long `?.` safe-call chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

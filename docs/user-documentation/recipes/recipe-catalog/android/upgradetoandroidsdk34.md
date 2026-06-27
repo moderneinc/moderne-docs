@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Android SDK 34"}
-  description={"Recipes to upgrade to Android SDK version 34."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.android.UpgradeToAndroidSDK34"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk34.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade to Android SDK 33","href":"android/upgradetoandroidsdk33"},{"name":"Migrate to Android Gradle Plugin 8.1","href":"android/migratetoandroidgradleplugin_8_1"},{"name":"Upgrade Android Gradle Plugin (AGP) version","href":"android/upgradeandroidgradlepluginversion"},{"name":"Change Android SDK version","href":"android/changeandroidsdkversion"}]}>
+<RecipeHeader.Title>Upgrade to Android SDK 34</RecipeHeader.Title>
+
+<RecipeHeader.Description>Recipes to upgrade to Android SDK version 34.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade to Android SDK 33","href":"/user-documentation/recipes/recipe-catalog/android/upgradetoandroidsdk33/"},{"name":"Migrate to Android Gradle Plugin 8.1","href":"/user-documentation/recipes/recipe-catalog/android/migratetoandroidgradleplugin_8_1/"},{"name":"Upgrade Android Gradle Plugin (AGP) version","href":"/user-documentation/recipes/recipe-catalog/android/upgradeandroidgradlepluginversion/"},{"name":"Change Android SDK version","href":"/user-documentation/recipes/recipe-catalog/android/changeandroidsdkversion/"}]}>
 
 ## Definition
 

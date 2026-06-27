@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove existential types (removed in Scala 3)"}
-  description={"Finds existential types using `forSome` syntax. Existential types were removed in Scala 3 and must be rewritten."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.RemoveExistentialTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/removeexistentialtypes.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove existential types (removed in Scala 3)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds existential types using `forSome` syntax. Existential types were removed in Scala 3 and must be rewritten.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    def process(list: List[T] forSome { type T }): Unit = ()\n}\n","after":"/*~~(Contains existential type (forSome) which was removed in Scala 3)~~>*/class Example {\n    def process(list: List[T] forSome { type T }): Unit = ()\n}\n","diff":"@@ -1,1 +1,1 @@\n-class Example {\n+/*~~(Contains existential type (forSome) which was removed in Scala 3)~~>*/class Example {\n    def process(list: List[T] forSome { type T }): Unit = ()\n","newFile":false}]}]}>
 

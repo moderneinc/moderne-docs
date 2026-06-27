@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify negated is null pattern"}
-  description={"Simplify `!(x is null)` to `x is not null` and `!(x is not null)` to `x is null`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyNegatedIsNull"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifynegatedisnull.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify negated is null pattern</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify `!(x is null)` to `x is not null` and `!(x is not null)` to `x is null`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyNegatedIsNull","displayName":"Simplify negated is null pattern","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find public `const val` declarations"}
-  description={"A public `const val` is part of the binary API surface — changing its value at the source recompiles dependents, but stale clients keep the old constant inlined. Flag for awareness when reviewing API stability."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindPublicConstants$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findpublicconstants$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find public `const val` declarations</RecipeHeader.Title>
+
+<RecipeHeader.Description>A public `const val` is part of the binary API surface — changing its value at the source recompiles dependents, but stale clients keep the old constant inlined. Flag for awareness when reviewing API stability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindPublicConstants$KtRecipe","displayName":"Find public `const val` declarations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

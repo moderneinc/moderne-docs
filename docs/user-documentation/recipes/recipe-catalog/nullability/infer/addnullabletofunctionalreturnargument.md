@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@Nullable` to a functional-interface return type argument fed a null-returning lambda"}
-  description={"When a `null`-returning lambda is passed for a functional-interface parameter (such as `Function<R, T>`) of a method that consumes the produced value in a null-tolerant way, annotate that interface's return type argument `@Nullable` (`Function<R, @Nullable T>`) so returning `null` through the callback is legal under JSpecify/NullAway. This is the correct JSpecify expression of \"the callback may return null\"; it is distinct from widening a pass-through type-parameter bound (handled separately) and a de-overlap guard keeps the two from both firing. Only parameters of recognized functional interfaces, on methods declared in the working set, are changed; already-`@Nullable` and wildcard/raw arguments are left untouched."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.infer.AddNullableToFunctionalReturnArgument"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/infer/addnullabletofunctionalreturnargument.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@Nullable` to a functional-interface return type argument fed a null-returning lambda</RecipeHeader.Title>
+
+<RecipeHeader.Description>When a `null`-returning lambda is passed for a functional-interface parameter (such as `Function<R, T>`) of a method that consumes the produced value in a null-tolerant way, annotate that interface's return type argument `@Nullable` (`Function<R, @Nullable T>`) so returning `null` through the callback is legal under JSpecify/NullAway. This is the correct JSpecify expression of "the callback may return null"; it is distinct from widening a pass-through type-parameter bound (handled separately) and a de-overlap guard keeps the two from both firing. Only parameters of recognized functional interfaces, on methods declared in the working set, are changed; already-`@Nullable` and wildcard/raw arguments are left untouched.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.nullability.infer.AddNullableToFunctionalReturnArgument","displayName":"Add `@Nullable` to a functional-interface return type argument fed a null-returning lambda","groupId":"io.moderne.recipe","artifactId":"rewrite-nullability","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_NULLABILITY","requiresConfiguration":false}}>
 

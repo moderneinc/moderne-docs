@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `String::replace()` when first parameter is not a real regular expression"}
-  description={"When `String::replaceAll` is used, the first argument should be a real regular expression. If it’s not the case, `String::replace` does exactly the same thing as `String::replaceAll` without the performance drawback of the regex."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S5361"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UseStringReplace"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/usestringreplace.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `String::replace()` when first parameter is not a real regular expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>When `String::replaceAll` is used, the first argument should be a real regular expression. If it’s not the case, `String::replace` does exactly the same thing as `String::replaceAll` without the performance drawback of the regex.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    public void method() {\n        String someText = \"Bob is a Bird... Bob is a Plane... Bob is Superman!\";\n        String newText = someText.replaceAll(\"Bob is\", \"It's\");\n    }\n}\n","after":"class Test {\n    public void method() {\n        String someText = \"Bob is a Bird... Bob is a Plane... Bob is Superman!\";\n        String newText = someText.replace(\"Bob is\", \"It's\");\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\n    public void method() {\n        String someText = \"Bob is a Bird... Bob is a Plane... Bob is Superman!\";\n-       String newText = someText.replaceAll(\"Bob is\", \"It's\");\n+       String newText = someText.replace(\"Bob is\", \"It's\");\n    }\n","newFile":false}]}]}>
 

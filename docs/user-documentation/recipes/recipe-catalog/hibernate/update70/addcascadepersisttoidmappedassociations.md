@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate implicit cascade=PERSIST for @Id and @MapsId associations"}
-  description={"Hibernate used to automatically enable cascade=PERSIST for association fields annotated @Id or @MapsId. This was undocumented and unexpected behavior, and no longer supported in Hibernate 7. Existing code which relies on this behavior will be modified by addition of explicit cascade=PERSIST to the association fields."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.AddCascadePersistToIdMappedAssociations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/addcascadepersisttoidmappedassociations.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate implicit cascade=PERSIST for @Id and @MapsId associations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Hibernate used to automatically enable cascade=PERSIST for association fields annotated @Id or @MapsId. This was undocumented and unexpected behavior, and no longer supported in Hibernate 7. Existing code which relies on this behavior will be modified by addition of explicit cascade=PERSIST to the association fields.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"import jakarta.persistence.Entity;\n\n@Entity\nclass Person {\n    // impl\n}\n"},"variants":[{"language":"java","before":"import jakarta.persistence.*;\n\n@Entity\npublic class Address {\n    @Id\n    private Long id;\n\n    @OneToOne\n    @JoinColumn(name = \"id\")\n    @MapsId\n    private Person person;\n\n    @OneToOne(cascade = CascadeType.MERGE)\n    @JoinColumn(name = \"id\")\n    @MapsId\n    private Person person2;\n}\n","after":"import jakarta.persistence.*;\n\n@Entity\npublic class Address {\n    @Id\n    private Long id;\n\n    @OneToOne(cascade = CascadeType.PERSIST)\n    @JoinColumn(name = \"id\")\n    @MapsId\n    private Person person;\n\n    @OneToOne(cascade = CascadeType.MERGE)\n    @JoinColumn(name = \"id\")\n    @MapsId\n    private Person person2;\n}","diff":"@@ -8,1 +8,1 @@\n    private Long id;\n\n-   @OneToOne\n+   @OneToOne(cascade = CascadeType.PERSIST)\n    @JoinColumn(name = \"id\")\n@@ -18,1 +18,0 @@\n    private Person person2;\n}\n-\n","newFile":false}]}]}>
 

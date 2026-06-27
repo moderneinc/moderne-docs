@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `=` assignment syntax for well-known Gradle properties"}
-  description={"Converts deprecated Groovy DSL property assignment syntax from space/method-call form (e.g., `description 'text'` or `description('text')`) to assignment form (`description = 'text'`) for well-known Gradle project and task properties. See the [Gradle 8.14 upgrade guide](https://docs.gradle.org/8.14/userguide/upgrading_version_8.html#groovy_space_assignment_syntax) for more information."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.UseAssignmentForPropertySyntax"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/useassignmentforpropertysyntax.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `=` assignment syntax for Gradle properties","href":"gradle/usepropertyassignmentsyntax"},{"name":"Use `=` assignment syntax for Gradle properties","href":"gradle/usepropertyassignmentsyntax"},{"name":"Use `=` assignment syntax for Gradle properties","href":"gradle/usepropertyassignmentsyntax"},{"name":"Use `=` assignment syntax for Gradle properties","href":"gradle/usepropertyassignmentsyntax"},{"name":"Use `=` assignment syntax for Gradle properties","href":"gradle/usepropertyassignmentsyntax"},{"name":"Use `=` assignment syntax for Gradle properties","href":"gradle/usepropertyassignmentsyntax"},{"name":"Use `=` assignment syntax for Gradle properties","href":"gradle/usepropertyassignmentsyntax"},{"name":"Use `=` assignment syntax for Gradle properties","href":"gradle/usepropertyassignmentsyntax"},{"name":"Use `=` assignment syntax for Gradle properties","href":"gradle/usepropertyassignmentsyntax"},{"name":"Use `=` assignment syntax for Gradle properties","href":"gradle/usepropertyassignmentsyntax"},{"name":"Use `=` assignment syntax for Gradle properties","href":"gradle/usepropertyassignmentsyntax"},{"name":"Use `=` assignment syntax for Gradle properties","href":"gradle/usepropertyassignmentsyntax"},{"name":"Use `=` assignment syntax for Gradle properties","href":"gradle/usepropertyassignmentsyntax"}]}>
+<RecipeHeader.Title>Use `=` assignment syntax for well-known Gradle properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts deprecated Groovy DSL property assignment syntax from space/method-call form (e.g., `description 'text'` or `description('text')`) to assignment form (`description = 'text'`) for well-known Gradle project and task properties. See the [Gradle 8.14 upgrade guide](https://docs.gradle.org/8.14/userguide/upgrading_version_8.html#groovy_space_assignment_syntax) for more information.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `=` assignment syntax for Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax/"},{"name":"Use `=` assignment syntax for Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax/"},{"name":"Use `=` assignment syntax for Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax/"},{"name":"Use `=` assignment syntax for Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax/"},{"name":"Use `=` assignment syntax for Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax/"},{"name":"Use `=` assignment syntax for Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax/"},{"name":"Use `=` assignment syntax for Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax/"},{"name":"Use `=` assignment syntax for Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax/"},{"name":"Use `=` assignment syntax for Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax/"},{"name":"Use `=` assignment syntax for Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax/"},{"name":"Use `=` assignment syntax for Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax/"},{"name":"Use `=` assignment syntax for Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax/"},{"name":"Use `=` assignment syntax for Gradle properties","href":"/user-documentation/recipes/recipe-catalog/gradle/usepropertyassignmentsyntax/"}]}>
 
 ## Definition
 

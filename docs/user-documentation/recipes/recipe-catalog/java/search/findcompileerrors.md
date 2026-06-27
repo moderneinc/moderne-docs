@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find compile errors"}
-  description={"Compile errors result in a particular LST structure that can be searched for."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindCompileErrors"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/findcompileerrors.md"}
-/>
+>
+
+<RecipeHeader.Title>Find compile errors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Compile errors result in a particular LST structure that can be searched for.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    void test() {\n        owner\n    }\n}\n","after":"class A {\n    void test() {\n        /*~~>*/owner\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n    void test() {\n-       owner\n+       /*~~>*/owner\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"package com.example.demo;\nclass Bar {\n    pet\n    public void test() {\n    }\n}\n","after":"package com.example.demo;\nclass Bar {\n    /*~~>*/pet\n    public void test() {\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\npackage com.example.demo;\nclass Bar {\n-   pet\n+   /*~~>*/pet\n    public void test() {\n","newFile":false},{"language":"java","before":"package com.example.demo;\nclass Baz {\n    -pet\n    public void test() {\n    }\n}\n","after":"package com.example.demo;\nclass Baz {\n    /*~~>*/-/*~~>*/pet\n    public void test() {\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\npackage com.example.demo;\nclass Baz {\n-   -pet\n+   /*~~>*/-/*~~>*/pet\n    public void test() {\n","newFile":false},{"language":"java","before":"package com.example.demo;\nclass Foo {\n    /pet\n    public void test() {\n    }\n}\n","after":"package com.example.demo;\nclass Foo {\n    /*~~>*///*~~>*/pet\n    public void test() {\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\npackage com.example.demo;\nclass Foo {\n-   /pet\n+   /*~~>*///*~~>*/pet\n    public void test() {\n","newFile":false}]}]}>
 

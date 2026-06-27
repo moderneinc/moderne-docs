@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find potentially unused dependencies"}
-  description={"Collects import information to help identify potentially unused dependencies."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.recipe.releasemetro.FindPotentiallyUnusedDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/recipe/releasemetro/findpotentiallyunuseddependencies.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find potentially unused dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Collects import information to help identify potentially unused dependencies.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example;\n\nimport org.springframework.context.ApplicationContext;\nimport org.springframework.boot.SpringApplication;\nimport java.util.List;\n\npublic class MyApp {\n    // Simple class without method calls to avoid type resolution issues\n}\n","after":"/*~~(Uses packages: java.util, org.springframework)~~>*/package com.example;\n\nimport org.springframework.context.ApplicationContext;\nimport org.springframework.boot.SpringApplication;\nimport java.util.List;\n\npublic class MyApp {\n    // Simple class without method calls to avoid type resolution issues\n}\n","diff":"@@ -1,1 +1,1 @@\n-package com.example;\n+/*~~(Uses packages: java.util, org.springframework)~~>*/package com.example;\n\n","newFile":false}]}]}>
 

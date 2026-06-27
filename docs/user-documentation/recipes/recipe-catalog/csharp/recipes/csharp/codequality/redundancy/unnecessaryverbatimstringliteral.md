@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary verbatim string literal"}
-  description={"Remove @ prefix from string literals that do not contain escape sequences."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UnnecessaryVerbatimStringLiteral"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/unnecessaryverbatimstringliteral.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary verbatim string literal</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove @ prefix from string literals that do not contain escape sequences.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UnnecessaryVerbatimStringLiteral","displayName":"Remove unnecessary verbatim string literal","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

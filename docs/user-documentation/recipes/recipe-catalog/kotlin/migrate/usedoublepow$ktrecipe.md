@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Double.pow` instead of `java.lang.Math.pow`"}
-  description={"`Math.pow(x, y)` is JVM-only; the Kotlin extension `x.pow(y)` reads as a receiver call and is multiplatform."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseDoublePow$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usedoublepow$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Double.pow` instead of `java.lang.Math.pow`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Math.pow(x, y)` is JVM-only; the Kotlin extension `x.pow(y)` reads as a receiver call and is multiplatform.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseDoublePow$KtRecipe","displayName":"Use `Double.pow` instead of `java.lang.Math.pow`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

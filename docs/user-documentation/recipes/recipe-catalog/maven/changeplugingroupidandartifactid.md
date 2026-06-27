@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change Maven plugin group and artifact ID"}
-  description={"Change the groupId and/or the artifactId of a specified Maven plugin. Optionally update the plugin version. This recipe does not perform any validation and assumes all values passed are valid."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.ChangePluginGroupIdAndArtifactId"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/changeplugingroupidandartifactid.md"}
-/>
+>
+
+<RecipeHeader.Title>Change Maven plugin group and artifact ID</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the groupId and/or the artifactId of a specified Maven plugin. Optionally update the plugin version. This recipe does not perform any validation and assumes all values passed are valid.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldGroupId","required":true,"description":"The old group ID to replace. The group ID is the first part of a plugin coordinate 'com.google.guava:guava:VERSION'. Supports glob expressions.","example":"org.openrewrite.recipe"},{"type":"String","name":"oldArtifactId","required":true,"description":"The old artifactId to replace. The artifact ID is the second part of a plugin coordinate 'com.google.guava:guava:VERSION'. Supports glob expressions.","example":"my-deprecated-maven-plugin"},{"type":"String","name":"newGroupId","required":false,"description":"The new group ID to use.","example":"corp.internal.openrewrite.recipe"},{"type":"String","name":"newArtifactId","required":false,"description":"The new artifact ID to use.","example":"my-new-maven-plugin"},{"type":"String","name":"newVersion","required":false,"description":"An exact version number.","example":"29.0"}]}>
 

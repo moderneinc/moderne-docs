@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find coroutine sequencing smells"}
-  description={"Hand-rolled sequencing that would be cleaner with the canonical operators: `map { it.await() }` (use `awaitAll`), `forEach { it.join() }` (use `joinAll`), `async { }.await()` (use `withContext` or inline), nested `withContext`, `coroutineScope { launch { } }` with a single child."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindCoroutineSequencingSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findcoroutinesequencingsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `map { it.await() }` over `List<Deferred<T>>`","href":"kotlin/coroutines/findmapawait$ktrecipe"},{"name":"Find `forEach { it.join() }` over `List<Job>`","href":"kotlin/coroutines/findforeachjoin$ktrecipe"},{"name":"Find `async { ... }.await()` patterns","href":"kotlin/coroutines/findasyncimmediatelyawait$ktrecipe"},{"name":"Find nested `withContext` calls","href":"kotlin/coroutines/findwithcontextinsidesamedispatcher$ktrecipe"},{"name":"Find `coroutineScope { launch { ... } }` with a single child","href":"kotlin/coroutines/findcoroutinescopebuilderwithsinglelaunch$ktrecipe"}]}>
+<RecipeHeader.Title>Find coroutine sequencing smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Hand-rolled sequencing that would be cleaner with the canonical operators: `map { it.await() }` (use `awaitAll`), `forEach { it.join() }` (use `joinAll`), `async { }.await()` (use `withContext` or inline), nested `withContext`, `coroutineScope { launch { } }` with a single child.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `map { it.await() }` over `List<Deferred<T>>`","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findmapawait$ktrecipe/"},{"name":"Find `forEach { it.join() }` over `List<Job>`","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findforeachjoin$ktrecipe/"},{"name":"Find `async { ... }.await()` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findasyncimmediatelyawait$ktrecipe/"},{"name":"Find nested `withContext` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findwithcontextinsidesamedispatcher$ktrecipe/"},{"name":"Find `coroutineScope { launch { ... } }` with a single child","href":"/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findcoroutinescopebuilderwithsinglelaunch$ktrecipe/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove obsolete Tapestry form types"}
-  description={"Removes field declarations and imports for Tapestry 4 form component types (`IPropertySelectionModel`, `StringPropertySelectionModel`, etc.) that don't exist in Tapestry 5. Code using these types will need manual refactoring to use Tapestry 5's `SelectModel` pattern."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.tapestry.RemoveObsoleteFormTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/tapestry/removeobsoleteformtypes.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove obsolete Tapestry form types</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes field declarations and imports for Tapestry 4 form component types (`IPropertySelectionModel`, `StringPropertySelectionModel`, etc.) that don't exist in Tapestry 5. Code using these types will need manual refactoring to use Tapestry 5's `SelectModel` pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.tapestry5.form.IPropertySelectionModel;\n\npublic class MyPage {\n\n    private IPropertySelectionModel selectionModel;\n\n    public void doSomething() {\n        // some code\n    }\n}\n","after":"public class MyPage {\n\n    public void doSomething() {\n        // some code\n    }\n}\n","diff":"@@ -1,2 +1,0 @@\n-import org.apache.tapestry5.form.IPropertySelectionModel;\n-\npublic class MyPage {\n@@ -5,2 +3,0 @@\npublic class MyPage {\n\n-   private IPropertySelectionModel selectionModel;\n-\n    public void doSomething() {\n","newFile":false}]}]}>
 

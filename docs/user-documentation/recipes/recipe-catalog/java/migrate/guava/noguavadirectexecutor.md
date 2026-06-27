@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Runnable::run`"}
-  description={"`Executor` is a SAM-compatible interface, so `Runnable::run` is just as succinct as `MoreExecutors.directExecutor()` but without the third-party library requirement."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaDirectExecutor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavadirectexecutor.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Runnable::run`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Executor` is a SAM-compatible interface, so `Runnable::run` is just as succinct as `MoreExecutors.directExecutor()` but without the third-party library requirement.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.concurrent.Executor;\nimport com.google.common.util.concurrent.MoreExecutors;\n\nclass Test {\n    Executor executor = MoreExecutors.directExecutor();\n}\n","after":"import java.util.concurrent.Executor;\n\nclass Test {\n    Executor executor = Runnable::run;\n}\n","diff":"@@ -2,1 +2,0 @@\nimport java.util.concurrent.Executor;\n-import com.google.common.util.concurrent.MoreExecutors;\n\n@@ -5,1 +4,1 @@\n\nclass Test {\n-   Executor executor = MoreExecutors.directExecutor();\n+   Executor executor = Runnable::run;\n}\n","newFile":false}]}]}>
 

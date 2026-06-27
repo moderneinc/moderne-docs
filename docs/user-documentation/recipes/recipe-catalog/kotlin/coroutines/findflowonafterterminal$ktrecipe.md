@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Flow.flowOn` placed after a terminal operator"}
-  description={"`flowOn(...)` applies to upstream operators only. Placing it after a terminal like `collect`, `first`, or `toList` is a no-op — the producer dispatcher is whatever the collector inherits."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindFlowOnAfterTerminal$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowonafterterminal$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Flow.flowOn` placed after a terminal operator</RecipeHeader.Title>
+
+<RecipeHeader.Description>`flowOn(...)` applies to upstream operators only. Placing it after a terminal like `collect`, `first`, or `toList` is a no-op — the producer dispatcher is whatever the collector inherits.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindFlowOnAfterTerminal$KtRecipe","displayName":"Find `Flow.flowOn` placed after a terminal operator","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Restrict deserialized classes for JMS `ObjectMessage`"}
-  description={"Patches `ActiveMQConnectionFactory` instantiations to install a deserialization allowlist when the same compilation run contains a `javax.jms.ObjectMessage#getObject` (or `jakarta.jms.ObjectMessage#getObject`) call inside a `MessageListener#onMessage` override. Targets ActiveMQ Classic (`org.apache.activemq.ActiveMQConnectionFactory.setTrustedPackages`) and ActiveMQ Artemis (`org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory.setDeserializationAllowList`). IBM MQ (`com.ibm.mq.jms.MQConnectionFactory`) is not yet supported. The recipe handles two factory instantiation shapes: a local variable declaration (`ActiveMQConnectionFactory f = new ActiveMQConnectionFactory(...)`) and a direct return (`return new ActiveMQConnectionFactory(...)`), the latter refactored into a declare-then-return. Skips factories that already configure a trusted-packages / allowlist call."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["security","CWE-502"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.marshalling.FixInsecureJmsDeserialization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/marshalling/fixinsecurejmsdeserialization.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Restrict deserialized classes for JMS `ObjectMessage`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Patches `ActiveMQConnectionFactory` instantiations to install a deserialization allowlist when the same compilation run contains a `javax.jms.ObjectMessage#getObject` (or `jakarta.jms.ObjectMessage#getObject`) call inside a `MessageListener#onMessage` override. Targets ActiveMQ Classic (`org.apache.activemq.ActiveMQConnectionFactory.setTrustedPackages`) and ActiveMQ Artemis (`org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory.setDeserializationAllowList`). IBM MQ (`com.ibm.mq.jms.MQConnectionFactory`) is not yet supported. The recipe handles two factory instantiation shapes: a local variable declaration (`ActiveMQConnectionFactory f = new ActiveMQConnectionFactory(...)`) and a direct return (`return new ActiveMQConnectionFactory(...)`), the latter refactored into a declare-then-return. Skips factories that already configure a trusted-packages / allowlist call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"allowedPackages","required":false,"description":"Comma-separated list of package prefixes whose classes are safe to deserialize. Defaults to a minimal safe baseline (`java.util`, `java.lang`) when unspecified.","example":"com.acme.dto,java.util,java.lang"}]}>
 

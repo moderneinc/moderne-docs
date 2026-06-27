@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Customize Quarkus BOM Version"}
-  description={"Allows customization of the Quarkus BOM version used in the migration. By default uses 3.x (latest 3.x version), but can be configured to use a specific version."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","bom","quarkus","migration","version"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.CustomizeQuarkusVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/customizequarkusversion.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Maven dependency version","href":"maven/upgradedependencyversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"}]}>
+<RecipeHeader.Title>Customize Quarkus BOM Version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Allows customization of the Quarkus BOM version used in the migration. By default uses 3.x (latest 3.x version), but can be configured to use a specific version.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Maven dependency version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradedependencyversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"}]}>
 
 ## Definition
 

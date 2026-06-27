@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrates to Apache Commons Lang 3.x"}
-  description={"Migrate applications to the latest Apache Commons Lang 3.x release. This recipe modifies application's build files, and changes the package as per [the migration release notes](https://commons.apache.org/proper/commons-lang/article3_0.html)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["apache","lang","commons"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.lang.UpgradeApacheCommonsLang_2_3"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/lang/upgradeapachecommonslang_2_3.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Migrate `WordUtils` to Apache Commons Text","href":"apache/commons/lang/wordutilstocommonstext"},{"name":"Rename package name","href":"java/changepackage"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change type","href":"java/changetype"},{"name":"Migrate deprecated SystemUtils constants","href":"apache/commons/lang3/migratesystemutilsdeprecations"},{"name":"Prefer `java.nio.charset.StandardCharsets`","href":"apache/commons/lang3/usestandardcharsets"}]}>
+<RecipeHeader.Title>Migrates to Apache Commons Lang 3.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Apache Commons Lang 3.x release. This recipe modifies application's build files, and changes the package as per [the migration release notes](https://commons.apache.org/proper/commons-lang/article3_0.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Migrate `WordUtils` to Apache Commons Text","href":"/user-documentation/recipes/recipe-catalog/apache/commons/lang/wordutilstocommonstext/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Migrate deprecated SystemUtils constants","href":"/user-documentation/recipes/recipe-catalog/apache/commons/lang3/migratesystemutilsdeprecations/"},{"name":"Prefer `java.nio.charset.StandardCharsets`","href":"/user-documentation/recipes/recipe-catalog/apache/commons/lang3/usestandardcharsets/"}]}>
 
 ## Definition
 

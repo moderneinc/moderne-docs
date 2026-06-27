@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add implicit TLD with taglib 3.0"}
-  description={"Add `implicit.tld` file with taglib 3.0 to `src/main/webapp/WEB-INF/tags`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["taglib","examples","weblogic"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.examples.AddImplicitTldFileWithTaglib3_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/examples/addimplicittldfilewithtaglib3_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Create XML file","href":"xml/createxmlfile"}]}>
+<RecipeHeader.Title>Add implicit TLD with taglib 3.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add `implicit.tld` file with taglib 3.0 to `src/main/webapp/WEB-INF/tags`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Create XML file","href":"/user-documentation/recipes/recipe-catalog/xml/createxmlfile/"}]}>
 
 ## Definition
 

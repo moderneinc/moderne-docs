@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring components"}
-  description={"Find Spring components, including controllers, services, repositories, return types of `@Bean` annotated methods, etc."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.search.FindSpringComponents"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/search/findspringcomponents.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Spring components</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find Spring components, including controllers, services, repositories, return types of `@Bean` annotated methods, etc.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package test;\n\nclass A {\n    public A(B b) {}\n}\n"},"variants":[{"language":"java","before":"package test;\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\n\n@Configuration\nclass Config {\n    @Bean\n    A a(B b) {\n        return new A(b);\n    }\n}\n","after":"package test;\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\n\n@Configuration\nclass Config {\n    /*~~(bean)~~>*/@Bean\n    A a(B b) {\n        return new A(b);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n@Configuration\nclass Config {\n-   @Bean\n+   /*~~(bean)~~>*/@Bean\n    A a(B b) {\n","newFile":false},{"language":"java","before":"package test;\nimport org.springframework.stereotype.Component;\n\n@Component\nclass C {\n    public C(B b) {}\n}\n","after":"package test;\nimport org.springframework.stereotype.Component;\n\n/*~~(component)~~>*/@Component\nclass C {\n    public C(B b) {}\n}\n","diff":"@@ -4,1 +4,1 @@\nimport org.springframework.stereotype.Component;\n\n-@Component\n+/*~~(component)~~>*/@Component\nclass C {\n","newFile":false}]}]}>
 

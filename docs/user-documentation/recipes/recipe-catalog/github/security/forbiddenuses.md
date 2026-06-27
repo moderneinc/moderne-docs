@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find forbidden action usage"}
-  description={"Find usage of forbidden or dangerous GitHub Actions that have known security vulnerabilities or follow suspicious patterns. Based on [zizmor's forbidden-uses audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/forbidden_uses.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.ForbiddenUses"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/forbiddenuses.md"}
-/>
+>
+
+<RecipeHeader.Title>Find forbidden action usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find usage of forbidden or dangerous GitHub Actions that have known security vulnerabilities or follow suspicious patterns. Based on [zizmor's forbidden-uses audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/forbidden_uses.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"additionalDangerousActions","required":false,"description":"Additional actions to flag as dangerous, beyond the built-in list. These will be merged with the default dangerous actions.","example":"[\"some-org/dangerous-action@v1\", \"another-org/risky-action@v2\"]"},{"type":"List","name":"additionalSuspiciousPatterns","required":false,"description":"Additional patterns to flag as suspicious, beyond the built-in patterns. These will be merged with the default suspicious patterns.","example":"[\"malware\", \"crypto-miner\", \"backdoor\"]"}]}>
 

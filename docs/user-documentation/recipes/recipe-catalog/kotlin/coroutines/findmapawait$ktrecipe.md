@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `map { it.await() }` over `List<Deferred<T>>`"}
-  description={"Sequential `.map { it.await() }` waits for each `Deferred` in turn and rethrows the first exception only after every earlier element completes. `awaitAll()` waits concurrently and rethrows immediately on the first failure."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindMapAwait$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findmapawait$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `map { it.await() }` over `List<Deferred<T>>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sequential `.map { it.await() }` waits for each `Deferred` in turn and rethrows the first exception only after every earlier element completes. `awaitAll()` waits concurrently and rethrows immediately on the first failure.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindMapAwait$KtRecipe","displayName":"Find `map { it.await() }` over `List<Deferred<T>>`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

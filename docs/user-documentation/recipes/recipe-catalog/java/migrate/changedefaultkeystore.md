@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Return String `jks` when  `KeyStore.getDefaultType()` is called"}
-  description={"In Java 11 the default keystore was updated from JKS to PKCS12. As a result, applications relying on KeyStore.getDefaultType() may encounter issues after migrating, unless their JKS keystore has been converted to PKCS12. This recipe returns default key store of `jks` when `KeyStore.getDefaultType()` method is called to use the pre Java 11 default keystore."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.ChangeDefaultKeyStore"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/changedefaultkeystore.md"}
-/>
+>
+
+<RecipeHeader.Title>Return String `jks` when  `KeyStore.getDefaultType()` is called</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Java 11 the default keystore was updated from JKS to PKCS12. As a result, applications relying on KeyStore.getDefaultType() may encounter issues after migrating, unless their JKS keystore has been converted to PKCS12. This recipe returns default key store of `jks` when `KeyStore.getDefaultType()` method is called to use the pre Java 11 default keystore.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"","after":"import java.io.FileInputStream;\nimport java.io.IOException;\nimport java.security.Key;\nimport java.security.KeyStore;\n\nclass Foo {\n \tvoid bar() {\n \t\ttry{\n \t\t\tKeyStore keystore = KeyStore.getInstance(\"jks\");\n \t\t\tchar[] password = \"your_keystore_password\".toCharArray();\n \t\t\tFileInputStream keystoreFile = new FileInputStream(\"path_to_your_keystore_file.jks\");\n \t\t\tkeystore.load(keystoreFile, password);\n \t\t}\n \t\tcatch (Exception e) {\n \t\t\te.printStackTrace();\n \t\t}\n \t}\n}\n","newFile":true}]}]}>
 

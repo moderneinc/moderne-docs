@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Mark local variable as const"}
-  description={"Mark local variable as const when its value never changes."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.MarkLocalVariableAsConst"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/marklocalvariableasconst.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Mark local variable as const</RecipeHeader.Title>
+
+<RecipeHeader.Description>Mark local variable as const when its value never changes.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.MarkLocalVariableAsConst","displayName":"Mark local variable as const","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

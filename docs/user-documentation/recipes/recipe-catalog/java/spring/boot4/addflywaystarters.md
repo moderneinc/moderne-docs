@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Flyway starters"}
-  description={"Adds spring-boot-starter-flyway and spring-boot-starter-flyway-test dependencies when Flyway usage is detected in the module."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.AddFlywayStarters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/addflywaystarters.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]} preconditions={[{"name":"Module uses Flyway","href":"java/spring/boot4/moduleusesflyway"}]}>
+<RecipeHeader.Title>Add Flyway starters</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds spring-boot-starter-flyway and spring-boot-starter-flyway-test dependencies when Flyway usage is detected in the module.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]} preconditions={[{"name":"Module uses Flyway","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot4/moduleusesflyway/"}]}>
 
 ## Definition
 

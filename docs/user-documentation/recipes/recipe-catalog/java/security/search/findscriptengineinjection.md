@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find script engine code injection vectors"}
-  description={"Finds calls to `ScriptEngine.eval()` which can execute arbitrary code if the script string is influenced by user input. Consider sandboxing or removing dynamic script evaluation."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["security","CWE-95","CWE-94"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindScriptEngineInjection"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findscriptengineinjection.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find method usages","href":"java/search/findmethods"}]}>
+<RecipeHeader.Title>Find script engine code injection vectors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds calls to `ScriptEngine.eval()` which can execute arbitrary code if the script string is influenced by user input. Consider sandboxing or removing dynamic script evaluation.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find method usages","href":"/user-documentation/recipes/recipe-catalog/java/search/findmethods/"}]}>
 
 ## Definition
 

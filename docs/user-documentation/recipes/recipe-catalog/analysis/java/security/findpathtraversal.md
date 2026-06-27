@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find path traversal vulnerabilities"}
-  description={"Detects potential path traversal vulnerabilities where user input flows to file system operations without proper validation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.security.FindPathTraversal"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/security/findpathtraversal.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find path traversal vulnerabilities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects potential path traversal vulnerabilities where user input flows to file system operations without proper validation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.servlet.http.HttpServletRequest;\nimport java.io.File;\nimport java.io.FileInputStream;\n\nclass PathTraversalExample {\n    void vulnerable(HttpServletRequest request) throws Exception {\n        String filename = request.getParameter(\"file\");\n        File file = new File(\"/uploads/\" + filename);\n        FileInputStream fis = new FileInputStream(file);\n    }\n}\n","after":"import javax.servlet.http.HttpServletRequest;\nimport java.io.File;\nimport java.io.FileInputStream;\n\nclass PathTraversalExample {\n    void vulnerable(HttpServletRequest request) throws Exception {\n        String filename = request.getParameter(\"file\");\n        File file = /*~~(PATH_TRAVERSAL use)~~>*/new File(\"/uploads/\" + filename);\n        FileInputStream fis = /*~~(PATH_TRAVERSAL use)~~>*/new FileInputStream(file);\n    }\n}\n","diff":"@@ -8,2 +8,2 @@\n    void vulnerable(HttpServletRequest request) throws Exception {\n        String filename = request.getParameter(\"file\");\n-       File file = new File(\"/uploads/\" + filename);\n-       FileInputStream fis = new FileInputStream(file);\n+       File file = /*~~(PATH_TRAVERSAL use)~~>*/new File(\"/uploads/\" + filename);\n+       FileInputStream fis = /*~~(PATH_TRAVERSAL use)~~>*/new FileInputStream(file);\n    }\n","newFile":false}]}]}>
 

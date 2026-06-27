@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify boolean expressions using De Morgan's laws"}
-  description={"Applies De Morgan's laws to simplify boolean expressions with negation. Transforms `!(a && b)` to `!a || !b` and `!(a || b)` to `!a && !b`. Distributing negations inward eliminates the outer `!` and makes each individual condition's polarity immediately visible, which aids comprehension."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1125"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SimplifyBooleanExpressionWithDeMorgan"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/simplifybooleanexpressionwithdemorgan.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify boolean expressions using De Morgan's laws</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies De Morgan's laws to simplify boolean expressions with negation. Transforms `!(a && b)` to `!a || !b` and `!(a || b)` to `!a && !b`. Distributing negations inward eliminates the outer `!` and makes each individual condition's polarity immediately visible, which aids comprehension.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test(boolean a, boolean b) {\n        if (!(a && !b)) {\n            System.out.println(\"Not both\");\n        }\n    }\n}\n","after":"class Test {\n    void test(boolean a, boolean b) {\n        if (!a || b) {\n            System.out.println(\"Not both\");\n        }\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    void test(boolean a, boolean b) {\n-       if (!(a && !b)) {\n+       if (!a || b) {\n            System.out.println(\"Not both\");\n","newFile":false}]}]}>
 

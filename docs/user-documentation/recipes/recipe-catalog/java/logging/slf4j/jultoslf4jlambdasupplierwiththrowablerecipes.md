@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUL `log(Level, Throwable, Supplier<String>)` with corresponding SLF4J method calls"}
-  description={"Replace calls to `Logger.log(Level, Throwable, Supplier<String>)` with the corresponding SLF4J method calls."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.JulToSlf4jLambdaSupplierWithThrowableRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace JUL `logger.log(Level.FINEST, e, Supplier<String>)` with SLF4J's `Logger.atTrace().log(Supplier<String>)`","href":"java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierfinestrecipe"},{"name":"Replace JUL `logger.log(Level.FINER, e, Supplier<String>)` with SLF4J's `Logger.atTrace().log(Supplier<String>)`","href":"java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierfinerrecipe"},{"name":"Replace JUL `logger.log(Level.FINE, e, Supplier<String>)` with SLF4J's `Logger.atDebug().log(Supplier<String>)`","href":"java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierfinerecipe"},{"name":"Replace JUL `logger.log(Level.CONFIG, e, Supplier<String>)` with SLF4J's `Logger.atInfo().log(Supplier<String>)`","href":"java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierconfigrecipe"},{"name":"Replace JUL `logger.log(Level.INFO, e, Supplier<String>)` with SLF4J's `Logger.atInfo().log(Supplier<String>)`","href":"java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierinforecipe"},{"name":"Replace JUL `logger.log(Level.WARNING, e, Supplier<String>)` with SLF4J's `Logger.atWarn().log(Supplier<String>)`","href":"java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierwarningrecipe"},{"name":"Replace JUL `logger.log(Level.SEVERE, e, Supplier<String>)` with SLF4J's `Logger.atError().log(Supplier<String>)`","href":"java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsuppliersevererecipe"},{"name":"Replace JUL `logger.log(Level.ALL, e, Supplier<String>)` with SLF4J's `Logger.atTrace().log(Supplier<String>)`","href":"java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierallrecipe"}]}>
+<RecipeHeader.Title>Replace JUL `log(Level, Throwable, Supplier<String>)` with corresponding SLF4J method calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace calls to `Logger.log(Level, Throwable, Supplier<String>)` with the corresponding SLF4J method calls.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace JUL `logger.log(Level.FINEST, e, Supplier<String>)` with SLF4J's `Logger.atTrace().log(Supplier<String>)`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierfinestrecipe/"},{"name":"Replace JUL `logger.log(Level.FINER, e, Supplier<String>)` with SLF4J's `Logger.atTrace().log(Supplier<String>)`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierfinerrecipe/"},{"name":"Replace JUL `logger.log(Level.FINE, e, Supplier<String>)` with SLF4J's `Logger.atDebug().log(Supplier<String>)`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierfinerecipe/"},{"name":"Replace JUL `logger.log(Level.CONFIG, e, Supplier<String>)` with SLF4J's `Logger.atInfo().log(Supplier<String>)`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierconfigrecipe/"},{"name":"Replace JUL `logger.log(Level.INFO, e, Supplier<String>)` with SLF4J's `Logger.atInfo().log(Supplier<String>)`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierinforecipe/"},{"name":"Replace JUL `logger.log(Level.WARNING, e, Supplier<String>)` with SLF4J's `Logger.atWarn().log(Supplier<String>)`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierwarningrecipe/"},{"name":"Replace JUL `logger.log(Level.SEVERE, e, Supplier<String>)` with SLF4J's `Logger.atError().log(Supplier<String>)`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsuppliersevererecipe/"},{"name":"Replace JUL `logger.log(Level.ALL, e, Supplier<String>)` with SLF4J's `Logger.atTrace().log(Supplier<String>)`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jlambdasupplierwiththrowablerecipes$jultoslf4jsupplierallrecipe/"}]}>
 
 ## Definition
 

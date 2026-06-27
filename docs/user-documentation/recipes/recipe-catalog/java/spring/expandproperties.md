@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Expand Spring YAML properties"}
-  description={"Expand YAML properties to not use the dot syntax shortcut."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.ExpandProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/expandproperties.md"}
-/>
+>
+
+<RecipeHeader.Title>Expand Spring YAML properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>Expand YAML properties to not use the dot syntax shortcut.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"sourceFileMask","required":false,"description":"An optional source file path mask use to restrict which YAML files will be expanded by this recipe.","example":"**/application*.yml"}]}>
 

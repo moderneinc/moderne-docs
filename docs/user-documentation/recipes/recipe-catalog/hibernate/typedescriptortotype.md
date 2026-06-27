@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename `JavaTypeDescriptor` and `SqlTypeDescriptor` to `JavaType` and `SqlType`"}
-  description={"Rename `JavaTypeDescriptor` and `SqlTypeDescriptor` to `JavaType` and `SqlType` respectively. See https://github.com/hibernate/hibernate-orm/blob/6.0/migration-guide.adoc#type-system for more details."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-hibernate"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hibernate.TypeDescriptorToType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/typedescriptortotype.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Rename `JavaTypeDescriptor` and `SqlTypeDescriptor` to `JavaType` and `SqlType`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rename `JavaTypeDescriptor` and `SqlTypeDescriptor` to `JavaType` and `SqlType` respectively. See https://github.com/hibernate/hibernate-orm/blob/6.0/migration-guide.adoc#type-system for more details.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adopt AssertJ Integer Assertions"}
-  description={"Adopt AssertJ Integer Assertions. Favor semantically explicit methods (e.g. `myInteger.isZero()` over `myInteger.isEqualTo(0)`)."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.AssertJIntegerRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjintegerrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `isCloseTo` with `isEqualTo`","href":"java/testing/assertj/assertjintegerrulesrecipes$abstractintegerassertisequaltorecipe"},{"name":"Replace `isNotCloseTo` with `isNotEqualTo`","href":"java/testing/assertj/assertjintegerrulesrecipes$abstractintegerassertisnotequaltorecipe"},{"name":"Replace `isEqualTo(0)` with `isZero()`","href":"java/testing/assertj/assertjintegerrulesrecipes$abstractintegerassertiszerorecipe"},{"name":"Replace `isNotEqualTo(0)` with `isNotZero()`","href":"java/testing/assertj/assertjintegerrulesrecipes$abstractintegerassertisnotzerorecipe"},{"name":"Replace `isEqualTo(1)` with `isOne()`","href":"java/testing/assertj/assertjintegerrulesrecipes$abstractintegerassertisonerecipe"}]}>
+<RecipeHeader.Title>Adopt AssertJ Integer Assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adopt AssertJ Integer Assertions. Favor semantically explicit methods (e.g. `myInteger.isZero()` over `myInteger.isEqualTo(0)`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `isCloseTo` with `isEqualTo`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjintegerrulesrecipes$abstractintegerassertisequaltorecipe/"},{"name":"Replace `isNotCloseTo` with `isNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjintegerrulesrecipes$abstractintegerassertisnotequaltorecipe/"},{"name":"Replace `isEqualTo(0)` with `isZero()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjintegerrulesrecipes$abstractintegerassertiszerorecipe/"},{"name":"Replace `isNotEqualTo(0)` with `isNotZero()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjintegerrulesrecipes$abstractintegerassertisnotzerorecipe/"},{"name":"Replace `isEqualTo(1)` with `isOne()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjintegerrulesrecipes$abstractintegerassertisonerecipe/"}]}>
 
 ## Definition
 

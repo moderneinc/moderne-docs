@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add trailing slash to Spring routes"}
-  description={"This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping(\"/some/greeting\")` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is to add declaration of additional route explicitly on the controller handler (like `@GetMapping(\"/some/greeting\", \"/some/greeting/\")`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.AddRouteTrailingSlash"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/addroutetrailingslash.md"}
-/>
+>
+
+<RecipeHeader.Title>Add trailing slash to Spring routes</RecipeHeader.Title>
+
+<RecipeHeader.Description>This is part of Spring MVC and WebFlux URL Matching Changes, as of Spring Framework 6.0, the trailing slash matching configuration option has been deprecated and its default value set to false. This means that previously, a controller `@GetMapping("/some/greeting")` would match both `GET /some/greeting` and `GET /some/greeting/`, but it doesn't match `GET /some/greeting/` anymore by default and will result in an HTTP 404 error. This recipe is to add declaration of additional route explicitly on the controller handler (like `@GetMapping("/some/greeting", "/some/greeting/")`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.web.bind.annotation.*;\n\n@RestController\npublic class ExampleController {\n\n    @GetMapping(\"/get\")\n    public String getExample() {\n        return \"This is a GET example.\";\n    }\n}\n","after":"import org.springframework.web.bind.annotation.*;\n\n@RestController\npublic class ExampleController {\n\n    @GetMapping({\"/get\", \"/get/\"})\n    public String getExample() {\n        return \"This is a GET example.\";\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\npublic class ExampleController {\n\n-   @GetMapping(\"/get\")\n+   @GetMapping({\"/get\", \"/get/\"})\n    public String getExample() {\n","newFile":false}]}]}>
 

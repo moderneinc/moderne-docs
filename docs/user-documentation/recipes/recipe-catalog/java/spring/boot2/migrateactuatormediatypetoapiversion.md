@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated `ActuatorMediaType` to `ApiVersion#getProducedMimeType`"}
-  description={"Spring Boot `ActuatorMediaType` was deprecated in 2.5 in favor of `ApiVersion#getProducedMimeType()`. Replace `MediaType.parseMediaType(ActuatorMediaType.Vx_JSON)` with `MediaType.asMediaType(ApiVersion.Vx.getProducedMimeType())`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateActuatorMediaTypeToApiVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migrateactuatormediatypetoapiversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate deprecated `ActuatorMediaType` to `ApiVersion#getProducedMimeType`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot `ActuatorMediaType` was deprecated in 2.5 in favor of `ApiVersion#getProducedMimeType()`. Replace `MediaType.parseMediaType(ActuatorMediaType.Vx_JSON)` with `MediaType.asMediaType(ApiVersion.Vx.getProducedMimeType())`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.actuate.endpoint.http.ActuatorMediaType;\nimport org.springframework.http.MediaType;\n\nclass T {\n    private static final MediaType actuatorMediaType2 = MediaType.parseMediaType(ActuatorMediaType.V2_JSON);\n    private static final MediaType actuatorMediaType3 = MediaType.parseMediaType(ActuatorMediaType.V3_JSON);\n}\n","after":"import org.springframework.boot.actuate.endpoint.ApiVersion;\nimport org.springframework.http.MediaType;\n\nclass T {\n    private static final MediaType actuatorMediaType2 = MediaType.asMediaType(ApiVersion.V2.getProducedMimeType());\n    private static final MediaType actuatorMediaType3 = MediaType.asMediaType(ApiVersion.V3.getProducedMimeType());\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.boot.actuate.endpoint.http.ActuatorMediaType;\n+import org.springframework.boot.actuate.endpoint.ApiVersion;\nimport org.springframework.http.MediaType;\n@@ -5,2 +5,2 @@\n\nclass T {\n-   private static final MediaType actuatorMediaType2 = MediaType.parseMediaType(ActuatorMediaType.V2_JSON);\n-   private static final MediaType actuatorMediaType3 = MediaType.parseMediaType(ActuatorMediaType.V3_JSON);\n+   private static final MediaType actuatorMediaType2 = MediaType.asMediaType(ApiVersion.V2.getProducedMimeType());\n+   private static final MediaType actuatorMediaType3 = MediaType.asMediaType(ApiVersion.V3.getProducedMimeType());\n}\n","newFile":false}]}]}>
 

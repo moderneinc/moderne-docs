@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJStreamRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `Stream`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJStreamRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstreamrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJStreamRules.AssertThatIsEmpty`","href":"picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatisemptyrecipe"},{"name":"Refaster template `AssertJStreamRules.AssertThatIsNotEmpty`","href":"picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatisnotemptyrecipe"},{"name":"Refaster template `AssertJStreamRules.AssertThatHasSize`","href":"picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthathassizerecipe"},{"name":"Refaster template `AssertJStreamRules.AssertThatFilteredOn`","href":"picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatfilteredonrecipe"},{"name":"Refaster template `AssertJStreamRules.AssertThatNoneMatch`","href":"picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatnonematchrecipe"},{"name":"Refaster template `AssertJStreamRules.AssertThatAnyMatch`","href":"picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatanymatchrecipe"},{"name":"Refaster template `AssertJStreamRules.AssertThatCollection`","href":"picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatcollectionrecipe"}]}>
+<RecipeHeader.Title>`AssertJStreamRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `Stream`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJStreamRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJStreamRules.AssertThatIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatisemptyrecipe/"},{"name":"Refaster template `AssertJStreamRules.AssertThatIsNotEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatisnotemptyrecipe/"},{"name":"Refaster template `AssertJStreamRules.AssertThatHasSize`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthathassizerecipe/"},{"name":"Refaster template `AssertJStreamRules.AssertThatFilteredOn`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatfilteredonrecipe/"},{"name":"Refaster template `AssertJStreamRules.AssertThatNoneMatch`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatnonematchrecipe/"},{"name":"Refaster template `AssertJStreamRules.AssertThatAnyMatch`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatanymatchrecipe/"},{"name":"Refaster template `AssertJStreamRules.AssertThatCollection`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatcollectionrecipe/"}]}>
 
 ## Definition
 

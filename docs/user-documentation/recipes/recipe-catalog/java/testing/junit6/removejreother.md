@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove deprecated `JRE.OTHER` from `@EnabledOnJre`/`@DisabledOnJre` arrays"}
-  description={"JUnit 6.1 deprecated `JRE.OTHER` in favor of `int`/`int[]` annotation attributes. This recipe removes `JRE.OTHER` entries from `@EnabledOnJre` and `@DisabledOnJre` array values when other JRE constants remain. Lone `JRE.OTHER` usages are left untouched because they have no mechanical replacement; review them manually."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit6.RemoveJreOther"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit6/removejreother.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove deprecated `JRE.OTHER` from `@EnabledOnJre`/`@DisabledOnJre` arrays</RecipeHeader.Title>
+
+<RecipeHeader.Description>JUnit 6.1 deprecated `JRE.OTHER` in favor of `int`/`int[]` annotation attributes. This recipe removes `JRE.OTHER` entries from `@EnabledOnJre` and `@DisabledOnJre` array values when other JRE constants remain. Lone `JRE.OTHER` usages are left untouched because they have no mechanical replacement; review them manually.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.condition.EnabledOnJre;\nimport org.junit.jupiter.api.condition.JRE;\n\nclass MyTest {\n    @Test\n    @EnabledOnJre({JRE.JAVA_21, JRE.OTHER})\n    void test() {\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.condition.EnabledOnJre;\nimport org.junit.jupiter.api.condition.JRE;\n\nclass MyTest {\n    @Test\n    @EnabledOnJre({JRE.JAVA_21})\n    void test() {\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass MyTest {\n    @Test\n-   @EnabledOnJre({JRE.JAVA_21, JRE.OTHER})\n+   @EnabledOnJre({JRE.JAVA_21})\n    void test() {\n","newFile":false}]}]}>
 

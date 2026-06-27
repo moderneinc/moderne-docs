@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`ImmutableSortedMapRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `ImmutableSortedMap`s.\n[Source](https://error-prone.picnic.tech/refasterrules/ImmutableSortedMapRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableSortedMapRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `ImmutableSortedMapRules.ImmutableSortedMapBuilder`","href":"picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$immutablesortedmapbuilderrecipe"},{"name":"Refaster template `ImmutableSortedMapRules.ImmutableSortedMapNaturalOrderBuilder`","href":"picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$immutablesortedmapnaturalorderbuilderrecipe"},{"name":"Refaster template `ImmutableSortedMapRules.ImmutableSortedMapReverseOrderBuilder`","href":"picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$immutablesortedmapreverseorderbuilderrecipe"},{"name":"Refaster template `ImmutableSortedMapRules.EmptyImmutableSortedMap`","href":"picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$emptyimmutablesortedmaprecipe"},{"name":"Refaster template `ImmutableSortedMapRules.PairToImmutableSortedMap`","href":"picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$pairtoimmutablesortedmaprecipe"},{"name":"Refaster template `ImmutableSortedMapRules.EntryToImmutableSortedMap`","href":"picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$entrytoimmutablesortedmaprecipe"},{"name":"Refaster template `ImmutableSortedMapRules.IterableToImmutableSortedMap`","href":"picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$iterabletoimmutablesortedmaprecipe"}]}>
+<RecipeHeader.Title>`ImmutableSortedMapRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `ImmutableSortedMap`s. [Source](https://error-prone.picnic.tech/refasterrules/ImmutableSortedMapRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `ImmutableSortedMapRules.ImmutableSortedMapBuilder`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$immutablesortedmapbuilderrecipe/"},{"name":"Refaster template `ImmutableSortedMapRules.ImmutableSortedMapNaturalOrderBuilder`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$immutablesortedmapnaturalorderbuilderrecipe/"},{"name":"Refaster template `ImmutableSortedMapRules.ImmutableSortedMapReverseOrderBuilder`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$immutablesortedmapreverseorderbuilderrecipe/"},{"name":"Refaster template `ImmutableSortedMapRules.EmptyImmutableSortedMap`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$emptyimmutablesortedmaprecipe/"},{"name":"Refaster template `ImmutableSortedMapRules.PairToImmutableSortedMap`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$pairtoimmutablesortedmaprecipe/"},{"name":"Refaster template `ImmutableSortedMapRules.EntryToImmutableSortedMap`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$entrytoimmutablesortedmaprecipe/"},{"name":"Refaster template `ImmutableSortedMapRules.IterableToImmutableSortedMap`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesortedmaprulesrecipes$iterabletoimmutablesortedmaprecipe/"}]}>
 
 ## Definition
 

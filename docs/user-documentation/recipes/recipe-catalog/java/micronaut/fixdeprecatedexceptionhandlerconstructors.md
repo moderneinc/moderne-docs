@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Fix deprecated no-arg `ExceptionHandler` constructors"}
-  description={"Adds `ErrorResponseProcessor` argument to deprecated no-arg `ExceptionHandler` constructors."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.FixDeprecatedExceptionHandlerConstructors"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/fixdeprecatedexceptionhandlerconstructors.md"}
-/>
+>
+
+<RecipeHeader.Title>Fix deprecated no-arg `ExceptionHandler` constructors</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `ErrorResponseProcessor` argument to deprecated no-arg `ExceptionHandler` constructors.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package abc;\n\nimport io.micronaut.validation.exceptions.ConstraintExceptionHandler;\n\npublic class ApiClientValidationExceptionHandler extends ConstraintExceptionHandler {\n    private void someMethod(){}\n}\n","after":"package abc;\n\nimport io.micronaut.http.server.exceptions.response.ErrorResponseProcessor;\nimport io.micronaut.validation.exceptions.ConstraintExceptionHandler;\nimport jakarta.inject.Inject;\n\npublic class ApiClientValidationExceptionHandler extends ConstraintExceptionHandler {\n\n    @Inject\n    public ApiClientValidationExceptionHandler(ErrorResponseProcessor errorResponseProcessor) {\n        super(errorResponseProcessor);\n    }\n    private void someMethod(){}\n}\n","diff":"@@ -3,0 +3,1 @@\npackage abc;\n\n+import io.micronaut.http.server.exceptions.response.ErrorResponseProcessor;\nimport io.micronaut.validation.exceptions.ConstraintExceptionHandler;\n@@ -4,0 +5,1 @@\n\nimport io.micronaut.validation.exceptions.ConstraintExceptionHandler;\n+import jakarta.inject.Inject;\n\n@@ -6,0 +8,5 @@\n\npublic class ApiClientValidationExceptionHandler extends ConstraintExceptionHandler {\n+\n+   @Inject\n+   public ApiClientValidationExceptionHandler(ErrorResponseProcessor errorResponseProcessor) {\n+       super(errorResponseProcessor);\n+   }\n    private void someMethod(){}\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update SCM with Git origin"}
-  description={"Updates or adds the Maven `<scm>` tag based on the Git remote origin. By default, only existing Source Control Management (SCM) sections are updated. Set `addIfMissing` to `true` to also add missing SCM sections to root POMs (POMs without a parent element)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.UpdateScmFromGitOrigin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/updatescmfromgitorigin.md"}
-/>
+>
+
+<RecipeHeader.Title>Update SCM with Git origin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Updates or adds the Maven `<scm>` tag based on the Git remote origin. By default, only existing Source Control Management (SCM) sections are updated. Set `addIfMissing` to `true` to also add missing SCM sections to root POMs (POMs without a parent element).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"addIfMissing","required":false,"description":"If set to `true`, the recipe will add a `<scm>` section if it is missing. If set to `false` (default), the recipe will only update existing `<scm>` sections."}]}>
 

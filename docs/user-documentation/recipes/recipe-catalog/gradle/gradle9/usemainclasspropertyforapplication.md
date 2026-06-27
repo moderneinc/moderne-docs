@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `application { mainClass }` instead of `mainClassName`"}
-  description={"The `mainClassName` property on the `application` extension was deprecated in Gradle 6.4 and removed in Gradle 9.0. Use `application { mainClass = ... }` instead. Top-level `mainClassName` assignments are wrapped in an `application` block. See the [Gradle upgrade guide](https://docs.gradle.org/9.0.0/userguide/upgrading_major_version_9.html) for more information."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.gradle9.UseMainClassPropertyForApplication"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/gradle9/usemainclasspropertyforapplication.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `application { mainClass }` instead of `mainClassName`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `mainClassName` property on the `application` extension was deprecated in Gradle 6.4 and removed in Gradle 9.0. Use `application { mainClass = ... }` instead. Top-level `mainClassName` assignments are wrapped in an `application` block. See the [Gradle upgrade guide](https://docs.gradle.org/9.0.0/userguide/upgrading_major_version_9.html) for more information.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins {\n    id 'application'\n}\n\napplication {\n    mainClassName = \"com.example.AppMain\"\n}\n","after":"plugins {\n    id 'application'\n}\n\napplication {\n    mainClass = \"com.example.AppMain\"\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -6,1 +6,1 @@\n\napplication {\n-   mainClassName = \"com.example.AppMain\"\n+   mainClass = \"com.example.AppMain\"\n}\n","newFile":false}]}]}>
 

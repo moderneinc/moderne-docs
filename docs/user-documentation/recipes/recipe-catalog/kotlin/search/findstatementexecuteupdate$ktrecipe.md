@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Statement.executeUpdate(sql)` calls"}
-  description={"Each `executeUpdate` is a SQL write sink — INSERT/UPDATE/DELETE built from string concatenation is the canonical injection pattern. Useful as an individual seed even when the broader composite is too coarse."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindStatementExecuteUpdate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findstatementexecuteupdate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Statement.executeUpdate(sql)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `executeUpdate` is a SQL write sink — INSERT/UPDATE/DELETE built from string concatenation is the canonical injection pattern. Useful as an individual seed even when the broader composite is too coarse.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindStatementExecuteUpdate$KtRecipe","displayName":"Find `Statement.executeUpdate(sql)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

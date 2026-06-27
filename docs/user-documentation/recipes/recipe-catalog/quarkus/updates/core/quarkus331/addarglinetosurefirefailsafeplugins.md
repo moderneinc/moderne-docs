@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add @{argLine} to maven-surefire-plugin and maven-failsafe-plugin"}
-  description={"Add or update <argLine> in maven-surefire-plugin and maven-failsafe-plugin configuration to include @{argLine} placeholder."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/io.quarkus.updates.core.quarkus331.AddArglineToSurefireFailsafePlugins"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus331/addarglinetosurefirefailsafeplugins.md"}
-/>
+>
+
+<RecipeHeader.Title>Add @&#123;argLine} to maven-surefire-plugin and maven-failsafe-plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add or update &lt;argLine> in maven-surefire-plugin and maven-failsafe-plugin configuration to include @&#123;argLine} placeholder.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.quarkus.updates.core.quarkus331.AddArglineToSurefireFailsafePlugins","displayName":"Add @{argLine} to maven-surefire-plugin and maven-failsafe-plugin","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

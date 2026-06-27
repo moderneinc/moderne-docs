@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Uni<T extends PanacheEntityBase>`"}
-  description={"The `persist()` and `persistAndFlush()` methods now return an `Uni<T extends PanacheEntityBase>` instead of an `Uni<Void>` to allow chaining the methods."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.quarkus2.UsePanacheEntityBaseUniT"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/usepanacheentitybaseunit.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Uni<T extends PanacheEntityBase>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `persist()` and `persistAndFlush()` methods now return an `Uni<T extends PanacheEntityBase>` instead of an `Uni<Void>` to allow chaining the methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.example;\n\nimport io.quarkus.hibernate.reactive.panache.PanacheEntityBase;\nimport io.smallrye.mutiny.Uni;\n\nclass Test {\n    public static <T extends PanacheEntityBase> void method(T example) {\n        example.persist().await().indefinitely();\n        Uni<Void> e0 = example.persist();\n        Uni<Void> e1 = example.persistAndFlush();\n    }\n}\n","after":"package org.openrewrite.example;\n\nimport io.quarkus.hibernate.reactive.panache.PanacheEntityBase;\nimport io.smallrye.mutiny.Uni;\n\nclass Test {\n    public static <T extends PanacheEntityBase> void method(T example) {\n        example.persist().replaceWithVoid().await().indefinitely();\n        Uni<Void> e0 = example.persist().replaceWithVoid();\n        Uni<Void> e1 = example.persistAndFlush().replaceWithVoid();\n    }\n}\n","diff":"@@ -8,3 +8,3 @@\nclass Test {\n    public static <T extends PanacheEntityBase> void method(T example) {\n-       example.persist().await().indefinitely();\n-       Uni<Void> e0 = example.persist();\n-       Uni<Void> e1 = example.persistAndFlush();\n+       example.persist().replaceWithVoid().await().indefinitely();\n+       Uni<Void> e0 = example.persist().replaceWithVoid();\n+       Uni<Void> e1 = example.persistAndFlush().replaceWithVoid();\n    }\n","newFile":false}]}]}>
 

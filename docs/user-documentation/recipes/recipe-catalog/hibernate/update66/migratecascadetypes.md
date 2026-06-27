@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Hibernate CascadeType constants"}
-  description={"Moving away from deprecated Hibernate CascadeType constants. CascadeType.SAVE_UPDATE -> CascadeType.PERSIST and/or CascadeType.MERGE, CascadeType.DELETE -> CascadeType.REMOVE."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update66.MigrateCascadeTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update66/migratecascadetypes.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add or update annotation attribute","href":"java/addorupdateannotationattribute"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"},{"name":"Replace constant with another constant","href":"java/replaceconstantwithanotherconstant"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate Hibernate CascadeType constants</RecipeHeader.Title>
+
+<RecipeHeader.Description>Moving away from deprecated Hibernate CascadeType constants. CascadeType.SAVE_UPDATE -> CascadeType.PERSIST and/or CascadeType.MERGE, CascadeType.DELETE -> CascadeType.REMOVE.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add or update annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/addorupdateannotationattribute/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"},{"name":"Replace constant with another constant","href":"/user-documentation/recipes/recipe-catalog/java/replaceconstantwithanotherconstant/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

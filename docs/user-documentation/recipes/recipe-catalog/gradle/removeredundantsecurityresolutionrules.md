@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant security resolution rules"}
-  description={"Remove `resolutionStrategy.eachDependency` rules that pin dependencies to versions that are already being managed by a platform/BOM to equal or newer versions. Only removes rules that have a security advisory identifier (CVE or GHSA) in the `because` clause, unless a custom pattern is specified."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["security"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.RemoveRedundantSecurityResolutionRules"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/removeredundantsecurityresolutionrules.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove redundant security resolution rules</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `resolutionStrategy.eachDependency` rules that pin dependencies to versions that are already being managed by a platform/BOM to equal or newer versions. Only removes rules that have a security advisory identifier (CVE or GHSA) in the `because` clause, unless a custom pattern is specified.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"securityPattern","required":false,"description":"A regular expression pattern to identify security-related resolution rules by matching against the `because` clause. Rules matching this pattern will be considered for removal. The pattern is searched within the clause, so a `because` containing multiple identifiers (e.g., `CVE-2024-1234, GHSA-abcd-1234-efgh`) will match if any identifier matches. Default pattern matches CVE identifiers (e.g., `CVE-2024-1234`) and GitHub Security Advisory identifiers (e.g., `GHSA-xxxx-xxxx-xxxx`).","example":"(CVE-\\d|GHSA-[a-z0-9])"}]}>
 

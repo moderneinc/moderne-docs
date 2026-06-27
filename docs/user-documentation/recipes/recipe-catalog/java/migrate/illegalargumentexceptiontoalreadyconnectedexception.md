@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `IllegalArgumentException` with `AlreadyConnectedException` in `DatagramChannel.send()` method"}
-  description={"Replace `IllegalArgumentException` with `AlreadyConnectedException` for DatagramChannel.send() to ensure compatibility with Java 11+."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.IllegalArgumentExceptionToAlreadyConnectedException"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/illegalargumentexceptiontoalreadyconnectedexception.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `IllegalArgumentException` with `AlreadyConnectedException` in `DatagramChannel.send()` method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `IllegalArgumentException` with `AlreadyConnectedException` for DatagramChannel.send() to ensure compatibility with Java 11+.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.nio.ByteBuffer;\nimport java.net.SocketAddress;\nimport java.nio.channels.DatagramChannel;\n\nclass Test {\n    void sendDataCatch() {\n        try {\n            DatagramChannel channel = DatagramChannel.open();\n            channel.send(ByteBuffer.allocate(1024), new java.net.InetSocketAddress(\"localhost\", 8080));\n        } catch (IllegalArgumentException e) {\n            System.out.println(\"Caught Exception\");\n        }\n    }\n}\n","after":"import java.nio.ByteBuffer;\nimport java.nio.channels.AlreadyConnectedException;\nimport java.net.SocketAddress;\nimport java.nio.channels.DatagramChannel;\n\nclass Test {\n    void sendDataCatch() {\n        try {\n            DatagramChannel channel = DatagramChannel.open();\n            channel.send(ByteBuffer.allocate(1024), new java.net.InetSocketAddress(\"localhost\", 8080));\n        } catch (AlreadyConnectedException e) {\n            System.out.println(\"Caught Exception\");\n        }\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport java.nio.ByteBuffer;\n+import java.nio.channels.AlreadyConnectedException;\nimport java.net.SocketAddress;\n@@ -10,1 +11,1 @@\n            DatagramChannel channel = DatagramChannel.open();\n            channel.send(ByteBuffer.allocate(1024), new java.net.InetSocketAddress(\"localhost\", 8080));\n-       } catch (IllegalArgumentException e) {\n+       } catch (AlreadyConnectedException e) {\n            System.out.println(\"Caught Exception\");\n","newFile":false}]}]}>
 

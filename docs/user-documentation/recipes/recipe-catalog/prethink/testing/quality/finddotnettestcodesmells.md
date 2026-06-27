@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find .NET test code smells"}
-  description={"Detect poor test names, magic numbers in assertions, generic catch in tests, and Debug.Assert misuse in .NET tests."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindDotnetTestCodeSmells"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/finddotnettestcodesmells.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find .NET test code smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect poor test names, magic numbers in assertions, generic catch in tests, and Debug.Assert misuse in .NET tests.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.testing.quality.FindDotnetTestCodeSmells","displayName":"Find .NET test code smells","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

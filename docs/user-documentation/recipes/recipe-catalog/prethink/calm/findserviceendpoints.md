@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find service endpoints"}
-  description={"Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints. Also walks interface inheritance to detect endpoints in OpenAPI-codegen-first projects where @GetMapping etc. live on the interface methods."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindServiceEndpoints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findserviceendpoints.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find service endpoints</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints. Also walks interface inheritance to detect endpoints in OpenAPI-codegen-first projects where @GetMapping etc. live on the interface methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindServiceEndpoints","displayName":"Find service endpoints","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

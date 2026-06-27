@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find method complexity"}
-  description={"Compute per-method code quality metrics including cyclomatic complexity, cognitive complexity, max nesting depth, line count, parameter count, ABC metric, and Halstead measures."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.quality.FindMethodComplexity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/quality/findmethodcomplexity.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find method complexity</RecipeHeader.Title>
+
+<RecipeHeader.Description>Compute per-method code quality metrics including cyclomatic complexity, cognitive complexity, max nesting depth, line count, parameter count, ABC metric, and Halstead measures.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\npublic class Simple {\n    public String doWork() {\n        return \"done\";\n    }\n}\n"},"variants":[]}]}>
 

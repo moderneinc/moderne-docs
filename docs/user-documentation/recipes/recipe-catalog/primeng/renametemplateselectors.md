@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename PrimeNG selectors in HTML templates to their v18 equivalents"}
-  description={"Renames v17 PrimeNG component selectors in `.html` templates to their v18 names: `<p-calendar>` → `<p-datepicker>`, `<p-dropdown>` → `<p-select>`, `<p-inputSwitch>` → `<p-toggleSwitch>`, `<p-overlayPanel>` → `<p-popover>`, `<p-sidebar>` → `<p-drawer>`. Both opening and closing tags are rewritten."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.RenameTemplateSelectors"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/renametemplateselectors.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Rename PrimeNG selectors in HTML templates to their v18 equivalents</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames v17 PrimeNG component selectors in `.html` templates to their v18 names: `<p-calendar>` → `<p-datepicker>`, `<p-dropdown>` → `<p-select>`, `<p-inputSwitch>` → `<p-toggleSwitch>`, `<p-overlayPanel>` → `<p-popover>`, `<p-sidebar>` → `<p-drawer>`. Both opening and closing tags are rewritten.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.primeng.RenameTemplateSelectors","displayName":"Rename PrimeNG selectors in HTML templates to their v18 equivalents","npmPackage":"@openrewrite/recipes-angular"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `IOException` with `JacksonException` in catch clauses"}
-  description={"In Jackson 3, `ObjectMapper` and related classes no longer throw `IOException`. This recipe replaces `catch (IOException e)` with `catch (JacksonException e)` when the try block contains Jackson API calls. When the try block also contains non-Jackson code that throws `IOException`, the catch is changed to a multi-catch `catch (JacksonException | IOException e)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["jackson-3"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jackson"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.jackson.IOExceptionToJacksonException"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/jackson/ioexceptiontojacksonexception.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `IOException` with `JacksonException` in catch clauses</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Jackson 3, `ObjectMapper` and related classes no longer throw `IOException`. This recipe replaces `catch (IOException e)` with `catch (JacksonException e)` when the try block contains Jackson API calls. When the try block also contains non-Jackson code that throws `IOException`, the catch is changed to a multi-catch `catch (JacksonException | IOException e)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.IOException;\nimport com.fasterxml.jackson.databind.ObjectMapper;\n\nclass Test {\n    void deserialize(byte[] data) {\n        ObjectMapper objectMapper = new ObjectMapper();\n        try {\n            objectMapper.readValue(data, String.class);\n        } catch (IOException e) {\n            throw new RuntimeException(\"IO exception\", e);\n        }\n    }\n}\n","after":"import com.fasterxml.jackson.databind.ObjectMapper;\nimport tools.jackson.core.JacksonException;\n\nclass Test {\n    void deserialize(byte[] data) {\n        ObjectMapper objectMapper = new ObjectMapper();\n        try {\n            objectMapper.readValue(data, String.class);\n        } catch (JacksonException e) {\n            throw new RuntimeException(\"IO exception\", e);\n        }\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import java.io.IOException;\nimport com.fasterxml.jackson.databind.ObjectMapper;\n@@ -3,0 +2,1 @@\nimport java.io.IOException;\nimport com.fasterxml.jackson.databind.ObjectMapper;\n+import tools.jackson.core.JacksonException;\n\n@@ -9,1 +9,1 @@\n        try {\n            objectMapper.readValue(data, String.class);\n-       } catch (IOException e) {\n+       } catch (JacksonException e) {\n            throw new RuntimeException(\"IO exception\", e);\n","newFile":false}]}]}>
 

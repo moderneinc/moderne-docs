@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Interlocked.CompareExchange lazy init pattern"}
-  description={"Detect `Interlocked.CompareExchange(ref field, new T(), null)` pattern. Use `LazyInitializer.EnsureInitialized` for cleaner lazy initialization."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseLazyInitializerEnsureInitialize"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finduselazyinitializerensureinitialize.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Interlocked.CompareExchange lazy init pattern</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `Interlocked.CompareExchange(ref field, new T(), null)` pattern. Use `LazyInitializer.EnsureInitialized` for cleaner lazy initialization.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseLazyInitializerEnsureInitialize","displayName":"Find Interlocked.CompareExchange lazy init pattern","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Default label should be last"}
-  description={"Move default label to the last position in switch statement."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.DefaultLabelShouldBeLast"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/defaultlabelshouldbelast.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Default label should be last</RecipeHeader.Title>
+
+<RecipeHeader.Description>Move default label to the last position in switch statement.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.DefaultLabelShouldBeLast","displayName":"Default label should be last","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

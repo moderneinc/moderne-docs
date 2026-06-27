@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Kotlin to 2.3 for Java 25 compatibility"}
-  description={"Only Kotlin 2.3 and later can target Java 25 bytecode, so modules on an older Kotlin are otherwise capped at Java 24. This recipe upgrades modules that compile Kotlin (i.e. contain `.kt` source files) and are already on Kotlin 2.0, 2.1, or 2.2 up to the latest Kotlin 2.3, so they can subsequently be migrated to Java 25. Modules on Kotlin 1.x are left untouched, as crossing the K2 compiler default introduced in Kotlin 2.0 is a source-breaking change that should not be applied automatically. As a safety net the module is also floored at Java 24: if the Kotlin upgrade cannot be applied (for instance because the version is managed externally by a parent or BOM), the module still lands on Java 24 rather than being left behind, and is raised the rest of the way to Java 25 only once it actually reaches Kotlin 2.3."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["kotlin","java25"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.UpgradeKotlinForJava25"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/upgradekotlinforjava25.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"Upgrade Maven plugin version","href":"maven/upgradepluginversion"},{"name":"Update a Gradle plugin by id","href":"gradle/plugins/upgradepluginversion"},{"name":"Upgrade Java version","href":"java/migrate/upgradejavaversion"}]} preconditions={[{"name":"Module has Kotlin source files","href":"java/migrate/search/modulehaskotlinsource"},{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
+<RecipeHeader.Title>Upgrade Kotlin to 2.3 for Java 25 compatibility</RecipeHeader.Title>
+
+<RecipeHeader.Description>Only Kotlin 2.3 and later can target Java 25 bytecode, so modules on an older Kotlin are otherwise capped at Java 24. This recipe upgrades modules that compile Kotlin (i.e. contain `.kt` source files) and are already on Kotlin 2.0, 2.1, or 2.2 up to the latest Kotlin 2.3, so they can subsequently be migrated to Java 25. Modules on Kotlin 1.x are left untouched, as crossing the K2 compiler default introduced in Kotlin 2.0 is a source-breaking change that should not be applied automatically. As a safety net the module is also floored at Java 24: if the Kotlin upgrade cannot be applied (for instance because the version is managed externally by a parent or BOM), the module still lands on Java 24 rather than being left behind, and is raised the rest of the way to Java 25 only once it actually reaches Kotlin 2.3.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"Upgrade Maven plugin version","href":"/user-documentation/recipes/recipe-catalog/maven/upgradepluginversion/"},{"name":"Update a Gradle plugin by id","href":"/user-documentation/recipes/recipe-catalog/gradle/plugins/upgradepluginversion/"},{"name":"Upgrade Java version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradejavaversion/"}]} preconditions={[{"name":"Module has Kotlin source files","href":"/user-documentation/recipes/recipe-catalog/java/migrate/search/modulehaskotlinsource/"},{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

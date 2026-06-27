@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to `pyproject.toml`"}
-  description={"Migrate Python projects from `requirements.txt` and/or `setup.cfg` to `pyproject.toml` with `hatchling` build backend."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.migrate.MigrateToPyprojectToml"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/migrate/migratetopyprojecttoml.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate to `pyproject.toml`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Python projects from `requirements.txt` and/or `setup.cfg` to `pyproject.toml` with `hatchling` build backend.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"projectName","required":false,"description":"Project name for `[project].name`. Inferred from `setup.cfg`, then from the Git repository name, or defaults to `\"my-project\"`.","example":"my-project"},{"type":"String","name":"requiresPython","required":false,"description":"Python version constraint for `requires-python`. Inferred from `setup.cfg` or defaults to `\">=3.9\"`.","example":">=3.9"}]}>
 

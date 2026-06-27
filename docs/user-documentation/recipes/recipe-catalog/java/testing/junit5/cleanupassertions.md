@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Clean Up Assertions"}
-  description={"Simplifies JUnit Jupiter assertions to their most-direct equivalents."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["junit","testing"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.CleanupAssertions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/cleanupassertions.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace JUnit `assertTrue(!<boolean>)` to `assertFalse(<boolean>)`","href":"java/testing/cleanup/asserttruenegationtoassertfalse"},{"name":"Replace JUnit `assertFalse(!<boolean>)` to `assertTrue(<boolean>)`","href":"java/testing/cleanup/assertfalsenegationtoasserttrue"},{"name":"Replace JUnit `assertTrue(a.equals(b))` to `assertEquals(a,b)`","href":"java/testing/cleanup/asserttrueequalstoassertequals"},{"name":"Junit `assertTrue(a == b)` to `assertEquals(a,b)`","href":"java/testing/cleanup/asserttruecomparisontoassertequals"},{"name":"Replace JUnit `assertFalse(a.equals(b))` to `assertNotEquals(a,b)`","href":"java/testing/cleanup/assertfalseequalstoassertnotequals"},{"name":"`assertEquals(a, null)` to `assertNull(a)`","href":"java/testing/cleanup/assertequalsnulltoassertnull"},{"name":"Replace JUnit `assertFalse(a == null)` to `assertNotNull(a)`","href":"java/testing/cleanup/assertfalsenulltoassertnotnull"},{"name":"Replace JUnit `assertTrue(a == null)` to `assertNull(a)`","href":"java/testing/cleanup/asserttruenulltoassertnull"},{"name":"Replace JUnit `assertEquals(false, <boolean>)` to `assertFalse(<boolean>)` / `assertTrue(<boolean>)`","href":"java/testing/cleanup/assertequalsbooleantoassertboolean"},{"name":"Replace JUnit `assertNotEquals(false, <boolean>)` to `assertFalse(<boolean>)` / `assertTrue(<boolean>)`","href":"java/testing/cleanup/assertnotequalsbooleantoassertboolean"},{"name":"Assertion arguments should be passed in the correct order","href":"java/testing/cleanup/assertionsargumentorder"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Clean Up Assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplifies JUnit Jupiter assertions to their most-direct equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace JUnit `assertTrue(!<boolean>)` to `assertFalse(<boolean>)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttruenegationtoassertfalse/"},{"name":"Replace JUnit `assertFalse(!<boolean>)` to `assertTrue(<boolean>)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertfalsenegationtoasserttrue/"},{"name":"Replace JUnit `assertTrue(a.equals(b))` to `assertEquals(a,b)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttrueequalstoassertequals/"},{"name":"Junit `assertTrue(a == b)` to `assertEquals(a,b)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttruecomparisontoassertequals/"},{"name":"Replace JUnit `assertFalse(a.equals(b))` to `assertNotEquals(a,b)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertfalseequalstoassertnotequals/"},{"name":"`assertEquals(a, null)` to `assertNull(a)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertequalsnulltoassertnull/"},{"name":"Replace JUnit `assertFalse(a == null)` to `assertNotNull(a)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertfalsenulltoassertnotnull/"},{"name":"Replace JUnit `assertTrue(a == null)` to `assertNull(a)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttruenulltoassertnull/"},{"name":"Replace JUnit `assertEquals(false, <boolean>)` to `assertFalse(<boolean>)` / `assertTrue(<boolean>)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertequalsbooleantoassertboolean/"},{"name":"Replace JUnit `assertNotEquals(false, <boolean>)` to `assertFalse(<boolean>)` / `assertTrue(<boolean>)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertnotequalsbooleantoassertboolean/"},{"name":"Assertion arguments should be passed in the correct order","href":"/user-documentation/recipes/recipe-catalog/java/testing/cleanup/assertionsargumentorder/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

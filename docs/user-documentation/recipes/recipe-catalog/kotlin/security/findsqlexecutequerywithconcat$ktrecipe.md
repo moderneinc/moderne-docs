@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Statement.executeQuery(\"... \" + x)` calls"}
-  description={"String concatenation into `executeQuery` is the canonical SQL-injection vector. Switch to `PreparedStatement` with `?` placeholders so the driver escapes the parameter for you."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindSqlExecuteQueryWithConcat$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findsqlexecutequerywithconcat$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Statement.executeQuery("... " + x)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>String concatenation into `executeQuery` is the canonical SQL-injection vector. Switch to `PreparedStatement` with `?` placeholders so the driver escapes the parameter for you.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindSqlExecuteQueryWithConcat$KtRecipe","displayName":"Find `Statement.executeQuery(\"... \" + x)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

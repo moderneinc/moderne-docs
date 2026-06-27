@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Quarkus Maven plugin"}
-  description={"Adds the Quarkus Maven plugin using the same version as the quarkus-bom in dependency management."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.AddQuarkusMavenPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/addquarkusmavenplugin.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Maven plugin executions","href":"maven/changepluginexecutions"},{"name":"Add or update child tag","href":"xml/addorupdatechildtag"}]}>
+<RecipeHeader.Title>Add Quarkus Maven plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the Quarkus Maven plugin using the same version as the quarkus-bom in dependency management.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Maven plugin executions","href":"/user-documentation/recipes/recipe-catalog/maven/changepluginexecutions/"},{"name":"Add or update child tag","href":"/user-documentation/recipes/recipe-catalog/xml/addorupdatechildtag/"}]}>
 
 ## Definition
 

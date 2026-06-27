@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update deprecated Faces method calls"}
-  description={"Custom recipe to handle method call changes for deprecated Faces/EL methods where the method argument lists have changed. This recipe should be run _after_ all the Jakarta Faces related type changes are completed.\n"}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.UpdateJakartaFacesMethodCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/updatejakartafacesmethodcalls.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"ChangeJakartaFacesMethodCalls","href":"oracle/weblogic/rewrite/jakarta/changejakartafacesmethodcalls"}]}>
+<RecipeHeader.Title>Update deprecated Faces method calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Custom recipe to handle method call changes for deprecated Faces/EL methods where the method argument lists have changed. This recipe should be run _after_ all the Jakarta Faces related type changes are completed.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"ChangeJakartaFacesMethodCalls","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/changejakartafacesmethodcalls/"}]}>
 
 ## Definition
 

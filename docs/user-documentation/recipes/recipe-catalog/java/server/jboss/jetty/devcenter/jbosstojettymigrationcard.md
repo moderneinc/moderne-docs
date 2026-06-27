@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JBoss to Jetty migration"}
-  description={"Measures the progress of migrating applications from JBoss to Jetty. Analyzes the presence of JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and Jetty jetty-env.xml configuration files to determine migration state."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.jetty.devcenter.JBossToJettyMigrationCard"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/devcenter/jbosstojettymigrationcard.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"JBoss to Jetty migration scanner","href":"java/server/jboss/jetty/devcenter/jbosstojettymigrationcard$scanner"}]}>
+<RecipeHeader.Title>JBoss to Jetty migration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Measures the progress of migrating applications from JBoss to Jetty. Analyzes the presence of JBoss descriptor files (jboss-web.xml, jboss-deployment-structure.xml) and Jetty jetty-env.xml configuration files to determine migration state.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"JBoss to Jetty migration scanner","href":"/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/devcenter/jbosstojettymigrationcard$scanner/"}]}>
 
 ## Definition
 

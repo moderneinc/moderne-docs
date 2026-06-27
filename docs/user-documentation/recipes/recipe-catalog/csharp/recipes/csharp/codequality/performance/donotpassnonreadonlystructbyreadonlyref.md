@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Do not pass non-read-only struct by read-only reference"}
-  description={"Remove 'in' modifier from parameters of non-readonly struct type to avoid defensive copies."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.DoNotPassNonReadOnlyStructByReadOnlyRef"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/donotpassnonreadonlystructbyreadonlyref.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Do not pass non-read-only struct by read-only reference</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove 'in' modifier from parameters of non-readonly struct type to avoid defensive copies.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.DoNotPassNonReadOnlyStructByReadOnlyRef","displayName":"Do not pass non-read-only struct by read-only reference","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

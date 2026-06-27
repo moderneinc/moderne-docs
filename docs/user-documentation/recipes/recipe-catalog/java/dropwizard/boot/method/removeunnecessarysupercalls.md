@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `super` calls when the class does not extend another class"}
-  description={"Removes calls to `super(...)` or `super.someMethod(...)` if the class does not have a real superclass besides `java.lang.Object`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.method.RemoveUnnecessarySuperCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/method/removeunnecessarysupercalls.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `super` calls when the class does not extend another class</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes calls to `super(...)` or `super.someMethod(...)` if the class does not have a real superclass besides `java.lang.Object`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    public String toString() {\n        super.toString();\n        return \"hello\";\n    }\n}\n","after":"class A {\n    public String toString() {\n        return \"hello\";\n    }\n}\n","diff":"@@ -3,1 +3,0 @@\nclass A {\n    public String toString() {\n-       super.toString();\n        return \"hello\";\n","newFile":false}]}]}>
 

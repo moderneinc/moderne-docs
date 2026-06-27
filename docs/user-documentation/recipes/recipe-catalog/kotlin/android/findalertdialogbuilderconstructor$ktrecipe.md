@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `AlertDialog.Builder(this)` constructions"}
-  description={"`android.app.AlertDialog.Builder` does not pick up app-bar themes or Material styles. For consistent theming on AppCompat surfaces, use `androidx.appcompat.app.AlertDialog.Builder` (or `MaterialAlertDialogBuilder` for Material apps). Each match is worth a quick accessibility/theming review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindAlertDialogBuilderConstructor$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findalertdialogbuilderconstructor$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `AlertDialog.Builder(this)` constructions</RecipeHeader.Title>
+
+<RecipeHeader.Description>`android.app.AlertDialog.Builder` does not pick up app-bar themes or Material styles. For consistent theming on AppCompat surfaces, use `androidx.appcompat.app.AlertDialog.Builder` (or `MaterialAlertDialogBuilder` for Material apps). Each match is worth a quick accessibility/theming review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindAlertDialogBuilderConstructor$KtRecipe","displayName":"Find `AlertDialog.Builder(this)` constructions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

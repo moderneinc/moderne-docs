@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Mockito `whenever(...).thenReturn(...)` chains"}
-  description={"Mockito's `whenever(call).thenReturn(value)` (or `whenever(call).thenAnswer { … }`) intercepts the method invocation as it happens. mockk records the invocation in a DSL block: `every { mock.foo() } returns value`. The mockk form composes more naturally with property access and suspending calls."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindMockitoWhenThenReturn$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitowhenthenreturn$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Mockito `whenever(...).thenReturn(...)` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>Mockito's `whenever(call).thenReturn(value)` (or `whenever(call).thenAnswer { … }`) intercepts the method invocation as it happens. mockk records the invocation in a DSL block: `every { mock.foo() } returns value`. The mockk form composes more naturally with property access and suspending calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindMockitoWhenThenReturn$KtRecipe","displayName":"Find Mockito `whenever(...).thenReturn(...)` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

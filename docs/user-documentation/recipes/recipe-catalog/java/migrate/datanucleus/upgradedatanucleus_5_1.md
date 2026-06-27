@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to DataNucleus 5.1"}
-  description={"Migrate DataNucleus applications to 5.1. This recipe first applies the 5.0 migration, then handles the transaction namespace reorganization and other property renames introduced in 5.1."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["datanucleus","jdo","jpa"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.datanucleus.UpgradeDataNucleus_5_1"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_1.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to DataNucleus 5.0","href":"java/migrate/datanucleus/upgradedatanucleus_5_0"},{"name":"Upgrade Gradle or Maven dependency versions","href":"java/dependencies/upgradedependencyversion"},{"name":"DataNucleus 5.1 property migrations","href":"java/migrate/datanucleus/datanucleusproperties_5_1"}]}>
+<RecipeHeader.Title>Migrate to DataNucleus 5.1</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate DataNucleus applications to 5.1. This recipe first applies the 5.0 migration, then handles the transaction namespace reorganization and other property renames introduced in 5.1.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to DataNucleus 5.0","href":"/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/upgradedatanucleus_5_0/"},{"name":"Upgrade Gradle or Maven dependency versions","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/upgradedependencyversion/"},{"name":"DataNucleus 5.1 property migrations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/datanucleus/datanucleusproperties_5_1/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StreamRules.StreamMax`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamMax<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4266\")\n    Optional<T> before(Stream<T> stream, Comparator<? super T> comparator) {\n        return Refaster.anyOf(stream.min(comparator.reversed()), Streams.findLast(stream.sorted(comparator)), stream.collect(maxBy(comparator)));\n    }\n    \n    @AfterTemplate\n    Optional<T> after(Stream<T> stream, Comparator<? super T> comparator) {\n        return stream.max(comparator);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4266"]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMaxRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/streamrulesrecipes$streammaxrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StreamRules.StreamMax`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class StreamMax<T> {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "java:S4266")
+    Optional<T> before(Stream<T> stream, Comparator<? super T> comparator) {
+        return Refaster.anyOf(stream.min(comparator.reversed()), Streams.findLast(stream.sorted(comparator)), stream.collect(maxBy(comparator)));
+    }
+    
+    @AfterTemplate
+    Optional<T> after(Stream<T> stream, Comparator<? super T> comparator) {
+        return stream.max(comparator);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMaxRecipe","displayName":"Refaster template `StreamRules.StreamMax`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `org.springframework.web.reactive.HandlerResult.setExceptionHandler` method"}
-  description={"`org.springframework.web.reactive.HandlerResult.setExceptionHandler(Function<Throwable, Mono<HandlerResult>>)` was deprecated, in favor of `setExceptionHandler(DispatchExceptionHandler)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateHandlerResultSetExceptionHandlerMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratehandlerresultsetexceptionhandlermethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `org.springframework.web.reactive.HandlerResult.setExceptionHandler` method</RecipeHeader.Title>
+
+<RecipeHeader.Description>`org.springframework.web.reactive.HandlerResult.setExceptionHandler(Function<Throwable, Mono<HandlerResult>>)` was deprecated, in favor of `setExceptionHandler(DispatchExceptionHandler)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.web.reactive.HandlerResult;\nimport reactor.core.publisher.Mono;\n\nclass MyHandler {\n    void configureHandler(HandlerResult result) {\n        result.setExceptionHandler(ex -> Mono.empty());\n    }\n}\n","after":"import org.springframework.web.reactive.HandlerResult;\nimport reactor.core.publisher.Mono;\n\nclass MyHandler {\n    void configureHandler(HandlerResult result) {\n        result.setExceptionHandler((exchange, ex) -> Mono.empty());\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass MyHandler {\n    void configureHandler(HandlerResult result) {\n-       result.setExceptionHandler(ex -> Mono.empty());\n+       result.setExceptionHandler((exchange, ex) -> Mono.empty());\n    }\n","newFile":false}]}]}>
 

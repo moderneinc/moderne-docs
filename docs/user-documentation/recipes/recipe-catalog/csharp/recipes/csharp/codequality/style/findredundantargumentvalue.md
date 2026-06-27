@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find redundant default argument values"}
-  description={"Detect named arguments that explicitly pass a default value. Removing them simplifies the call."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindRedundantArgumentValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findredundantargumentvalue.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find redundant default argument values</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect named arguments that explicitly pass a default value. Removing them simplifies the call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindRedundantArgumentValue","displayName":"Find redundant default argument values","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

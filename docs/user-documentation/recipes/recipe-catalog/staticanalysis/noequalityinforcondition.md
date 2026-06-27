@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use comparison rather than equality checks in for conditions"}
-  description={"Testing for loop termination using an equality operator (`==` and `!=`) is dangerous, because it could set up an infinite loop. Using a relational operator instead makes it harder to accidentally write an infinite loop."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S888"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.NoEqualityInForCondition"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/noequalityinforcondition.md"}
-/>
+>
+
+<RecipeHeader.Title>Use comparison rather than equality checks in for conditions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Testing for loop termination using an equality operator (`==` and `!=`) is dangerous, because it could set up an infinite loop. Using a relational operator instead makes it harder to accidentally write an infinite loop.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test() {\n        for (int i = 0; i != 10; i++) {\n        }\n        for (int i = 10; i != 0; i--) {\n        }\n    }\n}\n","after":"class Test {\n    void test() {\n        for (int i = 0; i < 10; i++) {\n        }\n        for (int i = 10; i > 0; i--) {\n        }\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    void test() {\n-       for (int i = 0; i != 10; i++) {\n+       for (int i = 0; i < 10; i++) {\n        }\n@@ -5,1 +5,1 @@\n        for (int i = 0; i != 10; i++) {\n        }\n-       for (int i = 10; i != 0; i--) {\n+       for (int i = 10; i > 0; i--) {\n        }\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJRules.AssertThatStreamContainsSequenceVarArgs`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatStreamContainsSequenceVarArgs<S, T extends S, U extends T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatStreamContainsSequence\")\n    ListAssert<T> before(Stream<S> stream, @Repeated\n    U elements, Collector<S, ?, ? extends List<T>> collector) {\n        return assertThat(stream.collect(collector)).containsSequence(Refaster.asVarargs(elements));\n    }\n    \n    @AfterTemplate\n    @SuppressWarnings(value = \"ObjectEnumerableContainsOneElement\")\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ListAssert<S> after(Stream<S> stream, @Repeated\n    U elements) {\n        return assertThat(stream).containsSequence(elements);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,37 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsSequenceVarArgsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjrulesrecipes$assertthatstreamcontainssequencevarargsrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJRules.AssertThatStreamContainsSequenceVarArgs`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatStreamContainsSequenceVarArgs<S, T extends S, U extends T> {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "AssertThatStreamContainsSequence")
+    ListAssert<T> before(Stream<S> stream, @Repeated
+    U elements, Collector<S, ?, ? extends List<T>> collector) {
+        return assertThat(stream.collect(collector)).containsSequence(Refaster.asVarargs(elements));
+    }
+    
+    @AfterTemplate
+    @SuppressWarnings(value = "ObjectEnumerableContainsOneElement")
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    ListAssert<S> after(Stream<S> stream, @Repeated
+    U elements) {
+        return assertThat(stream).containsSequence(elements);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJRulesRecipes$AssertThatStreamContainsSequenceVarArgsRecipe","displayName":"Refaster template `AssertJRules.AssertThatStreamContainsSequenceVarArgs`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

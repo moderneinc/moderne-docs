@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use NamedValue parameters instead of Map"}
-  description={"Migrates `indicesBoost` and `dynamicTemplates` parameters from `Map` to `NamedValue` in Elasticsearch Java client 9.x."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["elasticsearch"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.elastic.elastic9.UseNamedValueParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/elastic/elastic9/usenamedvalueparameters.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use NamedValue parameters instead of Map</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `indicesBoost` and `dynamicTemplates` parameters from `Map` to `NamedValue` in Elasticsearch Java client 9.x.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import co.elastic.clients.elasticsearch.ElasticsearchClient;\nimport co.elastic.clients.elasticsearch.indices.PutMappingRequest;\nimport co.elastic.clients.elasticsearch._types.mapping.DynamicTemplate;\nimport co.elastic.clients.elasticsearch.async_search.SubmitRequest;\nimport java.util.Map;\n\nclass Test {\n    void testSearch(ElasticsearchClient esClient) throws Exception {\n        esClient.search(s -> s\n            .index(\"*\")\n            .indicesBoost(Map.of(\"index\", 1.0))\n        , Void.class);\n    }\n\n    void testPutMapping() {\n        var request = new PutMappingRequest.Builder()\n            .index(\"test\")\n            .dynamicTemplates(Map.of(\"strings\", new DynamicTemplate.Builder().build()))\n            .build();\n    }\n\n    void testAsyncSearch() {\n        new SubmitRequest.Builder()\n            .index(\"test\")\n            .indicesBoost(getBoost())\n            .build();\n    }\n\n    private Map<String, Double> getBoost() {\n        return Map.of(\"myindex\", 2.5);\n    }\n}\n","after":"import co.elastic.clients.elasticsearch.ElasticsearchClient;\nimport co.elastic.clients.elasticsearch.indices.PutMappingRequest;\nimport co.elastic.clients.util.NamedValue;\nimport co.elastic.clients.elasticsearch._types.mapping.DynamicTemplate;\nimport co.elastic.clients.elasticsearch.async_search.SubmitRequest;\nimport java.util.Map;\n\nclass Test {\n    void testSearch(ElasticsearchClient esClient) throws Exception {\n        esClient.search(s -> s\n            .index(\"*\")\n            .indicesBoost(NamedValue.of(\"index\", 1.0))\n        , Void.class);\n    }\n\n    void testPutMapping() {\n        var request = new PutMappingRequest.Builder()\n            .index(\"test\")\n            .dynamicTemplates(NamedValue.of(\"strings\", new DynamicTemplate.Builder().build()))\n            .build();\n    }\n\n    void testAsyncSearch() {\n        new SubmitRequest.Builder()\n            .index(\"test\")\n            .indicesBoost(getBoost().entrySet().stream().findFirst().map(entry -> NamedValue.of(entry.getKey(), entry.getValue())).get())\n            .build();\n    }\n\n    private Map<String, Double> getBoost() {\n        return Map.of(\"myindex\", 2.5);\n    }\n}\n","diff":"@@ -3,0 +3,1 @@\nimport co.elastic.clients.elasticsearch.ElasticsearchClient;\nimport co.elastic.clients.elasticsearch.indices.PutMappingRequest;\n+import co.elastic.clients.util.NamedValue;\nimport co.elastic.clients.elasticsearch._types.mapping.DynamicTemplate;\n@@ -11,1 +12,1 @@\n        esClient.search(s -> s\n            .index(\"*\")\n-           .indicesBoost(Map.of(\"index\", 1.0))\n+           .indicesBoost(NamedValue.of(\"index\", 1.0))\n        , Void.class);\n@@ -18,1 +19,1 @@\n        var request = new PutMappingRequest.Builder()\n            .index(\"test\")\n-           .dynamicTemplates(Map.of(\"strings\", new DynamicTemplate.Builder().build()))\n+           .dynamicTemplates(NamedValue.of(\"strings\", new DynamicTemplate.Builder().build()))\n            .build();\n@@ -25,1 +26,1 @@\n        new SubmitRequest.Builder()\n            .index(\"test\")\n-           .indicesBoost(getBoost())\n+           .indicesBoost(getBoost().entrySet().stream().findFirst().map(entry -> NamedValue.of(entry.getKey(), entry.getValue())).get())\n            .build();\n","newFile":false}]}]}>
 

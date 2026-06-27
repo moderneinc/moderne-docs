@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `native` profile in `quarkus-maven-plugin`"}
-  description={"Migrates the `quarkus-maven-plugin` deprecated `native-image` goal. If the `native-image` goal needs to be removed, this adds `<quarkus.package.type>native</quarkus.package.type>` to the `native` profile `properties` section, given the `native` profile exists in the `pom.xml`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.MigrateQuarkusMavenPluginNativeImageGoal"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/migratequarkusmavenpluginnativeimagegoal.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `native` profile in `quarkus-maven-plugin`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates the `quarkus-maven-plugin` deprecated `native-image` goal. If the `native-image` goal needs to be removed, this adds `<quarkus.package.type>native</quarkus.package.type>` to the `native` profile `properties` section, given the `native` profile exists in the `pom.xml`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>org.openrewrite.example</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <properties>\n    <quarkus-plugin.version>1.13.5.Final</quarkus-plugin.version>\n  </properties>\n  <build>\n    <plugins>\n      <plugin>\n        <groupId>io.quarkus</groupId>\n        <artifactId>quarkus-maven-plugin</artifactId>\n        <version>${\"$\"}{quarkus-plugin.version}</version>\n        <extensions>true</extensions>\n        <executions>\n          <execution>\n            <goals>\n              <goal>build</goal>\n              <goal>native-image</goal>\n            </goals>\n          </execution>\n        </executions>\n      </plugin>\n    </plugins>\n  </build>\n</project>\n","after":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>org.openrewrite.example</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <properties>\n    <quarkus-plugin.version>1.13.5.Final</quarkus-plugin.version>\n  </properties>\n  <build>\n    <plugins>\n      <plugin>\n        <groupId>io.quarkus</groupId>\n        <artifactId>quarkus-maven-plugin</artifactId>\n        <version>${\"$\"}{quarkus-plugin.version}</version>\n        <extensions>true</extensions>\n        <executions>\n          <execution>\n            <goals>\n              <goal>build</goal>\n            </goals>\n          </execution>\n        </executions>\n      </plugin>\n    </plugins>\n  </build>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -20,1 +20,0 @@\n            <goals>\n              <goal>build</goal>\n-             <goal>native-image</goal>\n            </goals>\n","newFile":false}]}]}>
 

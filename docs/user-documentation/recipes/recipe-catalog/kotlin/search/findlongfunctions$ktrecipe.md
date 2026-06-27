@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find functions with more than 30 statements"}
-  description={"Long functions hide branching and are harder to test, refactor, and reason about. For an LLM agent reading the file, an oversized body eats tokens disproportionately and obscures the contract — flag for review or extraction."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindLongFunctions$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findlongfunctions$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find functions with more than 30 statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Long functions hide branching and are harder to test, refactor, and reason about. For an LLM agent reading the file, an oversized body eats tokens disproportionately and obscures the contract — flag for review or extraction.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindLongFunctions$KtRecipe","displayName":"Find functions with more than 30 statements","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

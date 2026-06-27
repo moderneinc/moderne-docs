@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"New line at the end of `SourceSpecs` text blocks"}
-  description={"Text blocks that assert before and after source code should have a new line after it is closed."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.SourceSpecTextBlockNewLine"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/sourcespectextblocknewline.md"}
-/>
+>
+
+<RecipeHeader.Title>New line at the end of `SourceSpecs` text blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Text blocks that assert before and after source code should have a new line after it is closed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.test.RewriteTest;\nimport static org.openrewrite.test.SourceSpecs.text;\n\nclass MyRecipeTest implements RewriteTest {\n    void test() {\n      rewriteRun(\n         text(\n            \"\"\"\n             class Test {\n \n                 \n                 void test() {\n                     System.out.println(\"Hello, world!\");\n                 }\n             }\n             \"\"\")\n      );\n    }\n}\n","after":"import org.openrewrite.test.RewriteTest;\nimport static org.openrewrite.test.SourceSpecs.text;\n\nclass MyRecipeTest implements RewriteTest {\n    void test() {\n      rewriteRun(\n         text(\n            \"\"\"\n             class Test {\n \n                 \n                 void test() {\n                     System.out.println(\"Hello, world!\");\n                 }\n             }\n             \"\"\"\n         )\n      );\n    }\n}\n","diff":"@@ -16,1 +16,2 @@\n                 }\n             }\n-            \"\"\")\n+            \"\"\"\n+        )\n      );\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find string concatenation in `log.trace(...)`"}
-  description={"`log.trace(\"x=\" + x)` performs the concatenation (and the `toString` on `x`) before the call — wasted work if trace is disabled. Use the lambda form or SLF4J `{}` placeholders."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindStringConcatInLogTrace$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinlogtrace$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find string concatenation in `log.trace(...)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`log.trace("x=" + x)` performs the concatenation (and the `toString` on `x`) before the call — wasted work if trace is disabled. Use the lambda form or SLF4J `{}` placeholders.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindStringConcatInLogTrace$KtRecipe","displayName":"Find string concatenation in `log.trace(...)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

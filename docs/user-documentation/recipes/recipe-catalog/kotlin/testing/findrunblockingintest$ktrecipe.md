@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `runBlocking { ... }` calls inside test methods"}
-  description={"`runBlocking` inside a test method ties the test's wait to real wall-clock time — `delay(60_000)` is a literal minute. `runTest { … }` from `kotlinx-coroutines-test` skips virtual time forward instead, so the same test finishes immediately while preserving suspend ordering."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindRunBlockingInTest$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findrunblockingintest$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `runBlocking { ... }` calls inside test methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>`runBlocking` inside a test method ties the test's wait to real wall-clock time — `delay(60_000)` is a literal minute. `runTest { … }` from `kotlinx-coroutines-test` skips virtual time forward instead, so the same test finishes immediately while preserving suspend ordering.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindRunBlockingInTest$KtRecipe","displayName":"Find `runBlocking { ... }` calls inside test methods","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

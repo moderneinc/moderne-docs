@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Kotlin logging smells"}
-  description={"Search-only recipes for SLF4J, kotlin-logging, `java.util.logging`, log4j 1.x, and `println`/`printStackTrace` usage. Covers eager-message construction (string templates and concatenation), redundant level-check guards, `LoggerFactory.getLogger` shapes that could be `KotlinLogging.logger { }`, unstructured-output calls that bypass the logger, and logger-declaration smells (naming, visibility, instance-field placement)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.Logging$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/logging$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find eager log-message construction","href":"kotlin/logging/findeagerlogmessages$ktrecipe"},{"name":"Find redundant logger level-check guards","href":"kotlin/logging/findloggerguards$ktrecipe"},{"name":"Find `LoggerFactory.getLogger` migration candidates","href":"kotlin/logging/findloggerfactorymigrationcandidates$ktrecipe"},{"name":"Find `println` / `System.err.println` / `printStackTrace`","href":"kotlin/logging/findprintandprintstacktrace$ktrecipe"},{"name":"Find legacy logger-library usage","href":"kotlin/logging/findlegacyloggerlibraries$ktrecipe"},{"name":"Find logger declaration smells","href":"kotlin/logging/findloggerdeclarationsmells$ktrecipe"}]}>
+<RecipeHeader.Title>Find Kotlin logging smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only recipes for SLF4J, kotlin-logging, `java.util.logging`, log4j 1.x, and `println`/`printStackTrace` usage. Covers eager-message construction (string templates and concatenation), redundant level-check guards, `LoggerFactory.getLogger` shapes that could be `KotlinLogging.logger { }`, unstructured-output calls that bypass the logger, and logger-declaration smells (naming, visibility, instance-field placement).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find eager log-message construction","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerlogmessages$ktrecipe/"},{"name":"Find redundant logger level-check guards","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerguards$ktrecipe/"},{"name":"Find `LoggerFactory.getLogger` migration candidates","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerfactorymigrationcandidates$ktrecipe/"},{"name":"Find `println` / `System.err.println` / `printStackTrace`","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findprintandprintstacktrace$ktrecipe/"},{"name":"Find legacy logger-library usage","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findlegacyloggerlibraries$ktrecipe/"},{"name":"Find logger declaration smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/logging/findloggerdeclarationsmells$ktrecipe/"}]}>
 
 ## Definition
 

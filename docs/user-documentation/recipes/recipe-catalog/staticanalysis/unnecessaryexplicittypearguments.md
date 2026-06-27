@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unnecessary explicit type arguments"}
-  description={"When explicit type arguments are inferable by the compiler, they may be removed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UnnecessaryExplicitTypeArguments"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryexplicittypearguments.md"}
-/>
+>
+
+<RecipeHeader.Title>Unnecessary explicit type arguments</RecipeHeader.Title>
+
+<RecipeHeader.Description>When explicit type arguments are inferable by the compiler, they may be removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    <T> T test() {\n        String s = this.<String>test();\n        Object o = this.<String>test();\n        return this.<T>test();\n    }\n\n    Object o() {\n        return this.<String>test();\n    }\n}\n","after":"class Test {\n    <T> T test() {\n        String s = this.test();\n        Object o = this.<String>test();\n        return this.test();\n    }\n\n    Object o() {\n        return this.<String>test();\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    <T> T test() {\n-       String s = this.<String>test();\n+       String s = this.test();\n        Object o = this.<String>test();\n@@ -5,1 +5,1 @@\n        String s = this.<String>test();\n        Object o = this.<String>test();\n-       return this.<T>test();\n+       return this.test();\n    }\n","newFile":false}]}]}>
 

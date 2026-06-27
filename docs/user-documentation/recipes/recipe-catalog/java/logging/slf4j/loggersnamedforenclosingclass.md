@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Loggers should be named for their enclosing classes"}
-  description={"Ensure `LoggerFactory#getLogger(Class)` is called with the enclosing class as argument."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S3416","slf4j","logging"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.LoggersNamedForEnclosingClass"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/loggersnamedforenclosingclass.md"}
-/>
+>
+
+<RecipeHeader.Title>Loggers should be named for their enclosing classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure `LoggerFactory#getLogger(Class)` is called with the enclosing class as argument.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\nclass WrongClass {}\nclass A {\n    Logger log = LoggerFactory.getLogger(WrongClass.class);\n}\n","after":"import org.slf4j.Logger;\nimport org.slf4j.LoggerFactory;\nclass WrongClass {}\nclass A {\n    Logger log = LoggerFactory.getLogger(A.class);\n}\n","diff":"@@ -5,1 +5,1 @@\nclass WrongClass {}\nclass A {\n-   Logger log = LoggerFactory.getLogger(WrongClass.class);\n+   Logger log = LoggerFactory.getLogger(A.class);\n}\n","newFile":false}]}]}>
 

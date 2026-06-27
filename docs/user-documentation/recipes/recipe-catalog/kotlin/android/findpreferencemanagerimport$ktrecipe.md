@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `android.preference.PreferenceManager` imports"}
-  description={"The framework `android.preference.*` package was deprecated in API 29. Move to `androidx.preference.*` (drop-in replacement) or, for KV state, Jetpack DataStore — which composes with coroutines and `Flow` instead of running on the main thread."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindPreferenceManagerImport$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findpreferencemanagerimport$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `android.preference.PreferenceManager` imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>The framework `android.preference.*` package was deprecated in API 29. Move to `androidx.preference.*` (drop-in replacement) or, for KV state, Jetpack DataStore — which composes with coroutines and `Flow` instead of running on the main thread.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindPreferenceManagerImport$KtRecipe","displayName":"Find `android.preference.PreferenceManager` imports","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

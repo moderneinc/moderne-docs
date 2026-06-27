@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Flux#take(long)` over `Flux#take(long, boolean)` where relevant"}
-  description={"In Reactor versions prior to 3.5.0, `Flux#take(long)` makes an unbounded request\n upstream, and is equivalent to `Flux#take(long, false)`. From version 3.5.0 onwards, the\n behavior of `Flux#take(long)` instead matches `Flux#take(long, true)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxTakeRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes$fluxtakerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Flux#take(long)` over `Flux#take(long, boolean)` where relevant</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Reactor versions prior to 3.5.0, `Flux#take(long)` makes an unbounded request  upstream, and is equivalent to `Flux#take(long, false)`. From version 3.5.0 onwards, the  behavior of `Flux#take(long)` instead matches `Flux#take(long, true)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxTakeRecipe","displayName":"Prefer `Flux#take(long)` over `Flux#take(long, boolean)` where relevant","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

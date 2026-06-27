@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Dropwizard Application.run() to SpringApplication.run()"}
-  description={"Replaces the `new MyApp().run(args)` pattern in the main method with `SpringApplication.run(MyApp.class, args)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.MigrateApplicationRunMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/migrateapplicationrunmethod.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Dropwizard Application.run() to SpringApplication.run()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces the `new MyApp().run(args)` pattern in the main method with `SpringApplication.run(MyApp.class, args)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example;\n\nimport io.dropwizard.core.Application;\nimport io.dropwizard.core.Configuration;\nimport io.dropwizard.core.setup.Environment;\n\npublic class MyApp extends Application<Configuration> {\n    public static void main(String[] args) throws Exception {\n        new MyApp().run(args);\n    }\n\n    @Override\n    public void run(Configuration configuration, Environment environment) {\n    }\n}\n","after":"package com.example;\n\nimport io.dropwizard.core.Application;\nimport io.dropwizard.core.Configuration;\nimport io.dropwizard.core.setup.Environment;\nimport org.springframework.boot.SpringApplication;\n\npublic class MyApp extends Application<Configuration> {\n    public static void main(String[] args) throws Exception {\n        SpringApplication.run(MyApp.class, args);\n    }\n\n    @Override\n    public void run(Configuration configuration, Environment environment) {\n    }\n}\n","diff":"@@ -6,0 +6,1 @@\nimport io.dropwizard.core.Configuration;\nimport io.dropwizard.core.setup.Environment;\n+import org.springframework.boot.SpringApplication;\n\n@@ -9,1 +10,1 @@\npublic class MyApp extends Application<Configuration> {\n    public static void main(String[] args) throws Exception {\n-       new MyApp().run(args);\n+       SpringApplication.run(MyApp.class, args);\n    }\n","newFile":false}]}]}>
 

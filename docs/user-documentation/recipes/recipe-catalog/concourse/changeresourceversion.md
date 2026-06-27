@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change resource version"}
-  description={"Pin or unpin a resource to a particular version."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.concourse.ChangeResourceVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/concourse/changeresourceversion.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Change resource version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Pin or unpin a resource to a particular version.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"resourceType","required":true,"description":"Update any resources of this type","example":"git"},{"type":"String","name":"version","required":false,"description":"If less than this version, update. If not provided, clears pins.","example":"2.0"}]}>
 

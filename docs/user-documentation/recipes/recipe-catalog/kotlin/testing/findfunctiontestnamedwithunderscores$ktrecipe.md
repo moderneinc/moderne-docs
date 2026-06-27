@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find test functions named with snake_case"}
-  description={"Kotlin's backtick syntax lets test names read as sentences: `fun \\`returns 404 when user not found\\`()`. Names like `fun test_returns_404_when_user_not_found()` predate that convention — usually the result of porting Java tests directly."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindFunctionTestNamedWithUnderscores$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findfunctiontestnamedwithunderscores$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find test functions named with snake_case</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotlin's backtick syntax lets test names read as sentences: `fun \`returns 404 when user not found\`()`. Names like `fun test_returns_404_when_user_not_found()` predate that convention — usually the result of porting Java tests directly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindFunctionTestNamedWithUnderscores$KtRecipe","displayName":"Find test functions named with snake_case","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

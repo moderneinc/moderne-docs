@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `assertNull(...)` calls — Kotest migration candidate"}
-  description={"`assertNull(actual)` → `actual.shouldBeNull()` in Kotest. The receiver-style form keeps the subject as the focal point, which composes more cleanly into specialized matchers (`actual.shouldBeNullOrEmpty()` etc)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindAssertNullCandidateForKotest$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertnullcandidateforkotest$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `assertNull(...)` calls — Kotest migration candidate</RecipeHeader.Title>
+
+<RecipeHeader.Description>`assertNull(actual)` → `actual.shouldBeNull()` in Kotest. The receiver-style form keeps the subject as the focal point, which composes more cleanly into specialized matchers (`actual.shouldBeNullOrEmpty()` etc).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindAssertNullCandidateForKotest$KtRecipe","displayName":"Find `assertNull(...)` calls — Kotest migration candidate","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

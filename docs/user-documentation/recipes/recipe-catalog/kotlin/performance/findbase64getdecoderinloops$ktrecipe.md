@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Base64.getDecoder()` calls inside loops"}
-  description={"`Base64.getDecoder()` returns a shared singleton, so the call itself is cheap — but reading the decoder from a `final` field is cheaper still. Hoist the decoder to a top-level `private val` for clarity."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindBase64GetDecoderInLoops$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findbase64getdecoderinloops$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Base64.getDecoder()` calls inside loops</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Base64.getDecoder()` returns a shared singleton, so the call itself is cheap — but reading the decoder from a `final` field is cheaper still. Hoist the decoder to a top-level `private val` for clarity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindBase64GetDecoderInLoops$KtRecipe","displayName":"Find `Base64.getDecoder()` calls inside loops","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

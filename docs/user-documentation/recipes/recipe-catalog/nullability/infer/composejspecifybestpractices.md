@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Compose JSpecify best practices (intra-body nullability inference)"}
-  description={"The intra-body nullability inference pass. After [StandardizeNullabilityAnnotationsToJSpecify](https://docs.openrewrite.org) has normalized every annotation flavor onto a single [JSpecify](https://jspecify.dev) form, this recipe runs the OpenRewrite static-analysis inference recipes that derive nullability from signals *inside* each method body: methods whose bodies can return `null` (including standard library awareness such as `Map.get`/`Queue.poll`) and parameters that are null-checked in the body. These complement the cross-file inference recipes (`AddNullableToReturnType`, `AddNullableToParameterCrossFile`, `AddNullableToField`, `PropagateNullableAcrossOverrides`) which reason across files; this pass should run AFTER `StandardizeNullabilityAnnotationsToJSpecify` and alongside those cross-file inference recipes. All annotations are emitted as JSpecify (`org.jspecify.annotations.@Nullable` / `@NonNull`)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["jspecify","nullability"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.infer.ComposeJSpecifyBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/infer/composejspecifybestpractices.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Annotate methods which may return `null` with `@Nullable`","href":"staticanalysis/annotatenullablemethods"},{"name":"Annotate null-checked method parameters with `@Nullable`","href":"staticanalysis/annotatenullableparameters"}]}>
+<RecipeHeader.Title>Compose JSpecify best practices (intra-body nullability inference)</RecipeHeader.Title>
+
+<RecipeHeader.Description>The intra-body nullability inference pass. After [StandardizeNullabilityAnnotationsToJSpecify](https://docs.openrewrite.org) has normalized every annotation flavor onto a single [JSpecify](https://jspecify.dev) form, this recipe runs the OpenRewrite static-analysis inference recipes that derive nullability from signals *inside* each method body: methods whose bodies can return `null` (including standard library awareness such as `Map.get`/`Queue.poll`) and parameters that are null-checked in the body. These complement the cross-file inference recipes (`AddNullableToReturnType`, `AddNullableToParameterCrossFile`, `AddNullableToField`, `PropagateNullableAcrossOverrides`) which reason across files; this pass should run AFTER `StandardizeNullabilityAnnotationsToJSpecify` and alongside those cross-file inference recipes. All annotations are emitted as JSpecify (`org.jspecify.annotations.@Nullable` / `@NonNull`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Annotate methods which may return `null` with `@Nullable`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/annotatenullablemethods/"},{"name":"Annotate null-checked method parameters with `@Nullable`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/annotatenullableparameters/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove enum default underlying type"}
-  description={"Remove : int from enum declaration since int is the default."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEnumDefaultUnderlyingType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeenumdefaultunderlyingtype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove enum default underlying type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove : int from enum declaration since int is the default.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveEnumDefaultUnderlyingType","displayName":"Remove enum default underlying type","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

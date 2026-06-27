@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `viewModel.uiState.collectAsState()` calls — confirm lifecycle-aware collection"}
-  description={"`viewModel.uiState.collectAsState()` keeps the collector active while the host is in the background — `collectAsStateWithLifecycle()` is the lifecycle-aware analogue. Both work; the recipe surfaces the call so each ViewModel-collection site is verified rather than defaulted."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindStateFlowDirectCollect$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findstateflowdirectcollect$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `viewModel.uiState.collectAsState()` calls — confirm lifecycle-aware collection</RecipeHeader.Title>
+
+<RecipeHeader.Description>`viewModel.uiState.collectAsState()` keeps the collector active while the host is in the background — `collectAsStateWithLifecycle()` is the lifecycle-aware analogue. Both work; the recipe surfaces the call so each ViewModel-collection site is verified rather than defaulted.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindStateFlowDirectCollect$KtRecipe","displayName":"Find `viewModel.uiState.collectAsState()` calls — confirm lifecycle-aware collection","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

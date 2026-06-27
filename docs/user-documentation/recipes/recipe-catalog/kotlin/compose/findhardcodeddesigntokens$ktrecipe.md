@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hardcoded color literals inside `@Composable`"}
-  description={"`Color(0xFF…)` literals inside composables break theming and accessibility (light/dark). Hoist into `MaterialTheme.colorScheme.*`."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindHardcodedDesignTokens$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findhardcodeddesigntokens$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Color(0xFF…)` / `Color.X` literals inside `@Composable`","href":"kotlin/compose/findhardcodedcolor$ktrecipe"}]}>
+<RecipeHeader.Title>Find hardcoded color literals inside `@Composable`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Color(0xFF…)` literals inside composables break theming and accessibility (light/dark). Hoist into `MaterialTheme.colorScheme.*`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Color(0xFF…)` / `Color.X` literals inside `@Composable`","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findhardcodedcolor$ktrecipe/"}]}>
 
 ## Definition
 

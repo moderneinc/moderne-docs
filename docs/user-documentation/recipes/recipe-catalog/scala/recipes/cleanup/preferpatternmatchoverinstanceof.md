@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer pattern matching over `isInstanceOf`/`asInstanceOf` chains"}
-  description={"Finds `if` statements that check `isInstanceOf` in the condition and use `asInstanceOf` in the then-part. Replace with pattern matching for idiomatic Scala."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.PreferPatternMatchOverInstanceOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferpatternmatchoverinstanceof.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer pattern matching over `isInstanceOf`/`asInstanceOf` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `if` statements that check `isInstanceOf` in the condition and use `asInstanceOf` in the then-part. Replace with pattern matching for idiomatic Scala.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"class Example {\n    def process(x: Any): String = {\n        if (x.isInstanceOf[String]) {\n            x.asInstanceOf[String]\n        } else {\n            \"\"\n        }\n    }\n}\n","after":"class Example {\n    /*~~(Consider using pattern matching instead of isInstanceOf/asInstanceOf chain)~~>*/def process(x: Any): String = {\n        if (x.isInstanceOf[String]) {\n            x.asInstanceOf[String]\n        } else {\n            \"\"\n        }\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nclass Example {\n-   def process(x: Any): String = {\n+   /*~~(Consider using pattern matching instead of isInstanceOf/asInstanceOf chain)~~>*/def process(x: Any): String = {\n        if (x.isInstanceOf[String]) {\n","newFile":false}]}]}>
 

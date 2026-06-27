@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace various `Processor.cache` calls with their `Sinks` equivalent"}
-  description={"As of 3.5 Processors are deprecated and Sinks are preferred."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.reactive.reactor.ReactorProcessorCacheToSinkRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorprocessorcachetosinkrecipes.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `ReplayProcessor.cacheLast()` with `Sinks.many().replay().latest()`","href":"reactive/reactor/reactorprocessorcachetosinkrecipes$replayprocessorcachetosinkrecipe"},{"name":"Replace `ReplayProcessor.cacheLast()` with `Sinks.many().replay().latest()`","href":"reactive/reactor/reactorprocessorcachetosinkrecipes$replayprocessorcachedefaulttosinkrecipe"}]}>
+<RecipeHeader.Title>Replace various `Processor.cache` calls with their `Sinks` equivalent</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of 3.5 Processors are deprecated and Sinks are preferred.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `ReplayProcessor.cacheLast()` with `Sinks.many().replay().latest()`","href":"/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorprocessorcachetosinkrecipes$replayprocessorcachetosinkrecipe/"},{"name":"Replace `ReplayProcessor.cacheLast()` with `Sinks.many().replay().latest()`","href":"/user-documentation/recipes/recipe-catalog/reactive/reactor/reactorprocessorcachetosinkrecipes$replayprocessorcachedefaulttosinkrecipe/"}]}>
 
 ## Definition
 

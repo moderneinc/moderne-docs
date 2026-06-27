@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find explicit zero initialization in enum"}
-  description={"Detect enum members explicitly initialized to `0`. The default value of an enum is already `0`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindEnumDefaultValueZero"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findenumdefaultvaluezero.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find explicit zero initialization in enum</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect enum members explicitly initialized to `0`. The default value of an enum is already `0`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindEnumDefaultValueZero","displayName":"Find explicit zero initialization in enum","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate StringEncoder(String) to StringEncoder(StandardCharsets)"}
-  description={"Replaces `new StringEncoder(charsetName)` with `new StringEncoder(StandardCharsets.<constant>)` for all standard charsets (US-ASCII, ISO-8859-1, UTF-8, UTF-16BE, UTF-16LE, UTF-16)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-netty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.netty.upgrade._3_2_to_4_1_.StringEncoderToStandardCharsets"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/netty/upgrade/_3_2_to_4_1_/stringencodertostandardcharsets.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate StringEncoder(String) to StringEncoder(StandardCharsets)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `new StringEncoder(charsetName)` with `new StringEncoder(StandardCharsets.<constant>)` for all standard charsets (US-ASCII, ISO-8859-1, UTF-8, UTF-16BE, UTF-16LE, UTF-16).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.jboss.netty.handler.codec.string.StringEncoder;\n\nclass Test {\n    public void test() {\n        new StringEncoder(\"UTF-8\");\n    }\n}\n","after":"import io.netty.handler.codec.string.StringEncoder;\n\nimport java.nio.charset.StandardCharsets;\n\nclass Test {\n    public void test() {\n        new StringEncoder(StandardCharsets.UTF_8);\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.jboss.netty.handler.codec.string.StringEncoder;\n+import io.netty.handler.codec.string.StringEncoder;\n\n@@ -3,0 +3,2 @@\nimport org.jboss.netty.handler.codec.string.StringEncoder;\n\n+import java.nio.charset.StandardCharsets;\n+\nclass Test {\n@@ -5,1 +7,1 @@\nclass Test {\n    public void test() {\n-       new StringEncoder(\"UTF-8\");\n+       new StringEncoder(StandardCharsets.UTF_8);\n    }\n","newFile":false}]}]}>
 

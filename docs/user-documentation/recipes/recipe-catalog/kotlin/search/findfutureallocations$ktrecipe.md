@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `CompletableFuture` / `FutureTask` allocations"}
-  description={"`CompletableFuture` (and `FutureTask`) interleave with their own thread pool; from Kotlin, `Deferred`/`async` integrates with structured concurrency. Each allocation is a candidate to migrate or at minimum to review for cancellation handling."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindFutureAllocations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findfutureallocations$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `CompletableFuture` / `FutureTask` allocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`CompletableFuture` (and `FutureTask`) interleave with their own thread pool; from Kotlin, `Deferred`/`async` integrates with structured concurrency. Each allocation is a candidate to migrate or at minimum to review for cancellation handling.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindFutureAllocations$KtRecipe","displayName":"Find `CompletableFuture` / `FutureTask` allocations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

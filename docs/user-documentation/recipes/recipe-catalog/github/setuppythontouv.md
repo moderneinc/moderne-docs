@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `actions/setup-python` with `astral-sh/setup-uv`"}
-  description={"Replace `actions/setup-python` action with `astral-sh/setup-uv` action for faster Python environment setup and dependency management.\n\n**Benefits of UV:**\n - Significantly faster package installation and environment setup\n - Built-in dependency resolution and locking\n - Integrated caching for improved CI performance\n - Drop-in replacement for pip workflows\n\n**Transformations applied:**\n - `actions/setup-python@v5` → `astral-sh/setup-uv@v6`\n - `cache: 'pip'` → `enable-cache: 'true'`\n - `pip install -r requirements.txt` → `uv sync` (configurable strategy)\n - `python -m <module>` → `uv run <module>`\n - Removes unnecessary `pip install --upgrade pip` steps\n\n**Sync strategies:**\n - `basic`: Basic synchronization (`uv sync`)\n - `locked`: Use locked dependencies (`uv sync --locked`)\n - `full`: Install all extras and dev dependencies (`uv sync --all-extras --dev`)\n\nSee the [UV GitHub integration guide](https://docs.astral.sh/uv/guides/integration/github/) for more details."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,37 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.SetupPythonToUv"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/setuppythontouv.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `actions/setup-python` with `astral-sh/setup-uv`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Replace `actions/setup-python` action with `astral-sh/setup-uv` action for faster Python environment setup and dependency management.
+
+**Benefits of UV:**
+ - Significantly faster package installation and environment setup
+ - Built-in dependency resolution and locking
+ - Integrated caching for improved CI performance
+ - Drop-in replacement for pip workflows
+
+**Transformations applied:**
+ - `actions/setup-python@v5` → `astral-sh/setup-uv@v6`
+ - `cache: 'pip'` → `enable-cache: 'true'`
+ - `pip install -r requirements.txt` → `uv sync` (configurable strategy)
+ - `python -m <module>` → `uv run <module>`
+ - Removes unnecessary `pip install --upgrade pip` steps
+
+**Sync strategies:**
+ - `basic`: Basic synchronization (`uv sync`)
+ - `locked`: Use locked dependencies (`uv sync --locked`)
+ - `full`: Install all extras and dev dependencies (`uv sync --all-extras --dev`)
+
+See the [UV GitHub integration guide](https://docs.astral.sh/uv/guides/integration/github/) for more details.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"uvVersion","required":false,"description":"The version of the `astral-sh/setup-uv` action to use. Defaults to `v6`.","example":"v6"},{"type":"String","name":"syncStrategy","required":false,"description":"Strategy for the `uv sync` command replacement.","example":"locked"},{"type":"Boolean","name":"transformPipCommands","required":false,"description":"Whether to transform `pip install` commands to `uv` equivalents:\n- `pip install -r requirements.txt` → `uv sync`\n- `pip install .` → `uv sync`\n- `python -m pytest` → `uv run pytest`\n\nWhen disabled, only the action itself is replaced. Defaults to `true`.","example":"true"},{"type":"Boolean","name":"enableCache","required":false,"description":"Whether to automatically convert `cache: 'pip'` to `enable-cache: 'true'` for UV's built-in caching. When disabled, cache settings are left unchanged. Defaults to `true`.","example":"true"}]}>
 

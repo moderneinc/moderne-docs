@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Cipher.getInstance(\"Blowfish\")` calls"}
-  description={"Blowfish has a 64-bit block size and is vulnerable to Sweet32 birthday collisions on long-lived sessions. Its successor Twofish is also legacy — prefer AES-GCM."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindWeakCipherBlowfish$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findweakcipherblowfish$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Cipher.getInstance("Blowfish")` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Blowfish has a 64-bit block size and is vulnerable to Sweet32 birthday collisions on long-lived sessions. Its successor Twofish is also legacy — prefer AES-GCM.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindWeakCipherBlowfish$KtRecipe","displayName":"Find `Cipher.getInstance(\"Blowfish\")` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

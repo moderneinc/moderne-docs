@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use switch expression"}
-  description={"Convert simple switch statements to switch expressions (C# 8+)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseSwitchExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/useswitchexpression.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use switch expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert simple switch statements to switch expressions (C# 8+).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseSwitchExpression","displayName":"Use switch expression","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add annotation if target annotation exists"}
-  description={"Adds an annotation to a class if it already has a specified target annotation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.annotation.AddClassAnnotationIfAnnotationExists"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/annotation/addclassannotationifannotationexists.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add annotation if target annotation exists</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds an annotation to a class if it already has a specified target annotation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"annotationToAdd","required":true,"description":"The annotation that should be added.","example":"org.springframework.stereotype.Component"},{"type":"String","name":"targetAnnotationClassName","required":true,"description":"The annotation that should be looked for.","example":"javax.ws.rs.Path"},{"type":"Boolean","name":"annotateInnerClasses","required":false,"description":"Boolean whether to annotate inner classes of the matched annotation"}]}>
 

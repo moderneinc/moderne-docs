@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Map` notation for Gradle dependency declarations"}
-  description={"In Gradle, dependencies can be expressed as a `String` like `\"groupId:artifactId:version\"`, or equivalently as a `Map` like `group: 'groupId', name: 'artifactId', version: 'version'` (groovy) or `group = \"groupId\", name = \"artifactId\", version = \"version\"` (kotlin). This recipe replaces dependencies represented as `Strings` with an equivalent dependency represented as a `Map`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.DependencyUseMapNotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/dependencyusemapnotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `Map` notation for Gradle dependency declarations</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Gradle, dependencies can be expressed as a `String` like `"groupId:artifactId:version"`, or equivalently as a `Map` like `group: 'groupId', name: 'artifactId', version: 'version'` (groovy) or `group = "groupId", name = "artifactId", version = "version"` (kotlin). This recipe replaces dependencies represented as `Strings` with an equivalent dependency represented as a `Map`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins {\n    id 'java-library'\n}\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    api('org.openrewrite:rewrite-core:latest.release')\n    implementation \"org.openrewrite:rewrite-core:latest.release\"\n}\n","after":"plugins {\n    id 'java-library'\n}\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    api(group: 'org.openrewrite', name: 'rewrite-core', version: 'latest.release')\n    implementation group: 'org.openrewrite', name: 'rewrite-core', version: 'latest.release'\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -10,2 +10,2 @@\n\ndependencies {\n-   api('org.openrewrite:rewrite-core:latest.release')\n-   implementation \"org.openrewrite:rewrite-core:latest.release\"\n+   api(group: 'org.openrewrite', name: 'rewrite-core', version: 'latest.release')\n+   implementation group: 'org.openrewrite', name: 'rewrite-core', version: 'latest.release'\n}\n","newFile":false}]}]}>
 

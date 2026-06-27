@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `project(...)` dependency notation instead of the current project's module coordinates"}
-  description={"Gradle 9.3 deprecates depending on the current project by its own `group:name:version` module coordinates. In Gradle 9.x such a declaration resolves to the project's local outgoing variants, but in Gradle 10 it will instead attempt resolution from a repository. This recipe replaces a dependency declaration whose coordinates match the current project with the equivalent `project(\"<path>\")` notation. Requires the `GradleProject` marker (available when parsed by the OpenRewrite Gradle plugin) to know the current project's coordinates and path."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.gradle9.UseProjectDependencyInsteadOfModuleCoordinates"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/gradle9/useprojectdependencyinsteadofmodulecoordinates.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `project(...)` dependency notation instead of the current project's module coordinates</RecipeHeader.Title>
+
+<RecipeHeader.Description>Gradle 9.3 deprecates depending on the current project by its own `group:name:version` module coordinates. In Gradle 9.x such a declaration resolves to the project's local outgoing variants, but in Gradle 10 it will instead attempt resolution from a repository. This recipe replaces a dependency declaration whose coordinates match the current project with the equivalent `project("<path>")` notation. Requires the `GradleProject` marker (available when parsed by the OpenRewrite Gradle plugin) to know the current project's coordinates and path.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.gradle.gradle9.UseProjectDependencyInsteadOfModuleCoordinates","displayName":"Use `project(...)` dependency notation instead of the current project's module coordinates","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false}}>
 

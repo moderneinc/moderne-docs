@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace text block with regular string"}
-  description={"Replace text block with a regular multi-line string. Text blocks that fit on a single line without concatenation or escaped newlines gain no readability benefit from the triple-quote syntax and are clearer as plain string literals."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S5663"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ReplaceTextBlockWithString"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/replacetextblockwithstring.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace text block with regular string</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace text block with a regular multi-line string. Text blocks that fit on a single line without concatenation or escaped newlines gain no readability benefit from the triple-quote syntax and are clearer as plain string literals.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example;\n\npublic class Test {\n    String str =\n            \"\"\"\n            \"\"\";\n}\n","after":"package com.example;\n\npublic class Test {\n    String str =\n            \"\\n\";\n}\n","diff":"@@ -5,2 +5,1 @@\npublic class Test {\n    String str =\n-           \"\"\"\n-           \"\"\";\n+           \"\\n\";\n}\n","newFile":false}]}]}>
 

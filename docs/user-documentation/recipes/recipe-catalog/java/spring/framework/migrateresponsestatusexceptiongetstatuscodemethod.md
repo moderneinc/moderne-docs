@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `ResponseStatusException#getStatus()` to `getStatusCode()`"}
-  description={"Migrate Spring Framework 5.3's `ResponseStatusException` method `getStatus()` to Spring Framework 6's `getStatusCode()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.framework.MigrateResponseStatusExceptionGetStatusCodeMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migrateresponsestatusexceptiongetstatuscodemethod.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `ResponseStatusException#getStatus()` to `getStatusCode()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Spring Framework 5.3's `ResponseStatusException` method `getStatus()` to Spring Framework 6's `getStatusCode()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.framework.MigrateResponseStatusExceptionGetStatusCodeMethod","displayName":"Migrate `ResponseStatusException#getStatus()` to `getStatusCode()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

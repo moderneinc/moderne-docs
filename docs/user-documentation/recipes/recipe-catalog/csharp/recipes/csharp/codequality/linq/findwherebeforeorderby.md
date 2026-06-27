@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Where before OrderBy"}
-  description={"Place `.Where()` before `.OrderBy()` to filter elements before sorting. This reduces the number of items that need to be sorted."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.FindWhereBeforeOrderBy"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/findwherebeforeorderby.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use Where before OrderBy</RecipeHeader.Title>
+
+<RecipeHeader.Description>Place `.Where()` before `.OrderBy()` to filter elements before sorting. This reduces the number of items that need to be sorted.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.FindWhereBeforeOrderBy","displayName":"Use Where before OrderBy","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

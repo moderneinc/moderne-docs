@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find cast and nullable-shape idioms"}
-  description={"Unsafe `as` casts vs `as?`, `takeIf { }?.let { }` chains, `takeUnless { !p }` double-negatives, deep `?.` safe-call chains, explicit `return null` statements."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindCastAndNullableShapes$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findcastandnullableshapes$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find unsafe `as` casts","href":"kotlin/idiom/findunsafecast$ktrecipe"},{"name":"Find `x.takeIf { p }?.let { ... }` patterns","href":"kotlin/idiom/findtakeifchainedlet$ktrecipe"},{"name":"Find `takeUnless { !p }` (double-negative) patterns","href":"kotlin/idiom/findtakeunlessnegated$ktrecipe"},{"name":"Find long `?.` safe-call chains","href":"kotlin/idiom/findsafecallchain$ktrecipe"},{"name":"Find `return null` in functions with nullable returns","href":"kotlin/idiom/findreturnnullexplicit$ktrecipe"}]}>
+<RecipeHeader.Title>Find cast and nullable-shape idioms</RecipeHeader.Title>
+
+<RecipeHeader.Description>Unsafe `as` casts vs `as?`, `takeIf { }?.let { }` chains, `takeUnless { !p }` double-negatives, deep `?.` safe-call chains, explicit `return null` statements.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find unsafe `as` casts","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findunsafecast$ktrecipe/"},{"name":"Find `x.takeIf { p }?.let { ... }` patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findtakeifchainedlet$ktrecipe/"},{"name":"Find `takeUnless { !p }` (double-negative) patterns","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findtakeunlessnegated$ktrecipe/"},{"name":"Find long `?.` safe-call chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findsafecallchain$ktrecipe/"},{"name":"Find `return null` in functions with nullable returns","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findreturnnullexplicit$ktrecipe/"}]}>
 
 ## Definition
 

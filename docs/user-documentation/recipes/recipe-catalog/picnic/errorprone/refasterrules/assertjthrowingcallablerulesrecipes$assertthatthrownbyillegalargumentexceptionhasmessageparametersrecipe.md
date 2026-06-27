@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalArgumentExceptionHasMessageParameters`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatThrownByIllegalArgumentExceptionHasMessageParameters {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatThrownByIllegalArgumentException\")\n    AbstractObjectAssert<?, ?> before(ThrowingCallable throwingCallable, String message, @Repeated\n    Object parameters) {\n        return assertThatIllegalArgumentException().isThrownBy(throwingCallable).withMessage(message, parameters);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractObjectAssert<?, ?> after(ThrowingCallable throwingCallable, String message, @Repeated\n    Object parameters) {\n        return assertThatThrownBy(throwingCallable).isInstanceOf(IllegalArgumentException.class).hasMessage(message, parameters);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,36 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIllegalArgumentExceptionHasMessageParametersRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjthrowingcallablerulesrecipes$assertthatthrownbyillegalargumentexceptionhasmessageparametersrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalArgumentExceptionHasMessageParameters`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatThrownByIllegalArgumentExceptionHasMessageParameters {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "AssertThatThrownByIllegalArgumentException")
+    AbstractObjectAssert<?, ?> before(ThrowingCallable throwingCallable, String message, @Repeated
+    Object parameters) {
+        return assertThatIllegalArgumentException().isThrownBy(throwingCallable).withMessage(message, parameters);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractObjectAssert<?, ?> after(ThrowingCallable throwingCallable, String message, @Repeated
+    Object parameters) {
+        return assertThatThrownBy(throwingCallable).isInstanceOf(IllegalArgumentException.class).hasMessage(message, parameters);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIllegalArgumentExceptionHasMessageParametersRecipe","displayName":"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIllegalArgumentExceptionHasMessageParameters`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

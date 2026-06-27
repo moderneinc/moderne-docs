@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find wildcard `import a.b.*` statements"}
-  description={"Wildcard imports pull every public symbol from a package — they hide the dependency surface and make incremental compilation more conservative. Prefer explicit per-symbol imports."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindWildcardImport$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findwildcardimport$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find wildcard `import a.b.*` statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Wildcard imports pull every public symbol from a package — they hide the dependency surface and make incremental compilation more conservative. Prefer explicit per-symbol imports.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindWildcardImport$KtRecipe","displayName":"Find wildcard `import a.b.*` statements","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

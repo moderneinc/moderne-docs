@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Finagle to http4s, tapir, or pekko-http"}
-  description={"Removes imports starting with `com.twitter.finagle`. Finagle is a legacy RPC framework; consider evaluating http4s, tapir, or pekko-http as alternatives."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.http.MigrateFinagle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/http/migratefinagle.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Finagle to http4s, tapir, or pekko-http</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes imports starting with `com.twitter.finagle`. Finagle is a legacy RPC framework; consider evaluating http4s, tapir, or pekko-http as alternatives.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import com.twitter.finagle.Http\n\nclass Server {\n    val name = \"server\"\n}\n","after":"\n\n\nclass Server {\n    val name = \"server\"\n}\n","diff":"@@ -1,1 +1,0 @@\n-import com.twitter.finagle.Http\n\n@@ -3,0 +2,2 @@\nimport com.twitter.finagle.Http\n\n+\n+\nclass Server {\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer string interpolation over concatenation"}
-  description={"Finds string concatenation using the `+` operator. Idiomatic Scala prefers string interpolation (e.g., `s\"hello $name\"`) over concatenation with `+`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.PreferStringInterpolation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferstringinterpolation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer string interpolation over concatenation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds string concatenation using the `+` operator. Idiomatic Scala prefers string interpolation (e.g., `s"hello $name"`) over concatenation with `+`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  val name = \"world\"\n  val greeting = \"hello \" + name\n}\n","after":"object Test {\n  val name = \"world\"\n  val greeting = /*~~(Consider using string interpolation)~~>*/\"hello \" + name\n}\n","diff":"@@ -3,1 +3,1 @@\nobject Test {\n  val name = \"world\"\n- val greeting = \"hello \" + name\n+ val greeting = /*~~(Consider using string interpolation)~~>*/\"hello \" + name\n}\n","newFile":false}]}]}>
 

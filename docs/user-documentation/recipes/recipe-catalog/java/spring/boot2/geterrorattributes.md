@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `ErrorAttributes#getErrorAttributes(WebRequest, ErrorAttributeOptions)`"}
-  description={"`ErrorAttributes#getErrorAttributes(WebRequest, boolean)` was deprecated in Spring Boot 2.3."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.GetErrorAttributes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/geterrorattributes.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `ErrorAttributes#getErrorAttributes(WebRequest, ErrorAttributeOptions)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`ErrorAttributes#getErrorAttributes(WebRequest, boolean)` was deprecated in Spring Boot 2.3.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.web.servlet.error.ErrorAttributes;\nimport org.springframework.web.context.request.WebRequest;\n\nimport java.util.Map;\n\nclass Test {\n    private final ErrorAttributes errorAttributes;\n\n    Test(ErrorAttributes errorAttributes) {\n        this.errorAttributes = errorAttributes;\n    }\n\n    private Map<String, Object> getErrorAttributes(WebRequest webRequest) {\n        return this.errorAttributes.getErrorAttributes(webRequest, true);\n    }\n}\n","after":"import org.springframework.boot.web.error.ErrorAttributeOptions;\nimport org.springframework.boot.web.servlet.error.ErrorAttributes;\nimport org.springframework.web.context.request.WebRequest;\n\nimport java.util.Map;\n\nclass Test {\n    private final ErrorAttributes errorAttributes;\n\n    Test(ErrorAttributes errorAttributes) {\n        this.errorAttributes = errorAttributes;\n    }\n\n    private Map<String, Object> getErrorAttributes(WebRequest webRequest) {\n        return this.errorAttributes.getErrorAttributes(webRequest, ErrorAttributeOptions.defaults().including(ErrorAttributeOptions.Include.STACK_TRACE));\n    }\n}\n","diff":"@@ -1,0 +1,1 @@\n+import org.springframework.boot.web.error.ErrorAttributeOptions;\nimport org.springframework.boot.web.servlet.error.ErrorAttributes;\n@@ -14,1 +15,1 @@\n\n    private Map<String, Object> getErrorAttributes(WebRequest webRequest) {\n-       return this.errorAttributes.getErrorAttributes(webRequest, true);\n+       return this.errorAttributes.getErrorAttributes(webRequest, ErrorAttributeOptions.defaults().including(ErrorAttributeOptions.Include.STACK_TRACE));\n    }\n","newFile":false}]}]}>
 

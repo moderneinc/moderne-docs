@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JavaEE to Quarkus 2"}
-  description={"These recipes help with the migration of a JavaEE application using EJBs and Hibernate to Quarkus 2. Additional transformations like JSF, JMS, Quarkus Tests may be necessary."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.migrate.javaee.JavaEEtoQuarkus2Migration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/javaeetoquarkus2migration.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate JavaEE Maven Dependencies to Quarkus 2","href":"quarkus/migrate/javaee/addquarkus2mavenplugins"},{"name":"Add Quarkus 2 dependencies","href":"quarkus/migrate/javaee/addquarkus2dependencies"},{"name":"Remove JavaEE dependencies","href":"quarkus/migrate/javaee/removejavaeedependencies"},{"name":"Migrate JavaEE Code to Quarkus 2","href":"quarkus/migrate/javaee/javaeetoquarkus2codemigration"}]}>
+<RecipeHeader.Title>Migrate JavaEE to Quarkus 2</RecipeHeader.Title>
+
+<RecipeHeader.Description>These recipes help with the migration of a JavaEE application using EJBs and Hibernate to Quarkus 2. Additional transformations like JSF, JMS, Quarkus Tests may be necessary.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate JavaEE Maven Dependencies to Quarkus 2","href":"/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2mavenplugins/"},{"name":"Add Quarkus 2 dependencies","href":"/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2dependencies/"},{"name":"Remove JavaEE dependencies","href":"/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/removejavaeedependencies/"},{"name":"Migrate JavaEE Code to Quarkus 2","href":"/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/javaeetoquarkus2codemigration/"}]}>
 
 ## Definition
 

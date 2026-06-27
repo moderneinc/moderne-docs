@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Kubernetes API v1.29"}
-  description={"This recipe will apply changes commonly needed when migrating to Kubernetes API v1.29."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["kubernetes"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.migrate.MigrateToAPIv1_29"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_29.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Kubernetes API v1.27","href":"kubernetes/migrate/migratetoapiv1_27"},{"name":"Change Kubernetes API version","href":"kubernetes/changeapiversion"},{"name":"Change property key","href":"yaml/changepropertykey"}]}>
+<RecipeHeader.Title>Migrate to Kubernetes API v1.29</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when migrating to Kubernetes API v1.29.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Kubernetes API v1.27","href":"/user-documentation/recipes/recipe-catalog/kubernetes/migrate/migratetoapiv1_27/"},{"name":"Change Kubernetes API version","href":"/user-documentation/recipes/recipe-catalog/kubernetes/changeapiversion/"},{"name":"Change property key","href":"/user-documentation/recipes/recipe-catalog/yaml/changepropertykey/"}]}>
 
 ## Definition
 

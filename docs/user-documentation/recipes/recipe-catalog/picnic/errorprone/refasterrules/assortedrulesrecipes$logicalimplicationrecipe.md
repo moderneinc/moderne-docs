@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssortedRules.LogicalImplication`"}
-  description={"Don't unnecessarily repeat boolean expressions."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2589"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssortedRulesRecipes$LogicalImplicationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assortedrulesrecipes$logicalimplicationrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssortedRules.LogicalImplication`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Don't unnecessarily repeat boolean expressions.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssortedRulesRecipes$LogicalImplicationRecipe","displayName":"Refaster template `AssortedRules.LogicalImplication`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

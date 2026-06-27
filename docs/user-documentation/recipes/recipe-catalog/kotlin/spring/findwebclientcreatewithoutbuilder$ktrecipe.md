@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `WebClient.create()` / `WebClient.create(url)` calls"}
-  description={"The static `WebClient.create(...)` shortcut returns a client with default codecs, no `baseUrl` chain, no filters, no exchange-strategy tuning. Production WebClients almost always need at least one of those — promote to `WebClient.builder().baseUrl(...).build()` so the configuration shape is visible at the call site."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindWebClientCreateWithoutBuilder$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findwebclientcreatewithoutbuilder$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `WebClient.create()` / `WebClient.create(url)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>The static `WebClient.create(...)` shortcut returns a client with default codecs, no `baseUrl` chain, no filters, no exchange-strategy tuning. Production WebClients almost always need at least one of those — promote to `WebClient.builder().baseUrl(...).build()` so the configuration shape is visible at the call site.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindWebClientCreateWithoutBuilder$KtRecipe","displayName":"Find `WebClient.create()` / `WebClient.create(url)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

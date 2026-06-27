@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Applies a codemod to all source files"}
-  description={"Applies a codemod represented by an NPM package to all source files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.ApplyCodemod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/applycodemod.md"}
-/>
+>
+
+<RecipeHeader.Title>Applies a codemod to all source files</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies a codemod represented by an NPM package to all source files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"transform","required":true,"description":"Transform to be applied using the executable.","example":"-t path/to/transform/optimus-prime"},{"type":"String","name":"executable","required":false,"description":"Path to the codemod executable relative to the NPM directory. Defaults to `jscodeshift/bin/jscodeshift.js`.","example":"@next/codemod/bin/next-codemod.js"},{"type":"String","name":"fileFilter","required":true,"description":"Optional glob pattern to filter files to apply the codemod to. Defaults to all files. Note: not all codemods support file glob filtering.","example":"**/*.(j|t)sx"},{"type":"List","name":"codemodArgs","required":false,"description":"Arguments which get passed to the codemod command.","example":"--force --jscodeshift='--parser=${parser}'"}]}>
 

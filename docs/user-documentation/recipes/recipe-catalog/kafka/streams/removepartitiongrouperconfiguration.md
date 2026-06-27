@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `PartitionGrouper` configuration"}
-  description={"Starting with Kafka Streams 2.4, the `PartitionGrouper` API was deprecated and partition grouping is now fully handled internally by the library. This recipe removes the deprecated `PARTITION_GROUPER_CLASS_CONFIG` configuration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.streams.RemovePartitionGrouperConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/streams/removepartitiongrouperconfiguration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `PartitionGrouper` configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Starting with Kafka Streams 2.4, the `PartitionGrouper` API was deprecated and partition grouping is now fully handled internally by the library. This recipe removes the deprecated `PARTITION_GROUPER_CLASS_CONFIG` configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.kafka.streams.StreamsConfig;\nimport java.util.Properties;\n\nclass KafkaConfiguration {\n    void test() {\n        Properties props = new Properties();\n        props.put(StreamsConfig.APPLICATION_ID_CONFIG, \"my-app\");\n        props.put(StreamsConfig.PARTITION_GROUPER_CLASS_CONFIG, MyPartitionGrouper.class);\n    }\n}\n","after":"import org.apache.kafka.streams.StreamsConfig;\nimport java.util.Properties;\n\nclass KafkaConfiguration {\n    void test() {\n        Properties props = new Properties();\n        props.put(StreamsConfig.APPLICATION_ID_CONFIG, \"my-app\");\n    }\n}\n","diff":"@@ -8,1 +8,0 @@\n        Properties props = new Properties();\n        props.put(StreamsConfig.APPLICATION_ID_CONFIG, \"my-app\");\n-       props.put(StreamsConfig.PARTITION_GROUPER_CLASS_CONFIG, MyPartitionGrouper.class);\n    }\n","newFile":false}]}]}>
 

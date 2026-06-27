@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove out-of-date OWASP suppressions"}
-  description={"Remove all OWASP suppressions with a suppression end date in the past, as these are no longer valid. For use with the OWASP `dependency-check` tool. More details on OWASP suppression files can be found [here](https://jeremylong.github.io/DependencyCheck/general/suppression.html)."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.security.RemoveOwaspSuppressions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/security/removeowaspsuppressions.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove out-of-date OWASP suppressions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove all OWASP suppressions with a suppression end date in the past, as these are no longer valid. For use with the OWASP `dependency-check` tool. More details on OWASP suppression files can be found [here](https://jeremylong.github.io/DependencyCheck/general/suppression.html).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"cutOffDate","required":false,"description":"Suppressions will be removed if they expired before the provided date. Default will be yesterday.","example":"2023-01-01"}]}>
 

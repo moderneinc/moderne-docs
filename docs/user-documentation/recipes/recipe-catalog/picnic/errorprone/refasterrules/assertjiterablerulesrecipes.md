@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJIterableRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `Iterable`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJIterableRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJIterableRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiterablerulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJIterableRules.AssertThatIterableIsEmpty`","href":"picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterableisemptyrecipe"},{"name":"Refaster template `AssertJIterableRules.AssertThatIterableIsNotEmpty`","href":"picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterableisnotemptyrecipe"},{"name":"Refaster template `AssertJIterableRules.AssertThatIterableSize`","href":"picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterablesizerecipe"},{"name":"Refaster template `AssertJIterableRules.AssertThatContains`","href":"picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatcontainsrecipe"},{"name":"Refaster template `AssertJIterableRules.AssertThatDoesNotContain`","href":"picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatdoesnotcontainrecipe"},{"name":"Refaster template `AssertJIterableRules.AssertThatContainsAll`","href":"picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatcontainsallrecipe"},{"name":"Refaster template `AssertJIterableRules.AssertThatIterableHasOneElementEqualTo`","href":"picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterablehasoneelementequaltorecipe"}]}>
+<RecipeHeader.Title>`AssertJIterableRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `Iterable`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJIterableRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJIterableRules.AssertThatIterableIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterableisemptyrecipe/"},{"name":"Refaster template `AssertJIterableRules.AssertThatIterableIsNotEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterableisnotemptyrecipe/"},{"name":"Refaster template `AssertJIterableRules.AssertThatIterableSize`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterablesizerecipe/"},{"name":"Refaster template `AssertJIterableRules.AssertThatContains`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatcontainsrecipe/"},{"name":"Refaster template `AssertJIterableRules.AssertThatDoesNotContain`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatdoesnotcontainrecipe/"},{"name":"Refaster template `AssertJIterableRules.AssertThatContainsAll`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatcontainsallrecipe/"},{"name":"Refaster template `AssertJIterableRules.AssertThatIterableHasOneElementEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjiterablerulesrecipes$assertthatiterablehasoneelementequaltorecipe/"}]}>
 
 ## Definition
 

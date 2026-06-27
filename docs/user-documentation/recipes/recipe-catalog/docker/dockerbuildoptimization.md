@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Optimize Docker builds"}
-  description={"Apply build optimization best practices to Dockerfiles. This includes combining RUN instructions to reduce layers and adding cleanup commands to reduce image size."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["optimization","docker"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.DockerBuildOptimization"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/dockerbuildoptimization.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Combine consecutive `RUN` instructions","href":"docker/combineruninstructions"},{"name":"Add apt-get cleanup","href":"docker/addaptgetcleanup"}]}>
+<RecipeHeader.Title>Optimize Docker builds</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply build optimization best practices to Dockerfiles. This includes combining RUN instructions to reduce layers and adding cleanup commands to reduce image size.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Combine consecutive `RUN` instructions","href":"/user-documentation/recipes/recipe-catalog/docker/combineruninstructions/"},{"name":"Add apt-get cleanup","href":"/user-documentation/recipes/recipe-catalog/docker/addaptgetcleanup/"}]}>
 
 ## Definition
 

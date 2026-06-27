@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use postfix increment/decrement"}
-  description={"Replace `x = x + 1` with `x++` and `x = x - 1` with `x--`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UsePostfixIncrement"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/usepostfixincrement.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use postfix increment/decrement</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `x = x + 1` with `x++` and `x = x - 1` with `x--`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UsePostfixIncrement","displayName":"Use postfix increment/decrement","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

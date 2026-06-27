@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change property key"}
-  description={"Change a property key leaving the value intact."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-properties"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.properties.ChangePropertyKey"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/properties/changepropertykey.md"}
-/>
+>
+
+<RecipeHeader.Title>Change property key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change a property key leaving the value intact.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to rename.","example":"management.metrics.binders.files.enabled"},{"type":"String","name":"newPropertyKey","required":true,"description":"The new name for the key identified by `oldPropertyKey`.","example":"management.metrics.enable.process.files"},{"type":"Boolean","name":"relaxedBinding","required":false,"description":"Whether to match the `oldPropertyKey` using [relaxed binding](https://docs.spring.io/spring-boot/docs/2.5.6/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding) rules. Default is `true`. Set to `false`  to use exact matching."},{"type":"Boolean","name":"regex","required":false,"description":"Default false. If enabled, `oldPropertyKey` will be interpreted as a Regular Expression, and capture group contents will be available in `newPropertyKey`"}]}>
 

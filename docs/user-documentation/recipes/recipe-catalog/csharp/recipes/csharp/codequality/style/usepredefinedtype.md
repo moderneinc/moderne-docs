@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use predefined type"}
-  description={"Use predefined type keyword (e.g., int instead of Int32)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UsePredefinedType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/usepredefinedtype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use predefined type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use predefined type keyword (e.g., int instead of Int32).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UsePredefinedType","displayName":"Use predefined type","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

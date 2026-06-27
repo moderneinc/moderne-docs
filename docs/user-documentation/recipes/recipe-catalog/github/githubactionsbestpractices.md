@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"GitHub Actions best practices"}
-  description={"Applies best practices to GitHub Actions workflows, including enabling dependency caching, using cached distributions, finding missing timeouts, removing unused inputs, and preferring block-style job dependencies."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["github","actions"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.GitHubActionsBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/githubactionsbestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find jobs missing timeout","href":"github/findmissingtimeout"},{"name":"Prefer block style for job dependencies","href":"github/preferblockstylejobdependencies"},{"name":"Use `actions/setup-java` `temurin` distribution as they are cached in hosted runners","href":"github/prefertemurindistributions"},{"name":"Remove unused workflow dispatch inputs","href":"github/removeunusedworkflowdispatchinputs"},{"name":"Setup Java dependency caching","href":"github/setupjavacaching"}]}>
+<RecipeHeader.Title>GitHub Actions best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies best practices to GitHub Actions workflows, including enabling dependency caching, using cached distributions, finding missing timeouts, removing unused inputs, and preferring block-style job dependencies.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find jobs missing timeout","href":"/user-documentation/recipes/recipe-catalog/github/findmissingtimeout/"},{"name":"Prefer block style for job dependencies","href":"/user-documentation/recipes/recipe-catalog/github/preferblockstylejobdependencies/"},{"name":"Use `actions/setup-java` `temurin` distribution as they are cached in hosted runners","href":"/user-documentation/recipes/recipe-catalog/github/prefertemurindistributions/"},{"name":"Remove unused workflow dispatch inputs","href":"/user-documentation/recipes/recipe-catalog/github/removeunusedworkflowdispatchinputs/"},{"name":"Setup Java dependency caching","href":"/user-documentation/recipes/recipe-catalog/github/setupjavacaching/"}]}>
 
 ## Definition
 

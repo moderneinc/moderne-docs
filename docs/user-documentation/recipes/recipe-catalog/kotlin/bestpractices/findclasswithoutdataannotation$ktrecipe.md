@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find classes that could be `data class`"}
-  description={"A class whose only members are `val` constructor parameters — no methods, no init, no extra properties — is the canonical shape `data class` exists for. Adding `data` synthesizes `toString`/`equals`/`hashCode`/`copy`/`componentN` without changing any other semantics."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindClassWithoutDataAnnotation$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findclasswithoutdataannotation$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find classes that could be `data class`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A class whose only members are `val` constructor parameters — no methods, no init, no extra properties — is the canonical shape `data class` exists for. Adding `data` synthesizes `toString`/`equals`/`hashCode`/`copy`/`componentN` without changing any other semantics.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindClassWithoutDataAnnotation$KtRecipe","displayName":"Find classes that could be `data class`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

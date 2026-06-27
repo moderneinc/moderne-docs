@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `JmxEndpointDiscoverer` deprecated constructor"}
-  description={"The 4-parameter constructor of `JmxEndpointDiscoverer` has been deprecated in Spring Boot 3.4. This recipe transforms it to use the new 5-parameter constructor with an additional Collection parameter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.MigrateJmxEndpointDiscovererConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/migratejmxendpointdiscovererconstructor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `JmxEndpointDiscoverer` deprecated constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>The 4-parameter constructor of `JmxEndpointDiscoverer` has been deprecated in Spring Boot 3.4. This recipe transforms it to use the new 5-parameter constructor with an additional Collection parameter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.actuate.endpoint.jmx.annotation.JmxEndpointDiscoverer;\nimport org.springframework.boot.actuate.endpoint.jmx.ExposableJmxEndpoint;\nimport org.springframework.boot.actuate.endpoint.invoke.OperationInvokerAdvisor;\nimport org.springframework.boot.actuate.endpoint.invoke.ParameterValueMapper;\nimport org.springframework.boot.actuate.endpoint.EndpointFilter;\nimport org.springframework.context.ApplicationContext;\n\nimport java.util.Collection;\n\npublic class CustomJmxDiscoverer {\n    public JmxEndpointDiscoverer createDiscoverer(\n            ApplicationContext context,\n            ParameterValueMapper mapper,\n            Collection<OperationInvokerAdvisor> invokerAdvisors,\n            Collection<EndpointFilter<ExposableJmxEndpoint>> filters) {\n        return new JmxEndpointDiscoverer(context, mapper, invokerAdvisors, filters);\n    }\n}\n","after":"import org.springframework.boot.actuate.endpoint.jmx.annotation.JmxEndpointDiscoverer;\nimport org.springframework.boot.actuate.endpoint.jmx.ExposableJmxEndpoint;\nimport org.springframework.boot.actuate.endpoint.invoke.OperationInvokerAdvisor;\nimport org.springframework.boot.actuate.endpoint.invoke.ParameterValueMapper;\nimport org.springframework.boot.actuate.endpoint.EndpointFilter;\nimport org.springframework.context.ApplicationContext;\n\nimport java.util.Collection;\nimport java.util.Collections;\n\npublic class CustomJmxDiscoverer {\n    public JmxEndpointDiscoverer createDiscoverer(\n            ApplicationContext context,\n            ParameterValueMapper mapper,\n            Collection<OperationInvokerAdvisor> invokerAdvisors,\n            Collection<EndpointFilter<ExposableJmxEndpoint>> filters) {\n        return new JmxEndpointDiscoverer(context, mapper, invokerAdvisors, filters, Collections.emptyList());\n    }\n}\n","diff":"@@ -9,0 +9,1 @@\n\nimport java.util.Collection;\n+import java.util.Collections;\n\n@@ -16,1 +17,1 @@\n            Collection<OperationInvokerAdvisor> invokerAdvisors,\n            Collection<EndpointFilter<ExposableJmxEndpoint>> filters) {\n-       return new JmxEndpointDiscoverer(context, mapper, invokerAdvisors, filters);\n+       return new JmxEndpointDiscoverer(context, mapper, invokerAdvisors, filters, Collections.emptyList());\n    }\n","newFile":false}]}]}>
 

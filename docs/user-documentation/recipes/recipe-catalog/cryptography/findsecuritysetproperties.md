@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Security.setProperty(..)` calls for certain properties"}
-  description={"There is a defined set of properties that should not be set using `Security.setProperty(..)` as they can lead to security vulnerabilities."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindSecuritySetProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findsecuritysetproperties.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Security.setProperty(..)` calls for certain properties</RecipeHeader.Title>
+
+<RecipeHeader.Description>There is a defined set of properties that should not be set using `Security.setProperty(..)` as they can lead to security vulnerabilities.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"properties","required":false,"description":"A list of the properties we want to prevent being set with `Security.setProperty(..)`.","example":"crypto.policy"}]}>
 

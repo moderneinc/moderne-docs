@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find flaky test patterns"}
-  description={"Detect patterns that commonly cause flaky tests in Java and Python code, including static waits (Thread.sleep, TimeUnit.sleep) and shared mutable state (static non-final fields in test classes)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindFlakyTestPatterns"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findflakytestpatterns.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find flaky test patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect patterns that commonly cause flaky tests in Java and Python code, including static waits (Thread.sleep, TimeUnit.sleep) and shared mutable state (static non-final fields in test classes).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.junit.jupiter.api.Test;\n\npublic class SlowTest {\n    @Test\n    void testLogin() throws InterruptedException {\n        Thread.sleep(5000);\n    }\n}\n"},"variants":[]}]}>
 

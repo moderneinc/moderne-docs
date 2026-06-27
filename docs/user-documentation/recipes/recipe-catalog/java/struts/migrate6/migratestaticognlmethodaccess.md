@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate static OGNL method access to action wrapper methods"}
-  description={"Migrates OGNL expressions using static method access (e.g., `@com.app.Util@makeCode()`) to use action wrapper methods instead. Static method access is disabled by default in Struts 6 for security reasons."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.struts.migrate6.MigrateStaticOgnlMethodAccess"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/struts/migrate6/migratestaticognlmethodaccess.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate static OGNL method access to action wrapper methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates OGNL expressions using static method access (e.g., `@com.app.Util@makeCode()`) to use action wrapper methods instead. Static method access is disabled by default in Struts 6 for security reasons.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"xml","code":"<struts>\n    <package name=\"app\" extends=\"struts-default\">\n        <action name=\"dashboard\" class=\"com.example.DashboardAction\">\n            <result>/dashboard.jsp</result>\n        </action>\n    </package>\n</struts>\n"},"variants":[{"language":"xml","before":"<html>\n    <body>\n        <s:property value=\"@com.app.Util@makeCode()\" />\n    </body>\n</html>\n","after":"<html>\n    <body>\n        <s:property <!--~~>-->value=\"utilMakeCode\" />\n    </body>\n</html>\n","diff":"--- dashboard.jsp\n+++ dashboard.jsp\n@@ -3,1 +3,1 @@\n<html>\n    <body>\n-       <s:property value=\"@com.app.Util@makeCode()\" />\n+       <s:property <!--~~>-->value=\"utilMakeCode\" />\n    </body>\n","newFile":false}]}]}>
 

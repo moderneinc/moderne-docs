@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename `provideExperimentalZonelessChangeDetection` to `provideZonelessChangeDetection`"}
-  description={"Renames `provideExperimentalZonelessChangeDetection` to `provideZonelessChangeDetection` in imports and usages. The experimental API was promoted to developer preview in Angular 20."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.rename-zoneless-provider"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/rename-zoneless-provider.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Rename `provideExperimentalZonelessChangeDetection` to `provideZonelessChangeDetection`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames `provideExperimentalZonelessChangeDetection` to `provideZonelessChangeDetection` in imports and usages. The experimental API was promoted to developer preview in Angular 20.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.rename-zoneless-provider","displayName":"Rename `provideExperimentalZonelessChangeDetection` to `provideZonelessChangeDetection`","npmPackage":"@openrewrite/recipes-angular"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"ChangeJakartaFacesMethodCalls"}
-  description={"Handle method call changes for deprecated Faces/EL methods with different arguments from the original."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.ChangeJakartaFacesMethodCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/changejakartafacesmethodcalls.md"}
-/>
+>
+
+<RecipeHeader.Title>ChangeJakartaFacesMethodCalls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Handle method call changes for deprecated Faces/EL methods with different arguments from the original.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"com.oracle.weblogic.rewrite.jakarta.ChangeJakartaFacesMethodCalls","displayName":"ChangeJakartaFacesMethodCalls","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

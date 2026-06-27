@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Integration scheduler pool size"}
-  description={"Spring Integration now reuses an available `TaskScheduler` rather than configuring its own. In a typical application setup relying on the auto-configuration, this means that Spring Integration uses the auto-configured task scheduler that has a pool size of 1. To restore Spring Integration’s default of 10 threads, use the `spring.task.scheduling.pool.size` property."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.search.IntegrationSchedulerPoolRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/integrationschedulerpoolrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Integration scheduler pool size</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Integration now reuses an available `TaskScheduler` rather than configuring its own. In a typical application setup relying on the auto-configuration, this means that Spring Integration uses the auto-configured task scheduler that has a pool size of 1. To restore Spring Integration’s default of 10 threads, use the `spring.task.scheduling.pool.size` property.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"sample"},"variants":[{"language":"java","before":"package demo;\n\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBootApplication\npublic class ExampleApplication {\n    public static void main(String[] args) {\n        SpringApplication.run(ExampleApplication.class, args);\n    }\n}\n","after":"package demo;\n\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n// TODO: Scheduler thread pool size for Spring Integration either in properties or config server\n@SpringBootApplication\npublic class ExampleApplication {\n    public static void main(String[] args) {\n        SpringApplication.run(ExampleApplication.class, args);\n    }\n}\n","diff":"@@ -6,0 +6,1 @@\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n+// TODO: Scheduler thread pool size for Spring Integration either in properties or config server\n@SpringBootApplication\n","newFile":false}]}]}>
 

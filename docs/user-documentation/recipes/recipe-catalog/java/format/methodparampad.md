@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Method parameter padding"}
-  description={"Fixes whitespace padding between the identifier of a method definition or method invocation and the left parenthesis of the parameter list. For example, when configured to remove spacing, `someMethodInvocation (x);` becomes `someMethodInvocation(x)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.format.MethodParamPad"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/format/methodparampad.md"}
-/>
+>
+
+<RecipeHeader.Title>Method parameter padding</RecipeHeader.Title>
+
+<RecipeHeader.Description>Fixes whitespace padding between the identifier of a method definition or method invocation and the left parenthesis of the parameter list. For example, when configured to remove spacing, `someMethodInvocation (x);` becomes `someMethodInvocation(x)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"enum E {\n    E1()\n}\n\nclass B {\n}\n\nclass A extends B {\n    A() {\n        super();\n    }\n\n    static void method(int x, int y) {\n        A a = new A();\n        method(0, 1);\n    }\n}\n","after":"enum E {\n    E1 ()\n}\n\nclass B {\n}\n\nclass A extends B {\n    A () {\n        super ();\n    }\n\n    static void method (int x, int y) {\n        A a = new A ();\n        method (0, 1);\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nenum E {\n-   E1()\n+   E1 ()\n}\n@@ -9,2 +9,2 @@\n\nclass A extends B {\n-   A() {\n-       super();\n+   A () {\n+       super ();\n    }\n@@ -13,3 +13,3 @@\n    }\n\n-   static void method(int x, int y) {\n-       A a = new A();\n-       method(0, 1);\n+   static void method (int x, int y) {\n+       A a = new A ();\n+       method (0, 1);\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove deprecated `any2stringadd` usage"}
-  description={"Finds expressions like `1 + \"string\"` that rely on the deprecated `any2stringadd` implicit conversion. This was deprecated in Scala 2.13 and removed in Scala 3. Use string interpolation or `.toString` instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.RemoveAny2StringAdd"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/removeany2stringadd.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove deprecated `any2stringadd` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds expressions like `1 + "string"` that rely on the deprecated `any2stringadd` implicit conversion. This was deprecated in Scala 2.13 and removed in Scala 3. Use string interpolation or `.toString` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  val x = 1 + \"foo\"\n}\n","after":"object Test {\n  val x = /*~~(Deprecated any2stringadd usage)~~>*/1 + \"foo\"\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Test {\n- val x = 1 + \"foo\"\n+ val x = /*~~(Deprecated any2stringadd usage)~~>*/1 + \"foo\"\n}\n","newFile":false}]}]}>
 

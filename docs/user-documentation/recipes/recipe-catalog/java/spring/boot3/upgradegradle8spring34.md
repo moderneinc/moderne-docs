@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Gradle 8 to 8.4+ for Spring Boot 3.4"}
-  description={"Spring Boot 3.4 requires Gradle 8.4+."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["spring","gradle","boot"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.UpgradeGradle8Spring34"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/upgradegradle8spring34.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Gradle 8 from Gradle 7","href":"gradle/migratetogradle8"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Find Gradle wrappers","href":"gradle/search/findgradlewrapper"}]}>
+<RecipeHeader.Title>Upgrade Gradle 8 to 8.4+ for Spring Boot 3.4</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot 3.4 requires Gradle 8.4+.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Gradle 8 from Gradle 7","href":"/user-documentation/recipes/recipe-catalog/gradle/migratetogradle8/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Find Gradle wrappers","href":"/user-documentation/recipes/recipe-catalog/gradle/search/findgradlewrapper/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find functions with `throw` of a checked exception missing `@Throws`"}
-  description={"Kotlin doesn't track checked exceptions, so a function that throws `IOException` looks unchecked to a Java caller — `try { … } catch (IOException e) { … }` won't compile without `@Throws(IOException::class)` on the Kotlin declaration. Flag declarations that throw a `Throwable` whose Java analog is checked."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindMissingThrowsAnnotation$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findmissingthrowsannotation$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find functions with `throw` of a checked exception missing `@Throws`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Kotlin doesn't track checked exceptions, so a function that throws `IOException` looks unchecked to a Java caller — `try { … } catch (IOException e) { … }` won't compile without `@Throws(IOException::class)` on the Kotlin declaration. Flag declarations that throw a `Throwable` whose Java analog is checked.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindMissingThrowsAnnotation$KtRecipe","displayName":"Find functions with `throw` of a checked exception missing `@Throws`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

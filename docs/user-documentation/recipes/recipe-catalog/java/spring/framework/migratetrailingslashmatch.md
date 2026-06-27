@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate trailing slash matching to explicit routes"}
-  description={"Migrates deprecated `setUseTrailingSlashMatch()` configuration removed in Spring Framework 7.0. Only adds explicit trailing slash routes when the project previously enabled trailing slash matching via `setUseTrailingSlashMatch(true)`. The deprecated configuration calls are always removed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.MigrateTrailingSlashMatch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/migratetrailingslashmatch.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate trailing slash matching to explicit routes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates deprecated `setUseTrailingSlashMatch()` configuration removed in Spring Framework 7.0. Only adds explicit trailing slash routes when the project previously enabled trailing slash matching via `setUseTrailingSlashMatch(true)`. The deprecated configuration calls are always removed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"import org.springframework.context.annotation.Configuration;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n    @Override\n    public void configurePathMatch(PathMatchConfigurer configurer) {\n        configurer.setUseTrailingSlashMatch(true);\n    }\n}\n"},"variants":[{"language":"java","before":"import org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\npublic class TestController {\n    @GetMapping(\"/api/hello\")\n    public String hello() {\n        return \"hello\";\n    }\n}\n","after":"import org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\npublic class TestController {\n    @GetMapping({\"/api/hello\", \"/api/hello/\"})\n    public String hello() {\n        return \"hello\";\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n@RestController\npublic class TestController {\n-   @GetMapping(\"/api/hello\")\n+   @GetMapping({\"/api/hello\", \"/api/hello/\"})\n    public String hello() {\n","newFile":false}]}]}>
 

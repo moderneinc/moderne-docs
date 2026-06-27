@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Pragmatists `@RunWith(JUnitParamsRunner.class)` to JUnit Jupiter `@Parameterized` tests"}
-  description={"Convert Pragmatists Parameterized test to the JUnit Jupiter ParameterizedTest equivalent."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.JUnitParamsRunnerToParameterized"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/junitparamsrunnertoparameterized.md"}
-/>
+>
+
+<RecipeHeader.Title>Pragmatists `@RunWith(JUnitParamsRunner.class)` to JUnit Jupiter `@Parameterized` tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert Pragmatists Parameterized test to the JUnit Jupiter ParameterizedTest equivalent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Test;\nimport org.junit.runner.RunWith;\nimport junitparams.JUnitParamsRunner;\nimport junitparams.Parameters;\n\n@RunWith(JUnitParamsRunner.class)\npublic class PersonTests {\n\n    @Test\n    @Parameters\n    public void personIsAdult(int age, boolean valid) {\n    }\n\n    private Object[] parametersForPersonIsAdult() {\n        return new Object[]{new Object[]{13, false}, new Object[]{17, false}};\n    }\n\n    @Test\n    @Parameters\n    public void personIsChild(int age, boolean valid) {\n    }\n\n    private Object[] parametersForPersonIsChild() {\n        return new Object[]{new Object[]{3, false}, new Object[]{7, false}};\n    }\n\n    @Test\n    public void regularTest() {}\n}\n","after":"import org.junit.Test;\nimport org.junit.jupiter.params.ParameterizedTest;\nimport org.junit.jupiter.params.provider.MethodSource;\n\npublic class PersonTests {\n\n    @ParameterizedTest\n    @MethodSource(\"parametersForPersonIsAdult\")\n    public void personIsAdult(int age, boolean valid) {\n    }\n\n    private static Object[] parametersForPersonIsAdult() {\n        return new Object[]{new Object[]{13, false}, new Object[]{17, false}};\n    }\n\n    @ParameterizedTest\n    @MethodSource(\"parametersForPersonIsChild\")\n    public void personIsChild(int age, boolean valid) {\n    }\n\n    private static Object[] parametersForPersonIsChild() {\n        return new Object[]{new Object[]{3, false}, new Object[]{7, false}};\n    }\n\n    @Test\n    public void regularTest() {}\n}\n","diff":"@@ -2,3 +2,2 @@\nimport org.junit.Test;\n-import org.junit.runner.RunWith;\n-import junitparams.JUnitParamsRunner;\n-import junitparams.Parameters;\n+import org.junit.jupiter.params.ParameterizedTest;\n+import org.junit.jupiter.params.provider.MethodSource;\n\n@@ -6,1 +5,0 @@\nimport junitparams.Parameters;\n\n-@RunWith(JUnitParamsRunner.class)\npublic class PersonTests {\n@@ -9,2 +7,2 @@\npublic class PersonTests {\n\n-   @Test\n-   @Parameters\n+   @ParameterizedTest\n+   @MethodSource(\"parametersForPersonIsAdult\")\n    public void personIsAdult(int age, boolean valid) {\n@@ -14,1 +12,1 @@\n    }\n\n-   private Object[] parametersForPersonIsAdult() {\n+   private static Object[] parametersForPersonIsAdult() {\n        return new Object[]{new Object[]{13, false}, new Object[]{17, false}};\n@@ -18,2 +16,2 @@\n    }\n\n-   @Test\n-   @Parameters\n+   @ParameterizedTest\n+   @MethodSource(\"parametersForPersonIsChild\")\n    public void personIsChild(int age, boolean valid) {\n@@ -23,1 +21,1 @@\n    }\n\n-   private Object[] parametersForPersonIsChild() {\n+   private static Object[] parametersForPersonIsChild() {\n        return new Object[]{new Object[]{3, false}, new Object[]{7, false}};\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `IvParameterSpec(byteArrayOf(...))` constructions with a literal IV"}
-  description={"A constant IV defeats the IND-CPA guarantees of CBC/GCM/CTR — every message encrypted under the same key/IV pair leaks the same prefix structure. Generate a fresh IV per message from `SecureRandom` and prepend it to the ciphertext."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindPredictableIv$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findpredictableiv$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `IvParameterSpec(byteArrayOf(...))` constructions with a literal IV</RecipeHeader.Title>
+
+<RecipeHeader.Description>A constant IV defeats the IND-CPA guarantees of CBC/GCM/CTR — every message encrypted under the same key/IV pair leaks the same prefix structure. Generate a fresh IV per message from `SecureRandom` and prepend it to the ciphertext.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindPredictableIv$KtRecipe","displayName":"Find `IvParameterSpec(byteArrayOf(...))` constructions with a literal IV","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

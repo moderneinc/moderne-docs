@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Lint TypeScript code using ESLint"}
-  description={"The default config includes the `@typescript-eslint` plugin and the corresponding `plugin:@typescript-eslint/recommended` extend."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["codemods","eslint"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.ecmascript.ESLintTypeScriptDefaults"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/ecmascript/eslinttypescriptdefaults.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Lint TypeScript code using ESLint</RecipeHeader.Title>
+
+<RecipeHeader.Description>The default config includes the `@typescript-eslint` plugin and the corresponding `plugin:@typescript-eslint/recommended` extend.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

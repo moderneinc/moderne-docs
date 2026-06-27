@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Liberty Maven plugin"}
-  description={"This recipe adds the Liberty Maven plugin, which provides several goals for managing a Liberty server and applications."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-liberty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.liberty.AddOpenLibertyPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/liberty/addopenlibertyplugin.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Maven plugin","href":"maven/addplugin"}]}>
+<RecipeHeader.Title>Add Liberty Maven plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe adds the Liberty Maven plugin, which provides several goals for managing a Liberty server and applications.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Maven plugin","href":"/user-documentation/recipes/recipe-catalog/maven/addplugin/"}]}>
 
 ## Definition
 

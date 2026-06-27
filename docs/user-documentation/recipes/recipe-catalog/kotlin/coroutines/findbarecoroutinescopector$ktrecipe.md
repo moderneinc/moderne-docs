@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find raw `CoroutineScope(...)` constructions"}
-  description={"A `CoroutineScope(...)` constructed inline must be cancelled explicitly when its owner is torn down; nothing automatic ties it to a lifecycle. Prefer one of the framework scopes (`viewModelScope`, `lifecycleScope`) or own the cancellation explicitly in a `Closeable`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindBareCoroutineScopeCtor$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findbarecoroutinescopector$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find raw `CoroutineScope(...)` constructions</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `CoroutineScope(...)` constructed inline must be cancelled explicitly when its owner is torn down; nothing automatic ties it to a lifecycle. Prefer one of the framework scopes (`viewModelScope`, `lifecycleScope`) or own the cancellation explicitly in a `Closeable`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindBareCoroutineScopeCtor$KtRecipe","displayName":"Find raw `CoroutineScope(...)` constructions","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

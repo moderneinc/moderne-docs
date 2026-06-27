@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Disables local file resolution for parent POM"}
-  description={"Explicitly sets `<relativePath/>` to disable file resolution, as recommended in the [plugin development guide](https://www.jenkins.io/doc/developer/plugin-development/updating-parent/)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.DisableLocalResolutionForParentPom"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/disablelocalresolutionforparentpom.md"}
-/>
+>
+
+<RecipeHeader.Title>Disables local file resolution for parent POM</RecipeHeader.Title>
+
+<RecipeHeader.Description>Explicitly sets `<relativePath/>` to disable file resolution, as recommended in the [plugin development guide](https://www.jenkins.io/doc/developer/plugin-development/updating-parent/).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n    <parent>\n        <groupId>org.jenkins-ci.plugins</groupId>\n        <artifactId>plugin</artifactId>\n        <version>4.86</version>\n    </parent>\n    <artifactId>foo</artifactId>\n    <properties>\n        <jenkins.version>2.303.3</jenkins.version>\n    </properties>\n    <repositories>\n        <repository>\n            <id>maven-central</id>\n            <url>https://repo1.maven.org/maven2/</url>\n        </repository>\n        <repository>\n            <id>repo.jenkins-ci.org</id>\n            <url>https://repo.jenkins-ci.org/public/</url>\n        </repository>\n    </repositories>\n</project>\n","after":"<project>\n    <parent>\n        <groupId>org.jenkins-ci.plugins</groupId>\n        <artifactId>plugin</artifactId>\n        <version>4.86</version>\n        <relativePath />\n    </parent>\n    <artifactId>foo</artifactId>\n    <properties>\n        <jenkins.version>2.303.3</jenkins.version>\n    </properties>\n    <repositories>\n        <repository>\n            <id>maven-central</id>\n            <url>https://repo1.maven.org/maven2/</url>\n        </repository>\n        <repository>\n            <id>repo.jenkins-ci.org</id>\n            <url>https://repo.jenkins-ci.org/public/</url>\n        </repository>\n    </repositories>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -6,0 +6,1 @@\n        <artifactId>plugin</artifactId>\n        <version>4.86</version>\n+       <relativePath />\n    </parent>\n","newFile":false}]}]}>
 

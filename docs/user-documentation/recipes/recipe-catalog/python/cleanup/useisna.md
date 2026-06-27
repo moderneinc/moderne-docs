@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `.isna()` instead of `== np.nan` comparisons"}
-  description={"Rewrite `== np.nan` and `== numpy.nan` equality tests as `.isna()` calls, since direct NaN comparison always evaluates to False."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.UseIsna"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/useisna.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `.isna()` instead of `== np.nan` comparisons</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rewrite `== np.nan` and `== numpy.nan` equality tests as `.isna()` calls, since direct NaN comparison always evaluates to False.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.UseIsna","displayName":"Use `.isna()` instead of `== np.nan` comparisons","pipPackage":"openrewrite-static-analysis"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Renames property of the component"}
-  description={"ARenames property of the component."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.customRecipes.ReplacePropertyInDataFormatYaml"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyindataformatyaml.md"}
-/>
+>
+
+<RecipeHeader.Title>Renames property of the component</RecipeHeader.Title>
+
+<RecipeHeader.Description>ARenames property of the component.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"component","required":true,"description":"Component name.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"oldPropertyKey","required":true,"description":"The property key to rename.","example":"TODO Provide a usage example for the docs"},{"type":"String","name":"newPropertyKey","required":true,"description":"The prefix to be replaced with.","example":"TODO Provide a usage example for the docs"}]}>
 

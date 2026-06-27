@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `relativeLinkResolution`"}
-  description={"Removes the `relativeLinkResolution` option from `RouterModule.forRoot()` calls. This option was deprecated in Angular 14 and removed in Angular 15."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-relative-link-resolution"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-relative-link-resolution.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `relativeLinkResolution`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the `relativeLinkResolution` option from `RouterModule.forRoot()` calls. This option was deprecated in Angular 14 and removed in Angular 15.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.remove-relative-link-resolution","displayName":"Remove `relativeLinkResolution`","npmPackage":"@openrewrite/recipes-angular"}}>
 

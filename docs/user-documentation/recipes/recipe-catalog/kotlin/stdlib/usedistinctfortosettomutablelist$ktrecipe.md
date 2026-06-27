@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `distinct().toMutableList()` instead of `toSet().toMutableList()`"}
-  description={"Round-tripping through a `Set` to drop duplicates obscures intent. `distinct()` says what it does; chain `toMutableList()` if you actually need a mutable result."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.stdlib.UseDistinctForToSetToMutableList$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/stdlib/usedistinctfortosettomutablelist$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `distinct().toMutableList()` instead of `toSet().toMutableList()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Round-tripping through a `Set` to drop duplicates obscures intent. `distinct()` says what it does; chain `toMutableList()` if you actually need a mutable result.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.stdlib.UseDistinctForToSetToMutableList$KtRecipe","displayName":"Use `distinct().toMutableList()` instead of `toSet().toMutableList()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

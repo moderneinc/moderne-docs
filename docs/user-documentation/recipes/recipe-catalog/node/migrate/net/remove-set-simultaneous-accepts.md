@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove deprecated `net._setSimultaneousAccepts()`"}
-  description={"Remove calls to deprecated `net._setSimultaneousAccepts()` which was an undocumented internal function that is no longer necessary."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0121"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.net.remove-set-simultaneous-accepts"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/net/remove-set-simultaneous-accepts.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove deprecated `net._setSimultaneousAccepts()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove calls to deprecated `net._setSimultaneousAccepts()` which was an undocumented internal function that is no longer necessary.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.net.remove-set-simultaneous-accepts","displayName":"Remove deprecated `net._setSimultaneousAccepts()`","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

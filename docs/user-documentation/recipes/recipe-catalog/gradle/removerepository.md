@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove repository"}
-  description={"Removes a repository from Gradle build scripts. Named repositories include \"jcenter\", \"mavenCentral\", \"mavenLocal\", and \"google\"."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.RemoveRepository"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/removerepository.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove repository</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes a repository from Gradle build scripts. Named repositories include "jcenter", "mavenCentral", "mavenLocal", and "google".</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"repository","required":true,"description":"The name of the repository to remove","example":"jcenter"}]}>
 

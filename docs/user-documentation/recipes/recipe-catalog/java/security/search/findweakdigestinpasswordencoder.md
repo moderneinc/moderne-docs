@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find weak message digests used inside custom `PasswordEncoder` implementations"}
-  description={"Finds calls to `MessageDigest.getInstance(\"...\")` whose algorithm is unsuitable for password storage, scoped to classes implementing `org.springframework.security.crypto.password.PasswordEncoder`. Unsalted and non-iterated digests (MD2, MD4, MD5, SHA-1, SHA-224/256/384/512) are unsuitable for password hashing regardless of how they are wrapped. Delegate to `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, `Pbkdf2PasswordEncoder`, or `SCryptPasswordEncoder` instead of implementing `PasswordEncoder` yourself."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["security","CWE-327","CWE-916"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindWeakDigestInPasswordEncoder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findweakdigestinpasswordencoder.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find weak message digests used inside custom `PasswordEncoder` implementations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds calls to `MessageDigest.getInstance("...")` whose algorithm is unsuitable for password storage, scoped to classes implementing `org.springframework.security.crypto.password.PasswordEncoder`. Unsalted and non-iterated digests (MD2, MD4, MD5, SHA-1, SHA-224/256/384/512) are unsuitable for password hashing regardless of how they are wrapped. Delegate to `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, `Pbkdf2PasswordEncoder`, or `SCryptPasswordEncoder` instead of implementing `PasswordEncoder` yourself.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.crypto.password.PasswordEncoder;\n\nimport java.security.MessageDigest;\nimport java.security.NoSuchAlgorithmException;\n\nclass HomegrownEncoder implements PasswordEncoder {\n    public String encode(CharSequence rawPassword) {\n        try {\n            MessageDigest digest = MessageDigest.getInstance(\"MD5\");\n            return new String(digest.digest(rawPassword.toString().getBytes()));\n        } catch (NoSuchAlgorithmException e) {\n            throw new IllegalStateException(e);\n        }\n    }\n\n    public boolean matches(CharSequence rawPassword, String encodedPassword) {\n        return encode(rawPassword).equals(encodedPassword);\n    }\n}\n","after":"import org.springframework.security.crypto.password.PasswordEncoder;\n\nimport java.security.MessageDigest;\nimport java.security.NoSuchAlgorithmException;\n\nclass HomegrownEncoder implements PasswordEncoder {\n    public String encode(CharSequence rawPassword) {\n        try {\n            MessageDigest digest = /*~~(Custom PasswordEncoder uses weak digest MD5; unsalted/non-iterated digests are unsuitable for password storage (CWE-916))~~>*/MessageDigest.getInstance(\"MD5\");\n            return new String(digest.digest(rawPassword.toString().getBytes()));\n        } catch (NoSuchAlgorithmException e) {\n            throw new IllegalStateException(e);\n        }\n    }\n\n    public boolean matches(CharSequence rawPassword, String encodedPassword) {\n        return encode(rawPassword).equals(encodedPassword);\n    }\n}\n","diff":"@@ -9,1 +9,1 @@\n    public String encode(CharSequence rawPassword) {\n        try {\n-           MessageDigest digest = MessageDigest.getInstance(\"MD5\");\n+           MessageDigest digest = /*~~(Custom PasswordEncoder uses weak digest MD5; unsalted/non-iterated digests are unsuitable for password storage (CWE-916))~~>*/MessageDigest.getInstance(\"MD5\");\n            return new String(digest.digest(rawPassword.toString().getBytes()));\n","newFile":false}]}]}>
 

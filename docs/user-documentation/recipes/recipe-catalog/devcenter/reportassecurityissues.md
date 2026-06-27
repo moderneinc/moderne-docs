@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Report as security issues"}
-  description={"Look for results produced by recipes in the same recipe list that this recipe is part of, and report them as security issues in DevCenter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.ReportAsSecurityIssues"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/reportassecurityissues.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Report as security issues</RecipeHeader.Title>
+
+<RecipeHeader.Description>Look for results produced by recipes in the same recipe list that this recipe is part of, and report them as security issues in DevCenter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fixRecipe","required":false,"description":"The recipe to use to fix these issues.","example":"org.openrewrite.java.security.OwaspTopTen"}]}>
 

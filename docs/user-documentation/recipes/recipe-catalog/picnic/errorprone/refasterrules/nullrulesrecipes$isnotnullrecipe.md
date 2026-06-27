@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `NullRules.IsNotNull`"}
-  description={"Prefer the `!=` operator (with `null` as the second operand) over `Objects#nonNull(Object)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.NullRulesRecipes$IsNotNullRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/nullrulesrecipes$isnotnullrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `NullRules.IsNotNull`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the `!=` operator (with `null` as the second operand) over `Objects#nonNull(Object)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.NullRulesRecipes$IsNotNullRecipe","displayName":"Refaster template `NullRules.IsNotNull`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

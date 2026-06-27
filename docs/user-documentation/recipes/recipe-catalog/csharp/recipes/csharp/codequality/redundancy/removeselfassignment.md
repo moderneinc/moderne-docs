@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove self-assignment"}
-  description={"Remove assignment statements where the variable is assigned to itself, such as `x = x`. These have no effect and are likely copy-paste errors."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveSelfAssignment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeselfassignment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove self-assignment</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove assignment statements where the variable is assigned to itself, such as `x = x`. These have no effect and are likely copy-paste errors.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveSelfAssignment","displayName":"Remove self-assignment","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

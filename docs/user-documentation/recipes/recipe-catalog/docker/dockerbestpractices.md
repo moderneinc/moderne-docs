@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply Docker best practices"}
-  description={"Apply a set of Docker best practices to Dockerfiles. This recipe applies security hardening, build optimization, and maintainability improvements based on CIS Docker Benchmark and industry best practices."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["docker"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.DockerBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/dockerbestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Apply Docker security best practices","href":"docker/dockersecuritybestpractices"},{"name":"Optimize Docker builds","href":"docker/dockerbuildoptimization"},{"name":"Normalize Docker Hub image names","href":"docker/normalizedockerhubimagename"},{"name":"Use exec form for `ENTRYPOINT` and `CMD`","href":"docker/useexecformentrypoint"}]}>
+<RecipeHeader.Title>Apply Docker best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply a set of Docker best practices to Dockerfiles. This recipe applies security hardening, build optimization, and maintainability improvements based on CIS Docker Benchmark and industry best practices.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Apply Docker security best practices","href":"/user-documentation/recipes/recipe-catalog/docker/dockersecuritybestpractices/"},{"name":"Optimize Docker builds","href":"/user-documentation/recipes/recipe-catalog/docker/dockerbuildoptimization/"},{"name":"Normalize Docker Hub image names","href":"/user-documentation/recipes/recipe-catalog/docker/normalizedockerhubimagename/"},{"name":"Use exec form for `ENTRYPOINT` and `CMD`","href":"/user-documentation/recipes/recipe-catalog/docker/useexecformentrypoint/"}]}>
 
 ## Definition
 

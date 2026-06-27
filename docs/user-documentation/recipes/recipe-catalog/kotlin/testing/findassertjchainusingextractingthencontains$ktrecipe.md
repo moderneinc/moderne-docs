@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find AssertJ `.extracting(...).contains(...)` chains"}
-  description={"AssertJ's `.extracting(\"name\")` uses reflection; `.extracting { it.name }` (lambda form) is type-safe. Each match is a candidate for the lambda form, or for moving to a `.allMatch { … }` predicate when the collection-level invariant is what you actually want to assert."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindAssertJChainUsingExtractingThenContains$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findassertjchainusingextractingthencontains$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find AssertJ `.extracting(...).contains(...)` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>AssertJ's `.extracting("name")` uses reflection; `.extracting { it.name }` (lambda form) is type-safe. Each match is a candidate for the lambda form, or for moving to a `.allMatch { … }` predicate when the collection-level invariant is what you actually want to assert.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindAssertJChainUsingExtractingThenContains$KtRecipe","displayName":"Find AssertJ `.extracting(...).contains(...)` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

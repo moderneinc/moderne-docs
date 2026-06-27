@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hardcoded certificates"}
-  description={"Detects hardcoded certificates in the code, including certificates that are hardcoded as strings and used to generate X509Certificate instances via CertificateFactory. Hardcoded certificates can lead to security issues when they expire or need to be revoked."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.cryptography.FindHardcodedCertificate"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/cryptography/findhardcodedcertificate.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find hardcoded certificates</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects hardcoded certificates in the code, including certificates that are hardcoded as strings and used to generate X509Certificate instances via CertificateFactory. Hardcoded certificates can lead to security issues when they expire or need to be revoked.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.ByteArrayInputStream;\nimport java.io.InputStream;\nimport java.security.cert.CertificateFactory;\nimport java.security.cert.X509Certificate;\n\npublic class HardcodedCertExample {\n    private static final String CERT = \"-----BEGIN CERTIFICATE-----\\n\" +\n        \"MIIDXTCCAkWgAwIBAgIJAJC1HiIAZAiIMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNV\\n\" +\n        \"BAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRlcm5ldCBX\\n\" +\n        \"-----END CERTIFICATE-----\";\n\n    public X509Certificate loadCertificate() throws Exception {\n        byte[] certBytes = CERT.getBytes();\n        InputStream in = new ByteArrayInputStream(certBytes);\n        CertificateFactory cf = CertificateFactory.getInstance(\"X.509\");\n        return (X509Certificate) cf.generateCertificate(in);\n    }\n}\n","after":"import java.io.ByteArrayInputStream;\nimport java.io.InputStream;\nimport java.security.cert.CertificateFactory;\nimport java.security.cert.X509Certificate;\n\npublic class HardcodedCertExample {\n    private static final String CERT = \"-----BEGIN CERTIFICATE-----\\n\" +\n        \"MIIDXTCCAkWgAwIBAgIJAJC1HiIAZAiIMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNV\\n\" +\n        \"BAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRlcm5ldCBX\\n\" +\n        \"-----END CERTIFICATE-----\";\n\n    public X509Certificate loadCertificate() throws Exception {\n        byte[] certBytes = CERT.getBytes();\n        InputStream in = /*~~(CERTIFICATE use)~~>*/new ByteArrayInputStream(certBytes);\n        CertificateFactory cf = CertificateFactory.getInstance(\"X.509\");\n        return (X509Certificate) /*~~(CERTIFICATE use)~~>*/cf.generateCertificate(in);\n    }\n}\n","diff":"@@ -14,1 +14,1 @@\n    public X509Certificate loadCertificate() throws Exception {\n        byte[] certBytes = CERT.getBytes();\n-       InputStream in = new ByteArrayInputStream(certBytes);\n+       InputStream in = /*~~(CERTIFICATE use)~~>*/new ByteArrayInputStream(certBytes);\n        CertificateFactory cf = CertificateFactory.getInstance(\"X.509\");\n@@ -16,1 +16,1 @@\n        InputStream in = new ByteArrayInputStream(certBytes);\n        CertificateFactory cf = CertificateFactory.getInstance(\"X.509\");\n-       return (X509Certificate) cf.generateCertificate(in);\n+       return (X509Certificate) /*~~(CERTIFICATE use)~~>*/cf.generateCertificate(in);\n    }\n","newFile":false}]}]}>
 

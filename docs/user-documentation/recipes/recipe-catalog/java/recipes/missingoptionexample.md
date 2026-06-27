@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find missing `@Option` `example` values"}
-  description={"Find `@Option` annotations that are missing `example` values for documentation."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.MissingOptionExample"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/missingoptionexample.md"}
-/>
+>
+
+<RecipeHeader.Title>Find missing `@Option` `example` values</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find `@Option` annotations that are missing `example` values for documentation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.Option;\nimport org.openrewrite.Recipe;\n\nclass SomeRecipe extends Recipe {\n    @Option(displayName = \"Test\", description = \"Test\")\n    private String test;\n\n    @Override\n    public String getDisplayName() {\n        return \"Find missing `@Option` `example` values\";\n    }\n    @Override\n    public String getDescription() {\n        return \"Find `@Option` annotations that are missing `example` values.\";\n    }\n}\n","after":"import org.openrewrite.Option;\nimport org.openrewrite.Recipe;\n\nclass SomeRecipe extends Recipe {\n    @Option(example = \"TODO Provide a usage example for the docs\", displayName = \"Test\", description = \"Test\")\n    private String test;\n\n    @Override\n    public String getDisplayName() {\n        return \"Find missing `@Option` `example` values\";\n    }\n    @Override\n    public String getDescription() {\n        return \"Find `@Option` annotations that are missing `example` values.\";\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\n\nclass SomeRecipe extends Recipe {\n-   @Option(displayName = \"Test\", description = \"Test\")\n+   @Option(example = \"TODO Provide a usage example for the docs\", displayName = \"Test\", description = \"Test\")\n    private String test;\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Fragment.onAttach(Activity)` overrides"}
-  description={"The `onAttach(Activity)` overload was deprecated in API 23 — use `onAttach(Context)` instead. The `Context` parameter is the activity for activity-hosted fragments and the application context for headless cases, and works on devices where the parent is not an activity."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindFragmentOnAttachActivity$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findfragmentonattachactivity$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Fragment.onAttach(Activity)` overrides</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `onAttach(Activity)` overload was deprecated in API 23 — use `onAttach(Context)` instead. The `Context` parameter is the activity for activity-hosted fragments and the application context for headless cases, and works on devices where the parent is not an activity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindFragmentOnAttachActivity$KtRecipe","displayName":"Find `Fragment.onAttach(Activity)` overrides","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

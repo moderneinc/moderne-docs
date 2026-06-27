@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `ImmutableSetRules.ImmutableSetCopyOfSetView`"}
-  description={"Prefer `SetView#immutableCopy()` over the more verbose alternative."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableSetRulesRecipes$ImmutableSetCopyOfSetViewRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutablesetrulesrecipes$immutablesetcopyofsetviewrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `ImmutableSetRules.ImmutableSetCopyOfSetView`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `SetView#immutableCopy()` over the more verbose alternative.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableSetRulesRecipes$ImmutableSetCopyOfSetViewRecipe","displayName":"Refaster template `ImmutableSetRules.ImmutableSetCopyOfSetView`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

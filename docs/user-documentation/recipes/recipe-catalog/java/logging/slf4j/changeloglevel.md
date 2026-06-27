@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change SLF4J log level"}
-  description={"Change the log level of SLF4J log statements."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.ChangeLogLevel"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/changeloglevel.md"}
-/>
+>
+
+<RecipeHeader.Title>Change SLF4J log level</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change the log level of SLF4J log statements.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Level","name":"from","required":true,"description":"The log level to change from.","example":"INFO"},{"type":"Level","name":"to","required":true,"description":"The log level to change to.","example":"DEBUG"},{"type":"String","name":"startsWith","required":false,"description":"Only change log statements that start with this string. When omitted all log statements of the specified level are changed.","example":"LaunchDarkly"}]}>
 

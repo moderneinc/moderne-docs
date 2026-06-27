@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster rules related to AssertJ assertions over `Instant`s"}
-  description={"These rules simplify and improve the readability of tests by using `Instant`-specific\n AssertJ assertion methods instead of generic assertions.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJInstantRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJInstantRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjinstantrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJInstantRules.AssertThatIsAfter`","href":"picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisafterrecipe"},{"name":"Refaster template `AssertJInstantRules.AssertThatIsBeforeOrEqualTo`","href":"picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisbeforeorequaltorecipe"},{"name":"Refaster template `AssertJInstantRules.AssertThatIsBefore`","href":"picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisbeforerecipe"},{"name":"Refaster template `AssertJInstantRules.AssertThatIsAfterOrEqualTo`","href":"picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisafterorequaltorecipe"},{"name":"Refaster template `AssertJInstantRules.AssertThatIsBetween`","href":"picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisbetweenrecipe"},{"name":"Refaster template `AssertJInstantRules.AssertThatIsStrictlyBetween`","href":"picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisstrictlybetweenrecipe"}]}>
+<RecipeHeader.Title>Refaster rules related to AssertJ assertions over `Instant`s</RecipeHeader.Title>
+
+<RecipeHeader.Description>These rules simplify and improve the readability of tests by using `Instant`-specific  AssertJ assertion methods instead of generic assertions. [Source](https://error-prone.picnic.tech/refasterrules/AssertJInstantRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJInstantRules.AssertThatIsAfter`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisafterrecipe/"},{"name":"Refaster template `AssertJInstantRules.AssertThatIsBeforeOrEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisbeforeorequaltorecipe/"},{"name":"Refaster template `AssertJInstantRules.AssertThatIsBefore`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisbeforerecipe/"},{"name":"Refaster template `AssertJInstantRules.AssertThatIsAfterOrEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisafterorequaltorecipe/"},{"name":"Refaster template `AssertJInstantRules.AssertThatIsBetween`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisbetweenrecipe/"},{"name":"Refaster template `AssertJInstantRules.AssertThatIsStrictlyBetween`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjinstantrulesrecipes$assertthatisstrictlybetweenrecipe/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `platformDynamicServer` usage"}
-  description={"Finds usages of the removed `platformDynamicServer` API from `@angular/platform-server`. In Angular 18, replace with `platformServer` and add `import '@angular/compiler'`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-platform-dynamic-server-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-platform-dynamic-server-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `platformDynamicServer` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of the removed `platformDynamicServer` API from `@angular/platform-server`. In Angular 18, replace with `platformServer` and add `import '@angular/compiler'`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-platform-dynamic-server-usage","displayName":"Find `platformDynamicServer` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Finds flow between two methods"}
-  description={"Takes two patterns for the start/end methods to find flow between."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.meta:rewrite-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.search.FindFlowBetweenMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/search/findflowbetweenmethods.md"}
-/>
+>
+
+<RecipeHeader.Title>Finds flow between two methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Takes two patterns for the start/end methods to find flow between.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"startMethodPattern","required":true,"description":"A method pattern that is used to find matching the start point's method invocations.","example":"java.util.List add(..)"},{"type":"Boolean","name":"startMatchOverrides","required":false,"description":"When enabled, find methods that are overrides of the method pattern."},{"type":"String","name":"endMethodPattern","required":true,"description":"A method pattern that is used to find matching the end point's method invocations.","example":"java.util.List add(..)"},{"type":"Boolean","name":"endMatchOverrides","required":false,"description":"When enabled, find methods that are overrides of the method pattern."},{"type":"String","name":"target","required":true,"description":"The part of the method flow should traverse to"},{"type":"String","name":"flow","required":true,"description":"When enabled, show the data or taint flow of the method invocation."}]}>
 

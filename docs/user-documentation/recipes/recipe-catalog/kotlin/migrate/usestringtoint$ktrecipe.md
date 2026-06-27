@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `String.toInt()` instead of `Integer.parseInt(s)`"}
-  description={"Java-idiom `Integer.parseInt(s)` migrates to the Kotlin extension `s.toInt()`. The behavior is identical — both throw `NumberFormatException` on invalid input."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseStringToInt$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usestringtoint$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `String.toInt()` instead of `Integer.parseInt(s)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java-idiom `Integer.parseInt(s)` migrates to the Kotlin extension `s.toInt()`. The behavior is identical — both throw `NumberFormatException` on invalid input.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseStringToInt$KtRecipe","displayName":"Use `String.toInt()` instead of `Integer.parseInt(s)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

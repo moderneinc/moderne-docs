@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`Externalizable` classes have no-arguments constructor"}
-  description={"`Externalizable` classes handle both serialization and deserialization and must have a no-args constructor for the deserialization process. Without a public no-argument constructor, the JVM cannot instantiate the object during deserialization and will throw an `InvalidClassException` at runtime."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2060"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ExternalizableHasNoArgsConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/externalizablehasnoargsconstructor.md"}
-/>
+>
+
+<RecipeHeader.Title>`Externalizable` classes have no-arguments constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Externalizable` classes handle both serialization and deserialization and must have a no-args constructor for the deserialization process. Without a public no-argument constructor, the JVM cannot instantiate the object during deserialization and will throw an `InvalidClassException` at runtime.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.Externalizable;\nimport java.io.IOException;\nimport java.io.ObjectInput;\nimport java.io.ObjectOutput;\n\npublic class MyThing implements Externalizable {\n    private String a;\n    private String b;\n\n    public MyThing(String a, String b) {\n        this.a = a;\n        this.b = b;\n    }\n\n    @Override\n    public void writeExternal(ObjectOutput out) throws IOException {}\n\n    @Override\n    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {}\n}\n","after":"import java.io.Externalizable;\nimport java.io.IOException;\nimport java.io.ObjectInput;\nimport java.io.ObjectOutput;\n\npublic class MyThing implements Externalizable {\n    private String a;\n    private String b;\n\n    public MyThing() {\n    }\n\n    public MyThing(String a, String b) {\n        this.a = a;\n        this.b = b;\n    }\n\n    @Override\n    public void writeExternal(ObjectOutput out) throws IOException {}\n\n    @Override\n    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {}\n}\n","diff":"@@ -10,0 +10,3 @@\n    private String b;\n\n+   public MyThing() {\n+   }\n+\n    public MyThing(String a, String b) {\n","newFile":false}]}]}>
 

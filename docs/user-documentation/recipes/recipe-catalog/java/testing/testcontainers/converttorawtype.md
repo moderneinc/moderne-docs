@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove parameterized type arguments from a Java class"}
-  description={"Convert parameterized types of a specified Java class to their raw types."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.testcontainers.ConvertToRawType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/testcontainers/converttorawtype.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove parameterized type arguments from a Java class</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert parameterized types of a specified Java class to their raw types.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fullyQualifiedTypeName","required":true,"description":"The fully qualified name of the Java class to convert to its raw type.","example":"org.testcontainers.containers.PostgreSQLContainer"}]}>
 

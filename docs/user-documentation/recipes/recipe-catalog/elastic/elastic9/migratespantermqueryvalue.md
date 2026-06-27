@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `SpanTermQuery.value()` from String to FieldValue"}
-  description={"In Elasticsearch 9, `SpanTermQuery.value()` returns a `FieldValue` instead of `String`. This recipe updates calls to handle the new return type by checking if it's a string and extracting the string value."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["elasticsearch","migration"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.elastic.elastic9.MigrateSpanTermQueryValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/elastic/elastic9/migratespantermqueryvalue.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `SpanTermQuery.value()` from String to FieldValue</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Elasticsearch 9, `SpanTermQuery.value()` returns a `FieldValue` instead of `String`. This recipe updates calls to handle the new return type by checking if it's a string and extracting the string value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import co.elastic.clients.elasticsearch._types.query_dsl.SpanTermQuery;\n\nclass Test {\n    void test(SpanTermQuery query) {\n        String value = query.value();\n    }\n}\n","after":"import co.elastic.clients.elasticsearch._types.query_dsl.SpanTermQuery;\n\nclass Test {\n    void test(SpanTermQuery query) {\n        String value = query.value().isNull() ? null : query.value()._toJsonString();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    void test(SpanTermQuery query) {\n-       String value = query.value();\n+       String value = query.value().isNull() ? null : query.value()._toJsonString();\n    }\n","newFile":false}]}]}>
 

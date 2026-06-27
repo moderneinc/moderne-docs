@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JSF 1.x to Jakarta Server Faces 2.3 on WebLogic 14.1.2 or older"}
-  description={"Jakarta EE 8 uses Faces 2.3 a major upgrade to Jakarta packages and XML namespaces. This recipe will migrate JSF 1.x to Jakarta Server Faces 2.3 on WebLogic 14.1.2 or older."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["javax","jakartaee","faces","jsf","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.FacesMigrationToJakartaFaces2x"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/facesmigrationtojakartafaces2x.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade Faces open source libraries","href":"oracle/weblogic/rewrite/jakarta/upgradefacesopensourcelibraries2"}]}>
+<RecipeHeader.Title>JSF 1.x to Jakarta Server Faces 2.3 on WebLogic 14.1.2 or older</RecipeHeader.Title>
+
+<RecipeHeader.Description>Jakarta EE 8 uses Faces 2.3 a major upgrade to Jakarta packages and XML namespaces. This recipe will migrate JSF 1.x to Jakarta Server Faces 2.3 on WebLogic 14.1.2 or older.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade Faces open source libraries","href":"/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/upgradefacesopensourcelibraries2/"}]}>
 
 ## Definition
 

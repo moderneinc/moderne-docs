@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find null-assertion polish opportunities"}
-  description={"`!!` operators (including as arguments), `requireNotNull` / `checkNotNull` calls without a lazy message, and `throw SomeException()` without a contextual message inside an elvis."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindNullAssertionPolish$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnullassertionpolish$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `!!` non-null assertions","href":"kotlin/idiom/findnotnullassertion$ktrecipe"},{"name":"Find `!!` passed as a function argument","href":"kotlin/idiom/findnotnullassertionasargument$ktrecipe"},{"name":"Find `requireNotNull(x)` without an explanatory message","href":"kotlin/idiom/findrequirenotnullwithoutmessage$ktrecipe"},{"name":"Find `checkNotNull(x)` without an explanatory message","href":"kotlin/idiom/findchecknotnullwithoutmessage$ktrecipe"},{"name":"Find `x ?: throw SomeException()` without a message","href":"kotlin/idiom/findelvisthrowwithoutmessage$ktrecipe"}]}>
+<RecipeHeader.Title>Find null-assertion polish opportunities</RecipeHeader.Title>
+
+<RecipeHeader.Description>`!!` operators (including as arguments), `requireNotNull` / `checkNotNull` calls without a lazy message, and `throw SomeException()` without a contextual message inside an elvis.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `!!` non-null assertions","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnotnullassertion$ktrecipe/"},{"name":"Find `!!` passed as a function argument","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnotnullassertionasargument$ktrecipe/"},{"name":"Find `requireNotNull(x)` without an explanatory message","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findrequirenotnullwithoutmessage$ktrecipe/"},{"name":"Find `checkNotNull(x)` without an explanatory message","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findchecknotnullwithoutmessage$ktrecipe/"},{"name":"Find `x ?: throw SomeException()` without a message","href":"/user-documentation/recipes/recipe-catalog/kotlin/idiom/findelvisthrowwithoutmessage$ktrecipe/"}]}>
 
 ## Definition
 

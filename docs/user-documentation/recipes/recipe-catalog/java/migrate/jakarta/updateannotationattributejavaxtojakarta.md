@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update annotation attributes using `javax` to `jakarta`"}
-  description={"Replace `javax` with `jakarta` in annotation attributes for matching annotation signatures."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.jakarta.UpdateAnnotationAttributeJavaxToJakarta"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updateannotationattributejavaxtojakarta.md"}
-/>
+>
+
+<RecipeHeader.Title>Update annotation attributes using `javax` to `jakarta`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `javax` with `jakarta` in annotation attributes for matching annotation signatures.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"signature","required":false,"description":"An annotation signature to match.","example":"@javax.jms..*"}]}>
 

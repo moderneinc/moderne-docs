@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Node.js ghost tests"}
-  description={"Detect skipped tests in JavaScript and TypeScript test files. Flags xtest(), xit(), test.skip(), it.skip(), and describe.skip() calls that lack a documented reason in their description."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindNodeGhostTests"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findnodeghosttests.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Node.js ghost tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect skipped tests in JavaScript and TypeScript test files. Flags xtest(), xit(), test.skip(), it.skip(), and describe.skip() calls that lack a documented reason in their description.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"javascript","code":"xit(\"should do something\", function() {\n    expect(true).toBe(true);\n});\n"},"variants":[]}]}>
 

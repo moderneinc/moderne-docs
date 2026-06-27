@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find empty catch blocks"}
-  description={"An empty catch (`catch (e: Exception) { }`) eats every exception and produces no record of it ever happening. Even a logger call records that something went wrong; an empty block makes the failure undebuggable."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindTryCatchSwallowingException$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findtrycatchswallowingexception$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find empty catch blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>An empty catch (`catch (e: Exception) { }`) eats every exception and produces no record of it ever happening. Even a logger call records that something went wrong; an empty block makes the failure undebuggable.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindTryCatchSwallowingException$KtRecipe","displayName":"Find empty catch blocks","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

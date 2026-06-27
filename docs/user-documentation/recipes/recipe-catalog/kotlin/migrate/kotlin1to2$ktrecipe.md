@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Kotlin 2.x"}
-  description={"Modernizes a Kotlin 1.x codebase for Kotlin 2.x: replaces stdlib APIs deprecated between 1.4 and 2.0 with their modern equivalents, swaps JVM-only `java.lang`/`java.util` helpers for multiplatform Kotlin extensions, migrates `inline class` to `@JvmInline value class`, and removes `@OptIn` annotations for experimental markers that have since graduated to stable."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.Kotlin1To2$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/kotlin1to2$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Use modern Kotlin stdlib idioms","href":"kotlin/migrate/usemodernkotlinstdlibapis$ktrecipe"},{"name":"Use `kotlin.math` instead of `java.lang.Math`","href":"kotlin/migrate/usekotlinmath$ktrecipe"},{"name":"Use Kotlin number extensions instead of `java.lang.Integer`/`Long`/`Double`/`Float`/`Boolean`","href":"kotlin/migrate/usekotlinnumberapis$ktrecipe"},{"name":"Use `Char` extensions instead of `java.lang.Character`","href":"kotlin/migrate/usekotlinchar$ktrecipe"},{"name":"Use Kotlin collection extensions instead of `java.util.Collections`","href":"kotlin/migrate/usekotlincollections$ktrecipe"},{"name":"Use Kotlin array extensions instead of `java.util.Arrays`","href":"kotlin/migrate/usekotlinarray$ktrecipe"},{"name":"Use `kotlin.text.Regex` instead of `java.util.regex.Pattern`","href":"kotlin/migrate/usekotlinregex$ktrecipe"},{"name":"Use `@JvmInline value class` instead of `inline class`","href":"kotlin/migrate/usevalueclass$ktrecipe"},{"name":"Remove redundant `@OptIn` annotations","href":"kotlin/migrate/removeredundantoptins$ktrecipe"}]}>
+<RecipeHeader.Title>Migrate to Kotlin 2.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Modernizes a Kotlin 1.x codebase for Kotlin 2.x: replaces stdlib APIs deprecated between 1.4 and 2.0 with their modern equivalents, swaps JVM-only `java.lang`/`java.util` helpers for multiplatform Kotlin extensions, migrates `inline class` to `@JvmInline value class`, and removes `@OptIn` annotations for experimental markers that have since graduated to stable.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use modern Kotlin stdlib idioms","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usemodernkotlinstdlibapis$ktrecipe/"},{"name":"Use `kotlin.math` instead of `java.lang.Math`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinmath$ktrecipe/"},{"name":"Use Kotlin number extensions instead of `java.lang.Integer`/`Long`/`Double`/`Float`/`Boolean`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinnumberapis$ktrecipe/"},{"name":"Use `Char` extensions instead of `java.lang.Character`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinchar$ktrecipe/"},{"name":"Use Kotlin collection extensions instead of `java.util.Collections`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlincollections$ktrecipe/"},{"name":"Use Kotlin array extensions instead of `java.util.Arrays`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinarray$ktrecipe/"},{"name":"Use `kotlin.text.Regex` instead of `java.util.regex.Pattern`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usekotlinregex$ktrecipe/"},{"name":"Use `@JvmInline value class` instead of `inline class`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/usevalueclass$ktrecipe/"},{"name":"Remove redundant `@OptIn` annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/removeredundantoptins$ktrecipe/"}]}>
 
 ## Definition
 

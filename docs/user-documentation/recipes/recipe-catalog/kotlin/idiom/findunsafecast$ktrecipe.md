@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find unsafe `as` casts"}
-  description={"`x as T` throws `ClassCastException` on mismatch — there's no diagnostic, just the JVM exception. `x as? T` returns `null` on mismatch and folds into elvis/`requireNotNull(...)` with a better message."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindUnsafeCast$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findunsafecast$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find unsafe `as` casts</RecipeHeader.Title>
+
+<RecipeHeader.Description>`x as T` throws `ClassCastException` on mismatch — there's no diagnostic, just the JVM exception. `x as? T` returns `null` on mismatch and folds into elvis/`requireNotNull(...)` with a better message.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindUnsafeCast$KtRecipe","displayName":"Find unsafe `as` casts","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

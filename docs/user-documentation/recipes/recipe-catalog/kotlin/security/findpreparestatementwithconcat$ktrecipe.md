@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `prepareStatement(\"... \" + x)` calls"}
-  description={"`PreparedStatement` is only safe if the SQL is a fixed template — concatenating user input into the template before `prepareStatement` defeats the parameter binding. Parameterize the variable portion with `?`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindPrepareStatementWithConcat$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findpreparestatementwithconcat$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `prepareStatement("... " + x)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`PreparedStatement` is only safe if the SQL is a fixed template — concatenating user input into the template before `prepareStatement` defeats the parameter binding. Parameterize the variable portion with `?`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindPrepareStatementWithConcat$KtRecipe","displayName":"Find `prepareStatement(\"... \" + x)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove an enabled Gradle preview feature"}
-  description={"Remove an enabled Gradle preview feature from `settings.gradle`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.RemoveEnableFeaturePreview"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/removeenablefeaturepreview.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove an enabled Gradle preview feature</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove an enabled Gradle preview feature from `settings.gradle`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"previewFeatureName","required":true,"description":"The name of the feature preview to remove.","example":"ONE_LOCKFILE_PER_PROJECT"}]}>
 

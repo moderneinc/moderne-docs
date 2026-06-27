@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `HttpServletRequest.getParameter/getHeader/getCookies` reads"}
-  description={"Servlet-API request reads return raw, attacker-controlled strings. Each call is a taint root — anywhere the returned value flows into an SQL query, a filesystem path, or HTML output is a candidate vulnerability the reviewer should trace."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindHttpRequestSources$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findhttprequestsources$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `HttpServletRequest.getParameter/getHeader/getCookies` reads</RecipeHeader.Title>
+
+<RecipeHeader.Description>Servlet-API request reads return raw, attacker-controlled strings. Each call is a taint root — anywhere the returned value flows into an SQL query, a filesystem path, or HTML output is a candidate vulnerability the reviewer should trace.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindHttpRequestSources$KtRecipe","displayName":"Find `HttpServletRequest.getParameter/getHeader/getCookies` reads","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

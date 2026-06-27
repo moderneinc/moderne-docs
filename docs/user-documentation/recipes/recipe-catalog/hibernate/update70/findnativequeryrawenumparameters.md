@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find native queries with enum parameters requiring SpEL conversion"}
-  description={"When using `@NativeQuery` or `@Query(nativeQuery = true)`, enum parameters are not automatically converted by JPA. This recipe finds native queries with raw enum bind parameters that need SpEL expressions like `:#{#status.name()}` or `:#{#status.ordinal()}` depending on how the enum is persisted."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.FindNativeQueryRawEnumParameters"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/findnativequeryrawenumparameters.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find native queries with enum parameters requiring SpEL conversion</RecipeHeader.Title>
+
+<RecipeHeader.Description>When using `@NativeQuery` or `@Query(nativeQuery = true)`, enum parameters are not automatically converted by JPA. This recipe finds native queries with raw enum bind parameters that need SpEL expressions like `:#{#status.name()}` or `:#{#status.ordinal()}` depending on how the enum is persisted.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.data.jpa.repository.NativeQuery;\nimport com.example.Status;\n\ninterface PlanRepository {\n    @NativeQuery(\"select * from plan where status = :status\")\n    Object findByStatus(Status status);\n}\n","after":"import org.springframework.data.jpa.repository.NativeQuery;\nimport com.example.Status;\n\ninterface PlanRepository {\n    /*~~(Enum parameter status needs SpEL conversion for native query, e.g. :#{#status.name()} or :#{#status.ordinal()})~~>*/@NativeQuery(\"select * from plan where status = :status\")\n    Object findByStatus(Status status);\n}\n","diff":"@@ -5,1 +5,1 @@\n\ninterface PlanRepository {\n-   @NativeQuery(\"select * from plan where status = :status\")\n+   /*~~(Enum parameter status needs SpEL conversion for native query, e.g. :#{#status.name()} or :#{#status.ordinal()})~~>*/@NativeQuery(\"select * from plan where status = :status\")\n    Object findByStatus(Status status);\n","newFile":false}]}]}>
 

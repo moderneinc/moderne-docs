@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `web.xml` to `WebApplicationInitializer`"}
-  description={"Migrate `web.xml` to `WebApplicationInitializer` for Spring applications. This allows for programmatic configuration of the web application context, replacing the need for XML-based configuration. This recipe only picks up `web.xml` files located in the `src/main/webapp/WEB-INF` directory to avoid inference with tests. It creates a `WebXmlWebAppInitializer` class in `src/main/java` with respect to submodules if they contain java files. **If it finds an existing `WebXmlWebAppInitializer`, it skips the creation**."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.framework.webxml.WebXmlToWebApplicationInitializer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/framework/webxml/webxmltowebapplicationinitializer.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `web.xml` to `WebApplicationInitializer`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate `web.xml` to `WebApplicationInitializer` for Spring applications. This allows for programmatic configuration of the web application context, replacing the need for XML-based configuration. This recipe only picks up `web.xml` files located in the `src/main/webapp/WEB-INF` directory to avoid inference with tests. It creates a `WebXmlWebAppInitializer` class in `src/main/java` with respect to submodules if they contain java files. **If it finds an existing `WebXmlWebAppInitializer`, it skips the creation**.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"useJakartaEE","required":false,"description":"If true, the recipe will migrate to Jakarta EE 9+ namespaces. If false, it will use the javax.servlet namespace. If not set, the recipe will auto-detect based on the Spring Framework version: Spring 6+ uses Jakarta EE, Spring 5.x and earlier uses javax.","example":"true"}]}>
 

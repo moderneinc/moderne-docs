@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Angular 17"}
-  description={"Migrates Angular 16.x applications to Angular 17. This includes updating Angular package versions, replacing legacy deep `zone.js` imports, flagging the removed `withNoDomReuse` and `setupTestingRouter` APIs, and upgrading TypeScript and `zone.js` dependencies."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.UpgradeToAngular17"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/upgradetoangular17.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade to Angular 16","href":"angular/upgradetoangular16"},{"name":"Replace deep `zone.js` imports","href":"angular/migration/replace-deep-zone-js-imports"},{"name":"Find `withNoDomReuse` usage","href":"angular/search/find-with-no-dom-reuse-usage"},{"name":"Find `setupTestingRouter` usage","href":"angular/search/find-setup-testing-router-usage"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"},{"name":"Upgrade npm dependency version","href":"javascript/upgradedependencyversion"}]}>
+<RecipeHeader.Title>Upgrade to Angular 17</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Angular 16.x applications to Angular 17. This includes updating Angular package versions, replacing legacy deep `zone.js` imports, flagging the removed `withNoDomReuse` and `setupTestingRouter` APIs, and upgrading TypeScript and `zone.js` dependencies.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade to Angular 16","href":"/user-documentation/recipes/recipe-catalog/angular/upgradetoangular16/"},{"name":"Replace deep `zone.js` imports","href":"/user-documentation/recipes/recipe-catalog/angular/migration/replace-deep-zone-js-imports/"},{"name":"Find `withNoDomReuse` usage","href":"/user-documentation/recipes/recipe-catalog/angular/search/find-with-no-dom-reuse-usage/"},{"name":"Find `setupTestingRouter` usage","href":"/user-documentation/recipes/recipe-catalog/angular/search/find-setup-testing-router-usage/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"},{"name":"Upgrade npm dependency version","href":"/user-documentation/recipes/recipe-catalog/javascript/upgradedependencyversion/"}]}>
 
 ## Definition
 

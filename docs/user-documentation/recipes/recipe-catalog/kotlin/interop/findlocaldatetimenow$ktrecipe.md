@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LocalDateTime.now()` / `Instant.now()` calls"}
-  description={"`LocalDateTime.now()` (and its `Instant`/`LocalDate`/`ZonedDateTime` siblings) read the system clock implicitly. Inject a `Clock` and use the overload `LocalDateTime.now(clock)` so tests can advance time deterministically."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindLocalDateTimeNow$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findlocaldatetimenow$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LocalDateTime.now()` / `Instant.now()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`LocalDateTime.now()` (and its `Instant`/`LocalDate`/`ZonedDateTime` siblings) read the system clock implicitly. Inject a `Clock` and use the overload `LocalDateTime.now(clock)` so tests can advance time deterministically.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindLocalDateTimeNow$KtRecipe","displayName":"Find `LocalDateTime.now()` / `Instant.now()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

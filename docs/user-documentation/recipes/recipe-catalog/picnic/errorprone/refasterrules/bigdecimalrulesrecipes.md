@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`BigDecimalRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `BigDecimal`s.\n[Source](https://error-prone.picnic.tech/refasterrules/BigDecimalRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bigdecimalrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `BigDecimalRules.BigDecimalZero`","href":"picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalzerorecipe"},{"name":"Refaster template `BigDecimalRules.BigDecimalOne`","href":"picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalonerecipe"},{"name":"Refaster template `BigDecimalRules.BigDecimalTwo`","href":"picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimaltworecipe"},{"name":"Refaster template `BigDecimalRules.BigDecimalTen`","href":"picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimaltenrecipe"},{"name":"Refaster template `BigDecimalRules.BigDecimalValueOf`","href":"picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalvalueofrecipe"},{"name":"Refaster template `BigDecimalRules.BigDecimalSignumIsZero`","href":"picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalsignumiszerorecipe"},{"name":"Refaster template `BigDecimalRules.BigDecimalSignumIsPositive`","href":"picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalsignumispositiverecipe"},{"name":"Refaster template `BigDecimalRules.BigDecimalSignumIsNegative`","href":"picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalsignumisnegativerecipe"}]}>
+<RecipeHeader.Title>`BigDecimalRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `BigDecimal`s. [Source](https://error-prone.picnic.tech/refasterrules/BigDecimalRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `BigDecimalRules.BigDecimalZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalzerorecipe/"},{"name":"Refaster template `BigDecimalRules.BigDecimalOne`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalonerecipe/"},{"name":"Refaster template `BigDecimalRules.BigDecimalTwo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimaltworecipe/"},{"name":"Refaster template `BigDecimalRules.BigDecimalTen`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimaltenrecipe/"},{"name":"Refaster template `BigDecimalRules.BigDecimalValueOf`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalvalueofrecipe/"},{"name":"Refaster template `BigDecimalRules.BigDecimalSignumIsZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalsignumiszerorecipe/"},{"name":"Refaster template `BigDecimalRules.BigDecimalSignumIsPositive`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalsignumispositiverecipe/"},{"name":"Refaster template `BigDecimalRules.BigDecimalSignumIsNegative`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalsignumisnegativerecipe/"}]}>
 
 ## Definition
 

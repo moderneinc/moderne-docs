@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"DevCenter for Gradle and Maven"}
-  description={"Track and automate upgrades for Gradle, Maven, and Java versions."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.BuildToolStarter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/buildtoolstarter.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Build tool","href":"devcenter/buildtoolcard"},{"name":"Build tool","href":"devcenter/buildtoolcard"},{"name":"Move to a later Java version","href":"devcenter/javaversionupgrade"}]}>
+<RecipeHeader.Title>DevCenter for Gradle and Maven</RecipeHeader.Title>
+
+<RecipeHeader.Description>Track and automate upgrades for Gradle, Maven, and Java versions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Build tool","href":"/user-documentation/recipes/recipe-catalog/devcenter/buildtoolcard/"},{"name":"Build tool","href":"/user-documentation/recipes/recipe-catalog/devcenter/buildtoolcard/"},{"name":"Move to a later Java version","href":"/user-documentation/recipes/recipe-catalog/devcenter/javaversionupgrade/"}]}>
 
 ## Definition
 

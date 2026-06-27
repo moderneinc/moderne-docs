@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `AssertionsForClassTypes` and `AssertionsForInterfaceTypes` to `Assertions`"}
-  description={"AssertJ deprecated `AssertionsForClassTypes` and `AssertionsForInterfaceTypes` in favor of the unified `Assertions` entry point. This recipe retargets their static methods to `Assertions`, using `assertThatObject` where a plain `assertThat` would otherwise re-bind to a more specific overload and stop compiling (see https://github.com/openrewrite/rewrite-testing-frameworks/issues/664)."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["testing","assertj"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.MigrateAssertionsForClassAndInterfaceTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/migrateassertionsforclassandinterfacetypes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `Assertions.assertThatObject` for ambiguous `AssertionsForClassTypes.assertThat` calls","href":"java/testing/assertj/migrateassertionsforclasstypes"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate `AssertionsForClassTypes` and `AssertionsForInterfaceTypes` to `Assertions`</RecipeHeader.Title>
+
+<RecipeHeader.Description>AssertJ deprecated `AssertionsForClassTypes` and `AssertionsForInterfaceTypes` in favor of the unified `Assertions` entry point. This recipe retargets their static methods to `Assertions`, using `assertThatObject` where a plain `assertThat` would otherwise re-bind to a more specific overload and stop compiling (see https://github.com/openrewrite/rewrite-testing-frameworks/issues/664).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `Assertions.assertThatObject` for ambiguous `AssertionsForClassTypes.assertThat` calls","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/migrateassertionsforclasstypes/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

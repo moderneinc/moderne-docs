@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find reflection and runtime introspection"}
-  description={"Reflection entry points (`Class.forName`, `Method.invoke`, `Field.get/set`, kotlin.reflect calls, `ServiceLoader.load`), visibility overrides (`setAccessible(true)`), and unsafe `as` casts. Each match is opaque to static analysis — a reviewer/agent should know it's there before reasoning about what the program touches."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindReflectionSurface$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findreflectionsurface$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Class.forName(...)` calls","href":"kotlin/search/findclassforname$ktrecipe"},{"name":"Find `AccessibleObject.setAccessible(true)` calls","href":"kotlin/search/findsetaccessibletrue$ktrecipe"},{"name":"Find `java.lang.reflect.Method.invoke(...)` calls","href":"kotlin/search/findmethodinvoke$ktrecipe"},{"name":"Find `java.lang.reflect.Field.get/set` calls","href":"kotlin/search/findfieldreflection$ktrecipe"},{"name":"Find Kotlin reflection (`KClass.memberFunctions`, `KClass.members`, etc.)","href":"kotlin/search/findkclassmembersaccess$ktrecipe"},{"name":"Find `ServiceLoader.load(...)` calls","href":"kotlin/search/findserviceloader$ktrecipe"},{"name":"Find bare `as` casts (unsafe)","href":"kotlin/search/findunsafecast$ktrecipe"}]}>
+<RecipeHeader.Title>Find reflection and runtime introspection</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reflection entry points (`Class.forName`, `Method.invoke`, `Field.get/set`, kotlin.reflect calls, `ServiceLoader.load`), visibility overrides (`setAccessible(true)`), and unsafe `as` casts. Each match is opaque to static analysis — a reviewer/agent should know it's there before reasoning about what the program touches.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Class.forName(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findclassforname$ktrecipe/"},{"name":"Find `AccessibleObject.setAccessible(true)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findsetaccessibletrue$ktrecipe/"},{"name":"Find `java.lang.reflect.Method.invoke(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findmethodinvoke$ktrecipe/"},{"name":"Find `java.lang.reflect.Field.get/set` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findfieldreflection$ktrecipe/"},{"name":"Find Kotlin reflection (`KClass.memberFunctions`, `KClass.members`, etc.)","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findkclassmembersaccess$ktrecipe/"},{"name":"Find `ServiceLoader.load(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findserviceloader$ktrecipe/"},{"name":"Find bare `as` casts (unsafe)","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findunsafecast$ktrecipe/"}]}>
 
 ## Definition
 

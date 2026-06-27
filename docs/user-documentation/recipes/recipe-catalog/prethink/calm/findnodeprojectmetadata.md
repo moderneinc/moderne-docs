@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Node.js project metadata"}
-  description={"Extract project metadata (name, version, description) from Node.js package.json files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindNodeProjectMetadata"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findnodeprojectmetadata.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Node.js project metadata</RecipeHeader.Title>
+
+<RecipeHeader.Description>Extract project metadata (name, version, description) from Node.js package.json files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"packageJson","code":"{\n  \"name\": \"my-node-app\",\n  \"version\": \"1.0.0\",\n  \"description\": \"A sample Node app\"\n}\n"},"variants":[]}]}>
 

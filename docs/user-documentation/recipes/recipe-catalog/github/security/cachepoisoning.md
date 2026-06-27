@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find cache poisoning vulnerabilities"}
-  description={"Detects potential cache poisoning vulnerabilities in workflows that use caching and publish artifacts. When workflows use caches during artifact publishing, attackers may be able to poison the cache with malicious content that gets included in published artifacts. Based on [zizmor's cache-poisoning audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/cache_poisoning.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.CachePoisoning"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/cachepoisoning.md"}
-/>
+>
+
+<RecipeHeader.Title>Find cache poisoning vulnerabilities</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects potential cache poisoning vulnerabilities in workflows that use caching and publish artifacts. When workflows use caches during artifact publishing, attackers may be able to poison the cache with malicious content that gets included in published artifacts. Based on [zizmor's cache-poisoning audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/cache_poisoning.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"on: release\njobs:\n  publish:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/cache@v4\n        with:\n          path: ~/.cargo\n          key: cargo-${{ hashFiles('Cargo.lock') }}\n      - uses: softprops/action-gh-release@v1\n        with:\n          files: dist/*\n","after":"on: release\njobs:\n  publish:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - ~~(Action 'actions/cache' uses caching in a workflow that publishes artifacts. This could lead to cache poisoning where malicious content gets cached and included in published artifacts. Consider disabling caching for this step or using read-only cache mode.)~~>uses: actions/cache@v4\n        with:\n          path: ~/.cargo\n          key: cargo-${{ hashFiles('Cargo.lock') }}\n      - uses: softprops/action-gh-release@v1\n        with:\n          files: dist/*\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -7,1 +7,1 @@\n    steps:\n      - uses: actions/checkout@v4\n-     - uses: actions/cache@v4\n+     - ~~(Action 'actions/cache' uses caching in a workflow that publishes artifacts. This could lead to cache poisoning where malicious content gets cached and included in published artifacts. Consider disabling caching for this step or using read-only cache mode.)~~>uses: actions/cache@v4\n        with:\n","newFile":false}]}]}>
 

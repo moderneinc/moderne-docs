@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Parent POM upgrade"}
-  description={"Determine the current state of a repository relative to a desired parent POM upgrade."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.ParentPomUpgrade"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/parentpomupgrade.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Parent POM upgrade</RecipeHeader.Title>
+
+<RecipeHeader.Description>Determine the current state of a repository relative to a desired parent POM upgrade.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"cardName","required":true,"description":"The display name of the DevCenter card","example":"Upgrade internal Parent POM"},{"type":"String","name":"groupIdPattern","required":true,"description":"Group identifier used to match POM parents.","example":"org.springframework.boot"},{"type":"String","name":"artifactIdPattern","required":true,"description":"Artifact identifier used to match POM parents.","example":"spring-boot-parent"},{"type":"String","name":"version","required":true,"description":"The target version of the upgrade. Specify the version out to the desired patch version.","example":"3.4.5"},{"type":"String","name":"upgradeRecipe","required":false,"description":"The recipe to use to upgrade.","example":"com.acme.UpgradeInternalParentPom"}]}>
 

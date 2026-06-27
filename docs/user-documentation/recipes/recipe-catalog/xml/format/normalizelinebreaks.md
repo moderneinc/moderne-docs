@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Normalize line breaks"}
-  description={"Consistently use either Windows style (CRLF) or Linux style (LF) line breaks. If no `GeneralFormatStyle` is specified this will use whichever style of line endings are more common."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.format.NormalizeLineBreaks"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/format/normalizelinebreaks.md"}
-/>
+>
+
+<RecipeHeader.Title>Normalize line breaks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Consistently use either Windows style (CRLF) or Linux style (LF) line breaks. If no `GeneralFormatStyle` is specified this will use whichever style of line endings are more common.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.xml.format.NormalizeLineBreaks","displayName":"Normalize line breaks","groupId":"org.openrewrite","artifactId":"rewrite-xml","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_XML","requiresConfiguration":false}}>
 

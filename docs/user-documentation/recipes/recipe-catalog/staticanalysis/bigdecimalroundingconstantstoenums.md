@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`BigDecimal` rounding constants to `RoundingMode` enums"}
-  description={"Convert `BigDecimal` rounding constants to the equivalent `RoundingMode` enum. The integer-based rounding constants on `BigDecimal` are deprecated and lack type safety; the `RoundingMode` enum makes the rounding behavior self-documenting and prevents invalid values."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2111"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.BigDecimalRoundingConstantsToEnums"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/bigdecimalroundingconstantstoenums.md"}
-/>
+>
+
+<RecipeHeader.Title>`BigDecimal` rounding constants to `RoundingMode` enums</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert `BigDecimal` rounding constants to the equivalent `RoundingMode` enum. The integer-based rounding constants on `BigDecimal` are deprecated and lack type safety; the `RoundingMode` enum makes the rounding behavior self-documenting and prevents invalid values.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.math.BigDecimal;\n\nclass A {\n    void divide() {\n        BigDecimal bd = BigDecimal.valueOf(10);\n        BigDecimal bd2 = BigDecimal.valueOf(2);\n        BigDecimal bd3 = bd.divide(bd2, BigDecimal.ROUND_DOWN);\n        bd.divide(bd2, 1);\n        bd.divide(bd2, 1, BigDecimal.ROUND_CEILING);\n        bd.divide(bd2, 1, 1);\n        bd.setScale(2, 1);\n    }\n}\n","after":"import java.math.BigDecimal;\nimport java.math.RoundingMode;\n\nclass A {\n    void divide() {\n        BigDecimal bd = BigDecimal.valueOf(10);\n        BigDecimal bd2 = BigDecimal.valueOf(2);\n        BigDecimal bd3 = bd.divide(bd2, RoundingMode.DOWN);\n        bd.divide(bd2, RoundingMode.DOWN);\n        bd.divide(bd2, 1, RoundingMode.CEILING);\n        bd.divide(bd2, 1, RoundingMode.DOWN);\n        bd.setScale(2, RoundingMode.DOWN);\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport java.math.BigDecimal;\n+import java.math.RoundingMode;\n\n@@ -7,5 +8,5 @@\n        BigDecimal bd = BigDecimal.valueOf(10);\n        BigDecimal bd2 = BigDecimal.valueOf(2);\n-       BigDecimal bd3 = bd.divide(bd2, BigDecimal.ROUND_DOWN);\n-       bd.divide(bd2, 1);\n-       bd.divide(bd2, 1, BigDecimal.ROUND_CEILING);\n-       bd.divide(bd2, 1, 1);\n-       bd.setScale(2, 1);\n+       BigDecimal bd3 = bd.divide(bd2, RoundingMode.DOWN);\n+       bd.divide(bd2, RoundingMode.DOWN);\n+       bd.divide(bd2, 1, RoundingMode.CEILING);\n+       bd.divide(bd2, 1, RoundingMode.DOWN);\n+       bd.setScale(2, RoundingMode.DOWN);\n    }\n","newFile":false}]}]}>
 

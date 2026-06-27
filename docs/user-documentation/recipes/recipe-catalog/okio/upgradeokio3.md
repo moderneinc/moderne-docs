@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Okio 3.x"}
-  description={"This recipe will apply changes commonly needed when migrating to Okio 3.x."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-okhttp"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.okio.UpgradeOkio3"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/okio/upgradeokio3.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate Okio dependencies to 3.x","href":"okio/upgradeokio3dependencies"}]}>
+<RecipeHeader.Title>Migrate to Okio 3.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will apply changes commonly needed when migrating to Okio 3.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate Okio dependencies to 3.x","href":"/user-documentation/recipes/recipe-catalog/okio/upgradeokio3dependencies/"}]}>
 
 ## Definition
 

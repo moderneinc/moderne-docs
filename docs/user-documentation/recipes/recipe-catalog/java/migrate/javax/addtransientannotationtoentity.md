@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unannotated entity attributes require a Transient annotation"}
-  description={"In OpenJPA, attributes that are themselves entity classes are not persisted by default. EclipseLink has a different default behavior and tries to persist these attributes to the database. To keep the OpenJPA behavior of ignoring unannotated entity attributes, add the `javax.persistence.Transient` annotation to these attributes in EclipseLink."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.AddTransientAnnotationToEntity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addtransientannotationtoentity.md"}
-/>
+>
+
+<RecipeHeader.Title>Unannotated entity attributes require a Transient annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>In OpenJPA, attributes that are themselves entity classes are not persisted by default. EclipseLink has a different default behavior and tries to persist these attributes to the database. To keep the OpenJPA behavior of ignoring unannotated entity attributes, add the `javax.persistence.Transient` annotation to these attributes in EclipseLink.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"import javax.persistence.Entity;\nimport javax.persistence.Id;\n\n@Entity\npublic class EntityB {\n    @Id\n    private int id;\n}\n"},"variants":[{"language":"java","before":"import javax.persistence.Entity;\nimport javax.persistence.Id;\n\n@Entity\npublic class EntityA {\n    @Id\n    private int id;\n\n    private EntityB entityReference;\n}\n","after":"import javax.persistence.Entity;\nimport javax.persistence.Id;\nimport javax.persistence.Transient;\n\n@Entity\npublic class EntityA {\n    @Id\n    private int id;\n\n    @Transient\n    private EntityB entityReference;\n}\n","diff":"@@ -3,0 +3,1 @@\nimport javax.persistence.Entity;\nimport javax.persistence.Id;\n+import javax.persistence.Transient;\n\n@@ -9,0 +10,1 @@\n    private int id;\n\n+   @Transient\n    private EntityB entityReference;\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `ThreadPoolTaskSchedulerBuilder` constructor"}
-  description={"Replaces the deprecated 5-argument constructor of `ThreadPoolTaskSchedulerBuilder` with the builder pattern."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.ReplaceDeprecatedThreadPoolTaskSchedulerBuilderApi"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/replacedeprecatedthreadpooltaskschedulerbuilderapi.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated `ThreadPoolTaskSchedulerBuilder` constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces the deprecated 5-argument constructor of `ThreadPoolTaskSchedulerBuilder` with the builder pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.task.ThreadPoolTaskSchedulerBuilder;\nimport org.springframework.boot.task.ThreadPoolTaskSchedulerCustomizer;\nimport java.time.Duration;\nimport java.util.Collections;\nimport java.util.Set;\n\nclass Test {\n    static ThreadPoolTaskSchedulerBuilder create() {\n        int poolSize = 10;\n        boolean awaitTermination = true;\n        Duration awaitTerminationPeriod = Duration.ofSeconds(10);\n        String threadNamePrefix = \"my-scheduler-\";\n        Set<ThreadPoolTaskSchedulerCustomizer> customizers = Collections.emptySet();\n        return new ThreadPoolTaskSchedulerBuilder(poolSize, awaitTermination, awaitTerminationPeriod, threadNamePrefix, customizers);\n    }\n}\n","after":"import org.springframework.boot.task.ThreadPoolTaskSchedulerBuilder;\nimport org.springframework.boot.task.ThreadPoolTaskSchedulerCustomizer;\nimport java.time.Duration;\nimport java.util.Collections;\nimport java.util.Set;\n\nclass Test {\n    static ThreadPoolTaskSchedulerBuilder create() {\n        int poolSize = 10;\n        boolean awaitTermination = true;\n        Duration awaitTerminationPeriod = Duration.ofSeconds(10);\n        String threadNamePrefix = \"my-scheduler-\";\n        Set<ThreadPoolTaskSchedulerCustomizer> customizers = Collections.emptySet();\n        return new ThreadPoolTaskSchedulerBuilder()\n                .poolSize(poolSize)\n                .awaitTermination(awaitTermination)\n                .awaitTerminationPeriod(awaitTerminationPeriod)\n                .threadNamePrefix(threadNamePrefix)\n                .customizers(customizers)\n                .build();\n    }\n}\n","diff":"@@ -14,1 +14,7 @@\n        String threadNamePrefix = \"my-scheduler-\";\n        Set<ThreadPoolTaskSchedulerCustomizer> customizers = Collections.emptySet();\n-       return new ThreadPoolTaskSchedulerBuilder(poolSize, awaitTermination, awaitTerminationPeriod, threadNamePrefix, customizers);\n+       return new ThreadPoolTaskSchedulerBuilder()\n+               .poolSize(poolSize)\n+               .awaitTermination(awaitTermination)\n+               .awaitTerminationPeriod(awaitTerminationPeriod)\n+               .threadNamePrefix(threadNamePrefix)\n+               .customizers(customizers)\n+               .build();\n    }\n","newFile":false}]}]}>
 

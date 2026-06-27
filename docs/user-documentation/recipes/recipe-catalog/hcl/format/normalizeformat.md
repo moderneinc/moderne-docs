@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Normalize format"}
-  description={"Move whitespace to the outermost LST element possible."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-hcl"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.hcl.format.NormalizeFormat"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hcl/format/normalizeformat.md"}
-/>
+>
+
+<RecipeHeader.Title>Normalize format</RecipeHeader.Title>
+
+<RecipeHeader.Description>Move whitespace to the outermost LST element possible.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.hcl.format.NormalizeFormat","displayName":"Normalize format","groupId":"org.openrewrite","artifactId":"rewrite-hcl","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_HCL","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Maven dependency"}
-  description={"Add a Maven dependency to a `pom.xml` file in the correct scope based on where it is used."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.AddDependency"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/adddependency.md"}
-/>
+>
+
+<RecipeHeader.Title>Add Maven dependency</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a Maven dependency to a `pom.xml` file in the correct scope based on where it is used.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate `com.google.guava:guava:VERSION`.","example":"com.google.guava"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate `com.google.guava:guava:VERSION`.","example":"guava"},{"type":"String","name":"version","required":true,"description":"An exact version number or node-style semver selector used to select the version number.","example":"29.X"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'version' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select Guava 29.0-jre","example":"-jre"},{"type":"String","name":"scope","required":false,"description":"A scope to use when it is not what can be inferred from usage. Most of the time this will be left empty, but is used when adding a runtime, provided, or test dependency.","example":"runtime"},{"type":"Boolean","name":"releasesOnly","required":false,"description":"Whether to exclude snapshots from consideration when using a semver selector"},{"type":"String","name":"onlyIfUsing","required":false,"description":"Used to determine if the dependency will be added and in which scope it should be placed. Required for multi-module projects to avoid adding dependencies unnecessarily.","example":"org.junit.jupiter.api.*"},{"type":"String","name":"type","required":false,"description":"The type of dependency to add. If omitted Maven defaults to assuming the type is \"jar\".","example":"jar"},{"type":"String","name":"classifier","required":false,"description":"A Maven classifier to add. Most commonly used to select shaded or test variants of a library","example":"test"},{"type":"Boolean","name":"optional","required":false,"description":"Set the value of the `<optional>` tag. No `<optional>` tag will be added when this is `null`."},{"type":"String","name":"familyPattern","required":false,"description":"A pattern, applied to groupIds, used to determine which other dependencies should have aligned version numbers. Accepts '*' as a wildcard character.","example":"com.fasterxml.jackson*"},{"type":"Boolean","name":"acceptTransitive","required":false,"description":"Default false. If enabled, the dependency will not be added if it is already on the classpath as a transitive dependency.","example":"true"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `BitmapFactory.decode*` calls"}
-  description={"`BitmapFactory.decode*` without an explicit `BitmapFactory.Options.inSampleSize` allocates the bitmap at full source resolution. For UI use, downsample via `inSampleSize` (or move the entire concern to Coil/Glide, which handle pooling, lifecycle, and downsampling for you)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindBitmapFactoryDecode$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findbitmapfactorydecode$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `BitmapFactory.decode*` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`BitmapFactory.decode*` without an explicit `BitmapFactory.Options.inSampleSize` allocates the bitmap at full source resolution. For UI use, downsample via `inSampleSize` (or move the entire concern to Coil/Glide, which handle pooling, lifecycle, and downsampling for you).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindBitmapFactoryDecode$KtRecipe","displayName":"Find `BitmapFactory.decode*` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

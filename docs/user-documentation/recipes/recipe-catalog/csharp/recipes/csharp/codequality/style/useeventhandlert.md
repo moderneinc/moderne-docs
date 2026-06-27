@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use EventHandler<T>"}
-  description={"Use generic EventHandler<T> instead of custom delegate types."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseEventHandlerT"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/useeventhandlert.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use EventHandler&lt;T></RecipeHeader.Title>
+
+<RecipeHeader.Description>Use generic EventHandler&lt;T> instead of custom delegate types.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseEventHandlerT","displayName":"Use EventHandler<T>","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unused workflow dispatch inputs"}
-  description={"Remove workflow_dispatch inputs that are not referenced anywhere in the workflow file."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.RemoveUnusedWorkflowDispatchInputs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/removeunusedworkflowdispatchinputs.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unused workflow dispatch inputs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove workflow_dispatch inputs that are not referenced anywhere in the workflow file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Test Workflow\non:\n  workflow_dispatch:\n    inputs:\n      used-input:\n        description: 'This input is used'\n        required: true\n      unused_input:\n        description: 'This input is not used anywhere'\n        required: false\n      anotherUnusedInput:\n        description: 'Also not used'\n        default: 'default-value'\n      usedInGithubActionSyntax:\n        description: 'Used in Github Action syntax'\n\njobs:\n  test-job:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Use input\n        run: echo \"Used input - ${{ github.event.inputs.used-input }}\"\n      - name: Another step\n        run: echo \"Just a step without input reference\"\n      - name: Step 3\n        if: inputs . usedInGithubActionSyntax == 'true'\n        run: echo \"Conditional step\"\n","after":"name: Test Workflow\non:\n  workflow_dispatch:\n    inputs:\n      used-input:\n        description: 'This input is used'\n        required: true\n      usedInGithubActionSyntax:\n        description: 'Used in Github Action syntax'\n\njobs:\n  test-job:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Use input\n        run: echo \"Used input - ${{ github.event.inputs.used-input }}\"\n      - name: Another step\n        run: echo \"Just a step without input reference\"\n      - name: Step 3\n        if: inputs . usedInGithubActionSyntax == 'true'\n        run: echo \"Conditional step\"\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -8,6 +8,0 @@\n        description: 'This input is used'\n        required: true\n-     unused_input:\n-       description: 'This input is not used anywhere'\n-       required: false\n-     anotherUnusedInput:\n-       description: 'Also not used'\n-       default: 'default-value'\n      usedInGithubActionSyntax:\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Spring `@Bean` with CDI `@Produces`"}
-  description={"Transform Spring `@Bean` methods to CDI `@Produces` methods with appropriate scope annotations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.SpringBeanToCdiProduces"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/springbeantocdiproduces.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace Spring `@Bean` with CDI `@Produces`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transform Spring `@Bean` methods to CDI `@Produces` methods with appropriate scope annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Bean;\nimport org.springframework.web.client.RestTemplate;\n\nclass AppConfig {\n    @Bean\n    RestTemplate restTemplate() {\n        return new RestTemplate();\n    }\n}\n","after":"import jakarta.enterprise.context.ApplicationScoped;\nimport jakarta.enterprise.inject.Produces;\nimport org.springframework.web.client.RestTemplate;\n\nclass AppConfig {\n    @Produces\n    @ApplicationScoped\n    RestTemplate restTemplate() {\n        return new RestTemplate();\n    }\n}\n","diff":"@@ -1,1 +1,2 @@\n-import org.springframework.context.annotation.Bean;\n+import jakarta.enterprise.context.ApplicationScoped;\n+import jakarta.enterprise.inject.Produces;\nimport org.springframework.web.client.RestTemplate;\n@@ -5,1 +6,2 @@\n\nclass AppConfig {\n-   @Bean\n+   @Produces\n+   @ApplicationScoped\n    RestTemplate restTemplate() {\n","newFile":false}]}]}>
 

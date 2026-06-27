@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `LDUser` to `LDContext`"}
-  description={"Migrate from `LDUser` and `LDUser.Builder` to `LDContext` and `ContextBuilder`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-feature-flags"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.featureflags.launchdarkly.MigrateUserToContext"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/migrateusertocontext.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `LDUser` to `LDContext`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from `LDUser` and `LDUser.Builder` to `LDContext` and `ContextBuilder`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.launchdarkly.sdk.LDUser;\nimport com.launchdarkly.sdk.LDValue;\n\nclass A {\n    void foo() {\n        LDUser user = new LDUser.Builder(\"user-key-123abc\")\n                .name(\"Sandy\")\n                .email(\"sandy@example.com\")\n                .custom(\"groups\", LDValue.buildArray().add(\"Google\").add(\"Microsoft\").build())\n                .build();\n    }\n}\n","after":"import com.launchdarkly.sdk.LDContext;\nimport com.launchdarkly.sdk.LDValue;\n\nclass A {\n    void foo() {\n        LDContext user = LDContext.builder(\"user-key-123abc\")\n                .name(\"Sandy\")\n                .set(\"email\", \"sandy@example.com\")\n                .set(\"groups\", LDValue.buildArray().add(\"Google\").add(\"Microsoft\").build())\n                .build();\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import com.launchdarkly.sdk.LDUser;\n+import com.launchdarkly.sdk.LDContext;\nimport com.launchdarkly.sdk.LDValue;\n@@ -6,1 +6,1 @@\nclass A {\n    void foo() {\n-       LDUser user = new LDUser.Builder(\"user-key-123abc\")\n+       LDContext user = LDContext.builder(\"user-key-123abc\")\n                .name(\"Sandy\")\n@@ -8,2 +8,2 @@\n        LDUser user = new LDUser.Builder(\"user-key-123abc\")\n                .name(\"Sandy\")\n-               .email(\"sandy@example.com\")\n-               .custom(\"groups\", LDValue.buildArray().add(\"Google\").add(\"Microsoft\").build())\n+               .set(\"email\", \"sandy@example.com\")\n+               .set(\"groups\", LDValue.buildArray().add(\"Google\").add(\"Microsoft\").build())\n                .build();\n","newFile":false}]}]}>
 

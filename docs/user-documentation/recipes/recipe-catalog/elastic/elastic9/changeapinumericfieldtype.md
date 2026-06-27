@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change numeric field type with conversion"}
-  description={"Adds conversion methods with null checks for numeric type changes in Elasticsearch 9 API."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.elastic.elastic9.ChangeApiNumericFieldType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/elastic/elastic9/changeapinumericfieldtype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Change numeric field type with conversion</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds conversion methods with null checks for numeric type changes in Elasticsearch 9 API.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fullyQualifiedName","required":true,"description":"The fully qualified name of the class containing the field","example":"co.elastic.clients.elasticsearch.core.MsearchRequest"},{"type":"String","name":"field","required":true,"description":"The name of the field/method that has changed type","example":"maxConcurrentSearches"},{"type":"String","name":"targetType","required":true,"description":"The new type that the field returns in Elasticsearch 9","example":"java.lang.Integer"}]}>
 

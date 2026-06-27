@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert Dropwizard test rule calls to RestTemplate"}
-  description={"Transforms Dropwizard AppRule and ResourceTestRule testing calls to their equivalent RestTemplate calls."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.test.TransformDropwizardRuleInvocations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/test/transformdropwizardruleinvocations.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert Dropwizard test rule calls to RestTemplate</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms Dropwizard AppRule and ResourceTestRule testing calls to their equivalent RestTemplate calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import io.dropwizard.testing.junit.DropwizardAppRule;\nimport org.springframework.web.client.RestTemplate;\nimport javax.ws.rs.client.Entity;\nimport javax.ws.rs.core.MediaType;\n\nclass TestApi {\n    private final DropwizardAppRule<Object> RULE = new DropwizardAppRule<>(Object.class);\n    private final RestTemplate restTemplate = new RestTemplate();\n\n    private Object postObject(Object person) {\n        return RULE.client().target(\"http://localhost:8080/people\")\n            .request()\n            .post(Entity.entity(person, MediaType.APPLICATION_JSON_TYPE))\n            .readEntity(Object.class);\n    }\n}\n","after":"import io.dropwizard.testing.junit.DropwizardAppRule;\nimport org.springframework.http.HttpEntity;\nimport org.springframework.http.HttpHeaders;\nimport org.springframework.http.HttpMethod;\nimport org.springframework.http.MediaType;\nimport org.springframework.web.client.RestTemplate;\nimport javax.ws.rs.client.Entity;\n\nimport java.util.Collections;\n\nclass TestApi {\n    private final DropwizardAppRule<Object> RULE = new DropwizardAppRule<>(Object.class);\n    private final RestTemplate restTemplate = new RestTemplate();\n\n    private Object postObject(Object person) {\n        return restTemplate.exchange(\"/people\", HttpMethod.POST, new HttpEntity<>(person, new HttpHeaders() {\n            {\n                setContentType(MediaType.APPLICATION_JSON);\n                setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));\n            }\n        }), java.lang.Object.class).getBody();\n    }\n}\n","diff":"@@ -2,0 +2,4 @@\nimport io.dropwizard.testing.junit.DropwizardAppRule;\n+import org.springframework.http.HttpEntity;\n+import org.springframework.http.HttpHeaders;\n+import org.springframework.http.HttpMethod;\n+import org.springframework.http.MediaType;\nimport org.springframework.web.client.RestTemplate;\n@@ -4,1 +8,0 @@\nimport org.springframework.web.client.RestTemplate;\nimport javax.ws.rs.client.Entity;\n-import javax.ws.rs.core.MediaType;\n\n@@ -6,0 +9,2 @@\nimport javax.ws.rs.core.MediaType;\n\n+import java.util.Collections;\n+\nclass TestApi {\n@@ -11,4 +16,6 @@\n\n    private Object postObject(Object person) {\n-       return RULE.client().target(\"http://localhost:8080/people\")\n-           .request()\n-           .post(Entity.entity(person, MediaType.APPLICATION_JSON_TYPE))\n-           .readEntity(Object.class);\n+       return restTemplate.exchange(\"/people\", HttpMethod.POST, new HttpEntity<>(person, new HttpHeaders() {\n+           {\n+               setContentType(MediaType.APPLICATION_JSON);\n+               setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));\n+           }\n+       }), java.lang.Object.class).getBody();\n    }\n","newFile":false}]}]}>
 

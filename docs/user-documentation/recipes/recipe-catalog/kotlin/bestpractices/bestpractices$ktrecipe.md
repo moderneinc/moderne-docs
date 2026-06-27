@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply Kotlin best-practice idioms"}
-  description={"Opinionated bundle of every best-practice recipe in this module: collection / string round-trip collapses, stdlib accessor swaps, and a broad set of search-only flags covering class structure, function declarations, string construction, Boolean conditionals, lambdas, and exception handling. For diff-only output, use `ImproveKotlinBestPractices` instead."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.BestPractices$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/bestpractices$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Collapse redundant collection / string conversions","href":"kotlin/bestpractices/collapseredundantconversions$ktrecipe"},{"name":"Use stdlib accessors for size / first","href":"kotlin/bestpractices/usestdlibaccessors$ktrecipe"},{"name":"Find best-practice candidates","href":"kotlin/bestpractices/findbestpracticecandidates$ktrecipe"}]}>
+<RecipeHeader.Title>Apply Kotlin best-practice idioms</RecipeHeader.Title>
+
+<RecipeHeader.Description>Opinionated bundle of every best-practice recipe in this module: collection / string round-trip collapses, stdlib accessor swaps, and a broad set of search-only flags covering class structure, function declarations, string construction, Boolean conditionals, lambdas, and exception handling. For diff-only output, use `ImproveKotlinBestPractices` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Collapse redundant collection / string conversions","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/collapseredundantconversions$ktrecipe/"},{"name":"Use stdlib accessors for size / first","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/usestdlibaccessors$ktrecipe/"},{"name":"Find best-practice candidates","href":"/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findbestpracticecandidates$ktrecipe/"}]}>
 
 ## Definition
 

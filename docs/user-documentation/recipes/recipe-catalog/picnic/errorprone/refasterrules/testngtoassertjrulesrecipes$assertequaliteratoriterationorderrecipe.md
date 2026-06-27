@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `TestNGToAssertJRules.AssertEqualIteratorIterationOrder`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertEqualIteratorIterationOrder<S, T extends S> {\n    \n    @BeforeTemplate\n    void before(Iterator<S> actual, Iterator<T> expected) {\n        assertEquals(actual, expected);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Iterator<S> actual, Iterator<T> expected) {\n        assertThat(actual).toIterable().containsExactlyElementsOf(ImmutableList.copyOf(expected));\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualIteratorIterationOrderRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/testngtoassertjrulesrecipes$assertequaliteratoriterationorderrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `TestNGToAssertJRules.AssertEqualIteratorIterationOrder`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertEqualIteratorIterationOrder<S, T extends S> {
+    
+    @BeforeTemplate
+    void before(Iterator<S> actual, Iterator<T> expected) {
+        assertEquals(actual, expected);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(Iterator<S> actual, Iterator<T> expected) {
+        assertThat(actual).toIterable().containsExactlyElementsOf(ImmutableList.copyOf(expected));
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$AssertEqualIteratorIterationOrderRecipe","displayName":"Refaster template `TestNGToAssertJRules.AssertEqualIteratorIterationOrder`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

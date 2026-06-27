@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert ByteBuffer to SdkBytes"}
-  description={"Convert ByteBuffer to SdkBytes by calling SdkBytes#fromByteBuffer"}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/software.amazon.awssdk.v2migration.ByteBufferToSdkBytes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/amazon/awssdk/v2migration/bytebuffertosdkbytes.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert ByteBuffer to SdkBytes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert ByteBuffer to SdkBytes by calling SdkBytes#fromByteBuffer</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"software.amazon.awssdk.v2migration.ByteBufferToSdkBytes","displayName":"Convert ByteBuffer to SdkBytes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

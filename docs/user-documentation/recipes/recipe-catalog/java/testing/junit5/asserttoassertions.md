@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit 4 `Assert` To JUnit Jupiter `Assertions`"}
-  description={"Change JUnit 4's `org.junit.Assert` into JUnit Jupiter's `org.junit.jupiter.api.Assertions`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.AssertToAssertions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/asserttoassertions.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit 4 `Assert` To JUnit Jupiter `Assertions`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Change JUnit 4's `org.junit.Assert` into JUnit Jupiter's `org.junit.jupiter.api.Assertions`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Test;\n\nimport static org.junit.Assert.assertFalse;\n\npublic class MyTest {\n    T t = new T();\n    @Test\n    public void test() {\n        assertFalse(t.getName(), MyTest.class.isAssignableFrom(t.getClass()));\n    }\n\n    class T {\n        String getName() {\n            return \"World\";\n        }\n    }\n}\n","after":"import org.junit.Test;\n\nimport static org.junit.jupiter.api.Assertions.assertFalse;\n\npublic class MyTest {\n    T t = new T();\n    @Test\n    public void test() {\n        assertFalse(MyTest.class.isAssignableFrom(t.getClass()), t.getName());\n    }\n\n    class T {\n        String getName() {\n            return \"World\";\n        }\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport org.junit.Test;\n\n-import static org.junit.Assert.assertFalse;\n+import static org.junit.jupiter.api.Assertions.assertFalse;\n\n@@ -9,1 +9,1 @@\n    @Test\n    public void test() {\n-       assertFalse(t.getName(), MyTest.class.isAssignableFrom(t.getClass()));\n+       assertFalse(MyTest.class.isAssignableFrom(t.getClass()), t.getName());\n    }\n","newFile":false}]}]}>
 

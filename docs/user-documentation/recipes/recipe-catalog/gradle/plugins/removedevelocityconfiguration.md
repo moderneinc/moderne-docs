@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Develocity configuration"}
-  description={"Remove the Develocity Gradle plugin and associated configuration."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.RemoveDevelocityConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/plugins/removedevelocityconfiguration.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove build extension by name","href":"gradle/removeextension"},{"name":"Remove build extension by name","href":"gradle/removeextension"}]}>
+<RecipeHeader.Title>Remove Develocity configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove the Develocity Gradle plugin and associated configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove build extension by name","href":"/user-documentation/recipes/recipe-catalog/gradle/removeextension/"},{"name":"Remove build extension by name","href":"/user-documentation/recipes/recipe-catalog/gradle/removeextension/"}]}>
 
 ## Definition
 

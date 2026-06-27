@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find NestJS endpoints"}
-  description={"Identify REST/HTTP endpoints in NestJS controllers. Detects @Controller, @Get, @Post, @Put, @Delete, and @Patch decorators and populates the ServiceEndpoints data table."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindNestJSEndpoints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findnestjsendpoints.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find NestJS endpoints</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify REST/HTTP endpoints in NestJS controllers. Detects @Controller, @Get, @Post, @Put, @Delete, and @Patch decorators and populates the ServiceEndpoints data table.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.prethink.calm.FindNestJSEndpoints","displayName":"Find NestJS endpoints","groupId":"io.moderne.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

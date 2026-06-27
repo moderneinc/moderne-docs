@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Dropwizard health check Result calls and wrap exceptions"}
-  description={"Transforms `Result.healthy()`/`Result.unhealthy()` calls to `Health.up().build()`/`Health.down().build()` and wraps throwing `check()` methods in try-catch."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.health.MigrateHealthCheckMethod"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/health/migratehealthcheckmethod.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate Dropwizard health check Result calls and wrap exceptions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Transforms `Result.healthy()`/`Result.unhealthy()` calls to `Health.up().build()`/`Health.down().build()` and wraps throwing `check()` methods in try-catch.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.java.dropwizard.boot.health.MigrateHealthCheckMethod","displayName":"Migrate Dropwizard health check Result calls and wrap exceptions","groupId":"io.moderne.recipe","artifactId":"rewrite-dropwizard","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DROPWIZARD","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use 'var' or explicit type"}
-  description={"Enforce consistent use of 'var' or explicit type in local variable declarations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseVarOrExplicitType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/usevarorexplicittype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use 'var' or explicit type</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce consistent use of 'var' or explicit type in local variable declarations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseVarOrExplicitType","displayName":"Use 'var' or explicit type","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

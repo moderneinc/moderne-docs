@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find ToString override without DebuggerDisplay"}
-  description={"Detect classes that override `ToString()` but lack `[DebuggerDisplay]` attribute for debugger integration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseDebuggerDisplayAttribute"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findusedebuggerdisplayattribute.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find ToString override without DebuggerDisplay</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect classes that override `ToString()` but lack `[DebuggerDisplay]` attribute for debugger integration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseDebuggerDisplayAttribute","displayName":"Find ToString override without DebuggerDisplay","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

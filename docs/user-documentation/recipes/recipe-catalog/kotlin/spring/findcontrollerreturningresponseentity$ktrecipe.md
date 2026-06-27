@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@RestController` methods returning `ResponseEntity<T>`"}
-  description={"When the only thing a controller does with `ResponseEntity` is `ResponseEntity.ok(body)`, returning `T` directly produces the same 200 OK response with less boilerplate. Reserve `ResponseEntity` for endpoints that actually vary status/headers per call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindControllerReturningResponseEntity$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findcontrollerreturningresponseentity$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@RestController` methods returning `ResponseEntity<T>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>When the only thing a controller does with `ResponseEntity` is `ResponseEntity.ok(body)`, returning `T` directly produces the same 200 OK response with less boilerplate. Reserve `ResponseEntity` for endpoints that actually vary status/headers per call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindControllerReturningResponseEntity$KtRecipe","displayName":"Find `@RestController` methods returning `ResponseEntity<T>`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `RandomGeneratorRules.RandomGeneratorNextIntWithOrigin`"}
-  description={"Prefer `RandomGenerator#nextInt(int origin, int bound)` over alternatives that may silently yield values outside the intended domain."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextIntWithOriginRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextintwithoriginrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `RandomGeneratorRules.RandomGeneratorNextIntWithOrigin`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `RandomGenerator#nextInt(int origin, int bound)` over alternatives that may silently yield values outside the intended domain.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextIntWithOriginRecipe","displayName":"Refaster template `RandomGeneratorRules.RandomGeneratorNextIntWithOrigin`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `useContext` with `use`"}
-  description={"In React 19, `useContext` is replaced by the `use` API. This recipe updates both direct and namespace imports."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.19.use-context-hook"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/19/use-context-hook.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `useContext` with `use`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In React 19, `useContext` is replaced by the `use` API. This recipe updates both direct and namespace imports.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.react.19.use-context-hook","displayName":"Replace `useContext` with `use`","npmPackage":"@openrewrite/recipes-react"}}>
 

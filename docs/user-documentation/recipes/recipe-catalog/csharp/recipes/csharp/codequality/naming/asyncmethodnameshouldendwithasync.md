@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Async method name should end with Async"}
-  description={"Find async methods whose names don't end with 'Async' suffix."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Naming.AsyncMethodNameShouldEndWithAsync"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/naming/asyncmethodnameshouldendwithasync.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Async method name should end with Async</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find async methods whose names don't end with 'Async' suffix.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Naming.AsyncMethodNameShouldEndWithAsync","displayName":"Async method name should end with Async","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

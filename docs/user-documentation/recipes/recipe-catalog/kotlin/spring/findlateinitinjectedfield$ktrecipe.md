@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find any `lateinit var` injected field (`@Autowired` / `@Inject` / `@Value`)"}
-  description={"Any property wired via `lateinit var` + injection annotation pattern is a candidate for constructor injection. This recipe catches the union of `@Autowired`, `@Inject`, and `@Value` lateinit-var declarations."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindLateinitInjectedField$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findlateinitinjectedfield$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find any `lateinit var` injected field (`@Autowired` / `@Inject` / `@Value`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Any property wired via `lateinit var` + injection annotation pattern is a candidate for constructor injection. This recipe catches the union of `@Autowired`, `@Inject`, and `@Value` lateinit-var declarations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindLateinitInjectedField$KtRecipe","displayName":"Find any `lateinit var` injected field (`@Autowired` / `@Inject` / `@Value`)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

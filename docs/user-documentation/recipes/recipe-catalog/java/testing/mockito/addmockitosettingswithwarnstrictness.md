@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@MockitoSettings(strictness = Strictness.WARN)` to `@ExtendWith(MockitoExtension.class)` classes"}
-  description={"Adds `@MockitoSettings(strictness = Strictness.WARN)` to test classes that have `@ExtendWith(MockitoExtension.class)` but do not already have a `@MockitoSettings` annotation. This preserves the lenient stubbing behavior from Mockito 1.x/2.x migrations and prevents `UnnecessaryStubbingException` from strict stubbing defaults."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.AddMockitoSettingsWithWarnStrictness"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/addmockitosettingswithwarnstrictness.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `@MockitoSettings(strictness = Strictness.WARN)` to `@ExtendWith(MockitoExtension.class)` classes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `@MockitoSettings(strictness = Strictness.WARN)` to test classes that have `@ExtendWith(MockitoExtension.class)` but do not already have a `@MockitoSettings` annotation. This preserves the lenient stubbing behavior from Mockito 1.x/2.x migrations and prevents `UnnecessaryStubbingException` from strict stubbing defaults.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.InjectMocks;\nimport org.mockito.Mock;\nimport org.mockito.junit.jupiter.MockitoExtension;\n\nimport java.util.List;\n\nimport static org.mockito.Mockito.when;\n\n@ExtendWith(MockitoExtension.class)\nclass FooServiceTest {\n\n    @Mock\n    private List<String> mockList;\n\n    @Test\n    void testExecute() {\n        when(mockList.add(\"one\")).thenReturn(true);\n    }\n}\n","after":"import org.junit.jupiter.api.Test;\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.InjectMocks;\nimport org.mockito.Mock;\nimport org.mockito.junit.jupiter.MockitoExtension;\nimport org.mockito.junit.jupiter.MockitoSettings;\nimport org.mockito.quality.Strictness;\n\nimport java.util.List;\n\nimport static org.mockito.Mockito.when;\n\n@ExtendWith(MockitoExtension.class)\n@MockitoSettings(strictness = Strictness.WARN)\nclass FooServiceTest {\n\n    @Mock\n    private List<String> mockList;\n\n    @Test\n    void testExecute() {\n        when(mockList.add(\"one\")).thenReturn(true);\n    }\n}\n","diff":"@@ -6,0 +6,2 @@\nimport org.mockito.Mock;\nimport org.mockito.junit.jupiter.MockitoExtension;\n+import org.mockito.junit.jupiter.MockitoSettings;\n+import org.mockito.quality.Strictness;\n\n@@ -12,0 +14,1 @@\n\n@ExtendWith(MockitoExtension.class)\n+@MockitoSettings(strictness = Strictness.WARN)\nclass FooServiceTest {\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find repository interfaces extending `CrudRepository` instead of `JpaRepository`"}
-  description={"`CrudRepository<T, ID>` returns `Iterable<T>` from `findAll()` — fine for streaming, awkward for everything else. `JpaRepository<T, ID>` returns `List<T>` and adds pagination, sorting, and batch operations. Most JPA repositories should extend `JpaRepository`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindCrudRepositoryGenericList$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findcrudrepositorygenericlist$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find repository interfaces extending `CrudRepository` instead of `JpaRepository`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`CrudRepository<T, ID>` returns `Iterable<T>` from `findAll()` — fine for streaming, awkward for everything else. `JpaRepository<T, ID>` returns `List<T>` and adds pagination, sorting, and batch operations. Most JPA repositories should extend `JpaRepository`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindCrudRepositoryGenericList$KtRecipe","displayName":"Find repository interfaces extending `CrudRepository` instead of `JpaRepository`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

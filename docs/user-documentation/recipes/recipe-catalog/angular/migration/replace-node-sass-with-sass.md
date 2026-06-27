@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `node-sass` with `sass`"}
-  description={"Replaces the deprecated `node-sass` package with `sass` (Dart Sass). Angular 12 requires Dart Sass; `node-sass` is no longer supported."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.replace-node-sass-with-sass"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/replace-node-sass-with-sass.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove npm dependency","href":"javascript/removedependency"},{"name":"Add npm dependency","href":"javascript/adddependency"}]}>
+<RecipeHeader.Title>Replace `node-sass` with `sass`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces the deprecated `node-sass` package with `sass` (Dart Sass). Angular 12 requires Dart Sass; `node-sass` is no longer supported.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove npm dependency","href":"/user-documentation/recipes/recipe-catalog/javascript/removedependency/"},{"name":"Add npm dependency","href":"/user-documentation/recipes/recipe-catalog/javascript/adddependency/"}]}>
 
 ## Definition
 

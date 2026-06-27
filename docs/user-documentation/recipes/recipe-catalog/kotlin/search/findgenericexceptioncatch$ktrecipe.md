@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `catch (e: Exception)` and `catch (e: Throwable)` clauses"}
-  description={"Catching `Exception` or `Throwable` is almost always too broad — it sweeps up `NullPointerException`, `IllegalStateException`, and `OutOfMemoryError` into one branch. Narrow the catch to the specific exception types the block actually handles."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindGenericExceptionCatch$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findgenericexceptioncatch$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `catch (e: Exception)` and `catch (e: Throwable)` clauses</RecipeHeader.Title>
+
+<RecipeHeader.Description>Catching `Exception` or `Throwable` is almost always too broad — it sweeps up `NullPointerException`, `IllegalStateException`, and `OutOfMemoryError` into one branch. Narrow the catch to the specific exception types the block actually handles.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindGenericExceptionCatch$KtRecipe","displayName":"Find `catch (e: Exception)` and `catch (e: Throwable)` clauses","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

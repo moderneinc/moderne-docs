@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Required` annotations"}
-  description={"`@Required` was deprecated in Spring 5.1 and removed in 6.0 — its only purpose was to mandate setter injection. The modern equivalent is mandatory constructor injection, which is enforced by Kotlin's non-null types."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindRequiredOnSetter$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findrequiredonsetter$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Required` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>`@Required` was deprecated in Spring 5.1 and removed in 6.0 — its only purpose was to mandate setter injection. The modern equivalent is mandatory constructor injection, which is enforced by Kotlin's non-null types.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindRequiredOnSetter$KtRecipe","displayName":"Find `@Required` annotations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

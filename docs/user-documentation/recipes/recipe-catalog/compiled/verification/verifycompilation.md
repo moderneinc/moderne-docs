@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Verify compilation"}
-  description={"This is a task that runs after another recipe to verify that the changes made by that recipe would result in a successful compilation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.compiled.verification.VerifyCompilation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/compiled/verification/verifycompilation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Verify compilation</RecipeHeader.Title>
+
+<RecipeHeader.Description>This is a task that runs after another recipe to verify that the changes made by that recipe would result in a successful compilation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"trace","required":false,"description":"Trace the ABIs of dependencies of files being verified."}]}>
 

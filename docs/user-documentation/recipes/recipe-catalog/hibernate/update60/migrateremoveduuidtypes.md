@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate removed Hibernate UUID `@Type` to `@JdbcTypeCode`"}
-  description={"Hibernate 6.x removed `UUIDCharType`, `UUIDBinaryType` and `PostgresUUIDType`. Replace `@Type` annotations referencing these with `@JdbcTypeCode` and the corresponding `SqlTypes` constant."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update60.MigrateRemovedUuidTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update60/migrateremoveduuidtypes.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate removed Hibernate UUID `@Type` to `@JdbcTypeCode`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Hibernate 6.x removed `UUIDCharType`, `UUIDBinaryType` and `PostgresUUIDType`. Replace `@Type` annotations referencing these with `@JdbcTypeCode` and the corresponding `SqlTypes` constant.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.persistence.Column;\nimport jakarta.persistence.Entity;\nimport jakarta.persistence.Id;\nimport org.hibernate.annotations.Type;\n\nimport java.util.UUID;\n\n@Entity\npublic class Cart {\n    @Id\n    @Column(name = \"id\", updatable = false, nullable = false)\n    @Type(type = \"org.hibernate.type.UUIDCharType\")\n    protected UUID id;\n}\n","after":"import jakarta.persistence.Column;\nimport jakarta.persistence.Entity;\nimport jakarta.persistence.Id;\nimport org.hibernate.annotations.JdbcTypeCode;\nimport org.hibernate.type.SqlTypes;\n\nimport java.util.UUID;\n\n@Entity\npublic class Cart {\n    @Id\n    @Column(name = \"id\", updatable = false, nullable = false)\n    @JdbcTypeCode(SqlTypes.CHAR)\n    protected UUID id;\n}\n","diff":"@@ -4,1 +4,2 @@\nimport jakarta.persistence.Entity;\nimport jakarta.persistence.Id;\n-import org.hibernate.annotations.Type;\n+import org.hibernate.annotations.JdbcTypeCode;\n+import org.hibernate.type.SqlTypes;\n\n@@ -12,1 +13,1 @@\n    @Id\n    @Column(name = \"id\", updatable = false, nullable = false)\n-   @Type(type = \"org.hibernate.type.UUIDCharType\")\n+   @JdbcTypeCode(SqlTypes.CHAR)\n    protected UUID id;\n","newFile":false}]}]}>
 

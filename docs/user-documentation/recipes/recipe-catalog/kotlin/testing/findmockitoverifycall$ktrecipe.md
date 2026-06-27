@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Mockito `verify(mock).method(...)` calls"}
-  description={"Mockito's `verify(mock).method(arg)` records a verification at the call site. mockk inverts the form: `verify { mock.method(arg) }` — the lambda block makes the verified invocations explicit and supports `exactly = n`, `atLeast = n`, etc., as named arguments to the outer call."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindMockitoVerifyCall$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitoverifycall$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Mockito `verify(mock).method(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Mockito's `verify(mock).method(arg)` records a verification at the call site. mockk inverts the form: `verify { mock.method(arg) }` — the lambda block makes the verified invocations explicit and supports `exactly = n`, `atLeast = n`, etc., as named arguments to the outer call.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindMockitoVerifyCall$KtRecipe","displayName":"Find Mockito `verify(mock).method(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

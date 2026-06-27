@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StreamRules.StreamReduce`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamReduce<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4266\")\n    Optional<T> before(Stream<T> stream, BinaryOperator<T> accumulator) {\n        return stream.collect(reducing(accumulator));\n    }\n    \n    @AfterTemplate\n    Optional<T> after(Stream<T> stream, BinaryOperator<T> accumulator) {\n        return stream.reduce(accumulator);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4266"]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamReduceRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/streamrulesrecipes$streamreducerecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StreamRules.StreamReduce`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class StreamReduce<T> {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "java:S4266")
+    Optional<T> before(Stream<T> stream, BinaryOperator<T> accumulator) {
+        return stream.collect(reducing(accumulator));
+    }
+    
+    @AfterTemplate
+    Optional<T> after(Stream<T> stream, BinaryOperator<T> accumulator) {
+        return stream.reduce(accumulator);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamReduceRecipe","displayName":"Refaster template `StreamRules.StreamReduce`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

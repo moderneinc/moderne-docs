@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@OptIn(...)` annotations"}
-  description={"An `@OptIn` annotation acknowledges that the annotated declaration uses an experimental API. The site of the opt-in is where the contract risk lives — if the upstream changes the API, this is the file that breaks."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindOptInAnnotations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findoptinannotations$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@OptIn(...)` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>An `@OptIn` annotation acknowledges that the annotated declaration uses an experimental API. The site of the opt-in is where the contract risk lives — if the upstream changes the API, this is the file that breaks.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindOptInAnnotations$KtRecipe","displayName":"Find `@OptIn(...)` annotations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Normalize Docker Hub image names"}
-  description={"Normalizes Docker Hub image names to their canonical short form by removing redundant registry prefixes like `docker.io/library/` or `index.docker.io/`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.NormalizeDockerHubImageName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/normalizedockerhubimagename.md"}
-/>
+>
+
+<RecipeHeader.Title>Normalize Docker Hub image names</RecipeHeader.Title>
+
+<RecipeHeader.Description>Normalizes Docker Hub image names to their canonical short form by removing redundant registry prefixes like `docker.io/library/` or `index.docker.io/`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"docker","before":"FROM docker.io/library/ubuntu:22.04\nRUN apt-get update\n","after":"FROM ubuntu:22.04\nRUN apt-get update\n","diff":"@@ -1,1 +1,1 @@\n-FROM docker.io/library/ubuntu:22.04\n+FROM ubuntu:22.04\nRUN apt-get update\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove methods referencing specified package"}
-  description={"Removes any method that has a return type or parameter type from the specified package."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.dropwizard.boot.general.RemoveMethodsByPackage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/dropwizard/boot/general/removemethodsbypackage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove methods referencing specified package</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes any method that has a return type or parameter type from the specified package.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packageFilter","required":true,"description":"The package name to filter methods by. Methods with return types or parameter types in this package (or subpackages) will be removed.","example":"com.example.unwanted"}]}>
 

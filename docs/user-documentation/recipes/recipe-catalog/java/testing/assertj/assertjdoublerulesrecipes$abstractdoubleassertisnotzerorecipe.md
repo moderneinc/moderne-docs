@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `isNotEqualTo(0)` with `isNotZero()`"}
-  description={"Replace `isNotEqualTo(0)` with `isNotZero()`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.AssertJDoubleRulesRecipes$AbstractDoubleAssertIsNotZeroRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjdoublerulesrecipes$abstractdoubleassertisnotzerorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `isNotEqualTo(0)` with `isNotZero()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `isNotEqualTo(0)` with `isNotZero()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.AssertJDoubleRulesRecipes$AbstractDoubleAssertIsNotZeroRecipe","displayName":"Replace `isNotEqualTo(0)` with `isNotZero()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

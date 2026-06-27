@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace spread-`all*` calls in `configurations` blocks with `configurations.all { }`"}
-  description={"Gradle 9 throws `Cannot mutate the dependencies of configuration ':all' after the configuration was resolved.` when a `configurations { }` closure uses Groovy's spread-dot form `all*.<method>(args)`. Rewrite each such call to the closure form `configurations.all { <method>(args) }`, which preserves eager-`all` semantics but is accepted by Gradle 9. Only applied when every statement in the `configurations { }` block uses the spread form; mixed blocks are left untouched for manual review."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.gradle9.RewriteSpreadAllInConfigurationsBlock"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/gradle9/rewritespreadallinconfigurationsblock.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace spread-`all*` calls in `configurations` blocks with `configurations.all { }`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Gradle 9 throws `Cannot mutate the dependencies of configuration ':all' after the configuration was resolved.` when a `configurations { }` closure uses Groovy's spread-dot form `all*.<method>(args)`. Rewrite each such call to the closure form `configurations.all { <method>(args) }`, which preserves eager-`all` semantics but is accepted by Gradle 9. Only applied when every statement in the `configurations { }` block uses the spread form; mixed blocks are left untouched for manual review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"configurations {\n    all*.exclude group: \"log4j\", module: \"log4j\"\n}\n","after":"configurations.all {\n    exclude group: \"log4j\", module: \"log4j\"\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -1,2 +1,2 @@\n-configurations {\n-   all*.exclude group: \"log4j\", module: \"log4j\"\n+configurations.all {\n+   exclude group: \"log4j\", module: \"log4j\"\n}\n","newFile":false}]}]}>
 

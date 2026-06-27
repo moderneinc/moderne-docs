@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring proxied-annotation smells"}
-  description={"Proxy-backed annotations beyond `@Transactional` that hit the same Kotlin-default-final trap: `@Async` and `@Cacheable` on `private` methods or final classes, plus `@EventListener` methods that accidentally republish their return values as new events."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringProxiedAnnotationSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringproxiedannotationsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `@Async` on `private` functions","href":"kotlin/spring/findasynconprivate$ktrecipe"},{"name":"Find `@Async` methods on classes that aren't `open`","href":"kotlin/spring/findasynconfinal$ktrecipe"},{"name":"Find `@Cacheable` on `private` functions","href":"kotlin/spring/findcacheableonprivate$ktrecipe"},{"name":"Find `@EventListener` methods with non-`Unit` return types","href":"kotlin/spring/findeventlistenerwithreturn$ktrecipe"}]}>
+<RecipeHeader.Title>Find Spring proxied-annotation smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Proxy-backed annotations beyond `@Transactional` that hit the same Kotlin-default-final trap: `@Async` and `@Cacheable` on `private` methods or final classes, plus `@EventListener` methods that accidentally republish their return values as new events.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `@Async` on `private` functions","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findasynconprivate$ktrecipe/"},{"name":"Find `@Async` methods on classes that aren't `open`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findasynconfinal$ktrecipe/"},{"name":"Find `@Cacheable` on `private` functions","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findcacheableonprivate$ktrecipe/"},{"name":"Find `@EventListener` methods with non-`Unit` return types","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findeventlistenerwithreturn$ktrecipe/"}]}>
 
 ## Definition
 

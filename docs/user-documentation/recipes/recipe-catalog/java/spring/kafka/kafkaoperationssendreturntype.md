@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change `KafkaOperations.send*` return type to `CompletableFuture`"}
-  description={"Send operations used to return a `ListenableFuture` but as of 3.0 return a `CompletableFuture`. Adjust the usage to use `CompletableFuture` instead."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.kafka.KafkaOperationsSendReturnType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/kafka/kafkaoperationssendreturntype.md"}
-/>
+>
+
+<RecipeHeader.Title>Change `KafkaOperations.send*` return type to `CompletableFuture`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Send operations used to return a `ListenableFuture` but as of 3.0 return a `CompletableFuture`. Adjust the usage to use `CompletableFuture` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.kafka.KafkaOperationsSendReturnType","displayName":"Change `KafkaOperations.send*` return type to `CompletableFuture`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`MicrometerRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with Micrometer.\n[Source](https://error-prone.picnic.tech/refasterrules/MicrometerRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.MicrometerRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/micrometerrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `MicrometerRules.TagsOf1`","href":"picnic/errorprone/refasterrules/micrometerrulesrecipes$tagsof1recipe"},{"name":"Refaster template `MicrometerRules.TagsOf2`","href":"picnic/errorprone/refasterrules/micrometerrulesrecipes$tagsof2recipe"},{"name":"Refaster template `MicrometerRules.TagsOf3`","href":"picnic/errorprone/refasterrules/micrometerrulesrecipes$tagsof3recipe"},{"name":"Refaster template `MicrometerRules.TagsOf4`","href":"picnic/errorprone/refasterrules/micrometerrulesrecipes$tagsof4recipe"},{"name":"Refaster template `MicrometerRules.TagsOf5`","href":"picnic/errorprone/refasterrules/micrometerrulesrecipes$tagsof5recipe"}]}>
+<RecipeHeader.Title>`MicrometerRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with Micrometer. [Source](https://error-prone.picnic.tech/refasterrules/MicrometerRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `MicrometerRules.TagsOf1`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/micrometerrulesrecipes$tagsof1recipe/"},{"name":"Refaster template `MicrometerRules.TagsOf2`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/micrometerrulesrecipes$tagsof2recipe/"},{"name":"Refaster template `MicrometerRules.TagsOf3`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/micrometerrulesrecipes$tagsof3recipe/"},{"name":"Refaster template `MicrometerRules.TagsOf4`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/micrometerrulesrecipes$tagsof4recipe/"},{"name":"Refaster template `MicrometerRules.TagsOf5`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/micrometerrulesrecipes$tagsof5recipe/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Dependencies should not have `system` scope"}
-  description={"Replaces `<scope>system</scope>` with the default compile scope and removes `<systemPath>` for dependencies that are available in configured repositories."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.cleanup.NoSystemScopeDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/cleanup/nosystemscopedependencies.md"}
-/>
+>
+
+<RecipeHeader.Title>Dependencies should not have `system` scope</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `<scope>system</scope>` with the default compile scope and removes `<systemPath>` for dependencies that are available in configured repositories.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.maven.cleanup.NoSystemScopeDependencies","displayName":"Dependencies should not have `system` scope","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find reflection seeds"}
-  description={"Field/member/constructor reflection over Java and Kotlin types (`Class.getDeclaredField`, `KClass.members`, `KClass.declaredFunctions`, `KClass.constructors`). Each match is a position where program behavior is opaque to static analysis and depends on runtime symbol lookup."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindReflectionSeeds$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findreflectionseeds$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Class.getDeclaredField` / `Class.getField` calls","href":"kotlin/search/findreflectiongetfield$ktrecipe"},{"name":"Find `KClass.members` / `memberFunctions` / `memberProperties` access","href":"kotlin/search/findkclassmembers$ktrecipe"},{"name":"Find `KClass.declaredFunctions` / `declaredMemberFunctions` access","href":"kotlin/search/findkclassdeclaredfunctions$ktrecipe"},{"name":"Find `KClass.constructors` access","href":"kotlin/search/findkclassconstructors$ktrecipe"}]}>
+<RecipeHeader.Title>Find reflection seeds</RecipeHeader.Title>
+
+<RecipeHeader.Description>Field/member/constructor reflection over Java and Kotlin types (`Class.getDeclaredField`, `KClass.members`, `KClass.declaredFunctions`, `KClass.constructors`). Each match is a position where program behavior is opaque to static analysis and depends on runtime symbol lookup.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Class.getDeclaredField` / `Class.getField` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findreflectiongetfield$ktrecipe/"},{"name":"Find `KClass.members` / `memberFunctions` / `memberProperties` access","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findkclassmembers$ktrecipe/"},{"name":"Find `KClass.declaredFunctions` / `declaredMemberFunctions` access","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findkclassdeclaredfunctions$ktrecipe/"},{"name":"Find `KClass.constructors` access","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findkclassconstructors$ktrecipe/"}]}>
 
 ## Definition
 

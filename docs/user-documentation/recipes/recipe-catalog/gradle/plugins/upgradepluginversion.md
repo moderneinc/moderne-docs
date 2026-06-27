@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update a Gradle plugin by id"}
-  description={"Update a Gradle plugin by id to a later version defined by the plugins DSL. To upgrade a plugin dependency defined by `buildscript.dependencies`, use the `UpgradeDependencyVersion` recipe instead."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.plugins.UpgradePluginVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/plugins/upgradepluginversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Update a Gradle plugin by id</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update a Gradle plugin by id to a later version defined by the plugins DSL. To upgrade a plugin dependency defined by `buildscript.dependencies`, use the `UpgradeDependencyVersion` recipe instead.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"pluginIdPattern","required":true,"description":"The `ID` part of `plugin { ID }`, as a glob expression.","example":"com.jfrog.bintray"},{"type":"String","name":"newVersion","required":false,"description":"An exact version number or node-style semver selector used to select the version number. You can also use `latest.release` for the latest available version and `latest.patch` if the current version is a valid semantic version. For more details, you can look at the documentation page of [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors). Defaults to `latest.release`.","example":"29.X"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'version' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select Guava 29.0-jre","example":"-jre"}]}>
 

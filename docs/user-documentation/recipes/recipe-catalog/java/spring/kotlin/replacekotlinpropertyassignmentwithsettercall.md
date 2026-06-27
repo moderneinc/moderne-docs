@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Kotlin property assignment with setter call"}
-  description={"Rewrites a Kotlin property-style assignment (`obj.prop = value`) to an explicit setter invocation (`obj.setProp(value)`). Use when a Java library adopts JSpecify `@NullMarked` and a previously-`var` synthetic property is demoted to `val`: Kotlin requires the getter's return type and the setter's parameter type to share the same nullability, and once they diverge the assignment stops compiling."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.kotlin.ReplaceKotlinPropertyAssignmentWithSetterCall"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/kotlin/replacekotlinpropertyassignmentwithsettercall.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace Kotlin property assignment with setter call</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rewrites a Kotlin property-style assignment (`obj.prop = value`) to an explicit setter invocation (`obj.setProp(value)`). Use when a Java library adopts JSpecify `@NullMarked` and a previously-`var` synthetic property is demoted to `val`: Kotlin requires the getter's return type and the setter's parameter type to share the same nullability, and once they diverge the assignment stops compiling.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"methodPattern","required":true,"description":"A MethodMatcher pattern identifying the Java setter to convert to. Kotlin property assignments whose resolved setter matches this pattern will be rewritten to an explicit `set...(value)` call.","example":"org.springframework.boot.web.servlet.AbstractFilterRegistrationBean setFilter(..)"},{"type":"String","name":"propertyName","required":true,"description":"The Kotlin synthetic-property name corresponding to the setter (e.g. `filter` for `setFilter`, `URL` for `setURL`, `isEnabled` for `setEnabled` paired with `isEnabled()`). Kotlin's naming rules preserve acronyms and the `is` prefix on boolean properties, so the property name is stated explicitly rather than derived.","example":"filter"}]}>
 

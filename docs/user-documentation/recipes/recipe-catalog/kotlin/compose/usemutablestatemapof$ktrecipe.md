@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `remember { mutableStateOf(emptyMap<K, V>()) }` candidates for `mutableStateMapOf`"}
-  description={"`remember { mutableStateOf(emptyMap()) }` boxes the map in a `MutableState`, so writes require `state.value = state.value + …` (or a clone). `mutableStateMapOf<K, V>()` is a snapshot-aware map: direct `put`/`remove` calls register as snapshot writes and trigger recomposition for readers."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.UseMutableStateMapOf$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/usemutablestatemapof$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `remember { mutableStateOf(emptyMap<K, V>()) }` candidates for `mutableStateMapOf`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`remember { mutableStateOf(emptyMap()) }` boxes the map in a `MutableState`, so writes require `state.value = state.value + …` (or a clone). `mutableStateMapOf<K, V>()` is a snapshot-aware map: direct `put`/`remove` calls register as snapshot writes and trigger recomposition for readers.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.UseMutableStateMapOf$KtRecipe","displayName":"Find `remember { mutableStateOf(emptyMap<K, V>()) }` candidates for `mutableStateMapOf`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Reorder comparisons to put literals on the right"}
-  description={"Swap operands when a constant appears on the left of a comparison, e.g. ``42 == count`` becomes ``count == 42``, mirroring the relational operator as needed."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.FlipComparison"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/flipcomparison.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Reorder comparisons to put literals on the right</RecipeHeader.Title>
+
+<RecipeHeader.Description>Swap operands when a constant appears on the left of a comparison, e.g. ``42 == count`` becomes ``count == 42``, mirroring the relational operator as needed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.FlipComparison","displayName":"Reorder comparisons to put literals on the right","pipPackage":"openrewrite-static-analysis"}}>
 

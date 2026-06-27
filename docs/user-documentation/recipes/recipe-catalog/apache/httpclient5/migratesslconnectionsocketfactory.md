@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate deprecated `SSLConnectionSocketFactory` to `DefaultClientTlsStrategy`"}
-  description={"Migrates usage of the deprecated `org.apache.http.conn.ssl.SSLConnectionSocketFactory` to `org.apache.hc.client5.http.ssl.DefaultClientTlsStrategy` with proper connection manager setup."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.MigrateSSLConnectionSocketFactory"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/migratesslconnectionsocketfactory.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate deprecated `SSLConnectionSocketFactory` to `DefaultClientTlsStrategy`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates usage of the deprecated `org.apache.http.conn.ssl.SSLConnectionSocketFactory` to `org.apache.hc.client5.http.ssl.DefaultClientTlsStrategy` with proper connection manager setup.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.apache.httpclient5.MigrateSSLConnectionSocketFactory","displayName":"Migrate deprecated `SSLConnectionSocketFactory` to `DefaultClientTlsStrategy`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 

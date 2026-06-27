@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `JUnitRules.ArgumentsEnumeration`"}
-  description={"Prefer statically imported `Arguments#arguments` over `Arguments#of` calls."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitRulesRecipes$ArgumentsEnumerationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junitrulesrecipes$argumentsenumerationrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `JUnitRules.ArgumentsEnumeration`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer statically imported `Arguments#arguments` over `Arguments#of` calls.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.JUnitRulesRecipes$ArgumentsEnumerationRecipe","displayName":"Refaster template `JUnitRules.ArgumentsEnumeration`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

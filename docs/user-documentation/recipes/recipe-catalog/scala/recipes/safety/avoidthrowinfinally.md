@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Avoid throwing in finally blocks"}
-  description={"Finds `throw` statements inside `finally` blocks. Throwing in a `finally` block can mask the original exception, making debugging harder."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.safety.AvoidThrowInFinally"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/safety/avoidthrowinfinally.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Avoid throwing in finally blocks</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds `throw` statements inside `finally` blocks. Throwing in a `finally` block can mask the original exception, making debugging harder.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"object Test {\n  try {\n    println(\"risky\")\n  } finally {\n    throw new RuntimeException(\"cleanup failed\")\n  }\n}\n","after":"object Test {\n  /*~~(Throwing in finally block can mask original exception)~~>*/try {\n    println(\"risky\")\n  } finally {\n    throw new RuntimeException(\"cleanup failed\")\n  }\n}\n","diff":"@@ -2,1 +2,1 @@\nobject Test {\n- try {\n+ /*~~(Throwing in finally block can mask original exception)~~>*/try {\n    println(\"risky\")\n","newFile":false}]}]}>
 

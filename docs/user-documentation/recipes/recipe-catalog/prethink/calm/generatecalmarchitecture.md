@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Generate [CALM](https://calm.finos.org/) architecture"}
-  description={"Generate a FINOS CALM (Common Architecture Language Model) JSON file from discovered service endpoints, database connections, external service calls, and messaging connections.\n\nThis recipe is not meant to be run on its own. It only reads data tables that other Prethink discovery recipes populate first, so it produces nothing useful in isolation. Run it as part of a composite such as `org.openrewrite.prethink.UpdatePrethinkContext`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-prethink"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.prethink.calm.GenerateCalmArchitecture"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmarchitecture.md"}
-/>
+>
+
+<RecipeHeader.Title>Generate [CALM](https://calm.finos.org/) architecture</RecipeHeader.Title>
+
+<RecipeHeader.Description>Generate a FINOS CALM (Common Architecture Language Model) JSON file from discovered service endpoints, database connections, external service calls, and messaging connections.  This recipe is not meant to be run on its own. It only reads data tables that other Prethink discovery recipes populate first, so it produces nothing useful in isolation. Run it as part of a composite such as `org.openrewrite.prethink.UpdatePrethinkContext`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.prethink.calm.GenerateCalmArchitecture","displayName":"Generate [CALM](https://calm.finos.org/) architecture","groupId":"org.openrewrite.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

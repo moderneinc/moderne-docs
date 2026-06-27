@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Changes code to use Java 17's `instanceof` pattern matching"}
-  description={"Adds pattern variables to `instanceof` expressions wherever the same (side effect free) expression is referenced in a corresponding type cast expression within the flow scope of the `instanceof`. Currently, this recipe supports `if` statements and ternary operator expressions. Pattern matching for `instanceof` collapses the type check, cast, and variable declaration into a single expression, reducing boilerplate and eliminating the risk of an incorrect cast."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S6201"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.InstanceOfPatternMatch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/instanceofpatternmatch.md"}
-/>
+>
+
+<RecipeHeader.Title>Changes code to use Java 17's `instanceof` pattern matching</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds pattern variables to `instanceof` expressions wherever the same (side effect free) expression is referenced in a corresponding type cast expression within the flow scope of the `instanceof`. Currently, this recipe supports `if` statements and ternary operator expressions. Pattern matching for `instanceof` collapses the type check, cast, and variable declaration into a single expression, reducing boilerplate and eliminating the risk of an incorrect cast.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class LeftNode {\n    int bar() {\n        return 0;\n    }\n}\nclass RightNode {\n    int bar() {\n        return 1;\n    }\n}\n\nclass Foo {\n    void bar(Object o1, Object o2) {\n        if (o1 instanceof LeftNode && o2 instanceof RightNode) {\n          ((LeftNode)o1).bar();\n          ((RightNode)o2).bar();\n        }\n        else if (o1 instanceof RightNode && o2 instanceof LeftNode) {\n          ((RightNode)o1).bar();\n          ((LeftNode)o2).bar();\n        }\n    }\n}\n","after":"class LeftNode {\n    int bar() {\n        return 0;\n    }\n}\nclass RightNode {\n    int bar() {\n        return 1;\n    }\n}\n\nclass Foo {\n    void bar(Object o1, Object o2) {\n        if (o1 instanceof LeftNode node2 && o2 instanceof RightNode node3) {\n          node2.bar();\n          node3.bar();\n        }\n        else if (o1 instanceof RightNode node && o2 instanceof LeftNode node1) {\n          node.bar();\n          node1.bar();\n        }\n    }\n}\n","diff":"@@ -14,3 +14,3 @@\nclass Foo {\n    void bar(Object o1, Object o2) {\n-       if (o1 instanceof LeftNode && o2 instanceof RightNode) {\n-         ((LeftNode)o1).bar();\n-         ((RightNode)o2).bar();\n+       if (o1 instanceof LeftNode node2 && o2 instanceof RightNode node3) {\n+         node2.bar();\n+         node3.bar();\n        }\n@@ -18,3 +18,3 @@\n          ((RightNode)o2).bar();\n        }\n-       else if (o1 instanceof RightNode && o2 instanceof LeftNode) {\n-         ((RightNode)o1).bar();\n-         ((LeftNode)o2).bar();\n+       else if (o1 instanceof RightNode node && o2 instanceof LeftNode node1) {\n+         node.bar();\n+         node1.bar();\n        }\n","newFile":false}]}]}>
 

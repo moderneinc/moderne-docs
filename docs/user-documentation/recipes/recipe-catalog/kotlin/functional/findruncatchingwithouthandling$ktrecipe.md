@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `runCatching { }` calls whose result is discarded"}
-  description={"A `runCatching { }` in statement context throws nothing and returns nothing — the `Result<T>` is allocated and dropped on the floor. If the intent was 'do this, but don't fail the caller', wrap with `.onFailure { log(it) }`; if the intent was 'do this, ignoring exceptions', say so with `try { … } catch (_: Exception) { }` (or rethink whether to swallow at all)."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.functional.FindRunCatchingWithoutHandling$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/functional/findruncatchingwithouthandling$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `runCatching { }` calls whose result is discarded</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `runCatching { }` in statement context throws nothing and returns nothing — the `Result<T>` is allocated and dropped on the floor. If the intent was 'do this, but don't fail the caller', wrap with `.onFailure { log(it) }`; if the intent was 'do this, ignoring exceptions', say so with `try { … } catch (_: Exception) { }` (or rethink whether to swallow at all).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.functional.FindRunCatchingWithoutHandling$KtRecipe","displayName":"Find `runCatching { }` calls whose result is discarded","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `avro-maven-plugin`"}
-  description={"Removes the `avro-maven-plugin` if the `quarkus-maven-plugin` is found in the project's `pom.xml`. Avro has been integrated with the Quarkus code generation mechanism. This replaces the need to use the Avro plugin."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.quarkus2.RemoveAvroMavenPlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/removeavromavenplugin.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `avro-maven-plugin`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the `avro-maven-plugin` if the `quarkus-maven-plugin` is found in the project's `pom.xml`. Avro has been integrated with the Quarkus code generation mechanism. This replaces the need to use the Avro plugin.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>org.openrewrite.example</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <build>\n    <plugins>\n      <plugin>\n        <groupId>io.quarkus</groupId>\n        <artifactId>quarkus-maven-plugin</artifactId>\n        <version>1.13.5.Final</version>\n      </plugin>\n      <plugin>\n        <groupId>org.apache.avro</groupId>\n        <artifactId>avro-maven-plugin</artifactId>\n        <version>1.10.0</version>\n      </plugin>\n    </plugins>\n  </build>\n</project>\n","after":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>org.openrewrite.example</groupId>\n  <artifactId>my-app</artifactId>\n  <version>1</version>\n  <build>\n    <plugins>\n      <plugin>\n        <groupId>io.quarkus</groupId>\n        <artifactId>quarkus-maven-plugin</artifactId>\n        <version>1.13.5.Final</version>\n      </plugin>\n    </plugins>\n  </build>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -13,5 +13,0 @@\n        <version>1.13.5.Final</version>\n      </plugin>\n-     <plugin>\n-       <groupId>org.apache.avro</groupId>\n-       <artifactId>avro-maven-plugin</artifactId>\n-       <version>1.10.0</version>\n-     </plugin>\n    </plugins>\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find functions returning `Pair<A, B>`"}
-  description={"A function returning `Pair<A, B>` forces every caller to remember which side is which. A small `data class Result(val a: A, val b: B)` documents the role of each component and gains `componentN()` / `copy()` for free."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindFunctionReturningPair$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findfunctionreturningpair$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find functions returning `Pair<A, B>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A function returning `Pair<A, B>` forces every caller to remember which side is which. A small `data class Result(val a: A, val b: B)` documents the role of each component and gains `componentN()` / `copy()` for free.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindFunctionReturningPair$KtRecipe","displayName":"Find functions returning `Pair<A, B>`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUnit `assertTrue(!<boolean>)` to `assertFalse(<boolean>)`"}
-  description={"Using `assertFalse` is simpler and more clear."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.cleanup.AssertTrueNegationToAssertFalse"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/cleanup/asserttruenegationtoassertfalse.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace JUnit `assertTrue(!<boolean>)` to `assertFalse(<boolean>)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Using `assertFalse` is simpler and more clear.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.cleanup.AssertTrueNegationToAssertFalse","displayName":"Replace JUnit `assertTrue(!<boolean>)` to `assertFalse(<boolean>)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

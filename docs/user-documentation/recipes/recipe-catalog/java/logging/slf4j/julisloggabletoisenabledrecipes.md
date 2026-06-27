@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUL active Level check with corresponding SLF4J method calls"}
-  description={"Replace calls to `Logger.isLoggable(Level)` with the corresponding SLF4J method calls."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.JulIsLoggableToIsEnabledRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julisloggabletoisenabledrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace JUL `Logger.isLoggable(Level.ALL)` with SLF4J's `Logger.isTraceEnabled`","href":"java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelallrecipe"},{"name":"Replace JUL `Logger.isLoggable(Level.FINEST)` with SLF4J's `Logger.isTraceEnabled`","href":"java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelfinestrecipe"},{"name":"Replace JUL `Logger.isLoggable(Level.FINER)` with SLF4J's `Logger.isTraceEnabled()`","href":"java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelfinerrecipe"},{"name":"Replace JUL `Logger.isLoggable(Level.FINE)` with SLF4J's `Logger.isDebugEnabled()`","href":"java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelfinerecipe"},{"name":"Replace JUL `Logger.isLoggable(Level.CONFIG)` with SLF4J's `Logger.isInfoEnabled()`","href":"java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelconfigrecipe"},{"name":"Replace JUL `Logger.isLoggable(Level.INFO)` with SLF4J's `Logger.isInfoEnabled()`","href":"java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelinforecipe"},{"name":"Replace JUL `Logger.isLoggable(Level.WARNING)` with SLF4J's `Logger.isWarnEnabled()`","href":"java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelwarningrecipe"},{"name":"Replace JUL `Logger.isLoggable(Level.SEVERE)` with SLF4J's `Logger.isErrorEnabled()`","href":"java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelsevererecipe"}]}>
+<RecipeHeader.Title>Replace JUL active Level check with corresponding SLF4J method calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace calls to `Logger.isLoggable(Level)` with the corresponding SLF4J method calls.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace JUL `Logger.isLoggable(Level.ALL)` with SLF4J's `Logger.isTraceEnabled`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelallrecipe/"},{"name":"Replace JUL `Logger.isLoggable(Level.FINEST)` with SLF4J's `Logger.isTraceEnabled`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelfinestrecipe/"},{"name":"Replace JUL `Logger.isLoggable(Level.FINER)` with SLF4J's `Logger.isTraceEnabled()`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelfinerrecipe/"},{"name":"Replace JUL `Logger.isLoggable(Level.FINE)` with SLF4J's `Logger.isDebugEnabled()`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelfinerecipe/"},{"name":"Replace JUL `Logger.isLoggable(Level.CONFIG)` with SLF4J's `Logger.isInfoEnabled()`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelconfigrecipe/"},{"name":"Replace JUL `Logger.isLoggable(Level.INFO)` with SLF4J's `Logger.isInfoEnabled()`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelinforecipe/"},{"name":"Replace JUL `Logger.isLoggable(Level.WARNING)` with SLF4J's `Logger.isWarnEnabled()`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelwarningrecipe/"},{"name":"Replace JUL `Logger.isLoggable(Level.SEVERE)` with SLF4J's `Logger.isErrorEnabled()`","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/julisloggabletoisenabledrecipes$loggerisloggablelevelsevererecipe/"}]}>
 
 ## Definition
 

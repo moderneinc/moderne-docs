@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Fix permissive `HostnameVerifier` implementations"}
-  description={"Replaces `javax.net.ssl.HostnameVerifier` implementations whose `verify(String, SSLSession)` method unconditionally returns `true` (matching `return true;`, `return Boolean.TRUE;`, or `return Boolean.valueOf(true);`) with a delegation to `HttpsURLConnection.getDefaultHostnameVerifier()`, restoring proper hostname verification."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["RSPEC-S5527","CWE-295"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.FixPermissiveHostnameVerifier"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/fixpermissivehostnameverifier.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Fix permissive `HostnameVerifier` implementations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `javax.net.ssl.HostnameVerifier` implementations whose `verify(String, SSLSession)` method unconditionally returns `true` (matching `return true;`, `return Boolean.TRUE;`, or `return Boolean.valueOf(true);`) with a delegation to `HttpsURLConnection.getDefaultHostnameVerifier()`, restoring proper hostname verification.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import javax.net.ssl.HostnameVerifier;\nimport javax.net.ssl.SSLSession;\n\nclass PermissiveVerifier implements HostnameVerifier {\n    @Override\n    public boolean verify(String hostname, SSLSession session) {\n        return true;\n    }\n}\n","after":"import javax.net.ssl.HostnameVerifier;\nimport javax.net.ssl.HttpsURLConnection;\nimport javax.net.ssl.SSLSession;\n\nclass PermissiveVerifier implements HostnameVerifier {\n    @Override\n    public boolean verify(String hostname, SSLSession session) {\n        return HttpsURLConnection.getDefaultHostnameVerifier().verify(hostname, session);\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport javax.net.ssl.HostnameVerifier;\n+import javax.net.ssl.HttpsURLConnection;\nimport javax.net.ssl.SSLSession;\n@@ -7,1 +8,1 @@\n    @Override\n    public boolean verify(String hostname, SSLSession session) {\n-       return true;\n+       return HttpsURLConnection.getDefaultHostnameVerifier().verify(hostname, session);\n    }\n","newFile":false}]}]}>
 

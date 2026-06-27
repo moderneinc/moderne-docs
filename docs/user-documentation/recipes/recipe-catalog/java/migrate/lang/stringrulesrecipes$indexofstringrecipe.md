@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `String.indexOf(String, 0)` with `String.indexOf(String)`"}
-  description={"Replace `String.indexOf(String str, int fromIndex)` with `String.indexOf(String)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lang.StringRulesRecipes$IndexOfStringRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lang/stringrulesrecipes$indexofstringrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `String.indexOf(String, 0)` with `String.indexOf(String)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `String.indexOf(String str, int fromIndex)` with `String.indexOf(String)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.StringRulesRecipes$IndexOfStringRecipe","displayName":"Replace `String.indexOf(String, 0)` with `String.indexOf(String)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

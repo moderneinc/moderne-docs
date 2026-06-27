@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"DevCenter for Apache"}
-  description={"A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.ApacheDevCenter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/apachedevcenter.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Parent POM upgrade","href":"devcenter/parentpomupgrade"},{"name":"Move to a later Java version","href":"devcenter/javaversionupgrade"},{"name":"Move to JUnit 6","href":"devcenter/junitjupiterupgrade"},{"name":"OWASP top ten","href":"devcenter/securitystarter"}]}>
+<RecipeHeader.Title>DevCenter for Apache</RecipeHeader.Title>
+
+<RecipeHeader.Description>A DevCenter that tracks the latest Apache Maven parent POM versions and applies best practices.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Parent POM upgrade","href":"/user-documentation/recipes/recipe-catalog/devcenter/parentpomupgrade/"},{"name":"Move to a later Java version","href":"/user-documentation/recipes/recipe-catalog/devcenter/javaversionupgrade/"},{"name":"Move to JUnit 6","href":"/user-documentation/recipes/recipe-catalog/devcenter/junitjupiterupgrade/"},{"name":"OWASP top ten","href":"/user-documentation/recipes/recipe-catalog/devcenter/securitystarter/"}]}>
 
 ## Definition
 

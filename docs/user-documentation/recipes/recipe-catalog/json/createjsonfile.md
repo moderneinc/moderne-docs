@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create JSON file"}
-  description={"Create a new JSON file."}
   type={"Single recipe"}
   languages={["JSON"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-json"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.json.CreateJsonFile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/json/createjsonfile.md"}
-/>
+>
+
+<RecipeHeader.Title>Create JSON file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Create a new JSON file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"relativeFileName","required":true,"description":"File path of new file.","example":"foo/bar/baz.json"},{"type":"String","name":"fileContents","required":false,"description":"Multiline text content for the file.","example":"{\"a\": {\"property\": \"value\"}, \"another\": {\"property\": \"value\"}}"},{"type":"String","name":"fileContentsUrl","required":false,"description":"URL to file containing text content for the file. Use either `fileContents` or `fileContentsUrl` option.","example":"http://foo.bar/baz.json"},{"type":"Boolean","name":"overwriteExisting","required":false,"description":"If there is an existing file, should it be overwritten."}]}>
 

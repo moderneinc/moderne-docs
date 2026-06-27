@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `RandomGeneratorRules.RandomGeneratorNextDoubleWithOrigin`"}
-  description={"Prefer `RandomGenerator#nextDouble(double origin, double bound)` over alternatives that may silently yield an ununiform domain of values."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextDoubleWithOriginRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextdoublewithoriginrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `RandomGeneratorRules.RandomGeneratorNextDoubleWithOrigin`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `RandomGenerator#nextDouble(double origin, double bound)` over alternatives that may silently yield an ununiform domain of values.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextDoubleWithOriginRecipe","displayName":"Refaster template `RandomGeneratorRules.RandomGeneratorNextDoubleWithOrigin`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

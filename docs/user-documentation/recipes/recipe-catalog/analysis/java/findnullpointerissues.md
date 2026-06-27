@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find null pointer issues"}
-  description={"Detects potential null pointer dereferences using path-sensitive analysis to distinguish between definite NPEs, possible NPEs, and safe dereferences."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.FindNullPointerIssues"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/findnullpointerissues.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find null pointer issues</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects potential null pointer dereferences using path-sensitive analysis to distinguish between definite NPEs, possible NPEs, and safe dereferences.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test() {\n        String s = null;\n        int len = s.length();\n    }\n}\n","after":"class Test {\n    void test() {\n        String s = null;\n        int len = /*~~(Definite null pointer dereference)~~>*/s.length();\n    }\n}\n","diff":"@@ -4,1 +4,1 @@\n    void test() {\n        String s = null;\n-       int len = s.length();\n+       int len = /*~~(Definite null pointer dereference)~~>*/s.length();\n    }\n","newFile":false}]}]}>
 

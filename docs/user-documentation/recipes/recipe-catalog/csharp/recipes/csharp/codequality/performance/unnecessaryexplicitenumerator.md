@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unnecessary explicit enumerator"}
-  description={"Use foreach instead of explicit enumerator pattern."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UnnecessaryExplicitEnumerator"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/unnecessaryexplicitenumerator.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove unnecessary explicit enumerator</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use foreach instead of explicit enumerator pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UnnecessaryExplicitEnumerator","displayName":"Remove unnecessary explicit enumerator","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate javax.mvc to 2.0 (Jakarta EE 9)"}
-  description={"Upgrade Jakarta Model-View-Controller libraries to 2.0 (Jakarta EE9) versions."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["mvc","jakarta"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.jakarta.MigrateJavaxMVCToJakartaEE9"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/jakarta/migratejavaxmvctojakartaee9.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"java/dependencies/changedependency"},{"name":"Rename package name","href":"java/changepackage"}]}>
+<RecipeHeader.Title>Migrate javax.mvc to 2.0 (Jakarta EE 9)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade Jakarta Model-View-Controller libraries to 2.0 (Jakarta EE9) versions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/changedependency/"},{"name":"Rename package name","href":"/user-documentation/recipes/recipe-catalog/java/changepackage/"}]}>
 
 ## Definition
 

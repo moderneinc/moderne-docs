@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant sealed modifier"}
-  description={"Remove `sealed` modifier on members of sealed classes, since it's redundant."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantSealedModifier"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeredundantsealedmodifier.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant sealed modifier</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `sealed` modifier on members of sealed classes, since it's redundant.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantSealedModifier","displayName":"Remove redundant sealed modifier","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

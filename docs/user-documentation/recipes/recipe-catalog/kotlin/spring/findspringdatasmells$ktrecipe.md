@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring Data smells"}
-  description={"Repository methods returning `Optional<T>` instead of `T?`, `@Entity` classes that should be `data class`, `@Entity data class` declarations whose JPA-friendliness depends on the `kotlin-jpa` plugin, `CrudRepository` candidates for `JpaRepository`, and `@Transactional` annotations on `private` methods or `final` classes (Spring's proxy can't intercept them)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringDataSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringdatasmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find Spring Data repository methods returning `Optional<T>`","href":"kotlin/spring/findrepositoryreturnsoptional$ktrecipe"},{"name":"Find `@Entity` classes with `var` properties only","href":"kotlin/spring/findjpaentitywithvarsonly$ktrecipe"},{"name":"Find `@Entity data class` declarations (verify `kotlin-jpa` plugin)","href":"kotlin/spring/findnoargconstructormissing$ktrecipe"},{"name":"Find repository interfaces extending `CrudRepository` instead of `JpaRepository`","href":"kotlin/spring/findcrudrepositorygenericlist$ktrecipe"},{"name":"Find `@Transactional` on `private` functions","href":"kotlin/spring/findtransactionalonprivate$ktrecipe"},{"name":"Find `@Transactional` methods on classes that aren't `open`","href":"kotlin/spring/findtransactionalonfinal$ktrecipe"}]}>
+<RecipeHeader.Title>Find Spring Data smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Repository methods returning `Optional<T>` instead of `T?`, `@Entity` classes that should be `data class`, `@Entity data class` declarations whose JPA-friendliness depends on the `kotlin-jpa` plugin, `CrudRepository` candidates for `JpaRepository`, and `@Transactional` annotations on `private` methods or `final` classes (Spring's proxy can't intercept them).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find Spring Data repository methods returning `Optional<T>`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findrepositoryreturnsoptional$ktrecipe/"},{"name":"Find `@Entity` classes with `var` properties only","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findjpaentitywithvarsonly$ktrecipe/"},{"name":"Find `@Entity data class` declarations (verify `kotlin-jpa` plugin)","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findnoargconstructormissing$ktrecipe/"},{"name":"Find repository interfaces extending `CrudRepository` instead of `JpaRepository`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findcrudrepositorygenericlist$ktrecipe/"},{"name":"Find `@Transactional` on `private` functions","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findtransactionalonprivate$ktrecipe/"},{"name":"Find `@Transactional` methods on classes that aren't `open`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findtransactionalonfinal$ktrecipe/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JBoss Logging to SLF4J"}
-  description={"Migrates usage of the JBoss Logging facade to using SLF4J."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["jboss","slf4j","logging"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.JBossLoggingToSlf4j"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jbossloggingtoslf4j.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"JBoss Logging Best Practices","href":"java/logging/jboss/jbossloggingbestpractices"},{"name":"Add JBoss LogManager's SLF4J provider","href":"java/logging/slf4j/addjbosslogmanagerslf4jproviderdependency"},{"name":"Remove a Gradle or Maven dependency","href":"java/dependencies/removedependency"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Change method target to static","href":"java/changemethodtargettostatic"},{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate JBoss Logging to SLF4J</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates usage of the JBoss Logging facade to using SLF4J.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"JBoss Logging Best Practices","href":"/user-documentation/recipes/recipe-catalog/java/logging/jboss/jbossloggingbestpractices/"},{"name":"Add JBoss LogManager's SLF4J provider","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/addjbosslogmanagerslf4jproviderdependency/"},{"name":"Remove a Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/removedependency/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Change method target to static","href":"/user-documentation/recipes/recipe-catalog/java/changemethodtargettostatic/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

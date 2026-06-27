@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Sort Gradle dependencies"}
-  description={"Sort dependencies in `build.gradle` and `build.gradle.kts` files. Dependencies are sorted alphabetically by configuration name (e.g. `api`, `implementation`), then by groupId, then by artifactId."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.SortDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/sortdependencies.md"}
-/>
+>
+
+<RecipeHeader.Title>Sort Gradle dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Sort dependencies in `build.gradle` and `build.gradle.kts` files. Dependencies are sorted alphabetically by configuration name (e.g. `api`, `implementation`), then by groupId, then by artifactId.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"groovy","before":"plugins {\n    id 'java-library'\n}\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    testImplementation \"org.junit.jupiter:junit-jupiter-api:5.9.1\"\n    implementation \"org.springframework:spring-web:5.3.23\"\n    api \"com.google.guava:guava:31.1-jre\"\n    implementation \"com.fasterxml.jackson.core:jackson-databind:2.13.4\"\n}\n","after":"plugins {\n    id 'java-library'\n}\n\nrepositories {\n    mavenCentral()\n}\n\ndependencies {\n    api \"com.google.guava:guava:31.1-jre\"\n    implementation \"com.fasterxml.jackson.core:jackson-databind:2.13.4\"\n    implementation \"org.springframework:spring-web:5.3.23\"\n    testImplementation \"org.junit.jupiter:junit-jupiter-api:5.9.1\"\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -10,2 +10,0 @@\n\ndependencies {\n-   testImplementation \"org.junit.jupiter:junit-jupiter-api:5.9.1\"\n-   implementation \"org.springframework:spring-web:5.3.23\"\n    api \"com.google.guava:guava:31.1-jre\"\n@@ -14,0 +12,2 @@\n    api \"com.google.guava:guava:31.1-jre\"\n    implementation \"com.fasterxml.jackson.core:jackson-databind:2.13.4\"\n+   implementation \"org.springframework:spring-web:5.3.23\"\n+   testImplementation \"org.junit.jupiter:junit-jupiter-api:5.9.1\"\n}\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Modifier order"}
-  description={"Modifiers should be declared in the correct order as recommended by the JLS. Ordering modifiers consistently reduces cognitive load for developers who are accustomed to the standard sequence."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1124"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.ModifierOrder"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/modifierorder.md"}
-/>
+>
+
+<RecipeHeader.Title>Modifier order</RecipeHeader.Title>
+
+<RecipeHeader.Description>Modifiers should be declared in the correct order as recommended by the JLS. Ordering modifiers consistently reduces cognitive load for developers who are accustomed to the standard sequence.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.internal.lang.Nullable;\nclass Test {\n    static /* comment */ public strictfp @Nullable transient Integer test() {\n    }\n}\n","after":"import org.openrewrite.internal.lang.Nullable;\nclass Test {\n    public /* comment */ static transient @Nullable strictfp Integer test() {\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport org.openrewrite.internal.lang.Nullable;\nclass Test {\n-   static /* comment */ public strictfp @Nullable transient Integer test() {\n+   public /* comment */ static transient @Nullable strictfp Integer test() {\n    }\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Kotlin 2"}
-  description={"Migrate deprecated Kotlin 1.x APIs to their Kotlin 2.x replacements and update Gradle build files for Kotlin 2.x compatibility. Deprecated APIs were deprecated in Kotlin 1.4-1.5 and become errors in Kotlin 2.1."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={["kotlin"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UpgradeToKotlin2"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradetokotlin2.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace deprecated String case conversions","href":"kotlin/migrate/replacedeprecatedstringcaseconversions"},{"name":"Replace deprecated Char case conversions","href":"kotlin/migrate/replacedeprecatedcharcaseconversions"},{"name":"Replace deprecated `appendln` with `appendLine`","href":"kotlin/migrate/replacedeprecatedappendln"},{"name":"Replace deprecated `capitalize` and `decapitalize`","href":"kotlin/migrate/replacedeprecatedcapitalizeanddecapitalize"},{"name":"Replace `Enum.values()` with `Enum.entries`","href":"kotlin/migrate/replaceenumvalueswithentries"},{"name":"Replace `enumValues<T>()` with `enumEntries<T>()`","href":"kotlin/migrate/replaceenumvaluesfunctionwithenumentries"},{"name":"Upgrade Kotlin Gradle plugins to 2.x","href":"kotlin/migrate/upgradekotlingradleplugins"},{"name":"Remove redundant kotlin-stdlib dependencies","href":"kotlin/migrate/removeredundantkotlinstdlib"},{"name":"Remove deprecated Kotlin Gradle properties","href":"kotlin/migrate/removedeprecatedkotlingradleproperties"},{"name":"Replace `kotlinOptions` with `compilerOptions` in Gradle build files","href":"kotlin/migrate/replacekotlinoptionswithcompileroptions"}]}>
+<RecipeHeader.Title>Migrate to Kotlin 2</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate deprecated Kotlin 1.x APIs to their Kotlin 2.x replacements and update Gradle build files for Kotlin 2.x compatibility. Deprecated APIs were deprecated in Kotlin 1.4-1.5 and become errors in Kotlin 2.1.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace deprecated String case conversions","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedstringcaseconversions/"},{"name":"Replace deprecated Char case conversions","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedcharcaseconversions/"},{"name":"Replace deprecated `appendln` with `appendLine`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedappendln/"},{"name":"Replace deprecated `capitalize` and `decapitalize`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacedeprecatedcapitalizeanddecapitalize/"},{"name":"Replace `Enum.values()` with `Enum.entries`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/replaceenumvalueswithentries/"},{"name":"Replace `enumValues<T>()` with `enumEntries<T>()`","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/replaceenumvaluesfunctionwithenumentries/"},{"name":"Upgrade Kotlin Gradle plugins to 2.x","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/upgradekotlingradleplugins/"},{"name":"Remove redundant kotlin-stdlib dependencies","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/removeredundantkotlinstdlib/"},{"name":"Remove deprecated Kotlin Gradle properties","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/removedeprecatedkotlingradleproperties/"},{"name":"Replace `kotlinOptions` with `compilerOptions` in Gradle build files","href":"/user-documentation/recipes/recipe-catalog/kotlin/migrate/replacekotlinoptionswithcompileroptions/"}]}>
 
 ## Definition
 

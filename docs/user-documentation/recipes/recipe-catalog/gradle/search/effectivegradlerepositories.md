@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"List effective Gradle project repositories"}
-  description={"Lists the Gradle project repositories that would be used for dependency resolution, in order of precedence. This includes Maven repositories defined in the Gradle build files and settings as determined when the LST was produced."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.search.EffectiveGradleRepositories"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/search/effectivegradlerepositories.md"}
-/>
+>
+
+<RecipeHeader.Title>List effective Gradle project repositories</RecipeHeader.Title>
+
+<RecipeHeader.Description>Lists the Gradle project repositories that would be used for dependency resolution, in order of precedence. This includes Maven repositories defined in the Gradle build files and settings as determined when the LST was produced.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"useMarkers","required":false,"description":"Whether to add markers for each effective Gradle repository to the build file. Default `false`."}]}>
 

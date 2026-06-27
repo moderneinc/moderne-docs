@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`indexOf` should not compare greater than zero"}
-  description={"Replaces `String#indexOf(String) > 0` and `List#indexOf(Object) > 0` with `>=1`. Checking `indexOf` against `>0` ignores the first element, whereas `>-1` is inclusive of the first element. For clarity, `>=1` is used, because `>0` and `>=1` are semantically equal. Using `>0` may appear to be a mistake with the intent of including all elements. If the intent is to check whether a value in included in a `String` or `List`, the `String#contains(String)` or `List#contains(Object)` methods may be better options altogether."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S2692"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.IndexOfShouldNotCompareGreaterThanZero"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/indexofshouldnotcomparegreaterthanzero.md"}
-/>
+>
+
+<RecipeHeader.Title>`indexOf` should not compare greater than zero</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `String#indexOf(String) > 0` and `List#indexOf(Object) > 0` with `>=1`. Checking `indexOf` against `>0` ignores the first element, whereas `>-1` is inclusive of the first element. For clarity, `>=1` is used, because `>0` and `>=1` are semantically equal. Using `>0` may appear to be a mistake with the intent of including all elements. If the intent is to check whether a value in included in a `String` or `List`, the `String#contains(String)` or `List#contains(Object)` methods may be better options altogether.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\n\nclass Test {\n    static boolean hasIndex(List<String> strList, String str) {\n        if (strList.indexOf(str) > 0) {\n        }\n        return strList.indexOf(str) > 0;\n    }\n}\n","after":"import java.util.List;\n\nclass Test {\n    static boolean hasIndex(List<String> strList, String str) {\n        if (strList.indexOf(str) >= 1) {\n        }\n        return strList.indexOf(str) >= 1;\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    static boolean hasIndex(List<String> strList, String str) {\n-       if (strList.indexOf(str) > 0) {\n+       if (strList.indexOf(str) >= 1) {\n        }\n@@ -7,1 +7,1 @@\n        if (strList.indexOf(str) > 0) {\n        }\n-       return strList.indexOf(str) > 0;\n+       return strList.indexOf(str) >= 1;\n    }\n","newFile":false}]}]}>
 

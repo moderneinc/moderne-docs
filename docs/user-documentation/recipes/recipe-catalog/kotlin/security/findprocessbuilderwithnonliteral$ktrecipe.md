@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `ProcessBuilder(varargs)` constructions whose first arg is non-literal"}
-  description={"`ProcessBuilder` is safer than `Runtime.exec` because it bypasses the shell, but a dynamic program name (the first argument) still lets the caller pick any executable on the `PATH`. Pin the program name to a literal."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindProcessBuilderWithNonLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findprocessbuilderwithnonliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `ProcessBuilder(varargs)` constructions whose first arg is non-literal</RecipeHeader.Title>
+
+<RecipeHeader.Description>`ProcessBuilder` is safer than `Runtime.exec` because it bypasses the shell, but a dynamic program name (the first argument) still lets the caller pick any executable on the `PATH`. Pin the program name to a literal.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindProcessBuilderWithNonLiteral$KtRecipe","displayName":"Find `ProcessBuilder(varargs)` constructions whose first arg is non-literal","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

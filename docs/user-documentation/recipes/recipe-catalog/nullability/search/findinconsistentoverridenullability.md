@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find inconsistent `@Nullable` override declarations"}
-  description={"Reports methods whose declared nullability is inconsistent with the method they override, a contract violation under [NullAway](https://github.com/uber/NullAway). Because return types are covariant, an overriding method that declares a `@Nullable` return while the overridden supertype method returns a non-null value is flagged on its return. Because parameters are contravariant, an overriding method whose parameter is non-null while the overridden supertype method declares the corresponding parameter `@Nullable` is flagged on that parameter. Methods are matched across files by their erased signature `name(paramTypes)` plus a declaring-type subtype relationship. Conservative by design: legal covariant return narrowing and contravariant parameter widening are never flagged, and nothing is reported when a participating type cannot be resolved. Only Java sources are inspected; Kotlin and Groovy express nullability in the type system, which their compilers already enforce."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.search.FindInconsistentOverrideNullability"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/search/findinconsistentoverridenullability.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find inconsistent `@Nullable` override declarations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reports methods whose declared nullability is inconsistent with the method they override, a contract violation under [NullAway](https://github.com/uber/NullAway). Because return types are covariant, an overriding method that declares a `@Nullable` return while the overridden supertype method returns a non-null value is flagged on its return. Because parameters are contravariant, an overriding method whose parameter is non-null while the overridden supertype method declares the corresponding parameter `@Nullable` is flagged on that parameter. Methods are matched across files by their erased signature `name(paramTypes)` plus a declaring-type subtype relationship. Conservative by design: legal covariant return narrowing and contravariant parameter widening are never flagged, and nothing is reported when a participating type cannot be resolved. Only Java sources are inspected; Kotlin and Groovy express nullability in the type system, which their compilers already enforce.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"interface Service {\n    String find();\n}\n"},"variants":[{"language":"java","before":"import org.jspecify.annotations.Nullable;\n\nclass ServiceImpl implements Service {\n    @Override\n    public @Nullable String find() {\n        return null;\n    }\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nclass ServiceImpl implements Service {\n    @Override\n    public/*~~(@Nullable return is incompatible with non-null supertype return (NullAway override))~~>*/ @Nullable String find() {\n        return null;\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass ServiceImpl implements Service {\n    @Override\n-   public @Nullable String find() {\n+   public/*~~(@Nullable return is incompatible with non-null supertype return (NullAway override))~~>*/ @Nullable String find() {\n        return null;\n","newFile":false}]}]}>
 

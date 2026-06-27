@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Mark `<p-drawer>` / `<p-sidebar>` `size` usages with TODO comments"}
-  description={"Inserts an HTML `<!-- TODO: ... -->` comment before any `<p-drawer>` or `<p-sidebar>` element that binds the removed `size` input, and records the site in the `ManualMigrationSteps` data table. Both `[size]=\"...\"` and `size=\"...\"` attribute forms are matched. The attribute is left untouched — the v18 replacement (responsive CSS via `[style]` / `styleClass`) depends on the desired layout and needs manual review."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.MarkDrawerSize"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/markdrawersize.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Mark `<p-drawer>` / `<p-sidebar>` `size` usages with TODO comments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Inserts an HTML `<!-- TODO: ... -->` comment before any `<p-drawer>` or `<p-sidebar>` element that binds the removed `size` input, and records the site in the `ManualMigrationSteps` data table. Both `[size]="..."` and `size="..."` attribute forms are matched. The attribute is left untouched — the v18 replacement (responsive CSS via `[style]` / `styleClass`) depends on the desired layout and needs manual review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.primeng.MarkDrawerSize","displayName":"Mark `<p-drawer>` / `<p-sidebar>` `size` usages with TODO comments","npmPackage":"@openrewrite/recipes-angular"}}>
 

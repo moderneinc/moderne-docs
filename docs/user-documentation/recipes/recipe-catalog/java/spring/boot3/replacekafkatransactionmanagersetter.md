@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `kafkaAwareTransactionManager` setter"}
-  description={"Replace deprecated `ContainerProperties#setTransactionManager(org.springframework.transaction.PlatformTransactionManager)` method with `ContainerProperties#setKafkaAwareTransactionManager(org.springframework.kafka.transaction.KafkaAwareTransactionManager)`. The method will be replaced only if its argument has the type `KafkaAwareTransactionManager`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.ReplaceKafkaTransactionManagerSetter"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/replacekafkatransactionmanagersetter.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `kafkaAwareTransactionManager` setter</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated `ContainerProperties#setTransactionManager(org.springframework.transaction.PlatformTransactionManager)` method with `ContainerProperties#setKafkaAwareTransactionManager(org.springframework.kafka.transaction.KafkaAwareTransactionManager)`. The method will be replaced only if its argument has the type `KafkaAwareTransactionManager`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.kafka.annotation.EnableKafka;\nimport org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;\nimport org.springframework.kafka.listener.ContainerProperties;\nimport org.springframework.kafka.transaction.KafkaAwareTransactionManager;\n\n@EnableKafka\n@Configuration\npublic class KafkaConfigUpdated {\n\n    @Bean\n    public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory(\n            KafkaAwareTransactionManager<String, String> transactionManager) {\n\n        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();\n\n        ContainerProperties containerProperties = factory.getContainerProperties();\n        containerProperties.setTransactionManager(transactionManager);\n\n        return factory;\n    }\n}\n","after":"import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.kafka.annotation.EnableKafka;\nimport org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;\nimport org.springframework.kafka.listener.ContainerProperties;\nimport org.springframework.kafka.transaction.KafkaAwareTransactionManager;\n\n@EnableKafka\n@Configuration\npublic class KafkaConfigUpdated {\n\n    @Bean\n    public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory(\n            KafkaAwareTransactionManager<String, String> transactionManager) {\n\n        ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();\n\n        ContainerProperties containerProperties = factory.getContainerProperties();\n        containerProperties.setKafkaAwareTransactionManager(transactionManager);\n\n        return factory;\n    }\n}\n","diff":"@@ -19,1 +19,1 @@\n\n        ContainerProperties containerProperties = factory.getContainerProperties();\n-       containerProperties.setTransactionManager(transactionManager);\n+       containerProperties.setKafkaAwareTransactionManager(transactionManager);\n\n","newFile":false}]}]}>
 

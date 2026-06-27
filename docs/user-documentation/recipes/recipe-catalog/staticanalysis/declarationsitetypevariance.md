@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Properly use declaration-site type variance"}
-  description={"Currently, Java requires use-site type variance, so if someone has `Function<IN, OUT>` method parameter, it should rather be `Function<? super IN, ? extends OUT>`. Unfortunately, it is not easy to notice that `? super` and `? extends` is missing, so this recipe adds it where that would improve the situation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.DeclarationSiteTypeVariance"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/declarationsitetypevariance.md"}
-/>
+>
+
+<RecipeHeader.Title>Properly use declaration-site type variance</RecipeHeader.Title>
+
+<RecipeHeader.Description>Currently, Java requires use-site type variance, so if someone has `Function<IN, OUT>` method parameter, it should rather be `Function<? super IN, ? extends OUT>`. Unfortunately, it is not easy to notice that `? super` and `? extends` is missing, so this recipe adds it where that would improve the situation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"variantTypes","required":true,"description":"A list of well-known classes that have in/out type variance.","example":"java.util.function.Function<IN, OUT>"},{"type":"List","name":"excludedBounds","required":false,"description":"A list of bounds that should not receive explicit variance. Globs supported.","example":"java.lang.*"},{"type":"Boolean","name":"excludeFinalClasses","required":false,"description":"If true, do not add `? extends` variance to final classes. `? super` variance will be added regardless of finality."}]}>
 

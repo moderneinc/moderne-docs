@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Mockito best practices"}
-  description={"Applies best practices for Mockito tests."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["testing","mockito"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.MockitoBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitobestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Mockito 5.x upgrade","href":"java/testing/mockito/mockito1to5migration"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Remove `Mockito.times(0)` and `Mockito.times(1)`","href":"java/testing/mockito/removetimeszeroandone"},{"name":"Remove `doNothing()` for void methods on `@Mock` fields","href":"java/testing/mockito/removedonothingfordefaultmocks"},{"name":"Call to Mockito method \"verify\", \"when\" or \"given\" should be simplified","href":"java/testing/mockito/simplifymockitoverifywhengiven"},{"name":"Wrap `MockedConstruction` in try-with-resources","href":"java/testing/mockito/mockconstructiontotrywithresources"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Mockito best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies best practices for Mockito tests.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Mockito 5.x upgrade","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockito1to5migration/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Remove `Mockito.times(0)` and `Mockito.times(1)`","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/removetimeszeroandone/"},{"name":"Remove `doNothing()` for void methods on `@Mock` fields","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/removedonothingfordefaultmocks/"},{"name":"Call to Mockito method \"verify\", \"when\" or \"given\" should be simplified","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/simplifymockitoverifywhengiven/"},{"name":"Wrap `MockedConstruction` in try-with-resources","href":"/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockconstructiontotrywithresources/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

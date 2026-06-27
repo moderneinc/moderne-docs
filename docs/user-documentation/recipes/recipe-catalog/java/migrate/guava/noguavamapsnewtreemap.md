@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `new TreeMap<>()`"}
-  description={"Prefer the Java standard library over third-party usage of Guava in simple cases like this."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["guava"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaMapsNewTreeMap"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavamapsnewtreemap.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `new TreeMap<>()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer the Java standard library over third-party usage of Guava in simple cases like this.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.collect.*;\nimport java.util.Map;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = Maps.newTreeMap();\n}\n","after":"import java.util.Map;\nimport java.util.TreeMap;\n\nclass Test {\n    Map<Integer, Integer> cardinalsWorldSeries = new TreeMap<>();\n}\n","diff":"@@ -1,1 +1,0 @@\n-import com.google.common.collect.*;\nimport java.util.Map;\n@@ -3,0 +2,1 @@\nimport com.google.common.collect.*;\nimport java.util.Map;\n+import java.util.TreeMap;\n\n@@ -5,1 +5,1 @@\n\nclass Test {\n-   Map<Integer, Integer> cardinalsWorldSeries = Maps.newTreeMap();\n+   Map<Integer, Integer> cardinalsWorldSeries = new TreeMap<>();\n}\n","newFile":false}]}]}>
 

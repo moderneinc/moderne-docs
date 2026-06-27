@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find deprecated string-based `loadChildren` usage"}
-  description={"Finds usages of the deprecated string-based `loadChildren` syntax (e.g. `loadChildren: './path/to/module#ModuleName'`). String-based lazy loading was deprecated in Angular 8 and removed in Angular 11. Use dynamic imports instead: `loadChildren: () => import('./path/to/module').then(m => m.ModuleName)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-load-children-string-usage"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-load-children-string-usage.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find deprecated string-based `loadChildren` usage</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds usages of the deprecated string-based `loadChildren` syntax (e.g. `loadChildren: './path/to/module#ModuleName'`). String-based lazy loading was deprecated in Angular 8 and removed in Angular 11. Use dynamic imports instead: `loadChildren: () => import('./path/to/module').then(m => m.ModuleName)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.search.find-load-children-string-usage","displayName":"Find deprecated string-based `loadChildren` usage","npmPackage":"@openrewrite/recipes-angular"}}>
 

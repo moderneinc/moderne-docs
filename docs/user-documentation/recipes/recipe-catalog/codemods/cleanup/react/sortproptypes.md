@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce propTypes declarations alphabetical sorting"}
-  description={"Enforce propTypes declarations alphabetical sorting\nSee rule details for [react/sort-prop-types](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/sort-prop-types.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.react.SortPropTypes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/react/sortproptypes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce propTypes declarations alphabetical sorting</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce propTypes declarations alphabetical sorting See rule details for [react/sort-prop-types](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/sort-prop-types.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove duplicate conditions"}
-  description={"Remove else-if branches whose condition duplicates an earlier branch in the same if/else-if chain, since the later branch is dead code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","redundancy","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveDuplicateConditions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeduplicateconditions.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove duplicate conditions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove else-if branches whose condition duplicates an earlier branch in the same if/else-if chain, since the later branch is dead code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveDuplicateConditions","displayName":"Remove duplicate conditions","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

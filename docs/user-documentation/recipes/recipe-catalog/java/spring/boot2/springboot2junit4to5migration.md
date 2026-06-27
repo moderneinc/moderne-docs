@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring Boot 2.x projects to JUnit 5 from JUnit 4"}
-  description={"This recipe will migrate a Spring Boot application's tests from JUnit 4 to JUnit 5. This spring-specific migration includes conversion of Spring Test runners to Spring Test extensions and awareness of the composable Spring Test annotations."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","junit","test","jupiter","boot"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.SpringBoot2JUnit4to5Migration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/springboot2junit4to5migration.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"JUnit Jupiter migration from JUnit 4.x","href":"java/testing/junit5/junit4to5migration"},{"name":"Migrate `@OutputCaptureRule` to `@ExtendWith(OutputCaptureExtension.class)`","href":"java/spring/boot2/outputcaptureextension"},{"name":"Remove unnecessary Spring `@RunWith`","href":"java/spring/boot2/unnecessaryspringrunwith"},{"name":"Remove `@SpringExtension`","href":"java/spring/boot2/unnecessaryspringextension"},{"name":"Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJunitConfig`","href":"java/spring/boot2/replaceextendwithandcontextconfiguration"},{"name":"Remove obsolete Spring JUnit runners","href":"java/spring/boot2/removeobsoletespringrunners"},{"name":"Replace `SpringClassRule` and `SpringMethodRule` with JUnit 5 `SpringExtension`","href":"java/spring/test/springrulestojunitextension"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate Spring Boot 2.x projects to JUnit 5 from JUnit 4</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will migrate a Spring Boot application's tests from JUnit 4 to JUnit 5. This spring-specific migration includes conversion of Spring Test runners to Spring Test extensions and awareness of the composable Spring Test annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"JUnit Jupiter migration from JUnit 4.x","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/junit4to5migration/"},{"name":"Migrate `@OutputCaptureRule` to `@ExtendWith(OutputCaptureExtension.class)`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/outputcaptureextension/"},{"name":"Remove unnecessary Spring `@RunWith`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/unnecessaryspringrunwith/"},{"name":"Remove `@SpringExtension`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/unnecessaryspringextension/"},{"name":"Replace `@ExtendWith` and `@ContextConfiguration` with `@SpringJunitConfig`","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/replaceextendwithandcontextconfiguration/"},{"name":"Remove obsolete Spring JUnit runners","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/removeobsoletespringrunners/"},{"name":"Replace `SpringClassRule` and `SpringMethodRule` with JUnit 5 `SpringExtension`","href":"/user-documentation/recipes/recipe-catalog/java/spring/test/springrulestojunitextension/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

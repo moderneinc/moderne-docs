@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Report uses of Java types deprecated or removed in WebLogic"}
-  description={"This recipe will report uses of Java types that have been deprecated or removed in WebLogic."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/com.oracle.weblogic.rewrite.ReportDeprecated"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/oracle/weblogic/rewrite/reportdeprecated.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find uses of deprecated classes, methods, and fields","href":"java/search/finddeprecateduses"},{"name":"Find uses of deprecated classes, methods, and fields","href":"java/search/finddeprecateduses"}]}>
+<RecipeHeader.Title>Report uses of Java types deprecated or removed in WebLogic</RecipeHeader.Title>
+
+<RecipeHeader.Description>This recipe will report uses of Java types that have been deprecated or removed in WebLogic.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find uses of deprecated classes, methods, and fields","href":"/user-documentation/recipes/recipe-catalog/java/search/finddeprecateduses/"},{"name":"Find uses of deprecated classes, methods, and fields","href":"/user-documentation/recipes/recipe-catalog/java/search/finddeprecateduses/"}]}>
 
 ## Definition
 

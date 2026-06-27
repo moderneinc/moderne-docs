@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate to Spring Cloud 2022"}
-  description={"Migrate applications to the latest Spring Cloud 2022 (Kilburn) release."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","cloud"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.cloud2022.UpgradeSpringCloud_2022"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/upgradespringcloud_2022.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Upgrade dependencies to Spring Cloud 2022","href":"java/spring/cloud2022/dependencyupgrades"},{"name":"Migrate Spring Cloud Sleuth 3.1 to Micrometer Tracing 1.0","href":"java/spring/cloud2022/migratecloudsleuthtomicrometertracing"},{"name":"Migrate `@RequestMapping` on `FeignClient` to `@FeignClient` path attribute","href":"java/spring/cloud2022/migraterequestmappingonfeignclient"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate to Spring Cloud 2022</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate applications to the latest Spring Cloud 2022 (Kilburn) release.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Upgrade dependencies to Spring Cloud 2022","href":"/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/dependencyupgrades/"},{"name":"Migrate Spring Cloud Sleuth 3.1 to Micrometer Tracing 1.0","href":"/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/migratecloudsleuthtomicrometertracing/"},{"name":"Migrate `@RequestMapping` on `FeignClient` to `@FeignClient` path attribute","href":"/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/migraterequestmappingonfeignclient/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

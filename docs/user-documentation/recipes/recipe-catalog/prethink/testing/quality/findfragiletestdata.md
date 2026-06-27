@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find fragile test data"}
-  description={"Detect hardcoded dates, timing-dependent assertions, and hardcoded ports/paths in test code that may cause flaky or environment-dependent test failures."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.testing.quality.FindFragileTestData"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/testing/quality/findfragiletestdata.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find fragile test data</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect hardcoded dates, timing-dependent assertions, and hardcoded ports/paths in test code that may cause flaky or environment-dependent test failures.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport java.time.LocalDate;\nimport org.junit.jupiter.api.Test;\n\npublic class DateTest {\n    @Test\n    void testWithHardcodedDate() {\n        LocalDate date = LocalDate.of(2023, 1, 15);\n    }\n}\n"},"variants":[]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer explicit imports over wildcards"}
-  description={"Finds wildcard imports (`import foo._` or `import foo.*`). Explicit imports are generally preferred for clarity."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.cleanup.PreferExplicitImports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/cleanup/preferexplicitimports.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Prefer explicit imports over wildcards</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds wildcard imports (`import foo._` or `import foo.*`). Explicit imports are generally preferred for clarity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"import scala.collection.mutable._\n\nclass Example {\n    val buf = new ArrayBuffer[Int]()\n}\n","after":"/*~~(Wildcard import)~~>*/import scala.collection.mutable._\n\nclass Example {\n    val buf = new ArrayBuffer[Int]()\n}\n","diff":"@@ -1,1 +1,1 @@\n-import scala.collection.mutable._\n+/*~~(Wildcard import)~~>*/import scala.collection.mutable._\n\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find WebSocket endpoints"}
-  description={"Identify WebSocket endpoints in the application. Supports Spring WebSocket, Spring STOMP messaging, and Jakarta/Javax WebSocket."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindWebSocketEndpoints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findwebsocketendpoints.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find WebSocket endpoints</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify WebSocket endpoints in the application. Supports Spring WebSocket, Spring STOMP messaging, and Jakarta/Javax WebSocket.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.springframework.messaging.handler.annotation.MessageMapping;\nimport org.springframework.stereotype.Controller;\n\n@Controller\npublic class ChatController {\n    @MessageMapping(\"/chat\")\n    public String handleMessage(String message) {\n        return message;\n    }\n}\n"},"variants":[]}]}>
 

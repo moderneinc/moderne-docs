@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use the latest JAX-WS API and runtime for Jakarta EE 8"}
-  description={"Update Gradle build files to use the latest JAX-WS runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater.  The recipe will add a JAX-WS run-time, in `compileOnly`+`testImplementation` configurations, to any project that has a transitive dependency on the JAX-WS API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.javax.AddJaxwsRuntime$AddJaxwsRuntimeGradle"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/javax/addjaxwsruntime$addjaxwsruntimegradle.md"}
-/>
+>
+
+<RecipeHeader.Title>Use the latest JAX-WS API and runtime for Jakarta EE 8</RecipeHeader.Title>
+
+<RecipeHeader.Description>Update Gradle build files to use the latest JAX-WS runtime from Jakarta EE 8 to maintain compatibility with Java version 11 or greater.  The recipe will add a JAX-WS run-time, in `compileOnly`+`testImplementation` configurations, to any project that has a transitive dependency on the JAX-WS API. **The resulting dependencies still use the `javax` namespace, despite the move to the Jakarta artifact**.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.javax.AddJaxwsRuntime$AddJaxwsRuntimeGradle","displayName":"Use the latest JAX-WS API and runtime for Jakarta EE 8","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 

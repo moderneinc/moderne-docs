@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Correctly spaced descriptions"}
-  description={"Recipe descriptions should be cleanly formatted. This recipe forces correct spacing in multiline descriptions. In a multi line description the lines should not start with whitespace and end with a single space except for the last line which should end with a \".\" (e.g.\n```\n  return \"This is a correct \" +\n   \"multi line description\";\n```\n)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,22 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.CorrectlySpacedDescriptions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/correctlyspaceddescriptions.md"}
-/>
+>
+
+<RecipeHeader.Title>Correctly spaced descriptions</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe descriptions should be cleanly formatted. This recipe forces correct spacing in multiline descriptions. In a multi line description the lines should not start with whitespace and end with a single space except for the last line which should end with a "." (e.g.
+```
+  return "This is a correct " +
+   "multi line description";
+```
+).
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.openrewrite.Recipe;\n\nclass Test extends Recipe {\n    @Override\n    public String getDescription() {\n      return \"A description.\" +\n         \" which might\" +\n         \"consist    \" +\n         \"   of several lines.\";\n    }\n}\n","after":"import org.openrewrite.Recipe;\n\nclass Test extends Recipe {\n    @Override\n    public String getDescription() {\n      return \"A description. \" +\n         \"which might \" +\n         \"consist \" +\n         \"of several lines.\";\n    }\n}\n","diff":"@@ -6,4 +6,4 @@\n    @Override\n    public String getDescription() {\n-     return \"A description.\" +\n-        \" which might\" +\n-        \"consist    \" +\n-        \"   of several lines.\";\n+     return \"A description. \" +\n+        \"which might \" +\n+        \"consist \" +\n+        \"of several lines.\";\n    }\n","newFile":false}]}]}>
 

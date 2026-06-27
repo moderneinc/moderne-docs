@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Merge preprocessor directives"}
-  description={"Merge consecutive preprocessor directives that can be combined into a single directive."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.MergePreprocessorDirectives"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/mergepreprocessordirectives.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Merge preprocessor directives</RecipeHeader.Title>
+
+<RecipeHeader.Description>Merge consecutive preprocessor directives that can be combined into a single directive.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.MergePreprocessorDirectives","displayName":"Merge preprocessor directives","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

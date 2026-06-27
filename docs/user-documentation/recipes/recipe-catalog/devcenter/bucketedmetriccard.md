@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"DevCenter card from a data table column"}
-  description={"Read rows from a previously emitted data table, aggregate a numeric column across all rows for this repository, and bucket the result into ordinal DevCenter measures."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.devcenter.BucketedMetricCard"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/devcenter/bucketedmetriccard.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>DevCenter card from a data table column</RecipeHeader.Title>
+
+<RecipeHeader.Description>Read rows from a previously emitted data table, aggregate a numeric column across all rows for this repository, and bucket the result into ordinal DevCenter measures.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"inputDataTable","required":true,"description":"The fully qualified class name of the data table to read rows from. This data table is expected to be populated by another recipe earlier in the same recipe list.","example":"io.moderne.organizations.table.ClassCohesion"},{"type":"String","name":"cardName","required":true,"description":"The display name of this DevCenter card.","example":"Class cohesion (LCOM4)"},{"type":"String","name":"column","required":true,"description":"The numeric column of the input data table to feed into the aggregation function.","example":"lcom4"},{"type":"AggregationFunction","name":"aggregation","required":true,"description":"How to reduce the column's values across all rows in the repository to a single representative value before bucketing. `MIN`, `MAX`, `SUM`, and `AVERAGE` operate on numeric values of the column. `COUNT` returns the number of rows the upstream data table emitted for this repository, regardless of column value. `UNIQUE` returns the number of distinct non-null values of the column. Matching is case-insensitive.","example":"AVERAGE"},{"type":"Bucket[]","name":"buckets","required":true,"description":"Ordered list of buckets. Each bucket has a `name` and an inclusive lower bound `moreThan` — a value is considered to fall into the bucket when `value >= moreThan`. When multiple buckets apply, the one with the largest `moreThan` wins. The list order defines the DevCenter measure ordinal: the first bucket maps to ordinal `0`, the last to ordinal `size - 1`. This lets callers control which end of the scale the visualization renders as \"worst\" (lowest ordinal) versus \"best\" (highest ordinal).","example":"[{\"name\": \"LOW\", \"moreThan\": 10}, {\"name\": \"MEDIUM\", \"moreThan\": 3}, {\"name\": \"HIGH\", \"moreThan\": 0}]"}]}>
 

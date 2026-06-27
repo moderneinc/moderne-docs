@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `repo.findById(id).get()` chains"}
-  description={"`Optional.get()` on a JPA repository result throws `NoSuchElementException` when the row is missing — the same outcome as `getReferenceById(id)` but without the explicit Optional dance. In Kotlin, `findByIdOrNull(id)` plus a null check (or `?: throw`) is even more direct."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindJpaRepositoryFindByIdWithoutOptional$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findjparepositoryfindbyidwithoutoptional$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `repo.findById(id).get()` chains</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Optional.get()` on a JPA repository result throws `NoSuchElementException` when the row is missing — the same outcome as `getReferenceById(id)` but without the explicit Optional dance. In Kotlin, `findByIdOrNull(id)` plus a null check (or `?: throw`) is even more direct.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindJpaRepositoryFindByIdWithoutOptional$KtRecipe","displayName":"Find `repo.findById(id).get()` chains","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

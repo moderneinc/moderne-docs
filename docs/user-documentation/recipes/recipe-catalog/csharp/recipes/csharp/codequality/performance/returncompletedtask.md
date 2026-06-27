@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Return completed task instead of null"}
-  description={"Replace return null in Task-returning methods with return Task.CompletedTask."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.ReturnCompletedTask"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/returncompletedtask.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Return completed task instead of null</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace return null in Task-returning methods with return Task.CompletedTask.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.ReturnCompletedTask","displayName":"Return completed task instead of null","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

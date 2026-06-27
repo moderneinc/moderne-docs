@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Android logging smells"}
-  description={"Logging shapes that don't compose with structured logging: `android.util.Log.v/d/i/w/e` calls (flat global logger; prefer Timber or `androidx.tracing`) and `System.out.println` on Android (untagged logcat output)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindAndroidLoggingSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidloggingsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `android.util.Log.v/d/i/w/e(...)` calls","href":"kotlin/android/findandroidlogusage$ktrecipe"},{"name":"Find `System.out.println(...)` calls","href":"kotlin/android/findsystemoutinandroid$ktrecipe"}]}>
+<RecipeHeader.Title>Find Android logging smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Logging shapes that don't compose with structured logging: `android.util.Log.v/d/i/w/e` calls (flat global logger; prefer Timber or `androidx.tracing`) and `System.out.println` on Android (untagged logcat output).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `android.util.Log.v/d/i/w/e(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findandroidlogusage$ktrecipe/"},{"name":"Find `System.out.println(...)` calls","href":"/user-documentation/recipes/recipe-catalog/kotlin/android/findsystemoutinandroid$ktrecipe/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find JUnit 5 setup smells (informational)"}
-  description={"Search-only bundle for informational `@ParameterizedTest` / `@RepeatedTest` / `@Tag` / `@Disabled` review markers. None of these are anti-patterns on their own — each one is worth a once-over for parameter-source choice, repetition intent, tag spelling, or whether the disable is still warranted."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindTestFrameworkSetupSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findtestframeworksetupsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `@ValueSource(strings = [...])` annotations","href":"kotlin/testing/findparameterizedtestwithvaluesourcestrings$ktrecipe"},{"name":"Find `@RepeatedTest(N)` annotations","href":"kotlin/testing/findrepeatedtestannotation$ktrecipe"},{"name":"Find `@Tag(...)` annotations","href":"kotlin/testing/findtagannotationusage$ktrecipe"},{"name":"Find `@Disabled` annotations","href":"kotlin/testing/finddisabledtest$ktrecipe"}]}>
+<RecipeHeader.Title>Find JUnit 5 setup smells (informational)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Search-only bundle for informational `@ParameterizedTest` / `@RepeatedTest` / `@Tag` / `@Disabled` review markers. None of these are anti-patterns on their own — each one is worth a once-over for parameter-source choice, repetition intent, tag spelling, or whether the disable is still warranted.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `@ValueSource(strings = [...])` annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findparameterizedtestwithvaluesourcestrings$ktrecipe/"},{"name":"Find `@RepeatedTest(N)` annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findrepeatedtestannotation$ktrecipe/"},{"name":"Find `@Tag(...)` annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/findtagannotationusage$ktrecipe/"},{"name":"Find `@Disabled` annotations","href":"/user-documentation/recipes/recipe-catalog/kotlin/testing/finddisabledtest$ktrecipe/"}]}>
 
 ## Definition
 

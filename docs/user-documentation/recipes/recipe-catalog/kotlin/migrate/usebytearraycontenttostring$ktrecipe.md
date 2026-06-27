@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `ByteArray.contentToString()` instead of `Arrays.toString(arr)`"}
-  description={"`java.util.Arrays.toString(arr: byte[])` is JVM-only; `arr.contentToString()` is the multiplatform Kotlin extension."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseByteArrayContentToString$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usebytearraycontenttostring$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `ByteArray.contentToString()` instead of `Arrays.toString(arr)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`java.util.Arrays.toString(arr: byte[])` is JVM-only; `arr.contentToString()` is the multiplatform Kotlin extension.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseByteArrayContentToString$KtRecipe","displayName":"Use `ByteArray.contentToString()` instead of `Arrays.toString(arr)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

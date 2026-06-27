@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `EnumSet of(..)`"}
-  description={"Prefer `EnumSet of(..)` instead of using `Set of(..)` when the arguments are enums in Java 9 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.UseEnumSetOf"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/useenumsetof.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `EnumSet of(..)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `EnumSet of(..)` instead of using `Set of(..)` when the arguments are enums in Java 9 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"convertEmptySet","required":false,"description":"When true, converts `Set.of()` with no arguments to `EnumSet.noneOf()`. Default true.","example":"true"}]}>
 

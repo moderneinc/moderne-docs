@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add Kubernetes configuration"}
-  description={"Add default required configuration when it is missing."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.AddConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/addconfiguration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add Kubernetes configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add default required configuration when it is missing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"apiVersion","required":false,"description":"The Kubernetes resource API version to use.","example":"policy/v1beta1"},{"type":"String","name":"resourceKind","required":true,"description":"The Kubernetes resource type the configured is required on.","example":"PodSecurityPolicy"},{"type":"String","name":"configurationPath","required":true,"description":"A JsonPath expression to locate Kubernetes configuration. Must be an absolute path.","example":"$.spec"},{"type":"String","name":"value","required":true,"description":"The configuration that is added when necessary, including the key.","example":"privileged: false"}]}>
 

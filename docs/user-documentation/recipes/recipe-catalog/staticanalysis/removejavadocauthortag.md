@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove author tags from JavaDocs"}
-  description={"Removes author tags from JavaDocs to reduce code maintenance."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveJavaDocAuthorTag"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removejavadocauthortag.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove author tags from JavaDocs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes author tags from JavaDocs to reduce code maintenance.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"/**\n * Java doc text.\n *\n * @author fname.lname, fname.lname\n */\nclass Test {}\n","after":"/**\n * Java doc text.\n *\n */\nclass Test {}\n","diff":"@@ -4,1 +4,0 @@\n * Java doc text.\n *\n-* @author fname.lname, fname.lname\n */\n","newFile":false}]}]}>
 

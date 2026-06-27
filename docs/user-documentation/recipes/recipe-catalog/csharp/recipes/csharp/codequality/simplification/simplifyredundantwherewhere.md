@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Merge consecutive Where calls"}
-  description={"Detect consecutive `.Where(p).Where(q)` calls that could be merged."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyRedundantWhereWhere"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifyredundantwherewhere.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Merge consecutive Where calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect consecutive `.Where(p).Where(q)` calls that could be merged.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyRedundantWhereWhere","displayName":"Merge consecutive Where calls","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

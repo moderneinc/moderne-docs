@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"SLF4J best practices"}
-  description={"Applies best practices to logging with SLF4J."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["slf4j","logging"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.Slf4jBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/slf4jbestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Unpack Logger method `new Object[] {...}` into varargs","href":"java/logging/argumentarraytovarargs"},{"name":"Loggers should be named for their enclosing classes","href":"java/logging/slf4j/loggersnamedforenclosingclass"},{"name":"SLF4J logging statements should begin with constants","href":"java/logging/slf4j/slf4jlogshouldbeconstant"},{"name":"`String.format()` in logging statements should use SLF4J parameterized logging","href":"java/logging/slf4j/stringformattoparameterizedlogging"},{"name":"`MessageFormat.format()` in logging statements should use SLF4J parameterized logging","href":"java/logging/slf4j/messageformattoparameterizedlogging"},{"name":"Parameterize SLF4J's logging statements","href":"java/logging/slf4j/parameterizedlogging"},{"name":"Enhances logging of exceptions by including the full stack trace in addition to the exception message","href":"java/logging/slf4j/completeexceptionlogging"},{"name":"Catch block log level","href":"java/logging/catchblockloglevel"},{"name":"Change logger fields to `private`","href":"java/logging/changeloggerstoprivate"},{"name":"Match `if (is*Enabled())` with logging statements","href":"java/logging/slf4j/matchisloglevelenabledwithlogstatements"},{"name":"Optimize log statements","href":"java/logging/slf4j/wrapexpensivelogstatementsinconditionals"},{"name":"Strip `toString()` from arguments","href":"java/logging/slf4j/striptostringfromarguments"},{"name":"Remove unnecessary log level guards","href":"java/logging/slf4j/removeunnecessaryloglevelguards"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>SLF4J best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies best practices to logging with SLF4J.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Unpack Logger method `new Object[] {...}` into varargs","href":"/user-documentation/recipes/recipe-catalog/java/logging/argumentarraytovarargs/"},{"name":"Loggers should be named for their enclosing classes","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/loggersnamedforenclosingclass/"},{"name":"SLF4J logging statements should begin with constants","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/slf4jlogshouldbeconstant/"},{"name":"`String.format()` in logging statements should use SLF4J parameterized logging","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/stringformattoparameterizedlogging/"},{"name":"`MessageFormat.format()` in logging statements should use SLF4J parameterized logging","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/messageformattoparameterizedlogging/"},{"name":"Parameterize SLF4J's logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/parameterizedlogging/"},{"name":"Enhances logging of exceptions by including the full stack trace in addition to the exception message","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/completeexceptionlogging/"},{"name":"Catch block log level","href":"/user-documentation/recipes/recipe-catalog/java/logging/catchblockloglevel/"},{"name":"Change logger fields to `private`","href":"/user-documentation/recipes/recipe-catalog/java/logging/changeloggerstoprivate/"},{"name":"Match `if (is*Enabled())` with logging statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/matchisloglevelenabledwithlogstatements/"},{"name":"Optimize log statements","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/wrapexpensivelogstatementsinconditionals/"},{"name":"Strip `toString()` from arguments","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/striptostringfromarguments/"},{"name":"Remove unnecessary log level guards","href":"/user-documentation/recipes/recipe-catalog/java/logging/slf4j/removeunnecessaryloglevelguards/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

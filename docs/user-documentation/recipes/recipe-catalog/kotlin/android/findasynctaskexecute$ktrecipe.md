@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `AsyncTask.execute` / `executeOnExecutor` calls"}
-  description={"Beyond `AsyncTask` instantiation, the `execute`/`executeOnExecutor` call sites are the place the background work actually starts. Migration to `viewModelScope.launch { withContext(Dispatchers.IO) { … } }` happens at the call site, not the declaration — flag both."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindAsyncTaskExecute$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findasynctaskexecute$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `AsyncTask.execute` / `executeOnExecutor` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Beyond `AsyncTask` instantiation, the `execute`/`executeOnExecutor` call sites are the place the background work actually starts. Migration to `viewModelScope.launch { withContext(Dispatchers.IO) { … } }` happens at the call site, not the declaration — flag both.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindAsyncTaskExecute$KtRecipe","displayName":"Find `AsyncTask.execute` / `executeOnExecutor` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

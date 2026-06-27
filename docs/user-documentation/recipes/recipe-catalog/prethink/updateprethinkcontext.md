@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update Prethink context"}
-  description={"Generate FINOS CALM architecture diagram and update agent configuration files. This recipe expects CALM-related data tables (ServiceEndpoints, DatabaseConnections, ExternalServiceCalls, MessagingConnections, etc.) to be populated by other recipes in a composite."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-prethink"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.prethink.UpdatePrethinkContext"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontext.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Generate [CALM](https://calm.finos.org/) architecture","href":"prethink/calm/generatecalmarchitecture"},{"name":"Export context files","href":"prethink/exportcontext"},{"name":"Update agent configuration files","href":"prethink/updateagentconfig"},{"name":"Update .gitignore for Prethink context","href":"prethink/updategitignore"}]}>
+<RecipeHeader.Title>Update Prethink context</RecipeHeader.Title>
+
+<RecipeHeader.Description>Generate FINOS CALM architecture diagram and update agent configuration files. This recipe expects CALM-related data tables (ServiceEndpoints, DatabaseConnections, ExternalServiceCalls, MessagingConnections, etc.) to be populated by other recipes in a composite.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Generate [CALM](https://calm.finos.org/) architecture","href":"/user-documentation/recipes/recipe-catalog/prethink/calm/generatecalmarchitecture/"},{"name":"Export context files","href":"/user-documentation/recipes/recipe-catalog/prethink/exportcontext/"},{"name":"Update agent configuration files","href":"/user-documentation/recipes/recipe-catalog/prethink/updateagentconfig/"},{"name":"Update .gitignore for Prethink context","href":"/user-documentation/recipes/recipe-catalog/prethink/updategitignore/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `PanacheEntityBase` static methods"}
-  description={"The `getEntityManager()` and the `flush()` methods of `PanacheEntityBase` are now static methods."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.quarkus2.UsePanacheEntityBaseStaticMethods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/quarkus2/usepanacheentitybasestaticmethods.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `PanacheEntityBase` static methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>The `getEntityManager()` and the `flush()` methods of `PanacheEntityBase` are now static methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.openrewrite.example;\n\nimport org.openrewrite.example.Person;\n\nclass Test {\n    {\n        Person p = new Person();\n        p.getEntityManager();\n        p.flush();\n    }\n}\n","after":"package org.openrewrite.example;\n\nimport org.openrewrite.example.Person;\n\nclass Test {\n    {\n        Person p = new Person();\n        Person.getEntityManager();\n        Person.flush();\n    }\n}\n","diff":"@@ -8,2 +8,2 @@\n    {\n        Person p = new Person();\n-       p.getEntityManager();\n-       p.flush();\n+       Person.getEntityManager();\n+       Person.flush();\n    }\n","newFile":false}]}]}>
 

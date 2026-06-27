@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Thread { }.start()` calls inside `Activity` / `Fragment`"}
-  description={"Hand-rolled `Thread { … }.start()` inside a UI component leaks across configuration changes (the thread outlives the activity) and has no story for cancellation. Migrate to `lifecycleScope.launch(Dispatchers.IO) { … }` or `viewModelScope.launch { … }` — both cancel when the lifecycle ends."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindManualThreadingInActivity$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findmanualthreadinginactivity$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Thread { }.start()` calls inside `Activity` / `Fragment`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Hand-rolled `Thread { … }.start()` inside a UI component leaks across configuration changes (the thread outlives the activity) and has no story for cancellation. Migrate to `lifecycleScope.launch(Dispatchers.IO) { … }` or `viewModelScope.launch { … }` — both cancel when the lifecycle ends.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindManualThreadingInActivity$KtRecipe","displayName":"Find `Thread { }.start()` calls inside `Activity` / `Fragment`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

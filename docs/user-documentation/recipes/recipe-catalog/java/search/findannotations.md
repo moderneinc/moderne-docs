@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find annotations"}
-  description={"Find all annotations matching the annotation pattern."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/findannotations.md"}
-/>
+>
+
+<RecipeHeader.Title>Find annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find all annotations matching the annotation pattern.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"annotationPattern","required":true,"description":"An annotation pattern, expressed as a method pattern.","example":"@java.lang.SuppressWarnings(\"deprecation\")"},{"type":"Boolean","name":"matchMetaAnnotations","required":false,"description":"When enabled, matches on meta annotations of the annotation pattern."}]}>
 

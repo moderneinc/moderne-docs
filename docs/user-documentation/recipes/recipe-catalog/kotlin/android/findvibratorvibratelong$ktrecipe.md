@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Vibrator.vibrate(long)` (one-arg) calls"}
-  description={"The single-`long` `Vibrator.vibrate(ms)` was deprecated in API 26. Use `Vibrator.vibrate(VibrationEffect.createOneShot(...))` (or `VibratorManager` on API 31+) — both let the platform pick the appropriate amplitude."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindVibratorVibrateLong$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findvibratorvibratelong$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Vibrator.vibrate(long)` (one-arg) calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>The single-`long` `Vibrator.vibrate(ms)` was deprecated in API 26. Use `Vibrator.vibrate(VibrationEffect.createOneShot(...))` (or `VibratorManager` on API 31+) — both let the platform pick the appropriate amplitude.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindVibratorVibrateLong$KtRecipe","displayName":"Find `Vibrator.vibrate(long)` (one-arg) calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `EndpointDiscoverer` deprecated constructor"}
-  description={"The 4-parameter constructor of `EndpointDiscoverer` has been deprecated in Spring Boot 3.4. This recipe transforms it to use the new 5-parameter constructor with an additional Collection parameter."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.MigrateEndpointDiscovererConstructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/migrateendpointdiscovererconstructor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `EndpointDiscoverer` deprecated constructor</RecipeHeader.Title>
+
+<RecipeHeader.Description>The 4-parameter constructor of `EndpointDiscoverer` has been deprecated in Spring Boot 3.4. This recipe transforms it to use the new 5-parameter constructor with an additional Collection parameter.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.boot.actuate.endpoint.EndpointFilter;\nimport org.springframework.boot.actuate.endpoint.ExposableEndpoint;\nimport org.springframework.boot.actuate.endpoint.Operation;\nimport org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer;\nimport org.springframework.boot.actuate.endpoint.invoke.OperationInvokerAdvisor;\nimport org.springframework.boot.actuate.endpoint.invoke.ParameterValueMapper;\nimport org.springframework.context.ApplicationContext;\n\nimport java.util.Collection;\n\npublic abstract class CustomEndpointDiscoverer<E extends ExposableEndpoint<T>, T extends Operation> extends EndpointDiscoverer<E, T> {\n\n    public CustomEndpointDiscoverer(ApplicationContext applicationContext, ParameterValueMapper parameterValueMapper, Collection<OperationInvokerAdvisor> invokerAdvisors, Collection<EndpointFilter<E>> endpointFilters) {\n        super(applicationContext, parameterValueMapper, invokerAdvisors, endpointFilters);\n    }\n}\n","after":"import org.springframework.boot.actuate.endpoint.EndpointFilter;\nimport org.springframework.boot.actuate.endpoint.ExposableEndpoint;\nimport org.springframework.boot.actuate.endpoint.Operation;\nimport org.springframework.boot.actuate.endpoint.annotation.EndpointDiscoverer;\nimport org.springframework.boot.actuate.endpoint.invoke.OperationInvokerAdvisor;\nimport org.springframework.boot.actuate.endpoint.invoke.ParameterValueMapper;\nimport org.springframework.context.ApplicationContext;\n\nimport java.util.Collection;\nimport java.util.Collections;\n\npublic abstract class CustomEndpointDiscoverer<E extends ExposableEndpoint<T>, T extends Operation> extends EndpointDiscoverer<E, T> {\n\n    public CustomEndpointDiscoverer(ApplicationContext applicationContext, ParameterValueMapper parameterValueMapper, Collection<OperationInvokerAdvisor> invokerAdvisors, Collection<EndpointFilter<E>> endpointFilters) {\n        super(applicationContext, parameterValueMapper, invokerAdvisors, endpointFilters, Collections.emptyList());\n    }\n}\n","diff":"@@ -10,0 +10,1 @@\n\nimport java.util.Collection;\n+import java.util.Collections;\n\n@@ -14,1 +15,1 @@\n\n    public CustomEndpointDiscoverer(ApplicationContext applicationContext, ParameterValueMapper parameterValueMapper, Collection<OperationInvokerAdvisor> invokerAdvisors, Collection<EndpointFilter<E>> endpointFilters) {\n-       super(applicationContext, parameterValueMapper, invokerAdvisors, endpointFilters);\n+       super(applicationContext, parameterValueMapper, invokerAdvisors, endpointFilters, Collections.emptyList());\n    }\n","newFile":false}]}]}>
 

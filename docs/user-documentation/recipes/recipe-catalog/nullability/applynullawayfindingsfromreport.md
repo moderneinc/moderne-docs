@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply NullAway findings from a WARN report"}
-  description={"Applies sound, behavior-preserving fixes for the NullAway findings in a WARN-level compile report at /tmp/nullaway-report.txt (requireNonNull at dereferences, @MonotonicNonNull on uninitialized fields, @Nullable on nullable returns/field-assignments). Run iteratively: compile, regenerate the report, re-run, until no findings remain."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["nullaway","nullability"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.ApplyNullAwayFindingsFromReport"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/applynullawayfindingsfromreport.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Apply sound fixes for NullAway findings","href":"nullability/fix/applynullawayfindings"},{"name":"Move a leading `@Nullable` to the type-use position","href":"nullability/cleanup/movenullabletotypeuseposition"}]}>
+<RecipeHeader.Title>Apply NullAway findings from a WARN report</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies sound, behavior-preserving fixes for the NullAway findings in a WARN-level compile report at /tmp/nullaway-report.txt (requireNonNull at dereferences, @MonotonicNonNull on uninitialized fields, @Nullable on nullable returns/field-assignments). Run iteratively: compile, regenerate the report, re-run, until no findings remain.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Apply sound fixes for NullAway findings","href":"/user-documentation/recipes/recipe-catalog/nullability/fix/applynullawayfindings/"},{"name":"Move a leading `@Nullable` to the type-use position","href":"/user-documentation/recipes/recipe-catalog/nullability/cleanup/movenullabletotypeuseposition/"}]}>
 
 ## Definition
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `StreamRules.StreamFlatMapCollect`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamFlatMapCollect<T, U, R> {\n    \n    @BeforeTemplate\n    R before(Stream<T> stream, Function<? super T, ? extends Stream<? extends U>> mapper, Collector<? super U, ?, R> collector) {\n        return stream.collect(flatMapping(mapper, collector));\n    }\n    \n    @AfterTemplate\n    R after(Stream<T> stream, Function<? super T, ? extends Stream<? extends U>> mapper, Collector<? super U, ?, R> collector) {\n        return stream.flatMap(mapper).collect(collector);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,32 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFlatMapCollectRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/streamrulesrecipes$streamflatmapcollectrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `StreamRules.StreamFlatMapCollect`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class StreamFlatMapCollect<T, U, R> {
+    
+    @BeforeTemplate
+    R before(Stream<T> stream, Function<? super T, ? extends Stream<? extends U>> mapper, Collector<? super U, ?, R> collector) {
+        return stream.collect(flatMapping(mapper, collector));
+    }
+    
+    @AfterTemplate
+    R after(Stream<T> stream, Function<? super T, ? extends Stream<? extends U>> mapper, Collector<? super U, ?, R> collector) {
+        return stream.flatMap(mapper).collect(collector);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFlatMapCollectRecipe","displayName":"Refaster template `StreamRules.StreamFlatMapCollect`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

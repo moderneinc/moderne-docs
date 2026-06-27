@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Avoid closure when using ConcurrentDictionary"}
-  description={"ConcurrentDictionary methods like `GetOrAdd` may evaluate the factory even when the key exists. Use the overload with a factory argument to avoid closure allocation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindAvoidClosureInConcurrentDictionary"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findavoidclosureinconcurrentdictionary.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Avoid closure when using ConcurrentDictionary</RecipeHeader.Title>
+
+<RecipeHeader.Description>ConcurrentDictionary methods like `GetOrAdd` may evaluate the factory even when the key exists. Use the overload with a factory argument to avoid closure allocation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindAvoidClosureInConcurrentDictionary","displayName":"Avoid closure when using ConcurrentDictionary","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

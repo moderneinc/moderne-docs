@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJByteRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `byte`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJByteRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJByteRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbyterulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJByteRules.AbstractByteAssertIsEqualTo`","href":"picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertisequaltorecipe"},{"name":"Refaster template `AssertJByteRules.AbstractByteAssertIsNotEqualTo`","href":"picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertisnotequaltorecipe"},{"name":"Refaster template `AssertJByteRules.AbstractByteAssertIsZero`","href":"picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertiszerorecipe"},{"name":"Refaster template `AssertJByteRules.AbstractByteAssertIsNotZero`","href":"picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertisnotzerorecipe"},{"name":"Refaster template `AssertJByteRules.AbstractByteAssertIsOne`","href":"picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertisonerecipe"}]}>
+<RecipeHeader.Title>`AssertJByteRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `byte`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJByteRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJByteRules.AbstractByteAssertIsEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertisequaltorecipe/"},{"name":"Refaster template `AssertJByteRules.AbstractByteAssertIsNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertisnotequaltorecipe/"},{"name":"Refaster template `AssertJByteRules.AbstractByteAssertIsZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertiszerorecipe/"},{"name":"Refaster template `AssertJByteRules.AbstractByteAssertIsNotZero`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertisnotzerorecipe/"},{"name":"Refaster template `AssertJByteRules.AbstractByteAssertIsOne`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjbyterulesrecipes$abstractbyteassertisonerecipe/"}]}>
 
 ## Definition
 

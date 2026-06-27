@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `only`/`except` to `rules`"}
-  description={"Replace the deprecated `only` and `except` keywords with equivalent `rules` in `.gitlab-ci.yml` job definitions. When both `only` and `except` are present, they are combined into a single `rules` block. Handles simple ref list forms; complex object forms with `refs`, `variables`, or `changes` sub-keys are left unchanged."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-gitlab"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gitlab.MigrateToRules"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gitlab/migratetorules.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `only`/`except` to `rules`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace the deprecated `only` and `except` keywords with equivalent `rules` in `.gitlab-ci.yml` job definitions. When both `only` and `except` are present, they are combined into a single `rules` block. Handles simple ref list forms; complex object forms with `refs`, `variables`, or `changes` sub-keys are left unchanged.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"build_job:\n  script: make build\n  only:\n    - main\n","after":"build_job:\n  script: make build\n  rules:\n    - if: $CI_COMMIT_BRANCH == 'main'\n","diff":"--- .gitlab-ci.yml\n+++ .gitlab-ci.yml\n@@ -3,2 +3,2 @@\nbuild_job:\n  script: make build\n- only:\n-   - main\n+ rules:\n+   - if: $CI_COMMIT_BRANCH == 'main'\n\n","newFile":false}]}]}>
 

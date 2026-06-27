@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove annotation"}
-  description={"Remove matching annotations wherever they occur."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.RemoveAnnotation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/removeannotation.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove matching annotations wherever they occur.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"annotationPattern","required":true,"description":"An annotation pattern, expressed as a method pattern.","example":"@java.lang.SuppressWarnings(\"deprecation\")"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find uses of `@Repeatable` annotations"}
-  description={"Java 8 introduced the concept of `@Repeatable` annotations."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.search.FindRepeatableAnnotations"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/findrepeatableannotations.md"}
-/>
+>
+
+<RecipeHeader.Title>Find uses of `@Repeatable` annotations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Java 8 introduced the concept of `@Repeatable` annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"java","code":"package org.mapstruct;\n\nimport java.lang.annotation.ElementType;\nimport java.lang.annotation.Repeatable;\nimport java.lang.annotation.Retention;\nimport java.lang.annotation.RetentionPolicy;\nimport java.lang.annotation.Target;\n\n@Repeatable(ValueMappings.class)\n@Retention(RetentionPolicy.CLASS)\n@Target(ElementType.METHOD)\npublic @interface ValueMapping {\n    String source();\n\n    String target();\n}\n"},"variants":[{"language":"java","before":"import org.mapstruct.*;\nclass Test {\n    @ValueMappings({\n            @ValueMapping(source = \"UNKNOWN\", target = MappingConstants.NULL),\n            @ValueMapping(source = \"UNRECOGNIZED\", target = MappingConstants.NULL)\n    })\n    void test() {\n    }\n}\n","after":"import org.mapstruct.*;\nclass Test {\n    @ValueMappings({\n            /*~~>*/@ValueMapping(source = \"UNKNOWN\", target = MappingConstants.NULL),\n            /*~~>*/@ValueMapping(source = \"UNRECOGNIZED\", target = MappingConstants.NULL)\n    })\n    void test() {\n    }\n}\n","diff":"@@ -4,2 +4,2 @@\nclass Test {\n    @ValueMappings({\n-           @ValueMapping(source = \"UNKNOWN\", target = MappingConstants.NULL),\n-           @ValueMapping(source = \"UNRECOGNIZED\", target = MappingConstants.NULL)\n+           /*~~>*/@ValueMapping(source = \"UNKNOWN\", target = MappingConstants.NULL),\n+           /*~~>*/@ValueMapping(source = \"UNRECOGNIZED\", target = MappingConstants.NULL)\n    })\n","newFile":false}]}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Flux.blockFirst()` calls outside `@Test` methods"}
-  description={"`Flux.blockFirst()` blocks the calling thread waiting for the first element of a Flux — fine in tests, a thread-pool hazard in production. Bridge with `awaitFirst()` / `awaitFirstOrNull()` from `kotlinx-coroutines-reactor` inside a `suspend fun`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindFluxBlockFirstInNonTest$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findfluxblockfirstinnontest$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Flux.blockFirst()` calls outside `@Test` methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Flux.blockFirst()` blocks the calling thread waiting for the first element of a Flux — fine in tests, a thread-pool hazard in production. Bridge with `awaitFirst()` / `awaitFirstOrNull()` from `kotlinx-coroutines-reactor` inside a `suspend fun`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindFluxBlockFirstInNonTest$KtRecipe","displayName":"Find `Flux.blockFirst()` calls outside `@Test` methods","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

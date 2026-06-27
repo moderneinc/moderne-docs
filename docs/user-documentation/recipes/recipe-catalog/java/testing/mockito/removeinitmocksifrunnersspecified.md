@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `MockitoAnnotations.initMocks(this)` and `openMocks(this)` if JUnit runners specified"}
-  description={"Remove `MockitoAnnotations.initMocks(this)` and `MockitoAnnotations.openMocks(this)` if class-level JUnit runners `@RunWith(MockitoJUnitRunner.class)` or `@ExtendWith(MockitoExtension.class)` are specified. These manual initialization calls are redundant when using Mockito's JUnit integration. Note that the `@Mock` fields will then be initialized by the strict mocking session of the extension or runner; tests that relied on the lenient mocks created by an explicit `openMocks(this)` call inside `@BeforeEach` may surface `UnnecessaryStubbingException`. Add `@MockitoSettings(strictness = Strictness.LENIENT)` to opt out."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.RemoveInitMocksIfRunnersSpecified"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/removeinitmocksifrunnersspecified.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `MockitoAnnotations.initMocks(this)` and `openMocks(this)` if JUnit runners specified</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove `MockitoAnnotations.initMocks(this)` and `MockitoAnnotations.openMocks(this)` if class-level JUnit runners `@RunWith(MockitoJUnitRunner.class)` or `@ExtendWith(MockitoExtension.class)` are specified. These manual initialization calls are redundant when using Mockito's JUnit integration. Note that the `@Mock` fields will then be initialized by the strict mocking session of the extension or runner; tests that relied on the lenient mocks created by an explicit `openMocks(this)` call inside `@BeforeEach` may surface `UnnecessaryStubbingException`. Add `@MockitoSettings(strictness = Strictness.LENIENT)` to opt out.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.junit.jupiter.MockitoExtension;\nimport org.mockito.MockitoAnnotations;\n\n@ExtendWith(MockitoExtension.class)\nclass A {\n\n    @BeforeEach\n    public void setUp() {\n        MockitoAnnotations.initMocks(this);\n    }\n\n    public void test() {\n    }\n}\n","after":"import org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.junit.jupiter.MockitoExtension;\n\n@ExtendWith(MockitoExtension.class)\nclass A {\n\n    public void test() {\n    }\n}\n","diff":"@@ -1,1 +1,0 @@\n-import org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.extension.ExtendWith;\n@@ -4,1 +3,0 @@\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.junit.jupiter.MockitoExtension;\n-import org.mockito.MockitoAnnotations;\n\n@@ -9,5 +7,0 @@\nclass A {\n\n-   @BeforeEach\n-   public void setUp() {\n-       MockitoAnnotations.initMocks(this);\n-   }\n-\n    public void test() {\n","newFile":false}]}]}>
 

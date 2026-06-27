@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `ContentResolver.query(...)` calls"}
-  description={"`ContentResolver.query(...)` blocks the calling thread for the full lifetime of the underlying IPC and cursor walk. Wrap the call in `withContext(Dispatchers.IO) { … }`, expose it as a `Flow` (`contentResolver.observe(uri)`-style), or move to a Room `@Query` if the data is backed by SQLite."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindContentResolverQuery$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findcontentresolverquery$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `ContentResolver.query(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`ContentResolver.query(...)` blocks the calling thread for the full lifetime of the underlying IPC and cursor walk. Wrap the call in `withContext(Dispatchers.IO) { … }`, expose it as a `Flow` (`contentResolver.observe(uri)`-style), or move to a Room `@Query` if the data is backed by SQLite.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindContentResolverQuery$KtRecipe","displayName":"Find `ContentResolver.query(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

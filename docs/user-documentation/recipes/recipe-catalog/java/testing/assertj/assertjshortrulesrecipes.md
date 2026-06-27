@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Adopt AssertJ Short Assertions"}
-  description={"Adopt AssertJ Short Assertions. Favor semantically explicit methods (e.g. `myShort.isZero()` over `myShort.isEqualTo(0)`)."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.AssertJShortRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjshortrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `isCloseTo` with `isEqualTo`","href":"java/testing/assertj/assertjshortrulesrecipes$abstractshortassertisequaltorecipe"},{"name":"Replace `isNotCloseTo` with `isNotEqualTo`","href":"java/testing/assertj/assertjshortrulesrecipes$abstractshortassertisnotequaltorecipe"},{"name":"Replace `isEqualTo(0)` with `isZero()`","href":"java/testing/assertj/assertjshortrulesrecipes$abstractshortassertiszerorecipe"},{"name":"Replace `isNotEqualTo(0)` with `isNotZero()`","href":"java/testing/assertj/assertjshortrulesrecipes$abstractshortassertisnotzerorecipe"},{"name":"Replace `isEqualTo(1)` with `isOne()`","href":"java/testing/assertj/assertjshortrulesrecipes$abstractshortassertisonerecipe"}]}>
+<RecipeHeader.Title>Adopt AssertJ Short Assertions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adopt AssertJ Short Assertions. Favor semantically explicit methods (e.g. `myShort.isZero()` over `myShort.isEqualTo(0)`).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `isCloseTo` with `isEqualTo`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjshortrulesrecipes$abstractshortassertisequaltorecipe/"},{"name":"Replace `isNotCloseTo` with `isNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjshortrulesrecipes$abstractshortassertisnotequaltorecipe/"},{"name":"Replace `isEqualTo(0)` with `isZero()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjshortrulesrecipes$abstractshortassertiszerorecipe/"},{"name":"Replace `isNotEqualTo(0)` with `isNotZero()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjshortrulesrecipes$abstractshortassertisnotzerorecipe/"},{"name":"Replace `isEqualTo(1)` with `isOne()`","href":"/user-documentation/recipes/recipe-catalog/java/testing/assertj/assertjshortrulesrecipes$abstractshortassertisonerecipe/"}]}>
 
 ## Definition
 

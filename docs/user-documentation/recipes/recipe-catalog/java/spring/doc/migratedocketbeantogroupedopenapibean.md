@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `Docket` to `GroupedOpenAPI`"}
-  description={"Migrate a `Docket` bean to a `GroupedOpenAPI` bean preserving group name, packages and paths. When possible the recipe will prefer property based configuration."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.doc.MigrateDocketBeanToGroupedOpenApiBean"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/doc/migratedocketbeantogroupedopenapibean.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `Docket` to `GroupedOpenAPI`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate a `Docket` bean to a `GroupedOpenAPI` bean preserving group name, packages and paths. When possible the recipe will prefer property based configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package org.project.example;\n\nimport org.springframework.context.annotation.Bean;\nimport springfox.documentation.builders.PathSelectors;\nimport springfox.documentation.builders.RequestHandlerSelectors;\nimport springfox.documentation.spi.DocumentationType;\nimport springfox.documentation.spring.web.plugins.Docket;\n\nclass ApplicationConfiguration {\n    @Bean\n    public Docket publicApi() {\n        return new Docket(DocumentationType.SWAGGER_2)\n                .select()\n                .apis(RequestHandlerSelectors.any())\n                .paths(PathSelectors.any())\n                .build()\n                .pathMapping(\"/\");\n    }\n}\n","after":"package org.project.example;\n\nclass ApplicationConfiguration {\n}\n","diff":"@@ -3,6 +3,0 @@\npackage org.project.example;\n\n-import org.springframework.context.annotation.Bean;\n-import springfox.documentation.builders.PathSelectors;\n-import springfox.documentation.builders.RequestHandlerSelectors;\n-import springfox.documentation.spi.DocumentationType;\n-import springfox.documentation.spring.web.plugins.Docket;\n-\nclass ApplicationConfiguration {\n@@ -10,9 +4,0 @@\n\nclass ApplicationConfiguration {\n-   @Bean\n-   public Docket publicApi() {\n-       return new Docket(DocumentationType.SWAGGER_2)\n-               .select()\n-               .apis(RequestHandlerSelectors.any())\n-               .paths(PathSelectors.any())\n-               .build()\n-               .pathMapping(\"/\");\n-   }\n}\n","newFile":false},{"language":"yaml","before":"spring.application.name: main\n","after":"spring.application.name: main\nspringdoc:\n  api-docs:\n    path: /v3/api-docs\n  swagger-ui:\n    path: /swagger-ui.html\n  paths-to-match: /**\n","diff":"--- application.yaml\n+++ application.yaml\n@@ -2,0 +2,6 @@\nspring.application.name: main\n+springdoc:\n+ api-docs:\n+   path: /v3/api-docs\n+ swagger-ui:\n+   path: /swagger-ui.html\n+ paths-to-match: /**\n\n","newFile":false}]}]}>
 

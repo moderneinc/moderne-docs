@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUnit 4 MockitoJUnitRunner with junit-jupiter MockitoExtension"}
-  description={"Replace JUnit 4 MockitoJUnitRunner annotations with JUnit 5 `@ExtendWith(MockitoExtension.class)` using the appropriate strictness levels (LENIENT, WARN, STRICT_STUBS)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.MockitoJUnitRunnerToExtension"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/mockitojunitrunnertoextension.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace JUnit 4 MockitoJUnitRunner with junit-jupiter MockitoExtension</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace JUnit 4 MockitoJUnitRunner annotations with JUnit 5 `@ExtendWith(MockitoExtension.class)` using the appropriate strictness levels (LENIENT, WARN, STRICT_STUBS).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.runner.RunWith;\nimport org.mockito.junit.MockitoJUnitRunner;\n\n@RunWith(MockitoJUnitRunner.Strict.class)\npublic class ExternalAPIServiceTest {\n}\n","after":"import org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.junit.jupiter.MockitoExtension;\n\n@ExtendWith(MockitoExtension.class)\npublic class ExternalAPIServiceTest {\n}\n","diff":"@@ -1,2 +1,2 @@\n-import org.junit.runner.RunWith;\n-import org.mockito.junit.MockitoJUnitRunner;\n+import org.junit.jupiter.api.extension.ExtendWith;\n+import org.mockito.junit.jupiter.MockitoExtension;\n\n@@ -4,1 +4,1 @@\nimport org.mockito.junit.MockitoJUnitRunner;\n\n-@RunWith(MockitoJUnitRunner.Strict.class)\n+@ExtendWith(MockitoExtension.class)\npublic class ExternalAPIServiceTest {\n","newFile":false}]}]}>
 

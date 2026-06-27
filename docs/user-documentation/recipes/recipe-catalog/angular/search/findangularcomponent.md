@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Angular component"}
-  description={"Locates usages of Angular components across the codebase including template elements and other references. If `componentName` is `null`, finds all Angular components."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.FindAngularComponent"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/findangularcomponent.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Angular component</RecipeHeader.Title>
+
+<RecipeHeader.Description>Locates usages of Angular components across the codebase including template elements and other references. If `componentName` is `null`, finds all Angular components.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"componentName","required":false,"description":"The name of the Angular component to find. If `null`, finds all Angular components.","example":"AppComponent"}]}>
 

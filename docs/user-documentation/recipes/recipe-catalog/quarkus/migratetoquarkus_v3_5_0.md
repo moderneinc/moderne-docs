@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Quarkus Updates Aggregate 3.5.0"}
-  description={"Quarkus update recipes to upgrade your application to 3.5.0."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.MigrateToQuarkus_v3_5_0"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_5_0.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.3.0","href":"quarkus/migratetoquarkus_v3_3_0"},{"name":"io.quarkus.updates.core.quarkus35.MutinyUniAndGroupCombinedWith","href":"quarkus/updates/core/quarkus35/mutinyuniandgroupcombinedwith"},{"name":"io.quarkus.updates.core.quarkus35.MutinyUniMemoizeAtLeast","href":"quarkus/updates/core/quarkus35/mutinyunimemoizeatleast"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"}]}>
+<RecipeHeader.Title>Quarkus Updates Aggregate 3.5.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Quarkus update recipes to upgrade your application to 3.5.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Quarkus Updates Aggregate 3.3.0","href":"/user-documentation/recipes/recipe-catalog/quarkus/migratetoquarkus_v3_3_0/"},{"name":"io.quarkus.updates.core.quarkus35.MutinyUniAndGroupCombinedWith","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus35/mutinyuniandgroupcombinedwith/"},{"name":"io.quarkus.updates.core.quarkus35.MutinyUniMemoizeAtLeast","href":"/user-documentation/recipes/recipe-catalog/quarkus/updates/core/quarkus35/mutinyunimemoizeatleast/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"}]}>
 
 ## Definition
 

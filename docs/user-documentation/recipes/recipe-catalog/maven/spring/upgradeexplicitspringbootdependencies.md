@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Spring dependencies"}
-  description={"Upgrades dependencies according to the specified version of spring boot. Spring boot has many direct and transitive dependencies. When a module has an explicit dependency on one of these it may also need to be upgraded to match the version used by spring boot."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.spring.UpgradeExplicitSpringBootDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/spring/upgradeexplicitspringbootdependencies.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade Spring dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrades dependencies according to the specified version of spring boot. Spring boot has many direct and transitive dependencies. When a module has an explicit dependency on one of these it may also need to be upgraded to match the version used by spring boot.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fromVersion","required":true,"description":"XRange pattern for spring version used to limit which projects should be updated","example":" 2.7.+"},{"type":"String","name":"toVersion","required":true,"description":"Upgrade version of `org.springframework.boot`","example":"3.0.0-M3"}]}>
 

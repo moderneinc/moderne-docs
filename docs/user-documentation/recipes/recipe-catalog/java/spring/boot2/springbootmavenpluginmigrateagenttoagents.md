@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `spring-boot.run.agents` configuration key in `spring-boot-maven-plugin`"}
-  description={"Migrate the `spring-boot.run.agent` Maven plugin configuration key to `spring-boot.run.agents`. Deprecated in 2.2.x."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.SpringBootMavenPluginMigrateAgentToAgents"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/springbootmavenpluginmigrateagenttoagents.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `spring-boot.run.agents` configuration key in `spring-boot-maven-plugin`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate the `spring-boot.run.agent` Maven plugin configuration key to `spring-boot.run.agents`. Deprecated in 2.2.x.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>org.openrewrite.example</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.springframework.boot</groupId>\n                <artifactId>spring-boot-maven-plugin</artifactId>\n                <configuration>\n                    <agent>some/directory/here.jar</agent>\n                </configuration>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>org.openrewrite.example</groupId>\n    <artifactId>my-app</artifactId>\n    <version>1</version>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.springframework.boot</groupId>\n                <artifactId>spring-boot-maven-plugin</artifactId>\n                <configuration>\n                    <agents>some/directory/here.jar</agents>\n                </configuration>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -12,1 +12,1 @@\n                <artifactId>spring-boot-maven-plugin</artifactId>\n                <configuration>\n-                   <agent>some/directory/here.jar</agent>\n+                   <agents>some/directory/here.jar</agents>\n                </configuration>\n","newFile":false}]}]}>
 

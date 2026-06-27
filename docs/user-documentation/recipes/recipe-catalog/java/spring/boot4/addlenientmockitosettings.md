@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@MockitoSettings(strictness = Strictness.LENIENT)` for `@MockitoBean` tests"}
-  description={"When migrating from `@MockBean` to `@MockitoBean`, the implicit LENIENT Mockito strictness from Spring Boot's `MockitoPostProcessor` is lost. If `@ExtendWith(MockitoExtension.class)` is present, Mockito enforces STRICT_STUBS by default, causing `UnnecessaryStubbingException` for tests with unused stubs. This recipe adds `@MockitoSettings(strictness = Strictness.LENIENT)` to preserve the original behavior."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot4.AddLenientMockitoSettings"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot4/addlenientmockitosettings.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@MockitoSettings(strictness = Strictness.LENIENT)` for `@MockitoBean` tests</RecipeHeader.Title>
+
+<RecipeHeader.Description>When migrating from `@MockBean` to `@MockitoBean`, the implicit LENIENT Mockito strictness from Spring Boot's `MockitoPostProcessor` is lost. If `@ExtendWith(MockitoExtension.class)` is present, Mockito enforces STRICT_STUBS by default, causing `UnnecessaryStubbingException` for tests with unused stubs. This recipe adds `@MockitoSettings(strictness = Strictness.LENIENT)` to preserve the original behavior.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.junit.jupiter.MockitoExtension;\nimport org.springframework.test.context.bean.override.mockito.MockitoBean;\n\n@ExtendWith(MockitoExtension.class)\npublic class SomeTest {\n    @MockitoBean\n    private String someService;\n}\n","after":"import org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.junit.jupiter.MockitoExtension;\nimport org.mockito.junit.jupiter.MockitoSettings;\nimport org.mockito.quality.Strictness;\nimport org.springframework.test.context.bean.override.mockito.MockitoBean;\n\n@ExtendWith(MockitoExtension.class)\n@MockitoSettings(strictness = Strictness.LENIENT)\npublic class SomeTest {\n    @MockitoBean\n    private String someService;\n}\n","diff":"@@ -3,0 +3,2 @@\nimport org.junit.jupiter.api.extension.ExtendWith;\nimport org.mockito.junit.jupiter.MockitoExtension;\n+import org.mockito.junit.jupiter.MockitoSettings;\n+import org.mockito.quality.Strictness;\nimport org.springframework.test.context.bean.override.mockito.MockitoBean;\n@@ -6,0 +8,1 @@\n\n@ExtendWith(MockitoExtension.class)\n+@MockitoSettings(strictness = Strictness.LENIENT)\npublic class SomeTest {\n","newFile":false}]}]}>
 

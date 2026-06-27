@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove leaking of SessionFactoryImplementor from `org.hibernate.usertype.CompositeUserType` invocations and implementations"}
-  description={"Remove leaking of SessionFactoryImplementor from `org.hibernate.usertype.CompositeUserType` invocations and implementations."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.hibernate.update70.CompositeUserTypeSessionFactoryImplementor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/hibernate/update70/compositeusertypesessionfactoryimplementor.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove leaking of SessionFactoryImplementor from `org.hibernate.usertype.CompositeUserType` invocations and implementations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove leaking of SessionFactoryImplementor from `org.hibernate.usertype.CompositeUserType` invocations and implementations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.hibernate.engine.spi.SessionFactoryImplementor;\nimport org.hibernate.metamodel.spi.ValueAccess;\nimport org.hibernate.usertype.CompositeUserType;\n\nclass CompositeUserTypeTest {\n    void testCompositeUserType(CompositeUserType type, org.hibernate.metamodel.spi.ValueAccess va, org.hibernate.engine.spi.SessionFactoryImplementor session) {\n        type.instantiate(va, session);\n        type.isInstance(null, session);\n        type.isSameClass(null, session);\n    }\n}\n","after":"import org.hibernate.engine.spi.SessionFactoryImplementor;\nimport org.hibernate.metamodel.spi.ValueAccess;\nimport org.hibernate.usertype.CompositeUserType;\n\nclass CompositeUserTypeTest {\n    void testCompositeUserType(CompositeUserType type, org.hibernate.metamodel.spi.ValueAccess va, org.hibernate.engine.spi.SessionFactoryImplementor session) {\n        type.instantiate(va);\n        type.isInstance(null);\n        type.isSameClass(null);\n    }\n}\n","diff":"@@ -7,3 +7,3 @@\nclass CompositeUserTypeTest {\n    void testCompositeUserType(CompositeUserType type, org.hibernate.metamodel.spi.ValueAccess va, org.hibernate.engine.spi.SessionFactoryImplementor session) {\n-       type.instantiate(va, session);\n-       type.isInstance(null, session);\n-       type.isSameClass(null, session);\n+       type.instantiate(va);\n+       type.isInstance(null);\n+       type.isSameClass(null);\n    }\n","newFile":false}]}]}>
 

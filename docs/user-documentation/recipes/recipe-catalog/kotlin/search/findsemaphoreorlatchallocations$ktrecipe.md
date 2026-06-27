@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Semaphore` / `CountDownLatch` / `CyclicBarrier` allocations"}
-  description={"Classic JUC coordination primitives indicate hand-rolled concurrency. In coroutine code, `kotlinx.coroutines.sync.Semaphore` and `CompletableDeferred` are the cooperative equivalents. Flag the call site for review."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindSemaphoreOrLatchAllocations$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findsemaphoreorlatchallocations$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Semaphore` / `CountDownLatch` / `CyclicBarrier` allocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>Classic JUC coordination primitives indicate hand-rolled concurrency. In coroutine code, `kotlinx.coroutines.sync.Semaphore` and `CompletableDeferred` are the cooperative equivalents. Flag the call site for review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindSemaphoreOrLatchAllocations$KtRecipe","displayName":"Find `Semaphore` / `CountDownLatch` / `CyclicBarrier` allocations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

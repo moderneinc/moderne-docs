@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Do not use async void"}
-  description={"Async void methods cannot be awaited and exceptions cannot be caught. Use `async Task` instead, except for event handlers."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","performance","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindAsyncVoid"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/findasyncvoid.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Do not use async void</RecipeHeader.Title>
+
+<RecipeHeader.Description>Async void methods cannot be awaited and exceptions cannot be caught. Use `async Task` instead, except for event handlers.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindAsyncVoid","displayName":"Do not use async void","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

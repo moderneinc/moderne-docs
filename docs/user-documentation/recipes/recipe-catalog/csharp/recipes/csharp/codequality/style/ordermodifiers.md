@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Order modifiers"}
-  description={"Reorder modifiers to the canonical C# order: access, new, abstract/virtual/override/sealed, static, readonly, extern, unsafe, volatile, async, partial, const."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.OrderModifiers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/ordermodifiers.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Order modifiers</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reorder modifiers to the canonical C# order: access, new, abstract/virtual/override/sealed, static, readonly, extern, unsafe, volatile, async, partial, const.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.OrderModifiers","displayName":"Order modifiers","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

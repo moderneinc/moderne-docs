@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Optimize LINQ Select().Sum()"}
-  description={"Replace `items.Select(selector).Sum()` with `items.Sum(selector)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","linq","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqSelectSum"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/linq/optimizelinqselectsum.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Optimize LINQ Select().Sum()</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `items.Select(selector).Sum()` with `items.Sum(selector)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Linq.OptimizeLinqSelectSum","displayName":"Optimize LINQ Select().Sum()","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

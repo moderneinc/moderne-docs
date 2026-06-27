@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Vert.x JUnit 5 Extension"}
-  description={"Migrates Vert.x `@RunWith` `VertxUnitRunner` to the JUnit Jupiter `@ExtendWith` `VertxExtension`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["junit","testing"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.VertxUnitToVertxJunit5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/vertxunittovertxjunit5.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`","href":"java/testing/junit5/runnertoextension"},{"name":"Add Gradle or Maven dependency","href":"java/dependencies/adddependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use Vert.x JUnit 5 Extension</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates Vert.x `@RunWith` `VertxUnitRunner` to the JUnit Jupiter `@ExtendWith` `VertxExtension`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"JUnit 4 `@RunWith` to JUnit Jupiter `@ExtendWith`","href":"/user-documentation/recipes/recipe-catalog/java/testing/junit5/runnertoextension/"},{"name":"Add Gradle or Maven dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/adddependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

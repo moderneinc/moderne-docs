@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Class.getDeclaredField` / `Class.getField` calls"}
-  description={"Each `getDeclaredField` / `getField` call is a reflective lookup of a field by name — the name is opaque to static analysis, so the field reference is invisible to rename refactorings. Flag as a reflection seed."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindReflectionGetField$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findreflectiongetfield$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Class.getDeclaredField` / `Class.getField` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Each `getDeclaredField` / `getField` call is a reflective lookup of a field by name — the name is opaque to static analysis, so the field reference is invisible to rename refactorings. Flag as a reflection seed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindReflectionGetField$KtRecipe","displayName":"Find `Class.getDeclaredField` / `Class.getField` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

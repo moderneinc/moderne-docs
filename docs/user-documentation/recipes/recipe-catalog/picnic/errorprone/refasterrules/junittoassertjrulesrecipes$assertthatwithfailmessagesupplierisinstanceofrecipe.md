@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsInstanceOf`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatWithFailMessageSupplierIsInstanceOf<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4449\")\n    void before(Object actual, Supplier<@Nullable String> supplier, Class<T> clazz) {\n        assertInstanceOf(clazz, actual, supplier);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Object actual, Supplier<@Nullable String> supplier, Class<T> clazz) {\n        assertThat(actual).withFailMessage(supplier).isInstanceOf(clazz);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S4449"]}
@@ -31,7 +29,34 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatWithFailMessageSupplierIsInstanceOfRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/junittoassertjrulesrecipes$assertthatwithfailmessagesupplierisinstanceofrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsInstanceOf`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatWithFailMessageSupplierIsInstanceOf<T> {
+    
+    @BeforeTemplate
+    @SuppressWarnings(value = "java:S4449")
+    void before(Object actual, Supplier<@Nullable String> supplier, Class<T> clazz) {
+        assertInstanceOf(clazz, actual, supplier);
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    void after(Object actual, Supplier<@Nullable String> supplier, Class<T> clazz) {
+        assertThat(actual).withFailMessage(supplier).isInstanceOf(clazz);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatWithFailMessageSupplierIsInstanceOfRecipe","displayName":"Refaster template `JUnitToAssertJRules.AssertThatWithFailMessageSupplierIsInstanceOf`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

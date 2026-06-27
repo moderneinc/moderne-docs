@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update .gitignore for Prethink context"}
-  description={"Updates .gitignore to allow committing the `.moderne/context/` directory while ignoring other files in `.moderne/`. Only modifies .gitignore when context files exist in `.moderne/context/`. Transforms `.moderne/` into `.moderne/*` with an exception for `!.moderne/context/`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-prethink"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.prethink.UpdateGitignore"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/updategitignore.md"}
-/>
+>
+
+<RecipeHeader.Title>Update .gitignore for Prethink context</RecipeHeader.Title>
+
+<RecipeHeader.Description>Updates .gitignore to allow committing the `.moderne/context/` directory while ignoring other files in `.moderne/`. Only modifies .gitignore when context files exist in `.moderne/context/`. Transforms `.moderne/` into `.moderne/*` with an exception for `!.moderne/context/`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.prethink.UpdateGitignore","displayName":"Update .gitignore for Prethink context","groupId":"org.openrewrite.recipe","artifactId":"rewrite-prethink","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_PRETHINK","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJComparableRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over `Comparable`s.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJComparableRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJComparableRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcomparablerulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJComparableRules.AssertThatIsEqualByComparingTo`","href":"picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatisequalbycomparingtorecipe"},{"name":"Refaster template `AssertJComparableRules.AssertThatIsNotEqualByComparingTo`","href":"picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatisnotequalbycomparingtorecipe"},{"name":"Refaster template `AssertJComparableRules.AssertThatIsLessThan`","href":"picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatislessthanrecipe"},{"name":"Refaster template `AssertJComparableRules.AssertThatIsLessThanOrEqualTo`","href":"picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatislessthanorequaltorecipe"},{"name":"Refaster template `AssertJComparableRules.AssertThatIsGreaterThan`","href":"picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatisgreaterthanrecipe"},{"name":"Refaster template `AssertJComparableRules.AssertThatIsGreaterThanOrEqualTo`","href":"picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatisgreaterthanorequaltorecipe"}]}>
+<RecipeHeader.Title>`AssertJComparableRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over `Comparable`s. [Source](https://error-prone.picnic.tech/refasterrules/AssertJComparableRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJComparableRules.AssertThatIsEqualByComparingTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatisequalbycomparingtorecipe/"},{"name":"Refaster template `AssertJComparableRules.AssertThatIsNotEqualByComparingTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatisnotequalbycomparingtorecipe/"},{"name":"Refaster template `AssertJComparableRules.AssertThatIsLessThan`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatislessthanrecipe/"},{"name":"Refaster template `AssertJComparableRules.AssertThatIsLessThanOrEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatislessthanorequaltorecipe/"},{"name":"Refaster template `AssertJComparableRules.AssertThatIsGreaterThan`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatisgreaterthanrecipe/"},{"name":"Refaster template `AssertJComparableRules.AssertThatIsGreaterThanOrEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcomparablerulesrecipes$assertthatisgreaterthanorequaltorecipe/"}]}>
 
 ## Definition
 

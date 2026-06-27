@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove interpolation-only expressions"}
-  description={"Remove unnecessary interpolation expressions like `\"${var.foo}\"` in favor of first-class expression syntax `var.foo`, as supported in Terraform 0.12+."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.terraform012.RemoveInterpolationOnlyExpressions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/terraform012/removeinterpolationonlyexpressions.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove interpolation-only expressions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unnecessary interpolation expressions like `"${var.foo}"` in favor of first-class expression syntax `var.foo`, as supported in Terraform 0.12+.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"hcl","before":"resource \"aws_instance\" \"example\" {\n  ami = \"${var.ami}\"\n}\n","after":"resource \"aws_instance\" \"example\" {\n  ami = var.ami\n}\n","diff":"@@ -2,1 +2,1 @@\nresource \"aws_instance\" \"example\" {\n- ami = \"${var.ami}\"\n+ ami = var.ami\n}\n","newFile":false}]}]}>
 

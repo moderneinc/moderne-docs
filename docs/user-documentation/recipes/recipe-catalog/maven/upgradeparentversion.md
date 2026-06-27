@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Maven parent project version"}
-  description={"Set the parent pom version number according to a [version selector](https://docs.openrewrite.org/reference/dependency-version-selectors) or to a specific version number."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.UpgradeParentVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/upgradeparentversion.md"}
-/>
+>
+
+<RecipeHeader.Title>Upgrade Maven parent project version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Set the parent pom version number according to a [version selector](https://docs.openrewrite.org/reference/dependency-version-selectors) or to a specific version number.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"groupId","required":true,"description":"The first part of a dependency coordinate 'org.springframework.boot:spring-boot-parent:VERSION'.","example":"org.springframework.boot"},{"type":"String","name":"artifactId","required":true,"description":"The second part of a dependency coordinate 'org.springframework.boot:spring-boot-parent:VERSION'.","example":"spring-boot-parent"},{"type":"String","name":"newVersion","required":true,"description":"An exact version number or node-style semver selector used to select the version number.","example":"29.X"},{"type":"String","name":"versionPattern","required":false,"description":"Allows version selection to be extended beyond the original Node Semver semantics. So for example,Setting 'version' to \"25-29\" can be paired with a metadata pattern of \"-jre\" to select Guava 29.0-jre","example":"-jre"},{"type":"Boolean","name":"onlyExternal","required":false,"description":"Only upgrade `<parent>` if external to the project, i.e. it has an empty `<relativePath>`. Defaults to `false`."}]}>
 

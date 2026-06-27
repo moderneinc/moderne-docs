@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `BrowserModule.withServerTransition`"}
-  description={"Replaces `BrowserModule.withServerTransition({ appId: '...' })` with `BrowserModule` and adds `{ provide: APP_ID, useValue: '...' }` to the NgModule providers. The `withServerTransition` method was removed in Angular 19."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.remove-browser-module-with-server-transition"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/remove-browser-module-with-server-transition.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove `BrowserModule.withServerTransition`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces `BrowserModule.withServerTransition({ appId: '...' })` with `BrowserModule` and adds `{ provide: APP_ID, useValue: '...' }` to the NgModule providers. The `withServerTransition` method was removed in Angular 19.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.remove-browser-module-with-server-transition","displayName":"Remove `BrowserModule.withServerTransition`","npmPackage":"@openrewrite/recipes-angular"}}>
 

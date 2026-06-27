@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate tests to Java 21"}
-  description={"Use Java 21 features in tests."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.recipes.UpgradeTestsToJava21"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/recipes/upgradeteststojava21.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate to Java 21","href":"java/migrate/upgradetojava21"}]} preconditions={[{"name":"Find sources that are likely tests","href":"java/search/islikelytest"}]}>
+<RecipeHeader.Title>Migrate tests to Java 21</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use Java 21 features in tests.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate to Java 21","href":"/user-documentation/recipes/recipe-catalog/java/migrate/upgradetojava21/"}]} preconditions={[{"name":"Find sources that are likely tests","href":"/user-documentation/recipes/recipe-catalog/java/search/islikelytest/"}]}>
 
 ## Definition
 

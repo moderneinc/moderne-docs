@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace JUL `logger.log(Level.SEVERE, String message, Throwable e)` with SLF4J's `Logger.error(message, e)`"}
-  description={"Replace calls to `java.util.logging.Logger.log(Level.SEVERE, String message, Throwable e)` with `org.slf4j.Logger.error(message, e)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.slf4j.JulToSlf4jSimpleCallsWithThrowableRecipes$JulToSlf4jSupplierSevereRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/slf4j/jultoslf4jsimplecallswiththrowablerecipes$jultoslf4jsuppliersevererecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace JUL `logger.log(Level.SEVERE, String message, Throwable e)` with SLF4J's `Logger.error(message, e)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace calls to `java.util.logging.Logger.log(Level.SEVERE, String message, Throwable e)` with `org.slf4j.Logger.error(message, e)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.logging.slf4j.JulToSlf4jSimpleCallsWithThrowableRecipes$JulToSlf4jSupplierSevereRecipe","displayName":"Replace JUL `logger.log(Level.SEVERE, String message, Throwable e)` with SLF4J's `Logger.error(message, e)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-logging-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_LOGGING_FRAMEWORKS","requiresConfiguration":false}}>
 

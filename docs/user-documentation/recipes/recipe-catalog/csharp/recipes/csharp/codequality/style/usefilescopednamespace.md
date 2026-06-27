@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use file-scoped namespace"}
-  description={"Detect block-scoped namespace declarations that could use file-scoped syntax (C# 10)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseFileScopedNamespace"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/usefilescopednamespace.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use file-scoped namespace</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect block-scoped namespace declarations that could use file-scoped syntax (C# 10).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseFileScopedNamespace","displayName":"Use file-scoped namespace","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

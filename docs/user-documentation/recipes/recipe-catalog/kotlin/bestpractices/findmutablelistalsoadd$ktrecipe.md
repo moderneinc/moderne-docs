@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `mutableListOf<T>().also { it.add(x) }` patterns"}
-  description={"Building a list through `mutableListOf<T>().also { it.add(...) }` is the side-channel form of `buildList { add(...) }` (or just `mutableListOf(x)` if every element is known up front). The builder form makes intent explicit."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindMutableListAlsoAdd$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findmutablelistalsoadd$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `mutableListOf<T>().also { it.add(x) }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>Building a list through `mutableListOf<T>().also { it.add(...) }` is the side-channel form of `buildList { add(...) }` (or just `mutableListOf(x)` if every element is known up front). The builder form makes intent explicit.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindMutableListAlsoAdd$KtRecipe","displayName":"Find `mutableListOf<T>().also { it.add(x) }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

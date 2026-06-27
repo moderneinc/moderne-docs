@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Map#containsKey`"}
-  description={"`map.keySet().contains(a)` can be simplified to `map.containsKey(a)`."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UseMapContainsKey"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/usemapcontainskey.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Simplify a call chain","href":"java/simplifymethodchain"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use `Map#containsKey`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`map.keySet().contains(a)` can be simplified to `map.containsKey(a)`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Simplify a call chain","href":"/user-documentation/recipes/recipe-catalog/java/simplifymethodchain/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

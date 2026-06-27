@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer the Java 21 standard library instead of Guava"}
-  description={"Guava filled in important gaps in the Java standard library and still does. But at least some of Guava's API surface area is covered by the Java standard library now, and some projects may be able to remove Guava altogether if they migrate to standard library for these functions."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["guava","java21"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaJava21"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavajava21.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Prefer JDK methods for Maps and Sets of an expected size","href":"java/migrate/guava/nomapsandsetswithexpectedsize"},{"name":"Prefer `Math#clamp`","href":"java/migrate/guava/prefermathclamp"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"java/search/hasjavaversion"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Prefer the Java 21 standard library instead of Guava</RecipeHeader.Title>
+
+<RecipeHeader.Description>Guava filled in important gaps in the Java standard library and still does. But at least some of Guava's API surface area is covered by the Java standard library now, and some projects may be able to remove Guava altogether if they migrate to standard library for these functions.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Prefer JDK methods for Maps and Sets of an expected size","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/nomapsandsetswithexpectedsize/"},{"name":"Prefer `Math#clamp`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/guava/prefermathclamp/"}]} preconditions={[{"name":"Find files compiled at a specific Java version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasjavaversion/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

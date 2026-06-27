@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@Nullable` to fields that can hold null"}
-  description={"Adds the JSpecify `@Nullable` annotation to a Java field when that field is provably assigned a nullable value somewhere in the project: a declaration initializer or an assignment (`f = expr`, `this.f = expr`, or `obj.f = expr`) whose value is the `null` literal (directly, through a cast or parentheses, or via either branch of a ternary), or a call to a method whose return is itself nullable. Nullability therefore propagates from every assignment site to the field's declaration across the whole project. This prepares the code for NullAway. Conservative by design: it skips primitive fields, `final` fields with a non-null initializer, record components, fields that already carry a nullability annotation, and fields with a dependency-injection annotation (`@Inject`, `@Autowired`, `@Resource`, `@Mock`, `@Value`, `@Bean`) that are initialized externally. Kotlin and Groovy express field nullability in the type system (`T?`), which the compiler already enforces, so those sources are generally left unchanged."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.infer.AddNullableToField"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/infer/addnullabletofield.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@Nullable` to fields that can hold null</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the JSpecify `@Nullable` annotation to a Java field when that field is provably assigned a nullable value somewhere in the project: a declaration initializer or an assignment (`f = expr`, `this.f = expr`, or `obj.f = expr`) whose value is the `null` literal (directly, through a cast or parentheses, or via either branch of a ternary), or a call to a method whose return is itself nullable. Nullability therefore propagates from every assignment site to the field's declaration across the whole project. This prepares the code for NullAway. Conservative by design: it skips primitive fields, `final` fields with a non-null initializer, record components, fields that already carry a nullability annotation, and fields with a dependency-injection annotation (`@Inject`, `@Autowired`, `@Resource`, `@Mock`, `@Value`, `@Bean`) that are initialized externally. Kotlin and Groovy express field nullability in the type system (`T?`), which the compiler already enforces, so those sources are generally left unchanged.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    String name = null;\n}\n","after":"import org.jspecify.annotations.Nullable;\n\nclass Test {\n    @Nullable\n    String name = null;\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.jspecify.annotations.Nullable;\n+\nclass Test {\n@@ -2,0 +4,1 @@\nclass Test {\n+   @Nullable\n    String name = null;\n","newFile":false}]}]}>
 

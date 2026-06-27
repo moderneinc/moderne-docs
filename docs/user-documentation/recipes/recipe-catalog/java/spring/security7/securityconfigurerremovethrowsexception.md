@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove throws exception in `SecurityConfigurer` methods `init` and `configure`"}
-  description={"Remove throws exception in `SecurityConfigurer` methods `init` and `configure`."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","security"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security7.SecurityConfigurerRemoveThrowsException"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security7/securityconfigurerremovethrowsexception.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove elements from a method declaration `throws` clause","href":"java/removemethodthrows"},{"name":"Remove elements from a method declaration `throws` clause","href":"java/removemethodthrows"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove throws exception in `SecurityConfigurer` methods `init` and `configure`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove throws exception in `SecurityConfigurer` methods `init` and `configure`.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove elements from a method declaration `throws` clause","href":"/user-documentation/recipes/recipe-catalog/java/removemethodthrows/"},{"name":"Remove elements from a method declaration `throws` clause","href":"/user-documentation/recipes/recipe-catalog/java/removemethodthrows/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

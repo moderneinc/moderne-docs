@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Reformat local variable names to camelCase"}
-  description={"Reformat local variable and method parameter names to camelCase to comply with Java naming convention. The recipe will not rename variables declared in for loop controls or catches with a single character. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed (unless the name starts with one). If a special character is removed the next valid alphanumeric will be capitalized. Currently, does not support renaming members of classes. The recipe will not rename a variable if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank. Consistent naming conventions improve readability and reduce friction when navigating unfamiliar code."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S117"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RenameLocalVariablesToCamelCase"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/renamelocalvariablestocamelcase.md"}
-/>
+>
+
+<RecipeHeader.Title>Reformat local variable names to camelCase</RecipeHeader.Title>
+
+<RecipeHeader.Description>Reformat local variable and method parameter names to camelCase to comply with Java naming convention. The recipe will not rename variables declared in for loop controls or catches with a single character. The first character is set to lower case and existing capital letters are preserved. Special characters that are allowed in java field names `$` and `_` are removed (unless the name starts with one). If a special character is removed the next valid alphanumeric will be capitalized. Currently, does not support renaming members of classes. The recipe will not rename a variable if the result already exists in the class, conflicts with a java reserved keyword, or the result is blank. Consistent naming conventions improve readability and reduce friction when navigating unfamiliar code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"kotlin","before":"fun foo() {\n    var EMPTY_METAS = HashMap<String, Any>()\n    EMPTY_METAS.isEmpty()\n}\n","after":"fun foo() {\n    var emptyMetas = HashMap<String, Any>()\n    emptyMetas.isEmpty()\n}\n","diff":"@@ -2,2 +2,2 @@\nfun foo() {\n-   var EMPTY_METAS = HashMap<String, Any>()\n-   EMPTY_METAS.isEmpty()\n+   var emptyMetas = HashMap<String, Any>()\n+   emptyMetas.isEmpty()\n}\n","newFile":false}]},{"variants":[{"language":"java","before":"class Test {\n    void test() {\n        String ID;\n    }\n}\n","after":"class Test {\n    void test() {\n        String id;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    void test() {\n-       String ID;\n+       String id;\n    }\n","newFile":false}]}]}>
 

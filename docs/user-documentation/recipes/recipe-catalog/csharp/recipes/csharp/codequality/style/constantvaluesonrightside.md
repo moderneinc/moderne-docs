@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Place constant values on right side of comparisons"}
-  description={"Move constant values (literals, null) from the left side of comparisons to the right side for consistency and readability."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.ConstantValuesOnRightSide"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/constantvaluesonrightside.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Place constant values on right side of comparisons</RecipeHeader.Title>
+
+<RecipeHeader.Description>Move constant values (literals, null) from the left side of comparisons to the right side for consistency and readability.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.ConstantValuesOnRightSide","displayName":"Place constant values on right side of comparisons","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

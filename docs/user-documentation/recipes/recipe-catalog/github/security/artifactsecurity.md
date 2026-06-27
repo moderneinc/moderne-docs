@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find credential persistence through GitHub Actions artifacts"}
-  description={"Find workflows that may persist credentials through artifact uploads. This occurs when checkout actions don't disable credential persistence and upload actions include sensitive paths that may contain credentials, SSH keys, or configuration files. Based on [zizmor's `artipacked` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/artipacked.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.ArtifactSecurity"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/artifactsecurity.md"}
-/>
+>
+
+<RecipeHeader.Title>Find credential persistence through GitHub Actions artifacts</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find workflows that may persist credentials through artifact uploads. This occurs when checkout actions don't disable credential persistence and upload actions include sensitive paths that may contain credentials, SSH keys, or configuration files. Based on [zizmor's `artipacked` audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/artipacked.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Build and Upload\non: push\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n      - uses: actions/upload-artifact@v3\n        with:\n          name: build-output\n          path: |\n            ~/.ssh/\n            ~/.gitconfig\n            ~/.aws/\n","after":"name: Build and Upload\non: push\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - ~~(Checkout step does not disable credential persistence, which may expose credentials in artifacts.)~~>uses: actions/checkout@v4\n      - ~~(Uploading potentially sensitive paths that may contain credentials or configuration files.)~~>uses: actions/upload-artifact@v3\n        with:\n          name: build-output\n          path: |\n            ~/.ssh/\n            ~/.gitconfig\n            ~/.aws/\n","diff":"--- .github/workflows/build.yml\n+++ .github/workflows/build.yml\n@@ -7,2 +7,2 @@\n    runs-on: ubuntu-latest\n    steps:\n-     - uses: actions/checkout@v4\n-     - uses: actions/upload-artifact@v3\n+     - ~~(Checkout step does not disable credential persistence, which may expose credentials in artifacts.)~~>uses: actions/checkout@v4\n+     - ~~(Uploading potentially sensitive paths that may contain credentials or configuration files.)~~>uses: actions/upload-artifact@v3\n        with:\n","newFile":false}]}]}>
 

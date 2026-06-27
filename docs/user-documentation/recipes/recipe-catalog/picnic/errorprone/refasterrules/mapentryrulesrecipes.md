@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`MapEntryRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `Map.Entry` instances.\n[Source](https://error-prone.picnic.tech/refasterrules/MapEntryRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.MapEntryRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mapentryrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Prefer `Map#entry(Object, Object)` over alternative ways to create an immutable map entry","href":"picnic/errorprone/refasterrules/mapentryrulesrecipes$mapentryrecipe"},{"name":"Refaster template `MapEntryRules.MapEntryComparingByKey`","href":"picnic/errorprone/refasterrules/mapentryrulesrecipes$mapentrycomparingbykeyrecipe"},{"name":"Refaster template `MapEntryRules.MapEntryComparingByKeyWithCustomComparator`","href":"picnic/errorprone/refasterrules/mapentryrulesrecipes$mapentrycomparingbykeywithcustomcomparatorrecipe"},{"name":"Refaster template `MapEntryRules.MapEntryComparingByValue`","href":"picnic/errorprone/refasterrules/mapentryrulesrecipes$mapentrycomparingbyvaluerecipe"},{"name":"Refaster template `MapEntryRules.MapEntryComparingByValueWithCustomComparator`","href":"picnic/errorprone/refasterrules/mapentryrulesrecipes$mapentrycomparingbyvaluewithcustomcomparatorrecipe"}]}>
+<RecipeHeader.Title>`MapEntryRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `Map.Entry` instances. [Source](https://error-prone.picnic.tech/refasterrules/MapEntryRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Prefer `Map#entry(Object, Object)` over alternative ways to create an immutable map entry","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mapentryrulesrecipes$mapentryrecipe/"},{"name":"Refaster template `MapEntryRules.MapEntryComparingByKey`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mapentryrulesrecipes$mapentrycomparingbykeyrecipe/"},{"name":"Refaster template `MapEntryRules.MapEntryComparingByKeyWithCustomComparator`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mapentryrulesrecipes$mapentrycomparingbykeywithcustomcomparatorrecipe/"},{"name":"Refaster template `MapEntryRules.MapEntryComparingByValue`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mapentryrulesrecipes$mapentrycomparingbyvaluerecipe/"},{"name":"Refaster template `MapEntryRules.MapEntryComparingByValueWithCustomComparator`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mapentryrulesrecipes$mapentrycomparingbyvaluewithcustomcomparatorrecipe/"}]}>
 
 ## Definition
 

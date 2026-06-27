@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce linebreaks after opening and before closing array brackets in `<template>`"}
-  description={"Enforce linebreaks after opening and before closing array brackets in `<template>`\nSee rule details for [vue/array-bracket-newline](https://eslint.vuejs.org/rules/array-bracket-newline.html)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["ESLint","vue","eslint-plugin-vue"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.vue.ArrayBracketNewline"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/vue/arraybracketnewline.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce linebreaks after opening and before closing array brackets in `<template>`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce linebreaks after opening and before closing array brackets in `<template>` See rule details for [vue/array-bracket-newline](https://eslint.vuejs.org/rules/array-bracket-newline.html).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

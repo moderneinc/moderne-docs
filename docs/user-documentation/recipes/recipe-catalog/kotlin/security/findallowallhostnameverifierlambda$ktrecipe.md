@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `HostnameVerifier { _, _ -> true }` lambdas"}
-  description={"A `HostnameVerifier` that returns `true` accepts a certificate for any hostname — defeats the purpose of TLS hostname pinning and enables straightforward MITM. Verify the hostname against the cert's CN/SAN, or use the platform default verifier."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindAllowAllHostnameVerifierLambda$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findallowallhostnameverifierlambda$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `HostnameVerifier { _, _ -> true }` lambdas</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `HostnameVerifier` that returns `true` accepts a certificate for any hostname — defeats the purpose of TLS hostname pinning and enables straightforward MITM. Verify the hostname against the cert's CN/SAN, or use the platform default verifier.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindAllowAllHostnameVerifierLambda$KtRecipe","displayName":"Find `HostnameVerifier { _, _ -> true }` lambdas","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

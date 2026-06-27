@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `org.springframework.boot.web.servlet.support.SpringBootServletInitializer`"}
-  description={"Use `org.springframework.boot.web.servlet.support.SpringBootServletInitializer` instead of the deprecated `org.springframework.boot.web.support.SpringBootServletInitializer` in Spring Boot 1.4 or higher."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.MigrateSpringBootServletInitializerPackageName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/migratespringbootservletinitializerpackagename.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use `org.springframework.boot.web.servlet.support.SpringBootServletInitializer`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Use `org.springframework.boot.web.servlet.support.SpringBootServletInitializer` instead of the deprecated `org.springframework.boot.web.support.SpringBootServletInitializer` in Spring Boot 1.4 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

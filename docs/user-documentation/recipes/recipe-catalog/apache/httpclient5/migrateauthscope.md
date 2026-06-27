@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replaces `AuthScope.ANY`"}
-  description={"Replace removed constant `org.apache.http.auth.AuthScope.AuthScope.ANY` with `new org.apache.hc.client5.http.auth.AuthScope(null, -1)`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.MigrateAuthScope"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/migrateauthscope.md"}
-/>
+>
+
+<RecipeHeader.Title>Replaces `AuthScope.ANY`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace removed constant `org.apache.http.auth.AuthScope.AuthScope.ANY` with `new org.apache.hc.client5.http.auth.AuthScope(null, -1)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.apache.httpclient5.MigrateAuthScope","displayName":"Replaces `AuthScope.ANY`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 

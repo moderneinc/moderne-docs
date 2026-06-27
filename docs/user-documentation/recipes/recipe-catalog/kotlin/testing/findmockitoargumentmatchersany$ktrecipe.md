@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Mockito argument-matcher `any()` / `eq()` / `isA()` calls"}
-  description={"Mockito's argument matchers (`any()`, `eq(value)`, `isA(X::class.java)`) only work inside a `whenever`/`verify` call — they throw if used elsewhere. mockk's matchers (`any()`, `eq(value)`, `match { … }`) work the same way but live in `every { }` / `verify { }` blocks, so the matcher and the recording context are co-located."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindMockitoArgumentMatchersAny$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findmockitoargumentmatchersany$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Mockito argument-matcher `any()` / `eq()` / `isA()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>Mockito's argument matchers (`any()`, `eq(value)`, `isA(X::class.java)`) only work inside a `whenever`/`verify` call — they throw if used elsewhere. mockk's matchers (`any()`, `eq(value)`, `match { … }`) work the same way but live in `every { }` / `verify { }` blocks, so the matcher and the recording context are co-located.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindMockitoArgumentMatchersAny$KtRecipe","displayName":"Find Mockito argument-matcher `any()` / `eq()` / `isA()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

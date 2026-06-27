@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find missing configuration"}
-  description={"Find Kubernetes resources with missing configuration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.search.FindResourceMissingConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/search/findresourcemissingconfiguration.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find missing configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find Kubernetes resources with missing configuration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"resourceKind","required":false,"description":"The Kubernetes resource type to search on.","example":"Pod"},{"type":"String","name":"configurationPath","required":true,"description":"A JsonPath expression to locate Kubernetes configuration.","example":"$.spec.containers.livenessProbe"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Delete no-op `assert True` statements"}
-  description={"Delete bare `assert True` statements, which are always satisfied and have no effect. Assertions that carry a message string are preserved."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveAssertTrue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removeasserttrue.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Delete no-op `assert True` statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Delete bare `assert True` statements, which are always satisfied and have no effect. Assertions that carry a message string are preserved.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveAssertTrue","displayName":"Delete no-op `assert True` statements","pipPackage":"openrewrite-static-analysis"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find non-constant-time comparison of cryptographic digests"}
-  description={"Detects when the output of `MessageDigest.digest(..)` or `Mac.doFinal(..)` flows into `Arrays.equals(byte[], byte[])`, a non-constant-time comparison that is vulnerable to timing attacks (CWE-208). Use `MessageDigest.isEqual(byte[], byte[])` for security-sensitive byte-array comparisons."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["CWE-208"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.analysis.java.security.FindInsecureCryptoComparison"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/analysis/java/security/findinsecurecryptocomparison.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find non-constant-time comparison of cryptographic digests</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detects when the output of `MessageDigest.digest(..)` or `Mac.doFinal(..)` flows into `Arrays.equals(byte[], byte[])`, a non-constant-time comparison that is vulnerable to timing attacks (CWE-208). Use `MessageDigest.isEqual(byte[], byte[])` for security-sensitive byte-array comparisons.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Arrays;\nimport javax.crypto.Mac;\n\nclass WebhookVerifier {\n    boolean verify(Mac mac, byte[] payload, byte[] received) {\n        byte[] expected = mac.doFinal(payload);\n        return Arrays.equals(expected, received);\n    }\n}\n","after":"import java.util.Arrays;\nimport javax.crypto.Mac;\n\nclass WebhookVerifier {\n    boolean verify(Mac mac, byte[] payload, byte[] received) {\n        byte[] expected = mac.doFinal(payload);\n        return /*~~(CRYPTOGRAPHIC_DIGEST use)~~>*/Arrays.equals(expected, received);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\n    boolean verify(Mac mac, byte[] payload, byte[] received) {\n        byte[] expected = mac.doFinal(payload);\n-       return Arrays.equals(expected, received);\n+       return /*~~(CRYPTOGRAPHIC_DIGEST use)~~>*/Arrays.equals(expected, received);\n    }\n","newFile":false}]}]}>
 

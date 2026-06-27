@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Swap ternary branches to drop negated condition"}
-  description={"Flip the branches of a conditional expression whose test uses ``not``, eliminating the negation for clearer intent."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.SwapIfExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/swapifexpression.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Swap ternary branches to drop negated condition</RecipeHeader.Title>
+
+<RecipeHeader.Description>Flip the branches of a conditional expression whose test uses ``not``, eliminating the negation for clearer intent.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.SwapIfExpression","displayName":"Swap ternary branches to drop negated condition","pipPackage":"openrewrite-static-analysis"}}>
 

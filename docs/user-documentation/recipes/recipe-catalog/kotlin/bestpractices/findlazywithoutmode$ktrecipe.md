@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `lazy { }` calls without an explicit `LazyThreadSafetyMode`"}
-  description={"`lazy { }` defaults to `LazyThreadSafetyMode.SYNCHRONIZED` — every read passes a synchronized check. For thread-confined state (UI, single-threaded actors), `lazy(LazyThreadSafetyMode.NONE) { }` avoids the synchronization entirely."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindLazyWithoutMode$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findlazywithoutmode$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `lazy { }` calls without an explicit `LazyThreadSafetyMode`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`lazy { }` defaults to `LazyThreadSafetyMode.SYNCHRONIZED` — every read passes a synchronized check. For thread-confined state (UI, single-threaded actors), `lazy(LazyThreadSafetyMode.NONE) { }` avoids the synchronization entirely.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindLazyWithoutMode$KtRecipe","displayName":"Find `lazy { }` calls without an explicit `LazyThreadSafetyMode`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

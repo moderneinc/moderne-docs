@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant catch block"}
-  description={"Remove try-catch blocks where every catch clause only rethrows the exception."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantCatchBlock"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/removeredundantcatchblock.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant catch block</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove try-catch blocks where every catch clause only rethrows the exception.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.RemoveRedundantCatchBlock","displayName":"Remove redundant catch block","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `System.out.print` to Java 25 IO utility class"}
-  description={"Replace `System.out.print()`, `System.out.println()` with `IO.print()` and `IO.println()`. Migrates to the new IO utility class introduced in Java 25."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.io.ReplaceSystemOutWithIOPrint"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/io/replacesystemoutwithioprint.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `System.out.print` to Java 25 IO utility class</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `System.out.print()`, `System.out.println()` with `IO.print()` and `IO.println()`. Migrates to the new IO utility class introduced in Java 25.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Example {\n    void test() {\n        System.out.print(\"Hello\");\n    }\n}\n","after":"class Example {\n    void test() {\n        IO.print(\"Hello\");\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Example {\n    void test() {\n-       System.out.print(\"Hello\");\n+       IO.print(\"Hello\");\n    }\n","newFile":false}]}]}>
 

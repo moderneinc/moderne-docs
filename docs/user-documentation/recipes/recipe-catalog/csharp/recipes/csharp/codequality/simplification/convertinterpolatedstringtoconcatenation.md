@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert interpolated string to concatenation"}
-  description={"Detect string interpolations that could be simplified to concatenation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.ConvertInterpolatedStringToConcatenation"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/convertinterpolatedstringtoconcatenation.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Convert interpolated string to concatenation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect string interpolations that could be simplified to concatenation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.ConvertInterpolatedStringToConcatenation","displayName":"Convert interpolated string to concatenation","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

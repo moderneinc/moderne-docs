@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use modernized `java.util.logging` APIs"}
-  description={"Certain Java logging APIs have become deprecated and their usages changed, necessitating usage changes."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["logging"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.logging.JavaLoggingAPIs"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/logging/javaloggingapis.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Use `ManagementFactory#getPlatformMXBean(PlatformLoggingMXBean.class)`","href":"java/migrate/logging/migrategetloggingmxbeantogetplatformmxbean"},{"name":"Use `Logger#getGlobal()`","href":"java/migrate/logging/migrateloggerglobaltogetglobal"},{"name":"Use `Logger#logrb(.., ResourceBundle bundleName, ..)`","href":"java/migrate/logging/migrateloggerlogrbtouseresourcebundle"},{"name":"Use `LogRecord#setInstant(Instant)`","href":"java/migrate/logging/migratelogrecordsetmillistosetinstant"},{"name":"Use `java.lang.management.PlatformLoggingMXBean`","href":"java/migrate/logging/migrateinterfaceloggingmxbeantoplatformloggingmxbean"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Use modernized `java.util.logging` APIs</RecipeHeader.Title>
+
+<RecipeHeader.Description>Certain Java logging APIs have become deprecated and their usages changed, necessitating usage changes.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Use `ManagementFactory#getPlatformMXBean(PlatformLoggingMXBean.class)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/logging/migrategetloggingmxbeantogetplatformmxbean/"},{"name":"Use `Logger#getGlobal()`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/logging/migrateloggerglobaltogetglobal/"},{"name":"Use `Logger#logrb(.., ResourceBundle bundleName, ..)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/logging/migrateloggerlogrbtouseresourcebundle/"},{"name":"Use `LogRecord#setInstant(Instant)`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/logging/migratelogrecordsetmillistosetinstant/"},{"name":"Use `java.lang.management.PlatformLoggingMXBean`","href":"/user-documentation/recipes/recipe-catalog/java/migrate/logging/migrateinterfaceloggingmxbeantoplatformloggingmxbean/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

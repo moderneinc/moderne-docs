@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Collections.unmodifiableList/Set/Map(...)` wrappers"}
-  description={"`Collections.unmodifiableList(x)` wraps a collection in a view that throws on mutation. Kotlin's `x.toList()`/`x.toSet()`/`x.toMap()` produce a fresh immutable copy — safer in concurrent contexts and removes the runtime wrapper."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindJavaUtilCollectionsUnmodifiable$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilcollectionsunmodifiable$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Collections.unmodifiableList/Set/Map(...)` wrappers</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Collections.unmodifiableList(x)` wraps a collection in a view that throws on mutation. Kotlin's `x.toList()`/`x.toSet()`/`x.toMap()` produce a fresh immutable copy — safer in concurrent contexts and removes the runtime wrapper.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindJavaUtilCollectionsUnmodifiable$KtRecipe","displayName":"Find `Collections.unmodifiableList/Set/Map(...)` wrappers","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

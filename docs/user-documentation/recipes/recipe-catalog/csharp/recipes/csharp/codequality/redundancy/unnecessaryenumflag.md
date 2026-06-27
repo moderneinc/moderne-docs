@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unnecessary enum flag"}
-  description={"Remove unnecessary enum flag value that is a combination of other flags."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UnnecessaryEnumFlag"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/unnecessaryenumflag.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Unnecessary enum flag</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove unnecessary enum flag value that is a combination of other flags.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.UnnecessaryEnumFlag","displayName":"Unnecessary enum flag","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

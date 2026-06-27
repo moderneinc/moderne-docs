@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove `System.out#println` statements"}
-  description={"Print statements are often left accidentally after debugging an issue. This recipe removes all `System.out#println` and `System.err#println` statements from the code. Production code should use a proper logging framework which provides consistent formatting, configurable log levels, and centralized output control."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S106"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.RemoveSystemOutPrintln"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/removesystemoutprintln.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove `System.out#println` statements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Print statements are often left accidentally after debugging an issue. This recipe removes all `System.out#println` and `System.err#println` statements from the code. Production code should use a proper logging framework which provides consistent formatting, configurable log levels, and centralized output control.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.PrintStream;\n\nclass Test {\n    void printOut() {\n        System.out.println(\"Hello, world!\");\n    }\n    void printErr() {\n        System.err.println(\"Hello, world!\");\n    }\n    void printStream(PrintStream printStream) {\n        printStream.println(\"Hello, world!\");\n    }\n}\n","after":"import java.io.PrintStream;\n\nclass Test {\n    void printOut() {\n    }\n    void printErr() {\n    }\n    void printStream(PrintStream printStream) {\n        printStream.println(\"Hello, world!\");\n    }\n}\n","diff":"@@ -5,1 +5,0 @@\nclass Test {\n    void printOut() {\n-       System.out.println(\"Hello, world!\");\n    }\n@@ -8,1 +7,0 @@\n    }\n    void printErr() {\n-       System.err.println(\"Hello, world!\");\n    }\n","newFile":false}]}]}>
 

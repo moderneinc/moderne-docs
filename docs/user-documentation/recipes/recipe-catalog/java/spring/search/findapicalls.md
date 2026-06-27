@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find HTTP API calls via `RestTemplate`"}
-  description={"Find outbound HTTP API calls made via Spring's `RestTemplate` class."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.search.FindApiCalls"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/search/findapicalls.md"}
-/>
+>
+
+<RecipeHeader.Title>Find HTTP API calls via `RestTemplate`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find outbound HTTP API calls made via Spring's `RestTemplate` class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.web.client.RestTemplate;\nclass Test {\n    RestTemplate restTemplate;\n    void test() {\n        restTemplate.getForObject(base() + \"/getThing\", String.class);\n        restTemplate.postForEntity(base() + \"/postThing\", null, String.class);\n    }\n\n    String base() {\n        return \"https://base\";\n    }\n}\n","after":"import org.springframework.web.client.RestTemplate;\nclass Test {\n    RestTemplate restTemplate;\n    void test() {\n        /*~~(GET base() + \"/getThing\")~~>*/restTemplate.getForObject(base() + \"/getThing\", String.class);\n        /*~~(POST base() + \"/postThing\")~~>*/restTemplate.postForEntity(base() + \"/postThing\", null, String.class);\n    }\n\n    String base() {\n        return \"https://base\";\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\n    RestTemplate restTemplate;\n    void test() {\n-       restTemplate.getForObject(base() + \"/getThing\", String.class);\n-       restTemplate.postForEntity(base() + \"/postThing\", null, String.class);\n+       /*~~(GET base() + \"/getThing\")~~>*/restTemplate.getForObject(base() + \"/getThing\", String.class);\n+       /*~~(POST base() + \"/postThing\")~~>*/restTemplate.postForEntity(base() + \"/postThing\", null, String.class);\n    }\n","newFile":false}]}]}>
 

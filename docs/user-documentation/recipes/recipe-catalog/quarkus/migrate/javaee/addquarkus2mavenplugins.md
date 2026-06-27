@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JavaEE Maven Dependencies to Quarkus 2"}
-  description={"Upgrade Standard JavaEE dependencies to Quarkus 2 dependencies."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.migrate.javaee.AddQuarkus2MavenPlugins"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/addquarkus2mavenplugins.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add managed Maven dependency","href":"maven/addmanageddependency"},{"name":"Add Maven plugin","href":"maven/addplugin"},{"name":"Add Maven plugin","href":"maven/addplugin"},{"name":"Add Maven plugin","href":"maven/addplugin"},{"name":"Add Maven plugin","href":"maven/addplugin"},{"name":"Add Maven profile","href":"maven/addprofile"},{"name":"Configure `quarkus-maven-plugin` with reasonable defaults","href":"quarkus/configurequarkusmavenpluginwithreasonabledefaults"},{"name":"Apache Maven best practices","href":"maven/bestpractices"},{"name":"Add Maven project property","href":"maven/addproperty"},{"name":"Add Maven project property","href":"maven/addproperty"},{"name":"Set Maven project packaging","href":"maven/changepackaging"},{"name":"Remove Maven plugin","href":"maven/removeplugin"}]}>
+<RecipeHeader.Title>Migrate JavaEE Maven Dependencies to Quarkus 2</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrade Standard JavaEE dependencies to Quarkus 2 dependencies.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add managed Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/addmanageddependency/"},{"name":"Add Maven plugin","href":"/user-documentation/recipes/recipe-catalog/maven/addplugin/"},{"name":"Add Maven plugin","href":"/user-documentation/recipes/recipe-catalog/maven/addplugin/"},{"name":"Add Maven plugin","href":"/user-documentation/recipes/recipe-catalog/maven/addplugin/"},{"name":"Add Maven plugin","href":"/user-documentation/recipes/recipe-catalog/maven/addplugin/"},{"name":"Add Maven profile","href":"/user-documentation/recipes/recipe-catalog/maven/addprofile/"},{"name":"Configure `quarkus-maven-plugin` with reasonable defaults","href":"/user-documentation/recipes/recipe-catalog/quarkus/configurequarkusmavenpluginwithreasonabledefaults/"},{"name":"Apache Maven best practices","href":"/user-documentation/recipes/recipe-catalog/maven/bestpractices/"},{"name":"Add Maven project property","href":"/user-documentation/recipes/recipe-catalog/maven/addproperty/"},{"name":"Add Maven project property","href":"/user-documentation/recipes/recipe-catalog/maven/addproperty/"},{"name":"Set Maven project packaging","href":"/user-documentation/recipes/recipe-catalog/maven/changepackaging/"},{"name":"Remove Maven plugin","href":"/user-documentation/recipes/recipe-catalog/maven/removeplugin/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find AWS Access Key literals (`AKIA…`)"}
-  description={"AWS access keys begin with `AKIA` followed by 16+ uppercase/digit characters. A literal `AKIA…` in source means the key is in every artifact build, every git commit, and every developer machine. Rotate immediately and load from environment or `SecretsManager`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindAwsAccessKeyLiteral$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findawsaccesskeyliteral$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find AWS Access Key literals (`AKIA…`)</RecipeHeader.Title>
+
+<RecipeHeader.Description>AWS access keys begin with `AKIA` followed by 16+ uppercase/digit characters. A literal `AKIA…` in source means the key is in every artifact build, every git commit, and every developer machine. Rotate immediately and load from environment or `SecretsManager`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindAwsAccessKeyLiteral$KtRecipe","displayName":"Find AWS Access Key literals (`AKIA…`)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

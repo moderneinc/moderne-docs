@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove duplicate object keys"}
-  description={"Remove duplicate keys in object literals, keeping only the last occurrence (last-wins semantics)."}
   type={"Single recipe"}
   languages={["JavaScript"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.migrate.es6.remove-duplicate-object-keys"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/remove-duplicate-object-keys.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove duplicate object keys</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove duplicate keys in object literals, keeping only the last occurrence (last-wins semantics).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.javascript.migrate.es6.remove-duplicate-object-keys","displayName":"Remove duplicate object keys","npmPackage":"@openrewrite/rewrite"}}>
 

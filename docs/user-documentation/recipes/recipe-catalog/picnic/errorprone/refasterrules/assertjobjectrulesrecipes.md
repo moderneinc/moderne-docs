@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`AssertJObjectRules` Refaster recipes"}
-  description={"Refaster rules related to AssertJ assertions over arbitrary objects.\n[Source](https://error-prone.picnic.tech/refasterrules/AssertJObjectRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJObjectRules.AssertThatIsInstanceOf2`","href":"picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisinstanceof2recipe"},{"name":"Refaster template `AssertJObjectRules.AssertThatIsIsEqualTo`","href":"picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisisequaltorecipe"},{"name":"Refaster template `AssertJObjectRules.AssertThatIsIsNotEqualTo`","href":"picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisisnotequaltorecipe"},{"name":"Refaster template `AssertJObjectRules.AssertThatHasToString`","href":"picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthathastostringrecipe"},{"name":"Refaster template `AssertJObjectRules.AssertThatIsSameAs`","href":"picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatissameasrecipe"},{"name":"Refaster template `AssertJObjectRules.AssertThatIsNotSameAs`","href":"picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisnotsameasrecipe"},{"name":"Refaster template `AssertJObjectRules.AssertThatIsNull`","href":"picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisnullrecipe"},{"name":"Refaster template `AssertJObjectRules.AssertThatIsNotNull`","href":"picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisnotnullrecipe"},{"name":"Refaster template `AssertJObjectRules.AssertThatHasSameHashCodeAs`","href":"picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthathassamehashcodeasrecipe"}]}>
+<RecipeHeader.Title>`AssertJObjectRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to AssertJ assertions over arbitrary objects. [Source](https://error-prone.picnic.tech/refasterrules/AssertJObjectRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `AssertJObjectRules.AssertThatIsInstanceOf2`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisinstanceof2recipe/"},{"name":"Refaster template `AssertJObjectRules.AssertThatIsIsEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisisequaltorecipe/"},{"name":"Refaster template `AssertJObjectRules.AssertThatIsIsNotEqualTo`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisisnotequaltorecipe/"},{"name":"Refaster template `AssertJObjectRules.AssertThatHasToString`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthathastostringrecipe/"},{"name":"Refaster template `AssertJObjectRules.AssertThatIsSameAs`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatissameasrecipe/"},{"name":"Refaster template `AssertJObjectRules.AssertThatIsNotSameAs`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisnotsameasrecipe/"},{"name":"Refaster template `AssertJObjectRules.AssertThatIsNull`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisnullrecipe/"},{"name":"Refaster template `AssertJObjectRules.AssertThatIsNotNull`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthatisnotnullrecipe/"},{"name":"Refaster template `AssertJObjectRules.AssertThatHasSameHashCodeAs`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjobjectrulesrecipes$assertthathassamehashcodeasrecipe/"}]}>
 
 ## Definition
 

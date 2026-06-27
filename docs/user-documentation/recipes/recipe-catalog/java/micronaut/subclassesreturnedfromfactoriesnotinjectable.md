@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change factory method return types to reflect their resolved return type"}
-  description={"As of Micronaut 3.x It is no longer possible to inject the internal implementation type from beans produced via factories. Factory method return types are changed to reflect the resolved return type if the method returns a single non-null type that does not match the method declaration return type."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-micronaut"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.micronaut.SubclassesReturnedFromFactoriesNotInjectable"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/micronaut/subclassesreturnedfromfactoriesnotinjectable.md"}
-/>
+>
+
+<RecipeHeader.Title>Change factory method return types to reflect their resolved return type</RecipeHeader.Title>
+
+<RecipeHeader.Description>As of Micronaut 3.x It is no longer possible to inject the internal implementation type from beans produced via factories. Factory method return types are changed to reflect the resolved return type if the method returns a single non-null type that does not match the method declaration return type.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.concurrent.ForkJoinPool;\nimport java.util.concurrent.ExecutorService;\nimport javax.inject.Singleton;\nimport io.micronaut.context.annotation.Factory;\n\n@Factory\npublic class ExecutorFactory {\n\n    @Singleton\n    public ExecutorService executorService() {\n        return ForkJoinPool.commonPool();\n    }\n}\n","after":"import java.util.concurrent.ForkJoinPool;\nimport javax.inject.Singleton;\nimport io.micronaut.context.annotation.Factory;\n\n@Factory\npublic class ExecutorFactory {\n\n    @Singleton\n    public ForkJoinPool executorService() {\n        return ForkJoinPool.commonPool();\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport java.util.concurrent.ForkJoinPool;\n-import java.util.concurrent.ExecutorService;\nimport javax.inject.Singleton;\n@@ -10,1 +9,1 @@\n\n    @Singleton\n-   public ExecutorService executorService() {\n+   public ForkJoinPool executorService() {\n        return ForkJoinPool.commonPool();\n","newFile":false}]}]}>
 

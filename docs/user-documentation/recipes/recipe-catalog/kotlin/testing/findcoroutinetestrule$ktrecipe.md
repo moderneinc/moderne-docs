@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find JUnit 4 coroutine-test `@Rule` fields"}
-  description={"Hand-rolled `MainCoroutineRule` / `CoroutineTestRule` patterns predate `kotlinx-coroutines-test`'s `Dispatchers.setMain`/`resetMain` helpers. With `runTest { } ` + `Dispatchers.setMain(StandardTestDispatcher())` the rule's responsibilities are spread across `@BeforeEach`/`@AfterEach` cleanly enough that the rule itself becomes redundant."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.testing.FindCoroutineTestRule$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/testing/findcoroutinetestrule$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find JUnit 4 coroutine-test `@Rule` fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>Hand-rolled `MainCoroutineRule` / `CoroutineTestRule` patterns predate `kotlinx-coroutines-test`'s `Dispatchers.setMain`/`resetMain` helpers. With `runTest { } ` + `Dispatchers.setMain(StandardTestDispatcher())` the rule's responsibilities are spread across `@BeforeEach`/`@AfterEach` cleanly enough that the rule itself becomes redundant.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.testing.FindCoroutineTestRule$KtRecipe","displayName":"Find JUnit 4 coroutine-test `@Rule` fields","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

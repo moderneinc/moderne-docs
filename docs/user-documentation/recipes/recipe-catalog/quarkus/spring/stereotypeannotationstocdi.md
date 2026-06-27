@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Spring annotations to CDI"}
-  description={"Replace Spring stereotype and injection annotations with CDI equivalents."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.spring.StereotypeAnnotationsToCDI"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/spring/stereotypeannotationstocdi.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace Spring `@Bean` with CDI `@Produces`","href":"quarkus/spring/springbeantocdiproduces"},{"name":"Replace annotation","href":"java/replaceannotation"},{"name":"Replace annotation","href":"java/replaceannotation"},{"name":"Replace annotation","href":"java/replaceannotation"},{"name":"Replace annotation","href":"java/replaceannotation"},{"name":"Replace annotation","href":"java/replaceannotation"}]}>
+<RecipeHeader.Title>Migrate Spring annotations to CDI</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace Spring stereotype and injection annotations with CDI equivalents.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace Spring `@Bean` with CDI `@Produces`","href":"/user-documentation/recipes/recipe-catalog/quarkus/spring/springbeantocdiproduces/"},{"name":"Replace annotation","href":"/user-documentation/recipes/recipe-catalog/java/replaceannotation/"},{"name":"Replace annotation","href":"/user-documentation/recipes/recipe-catalog/java/replaceannotation/"},{"name":"Replace annotation","href":"/user-documentation/recipes/recipe-catalog/java/replaceannotation/"},{"name":"Replace annotation","href":"/user-documentation/recipes/recipe-catalog/java/replaceannotation/"},{"name":"Replace annotation","href":"/user-documentation/recipes/recipe-catalog/java/replaceannotation/"}]}>
 
 ## Definition
 

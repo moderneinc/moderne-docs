@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `!!` passed as a function argument"}
-  description={"`foo(x!!)` pushes the null-check onto the call site, where the function signature could just accept `T?` and document the contract. If `foo` must have a non-null `x`, prefer `requireNotNull(x) { ... }` at the call site to produce a contextual error."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindNotNullAssertionAsArgument$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findnotnullassertionasargument$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `!!` passed as a function argument</RecipeHeader.Title>
+
+<RecipeHeader.Description>`foo(x!!)` pushes the null-check onto the call site, where the function signature could just accept `T?` and document the contract. If `foo` must have a non-null `x`, prefer `requireNotNull(x) { ... }` at the call site to produce a contextual error.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindNotNullAssertionAsArgument$KtRecipe","displayName":"Find `!!` passed as a function argument","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

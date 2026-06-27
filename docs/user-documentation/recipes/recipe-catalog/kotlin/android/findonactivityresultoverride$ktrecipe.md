@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `onActivityResult` overrides"}
-  description={"Every override of `Activity.onActivityResult` / `Fragment.onActivityResult` is half of the deprecated `startActivityForResult` pair. The new Activity Result APIs (`registerForActivityResult(ActivityResultContracts.X) { … }`) deliver results to a lambda colocated with the launcher — the override goes away."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindOnActivityResultOverride$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findonactivityresultoverride$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `onActivityResult` overrides</RecipeHeader.Title>
+
+<RecipeHeader.Description>Every override of `Activity.onActivityResult` / `Fragment.onActivityResult` is half of the deprecated `startActivityForResult` pair. The new Activity Result APIs (`registerForActivityResult(ActivityResultContracts.X) { … }`) deliver results to a lambda colocated with the launcher — the override goes away.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindOnActivityResultOverride$KtRecipe","displayName":"Find `onActivityResult` overrides","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Disallow usage of unknown DOM property"}
-  description={"Disallow usage of unknown DOM property\nSee rule details for [react/no-unknown-property](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/no-unknown-property.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.react.NoUnknownProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/react/nounknownproperty.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Disallow usage of unknown DOM property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Disallow usage of unknown DOM property See rule details for [react/no-unknown-property](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/no-unknown-property.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

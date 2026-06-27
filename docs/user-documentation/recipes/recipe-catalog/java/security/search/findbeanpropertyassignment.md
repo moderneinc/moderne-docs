@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Apache Commons BeanUtils property assignments"}
-  description={"Finds calls to Apache Commons BeanUtils and PropertyUtils setters and bulk-copy methods (`setProperty`, `populate`, `copyProperties`, `copyProperty`, `setNestedProperty`, `setSimpleProperty`, `setIndexedProperty`, `setMappedProperty`) — including the equivalent instance-method forms on `BeanUtilsBean` and `PropertyUtilsBean`, and on any subclass of those, regardless of how the bean instance is obtained (`getInstance()`, `new`, injected field, etc.). When the property name or value flows from an untrusted source (e.g. HTTP request parameters), these calls enable bean-injection / mass-assignment (CWE-915) — an attacker can set any settable field on the bean, including ones the application never intended to expose. Per Sonar S4512 each call site needs human review for whether the property name and value come from trusted input. Detector only; does not modify code."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-915","RSPEC-S4512"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.search.FindBeanPropertyAssignment"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/search/findbeanpropertyassignment.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Apache Commons BeanUtils property assignments</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds calls to Apache Commons BeanUtils and PropertyUtils setters and bulk-copy methods (`setProperty`, `populate`, `copyProperties`, `copyProperty`, `setNestedProperty`, `setSimpleProperty`, `setIndexedProperty`, `setMappedProperty`) — including the equivalent instance-method forms on `BeanUtilsBean` and `PropertyUtilsBean`, and on any subclass of those, regardless of how the bean instance is obtained (`getInstance()`, `new`, injected field, etc.). When the property name or value flows from an untrusted source (e.g. HTTP request parameters), these calls enable bean-injection / mass-assignment (CWE-915) — an attacker can set any settable field on the bean, including ones the application never intended to expose. Per Sonar S4512 each call site needs human review for whether the property name and value come from trusted input. Detector only; does not modify code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.commons.beanutils.BeanUtils;\n\nclass A {\n    void apply(Object bean, String name, Object value) throws Exception {\n        BeanUtils.setProperty(bean, name, value);\n    }\n}\n","after":"import org.apache.commons.beanutils.BeanUtils;\n\nclass A {\n    void apply(Object bean, String name, Object value) throws Exception {\n        /*~~(Setting bean properties from external input can enable bean injection (CWE-915). Verify the property name and value come from a trusted source.)~~>*/BeanUtils.setProperty(bean, name, value);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass A {\n    void apply(Object bean, String name, Object value) throws Exception {\n-       BeanUtils.setProperty(bean, name, value);\n+       /*~~(Setting bean properties from external input can enable bean injection (CWE-915). Verify the property name and value come from a trusted source.)~~>*/BeanUtils.setProperty(bean, name, value);\n    }\n","newFile":false}]}]}>
 

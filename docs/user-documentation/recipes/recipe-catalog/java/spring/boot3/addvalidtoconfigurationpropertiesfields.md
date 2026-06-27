@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@Valid` annotation to fields"}
-  description={"In Spring Boot 3.4, validation of `@ConfigurationProperties` classes annotated with `@Validated` now follows the Bean Validation specification, only cascading to nested properties if the corresponding field is annotated with `@Valid`. The recipe will add a `@Valid` annotation to each field which has a type that has a field which is annotated with a `jakarta.validation.constraints.*` annotation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.boot3.AddValidToConfigurationPropertiesFields"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/addvalidtoconfigurationpropertiesfields.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@Valid` annotation to fields</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Spring Boot 3.4, validation of `@ConfigurationProperties` classes annotated with `@Validated` now follows the Bean Validation specification, only cascading to nested properties if the corresponding field is annotated with `@Valid`. The recipe will add a `@Valid` annotation to each field which has a type that has a field which is annotated with a `jakarta.validation.constraints.*` annotation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import jakarta.validation.constraints.NotBlank;\nimport org.springframework.boot.context.properties.ConfigurationProperties;\nimport org.springframework.validation.annotation.Validated;\n\n@ConfigurationProperties(prefix = \"app\")\n@Validated\npublic class AppProperties {\n    private NestedProperties database;\n}\n\npublic class NestedProperties {\n    @NotBlank\n    private String foo;\n}\n","after":"import jakarta.validation.Valid;\nimport jakarta.validation.constraints.NotBlank;\nimport org.springframework.boot.context.properties.ConfigurationProperties;\nimport org.springframework.validation.annotation.Validated;\n\n@ConfigurationProperties(prefix = \"app\")\n@Validated\npublic class AppProperties {\n    @Valid\n    private NestedProperties database;\n}\n\npublic class NestedProperties {\n    @NotBlank\n    private String foo;\n}\n","diff":"@@ -1,0 +1,1 @@\n+import jakarta.validation.Valid;\nimport jakarta.validation.constraints.NotBlank;\n@@ -8,0 +9,1 @@\n@Validated\npublic class AppProperties {\n+   @Valid\n    private NestedProperties database;\n","newFile":false}]}]}>
 

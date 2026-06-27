@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate multi-condition `@ConditionalOnBean` annotations from Boot 1.x"}
-  description={"Migrate multi-condition `@ConditionalOnBean` annotations to use `AnyNestedCondition` when upgrading from Spring Boot 1.x to 2.x. In Boot 1.x, listing multiple beans in `@ConditionalOnBean` meant OR (any match); in Boot 2.x+ it means AND (all must match). This recipe preserves the original OR semantics by wrapping conditions in an `AnyNestedCondition` class."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.ConditionalOnBeanAnyNestedConditionBoot1"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/conditionalonbeananynestedconditionboot1.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate multi-condition `@ConditionalOnBean` annotations","href":"java/spring/boot2/conditionalonbeananynestedcondition"}]} preconditions={[{"name":"Module has dependency","href":"java/dependencies/search/modulehasdependency"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Migrate multi-condition `@ConditionalOnBean` annotations from Boot 1.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate multi-condition `@ConditionalOnBean` annotations to use `AnyNestedCondition` when upgrading from Spring Boot 1.x to 2.x. In Boot 1.x, listing multiple beans in `@ConditionalOnBean` meant OR (any match); in Boot 2.x+ it means AND (all must match). This recipe preserves the original OR semantics by wrapping conditions in an `AnyNestedCondition` class.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate multi-condition `@ConditionalOnBean` annotations","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/conditionalonbeananynestedcondition/"}]} preconditions={[{"name":"Module has dependency","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/modulehasdependency/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

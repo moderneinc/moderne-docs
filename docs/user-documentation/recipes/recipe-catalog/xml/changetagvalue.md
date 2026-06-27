@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Change XML tag value"}
-  description={"Alters the value of XML tags matching the provided expression. When regex is enabled the replacement happens only for text nodes provided the pattern matches."}
   type={"Single recipe"}
   languages={["XML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-xml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.xml.ChangeTagValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/xml/changetagvalue.md"}
-/>
+>
+
+<RecipeHeader.Title>Change XML tag value</RecipeHeader.Title>
+
+<RecipeHeader.Description>Alters the value of XML tags matching the provided expression. When regex is enabled the replacement happens only for text nodes provided the pattern matches.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"elementName","required":true,"description":"The name of the element whose value is to be changed. Interpreted as an XPath Expression.","example":"/settings/servers/server/username"},{"type":"String","name":"oldValue","required":false,"description":"The old value of the tag. Interpreted as pattern if regex is enabled.","example":"user"},{"type":"String","name":"newValue","required":true,"description":"The new value for the tag. Supports capture groups when regex is enabled. If literal $,\\ characters are needed in newValue, with regex true, then it should be escaped.","example":"user"},{"type":"Boolean","name":"regex","required":false,"description":"Default false. If true, `oldValue` will be interpreted as a [Regular Expression](https://en.wikipedia.org/wiki/Regular_expression), and capture group contents will be available in `newValue`."}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `x?.let { } ?: y` patterns"}
-  description={"`x?.let { … } ?: y` mixes two intents — transform-when-present and fall-back — into a single expression. Inverts the natural reading order; consider an explicit `if (x != null) … else y` or pull the elvis branch out for clarity."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindLetElvis$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findletelvis$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `x?.let { } ?: y` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`x?.let { … } ?: y` mixes two intents — transform-when-present and fall-back — into a single expression. Inverts the natural reading order; consider an explicit `if (x != null) … else y` or pull the elvis branch out for clarity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindLetElvis$KtRecipe","displayName":"Find `x?.let { } ?: y` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Cipher.getInstance(\"AES\")` calls without a mode"}
-  description={"Bare `\"AES\"` defaults to `AES/ECB/PKCS5Padding` on the SunJCE provider — ECB mode is broken for any data with structure. Specify `\"AES/GCM/NoPadding\"` explicitly so the cipher is portable and authenticated."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindAesDefaultMode$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findaesdefaultmode$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Cipher.getInstance("AES")` calls without a mode</RecipeHeader.Title>
+
+<RecipeHeader.Description>Bare `"AES"` defaults to `AES/ECB/PKCS5Padding` on the SunJCE provider — ECB mode is broken for any data with structure. Specify `"AES/GCM/NoPadding"` explicitly so the cipher is portable and authenticated.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindAesDefaultMode$KtRecipe","displayName":"Find `Cipher.getInstance(\"AES\")` calls without a mode","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

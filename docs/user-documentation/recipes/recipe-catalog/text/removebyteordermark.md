@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove byte order mark (BOM)"}
-  description={"Removes UTF-8 byte order marks from the beginning of files.\n\nThe BOM character (U+FEFF) is generally unnecessary in UTF-8 files and can cause issues with some tools."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-core"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.text.RemoveByteOrderMark"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/text/removebyteordermark.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove byte order mark (BOM)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes UTF-8 byte order marks from the beginning of files.  The BOM character (U+FEFF) is generally unnecessary in UTF-8 files and can cause issues with some tools.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.text.RemoveByteOrderMark","displayName":"Remove byte order mark (BOM)","groupId":"org.openrewrite","artifactId":"rewrite-core","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_CORE","requiresConfiguration":false}}>
 

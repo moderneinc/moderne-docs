@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Jackson `ObjectMapper()` allocations inside collection lambdas"}
-  description={"Allocating a fresh `ObjectMapper` per element rebuilds Jackson's module/serializer registry on every call. Hoist one mapper to a top-level property — it is thread-safe once configured."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.FindObjectMapperInCollectionLambdas$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/findobjectmapperincollectionlambdas$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Jackson `ObjectMapper()` allocations inside collection lambdas</RecipeHeader.Title>
+
+<RecipeHeader.Description>Allocating a fresh `ObjectMapper` per element rebuilds Jackson's module/serializer registry on every call. Hoist one mapper to a top-level property — it is thread-safe once configured.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.FindObjectMapperInCollectionLambdas$KtRecipe","displayName":"Find Jackson `ObjectMapper()` allocations inside collection lambdas","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

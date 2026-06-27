@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find companion-object loggers missing `private`"}
-  description={"A companion-object `val log = LoggerFactory.getLogger(...)` without `private` is exposed to Java callers as `Foo.Companion.getLog()` — they can mutate the logger reference (well, not the val, but the visibility is wider than needed). Mark it `private`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindCompanionLoggerWithoutPrivate$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findcompanionloggerwithoutprivate$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find companion-object loggers missing `private`</RecipeHeader.Title>
+
+<RecipeHeader.Description>A companion-object `val log = LoggerFactory.getLogger(...)` without `private` is exposed to Java callers as `Foo.Companion.getLog()` — they can mutate the logger reference (well, not the val, but the visibility is wider than needed). Mark it `private`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindCompanionLoggerWithoutPrivate$KtRecipe","displayName":"Find companion-object loggers missing `private`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

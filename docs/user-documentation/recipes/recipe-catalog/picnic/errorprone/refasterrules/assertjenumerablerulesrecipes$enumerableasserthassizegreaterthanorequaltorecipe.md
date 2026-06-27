@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeGreaterThanOrEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class EnumerableAssertHasSizeGreaterThanOrEqualTo<E> {\n    \n    @BeforeTemplate\n    AbstractIterableAssert<?, ?, E, ?> before(AbstractIterableAssert<?, ?, E, ?> enumAssert, int size) {\n        return enumAssert.size().isGreaterThanOrEqualTo(size).returnToIterable();\n    }\n    \n    @BeforeTemplate\n    AbstractIterableSizeAssert<?, ?, E, ?> before2(AbstractIterableAssert<?, ?, E, ?> enumAssert, int size) {\n        return enumAssert.size().isGreaterThanOrEqualTo(size);\n    }\n    \n    @AfterTemplate\n    EnumerableAssert<?, E> after(EnumerableAssert<?, E> enumAssert, int size) {\n        return enumAssert.hasSizeGreaterThanOrEqualTo(size);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,37 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJEnumerableRulesRecipes$EnumerableAssertHasSizeGreaterThanOrEqualToRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjenumerablerulesrecipes$enumerableasserthassizegreaterthanorequaltorecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeGreaterThanOrEqualTo`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class EnumerableAssertHasSizeGreaterThanOrEqualTo<E> {
+    
+    @BeforeTemplate
+    AbstractIterableAssert<?, ?, E, ?> before(AbstractIterableAssert<?, ?, E, ?> enumAssert, int size) {
+        return enumAssert.size().isGreaterThanOrEqualTo(size).returnToIterable();
+    }
+    
+    @BeforeTemplate
+    AbstractIterableSizeAssert<?, ?, E, ?> before2(AbstractIterableAssert<?, ?, E, ?> enumAssert, int size) {
+        return enumAssert.size().isGreaterThanOrEqualTo(size);
+    }
+    
+    @AfterTemplate
+    EnumerableAssert<?, E> after(EnumerableAssert<?, E> enumAssert, int size) {
+        return enumAssert.hasSizeGreaterThanOrEqualTo(size);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJEnumerableRulesRecipes$EnumerableAssertHasSizeGreaterThanOrEqualToRecipe","displayName":"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeGreaterThanOrEqualTo`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

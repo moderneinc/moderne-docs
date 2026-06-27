@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `WebClientRules.WebClientPost`"}
-  description={"Prefer `WebClient#post()` over `WebClient#method(HttpMethod)` with `HttpMethod#POST`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.WebClientRulesRecipes$WebClientPostRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/webclientrulesrecipes$webclientpostrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `WebClientRules.WebClientPost`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `WebClient#post()` over `WebClient#method(HttpMethod)` with `HttpMethod#POST`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.WebClientRulesRecipes$WebClientPostRecipe","displayName":"Refaster template `WebClientRules.WebClientPost`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

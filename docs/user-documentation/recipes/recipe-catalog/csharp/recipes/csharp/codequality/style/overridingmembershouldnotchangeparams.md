@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Overriding member should not change 'params' modifier"}
-  description={"An overriding member should not add or remove the 'params' modifier compared to its base declaration."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.OverridingMemberShouldNotChangeParams"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/overridingmembershouldnotchangeparams.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Overriding member should not change 'params' modifier</RecipeHeader.Title>
+
+<RecipeHeader.Description>An overriding member should not add or remove the 'params' modifier compared to its base declaration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.OverridingMemberShouldNotChangeParams","displayName":"Overriding member should not change 'params' modifier","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

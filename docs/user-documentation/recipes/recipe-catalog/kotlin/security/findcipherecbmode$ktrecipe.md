@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Cipher.getInstance(\"AES/ECB/...\")` calls"}
-  description={"ECB mode encrypts identical plaintext blocks to identical ciphertext blocks, leaking structure (the famous \"ECB penguin\"). Use AES/GCM/NoPadding or AES/CBC/PKCS5Padding with a random IV per message."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindCipherEcbMode$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findcipherecbmode$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Cipher.getInstance("AES/ECB/...")` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>ECB mode encrypts identical plaintext blocks to identical ciphertext blocks, leaking structure (the famous "ECB penguin"). Use AES/GCM/NoPadding or AES/CBC/PKCS5Padding with a random IV per message.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindCipherEcbMode$KtRecipe","displayName":"Find `Cipher.getInstance(\"AES/ECB/...\")` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

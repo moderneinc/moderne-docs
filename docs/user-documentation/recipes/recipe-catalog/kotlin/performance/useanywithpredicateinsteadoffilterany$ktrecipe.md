@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `any { predicate }` instead of `filter { predicate }.any()`"}
-  description={"`any { predicate }` short-circuits on the first match. Calling `any()` after `filter` first materializes the entire filtered list."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseAnyWithPredicateInsteadOfFilterAny$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/useanywithpredicateinsteadoffilterany$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `any { predicate }` instead of `filter { predicate }.any()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`any { predicate }` short-circuits on the first match. Calling `any()` after `filter` first materializes the entire filtered list.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseAnyWithPredicateInsteadOfFilterAny$KtRecipe","displayName":"Use `any { predicate }` instead of `filter { predicate }.any()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

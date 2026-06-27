@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Attribute name should end with 'Attribute'"}
-  description={"Classes that inherit from `System.Attribute` should have names ending with 'Attribute' by convention."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","naming","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Naming.FindAttributeNameShouldEndWithAttribute"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/naming/findattributenameshouldendwithattribute.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Attribute name should end with 'Attribute'</RecipeHeader.Title>
+
+<RecipeHeader.Description>Classes that inherit from `System.Attribute` should have names ending with 'Attribute' by convention.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Naming.FindAttributeNameShouldEndWithAttribute","displayName":"Attribute name should end with 'Attribute'","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

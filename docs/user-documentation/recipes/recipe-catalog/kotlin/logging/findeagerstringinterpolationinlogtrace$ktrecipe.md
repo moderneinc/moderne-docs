@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find eager string interpolation in `log.trace(...)`"}
-  description={"`log.trace(\"x=$x\")` evaluates the template (including any `toString()` work on `x`) before the call even reaches the logger — if trace is disabled, the work is wasted. With kotlin-logging use `log.trace { \"x=$x\" }`; with SLF4J use the parameterized form `log.trace(\"x={}\", x)`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindEagerStringInterpolationInLogTrace$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinlogtrace$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find eager string interpolation in `log.trace(...)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`log.trace("x=$x")` evaluates the template (including any `toString()` work on `x`) before the call even reaches the logger — if trace is disabled, the work is wasted. With kotlin-logging use `log.trace { "x=$x" }`; with SLF4J use the parameterized form `log.trace("x={}", x)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindEagerStringInterpolationInLogTrace$KtRecipe","displayName":"Find eager string interpolation in `log.trace(...)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

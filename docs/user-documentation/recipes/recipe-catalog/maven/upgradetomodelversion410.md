@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade to Maven model version 4.1.0"}
-  description={"Upgrades Maven POMs from model version 4.0.0 to 4.1.0, enabling new Maven 4 features like `<subprojects>`, `bom` packaging, and automatic version inference. This recipe updates the `<modelVersion>` element, `xmlns` namespace, and `xsi:schemaLocation` from 4.0.0 to 4.1.0."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.UpgradeToModelVersion410"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/upgradetomodelversion410.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change XML tag value","href":"xml/changetagvalue"},{"name":"Change XML attribute","href":"xml/changetagattribute"},{"name":"Change XML attribute","href":"xml/changetagattribute"}]}>
+<RecipeHeader.Title>Upgrade to Maven model version 4.1.0</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrades Maven POMs from model version 4.0.0 to 4.1.0, enabling new Maven 4 features like `<subprojects>`, `bom` packaging, and automatic version inference. This recipe updates the `<modelVersion>` element, `xmlns` namespace, and `xsi:schemaLocation` from 4.0.0 to 4.1.0.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change XML tag value","href":"/user-documentation/recipes/recipe-catalog/xml/changetagvalue/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"},{"name":"Change XML attribute","href":"/user-documentation/recipes/recipe-catalog/xml/changetagattribute/"}]}>
 
 ## Definition
 

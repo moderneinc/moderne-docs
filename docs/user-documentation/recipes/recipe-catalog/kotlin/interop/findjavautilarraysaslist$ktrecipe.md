@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Arrays.asList(...)` calls"}
-  description={"`Arrays.asList(a, b, c)` is the Java idiom for a small read-only `List`. In Kotlin, `listOf(a, b, c)` is more concise, properly read-only (the returned list is structurally immutable), and avoids leaking the array-backed quirk where `set` is allowed but `add` is not."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.interop.FindJavaUtilArraysAsList$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/interop/findjavautilarraysaslist$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Arrays.asList(...)` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Arrays.asList(a, b, c)` is the Java idiom for a small read-only `List`. In Kotlin, `listOf(a, b, c)` is more concise, properly read-only (the returned list is structurally immutable), and avoids leaking the array-backed quirk where `set` is allowed but `add` is not.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.interop.FindJavaUtilArraysAsList$KtRecipe","displayName":"Find `Arrays.asList(...)` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

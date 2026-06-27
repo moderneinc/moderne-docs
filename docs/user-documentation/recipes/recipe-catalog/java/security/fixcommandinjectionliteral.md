@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `Runtime.exec(String)` with `Runtime.exec(String[])`"}
-  description={"Rewrites `Runtime.exec(\"cmd args \" + arg)` calls into the safer `Runtime.exec(new String[]{...})` overload that bypasses shell interpretation. Fires only when the first argument is a string concatenation, the first operand is a string literal containing whitespace, and no literal contains shell metacharacters (`|`, `<`, `>`, `&`, `;`, backtick, `$`, newline). Calls with no literal prefix, with single-token literals, or with shell metacharacters are left for human review."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-78"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.FixCommandInjectionLiteral"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/fixcommandinjectionliteral.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `Runtime.exec(String)` with `Runtime.exec(String[])`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rewrites `Runtime.exec("cmd args " + arg)` calls into the safer `Runtime.exec(new String[]{...})` overload that bypasses shell interpretation. Fires only when the first argument is a string concatenation, the first operand is a string literal containing whitespace, and no literal contains shell metacharacters (`|`, `<`, `>`, `&`, `;`, backtick, `$`, newline). Calls with no literal prefix, with single-token literals, or with shell metacharacters are left for human review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void run(String dir) throws Exception {\n        Runtime.getRuntime().exec(\"ls -la \" + dir);\n    }\n}\n","after":"class Test {\n    void run(String dir) throws Exception {\n        Runtime.getRuntime().exec(new String[]{\"ls\", \"-la\", dir});\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    void run(String dir) throws Exception {\n-       Runtime.getRuntime().exec(\"ls -la \" + dir);\n+       Runtime.getRuntime().exec(new String[]{\"ls\", \"-la\", dir});\n    }\n","newFile":false}]}]}>
 

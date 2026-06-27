@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Ensure storage account uses latest TLS version"}
-  description={"Communication between an Azure Storage account and a client application is encrypted using Transport Layer Security (TLS). Microsoft recommends using the latest version of TLS for all your Microsoft Azure App Service web applications."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["Azure","terraform","CKV_AZURE_44"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.azure.EnsureStorageAccountUsesLatestTLSVersion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/azure/ensurestorageaccountuseslatesttlsversion.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Terraform configuration","href":"terraform/addconfiguration"}]}>
+<RecipeHeader.Title>Ensure storage account uses latest TLS version</RecipeHeader.Title>
+
+<RecipeHeader.Description>Communication between an Azure Storage account and a client application is encrypted using Transport Layer Security (TLS). Microsoft recommends using the latest version of TLS for all your Microsoft Azure App Service web applications.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Terraform configuration","href":"/user-documentation/recipes/recipe-catalog/terraform/addconfiguration/"}]}>
 
 ## Definition
 

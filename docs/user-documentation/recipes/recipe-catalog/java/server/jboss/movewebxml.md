@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Move `web.xml` to resources"}
-  description={"Moves `src/main/webapp/WEB-INF/web.xml` to `src/main/resources/web.xml`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.MoveWebXml"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/movewebxml.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Move `web.xml` to resources</RecipeHeader.Title>
+
+<RecipeHeader.Description>Moves `src/main/webapp/WEB-INF/web.xml` to `src/main/resources/web.xml`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"xml","code":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<jboss-web>\n    <context-root>/myapp</context-root>\n</jboss-web>\n"},"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<web-app xmlns=\"http://java.sun.com/xml/ns/javaee\"\n         version=\"3.0\">\n    <servlet>\n        <servlet-name>main</servlet-name>\n        <servlet-class>com.example.MainServlet</servlet-class>\n    </servlet>\n</web-app>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<web-app xmlns=\"http://java.sun.com/xml/ns/javaee\"\n         version=\"3.0\">\n    <servlet>\n        <servlet-name>main</servlet-name>\n        <servlet-class>com.example.MainServlet</servlet-class>\n    </servlet>\n</web-app>\n","diff":"","newFile":false}]}]}>
 

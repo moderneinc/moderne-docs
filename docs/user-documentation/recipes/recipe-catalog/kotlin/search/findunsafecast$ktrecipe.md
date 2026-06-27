@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find bare `as` casts (unsafe)"}
-  description={"A bare `as` cast throws `ClassCastException` on a mismatch — every cast is a runtime contract the compiler can't enforce. Where the result might legitimately be the wrong type, prefer `as?` (returning `null`) so the failure surfaces as a nullable handling decision rather than an exception."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindUnsafeCast$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findunsafecast$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find bare `as` casts (unsafe)</RecipeHeader.Title>
+
+<RecipeHeader.Description>A bare `as` cast throws `ClassCastException` on a mismatch — every cast is a runtime contract the compiler can't enforce. Where the result might legitimately be the wrong type, prefer `as?` (returning `null`) so the failure surfaces as a nullable handling decision rather than an exception.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindUnsafeCast$KtRecipe","displayName":"Find bare `as` casts (unsafe)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

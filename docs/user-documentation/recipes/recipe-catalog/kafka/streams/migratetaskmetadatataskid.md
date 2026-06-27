@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `TaskMetadata.taskId()` to return `TaskId`"}
-  description={"In Kafka Streams 3.0, `TaskMetadata.taskId()` changed its return type from `String` to `TaskId`. This recipe adds `.toString()` calls where necessary to maintain String compatibility."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.kafka.streams.MigrateTaskMetadataTaskId"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kafka/streams/migratetaskmetadatataskid.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate `TaskMetadata.taskId()` to return `TaskId`</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Kafka Streams 3.0, `TaskMetadata.taskId()` changed its return type from `String` to `TaskId`. This recipe adds `.toString()` calls where necessary to maintain String compatibility.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"io.moderne.kafka.streams.MigrateTaskMetadataTaskId","displayName":"Migrate `TaskMetadata.taskId()` to return `TaskId`","groupId":"io.moderne.recipe","artifactId":"rewrite-kafka","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_KAFKA","requiresConfiguration":false}}>
 

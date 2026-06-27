@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add JUnit Jupiter dependencies"}
-  description={"Adds JUnit Jupiter dependencies to a Maven or Gradle project. JUnit Jupiter can be added either with the artifact `junit-jupiter`, or both of `junit-jupiter-api` and `junit-jupiter-engine`. This adds `junit-jupiter` dependency unless `junit-jupiter-api` or `junit-jupiter-engine` are already present."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.AddJupiterDependencies"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/addjupiterdependencies.md"}
-/>
+>
+
+<RecipeHeader.Title>Add JUnit Jupiter dependencies</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds JUnit Jupiter dependencies to a Maven or Gradle project. JUnit Jupiter can be added either with the artifact `junit-jupiter`, or both of `junit-jupiter-api` and `junit-jupiter-engine`. This adds `junit-jupiter` dependency unless `junit-jupiter-api` or `junit-jupiter-engine` are already present.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[]}]}>
 

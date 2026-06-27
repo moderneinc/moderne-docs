@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Update `tsconfig.json` target to `es2017`"}
-  description={"Updates the `compilerOptions.target` in `tsconfig.json` from `es5`, `es2015`, or `es2016` to `es2017`. Angular 13 dropped IE11 support and requires at least ES2017."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.update-tsconfig-target"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/update-tsconfig-target.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Update `tsconfig.json` target to `es2017`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Updates the `compilerOptions.target` in `tsconfig.json` from `es5`, `es2015`, or `es2016` to `es2017`. Angular 13 dropped IE11 support and requires at least ES2017.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.angular.migration.update-tsconfig-target","displayName":"Update `tsconfig.json` target to `es2017`","npmPackage":"@openrewrite/recipes-angular"}}>
 

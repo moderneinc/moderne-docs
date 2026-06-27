@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `MockitoAnnotations.initMocks(this)` to `MockitoAnnotations.openMocks(this)`"}
-  description={"Replace `MockitoAnnotations.initMocks(this)` to `MockitoAnnotations.openMocks(this)` and generate `AutoCloseable` mocks."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.mockito.ReplaceInitMockToOpenMock"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/mockito/replaceinitmocktoopenmock.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `MockitoAnnotations.initMocks(this)` to `MockitoAnnotations.openMocks(this)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `MockitoAnnotations.initMocks(this)` to `MockitoAnnotations.openMocks(this)` and generate `AutoCloseable` mocks.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.mockito.MockitoAnnotations;\nimport org.junit.jupiter.api.BeforeEach;\n\nclass A {\n\n    @BeforeEach\n    public void setUp() {\n        test1();\n        MockitoAnnotations.initMocks(this);\n        test2();\n    }\n\n    public void test1() {\n    }\n\n    public void test2() {\n    }\n}\n","after":"import org.mockito.MockitoAnnotations;\nimport org.junit.jupiter.api.AfterEach;\nimport org.junit.jupiter.api.BeforeEach;\n\nclass A {\n\n    private AutoCloseable mocks;\n\n    @BeforeEach\n    public void setUp() {\n        test1();\n        mocks = MockitoAnnotations.openMocks(this);\n        test2();\n    }\n\n    public void test1() {\n    }\n\n    public void test2() {\n    }\n\n    @AfterEach\n    void tearDown() throws Exception {\n        mocks.close();\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.mockito.MockitoAnnotations;\n+import org.junit.jupiter.api.AfterEach;\nimport org.junit.jupiter.api.BeforeEach;\n@@ -6,0 +7,2 @@\nclass A {\n\n+   private AutoCloseable mocks;\n+\n    @BeforeEach\n@@ -9,1 +12,1 @@\n    public void setUp() {\n        test1();\n-       MockitoAnnotations.initMocks(this);\n+       mocks = MockitoAnnotations.openMocks(this);\n        test2();\n@@ -18,0 +21,5 @@\n    public void test2() {\n    }\n+\n+   @AfterEach\n+   void tearDown() throws Exception {\n+       mocks.close();\n+   }\n}\n","newFile":false}]}]}>
 

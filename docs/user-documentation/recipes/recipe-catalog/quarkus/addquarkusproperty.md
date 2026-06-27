@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add a Quarkus configuration property"}
-  description={"Add a Quarkus configuration property to an existing configuration file if it does not already exist in that file."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.AddQuarkusProperty"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/addquarkusproperty.md"}
-/>
+>
+
+<RecipeHeader.Title>Add a Quarkus configuration property</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add a Quarkus configuration property to an existing configuration file if it does not already exist in that file.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"property","required":true,"description":"The property key to add.","example":"quarkus.http.port"},{"type":"String","name":"value","required":true,"description":"The value of the new property key.","example":"9090"},{"type":"String","name":"comment","required":false,"description":"A comment that will be added to the new property.","example":"This is a comment"},{"type":"String","name":"profile","required":false,"description":"The profile to add the property to. If not specified, the property will be added to the default profile.","example":"dev"},{"type":"List","name":"pathExpressions","required":false,"description":"Each value in this list represents a glob expression that is used to match which files will be modified. If this value is not present, this recipe will query the execution context for reasonable defaults. (\"**/application.yml\", \"**/application.yaml\", \"**/application.properties\" and \"**/META-INF/microprofile-config.properties\".","example":"[\"**/application.yaml\"]"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add explicit `groupId` to Maven plugins"}
-  description={"Add the default `<groupId>org.apache.maven.plugins</groupId>` to plugins for clarity."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.cleanup.ExplicitPluginGroupId"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/cleanup/explicitplugingroupid.md"}
-/>
+>
+
+<RecipeHeader.Title>Add explicit `groupId` to Maven plugins</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add the default `<groupId>org.apache.maven.plugins</groupId>` to plugins for clarity.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.maven.cleanup.ExplicitPluginGroupId","displayName":"Add explicit `groupId` to Maven plugins","groupId":"org.openrewrite","artifactId":"rewrite-maven","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_MAVEN","requiresConfiguration":false}}>
 

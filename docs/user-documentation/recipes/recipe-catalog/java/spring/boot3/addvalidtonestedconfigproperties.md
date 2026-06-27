@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@Valid` to nested properties in `@ConfigurationProperties`"}
-  description={"Adds `@Valid` annotation to fields in `@ConfigurationProperties` classes that contain nested properties with validation constraints."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.AddValidToNestedConfigProperties"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/addvalidtonestedconfigproperties.md"}
-/>
+>
+
+<RecipeHeader.Title>Add `@Valid` to nested properties in `@ConfigurationProperties`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds `@Valid` annotation to fields in `@ConfigurationProperties` classes that contain nested properties with validation constraints.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"package com.example.demo;\n\nimport org.springframework.boot.context.properties.ConfigurationProperties;\nimport org.springframework.validation.annotation.Validated;\n\n@ConfigurationProperties(\"app\")\n@Validated\npublic class AppProperties {\n\n    private String name;\n\n    private NestedProperties nested;\n}\n","after":"package com.example.demo;\n\nimport jakarta.validation.Valid;\nimport org.springframework.boot.context.properties.ConfigurationProperties;\nimport org.springframework.validation.annotation.Validated;\n\n@ConfigurationProperties(\"app\")\n@Validated\npublic class AppProperties {\n\n    private String name;\n\n    @Valid\n    private NestedProperties nested;\n}\n","diff":"@@ -3,0 +3,1 @@\npackage com.example.demo;\n\n+import jakarta.validation.Valid;\nimport org.springframework.boot.context.properties.ConfigurationProperties;\n@@ -12,0 +13,1 @@\n    private String name;\n\n+   @Valid\n    private NestedProperties nested;\n","newFile":false}]}]}>
 

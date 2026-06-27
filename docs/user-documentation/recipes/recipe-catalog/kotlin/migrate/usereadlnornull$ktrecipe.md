@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `readlnOrNull()` instead of `readLine()`"}
-  description={"`readLine()` was deprecated in Kotlin 1.6 in favor of `readlnOrNull()` (and the asserting `readln()`), which spells the EOF-handling intent explicitly."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseReadlnOrNull$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/usereadlnornull$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `readlnOrNull()` instead of `readLine()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`readLine()` was deprecated in Kotlin 1.6 in favor of `readlnOrNull()` (and the asserting `readln()`), which spells the EOF-handling intent explicitly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseReadlnOrNull$KtRecipe","displayName":"Use `readlnOrNull()` instead of `readLine()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

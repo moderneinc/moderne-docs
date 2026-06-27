@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Finalize local variables"}
-  description={"Adds the `final` modifier keyword to local variables which are not reassigned."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.FinalizeLocalVariables"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/finalizelocalvariables.md"}
-/>
+>
+
+<RecipeHeader.Title>Finalize local variables</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the `final` modifier keyword to local variables which are not reassigned.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class A {\n    public void test() {\n        int n = 1;\n        for(int i = 0; i < n; i++) {\n        }\n    }\n}\n","after":"class A {\n    public void test() {\n        final int n = 1;\n        for(int i = 0; i < n; i++) {\n        }\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass A {\n    public void test() {\n-       int n = 1;\n+       final int n = 1;\n        for(int i = 0; i < n; i++) {\n","newFile":false}]}]}>
 

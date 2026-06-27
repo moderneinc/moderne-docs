@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Spring annotation-shape smells"}
-  description={"Stereotype/injection annotations applied to the wrong Kotlin shape: `@Component` on `data class`, `@Service` on `object`, `@Bean` without `@Scope`, `@Autowired` on `var` / `lateinit var` / class-body `val`, and `@Lazy @Autowired` (a hint of circular dependencies)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringAnnotationSmells$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringannotationsmells$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `@Component` / `@Service` / `@Repository` on `data class`","href":"kotlin/spring/findspringcomponentondataclass$ktrecipe"},{"name":"Find `@Service object Foo` declarations","href":"kotlin/spring/findspringserviceonobject$ktrecipe"},{"name":"Find `@Bean` methods without `@Scope`","href":"kotlin/spring/findspringbeanwithoutscope$ktrecipe"},{"name":"Find `@Autowired var` properties (not `lateinit`)","href":"kotlin/spring/findautowiredonvar$ktrecipe"},{"name":"Find `@Autowired lateinit var` properties (ctor-injection candidate)","href":"kotlin/spring/findautowiredonlateinitvar$ktrecipe"},{"name":"Find `@Autowired val` field declarations (not in ctor)","href":"kotlin/spring/findfieldinjectionoverconstructor$ktrecipe"},{"name":"Find `@Lazy` annotations on `@Autowired` properties","href":"kotlin/spring/findcirculardependencyhint$ktrecipe"}]}>
+<RecipeHeader.Title>Find Spring annotation-shape smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Stereotype/injection annotations applied to the wrong Kotlin shape: `@Component` on `data class`, `@Service` on `object`, `@Bean` without `@Scope`, `@Autowired` on `var` / `lateinit var` / class-body `val`, and `@Lazy @Autowired` (a hint of circular dependencies).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `@Component` / `@Service` / `@Repository` on `data class`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringcomponentondataclass$ktrecipe/"},{"name":"Find `@Service object Foo` declarations","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringserviceonobject$ktrecipe/"},{"name":"Find `@Bean` methods without `@Scope`","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringbeanwithoutscope$ktrecipe/"},{"name":"Find `@Autowired var` properties (not `lateinit`)","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredonvar$ktrecipe/"},{"name":"Find `@Autowired lateinit var` properties (ctor-injection candidate)","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findautowiredonlateinitvar$ktrecipe/"},{"name":"Find `@Autowired val` field declarations (not in ctor)","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findfieldinjectionoverconstructor$ktrecipe/"},{"name":"Find `@Lazy` annotations on `@Autowired` properties","href":"/user-documentation/recipes/recipe-catalog/kotlin/spring/findcirculardependencyhint$ktrecipe/"}]}>
 
 ## Definition
 

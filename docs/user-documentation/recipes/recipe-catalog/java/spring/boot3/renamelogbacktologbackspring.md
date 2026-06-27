@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename `logback.xml` to `logback-spring.xml`"}
-  description={"Spring Boot only processes Spring-specific logback extensions (`<springProfile>`, `<springProperty>`) when the configuration file is named `logback-spring.xml`. A plain `logback.xml` is loaded too early by logback itself, before Spring's `Environment` is ready, so these extensions are silently ignored. This recipe renames `logback.xml` to `logback-spring.xml` when Spring extensions are detected."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.RenameLogbackToLogbackSpring"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/renamelogbacktologbackspring.md"}
-/>
+>
+
+<RecipeHeader.Title>Rename `logback.xml` to `logback-spring.xml`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Boot only processes Spring-specific logback extensions (`<springProfile>`, `<springProperty>`) when the configuration file is named `logback-spring.xml`. A plain `logback.xml` is loaded too early by logback itself, before Spring's `Environment` is ready, so these extensions are silently ignored. This recipe renames `logback.xml` to `logback-spring.xml` when Spring extensions are detected.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<configuration>\n  <springProfile name=\"dev\">\n    <logger name=\"com.example\" level=\"DEBUG\"/>\n  </springProfile>\n  <root level=\"INFO\">\n    <appender-ref ref=\"STDOUT\"/>\n  </root>\n</configuration>\n","after":"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<configuration>\n  <springProfile name=\"dev\">\n    <logger name=\"com.example\" level=\"DEBUG\"/>\n  </springProfile>\n  <root level=\"INFO\">\n    <appender-ref ref=\"STDOUT\"/>\n  </root>\n</configuration>\n","diff":"","newFile":false}]}]}>
 

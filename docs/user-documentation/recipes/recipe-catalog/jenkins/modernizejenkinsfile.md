@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Modernize Jenkinsfile"}
-  description={"Updates `Jenkinsfile` to build with recommended Java versions, platforms, and settings."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-jenkins"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.jenkins.ModernizeJenkinsfile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/jenkins/modernizejenkinsfile.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Create text file","href":"text/createtextfile"}]}>
+<RecipeHeader.Title>Modernize Jenkinsfile</RecipeHeader.Title>
+
+<RecipeHeader.Description>Updates `Jenkinsfile` to build with recommended Java versions, platforms, and settings.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Create text file","href":"/user-documentation/recipes/recipe-catalog/text/createtextfile/"}]}>
 
 ## Definition
 

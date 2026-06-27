@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify ternary expressions"}
-  description={"Simplifies various types of ternary expressions to improve code readability. Ternaries that simply select between `true` and `false` are redundant wrappers around the condition itself and add unnecessary complexity."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S1125"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.SimplifyTernaryRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyternaryrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace `booleanExpression ? true : false` with `booleanExpression`","href":"staticanalysis/simplifyternaryrecipes$simplifyternarytruefalserecipe"},{"name":"Replace `booleanExpression ? false : true` with `!booleanExpression`","href":"staticanalysis/simplifyternaryrecipes$simplifyternaryfalsetruerecipe"}]}>
+<RecipeHeader.Title>Simplify ternary expressions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplifies various types of ternary expressions to improve code readability. Ternaries that simply select between `true` and `false` are redundant wrappers around the condition itself and add unnecessary complexity.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace `booleanExpression ? true : false` with `booleanExpression`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyternaryrecipes$simplifyternarytruefalserecipe/"},{"name":"Replace `booleanExpression ? false : true` with `!booleanExpression`","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyternaryrecipes$simplifyternaryfalsetruerecipe/"}]}>
 
 ## Definition
 

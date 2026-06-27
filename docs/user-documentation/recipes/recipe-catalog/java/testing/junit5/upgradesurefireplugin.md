@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Surefire Plugin"}
-  description={"Upgrades the Maven Surefire Plugin to the latest version if still using an older Maven version."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.UpgradeSurefirePlugin"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/upgradesurefireplugin.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Maven plugin","href":"maven/addplugin"},{"name":"Add Maven plugin dependencies","href":"maven/addplugindependency"}]} preconditions={[{"name":"Singleton","href":"core/singleton"},{"name":"Find files with a particular build tool version","href":"java/search/hasbuildtoolversion"}]}>
+<RecipeHeader.Title>Upgrade Surefire Plugin</RecipeHeader.Title>
+
+<RecipeHeader.Description>Upgrades the Maven Surefire Plugin to the latest version if still using an older Maven version.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Maven plugin","href":"/user-documentation/recipes/recipe-catalog/maven/addplugin/"},{"name":"Add Maven plugin dependencies","href":"/user-documentation/recipes/recipe-catalog/maven/addplugindependency/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"},{"name":"Find files with a particular build tool version","href":"/user-documentation/recipes/recipe-catalog/java/search/hasbuildtoolversion/"}]}>
 
 ## Definition
 

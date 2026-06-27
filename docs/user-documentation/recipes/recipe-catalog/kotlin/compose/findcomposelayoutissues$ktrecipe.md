@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Compose layout hierarchy smells"}
-  description={"Layout containers that exist for no compositional benefit: `Box`/`Column`/`Row` wrapping a single child, and `LazyColumn`/`LazyRow` items missing a stable `key` (which churns composition state on reorder)."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposeLayoutIssues$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposelayoutissues$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find `Box { … }` with a single child","href":"kotlin/compose/findboxwithsinglechild$ktrecipe"},{"name":"Find `Column { … }` with a single child","href":"kotlin/compose/findcolumnwithsinglechild$ktrecipe"},{"name":"Find `Row { … }` with a single child","href":"kotlin/compose/findrowwithsinglechild$ktrecipe"},{"name":"Find `LazyColumn`/`LazyRow` `items(...)` calls missing a `key = { … }` argument","href":"kotlin/compose/findlazylistitemmissingkey$ktrecipe"}]}>
+<RecipeHeader.Title>Find Compose layout hierarchy smells</RecipeHeader.Title>
+
+<RecipeHeader.Description>Layout containers that exist for no compositional benefit: `Box`/`Column`/`Row` wrapping a single child, and `LazyColumn`/`LazyRow` items missing a stable `key` (which churns composition state on reorder).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find `Box { … }` with a single child","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findboxwithsinglechild$ktrecipe/"},{"name":"Find `Column { … }` with a single child","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findcolumnwithsinglechild$ktrecipe/"},{"name":"Find `Row { … }` with a single child","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findrowwithsinglechild$ktrecipe/"},{"name":"Find `LazyColumn`/`LazyRow` `items(...)` calls missing a `key = { … }` argument","href":"/user-documentation/recipes/recipe-catalog/kotlin/compose/findlazylistitemmissingkey$ktrecipe/"}]}>
 
 ## Definition
 

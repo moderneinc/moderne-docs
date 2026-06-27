@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `LazyColumn`/`LazyRow` `items(...)` calls missing a `key = { … }` argument"}
-  description={"Without a stable `key`, `LazyColumn`/`LazyRow` indexes items by position. Inserting an item shifts every following index and Compose has to recompose every visible child, recreating their state. A stable `key` (typically an id) lets Compose preserve composition state across reorderings and animations."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindLazyListItemMissingKey$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findlazylistitemmissingkey$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `LazyColumn`/`LazyRow` `items(...)` calls missing a `key = { … }` argument</RecipeHeader.Title>
+
+<RecipeHeader.Description>Without a stable `key`, `LazyColumn`/`LazyRow` indexes items by position. Inserting an item shifts every following index and Compose has to recompose every visible child, recreating their state. A stable `key` (typically an id) lets Compose preserve composition state across reorderings and animations.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindLazyListItemMissingKey$KtRecipe","displayName":"Find `LazyColumn`/`LazyRow` `items(...)` calls missing a `key = { … }` argument","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

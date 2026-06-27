@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `th:utext` with `th:text` in Thymeleaf templates"}
-  description={"Replaces Thymeleaf's unescaped attribute `th:utext` (and `data-th-utext`) with its escaped equivalent `th:text` (`data-th-text`) in `.html` / `.htm` template files. `th:utext` interpolates raw HTML and is the canonical Thymeleaf XSS sink. The recipe only fires on files that look like Thymeleaf templates (declare the `xmlns:th` namespace or use a `th:` / `data-th-` attribute somewhere). If you have a legitimate raw-HTML interpolation, restore it manually and rely on Thymeleaf's `[# th:utext]` block syntax or a sanitized model attribute."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["CWE-79","security"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.security.xss.ReplaceThymeleafUnescaped"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/security/xss/replacethymeleafunescaped.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace `th:utext` with `th:text` in Thymeleaf templates</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces Thymeleaf's unescaped attribute `th:utext` (and `data-th-utext`) with its escaped equivalent `th:text` (`data-th-text`) in `.html` / `.htm` template files. `th:utext` interpolates raw HTML and is the canonical Thymeleaf XSS sink. The recipe only fires on files that look like Thymeleaf templates (declare the `xmlns:th` namespace or use a `th:` / `data-th-` attribute somewhere). If you have a legitimate raw-HTML interpolation, restore it manually and rely on Thymeleaf's `[# th:utext]` block syntax or a sanitized model attribute.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.security.xss.ReplaceThymeleafUnescaped","displayName":"Replace `th:utext` with `th:text` in Thymeleaf templates","groupId":"org.openrewrite.recipe","artifactId":"rewrite-java-security","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JAVA_SECURITY","requiresConfiguration":false}}>
 

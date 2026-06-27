@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJOptionalRules.AssertThatOptionalHasValueMatching`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatOptionalHasValueMatching<T> {\n    \n    @BeforeTemplate\n    AbstractOptionalAssert<?, T> before(Optional<T> optional, Predicate<? super T> predicate) {\n        return assertThat(optional.filter(predicate)).isPresent();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractObjectAssert<?, T> after(Optional<T> optional, Predicate<? super T> predicate) {\n        return assertThat(optional).get().matches(predicate);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes$AssertThatOptionalHasValueMatchingRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjoptionalrulesrecipes$assertthatoptionalhasvaluematchingrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJOptionalRules.AssertThatOptionalHasValueMatching`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatOptionalHasValueMatching<T> {
+    
+    @BeforeTemplate
+    AbstractOptionalAssert<?, T> before(Optional<T> optional, Predicate<? super T> predicate) {
+        return assertThat(optional.filter(predicate)).isPresent();
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractObjectAssert<?, T> after(Optional<T> optional, Predicate<? super T> predicate) {
+        return assertThat(optional).get().matches(predicate);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJOptionalRulesRecipes$AssertThatOptionalHasValueMatchingRecipe","displayName":"Refaster template `AssertJOptionalRules.AssertThatOptionalHasValueMatching`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Log exceptions as parameters rather than as string concatenations"}
-  description={"By using the exception as another parameter you get the whole stack trace."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.logging.log4j.LoggingExceptionConcatenationRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/logging/log4j/loggingexceptionconcatenationrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Log exceptions as parameters rather than as string concatenations</RecipeHeader.Title>
+
+<RecipeHeader.Description>By using the exception as another parameter you get the whole stack trace.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.apache.logging.log4j.Logger;\n\nclass Test {\n    void test(Logger logger, RuntimeException e) {\n        logger.error(\"test\" + e);\n    }\n}\n","after":"import org.apache.logging.log4j.Logger;\n\nclass Test {\n    void test(Logger logger, RuntimeException e) {\n        logger.error(\"test\", e);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Test {\n    void test(Logger logger, RuntimeException e) {\n-       logger.error(\"test\" + e);\n+       logger.error(\"test\", e);\n    }\n","newFile":false}]}]}>
 

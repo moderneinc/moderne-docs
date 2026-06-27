@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant null check when using `StringUtils.isNotBlank(String)`"}
-  description={"Remove redundant null check when using `StringUtils.isNotBlank(String)` as it already handles null values."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.commons.lang.ApacheCommonsStringUtilsRecipes$RemoveRedundantNullCheckWithIsNotBlankRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/commons/lang/apachecommonsstringutilsrecipes$removeredundantnullcheckwithisnotblankrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove redundant null check when using `StringUtils.isNotBlank(String)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove redundant null check when using `StringUtils.isNotBlank(String)` as it already handles null values.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.apache.commons.lang.ApacheCommonsStringUtilsRecipes$RemoveRedundantNullCheckWithIsNotBlankRecipe","displayName":"Remove redundant null check when using `StringUtils.isNotBlank(String)`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 

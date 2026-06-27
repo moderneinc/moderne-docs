@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use conditional throw expression"}
-  description={"Detect `if (x == null) throw ...` patterns that could use `x ?? throw ...`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseConditionalExpressionForThrow"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/useconditionalexpressionforthrow.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use conditional throw expression</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `if (x == null) throw ...` patterns that could use `x ?? throw ...`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.UseConditionalExpressionForThrow","displayName":"Use conditional throw expression","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

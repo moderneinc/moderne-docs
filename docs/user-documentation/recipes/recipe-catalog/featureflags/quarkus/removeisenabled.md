@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove Quarkus feature flag's `isEnabled` for feature key"}
-  description={"Replace `isEnabled()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-feature-flags"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.featureflags.quarkus.RemoveIsEnabled"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/featureflags/quarkus/removeisenabled.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove a boolean feature flag for feature key","href":"featureflags/removebooleanflag"}]}>
+<RecipeHeader.Title>Remove Quarkus feature flag's `isEnabled` for feature key</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `isEnabled()` invocations for `featureKey` with `replacementValue`, and simplify constant if branch execution.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove a boolean feature flag for feature key","href":"/user-documentation/recipes/recipe-catalog/featureflags/removebooleanflag/"}]}>
 
 ## Definition
 

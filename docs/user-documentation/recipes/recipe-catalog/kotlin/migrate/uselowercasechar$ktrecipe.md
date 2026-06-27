@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `Char.lowercaseChar()` instead of `Char.toLowerCase()`"}
-  description={"`Char.toLowerCase()` was deprecated in Kotlin 1.5 in favor of the locale-explicit `lowercaseChar()`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.migrate.UseLowercaseChar$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/migrate/uselowercasechar$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `Char.lowercaseChar()` instead of `Char.toLowerCase()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`Char.toLowerCase()` was deprecated in Kotlin 1.5 in favor of the locale-explicit `lowercaseChar()`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.migrate.UseLowercaseChar$KtRecipe","displayName":"Use `Char.lowercaseChar()` instead of `Char.toLowerCase()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

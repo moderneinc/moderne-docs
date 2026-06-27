@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Composable fun … (): X` functions returning a non-`Unit` value"}
-  description={"A `@Composable` function that returns a value either emits UI as a side-effect (anti-pattern: invocation order is now load-bearing) or computes a derived value that should be a `@ReadOnlyComposable`. Mark explicit value-returning composables `@ReadOnlyComposable` so callers know they don't emit, or split into emitting-vs-returning pairs."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.compose.FindComposableWithReturnValue$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/compose/findcomposablewithreturnvalue$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Composable fun … (): X` functions returning a non-`Unit` value</RecipeHeader.Title>
+
+<RecipeHeader.Description>A `@Composable` function that returns a value either emits UI as a side-effect (anti-pattern: invocation order is now load-bearing) or computes a derived value that should be a `@ReadOnlyComposable`. Mark explicit value-returning composables `@ReadOnlyComposable` so callers know they don't emit, or split into emitting-vs-returning pairs.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.compose.FindComposableWithReturnValue$KtRecipe","displayName":"Find `@Composable fun … (): X` functions returning a non-`Unit` value","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

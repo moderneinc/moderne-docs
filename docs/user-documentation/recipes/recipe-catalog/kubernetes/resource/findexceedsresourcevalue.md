@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find exceeds resource limit"}
-  description={"Find resource manifests that have limits set beyond a specific maximum."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kubernetes.resource.FindExceedsResourceValue"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kubernetes/resource/findexceedsresourcevalue.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find exceeds resource limit</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find resource manifests that have limits set beyond a specific maximum.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"resourceValueType","required":true,"description":"The type of resource value to search for.","example":"limits"},{"type":"String","name":"resourceType","required":true,"description":"The type of resource limit to search for.","example":"memory"},{"type":"String","name":"resourceLimit","required":true,"description":"The resource limit maximum to search for to find resources that request more than the maximum.","example":"2Gi"},{"type":"String","name":"fileMatcher","required":false,"description":"Matching files will be modified. This is a glob expression.","example":"**/pod-*.yml"}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate JavaEE Code to Quarkus 2"}
-  description={"Migrate Standard JavaEE Code to Quarkus 2."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-quarkus"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.quarkus.migrate.javaee.JavaEEtoQuarkus2CodeMigration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/quarkus/migrate/javaee/javaeetoquarkus2codemigration.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Change type","href":"java/changetype"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Change type","href":"java/changetype"},{"name":"Remove annotation","href":"java/removeannotation"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Remove annotation attribute","href":"java/removeannotationattribute"},{"name":"Change type","href":"java/changetype"}]}>
+<RecipeHeader.Title>Migrate JavaEE Code to Quarkus 2</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Standard JavaEE Code to Quarkus 2.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Remove annotation","href":"/user-documentation/recipes/recipe-catalog/java/removeannotation/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Remove annotation attribute","href":"/user-documentation/recipes/recipe-catalog/java/removeannotationattribute/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"}]}>
 
 ## Definition
 

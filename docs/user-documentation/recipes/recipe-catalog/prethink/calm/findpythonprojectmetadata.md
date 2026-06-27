@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Python project metadata"}
-  description={"Extract project metadata (name, version, description) from Python pyproject.toml files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindPythonProjectMetadata"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/findpythonprojectmetadata.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Python project metadata</RecipeHeader.Title>
+
+<RecipeHeader.Description>Extract project metadata (name, version, description) from Python pyproject.toml files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"pyproject","code":"[project]\nname = \"my-python-app\"\nversion = \"1.0.0\"\ndescription = \"A sample Python app\"\nrequires-python = \">=3.8\"\n"},"variants":[]}]}>
 

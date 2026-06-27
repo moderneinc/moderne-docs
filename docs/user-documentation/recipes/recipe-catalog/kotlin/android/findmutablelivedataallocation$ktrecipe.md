@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `MutableLiveData` allocations"}
-  description={"In Kotlin Android code, `MutableStateFlow<T>` is the modern equivalent. It integrates with structured concurrency, exposes the current value synchronously, and composes cleanly with Compose's `collectAsState`/`collectAsStateWithLifecycle`. Each `MutableLiveData()` here is a candidate for migration."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.android.FindMutableLiveDataAllocation$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/android/findmutablelivedataallocation$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `MutableLiveData` allocations</RecipeHeader.Title>
+
+<RecipeHeader.Description>In Kotlin Android code, `MutableStateFlow<T>` is the modern equivalent. It integrates with structured concurrency, exposes the current value synchronously, and composes cleanly with Compose's `collectAsState`/`collectAsStateWithLifecycle`. Each `MutableLiveData()` here is a candidate for migration.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.android.FindMutableLiveDataAllocation$KtRecipe","displayName":"Find `MutableLiveData` allocations","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

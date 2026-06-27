@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove unused YAML"}
-  description={"Remove YAML mappings and sequence keys that have no value."}
   type={"Single recipe"}
   languages={["YAML"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-yaml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.yaml.cleanup.RemoveUnused"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/yaml/cleanup/removeunused.md"}
-/>
+>
+
+<RecipeHeader.Title>Remove unused YAML</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove YAML mappings and sequence keys that have no value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"  root:\n    a:\n      b:\n    c: 0\n","after":"  root:\n    c: 0\n","diff":"@@ -2,2 +2,0 @@\n  root:\n-   a:\n-     b:\n    c: 0\n","newFile":false}]}]}>
 

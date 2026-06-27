@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Parse/TryParse without IFormatProvider"}
-  description={"Detect `int.Parse(str)` and similar calls without an `IFormatProvider` parameter. Use `CultureInfo.InvariantCulture` for culture-independent parsing."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseIFormatProvider"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/finduseiformatprovider.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Parse/TryParse without IFormatProvider</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `int.Parse(str)` and similar calls without an `IFormatProvider` parameter. Use `CultureInfo.InvariantCulture` for culture-independent parsing.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindUseIFormatProvider","displayName":"Find Parse/TryParse without IFormatProvider","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Review trait var initialization for Scala 3"}
-  description={"Finds traits that have initialized `var` fields. In Scala 3, trait initialization semantics changed and these may need review."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.scala.recipes.migrate.ReviewTraitVarInit"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/scala/recipes/migrate/reviewtraitvarinit.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Review trait var initialization for Scala 3</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds traits that have initialized `var` fields. In Scala 3, trait initialization semantics changed and these may need review.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"scala","before":"trait Counter {\n    var count: Int = 0\n}\n","after":"/*~~(Trait with initialized var field may need review for Scala 3)~~>*/trait Counter {\n    var count: Int = 0\n}\n","diff":"@@ -1,1 +1,1 @@\n-trait Counter {\n+/*~~(Trait with initialized var field may need review for Scala 3)~~>*/trait Counter {\n    var count: Int = 0\n","newFile":false}]}]}>
 

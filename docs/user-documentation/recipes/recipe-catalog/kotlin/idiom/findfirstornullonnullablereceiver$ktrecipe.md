@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `x?.firstOrNull()` calls"}
-  description={"`x?.firstOrNull()` produces `null` either when `x` is null OR when `x` is empty — the two cases collapse. Use `x?.firstOrNull() ?: default` only when both null-cases should yield the same fallback."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.idiom.FindFirstOrNullOnNullableReceiver$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/idiom/findfirstornullonnullablereceiver$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `x?.firstOrNull()` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>`x?.firstOrNull()` produces `null` either when `x` is null OR when `x` is empty — the two cases collapse. Use `x?.firstOrNull() ?: default` only when both null-cases should yield the same fallback.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.idiom.FindFirstOrNullOnNullableReceiver$KtRecipe","displayName":"Find `x?.firstOrNull()` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `filterTo(mutableListOf(), p)` instead of `filter(p).toMutableList()`"}
-  description={"`filter { p }` allocates a `List<T>` and `toMutableList` copies it. `filterTo(mutableListOf(), p)` writes directly into the target without the intermediate."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseFilterToForFilterToMutableList$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/usefiltertoforfiltertomutablelist$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `filterTo(mutableListOf(), p)` instead of `filter(p).toMutableList()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`filter { p }` allocates a `List<T>` and `toMutableList` copies it. `filterTo(mutableListOf(), p)` writes directly into the target without the intermediate.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseFilterToForFilterToMutableList$KtRecipe","displayName":"Use `filterTo(mutableListOf(), p)` instead of `filter(p).toMutableList()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

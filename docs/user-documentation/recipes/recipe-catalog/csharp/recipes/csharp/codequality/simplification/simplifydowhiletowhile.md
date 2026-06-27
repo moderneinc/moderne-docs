@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify do-while(true) to while(true)"}
-  description={"Convert `do { ... } while (true)` to `while (true) { ... }`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyDoWhileToWhile"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/simplification/simplifydowhiletowhile.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Simplify do-while(true) to while(true)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Convert `do { ... } while (true)` to `while (true) { ... }`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Simplification.SimplifyDoWhileToWhile","displayName":"Simplify do-while(true) to while(true)","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

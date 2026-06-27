@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `Cipher.getInstance(\"RC4\"/\"ARCFOUR\")` calls"}
-  description={"RC4 has been removed from TLS for biased-keystream reasons (IETF RFC 7465). Replace with AES-GCM or ChaCha20-Poly1305."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.security.FindWeakCipherRc4$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/security/findweakcipherrc4$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `Cipher.getInstance("RC4"/"ARCFOUR")` calls</RecipeHeader.Title>
+
+<RecipeHeader.Description>RC4 has been removed from TLS for biased-keystream reasons (IETF RFC 7465). Replace with AES-GCM or ChaCha20-Poly1305.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.security.FindWeakCipherRc4$KtRecipe","displayName":"Find `Cipher.getInstance(\"RC4\"/\"ARCFOUR\")` calls","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

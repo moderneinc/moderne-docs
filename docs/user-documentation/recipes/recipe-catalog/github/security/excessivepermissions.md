@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find excessive permissions"}
-  description={"Find overly broad permissions in GitHub Actions workflows. Flags 'write-all' permissions and excessive write permissions that could be scoped more narrowly for security. Based on [zizmor's excessive-permissions audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/excessive_permissions.rs)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.security.ExcessivePermissions"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/security/excessivepermissions.md"}
-/>
+>
+
+<RecipeHeader.Title>Find excessive permissions</RecipeHeader.Title>
+
+<RecipeHeader.Description>Find overly broad permissions in GitHub Actions workflows. Flags 'write-all' permissions and excessive write permissions that could be scoped more narrowly for security. Based on [zizmor's excessive-permissions audit](https://github.com/woodruffw/zizmor/blob/main/crates/zizmor/src/audit/excessive_permissions.rs).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"yaml","before":"name: Test Workflow\non: push\npermissions: write-all\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n","after":"name: Test Workflow\non: push\n~~(Uses 'write-all' permissions which grants excessive access. Consider using specific permissions instead.)~~>permissions: write-all\njobs:\n  test:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n","diff":"--- .github/workflows/test.yml\n+++ .github/workflows/test.yml\n@@ -3,1 +3,1 @@\nname: Test Workflow\non: push\n-permissions: write-all\n+~~(Uses 'write-all' permissions which grants excessive access. Consider using specific permissions instead.)~~>permissions: write-all\njobs:\n","newFile":false}]}]}>
 

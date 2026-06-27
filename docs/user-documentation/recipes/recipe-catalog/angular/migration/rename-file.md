@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Rename file"}
-  description={"Renames files matching a glob pattern to a new file name, preserving the directory."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.migration.rename-file"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/migration/rename-file.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Rename file</RecipeHeader.Title>
+
+<RecipeHeader.Description>Renames files matching a glob pattern to a new file name, preserving the directory.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"fileMatcher","required":true,"description":"Glob pattern to match files (e.g., `**/browserslist`). Supports `**` prefix to match in any directory.","example":"**/browserslist"},{"type":"String","name":"fileName","required":true,"description":"The new file name (just the basename, e.g., `.browserslistrc`).","example":".browserslistrc"}]}>
 

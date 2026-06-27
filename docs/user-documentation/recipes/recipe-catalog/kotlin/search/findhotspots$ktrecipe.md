@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find hotspots and complexity points"}
-  description={"Surface large classes, long functions, wide parameter lists, sprawling `when` expressions, deep nesting, god classes, magic numbers, and unmarked self-recursion. Each match is a candidate for a reviewer (or LLM agent) to refactor or to read carefully when building a mental model of the file."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindHotspots$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findhotspots$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Find classes with more than 200 statements","href":"kotlin/search/findlargeclasses$ktrecipe"},{"name":"Find functions with more than 30 statements","href":"kotlin/search/findlongfunctions$ktrecipe"},{"name":"Find functions with more than 5 parameters","href":"kotlin/search/findmanyparameters$ktrecipe"},{"name":"Find `when` expressions with more than 10 branches","href":"kotlin/search/findlargewhenbranches$ktrecipe"},{"name":"Find functions with nesting depth greater than 4","href":"kotlin/search/finddeepnesting$ktrecipe"},{"name":"Find classes with more than 25 methods","href":"kotlin/search/findgodclasses$ktrecipe"},{"name":"Find numeric literals other than 0, 1, -1","href":"kotlin/search/findmagicnumbers$ktrecipe"},{"name":"Find recursive functions not marked `tailrec`","href":"kotlin/search/findrecursionwithouttailrec$ktrecipe"},{"name":"Find functions with empty bodies","href":"kotlin/search/findemptyfunctions$ktrecipe"},{"name":"Find `!!` not-null assertions","href":"kotlin/search/findnotnullassertions$ktrecipe"}]}>
+<RecipeHeader.Title>Find hotspots and complexity points</RecipeHeader.Title>
+
+<RecipeHeader.Description>Surface large classes, long functions, wide parameter lists, sprawling `when` expressions, deep nesting, god classes, magic numbers, and unmarked self-recursion. Each match is a candidate for a reviewer (or LLM agent) to refactor or to read carefully when building a mental model of the file.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find classes with more than 200 statements","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findlargeclasses$ktrecipe/"},{"name":"Find functions with more than 30 statements","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findlongfunctions$ktrecipe/"},{"name":"Find functions with more than 5 parameters","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findmanyparameters$ktrecipe/"},{"name":"Find `when` expressions with more than 10 branches","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findlargewhenbranches$ktrecipe/"},{"name":"Find functions with nesting depth greater than 4","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/finddeepnesting$ktrecipe/"},{"name":"Find classes with more than 25 methods","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findgodclasses$ktrecipe/"},{"name":"Find numeric literals other than 0, 1, -1","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findmagicnumbers$ktrecipe/"},{"name":"Find recursive functions not marked `tailrec`","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findrecursionwithouttailrec$ktrecipe/"},{"name":"Find functions with empty bodies","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findemptyfunctions$ktrecipe/"},{"name":"Find `!!` not-null assertions","href":"/user-documentation/recipes/recipe-catalog/kotlin/search/findnotnullassertions$ktrecipe/"}]}>
 
 ## Definition
 

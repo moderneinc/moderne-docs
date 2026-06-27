@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Cleanup JUnit imports"}
-  description={"Removes unused `org.junit` import symbols."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.CleanupJUnitImports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/cleanupjunitimports.md"}
-/>
+>
+
+<RecipeHeader.Title>Cleanup JUnit imports</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes unused `org.junit` import symbols.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.junit.Test;\n\npublic class MyTest {}\n","after":"public class MyTest {}\n","diff":"@@ -1,2 +1,0 @@\n-import org.junit.Test;\n-\npublic class MyTest {}\n","newFile":false},{"language":"kotlin","before":"import org.junit.Test\n\nclass MyTest {}\n","after":"class MyTest {}\n","diff":"@@ -1,2 +1,0 @@\n-import org.junit.Test\n-\nclass MyTest {}\n","newFile":false}]}]}>
 

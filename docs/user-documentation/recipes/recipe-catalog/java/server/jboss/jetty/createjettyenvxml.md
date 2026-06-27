@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Create Jetty environment XML"}
-  description={"Creates a `jetty-env.xml` file for projects containing JBoss descriptor files."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.server.jboss.jetty.CreateJettyEnvXml"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/server/jboss/jetty/createjettyenvxml.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Create Jetty environment XML</RecipeHeader.Title>
+
+<RecipeHeader.Description>Creates a `jetty-env.xml` file for projects containing JBoss descriptor files.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"contextPath","required":false,"description":"The context path for the Jetty application.","example":"/myapp"}]}>
 

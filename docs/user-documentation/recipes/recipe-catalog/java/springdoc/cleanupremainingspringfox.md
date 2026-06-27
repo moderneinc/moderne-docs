@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove remaining Springfox dead code"}
-  description={"Removes unused private methods left behind after SpringFoxToSpringDoc migration. When Docket beans are removed, private helper methods (e.g., `appInfo()`) become dead code but are not cleaned up, causing compilation errors."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.springdoc.CleanupRemainingSpringfox"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/springdoc/cleanupremainingspringfox.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove unused private fields","href":"staticanalysis/removeunusedprivatefields"},{"name":"Remove unused private methods","href":"staticanalysis/removeunusedprivatemethods"}]} preconditions={[{"name":"Find types","href":"java/search/findtypes"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Remove remaining Springfox dead code</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes unused private methods left behind after SpringFoxToSpringDoc migration. When Docket beans are removed, private helper methods (e.g., `appInfo()`) become dead code but are not cleaned up, causing compilation errors.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove unused private fields","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedprivatefields/"},{"name":"Remove unused private methods","href":"/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedprivatemethods/"}]} preconditions={[{"name":"Find types","href":"/user-documentation/recipes/recipe-catalog/java/search/findtypes/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

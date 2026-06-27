@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate `AuthScheme` credential handling"}
-  description={"Rewrites `AuthExchange#update(BasicScheme, Credentials)` to `BasicScheme#initPreemptive(Credentials)` followed by `AuthExchange#select(AuthScheme)`. Unwraps leftover `AuthOption#getAuthScheme()` calls (now on `AuthScheme` after the type rename) to the receiver itself. Other `update`/`setCredentials`/`getCredentials` call sites are flagged separately by `AddCommentToMethodInvocations`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.MigrateAuthSchemeCredentials"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/migrateauthschemecredentials.md"}
-/>
+>
+
+<RecipeHeader.Title>Migrate `AuthScheme` credential handling</RecipeHeader.Title>
+
+<RecipeHeader.Description>Rewrites `AuthExchange#update(BasicScheme, Credentials)` to `BasicScheme#initPreemptive(Credentials)` followed by `AuthExchange#select(AuthScheme)`. Unwraps leftover `AuthOption#getAuthScheme()` calls (now on `AuthScheme` after the type rename) to the receiver itself. Other `update`/`setCredentials`/`getCredentials` call sites are flagged separately by `AddCommentToMethodInvocations`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.apache.httpclient5.MigrateAuthSchemeCredentials","displayName":"Migrate `AuthScheme` credential handling","groupId":"org.openrewrite.recipe","artifactId":"rewrite-apache","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_APACHE","requiresConfiguration":false}}>
 

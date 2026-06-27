@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `material` methods"}
-  description={"Automatically generated recipes to replace deprecated Kotlin methods based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/androidx.compose.material.ReplaceDeprecatedMaterial1Methods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/androidx/compose/material/replacedeprecatedmaterial1methods.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Replace Kotlin method","href":"kotlin/replace/replacekotlinmethod"},{"name":"Replace Kotlin method","href":"kotlin/replace/replacekotlinmethod"}]}>
+<RecipeHeader.Title>Replace deprecated `material` methods</RecipeHeader.Title>
+
+<RecipeHeader.Description>Automatically generated recipes to replace deprecated Kotlin methods based on `@Deprecated(replaceWith=ReplaceWith(...))` annotations.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Replace Kotlin method","href":"/user-documentation/recipes/recipe-catalog/kotlin/replace/replacekotlinmethod/"},{"name":"Replace Kotlin method","href":"/user-documentation/recipes/recipe-catalog/kotlin/replace/replacekotlinmethod/"}]}>
 
 ## Definition
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find internal types that may be unused"}
-  description={"Detect `internal` (non-public) classes that may be unused. Review these types and remove them if they are no longer needed."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","redundancy","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.FindUnusedInternalType"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/redundancy/findunusedinternaltype.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find internal types that may be unused</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `internal` (non-public) classes that may be unused. Review these types and remove them if they are no longer needed.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Redundancy.FindUnusedInternalType","displayName":"Find internal types that may be unused","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `forEach { it.toString() }` patterns"}
-  description={"`it.toString()` inside a `forEach` evaluates the call but discards the result — equivalent to `forEach {}`. Either the side effect on `toString()` is the goal (very unusual) or the call is dead code."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindRedundantToStringInForEach$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findredundanttostringinforeach$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `forEach { it.toString() }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>`it.toString()` inside a `forEach` evaluates the call but discards the result — equivalent to `forEach {}`. Either the side effect on `toString()` is the goal (very unusual) or the call is dead code.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindRedundantToStringInForEach$KtRecipe","displayName":"Find `forEach { it.toString() }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

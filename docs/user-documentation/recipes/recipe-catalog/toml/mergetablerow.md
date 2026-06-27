@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Merge TOML table row"}
-  description={"Merge a TOML row into an array table. If a row with the same identifying property exists, merge the values. Otherwise, insert a new row."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-toml"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.toml.MergeTableRow"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/toml/mergetablerow.md"}
-/>
+>
+
+<RecipeHeader.Title>Merge TOML table row</RecipeHeader.Title>
+
+<RecipeHeader.Description>Merge a TOML row into an array table. If a row with the same identifying property exists, merge the values. Otherwise, insert a new row.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"tableName","required":true,"description":"The name of the TOML array table to merge into (e.g., 'package.contributors').","example":"package.contributors"},{"type":"String","name":"row","required":true,"description":"The TOML key-value pairs to merge. Should contain the objectIdentifyingProperty.","example":"name = \"Alice Smith\"\\nemail = \"alice@example.com\""},{"type":"String","name":"identifyingKey","required":true,"description":"The property name used to match existing rows. When a row with this property value exists, it will be merged; otherwise, a new row is inserted. When the original row has more properties than the incoming row, these original properties are preserved. Entries with null values in the incoming row will result in the removal of the property from the original row.","example":"name"}]}>
 

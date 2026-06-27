@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Refaster template `AssertJStreamRules.AssertThatCollection`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatCollection<T> {\n    \n    @BeforeTemplate\n    ListAssert<T> before(Collection<T> collection) {\n        return assertThat(collection.stream());\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractCollectionAssert<?, ?, T, ?> after(Collection<T> collection) {\n        return assertThat(collection);\n    }\n}\n```\n."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,33 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatCollectionRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjstreamrulesrecipes$assertthatcollectionrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Refaster template `AssertJStreamRules.AssertThatCollection`</RecipeHeader.Title>
+
+<RecipeHeader.Description>
+
+Recipe created for the following Refaster template:
+```java
+static final class AssertThatCollection<T> {
+    
+    @BeforeTemplate
+    ListAssert<T> before(Collection<T> collection) {
+        return assertThat(collection.stream());
+    }
+    
+    @AfterTemplate
+    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
+    AbstractCollectionAssert<?, ?, T, ?> after(Collection<T> collection) {
+        return assertThat(collection);
+    }
+}
+```
+.
+
+</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatCollectionRecipe","displayName":"Refaster template `AssertJStreamRules.AssertThatCollection`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 

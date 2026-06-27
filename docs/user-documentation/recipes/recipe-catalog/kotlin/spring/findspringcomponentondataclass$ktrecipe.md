@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `@Component` / `@Service` / `@Repository` on `data class`"}
-  description={"Spring stereotype classes have proxy-friendly identity (Spring wires them as singletons keyed by class). `data class` overrides `equals`/`hashCode` over the constructor properties — two beans with the same fields compare equal, which is rarely desirable for a service-shaped component. Promote to a regular class."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.spring.FindSpringComponentOnDataClass$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/spring/findspringcomponentondataclass$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `@Component` / `@Service` / `@Repository` on `data class`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring stereotype classes have proxy-friendly identity (Spring wires them as singletons keyed by class). `data class` overrides `equals`/`hashCode` over the constructor properties — two beans with the same fields compare equal, which is rarely desirable for a service-shaped component. Promote to a regular class.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.spring.FindSpringComponentOnDataClass$KtRecipe","displayName":"Find `@Component` / `@Service` / `@Repository` on `data class`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

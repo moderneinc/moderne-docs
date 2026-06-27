@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Map.of()`"}
-  description={"Prefer `Map.of()` instead of using `Collections.emptyMap()` in Java 9 or higher."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.MigrateCollectionsEmptyMap"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/migratecollectionsemptymap.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Map.of()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Prefer `Map.of()` instead of using `Collections.emptyMap()` in Java 9 or higher.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.*;\n\nclass Test {\n    Map<String, String> map = Collections.emptyMap();\n}\n","after":"import java.util.Map;\n\nclass Test {\n    Map<String, String> map = Map.of();\n}\n","diff":"@@ -1,1 +1,1 @@\n-import java.util.*;\n+import java.util.Map;\n\n@@ -4,1 +4,1 @@\n\nclass Test {\n-   Map<String, String> map = Collections.emptyMap();\n+   Map<String, String> map = Map.of();\n}\n","newFile":false}]}]}>
 

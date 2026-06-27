@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply Kotlin performance idioms"}
-  description={"Opinionated bundle of every performance recipe in this module: chain collapses (filter/map/sort/reverse), Compose primitive-state holders, and hot-path allocation finders. Search-result recipes coexist with rewriting recipes — for diff-only output, use `ImproveKotlinPerformance` instead."}
   type={"Composite recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.Performance$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/performance$ktrecipe.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Collapse `filter { p }.<terminal>()` chains","href":"kotlin/performance/collapsefilterterminals$ktrecipe"},{"name":"Collapse `sorted().first/last()` and `reversed().first/last()` chains","href":"kotlin/performance/collapsesortandreverse$ktrecipe"},{"name":"Use primitive `mutable<Int|Long|Float|Double>StateOf` in Compose","href":"kotlin/performance/usecomposeprimitivestateof$ktrecipe"},{"name":"Use `sb.length` instead of `sb.toString().length`","href":"kotlin/performance/uselengthforstringbuildersize$ktrecipe"},{"name":"Find expensive allocations on hot paths","href":"kotlin/performance/findallocationsinhotpaths$ktrecipe"},{"name":"Find expensive allocations inside collection lambdas","href":"kotlin/performance/findallocationsincollectionlambdas$ktrecipe"},{"name":"Find `Sequence`/`List` pipeline shape smells","href":"kotlin/performance/findsequencepipelinesmells$ktrecipe"},{"name":"Find string-allocation smells","href":"kotlin/performance/findstringconcatsmells$ktrecipe"},{"name":"Find collection construction inside loops","href":"kotlin/performance/findloopallocations$ktrecipe"},{"name":"Find iteration-shape smells","href":"kotlin/performance/finditerationsmells$ktrecipe"}]}>
+<RecipeHeader.Title>Apply Kotlin performance idioms</RecipeHeader.Title>
+
+<RecipeHeader.Description>Opinionated bundle of every performance recipe in this module: chain collapses (filter/map/sort/reverse), Compose primitive-state holders, and hot-path allocation finders. Search-result recipes coexist with rewriting recipes — for diff-only output, use `ImproveKotlinPerformance` instead.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Collapse `filter { p }.<terminal>()` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/collapsefilterterminals$ktrecipe/"},{"name":"Collapse `sorted().first/last()` and `reversed().first/last()` chains","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/collapsesortandreverse$ktrecipe/"},{"name":"Use primitive `mutable<Int|Long|Float|Double>StateOf` in Compose","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/usecomposeprimitivestateof$ktrecipe/"},{"name":"Use `sb.length` instead of `sb.toString().length`","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/uselengthforstringbuildersize$ktrecipe/"},{"name":"Find expensive allocations on hot paths","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findallocationsinhotpaths$ktrecipe/"},{"name":"Find expensive allocations inside collection lambdas","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findallocationsincollectionlambdas$ktrecipe/"},{"name":"Find `Sequence`/`List` pipeline shape smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findsequencepipelinesmells$ktrecipe/"},{"name":"Find string-allocation smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findstringconcatsmells$ktrecipe/"},{"name":"Find collection construction inside loops","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/findloopallocations$ktrecipe/"},{"name":"Find iteration-shape smells","href":"/user-documentation/recipes/recipe-catalog/kotlin/performance/finditerationsmells$ktrecipe/"}]}>
 
 ## Definition
 

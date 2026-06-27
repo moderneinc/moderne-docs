@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace Channels.fireMessageReceived(..) with ctx.fireChannelRead(e)"}
-  description={"Replaces Netty 3 Channels.fireMessageReceived(channel, message) with Netty 4 ctx.fireChannelRead(message)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-netty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.netty.upgrade._3_2_to_4_1_.ReplaceChannelsFireMessageReceived"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/netty/upgrade/_3_2_to_4_1_/replacechannelsfiremessagereceived.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace Channels.fireMessageReceived(..) with ctx.fireChannelRead(e)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces Netty 3 Channels.fireMessageReceived(channel, message) with Netty 4 ctx.fireChannelRead(message).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.netty.upgrade._3_2_to_4_1_.ReplaceChannelsFireMessageReceived","displayName":"Replace Channels.fireMessageReceived(..) with ctx.fireChannelRead(e)","groupId":"org.openrewrite.recipe","artifactId":"rewrite-netty","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_NETTY","requiresConfiguration":false}}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `matching(Closure)` instead of `findAll(Closure)` on Gradle container collections"}
-  description={"Gradle 9.4 deprecates the Groovy `DomainObjectCollection.findAll(Closure)` overload on containers such as `tasks`, `configurations`, and `sourceSets`. It is replaced by the lazy `DomainObjectCollection.matching(Closure)`, which returns a live collection that only filters elements as they are needed by the build. This recipe only swaps the method name, leaving the closure argument unchanged, rewriting `findAll { ... }` to `matching { ... }` when the receiver is a known Gradle container collection."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.gradle9.UseMatchingInsteadOfFindAll"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/gradle9/usematchinginsteadoffindall.md"}
-/>
+>
+
+<RecipeHeader.Title>Use `matching(Closure)` instead of `findAll(Closure)` on Gradle container collections</RecipeHeader.Title>
+
+<RecipeHeader.Description>Gradle 9.4 deprecates the Groovy `DomainObjectCollection.findAll(Closure)` overload on containers such as `tasks`, `configurations`, and `sourceSets`. It is replaced by the lazy `DomainObjectCollection.matching(Closure)`, which returns a live collection that only filters elements as they are needed by the build. This recipe only swaps the method name, leaving the closure argument unchanged, rewriting `findAll { ... }` to `matching { ... }` when the receiver is a known Gradle container collection.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.gradle.gradle9.UseMatchingInsteadOfFindAll","displayName":"Use `matching(Closure)` instead of `findAll(Closure)` on Gradle container collections","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false}}>
 

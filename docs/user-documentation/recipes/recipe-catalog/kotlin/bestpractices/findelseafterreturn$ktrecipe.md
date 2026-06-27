@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (x) { return … } else { … }` patterns"}
-  description={"When the `if` branch returns, the `else` is unreachable as a fall-through guard — the body after the `else` can be moved out of the `else` block, which makes the early-return shape obvious to readers."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.bestpractices.FindElseAfterReturn$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/bestpractices/findelseafterreturn$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (x) { return … } else { … }` patterns</RecipeHeader.Title>
+
+<RecipeHeader.Description>When the `if` branch returns, the `else` is unreachable as a fall-through guard — the body after the `else` can be moved out of the `else` block, which makes the early-return shape obvious to readers.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.bestpractices.FindElseAfterReturn$KtRecipe","displayName":"Find `if (x) { return … } else { … }` patterns","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

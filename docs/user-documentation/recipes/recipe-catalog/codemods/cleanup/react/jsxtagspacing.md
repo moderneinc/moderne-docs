@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enforce whitespace in and around the JSX opening and closing brackets"}
-  description={"Enforce whitespace in and around the JSX opening and closing brackets\nSee rule details for [react/jsx-tag-spacing](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-tag-spacing.md)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.react.JsxTagSpacing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/react/jsxtagspacing.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Enforce whitespace in and around the JSX opening and closing brackets</RecipeHeader.Title>
+
+<RecipeHeader.Description>Enforce whitespace in and around the JSX opening and closing brackets See rule details for [react/jsx-tag-spacing](https://github.com/jsx-eslint/eslint-plugin-react/blob/HEAD/docs/rules/jsx-tag-spacing.md).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

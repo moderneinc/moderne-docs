@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Unnecessary `return` as last statement in void method"}
-  description={"Removes `return` from a `void` method if it's the last statement. A trailing `return` in a void method has no effect on control flow and is just noise that distracts from the meaningful logic."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["RSPEC-S3626"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.staticanalysis.UnnecessaryReturnAsLastStatement"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/staticanalysis/unnecessaryreturnaslaststatement.md"}
-/>
+>
+
+<RecipeHeader.Title>Unnecessary `return` as last statement in void method</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes `return` from a `void` method if it's the last statement. A trailing `return` in a void method has no effect on control flow and is just noise that distracts from the meaningful logic.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"class Hello {\n    void world() {\n        System.out.println(\"Hello world\");\n        return;\n    }\n}\n","after":"class Hello {\n    void world() {\n        System.out.println(\"Hello world\");\n    }\n}\n","diff":"@@ -4,1 +4,0 @@\n    void world() {\n        System.out.println(\"Hello world\");\n-       return;\n    }\n","newFile":false}]}]}>
 

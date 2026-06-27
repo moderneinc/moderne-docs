@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `lombok-mapstruct-binding` dependency for Maven when both MapStruct and Lombok are used"}
-  description={"Add the `lombok-mapstruct-binding` when both MapStruct and Lombok are used, and the dependency does not already exist. Only to be called from `org.openrewrite.java.migrate.AddLombokMapstructBinding` to reduce redundant checks."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.AddLombokMapstructBindingMavenDependencyOnly"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/addlombokmapstructbindingmavendependencyonly.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add Maven dependency","href":"maven/adddependency"}]} preconditions={[{"name":"Does not include dependency for Gradle and Maven","href":"java/dependencies/search/doesnotincludedependency"},{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Add `lombok-mapstruct-binding` dependency for Maven when both MapStruct and Lombok are used</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add the `lombok-mapstruct-binding` when both MapStruct and Lombok are used, and the dependency does not already exist. Only to be called from `org.openrewrite.java.migrate.AddLombokMapstructBinding` to reduce redundant checks.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/adddependency/"}]} preconditions={[{"name":"Does not include dependency for Gradle and Maven","href":"/user-documentation/recipes/recipe-catalog/java/dependencies/search/doesnotincludedependency/"},{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

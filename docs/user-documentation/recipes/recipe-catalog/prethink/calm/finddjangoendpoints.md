@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Django endpoints"}
-  description={"Identify REST/HTTP endpoints in Django and Django REST Framework applications. Detects class-based views, function-based views with @api_view, and regular Django views with @require_http_methods decorators."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.prethink.calm.FindDjangoEndpoints"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/prethink/calm/finddjangoendpoints.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find Django endpoints</RecipeHeader.Title>
+
+<RecipeHeader.Description>Identify REST/HTTP endpoints in Django and Django REST Framework applications. Detects class-based views, function-based views with @api_view, and regular Django views with @require_http_methods decorators.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"pyproject","code":"[project]\nname = \"test-app\"\nversion = \"0.1.0\"\ndependencies = [\"djangorestframework>=3.14\", \"djangorestframework-stubs>=3.14\"]\n"},"variants":[]}]}>
 

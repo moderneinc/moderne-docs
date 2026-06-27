@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate Apache HttpCore Nio Input Buffer classes to Apache HttpCore 5.x"}
-  description={"Mapping of specifically `*InputBuffer` classes of Apache HttpCore 5.x from Apache HttpCore Nio 4.4.x."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-apache"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.apache.httpclient5.UpgradeApacheHttpCore_5_NioInputBuffers"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/httpclient5/upgradeapachehttpcore_5_nioinputbuffers.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"},{"name":"Change type","href":"java/changetype"},{"name":"Adds offset and length arguments to the read method of SharedInputBuffer","href":"apache/httpclient5/inputbufferreadaddoffsetandlengtharguments"},{"name":"Delete method argument","href":"java/deletemethodargument"},{"name":"Delete method argument","href":"java/deletemethodargument"},{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Change method name","href":"java/changemethodname"},{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"},{"name":"Change type","href":"java/changetype"},{"name":"Add comment to method invocations","href":"java/addcommenttomethodinvocations"}]}>
+<RecipeHeader.Title>Migrate Apache HttpCore Nio Input Buffer classes to Apache HttpCore 5.x</RecipeHeader.Title>
+
+<RecipeHeader.Description>Mapping of specifically `*InputBuffer` classes of Apache HttpCore 5.x from Apache HttpCore Nio 4.4.x.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Adds offset and length arguments to the read method of SharedInputBuffer","href":"/user-documentation/recipes/recipe-catalog/apache/httpclient5/inputbufferreadaddoffsetandlengtharguments/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Delete method argument","href":"/user-documentation/recipes/recipe-catalog/java/deletemethodargument/"},{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Change method name","href":"/user-documentation/recipes/recipe-catalog/java/changemethodname/"},{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"},{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/java/changetype/"},{"name":"Add comment to method invocations","href":"/user-documentation/recipes/recipe-catalog/java/addcommenttomethodinvocations/"}]}>
 
 ## Definition
 

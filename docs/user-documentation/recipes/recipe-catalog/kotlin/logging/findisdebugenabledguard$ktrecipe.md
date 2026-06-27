@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `if (log.isDebugEnabled) ...` guards"}
-  description={"`if (log.isDebugEnabled) log.debug(...)` is the Java-1.4-era idiom — replaced by kotlin-logging's `log.debug { \"...\" }` lambda or SLF4J's `log.debug(\"x={}\", x)` placeholder form. Either defers the work without the explicit guard."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindIsDebugEnabledGuard$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findisdebugenabledguard$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `if (log.isDebugEnabled) ...` guards</RecipeHeader.Title>
+
+<RecipeHeader.Description>`if (log.isDebugEnabled) log.debug(...)` is the Java-1.4-era idiom — replaced by kotlin-logging's `log.debug { "..." }` lambda or SLF4J's `log.debug("x={}", x)` placeholder form. Either defers the work without the explicit guard.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindIsDebugEnabledGuard$KtRecipe","displayName":"Find `if (log.isDebugEnabled) ...` guards","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

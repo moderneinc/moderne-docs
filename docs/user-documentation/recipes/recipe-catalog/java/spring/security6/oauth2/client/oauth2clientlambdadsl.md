@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Convert `OAuth2ClientConfigurer` chained calls into Lambda DSL"}
-  description={"Converts `OAuth2ClientConfigurer` chained call from Spring Security pre 5.2.x into new lambda DSL style calls and removes `and()` methods."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.security6.oauth2.client.OAuth2ClientLambdaDsl"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security6/oauth2/client/oauth2clientlambdadsl.md"}
-/>
+>
+
+<RecipeHeader.Title>Convert `OAuth2ClientConfigurer` chained calls into Lambda DSL</RecipeHeader.Title>
+
+<RecipeHeader.Description>Converts `OAuth2ClientConfigurer` chained call from Spring Security pre 5.2.x into new lambda DSL style calls and removes `and()` methods.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\n\n@EnableWebSecurity\npublic class ConventionalSecurityConfig extends WebSecurityConfigurerAdapter {\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n                .oauth2Client(client -> client\n                        .authorizationCodeGrant()\n                                .accessTokenResponseClient(null));\n    }\n}\n","after":"import org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;\nimport org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;\n\n@EnableWebSecurity\npublic class ConventionalSecurityConfig extends WebSecurityConfigurerAdapter {\n    @Override\n    protected void configure(HttpSecurity http) throws Exception {\n        http\n                .oauth2Client(client -> client\n                        .authorizationCodeGrant(grant -> grant\n                                .accessTokenResponseClient(null)));\n    }\n}\n","diff":"@@ -11,2 +11,2 @@\n        http\n                .oauth2Client(client -> client\n-                       .authorizationCodeGrant()\n-                               .accessTokenResponseClient(null));\n+                       .authorizationCodeGrant(grant -> grant\n+                               .accessTokenResponseClient(null)));\n    }\n","newFile":false}]}]}>
 

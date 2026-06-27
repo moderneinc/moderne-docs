@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use Maven compiler plugin release configuration"}
-  description={"Replaces any explicit `source` or `target` configuration (if present) on the `maven-compiler-plugin` with `release`, and updates the `release` value if needed. When `testSource` or `testTarget` differ from the main version, introduces `testRelease`. Will not downgrade the Java version if the current version is higher. Also removes stale `maven.compiler.source`, `maven.compiler.target`, `maven.compiler.testSource`, and `maven.compiler.testTarget` properties that are no longer referenced."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.UseMavenCompilerPluginReleaseConfiguration"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/usemavencompilerpluginreleaseconfiguration.md"}
-/>
+>
+
+<RecipeHeader.Title>Use Maven compiler plugin release configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replaces any explicit `source` or `target` configuration (if present) on the `maven-compiler-plugin` with `release`, and updates the `release` value if needed. When `testSource` or `testTarget` differ from the main version, introduces `testRelease`. Will not downgrade the Java version if the current version is higher. Also removes stale `maven.compiler.source`, `maven.compiler.target`, `maven.compiler.testSource`, and `maven.compiler.testTarget` properties that are no longer referenced.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Integer","name":"releaseVersion","required":true,"description":"The new value for the release configuration. This recipe prefers ${java.version} if defined.","example":"11"}]}>
 

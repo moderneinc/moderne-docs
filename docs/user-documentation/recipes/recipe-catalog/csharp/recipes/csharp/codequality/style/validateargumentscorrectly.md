@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Validate arguments correctly"}
-  description={"Ensure argument validation in iterator methods runs immediately by flagging iterator methods that contain argument validation."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.ValidateArgumentsCorrectly"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/validateargumentscorrectly.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Validate arguments correctly</RecipeHeader.Title>
+
+<RecipeHeader.Description>Ensure argument validation in iterator methods runs immediately by flagging iterator methods that contain argument validation.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.ValidateArgumentsCorrectly","displayName":"Validate arguments correctly","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

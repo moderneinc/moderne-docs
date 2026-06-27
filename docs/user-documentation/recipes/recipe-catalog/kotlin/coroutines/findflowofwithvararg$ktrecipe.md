@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `flowOf(...)` calls — verify size"}
-  description={"`flowOf(items)` materializes each item upfront — for hot data or large fanout, prefer `flow { items.forEach { emit(it) } }` or a `Channel`-backed flow to avoid the upfront vararg array."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindFlowOfWithVararg$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findflowofwithvararg$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `flowOf(...)` calls — verify size</RecipeHeader.Title>
+
+<RecipeHeader.Description>`flowOf(items)` materializes each item upfront — for hot data or large fanout, prefer `flow { items.forEach { emit(it) } }` or a `Channel`-backed flow to avoid the upfront vararg array.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindFlowOfWithVararg$KtRecipe","displayName":"Find `flowOf(...)` calls — verify size","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

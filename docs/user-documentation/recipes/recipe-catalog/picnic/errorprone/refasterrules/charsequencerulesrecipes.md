@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`CharSequenceRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with `CharSequence`s.\n[Source](https://error-prone.picnic.tech/refasterrules/CharSequenceRules)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.CharSequenceRulesRecipes"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/charsequencerulesrecipes.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Refaster template `CharSequenceRules.CharSequenceIsEmpty`","href":"picnic/errorprone/refasterrules/charsequencerulesrecipes$charsequenceisemptyrecipe"}]}>
+<RecipeHeader.Title>`CharSequenceRules` Refaster recipes</RecipeHeader.Title>
+
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `CharSequence`s. [Source](https://error-prone.picnic.tech/refasterrules/CharSequenceRules).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Refaster template `CharSequenceRules.CharSequenceIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/charsequencerulesrecipes$charsequenceisemptyrecipe/"}]}>
 
 ## Definition
 

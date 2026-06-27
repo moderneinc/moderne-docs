@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find method that is too long"}
-  description={"Detect methods with more than 60 statements. Long methods are harder to understand and maintain."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMethodTooLong"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findmethodtoolong.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find method that is too long</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect methods with more than 60 statements. Long methods are harder to understand and maintain.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMethodTooLong","displayName":"Find method that is too long","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

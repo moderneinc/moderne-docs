@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace DTO method parameters with data elements"}
-  description={"Replace method parameters that have DTOs with their data elements when only the specified data element is used."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.DontOverfetchDto"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/dontoverfetchdto.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace DTO method parameters with data elements</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace method parameters that have DTOs with their data elements when only the specified data element is used.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"dtoType","required":true,"description":"The fully qualified name of the DTO.","example":"animals.Dog"},{"type":"String","name":"dtoDataElement","required":true,"description":"Replace the DTO as a method parameter when only this data element is used.","example":"name"}]}>
 

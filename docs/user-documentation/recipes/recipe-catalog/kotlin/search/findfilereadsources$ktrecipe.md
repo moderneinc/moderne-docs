@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find filesystem read calls (`File.readText`, `Files.readString`, etc.)"}
-  description={"Filesystem reads are the application's IO surface — each call is data crossing a trust boundary set by the deployment's filesystem permissions. Useful as a seed for reasoning about cold-path latency, security boundaries, and what the program depends on at runtime."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.search.FindFileReadSources$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/search/findfilereadsources$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find filesystem read calls (`File.readText`, `Files.readString`, etc.)</RecipeHeader.Title>
+
+<RecipeHeader.Description>Filesystem reads are the application's IO surface — each call is data crossing a trust boundary set by the deployment's filesystem permissions. Useful as a seed for reasoning about cold-path latency, security boundaries, and what the program depends on at runtime.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.search.FindFileReadSources$KtRecipe","displayName":"Find filesystem read calls (`File.readText`, `Files.readString`, etc.)","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

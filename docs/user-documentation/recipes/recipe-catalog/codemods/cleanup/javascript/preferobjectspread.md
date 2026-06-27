@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Disallow using `Object.assign` with an object literal as the first argument and prefer the use of object spread instead"}
-  description={"Disallow using `Object.assign` with an object literal as the first argument and prefer the use of object spread instead \nSee [rule details](https://eslint.org/docs/latest/rules/prefer-object-spread)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-codemods"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.codemods.cleanup.javascript.PreferObjectSpread"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/codemods/cleanup/javascript/preferobjectspread.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"codemods/eslint"}]}>
+<RecipeHeader.Title>Disallow using `Object.assign` with an object literal as the first argument and prefer the use of object spread instead</RecipeHeader.Title>
+
+<RecipeHeader.Description>Disallow using `Object.assign` with an object literal as the first argument and prefer the use of object spread instead  See [rule details](https://eslint.org/docs/latest/rules/prefer-object-spread).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Lint source code with ESLint","href":"/user-documentation/recipes/recipe-catalog/codemods/eslint/"}]}>
 
 ## Definition
 

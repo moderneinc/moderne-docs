@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"JUnit 4 `@RunWith(Enclosed.class)` to JUnit Jupiter `@Nested`"}
-  description={"Removes the `Enclosed` specification from a class, with `Nested` added to its inner classes by `AddMissingNested`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.junit5.EnclosedToNested"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/junit5/enclosedtonested.md"}
-/>
+>
+
+<RecipeHeader.Title>JUnit 4 `@RunWith(Enclosed.class)` to JUnit Jupiter `@Nested`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Removes the `Enclosed` specification from a class, with `Nested` added to its inner classes by `AddMissingNested`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.EnclosedToNested","displayName":"JUnit 4 `@RunWith(Enclosed.class)` to JUnit Jupiter `@Nested`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

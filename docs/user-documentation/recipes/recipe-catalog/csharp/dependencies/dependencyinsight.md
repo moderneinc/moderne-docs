@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Dependency insight for C#"}
-  description={"Finds dependencies in `*.csproj` and `packages.config`."}
   type={"Single recipe"}
   languages={["C#"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.csharp.dependencies.DependencyInsight"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyinsight.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Dependency insight for C#</RecipeHeader.Title>
+
+<RecipeHeader.Description>Finds dependencies in `*.csproj` and `packages.config`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"String","name":"packagePattern","required":false,"description":"Package glob pattern used to match dependencies.","example":"Microsoft*"},{"type":"String","name":"version","required":false,"description":"Match only dependencies with the specified version. Node-style [version selectors](https://docs.openrewrite.org/reference/dependency-version-selectors) may be used. All versions are searched by default.","example":"1.x"}]}>
 

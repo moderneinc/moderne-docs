@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Enable Spring Batch Annotation"}
-  description={"Add or remove the `@EnableBatchProcessing` annotation from a Spring Boot application."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot3.RemoveEnableBatchProcessing"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot3/removeenablebatchprocessing.md"}
-/>
+>
+
+<RecipeHeader.Title>Enable Spring Batch Annotation</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add or remove the `@EnableBatchProcessing` annotation from a Spring Boot application.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBootApplication\n@EnableBatchProcessing\npublic class Application {\n}\n","after":"import org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBootApplication\npublic class Application {\n}\n","diff":"@@ -1,1 +1,0 @@\n-import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n@@ -5,1 +4,0 @@\n\n@SpringBootApplication\n-@EnableBatchProcessing\npublic class Application {\n","newFile":false}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add cooldown periods to Dependabot configuration"}
-  description={"Adds a `cooldown` section to each update configuration in Dependabot files. Supports `default-days`, `semver-major-days`, `semver-minor-days`, `semver-patch-days`, `include`, and `exclude` options. This implements a security best practice where dependencies are not immediately adopted upon release, allowing time for security vendors to identify potential supply chain compromises. Cooldown applies only to version updates, not security updates. [Read more about dependency cooldowns](https://blog.yossarian.net/2025/11/21/We-should-all-be-using-dependency-cooldowns). [The available configuration options for dependabot are listed on GitHub](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates)."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["github","security","dependabot","dependencies"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.github.AddDependabotCooldown"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/github/adddependabotcooldown.md"}
-/>
+>
+
+<RecipeHeader.Title>Add cooldown periods to Dependabot configuration</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds a `cooldown` section to each update configuration in Dependabot files. Supports `default-days`, `semver-major-days`, `semver-minor-days`, `semver-patch-days`, `include`, and `exclude` options. This implements a security best practice where dependencies are not immediately adopted upon release, allowing time for security vendors to identify potential supply chain compromises. Cooldown applies only to version updates, not security updates. [Read more about dependency cooldowns](https://blog.yossarian.net/2025/11/21/We-should-all-be-using-dependency-cooldowns). [The available configuration options for dependabot are listed on GitHub](https://docs.github.com/en/code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/configuration-options-for-dependency-updates).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Integer","name":"cooldownDays","required":false,"description":"The number of days to wait before considering a published dependency suitable for use (1-90). This delay allows security vendors time to identify potential compromises. Applied to all version types unless specific semver options are set.","example":"7"},{"type":"Integer","name":"semverMajorDays","required":false,"description":"The number of days to wait for major version updates (1-90). Only applies to package managers that support semantic versioning.","example":"14"},{"type":"Integer","name":"semverMinorDays","required":false,"description":"The number of days to wait for minor version updates (1-90). Only applies to package managers that support semantic versioning.","example":"7"},{"type":"Integer","name":"semverPatchDays","required":false,"description":"The number of days to wait for patch version updates (1-90). Only applies to package managers that support semantic versioning.","example":"3"},{"type":"List","name":"include","required":false,"description":"List of up to 150 dependencies to apply cooldown to. Supports wildcard patterns with `*`. If not specified, cooldown applies to all dependencies.","example":"lodash, react*"},{"type":"List","name":"exclude","required":false,"description":"List of up to 150 dependencies to exempt from cooldown. Supports wildcard patterns with `*`. Exclude list takes precedence over include list.","example":"critical-security-package"},{"type":"List","name":"excludeEcosystems","required":false,"description":"List of ecosystems to be excluded","example":"github-actions"}]}>
 

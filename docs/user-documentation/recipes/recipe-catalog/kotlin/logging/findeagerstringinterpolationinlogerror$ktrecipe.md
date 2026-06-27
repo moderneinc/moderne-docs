@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find eager string interpolation in `log.error(...)`"}
-  description={"Error logs almost always fire, so cost is rarely the issue — but a parameterized message keeps the template stable for log aggregators that group errors by template hash, and lets the throwable argument flow through SLF4J's last-arg-is-Throwable convention cleanly."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindEagerStringInterpolationInLogError$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findeagerstringinterpolationinlogerror$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find eager string interpolation in `log.error(...)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Error logs almost always fire, so cost is rarely the issue — but a parameterized message keeps the template stable for log aggregators that group errors by template hash, and lets the throwable argument flow through SLF4J's last-arg-is-Throwable convention cleanly.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindEagerStringInterpolationInLogError$KtRecipe","displayName":"Find eager string interpolation in `log.error(...)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

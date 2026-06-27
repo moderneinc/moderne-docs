@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace `EpollEventLoopGroup` with `MultiThreadIoEventLoopGroup`"}
-  description={"Replace `new EpollEventLoopGroup()` with `new MultiThreadIoEventLoopGroup(EpollIoHandler.newFactory())`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={["epoll","netty"]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-netty"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.netty.EventLoopGroupToMultiThreadIoEventLoopGroupRecipes$EpollEventLoopGroupFactoryRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/netty/eventloopgrouptomultithreadioeventloopgrouprecipes$epolleventloopgroupfactoryrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>Replace `EpollEventLoopGroup` with `MultiThreadIoEventLoopGroup`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `new EpollEventLoopGroup()` with `new MultiThreadIoEventLoopGroup(EpollIoHandler.newFactory())`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.netty.EventLoopGroupToMultiThreadIoEventLoopGroupRecipes$EpollEventLoopGroupFactoryRecipe","displayName":"Replace `EpollEventLoopGroup` with `MultiThreadIoEventLoopGroup`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-netty","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_NETTY","requiresConfiguration":false}}>
 

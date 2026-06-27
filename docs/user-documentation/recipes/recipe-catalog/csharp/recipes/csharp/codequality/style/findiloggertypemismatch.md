@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find ILogger<T> type parameter mismatch"}
-  description={"Detect `ILogger<T>` fields or parameters where `T` doesn't match the containing type name."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","style","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindILoggerTypeMismatch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findiloggertypemismatch.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find ILogger&lt;T> type parameter mismatch</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `ILogger<T>` fields or parameters where `T` doesn't match the containing type name.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindILoggerTypeMismatch","displayName":"Find ILogger<T> type parameter mismatch","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Remove redundant `None` default from `dict.get()`"}
-  description={"Remove redundant `None` default argument from `dict.get()` calls since `None` is already the default return value."}
   type={"Single recipe"}
   languages={["Python"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.RemoveNoneFromDefaultGet"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/removenonefromdefaultget.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Remove redundant `None` default from `dict.get()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Remove redundant `None` default argument from `dict.get()` calls since `None` is already the default return value.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.cleanup.RemoveNoneFromDefaultGet","displayName":"Remove redundant `None` default from `dict.get()`","pipPackage":"openrewrite-static-analysis"}}>
 

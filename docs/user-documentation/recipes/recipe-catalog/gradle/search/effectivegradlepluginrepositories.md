@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"List effective Gradle plugin repositories"}
-  description={"Lists the Gradle plugin repositories that would be used for plugin resolution, in order of precedence. This includes Maven repositories defined in the settings.gradle pluginManagement section and build.gradle buildscript repositories as determined when the LST was produced."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-gradle"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.gradle.search.EffectiveGradlePluginRepositories"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/gradle/search/effectivegradlepluginrepositories.md"}
-/>
+>
+
+<RecipeHeader.Title>List effective Gradle plugin repositories</RecipeHeader.Title>
+
+<RecipeHeader.Description>Lists the Gradle plugin repositories that would be used for plugin resolution, in order of precedence. This includes Maven repositories defined in the settings.gradle pluginManagement section and build.gradle buildscript repositories as determined when the LST was produced.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"Boolean","name":"useMarkers","required":false,"description":"Whether to add markers for each effective Gradle plugin repository to the build or settings file. Default `false`."}]}>
 

@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use `flatMapTo(mutableListOf(), f)` instead of `flatMap(f).toMutableList()`"}
-  description={"`flatMap { f }` allocates a `List<R>` and `toMutableList` copies it. `flatMapTo(mutableListOf(), f)` writes directly into the target without the intermediate."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.performance.UseFlatMapToForFlatMapToMutableList$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/performance/useflatmaptoforflatmaptomutablelist$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use `flatMapTo(mutableListOf(), f)` instead of `flatMap(f).toMutableList()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`flatMap { f }` allocates a `List<R>` and `toMutableList` copies it. `flatMapTo(mutableListOf(), f)` writes directly into the target without the intermediate.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.performance.UseFlatMapToForFlatMapToMutableList$KtRecipe","displayName":"Use `flatMapTo(mutableListOf(), f)` instead of `flatMap(f).toMutableList()`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

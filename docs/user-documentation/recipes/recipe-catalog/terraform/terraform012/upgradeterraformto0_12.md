@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Upgrade Terraform to 0.12"}
-  description={"Migrate Terraform configuration from 0.11 (HCL1) to 0.12 (HCL2) syntax. Removes interpolation-only expressions, unquotes type constraints, replaces deprecated collection functions, and fixes legacy index syntax."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["terraform"]}
@@ -26,9 +24,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.terraform.terraform012.UpgradeTerraformTo0_12"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/terraform/terraform012/upgradeterraformto0_12.md"}
   moderneOnly
-/>
+>
 
-<RecipeList recipes={[{"name":"Remove interpolation-only expressions","href":"terraform/terraform012/removeinterpolationonlyexpressions"},{"name":"Unquote variable type constraints","href":"terraform/terraform012/unquotetypeconstraints"},{"name":"Replace deprecated `list()` and `map()` functions","href":"terraform/terraform012/replacedeprecatedcollectionfunctions"},{"name":"Replace legacy attribute index syntax","href":"hcl/replacelegacyattributeindexsyntax"}]}>
+<RecipeHeader.Title>Upgrade Terraform to 0.12</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Terraform configuration from 0.11 (HCL1) to 0.12 (HCL2) syntax. Removes interpolation-only expressions, unquotes type constraints, replaces deprecated collection functions, and fixes legacy index syntax.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Remove interpolation-only expressions","href":"/user-documentation/recipes/recipe-catalog/terraform/terraform012/removeinterpolationonlyexpressions/"},{"name":"Unquote variable type constraints","href":"/user-documentation/recipes/recipe-catalog/terraform/terraform012/unquotetypeconstraints/"},{"name":"Replace deprecated `list()` and `map()` functions","href":"/user-documentation/recipes/recipe-catalog/terraform/terraform012/replacedeprecatedcollectionfunctions/"},{"name":"Replace legacy attribute index syntax","href":"/user-documentation/recipes/recipe-catalog/hcl/replacelegacyattributeindexsyntax/"}]}>
 
 ## Definition
 

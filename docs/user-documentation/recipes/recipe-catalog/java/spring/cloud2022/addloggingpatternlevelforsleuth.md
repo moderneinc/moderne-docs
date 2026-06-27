@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add logging.pattern.level for traceId and spanId"}
-  description={"Add `logging.pattern.level` for traceId and spanId which was previously set by default, if not already set."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.cloud2022.AddLoggingPatternLevelForSleuth"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/cloud2022/addloggingpatternlevelforsleuth.md"}
-/>
+>
+
+<RecipeHeader.Title>Add logging.pattern.level for traceId and spanId</RecipeHeader.Title>
+
+<RecipeHeader.Description>Add `logging.pattern.level` for traceId and spanId which was previously set by default, if not already set.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"properties","before":"foo=bar","after":"foo=bar\n# Logging pattern containing traceId and spanId; no longer provided through Sleuth by default\nlogging.pattern.level=\"%5p [,%X{traceId:-},%X{spanId:-}]\"\n","diff":"--- src/main/resources/application.properties\n+++ src/main/resources/application.properties\n@@ -2,0 +2,3 @@\nfoo=bar\n+# Logging pattern containing traceId and spanId; no longer provided through Sleuth by default\n+logging.pattern.level=\"%5p [,%X{traceId:-},%X{spanId:-}]\"\n+\n","newFile":false},{"language":"yaml","before":"","after":"logging:\n  pattern:\n    # Logging pattern containing traceId and spanId; no longer provided through Sleuth by default\n    level: \"%5p [,%X{traceId:-},%X{spanId:-}]\"\n","newFile":true}]}]}>
 

@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Changed parameter in camel-netty and camel-netty-http"}
-  description={"Changed parameter in camel-netty and camel-netty-http + enhanced value."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
   appLink={"https://app.moderne.io/recipes/org.apache.camel.upgrade.camel415.nettyAndNettyHttp"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/camel415/nettyandnettyhttp.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyincomponentxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyincomponentxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyincomponentxml"},{"name":"Camel XMl DSL changes","href":"apache/camel/upgrade/customrecipes/replacepropertyincomponentxml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyincomponentyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyincomponentyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyincomponentyaml"},{"name":"Renames property of the component","href":"apache/camel/upgrade/customrecipes/replacepropertyincomponentyaml"}]}>
+<RecipeHeader.Title>Changed parameter in camel-netty and camel-netty-http</RecipeHeader.Title>
+
+<RecipeHeader.Description>Changed parameter in camel-netty and camel-netty-http + enhanced value.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyincomponentxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyincomponentxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyincomponentxml/"},{"name":"Camel XMl DSL changes","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyincomponentxml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyincomponentyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyincomponentyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyincomponentyaml/"},{"name":"Renames property of the component","href":"/user-documentation/recipes/recipe-catalog/apache/camel/upgrade/customrecipes/replacepropertyincomponentyaml/"}]}>
 
 ## Definition
 

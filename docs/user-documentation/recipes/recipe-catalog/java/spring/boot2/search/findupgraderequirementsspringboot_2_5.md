@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find patterns that require updating for Spring Boot 2.5"}
-  description={"Looks for a series of patterns that have not yet had auto-remediation recipes developed for."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={["spring","boot"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-spring"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.spring.boot2.search.FindUpgradeRequirementsSpringBoot_2_5"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/findupgraderequirementsspringboot_2_5.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Find projects affected by changes to the default error view message attribute","href":"java/spring/boot2/search/messagesinthedefaulterrorview"},{"name":"In Spring Boot 2.5 a `DefaultConfigurationCustomizer` can now be used in favour of defining one or more `*Provider` beans","href":"java/spring/boot2/search/customizingjooqdefaultconfiguration"},{"name":"Applications using logging shutdown hooks","href":"java/spring/boot2/search/loggingshutdownhooks"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Find patterns that require updating for Spring Boot 2.5</RecipeHeader.Title>
+
+<RecipeHeader.Description>Looks for a series of patterns that have not yet had auto-remediation recipes developed for.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Find projects affected by changes to the default error view message attribute","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/messagesinthedefaulterrorview/"},{"name":"In Spring Boot 2.5 a `DefaultConfigurationCustomizer` can now be used in favour of defining one or more `*Provider` beans","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/customizingjooqdefaultconfiguration/"},{"name":"Applications using logging shutdown hooks","href":"/user-documentation/recipes/recipe-catalog/java/spring/boot2/search/loggingshutdownhooks/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

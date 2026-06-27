@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"`Stream<Optional>` idiom recipe"}
-  description={"Migrate Java 8 `Optional<Stream>.filter(Optional::isPresent).map(Optional::get)` to Java 11 `.flatMap(Optional::stream)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.util.OptionalStreamRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/util/optionalstreamrecipe.md"}
-/>
+>
+
+<RecipeHeader.Title>`Stream<Optional>` idiom recipe</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate Java 8 `Optional<Stream>.filter(Optional::isPresent).map(Optional::get)` to Java 11 `.flatMap(Optional::stream)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Optional;\nimport java.util.stream.Stream;\n\nclass Scratch {\n  public void foo() {\n    var x = Stream.of(Optional.empty())\n         .filter(Optional::isPresent)\n         .map(Optional::get);\n  }\n}\n","after":"import java.util.Optional;\nimport java.util.stream.Stream;\n\nclass Scratch {\n  public void foo() {\n    var x = Stream.of(Optional.empty())\n         .flatMap(Optional::stream);\n  }\n}\n","diff":"@@ -7,2 +7,1 @@\n  public void foo() {\n    var x = Stream.of(Optional.empty())\n-        .filter(Optional::isPresent)\n-        .map(Optional::get);\n+        .flatMap(Optional::stream);\n  }\n","newFile":false}]}]}>
 

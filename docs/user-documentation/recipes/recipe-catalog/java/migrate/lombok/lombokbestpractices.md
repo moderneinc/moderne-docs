@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Lombok Best Practices"}
-  description={"Applies all recipes that enforce best practices for using Lombok."}
   type={"Composite recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.lombok.LombokBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/lombok/lombokbestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Migrate Lombok to a Java 11 compatible version","href":"java/migrate/lombok/updatelomboktojava11"},{"name":"Use Lombok logger annotations instead of explicit fields","href":"java/migrate/lombok/log/uselomboklogannotations"},{"name":"Convert getter methods to annotations","href":"java/migrate/lombok/uselombokgetter"},{"name":"Convert setter methods to annotations","href":"java/migrate/lombok/uselomboksetter"},{"name":"Use `@NoArgsConstructor` where applicable","href":"java/migrate/lombok/usenoargsconstructor"},{"name":"Use `@RequiredArgsConstructor` where applicable","href":"java/migrate/lombok/userequiredargsconstructor"},{"name":"Use `@AllArgsConstructor` where applicable","href":"java/migrate/lombok/useallargsconstructor"},{"name":"Change Maven dependency scope","href":"maven/changedependencyscope"},{"name":"Change Maven dependency scope","href":"maven/changedependencyscope"},{"name":"Exclude Maven dependency","href":"maven/excludedependency"},{"name":"Enable Lombok annotation processor","href":"java/migrate/enablelombokannotationprocessor"}]} preconditions={[{"name":"Singleton","href":"core/singleton"}]}>
+<RecipeHeader.Title>Lombok Best Practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Applies all recipes that enforce best practices for using Lombok.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Migrate Lombok to a Java 11 compatible version","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/updatelomboktojava11/"},{"name":"Use Lombok logger annotations instead of explicit fields","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/log/uselomboklogannotations/"},{"name":"Convert getter methods to annotations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/uselombokgetter/"},{"name":"Convert setter methods to annotations","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/uselomboksetter/"},{"name":"Use `@NoArgsConstructor` where applicable","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/usenoargsconstructor/"},{"name":"Use `@RequiredArgsConstructor` where applicable","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/userequiredargsconstructor/"},{"name":"Use `@AllArgsConstructor` where applicable","href":"/user-documentation/recipes/recipe-catalog/java/migrate/lombok/useallargsconstructor/"},{"name":"Change Maven dependency scope","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencyscope/"},{"name":"Change Maven dependency scope","href":"/user-documentation/recipes/recipe-catalog/maven/changedependencyscope/"},{"name":"Exclude Maven dependency","href":"/user-documentation/recipes/recipe-catalog/maven/excludedependency/"},{"name":"Enable Lombok annotation processor","href":"/user-documentation/recipes/recipe-catalog/java/migrate/enablelombokannotationprocessor/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

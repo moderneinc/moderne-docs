@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find string concatenation in `log.error(...)`"}
-  description={"`log.error(\"failed: \" + e)` mixes the throwable into the message string, losing the stack trace. Use the parameterized form with the throwable as the last argument: `log.error(\"failed\", e)`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.logging.FindStringConcatInLogError$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/logging/findstringconcatinlogerror$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find string concatenation in `log.error(...)`</RecipeHeader.Title>
+
+<RecipeHeader.Description>`log.error("failed: " + e)` mixes the throwable into the message string, losing the stack trace. Use the parameterized form with the throwable as the last argument: `log.error("failed", e)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.logging.FindStringConcatInLogError$KtRecipe","displayName":"Find string concatenation in `log.error(...)`","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

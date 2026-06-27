@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find `callbackFlow { }` blocks without an `awaitClose { }` terminator"}
-  description={"`callbackFlow { }` must end with `awaitClose { }` to suspend until the consumer cancels. Without it, the producer either completes immediately (silent drop) or throws — the same flow needs to register its cleanup hook in `awaitClose { }`."}
   type={"Single recipe"}
   languages={["Kotlin"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.kotlin.coroutines.FindCallbackFlowWithoutAwaitClose$KtRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/kotlin/coroutines/findcallbackflowwithoutawaitclose$ktrecipe.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find `callbackFlow { }` blocks without an `awaitClose { }` terminator</RecipeHeader.Title>
+
+<RecipeHeader.Description>`callbackFlow { }` must end with `awaitClose { }` to suspend until the consumer cancels. Without it, the producer either completes immediately (silent drop) or throws — the same flow needs to register its cleanup hook in `awaitClose { }`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.kotlin.coroutines.FindCallbackFlowWithoutAwaitClose$KtRecipe","displayName":"Find `callbackFlow { }` blocks without an `awaitClose { }` terminator","groupId":"io.moderne.recipe","artifactId":"recipes-kotlin","versionKey":"VERSION_IO_MODERNE_RECIPE_RECIPES_KOTLIN","requiresConfiguration":false}}>
 

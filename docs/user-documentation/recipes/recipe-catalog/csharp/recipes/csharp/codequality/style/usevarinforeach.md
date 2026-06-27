@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Use var instead of explicit type in foreach"}
-  description={"Replace explicit type in foreach with var when type is evident."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseVarInForEach"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/usevarinforeach.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Use var instead of explicit type in foreach</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace explicit type in foreach with var when type is evident.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.UseVarInForEach","displayName":"Use var instead of explicit type in foreach","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 

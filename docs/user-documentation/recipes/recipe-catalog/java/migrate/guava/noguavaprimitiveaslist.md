@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Prefer `Arrays.asList(..)` over Guava primitives"}
-  description={"Migrate from Guava `com.google.common.primitives.* asList(..)` to `Arrays.asList(..)`."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.migrate.guava.NoGuavaPrimitiveAsList"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/migrate/guava/noguavaprimitiveaslist.md"}
-/>
+>
+
+<RecipeHeader.Title>Prefer `Arrays.asList(..)` over Guava primitives</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrate from Guava `com.google.common.primitives.* asList(..)` to `Arrays.asList(..)`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import com.google.common.primitives.Booleans;\nimport java.util.List;\n\nclass Test {\n    List<Boolean> bools = Booleans.asList(true, false);\n}\n","after":"import java.util.Arrays;\nimport java.util.List;\n\nclass Test {\n    List<Boolean> bools = Arrays.asList(true, false);\n}\n","diff":"@@ -1,1 +1,1 @@\n-import com.google.common.primitives.Booleans;\n+import java.util.Arrays;\nimport java.util.List;\n@@ -5,1 +5,1 @@\n\nclass Test {\n-   List<Boolean> bools = Booleans.asList(true, false);\n+   List<Boolean> bools = Arrays.asList(true, false);\n}\n","newFile":false}]}]}>
 

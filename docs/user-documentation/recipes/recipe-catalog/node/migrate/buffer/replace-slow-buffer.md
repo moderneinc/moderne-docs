@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`"}
-  description={"Replace deprecated `new SlowBuffer(size)` calls with `Buffer.allocUnsafeSlow(size)`. SlowBuffer was used to create un-pooled Buffer instances, but has been removed in favor of the explicit Buffer.allocUnsafeSlow() method."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["DEP0030"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.buffer.replace-slow-buffer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-slow-buffer.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace deprecated `new SlowBuffer(size)` calls with `Buffer.allocUnsafeSlow(size)`. SlowBuffer was used to create un-pooled Buffer instances, but has been removed in favor of the explicit Buffer.allocUnsafeSlow() method.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.node.migrate.buffer.replace-slow-buffer","displayName":"Replace deprecated `SlowBuffer` with `Buffer.allocUnsafeSlow()`","npmPackage":"@openrewrite/recipes-nodejs"}}>
 

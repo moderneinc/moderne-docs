@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find Maven projects"}
-  description={"Maven projects are `pom.xml` files with a `MavenResolutionResult` marker."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-maven"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.maven.search.FindMavenProject"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/maven/search/findmavenproject.md"}
-/>
+>
+
+<RecipeHeader.Title>Find Maven projects</RecipeHeader.Title>
+
+<RecipeHeader.Description>Maven projects are `pom.xml` files with a `MavenResolutionResult` marker.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>org.openrewrite</groupId>\n    <artifactId>rewrite-maven</artifactId>\n    <version>1.0.0</version>\n</project>\n","after":"<!--~~>--><project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>org.openrewrite</groupId>\n    <artifactId>rewrite-maven</artifactId>\n    <version>1.0.0</version>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -1,1 +1,1 @@\n-<project>\n+<!--~~>--><project>\n    <modelVersion>4.0.0</modelVersion>\n","newFile":false}]}]}>
 

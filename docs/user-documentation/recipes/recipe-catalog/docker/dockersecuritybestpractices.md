@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Apply Docker security best practices"}
-  description={"Apply security-focused Docker best practices to Dockerfiles. This includes running as a non-root user (CIS 4.1) and using COPY instead of ADD where appropriate (CIS 4.9)."}
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
   tags={["security","docker"]}
@@ -31,9 +29,15 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite:rewrite-docker"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.docker.DockerSecurityBestPractices"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/docker/dockersecuritybestpractices.md"}
-/>
+>
 
-<RecipeList recipes={[{"name":"Add `USER` instruction","href":"docker/adduserinstruction"},{"name":"Replace `ADD` with `COPY`","href":"docker/replaceaddwithcopy"},{"name":"Find containers running as root","href":"docker/search/findrootuser"},{"name":"Find unpinned base images","href":"docker/search/findunpinnedbaseimages"},{"name":"Find end-of-life Docker base images","href":"docker/search/findendoflifeimages"},{"name":"Find missing `HEALTHCHECK`","href":"docker/search/findmissinghealthcheck"}]}>
+<RecipeHeader.Title>Apply Docker security best practices</RecipeHeader.Title>
+
+<RecipeHeader.Description>Apply security-focused Docker best practices to Dockerfiles. This includes running as a non-root user (CIS 4.1) and using COPY instead of ADD where appropriate (CIS 4.9).</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<RecipeList recipes={[{"name":"Add `USER` instruction","href":"/user-documentation/recipes/recipe-catalog/docker/adduserinstruction/"},{"name":"Replace `ADD` with `COPY`","href":"/user-documentation/recipes/recipe-catalog/docker/replaceaddwithcopy/"},{"name":"Find containers running as root","href":"/user-documentation/recipes/recipe-catalog/docker/search/findrootuser/"},{"name":"Find unpinned base images","href":"/user-documentation/recipes/recipe-catalog/docker/search/findunpinnedbaseimages/"},{"name":"Find end-of-life Docker base images","href":"/user-documentation/recipes/recipe-catalog/docker/search/findendoflifeimages/"},{"name":"Find missing `HEALTHCHECK`","href":"/user-documentation/recipes/recipe-catalog/docker/search/findmissinghealthcheck/"}]}>
 
 ## Definition
 

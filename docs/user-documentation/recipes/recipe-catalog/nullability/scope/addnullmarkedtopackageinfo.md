@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Add `@NullMarked` to `package-info.java` for an allowlist of packages"}
-  description={"Adds the JSpecify `@NullMarked` annotation to the `package-info.java` of an explicit allowlist of packages, for a controlled, package-at-a-time rollout toward NullAway. The allowlist supports exact package names and a trailing `.*` prefix wildcard; an empty allowlist is a no-op for safety. When `generateMissing` is enabled, an allowlisted package that has Java sources but no `package-info.java` gets one generated with `@NullMarked`. Idempotent and never double-marks. Only Java sources are considered. Pair with `AddNullMarkedToCleanPackages` for automatic gating."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.nullability.scope.AddNullMarkedToPackageInfo"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/nullability/scope/addnullmarkedtopackageinfo.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Add `@NullMarked` to `package-info.java` for an allowlist of packages</RecipeHeader.Title>
+
+<RecipeHeader.Description>Adds the JSpecify `@NullMarked` annotation to the `package-info.java` of an explicit allowlist of packages, for a controlled, package-at-a-time rollout toward NullAway. The allowlist supports exact package names and a trailing `.*` prefix wildcard; an empty allowlist is a no-op for safety. When `generateMissing` is enabled, an allowlisted package that has Java sources but no `package-info.java` gets one generated with `@NullMarked`. Idempotent and never double-marks. Only Java sources are considered. Pair with `AddNullMarkedToCleanPackages` for automatic gating.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <OptionsTable options={[{"type":"List","name":"packages","required":true,"description":"The explicit allowlist of packages to null-mark. Each entry is either an exact package name (for example `com.airbnb.payments`) or a trailing `.*` prefix wildcard (for example `com.airbnb.payments.*`, which matches that package and every sub-package). If empty, the recipe is a no-op for safety.","example":"com.airbnb.payments.*"},{"type":"Boolean","name":"generateMissing","required":false,"description":"When `true`, for an allowlisted package that has at least one Java source but no `package-info.java`, generate one containing `@NullMarked`. Defaults to `false`."}]}>
 

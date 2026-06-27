@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Migrate OAuth2 token response client from `RestOperations` to `RestClient`"}
-  description={"Migrates `setRestOperations(RestOperations)` calls to `setRestClient(RestClient)` on the new `RestClient`-based OAuth2 `AccessTokenResponseClient` implementations. The `RestClient`-based implementations introduced in Spring Security 7 use `RestClient` instead of `RestOperations`."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={[]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.security7.MigrateOAuth2RestOperationsToRestClient"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/security7/migrateoauth2restoperationstorestclient.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Migrate OAuth2 token response client from `RestOperations` to `RestClient`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Migrates `setRestOperations(RestOperations)` calls to `setRestClient(RestClient)` on the new `RestClient`-based OAuth2 `AccessTokenResponseClient` implementations. The `RestClient`-based implementations introduced in Spring Security 7 use `RestClient` instead of `RestOperations`.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.security.oauth2.client.endpoint.DefaultClientCredentialsTokenResponseClient;\nimport org.springframework.web.client.RestTemplate;\n\nclass SecurityConfig {\n    void configure() {\n        DefaultClientCredentialsTokenResponseClient client =\n                new DefaultClientCredentialsTokenResponseClient();\n        client.setRestOperations(new RestTemplate());\n    }\n}\n","after":"import org.springframework.security.oauth2.client.endpoint.DefaultClientCredentialsTokenResponseClient;\nimport org.springframework.web.client.RestClient;\n\nclass SecurityConfig {\n    void configure() {\n        DefaultClientCredentialsTokenResponseClient client =\n                new DefaultClientCredentialsTokenResponseClient();\n        client.setRestClient(RestClient.create());\n    }\n}\n","diff":"@@ -2,1 +2,1 @@\nimport org.springframework.security.oauth2.client.endpoint.DefaultClientCredentialsTokenResponseClient;\n-import org.springframework.web.client.RestTemplate;\n+import org.springframework.web.client.RestClient;\n\n@@ -8,1 +8,1 @@\n        DefaultClientCredentialsTokenResponseClient client =\n                new DefaultClientCredentialsTokenResponseClient();\n-       client.setRestOperations(new RestTemplate());\n+       client.setRestClient(RestClient.create());\n    }\n","newFile":false}]}]}>
 

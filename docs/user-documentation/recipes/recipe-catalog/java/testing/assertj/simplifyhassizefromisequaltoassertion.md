@@ -21,8 +21,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Simplify literal-first AssertJ size assertions to `hasSize`"}
-  description={"Replace `assertThat(<int literal>).isEqualTo(collection.size())` style assertions with the dedicated `assertThat(collection).hasSize(<int literal>)`. Only the structural size form is rewritten, where the comparison is on a primitive `int` and reversing the assertion is behavior-preserving (unlike arbitrary `isEqualTo` object comparisons, which rely on `equals`)."}
   type={"Single recipe"}
   languages={["Java"]}
   tags={[]}
@@ -31,7 +29,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.java.testing.assertj.SimplifyHasSizeFromIsEqualToAssertion"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/testing/assertj/simplifyhassizefromisequaltoassertion.md"}
-/>
+>
+
+<RecipeHeader.Title>Simplify literal-first AssertJ size assertions to `hasSize`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Replace `assertThat(<int literal>).isEqualTo(collection.size())` style assertions with the dedicated `assertThat(collection).hasSize(<int literal>)`. Only the structural size form is rewritten, where the comparison is on a primitive `int` and reversing the assertion is behavior-preserving (unlike arbitrary `isEqualTo` object comparisons, which rely on `equals`).</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.SimplifyHasSizeFromIsEqualToAssertion","displayName":"Simplify literal-first AssertJ size assertions to `hasSize`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 

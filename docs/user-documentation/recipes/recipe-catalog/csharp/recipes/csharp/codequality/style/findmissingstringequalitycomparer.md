@@ -15,8 +15,6 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 />
 
 <RecipeHeader
-  displayName={"Find missing string equality comparer"}
-  description={"Detect `Dictionary<string, T>` and `HashSet<string>` created without an explicit `StringComparer`. Without a comparer, the default ordinal comparison is used."}
   type={"Single recipe"}
   languages={["OpenRewrite"]}
   tags={["csharp","code-quality"]}
@@ -26,7 +24,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingStringEqualityComparer"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/style/findmissingstringequalitycomparer.md"}
   moderneOnly
-/>
+>
+
+<RecipeHeader.Title>Find missing string equality comparer</RecipeHeader.Title>
+
+<RecipeHeader.Description>Detect `Dictionary<string, T>` and `HashSet<string>` created without an explicit `StringComparer`. Without a comparer, the default ordinal comparison is used.</RecipeHeader.Description>
+
+</RecipeHeader>
 
 <UsageList usage={{"recipeName":"OpenRewrite.Recipes.CSharp.CodeQuality.Style.FindMissingStringEqualityComparer","displayName":"Find missing string equality comparer","nugetPackage":"OpenRewrite.Recipes.CSharp.CodeQuality"}}>
 
