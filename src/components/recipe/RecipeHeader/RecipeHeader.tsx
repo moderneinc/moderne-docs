@@ -1,4 +1,4 @@
-import React, { type FunctionComponent } from 'react';
+import React, { isValidElement, type FunctionComponent, type ReactElement, type ReactNode } from 'react';
 import clsx from 'clsx';
 import { ArrowRight } from 'lucide-react';
 import { NeoButton } from '@site/src/components/NeoButton';
@@ -9,8 +9,12 @@ import styles from './RecipeHeader.module.css';
 import shared from '../shared/styles.module.css';
 
 export interface RecipeHeaderProps {
-  displayName: string;
-  description: string;
+  /** Plain-text title. Optional when a `<RecipeHeader.Title>` child is provided (preferred — it renders
+   *  the title as native MDX so code/links resolve), kept for backward compatibility / Storybook. */
+  displayName?: string;
+  /** Plain-text description. Optional when a `<RecipeHeader.Description>` child is provided. */
+  description?: string;
+  children?: ReactNode;
   type: 'Composite recipe' | 'Single recipe';
   languages: string[];
   tags: string[];
@@ -33,10 +37,30 @@ const tagHref = (tag: string): string => {
   return `https://docs.moderne.io/?s=${encodeURIComponent(tag)}`;
 };
 
+/** Marker slots — their children are extracted by RecipeHeader and rendered into the title/description.
+ *  Lets the generated MDX pass the title/description as native markdown children (so `code` and
+ *  [links](…) render) instead of pre-flattened string props. Title and Description must be DISTINCT
+ *  component identities so the slot lookup (`c.type === Title`) can tell them apart. */
+const Title: FunctionComponent<{ children?: ReactNode }> = ({ children }) => <>{children}</>;
+const Description: FunctionComponent<{ children?: ReactNode }> = ({ children }) => <>{children}</>;
+
+/** Pull the children of the first child element whose type is `slot` (a Title/Description marker). */
+const slotChildren = (children: ReactNode, slot: FunctionComponent): ReactNode | undefined =>
+  React.Children.toArray(children).find(
+    (c): c is ReactElement => isValidElement(c) && c.type === slot,
+  )?.props.children;
+
 /** Header band for a recipe page: access badge, title, recipe-id/artifact code-chips, description, tags, CTAs. */
-export const RecipeHeader: FunctionComponent<RecipeHeaderProps> = ({
-  displayName, description, type, languages, tags, license, fqName, artifact, appLink, moderneOnly = false,
-}) => (
+const RecipeHeaderRoot: FunctionComponent<RecipeHeaderProps> = ({
+  displayName, description, children, type, languages, tags, license, fqName, artifact, appLink, moderneOnly = false,
+}) => {
+  // Prefer the markdown children; fall back to the plain-text props (older generated pages, Storybook).
+  const titleSlot = slotChildren(children, Title);
+  const descriptionSlot = slotChildren(children, Description);
+  const title = titleSlot ?? (displayName != null ? renderWithCode(displayName, styles.titleCode) : null);
+  const summary = descriptionSlot ?? (description != null ? renderWithCode(description, styles.descCode) : null);
+
+  return (
   <header className={styles.header}>
     {/* Identity group: access badge, title, recipe-id/artifact chips — tight gaps within. */}
     <div className={styles.titleGroup}>
@@ -54,7 +78,7 @@ export const RecipeHeader: FunctionComponent<RecipeHeaderProps> = ({
         {moderneOnly && <AccessInfoButton />}
       </div>
 
-      <h1 className={styles.title}>{renderWithCode(displayName, styles.titleCode)}</h1>
+      <h1 className={styles.title}>{title}</h1>
 
       <div className={styles.idArtifactRow}>
         <div className={styles.codeChip}>
@@ -74,7 +98,7 @@ export const RecipeHeader: FunctionComponent<RecipeHeaderProps> = ({
 
     {/* Summary group: description + tags — tight gaps within. */}
     <div className={styles.metaGroup}>
-      <p className={styles.description}>{renderWithCode(description, styles.descCode)}</p>
+      <p className={styles.description}>{summary}</p>
 
       <div className={styles.tagRow}>
         <span className={shared.chip}>{type}</span>
@@ -120,4 +144,12 @@ export const RecipeHeader: FunctionComponent<RecipeHeaderProps> = ({
       </div>
     </div>
   </header>
-);
+  );
+};
+
+/**
+ * Compound API: `<RecipeHeader …><RecipeHeader.Title>…</RecipeHeader.Title>
+ * <RecipeHeader.Description>…</RecipeHeader.Description></RecipeHeader>`. The slot children are authored
+ * as markdown in the generated MDX, so Docusaurus renders inline code and links natively.
+ */
+export const RecipeHeader = Object.assign(RecipeHeaderRoot, { Title, Description });

@@ -82,6 +82,29 @@ font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
   padding: 0;
 }
 
+/* Native markdown `code` in the compound <RecipeHeader.Title>/<RecipeHeader.Description> slots.
+   The <code> is emitted by the MDX pipeline and carries no class, so it must be targeted by element;
+   these mirror .titleCode/.descCode so the markdown path matches the prop fallback. The doubled class
+   raises specificity above Docusaurus's global inline-code styling (the pill background/border). */
+.title.title code {
+  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: 0.9em;
+  font-weight: var(--neo-font-weight-bold);
+  color: var(--neo-typography-code-primary);
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.description.description code {
+  font-family: var(--neo-font-family-code), var(--ifm-font-family-monospace);
+  font-size: 0.9em;
+  color: var(--neo-typography-code-primary);
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
 .idArtifactRow {
 display: flex;
   flex-direction: column;

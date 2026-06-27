@@ -7,13 +7,22 @@ import { renderWithCode } from '../shared/renderWithCode';
 import styles from './RecipeList.module.css';
 import shared from '../shared/styles.module.css';
 
-const RecipeLink: FunctionComponent<{ recipe: SubRecipe }> = ({ recipe }) => (
-  <li className={styles.recipeListItem}>
-    <a className={styles.recipeLink} href={recipe.href} target="_blank" rel="noopener noreferrer">
-      {renderWithCode(recipe.name, shared.inlineCode)}
-    </a>
-  </li>
-);
+const RecipeLink: FunctionComponent<{ recipe: SubRecipe }> = ({ recipe }) => {
+  const label = renderWithCode(recipe.name, shared.inlineCode);
+  return (
+    <li className={styles.recipeListItem}>
+      {recipe.href ? (
+        <a className={styles.recipeLink} href={recipe.href} target="_blank" rel="noopener noreferrer">
+          {label}
+        </a>
+      ) : (
+        // Unlinkable sub-recipe (not present in the catalog, e.g. an internal recipe) — render as plain
+        // text rather than an empty <a href=""> that would navigate to the current page.
+        <span className={styles.recipeLink}>{label}</span>
+      )}
+    </li>
+  );
+};
 
 /** A count badge in an accordion label — violet for preconditions, neutral for the recipe list. */
 const CountBadge: FunctionComponent<{ count: number; tone: 'violet' | 'neutral' }> = ({ count, tone }) => (

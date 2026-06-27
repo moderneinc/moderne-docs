@@ -22,3 +22,22 @@ export const Production: Story = {
 export const ProductionModerneOnly: Story = {
   args: { ...SAMPLE, moderneOnly: true },
 };
+
+/**
+ * Compound API: title and description are passed as children so the generated MDX can author them as
+ * markdown (code spans, links). On real pages MDX renders the markdown; here we pass the equivalent JSX.
+ */
+export const CompoundChildren: Story = {
+  args: { ...SAMPLE, displayName: undefined, description: undefined },
+  render: (args) => (
+    <RecipeHeader {...args}>
+      <RecipeHeader.Title>
+        Replace <code>BigDecimal</code> rounding constants with <code>RoundingMode</code> enums
+      </RecipeHeader.Title>
+      <RecipeHeader.Description>
+        Install a CircleCI <a href="https://circleci.com/docs/2.0/orb-intro/">orb</a> if it is not already
+        installed. Uses <code>RoundingMode</code> under the hood.
+      </RecipeHeader.Description>
+    </RecipeHeader>
+  ),
+};
