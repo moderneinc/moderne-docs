@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc indexes per-module recipe lists. Click a groupId to see its recipes._
 
-Total recipes: 7279
+Total recipes: 7477
 
 
 ## io.moderne.recipe
@@ -59,6 +59,7 @@ Total recipes: 7279
 
 ## org.openrewrite.recipe
 
+* [recipes-go](all-recipes-org-openrewrite-recipe.md#recipes-go)
 * [rewrite-all](all-recipes-org-openrewrite-recipe.md#rewrite-all)
 * [rewrite-android](all-recipes-org-openrewrite-recipe.md#rewrite-android)
 * [rewrite-apache](all-recipes-org-openrewrite-recipe.md#rewrite-apache)
