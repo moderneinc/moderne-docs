@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v13.3.0 (2026/06/29)
+
+- Neo data tables view — dual card/grid + schema inspector
+
 ### UI v13.2.0 (2026/06/29)
 
 - icon-only collapsible left nav
