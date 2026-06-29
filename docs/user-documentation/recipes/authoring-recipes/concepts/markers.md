@@ -46,7 +46,6 @@ The [Markers](https://github.com/openrewrite/rewrite/blob/master/rewrite-core/sr
 <M extends Marker> Markers computeByType(M identity, BinaryOperator<M> remappingFunction)
 ```
 
-
 ## SearchResult
 
 The most common form of Marker in a typical Recipe is a [SearchResult](https://github.com/openrewrite/rewrite/blob/main/rewrite-core/src/main/java/org/openrewrite/marker/SearchResult.java). A Recipe which adds `SearchResult` markers to an LST is described as a search recipe. `SearchResult`s can optionally include a text description. When a `SearchResult` is added to an LST element, it is printed as a comment next to the element it is attached to.
@@ -67,7 +66,6 @@ public J.Annotation visitAnnotation(J.Annotation annotation, ExecutionContext ct
 }
 ```
 
-
 ```java title="FindMissingTypes.java"
 public J.Identifier visitIdentifier(J.Identifier identifier, ExecutionContext ctx) {
     J.Identifier ident = super.visitIdentifier(identifier, ctx);
@@ -77,7 +75,6 @@ public J.Identifier visitIdentifier(J.Identifier identifier, ExecutionContext ct
     return ident;
 }
 ```
-
 
 SearchResult Markers are written back to source code as comments, including the description if one is present.
 
