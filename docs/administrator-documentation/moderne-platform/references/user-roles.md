@@ -18,48 +18,20 @@ import VersionBanner from '@site/src/components/VersionBanner';
 | Create and use access tokens                          | :white_check_mark:                   | :white_check_mark:                   |
 | Deploy recipe and visualization artifacts             | :x:                                  | :white_check_mark:                   |
 | View list of repositories                             | Users with organization access       | :white_check_mark:                   |
-| [View repository insights](#repository-insights)      | Users with organization access       | :white_check_mark:                   |
 | View activity log                                     | Users with organization access       | :white_check_mark:                   |
 | Run recipes and visualizations                        | Users with organization access       | :white_check_mark:                   |
 | View recipe results                                   | [Users with SCM access](#scm-access) | [Users with SCM access](#scm-access) |
 | Commit recipe results                                 | [Users with SCM access](#scm-access) | [Users with SCM access](#scm-access) |
-| [Download data tables](#user-content-fn-1)[^1]        | [Users with SCM access](#scm-access) | [Users with SCM access](#scm-access) |
+| Download data tables                                  | Users with organization access       | :white_check_mark:                   |
 | View audit logs                                       | :x:                                  | :white_check_mark:                   |
-| View connected connectors and associated technologies | :x:                                  | :white_check_mark:                   |
+| View connected connectors and associated technologies | :white_check_mark:                   | :white_check_mark:                   |
 | [Manage Moddy organization prompts](#moddy-prompts)   | :x:                                  | :white_check_mark:                   |
 | View and delete user access tokens                    | :x:                                  | :white_check_mark:                   |
 
 ## SCM access
 
-In order to view recipe results, download data tables produced by a recipe, or commit recipe results, users will need to have [SCM access to the repositories](./flow.md#integrating-with-scms). This restriction applies even for admins in Moderne.
-
-[^1]: If a user does not have access to a specific repository, they will not see a row for said repository in the data table.
+In order to view recipe results or commit recipe results, users will need to have [SCM access to the repositories](./flow.md#integrating-with-scms). This restriction applies even for admins in Moderne. Viewing results is gated per repository: if you lack access to a given repository, you'll see the file and change counts but not the underlying diffs. Committing uses your own SCM credentials, so a commit will only succeed for repositories you can push to.
 
 ## Moddy prompts
 
 Administrators can set the system prompt that steers [Moddy](../../../user-documentation/moddy/moddy-platform.md) for an entire organization, as well as the universal prompt that applies across the tenant. Any user can set their own personal prompt, which overrides the organization and universal prompts for that user.
-
-## Repository insights
-
-The repository insights page provides details about a repository such as where the artifacts live, what version of Java it uses, how it was built, etc.
-
-You can find repository insights by clicking on the repositories link in the navigation bar:
-
-<figure>
-  ![Moderne left sidebar with Repositories option highlighted](./assets/repos-link.png)
-  <figcaption>_Repositories link_</figcaption>
-</figure>
-
-Then find the repository you want to learn more about in the list of repositories and click on the repository name:
-
-<figure>
-  ![Repositories list with arrow pointing to a clickable repository name](./assets/repo-insight-link.png)
-  <figcaption>_Repository insight link_</figcaption>
-</figure>
-
-You'll then be taken to the repository insights page:
-
-<figure>
-  ![Repository insights page showing language composition pie chart and file count table](./assets/repo-insight-details.png)
-  <figcaption>_Repository insights_</figcaption>
-</figure>
