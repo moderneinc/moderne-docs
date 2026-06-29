@@ -20,7 +20,6 @@ An OpenRewrite method pattern is comparable to an AspectJ ["pointcut expression"
 
 <ReactPlayer url='https://www.youtube.com/watch?v=DEd24gzNZCs' controls="true" />
 
-
 ## Anatomy of a method pattern
 
 A method pattern can identify one or more method definitions or invocations based on:
@@ -104,7 +103,6 @@ The below table shows some more examples of method patterns and the methods they
 | `org.Foo <init>(..)`                         | Matches the same thing as the previous line. Demonstrates that `init` can be used as an alias of `constructor`.                                                                                                    |
 | `org.Foo bar()`                              | Matches exactly the `bar` method in the `org.Foo` class that has **no** arguments                                                                                                                                  |
 | `org.Foo#bar()`                              | Matches the same thing as the previous line. Demonstrates that `#` can be used to replace a space – which may be useful for certain types of input such as a CLI.                                                  |
-
 
 :::info
 Method patterns match against a method's declaration. Methods that take in a variable number of arguments represent these variadic parameters as an array.

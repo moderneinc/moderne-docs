@@ -177,7 +177,8 @@ export async function checkMarkdown(content, filename) {
   await processor.run(tree, file);
   const isReleasesFile = /\bdocs[\\/]releases[\\/]/.test(filename ?? '');
   const isGeneratedFile = /\bdocs[\\/]user-documentation[\\/]recipes[\\/](recipe-catalog|lists)[\\/]/.test(filename ?? '') ||
-    /\bdocs[\\/]user-documentation[\\/]moderne-cli[\\/]cli-reference\.md$/.test(filename ?? '');
+    /\bdocs[\\/]user-documentation[\\/]moderne-cli[\\/]cli-reference\.md$/.test(filename ?? '') ||
+    /\bdocs[\\/]user-documentation[\\/]moderne-platform[\\/]references[\\/]graphql-api-reference\.md$/.test(filename ?? '');
   const GENERATED_EXCLUDED = new Set(['no-h1-in-body', 'no-consecutive-blank-lines', 'unordered-list-marker-style']);
   const RELEASES_EXCLUDED = new Set(['unordered-list-marker-style', 'image-alt-text']);
   return file.messages

@@ -128,7 +128,6 @@ In the LST for `list.get(0)`:
     * Raw type: `java.util.List`
     * Type parameters: `[String]`
 
-
 ## TypeUtils: Working with types
 
 The `org.openrewrite.java.tree.TypeUtils` provides utilities for reading, comparing, and working with types.

@@ -102,7 +102,6 @@ Available on all Java sources, as well as non-Java sources placed in a Java sour
  records the version of Java used to compile the source, including source and target compatibility.
 Available on all Java sources.
 
-
 ## Maven markers
 
 These markers are available on Maven pom.xml sources.
@@ -110,4 +109,3 @@ These markers are available on Maven pom.xml sources.
 ### MavenResolutionResult
 [MavenResolutionResult](https://github.com/openrewrite/rewrite/blob/main/rewrite-maven/src/main/java/org/openrewrite/maven/tree/MavenResolutionResult.java)
 contains a rich data model of a pom.xml, including full dependency resolution information.
-

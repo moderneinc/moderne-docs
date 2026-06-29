@@ -263,6 +263,12 @@ describe('no-consecutive-blank-lines', () => {
     const issues = await checkMarkdown(md, 'docs/user-documentation/moderne-cli/cli-reference.md');
     expect(issues.filter(i => i.rule === 'no-consecutive-blank-lines')).toHaveLength(0);
   });
+
+  it('does not flag consecutive blank lines in graphql-api-reference.md (generated content)', async () => {
+    const md = 'Paragraph one.\n\n\nParagraph two.';
+    const issues = await checkMarkdown(md, 'docs/user-documentation/moderne-platform/references/graphql-api-reference.md');
+    expect(issues.filter(i => i.rule === 'no-consecutive-blank-lines')).toHaveLength(0);
+  });
 });
 
 // ---------------------------------------------------------------------------
@@ -279,6 +285,12 @@ describe('unordered-list-marker-style (generated exclusions)', () => {
   it('does not flag dash bullets in recipe-catalog files (generated content)', async () => {
     const md = '- Item one\n- Item two';
     const issues = await checkMarkdown(md, 'docs/user-documentation/recipes/recipe-catalog/SomeRecipe.md');
+    expect(issues.filter(i => i.rule === 'unordered-list-marker-style')).toHaveLength(0);
+  });
+
+  it('does not flag dash bullets in graphql-api-reference.md (generated content)', async () => {
+    const md = '- Item one\n- Item two';
+    const issues = await checkMarkdown(md, 'docs/user-documentation/moderne-platform/references/graphql-api-reference.md');
     expect(issues.filter(i => i.rule === 'unordered-list-marker-style')).toHaveLength(0);
   });
 });

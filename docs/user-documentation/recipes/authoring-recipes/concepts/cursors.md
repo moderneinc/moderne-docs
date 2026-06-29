@@ -20,13 +20,13 @@ Logically, a cursor is a stack. Whenever an LST element is visited, a cursor poi
 
 ### Accessing the current value
 
-- **`getValue()`** — Returns the object at this cursor position. The return type is generic, so it can be cast to the expected type:
+* **`getValue()`** — Returns the object at this cursor position. The return type is generic, so it can be cast to the expected type:
 
 ```java
 J.ClassDeclaration classDecl = getCursor().getValue();
 ```
 
-- **`isRoot()`** — Returns `true` if this cursor represents the root of the cursor stack (its value equals `Cursor.ROOT_VALUE`).
+* **`isRoot()`** — Returns `true` if this cursor represents the root of the cursor stack (its value equals `Cursor.ROOT_VALUE`).
 
 ### Parent navigation
 
@@ -101,9 +101,9 @@ Cursor enclosing = getCursor().dropParentUntil(is ->
 
 ### Path iteration
 
-- **`getPath()`** — Returns an `Iterator<Object>` of values from the current cursor up to the root.
-- **`getPathAsCursors()`** — Returns an `Iterator<Cursor>` of cursor objects from the current up to the root.
-- **`getPathAsStream()`** — Stream variant of `getPath()`. Both `getPath()` and `getPathAsStream()` accept an optional `Predicate` filter.
+* **`getPath()`** — Returns an `Iterator<Object>` of values from the current cursor up to the root.
+* **`getPathAsCursors()`** — Returns an `Iterator<Cursor>` of cursor objects from the current up to the root.
+* **`getPathAsStream()`** — Stream variant of `getPath()`. Both `getPath()` and `getPathAsStream()` accept an optional `Predicate` filter.
 
 ### Forking
 
@@ -119,8 +119,8 @@ Messages are stored in a `Map<String, Object>` on each cursor and are automatica
 
 ### Writing messages
 
-- **`putMessage(String key, Object value)`** — Stores a message on **this** cursor.
-- **`putMessageOnFirstEnclosing(Class<?> enclosing, String key, Object value)`** — Walks up the cursor stack to find the first cursor whose value is an instance of the given class, then stores the message there. This is the most common way to send information from a child visit method to a parent.
+* **`putMessage(String key, Object value)`** — Stores a message on **this** cursor.
+* **`putMessageOnFirstEnclosing(Class<?> enclosing, String key, Object value)`** — Walks up the cursor stack to find the first cursor whose value is an instance of the given class, then stores the message there. This is the most common way to send information from a child visit method to a parent.
 
 ### Reading messages
 
@@ -131,11 +131,11 @@ Messages are stored in a `Map<String, Object>` on each cursor and are automatica
 | `pollMessage(key)` | This cursor only | Yes |
 | `pollNearestMessage(key)` | Walks up the stack | Yes |
 
-- **`getMessage(key)`** — Reads from this cursor only. Returns `null` if not found. An overload accepts a default value.
-- **`getNearestMessage(key)`** — Walks up the cursor stack and returns the first message found with the given key. Useful when a message was placed on an ancestor and you want to read it from anywhere below.
-- **`pollMessage(key)`** — Reads **and removes** the message from this cursor. Use this for one-shot consumption where you don't want a message to be read twice.
-- **`pollNearestMessage(key)`** — Combines the walk-up behavior of `getNearestMessage` with the removal behavior of `pollMessage`.
-- **`computeMessageIfAbsent(key, Function)`** — Lazily initializes a message value. Useful for accumulating collections:
+* **`getMessage(key)`** — Reads from this cursor only. Returns `null` if not found. An overload accepts a default value.
+* **`getNearestMessage(key)`** — Walks up the cursor stack and returns the first message found with the given key. Useful when a message was placed on an ancestor and you want to read it from anywhere below.
+* **`pollMessage(key)`** — Reads **and removes** the message from this cursor. Use this for one-shot consumption where you don't want a message to be read twice.
+* **`pollNearestMessage(key)`** — Combines the walk-up behavior of `getNearestMessage` with the removal behavior of `pollMessage`.
+* **`computeMessageIfAbsent(key, Function)`** — Lazily initializes a message value. Useful for accumulating collections:
 
 ```java
 Set<String> imports = getCursor().computeMessageIfAbsent("IMPORTS", k -> new HashSet<>());
@@ -257,7 +257,7 @@ Using `getCursor().getParentTreeCursor()` rather than `getCursor()` ensures the 
 
 ## Further reading
 
-- [Visitors](./visitors.md) — The visitor pattern and language-specific visitors
-- [Modifying methods with JavaTemplate](../advanced-authoring/modifying-methods-with-javatemplate.md) — Step-by-step example using `updateCursor` and `new Cursor`
-- [Recipe conventions and best practices](../testing-and-best-practices/recipe-conventions-and-best-practices.md) — When to use cursor messaging vs. execution context
-- [Cursor.java source](https://github.com/openrewrite/rewrite/blob/main/rewrite-core/src/main/java/org/openrewrite/Cursor.java) — Full API source code
+* [Visitors](./visitors.md) — The visitor pattern and language-specific visitors
+* [Modifying methods with JavaTemplate](../advanced-authoring/modifying-methods-with-javatemplate.md) — Step-by-step example using `updateCursor` and `new Cursor`
+* [Recipe conventions and best practices](../testing-and-best-practices/recipe-conventions-and-best-practices.md) — When to use cursor messaging vs. execution context
+* [Cursor.java source](https://github.com/openrewrite/rewrite/blob/main/rewrite-core/src/main/java/org/openrewrite/Cursor.java) — Full API source code

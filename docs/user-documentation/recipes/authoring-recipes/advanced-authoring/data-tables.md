@@ -23,7 +23,6 @@ To help you get started with data tables, let's walk through how to create a rec
 If you want to see what recipes have data tables and what those tables are, check out our [recipes with data tables doc](../../lists/recipes-with-data-tables.md).
 :::
 
-
 ## Writing a recipe that produces a data table
 
 _All of the code in the below steps can be found in the [rewrite-recipe-starter project](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/ClassHierarchy.java)._
@@ -275,8 +274,8 @@ Once you have a recipe that can produce a data table, there are a few things you
 By default, OpenRewrite recipes will **not** produce a data table. In order for a recipe to produce one, you will need to do two things:
 
 1. You will need to ensure your project is built with
-   - [rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin) version `5.39.0` or higher.
-   - [rewrite-gradle-plugin](https://github.com/openrewrite/rewrite-gradle-plugin/) version `6.16.5` or higher. 
+   * [rewrite-maven-plugin](https://github.com/openrewrite/rewrite-maven-plugin) version `5.39.0` or higher.
+   * [rewrite-gradle-plugin](https://github.com/openrewrite/rewrite-gradle-plugin/) version `6.16.5` or higher. 
 2. Next, you will either need to update build file or modify your command for running a recipe:
 
 <Tabs>
@@ -306,7 +305,6 @@ dependencies {
 
 <TabItem value="gradle-command-line" label="Gradle command line">
 Add `-Drewrite.exportDatatables=true` to your Gradle command for running a recipe such as in the following example:
-
 
 ```bash
 gradle -Drewrite.exportDatatables=true rewriteRun
@@ -341,7 +339,6 @@ Add `<exportDatatables>true</exportDatatables>` to your `pom.xml` file such as i
 <TabItem value="maven-command-line" label="Maven command line">
 Add `-Drewrite.exportDatatables=true` to your Maven command for running a recipe such as in the following example:
 
-
 ```bash
 mvn -U org.openrewrite.maven:rewrite-maven-plugin:run -Drewrite.exportDatatables=true -Drewrite.recipeArtifactCoordinates=org.openrewrite.recipe:rewrite-java-dependencies:RELEASE -Drewrite.activeRecipes=org.openrewrite.java.dependencies.DependencyVulnerabilityCheck
 ```
@@ -358,7 +355,7 @@ Once data tables have been enabled, please run your recipe as normal such as wit
 After your recipe has been run, a `target/rewrite/datatables` directory will be created in your repository. In there, there will be a timestamped folder that contains CSVs for the data tables that were produced by the recipe:
 
 <figure>
-  ![](./assets/datatable-example.png)
+  ![IDE file tree showing the target/rewrite/datatables folder with a timestamped subfolder containing two generated CSV data tables](./assets/datatable-example.png)
   <figcaption>_Example target folder_</figcaption>
 </figure>
 

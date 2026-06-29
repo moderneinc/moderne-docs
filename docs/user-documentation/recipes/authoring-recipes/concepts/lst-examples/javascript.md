@@ -162,7 +162,6 @@ Readable & Writable
 BaseClass & { id: string }
 ```
 
-
 ### ObjectBindingPattern
 
 A [JS.ObjectBindingPattern](https://github.com/openrewrite/rewrite/blob/v8.65.0/rewrite-javascript/src/main/java/org/openrewrite/javascript/tree/JS.java#L2220-L2362) represents destructuring patterns in function parameters or variable declarations.
@@ -182,7 +181,6 @@ A [JS.TemplateExpression](https://github.com/openrewrite/rewrite/blob/v8.65.0/re
 ```typescript
 `Hello, ${name}!`
 ```
-
 
 ### Union
 
@@ -328,30 +326,30 @@ const greet = ({ name, age }: Person): string => {
 
 This code breaks down into:
 
-- **J.VariableDeclarations**: The entire `const greet = ...` declaration
-  - **J.VariableDeclarations.NamedVariable**: Contains the variable name and value
-    - **J.Identifier**: The variable name `greet`
-    - **JS.ArrowFunction**: The arrow function
-      - **J.Lambda**: Contains parameters and body
-        - **J.Lambda.Parameters**: The function parameters
-          - **J.VariableDeclarations**: The parameter declaration
-            - **JS.TypeInfo**: The `: Person` type annotation
-              - **J.Identifier**: `Person`
-            - **JS.ObjectBindingPattern**: The `{ name, age }` destructuring
-              - **JS.BindingElement**: `name`
-              - **JS.BindingElement**: `age`
-        - **J.Block**: The function body
-          - **J.Return**: The return statement
-            - **JS.TemplateExpression**: The template literal
-              - **J.Literal**: `"Hello ${"`
-              - **JS.TemplateExpression.Span**: First interpolation
-                - **J.Identifier**: `name`
-                - **J.Literal**: `"}, you are ${"`
-              - **JS.TemplateExpression.Span**: Second interpolation
-                - **J.Identifier**: `age`
-                - **J.Literal**: `"} years old"`
-      - **JS.TypeInfo**: The `: string` return type
-        - **J.Identifier**: `string`
+* **J.VariableDeclarations**: The entire `const greet = ...` declaration
+  * **J.VariableDeclarations.NamedVariable**: Contains the variable name and value
+    * **J.Identifier**: The variable name `greet`
+    * **JS.ArrowFunction**: The arrow function
+      * **J.Lambda**: Contains parameters and body
+        * **J.Lambda.Parameters**: The function parameters
+          * **J.VariableDeclarations**: The parameter declaration
+            * **JS.TypeInfo**: The `: Person` type annotation
+              * **J.Identifier**: `Person`
+            * **JS.ObjectBindingPattern**: The `{ name, age }` destructuring
+              * **JS.BindingElement**: `name`
+              * **JS.BindingElement**: `age`
+        * **J.Block**: The function body
+          * **J.Return**: The return statement
+            * **JS.TemplateExpression**: The template literal
+              * **J.Literal**: `"Hello ${"`
+              * **JS.TemplateExpression.Span**: First interpolation
+                * **J.Identifier**: `name`
+                * **J.Literal**: `"}, you are ${"`
+              * **JS.TemplateExpression.Span**: Second interpolation
+                * **J.Identifier**: `age`
+                * **J.Literal**: `"} years old"`
+      * **JS.TypeInfo**: The `: string` return type
+        * **J.Identifier**: `string`
 
 ### Example 2: Async function with await
 
@@ -364,29 +362,29 @@ async function fetchData(url: string): Promise<string> {
 
 This function contains:
 
-- **J.MethodDeclaration**: The entire function declaration
-  - **J.Modifier**: `async` modifier
-  - **JS.TypeInfo**: The `: Promise<string>` return type
-    - **J.ParameterizedType**: `Promise<string>`
-      - **J.Identifier**: `Promise`
-      - **J.Identifier**: `string`
-  - **J.Identifier**: The function name `fetchData`
-  - **J.VariableDeclarations**: The `url` parameter
-    - **JS.TypeInfo**: The `: string` type annotation
-      - **J.Identifier**: `string`
-    - **J.VariableDeclarations.NamedVariable**: `url`
-  - **J.Block**: The function body
-    - **J.VariableDeclarations**: `const response = await fetch(url)`
-      - **J.VariableDeclarations.NamedVariable**
-        - **J.Identifier**: `response`
-        - **JS.Await**: The await expression
-          - **J.MethodInvocation**: `fetch(url)`
-            - **J.Identifier**: `fetch`
-            - **J.Identifier**: `url`
-    - **J.Return**: `return response.text()`
-      - **J.MethodInvocation**: `response.text()`
-        - **J.Identifier**: `response`
-        - **J.Identifier**: `text`
+* **J.MethodDeclaration**: The entire function declaration
+  * **J.Modifier**: `async` modifier
+  * **JS.TypeInfo**: The `: Promise<string>` return type
+    * **J.ParameterizedType**: `Promise<string>`
+      * **J.Identifier**: `Promise`
+      * **J.Identifier**: `string`
+  * **J.Identifier**: The function name `fetchData`
+  * **J.VariableDeclarations**: The `url` parameter
+    * **JS.TypeInfo**: The `: string` type annotation
+      * **J.Identifier**: `string`
+    * **J.VariableDeclarations.NamedVariable**: `url`
+  * **J.Block**: The function body
+    * **J.VariableDeclarations**: `const response = await fetch(url)`
+      * **J.VariableDeclarations.NamedVariable**
+        * **J.Identifier**: `response`
+        * **JS.Await**: The await expression
+          * **J.MethodInvocation**: `fetch(url)`
+            * **J.Identifier**: `fetch`
+            * **J.Identifier**: `url`
+    * **J.Return**: `return response.text()`
+      * **J.MethodInvocation**: `response.text()`
+        * **J.Identifier**: `response`
+        * **J.Identifier**: `text`
 
 ### Example 3: Function chaining with JS.FunctionCall
 
@@ -405,41 +403,41 @@ const isValid = createValidator('email')('test@example.com');
 
 This example demonstrates both `JS.Binary` operators and `JS.FunctionCall`:
 
-- **J.MethodDeclaration**: `createValidator` function
-  - **J.Identifier**: `createValidator`
-  - **J.VariableDeclarations**: The `type` parameter
-    - **JS.TypeInfo**: The `: string` type annotation
-      - **J.Identifier**: `string`
-    - **J.VariableDeclarations.NamedVariable**: `type`
-  - **J.Block**: Function body
-    - **J.Return**: Returns the inner function
-      - **JS.StatementExpression**: Wraps the function expression
-        - **J.MethodDeclaration**: The anonymous inner function
-          - **J.VariableDeclarations**: The `value` parameter with `: any`
-          - **J.Block**: Inner function body
-            - **J.If**: The email check
-              - **J.ControlParentheses**: Wraps condition
-                - **JS.Binary**: `type === 'email'` (JS-specific operator)
-                  - **J.Identifier**: `type`
-                  - **J.Literal**: `'email'`
-              - **J.Block**: If body
-                - **J.Return**: Compound boolean expression
-                  - **J.Binary**: `&&` (standard operator)
-                    - **JS.Binary**: `value !== null` (JS-specific)
-                      - **J.Identifier**: `value`
-                      - **J.Literal**: `null`
-                    - **J.MethodInvocation**: `value.includes('@')`
-            - **J.Return**: Default return
-              - **JS.Binary**: `value !== undefined` (JS-specific)
-                - **J.Identifier**: `value`
-                - **J.Identifier**: `undefined`
-- **J.VariableDeclarations**: The `isValid` constant
-  - **J.VariableDeclarations.NamedVariable**: `isValid`
-    - **JS.FunctionCall**: The chained function call
-      - **J.MethodInvocation**: `createValidator('email')`
-        - **J.Identifier**: `createValidator`
-        - **J.Literal**: `'email'`
-      - **J.Literal**: `'test@example.com'` (the argument to the returned function)
+* **J.MethodDeclaration**: `createValidator` function
+  * **J.Identifier**: `createValidator`
+  * **J.VariableDeclarations**: The `type` parameter
+    * **JS.TypeInfo**: The `: string` type annotation
+      * **J.Identifier**: `string`
+    * **J.VariableDeclarations.NamedVariable**: `type`
+  * **J.Block**: Function body
+    * **J.Return**: Returns the inner function
+      * **JS.StatementExpression**: Wraps the function expression
+        * **J.MethodDeclaration**: The anonymous inner function
+          * **J.VariableDeclarations**: The `value` parameter with `: any`
+          * **J.Block**: Inner function body
+            * **J.If**: The email check
+              * **J.ControlParentheses**: Wraps condition
+                * **JS.Binary**: `type === 'email'` (JS-specific operator)
+                  * **J.Identifier**: `type`
+                  * **J.Literal**: `'email'`
+              * **J.Block**: If body
+                * **J.Return**: Compound boolean expression
+                  * **J.Binary**: `&&` (standard operator)
+                    * **JS.Binary**: `value !== null` (JS-specific)
+                      * **J.Identifier**: `value`
+                      * **J.Literal**: `null`
+                    * **J.MethodInvocation**: `value.includes('@')`
+            * **J.Return**: Default return
+              * **JS.Binary**: `value !== undefined` (JS-specific)
+                * **J.Identifier**: `value`
+                * **J.Identifier**: `undefined`
+* **J.VariableDeclarations**: The `isValid` constant
+  * **J.VariableDeclarations.NamedVariable**: `isValid`
+    * **JS.FunctionCall**: The chained function call
+      * **J.MethodInvocation**: `createValidator('email')`
+        * **J.Identifier**: `createValidator`
+        * **J.Literal**: `'email'`
+      * **J.Literal**: `'test@example.com'` (the argument to the returned function)
 
 ### Example 4: Class with generics
 
@@ -455,34 +453,34 @@ class DataStore<T> {
 
 This class contains:
 
-- **J.ClassDeclaration**: The entire class
-  - **J.Identifier**: `DataStore`
-  - **J.TypeParameter**: The generic parameter `T`
-    - **J.Identifier**: `T`
-  - **J.Block**: The class body
-    - **J.VariableDeclarations**: `private items: T[] = []`
-      - **J.Modifier**: `private`
-      - **JS.TypeInfo**: The `: T[]` type annotation
-        - **J.ArrayType**: `T[]`
-          - **J.Identifier**: `T`
-      - **J.VariableDeclarations.NamedVariable**: `items = []`
-        - **J.Identifier**: `items`
-        - **J.NewArray**: The empty array initializer
-    - **J.MethodDeclaration**: The `add` method
-      - **JS.TypeInfo**: The `: void` return type
-        - **J.Identifier**: `void`
-      - **J.Identifier**: `add`
-      - **J.VariableDeclarations**: The `item` parameter
-        - **JS.TypeInfo**: The `: T` type annotation
-          - **J.Identifier**: `T`
-        - **J.VariableDeclarations.NamedVariable**: `item`
-      - **J.Block**: The method body
-        - **J.MethodInvocation**: `this.items.push(item)`
-          - **J.FieldAccess**: `this.items`
-            - **J.Identifier**: `this`
-            - **J.Identifier**: `items`
-          - **J.Identifier**: `push`
-          - **J.Identifier**: `item`
+* **J.ClassDeclaration**: The entire class
+  * **J.Identifier**: `DataStore`
+  * **J.TypeParameter**: The generic parameter `T`
+    * **J.Identifier**: `T`
+  * **J.Block**: The class body
+    * **J.VariableDeclarations**: `private items: T[] = []`
+      * **J.Modifier**: `private`
+      * **JS.TypeInfo**: The `: T[]` type annotation
+        * **J.ArrayType**: `T[]`
+          * **J.Identifier**: `T`
+      * **J.VariableDeclarations.NamedVariable**: `items = []`
+        * **J.Identifier**: `items`
+        * **J.NewArray**: The empty array initializer
+    * **J.MethodDeclaration**: The `add` method
+      * **JS.TypeInfo**: The `: void` return type
+        * **J.Identifier**: `void`
+      * **J.Identifier**: `add`
+      * **J.VariableDeclarations**: The `item` parameter
+        * **JS.TypeInfo**: The `: T` type annotation
+          * **J.Identifier**: `T`
+        * **J.VariableDeclarations.NamedVariable**: `item`
+      * **J.Block**: The method body
+        * **J.MethodInvocation**: `this.items.push(item)`
+          * **J.FieldAccess**: `this.items`
+            * **J.Identifier**: `this`
+            * **J.Identifier**: `items`
+          * **J.Identifier**: `push`
+          * **J.Identifier**: `item`
 
 ### Key insights
 

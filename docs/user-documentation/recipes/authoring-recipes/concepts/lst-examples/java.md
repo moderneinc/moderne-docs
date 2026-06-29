@@ -34,7 +34,7 @@ For example, nothing prevents you from modifying an LST so that a variable is us
 This diagram demonstrates how a simple Java class is represented as an LST. Note the hierarchical structure where LSTs are composed out of other LSTs.
 
 <figure>
-  ![](./assets/vertical-ast-example.png)
+  ![Diagram mapping a simple Java class to its LST, with the source code on the left linked to nested LST element nodes on the right](./assets/vertical-ast-example.png)
   <figcaption></figcaption>
 </figure>
 
