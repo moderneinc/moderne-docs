@@ -1,6 +1,7 @@
 ---
 sidebar_label: Migrate to Jakarta EE 10
 description: How to migrate Java EE and Jakarta EE codebases to Jakarta EE 10 with the Moderne Platform or CLI.
+keywords: [migrate to jakarta ee, jakarta ee 10, javax to jakarta, java ee to jakarta, jakarta namespace migration]
 ---
 
 import Tabs from '@theme/Tabs';

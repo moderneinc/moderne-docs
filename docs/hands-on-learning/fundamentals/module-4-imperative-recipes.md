@@ -5,24 +5,24 @@ description: Writing imperative recipes with integrated testing.
 
 # Module 4: Imperative recipes
 
-For use cases beyond what declarative recipes and Refaster templates can handle, you will want to look at [writing a Java refactoring recipe](https://docs.openrewrite.org/authoring-recipes/writing-a-java-refactoring-recipe).
+For use cases beyond what declarative recipes and Refaster templates can handle, you will want to look at [writing a Java refactoring recipe](../../user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-java-refactoring-recipe.md).
 
-[Imperative recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#imperative-recipes) use visitors to traverse Lossless Semantic Trees (LSTs) and modify code with full type awareness. You will use `JavaTemplate` to [create new LST elements](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate) that replace existing nodes while preserving formatting and style.
+[Imperative recipes](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md#imperative-recipes) use visitors to traverse Lossless Semantic Trees (LSTs) and modify code with full type awareness. You will use `JavaTemplate` to [create new LST elements](../../user-documentation/recipes/authoring-recipes/advanced-authoring/modifying-methods-with-javatemplate.md) that replace existing nodes while preserving formatting and style.
 
 As you've already seen, testing is a critical feedback loop for enabling recipe development. The `RewriteTest` framework validates both the textual output and the underlying LST types and structure, so it will surface type-attribution problems early. This module starts by using examples from the starter project to show how to use tests effectively and how recipe and source inputs can be specified in different ways. After that, you will implement an imperative recipe and use tests to guide each change and confirm that traversal only touches the nodes you intend.
 
 If you get stuck, you can reference the [workshop-solutions branch](https://github.com/moderneinc/rewrite-recipe-starter/blob/workshop-solutions/) of the starter repo for completed examples (and you’ll also see code embedded inline throughout the steps).
 
-The following concepts in the [OpenRewrite documentation](https://docs.openrewrite.org/) are important to understand, particularly when writing imperative OpenRewrite recipes:
+The following concepts are important to understand, particularly when writing imperative OpenRewrite recipes:
 
-1. [Lossless Semantic Trees](https://docs.openrewrite.org/concepts-and-explanations/lossless-semantic-trees)
-   * [Java LST examples](https://docs.openrewrite.org/concepts-and-explanations/lst-examples)
-   * [YAML LST examples](https://docs.openrewrite.org/concepts-and-explanations/yaml-lst-examples)
-   * [TreeVisitingPrinter](https://docs.openrewrite.org/concepts-and-explanations/tree-visiting-printer)
-2. [Visitors](https://docs.openrewrite.org/concepts-and-explanations/visitors)
-   * [Cursoring](https://docs.openrewrite.org/concepts-and-explanations/visitors#cursoring)
-   * [Isomorphic vs. non-isomorphic](https://docs.openrewrite.org/concepts-and-explanations/visitors#isomorphic-vs-non-isomorphic-visitors)
-3. [Recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes)
+1. [Lossless Semantic Trees](../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md)
+   * [Java LST examples](../../user-documentation/recipes/authoring-recipes/concepts/lst-examples/java.md)
+   * [YAML LST examples](../../user-documentation/recipes/authoring-recipes/concepts/lst-examples/yaml.md)
+   * [TreeVisitingPrinter](../../user-documentation/recipes/authoring-recipes/concepts/tree-visiting-printer.md)
+2. [Visitors](../../user-documentation/recipes/authoring-recipes/concepts/visitors.md)
+   * [Cursoring](../../user-documentation/recipes/authoring-recipes/concepts/visitors.md#cursoring)
+   * [Isomorphic vs. non-isomorphic](../../user-documentation/recipes/authoring-recipes/concepts/visitors.md#isomorphic-vs-non-isomorphic-visitors)
+3. [Recipes](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md)
 
 These concepts should give you some sense as to the importance of exact type attribution, and how visitors are used to traverse and modify the LST. Without these, it would be next to impossible to write recipes that make changes to your code reliably.
 
@@ -122,7 +122,7 @@ The return value of `visitMethodInvocation` controls traversal: when nothing mat
    * Implement `getVisitor()` and add the transformation logic.
    * Consider a precondition so the recipe only visits files using the constructor.
    * Choose `JavaVisitor` or `JavaIsoVisitor` based on the nodes you need.
-   * Decide what method to overwrite depending on what type of [LST elements](https://docs.openrewrite.org/concepts-and-explanations/lst-examples#java-lst-types) you need to visit. (Don't forget the call to the superclass version of the method as in Exercise 4-1.)
+   * Decide what method to overwrite depending on what type of [LST elements](../../user-documentation/recipes/authoring-recipes/concepts/lst-examples/java.md#java-lst-types) you need to visit. (Don't forget the call to the superclass version of the method as in Exercise 4-1.)
    * Use `JavaTemplate.builder(...).build().apply(...)` to make the necessary changes and return the result.
 :::info
 Use `JavaIsoVisitor` when you want to return the same LST node type (isomorphic), and `JavaVisitor` if you need to return a different `J` node type (non-isomorphic).
@@ -204,6 +204,6 @@ This recipe is useful as an example for the purposes of this workshop, but it ac
 
 Now that you've learned all the basics of building recipes, you may:
 
-* Review [conventions and best practices](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices) for writing OpenRewrite recipes. 
+* Review [conventions and best practices](../../user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-conventions-and-best-practices.md) for writing OpenRewrite recipes. 
 * See how you can [contribute to the OpenRewrite community](https://docs.openrewrite.org/authoring-recipes/contributing-to-openrewrite).
 * Learn about some of the more complex and powerful features of OpenRewrite in the [advanced workshop](../advanced/workshop-overview.md).

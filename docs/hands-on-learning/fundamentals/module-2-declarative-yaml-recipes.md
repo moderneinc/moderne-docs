@@ -59,7 +59,7 @@ recipeList:
 ```
 </details>
 
-You may notice that [the method pattern](https://docs.openrewrite.org/reference/method-patterns) actually refers to a method that does not exist. Apache Commons does not have a `trimWhitespace` method, but Spring does. However, because recipes in the `recipeList` are executed in order and the `ChangeType` recipe comes before the new `ChangeMethodName` recipe, when `ChangeMethodName` runs, the type will already be Apache Commons and there will no longer be a Spring `trimWhitespace` method. This is an important point to keep in mind when chaining recipes together.
+You may notice that [the method pattern](../../user-documentation/recipes/authoring-recipes/references/method-patterns.md) actually refers to a method that does not exist. Apache Commons does not have a `trimWhitespace` method, but Spring does. However, because recipes in the `recipeList` are executed in order and the `ChangeType` recipe comes before the new `ChangeMethodName` recipe, when `ChangeMethodName` runs, the type will already be Apache Commons and there will no longer be a Spring `trimWhitespace` method. This is an important point to keep in mind when chaining recipes together.
 
 :::tip
 IntelliJ can suggest recipe options. Place your cursor between `description` and `recipeList`, then trigger auto-complete (Ctrl/Cmd + Space) to see optional fields that may be missing (like `estimatedEffortPerOccurrence` in this example).
@@ -127,7 +127,7 @@ mod run . --recipe=com.yourorg.UseApacheStringUtils
 
 ## Exercise 2-2: Add preconditions to the declarative recipe
 
-You may not necessarily always want recipes to affect every file in a codebase. For example, a recipe intended for test code should only run on files that are tests, and a recipe that updates `ArrayList` usage should only run where `ArrayList` appears. Preconditions are recipes themselves, used to narrow the scope of another recipe so it only runs where it makes sense. This keeps runs focused and fast while also making the recipe easier to understand, debug, and maintain. For additional guidance, check out the [Use preconditions](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices#use-preconditions) section of the recipe conventions guide.
+You may not necessarily always want recipes to affect every file in a codebase. For example, a recipe intended for test code should only run on files that are tests, and a recipe that updates `ArrayList` usage should only run where `ArrayList` appears. Preconditions are recipes themselves, used to narrow the scope of another recipe so it only runs where it makes sense. This keeps runs focused and fast while also making the recipe easier to understand, debug, and maintain. For additional guidance, check out the [Use preconditions](../../user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-conventions-and-best-practices.md#use-preconditions) section of the recipe conventions guide.
 
 In this exercise, you will update the `stringutils.yml` recipe to only run on sources that are likely tests by adding a precondition that uses [the `org.openrewrite.java.search.IsLikelyTest` recipe](https://docs.openrewrite.org/recipes/java/search/islikelytest).
 

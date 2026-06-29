@@ -59,7 +59,7 @@ In this exercise, you’ll learn how to debug recipes using both IDE breakpoints
 
 1. Follow [our guide for how to debug a recipe with the Moderne plugin](../../user-documentation/moderne-ide-integration/how-to-guides/debugging-recipes.md#step-4-debug-your-recipe). It walks you through setting an active recipe, building LSTs, and debugging the recipe — including how to attach a remote debugger from the CLI with `modw --debug run . --active-recipe`.
 2. Open a test case (e.g., `FindSpringBeansTest`), set breakpoints inside `visit()` or the visitor logic, then run the test in debug mode (green bug icon in IntelliJ) and step through to inspect variables and visitor flow.
-3. [Configure the TreeVisitingPrinter](https://docs.openrewrite.org/concepts-and-explanations/tree-visiting-printer) to see what an LST looks like when your recipe finds a match — a great way to learn the different [Java LST elements](https://docs.openrewrite.org/concepts-and-explanations/lst-examples). You'll need to add `import org.openrewrite.java.TreeVisitingPrinter;` to your recipe's imports.
+3. [Configure the TreeVisitingPrinter](../../user-documentation/recipes/authoring-recipes/concepts/tree-visiting-printer.md) to see what an LST looks like when your recipe finds a match — a great way to learn the different [Java LST elements](../../user-documentation/recipes/authoring-recipes/concepts/lst-examples/java.md). You'll need to add `import org.openrewrite.java.TreeVisitingPrinter;` to your recipe's imports.
 
 ### Takeaways
 

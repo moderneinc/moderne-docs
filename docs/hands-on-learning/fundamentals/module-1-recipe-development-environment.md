@@ -11,7 +11,7 @@ If you get stuck, you can reference the [workshop-solutions branch](https://gith
 
 You'll want to have the following installed:
 
-* Java 21, as our [RewriteTests](https://docs.openrewrite.org/authoring-recipes/recipe-testing#rewritetest-interface) use text blocks.
+* Java 21, as our [RewriteTests](../../user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-testing.md#rewritetest-interface) use text blocks.
   * The [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) project expects JDK 21. (Temurin JDK 21.0.7 (`temurin-21.0.7`), for example, has been specified in the `.sdkmanrc` file, but other version 21 JDKs may work as well.)
   * Recipes use Java 8 source level, so they can run on Java 8 and higher.
 * IntelliJ IDEA (2025.3+ recommended)
@@ -98,8 +98,8 @@ This requires the Moderne plugin; if it is not installed, the **Set Active Recip
 
 It's important to note there are different types of recipes, each with their own trade-offs.
 
-1. [Declarative recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#declarative-recipes) are the simplest to write, and are the most common type of recipe. They are written in YAML, and often tie together existing recipe building blocks with some light configuration.
-2. [Refaster rules](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#refaster-template-recipes) bring you the benefit of compiler support, and work best for straightforward replacements. They generate recipes that can also be used as a starting point for more complex recipe implementations.
-3. [Imperative recipes](https://docs.openrewrite.org/authoring-recipes/types-of-recipes#imperative-recipes) are the most powerful, and allow you to write Java code to implement your recipe. By [using the `JavaTemplate` builder](https://docs.openrewrite.org/authoring-recipes/modifying-methods-with-javatemplate), you can keep complexity down, as you define arbitrary code changes.
+1. [Declarative recipes](../../user-documentation/recipes/authoring-recipes/writing-recipes/types-of-recipes.md#declarative-recipes) are the simplest to write, and are the most common type of recipe. They are written in YAML, and often tie together existing recipe building blocks with some light configuration.
+2. [Refaster rules](../../user-documentation/recipes/authoring-recipes/writing-recipes/types-of-recipes.md#refaster-template-recipes) bring you the benefit of compiler support, and work best for straightforward replacements. They generate recipes that can also be used as a starting point for more complex recipe implementations.
+3. [Imperative recipes](../../user-documentation/recipes/authoring-recipes/writing-recipes/types-of-recipes.md#imperative-recipes) are the most powerful, and allow you to write Java code to implement your recipe. By [using the `JavaTemplate` builder](../../user-documentation/recipes/authoring-recipes/advanced-authoring/modifying-methods-with-javatemplate.md), you can keep complexity down, as you define arbitrary code changes.
 
-No matter which method of recipe development you choose, you can (and should) always [write unit tests for your recipe](https://docs.openrewrite.org/authoring-recipes/recipe-testing). Beyond that, there are [best practices for writing recipes](https://docs.openrewrite.org/authoring-recipes/recipe-conventions-and-best-practices), such as ensuring idempotence, and avoiding harmful changes. The remaining modules will explore in more detail how to write and test all three of these types of recipes.
+No matter which method of recipe development you choose, you can (and should) always [write unit tests for your recipe](../../user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-testing.md). Beyond that, there are [best practices for writing recipes](../../user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-conventions-and-best-practices.md), such as ensuring idempotence, and avoiding harmful changes. The remaining modules will explore in more detail how to write and test all three of these types of recipes.
