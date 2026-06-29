@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v13.2.0 (2026/06/29)
+
+- icon-only collapsible left nav
+- inline search-within-results field + fix pane clipping
+
 ### UI v13.1.1 (2026/06/23)
 
 - Bug fixes and other improvements.
