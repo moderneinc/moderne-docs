@@ -5693,6 +5693,13 @@ chokidar@^4.0.1:
   dependencies:
     readdirp "^4.0.1"
 
+chromatic@17.8.0:
+  version "17.8.0"
+  resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-17.8.0.tgz#e05f91cd7be85584f286d1b22c9b070c6f1f9945"
+  integrity sha512-xcn2TGdbrKHQbGAo3wZc5qoKaPe+CEvhAEcky9OCpofGd3DJucLFEYpk8wYgHKgR5XAI9X8Op1C6fWlvdjxE/g==
+  dependencies:
+    semver "^7.3.5"
+
 chrome-trace-event@^1.0.2:
   version "1.0.4"
   resolved "https://registry.npmjs.org/chrome-trace-event/-/chrome-trace-event-1.0.4.tgz"

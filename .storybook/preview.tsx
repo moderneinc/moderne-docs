@@ -1,5 +1,13 @@
 import type { Preview } from '@storybook/react-webpack5';
 import React from 'react';
+import { composeProviders } from '@docusaurus/theme-common';
+import {
+  ColorModeProvider,
+  AnnouncementBarProvider,
+  ScrollControllerProvider,
+  PluginHtmlClassNameProvider,
+  NavbarProvider,
+} from '@docusaurus/theme-common/internal';
 
 // Import Inter font (same as Docusaurus)
 import '@fontsource/inter/400.css';
@@ -20,6 +28,21 @@ import '@moderneinc/neo-design/border-radius.css';
 
 // Import Docusaurus custom styles
 import '../src/css/custom.css';
+
+// Mirror the Docusaurus LayoutProvider context tree (see
+// @docusaurus/theme-classic Layout/Provider). Swizzled theme components such as
+// Navbar/Layout and Navbar/Content call hooks (useNavbarMobileSidebar,
+// useAnnouncementBar, color mode, scroll) that throw a ReactContextError when
+// rendered outside these providers. DocsPreferredVersionContextProvider is
+// intentionally omitted — it requires plugin-content-docs generated data that
+// none of our stories consume.
+const DocusaurusProviders = composeProviders([
+  ColorModeProvider,
+  AnnouncementBarProvider,
+  ScrollControllerProvider,
+  PluginHtmlClassNameProvider,
+  NavbarProvider,
+]);
 
 const preview: Preview = {
   parameters: {
@@ -58,9 +81,11 @@ const preview: Preview = {
       }, [theme]);
 
       return (
-        <div className="theme-doc-page" data-theme={theme}>
-          <Story />
-        </div>
+        <DocusaurusProviders>
+          <div className="theme-doc-page" data-theme={theme}>
+            <Story />
+          </div>
+        </DocusaurusProviders>
       );
     },
   ],
