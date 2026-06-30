@@ -85,11 +85,17 @@ recipeList:
   - io.moderne.devcenter.JUnitJupiterUpgrade:
       upgradeRecipe: org.openrewrite.java.testing.junit5.JUnit4to5Migration
   - io.moderne.devcenter.SecurityStarter
+  - io.moderne.devcenter.FindOrganizationStatistics
+  - org.openrewrite.search.FindCommitters
 ```
 DevCenter recipes have two notable properties worth calling out:
 
 * `cardName` is a property that allows you to customize what the name of the card should be. Not all recipes have a `cardName` property. For instance, the [LibraryUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/LibraryUpgrade.java#L35-L38) has a `cardName` property – whereas the [JavaVersionUpgrade recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/java/io/moderne/devcenter/JavaVersionUpgrade.java) does not.
 * `upgradeRecipe` is a property that defines the recipe that should be run to upgrade your repositories. It is the recipe that will get executed when you press the `Upgrade` button on a card.
+
+:::info
+The last two recipes in the list, `io.moderne.devcenter.FindOrganizationStatistics` and `org.openrewrite.search.FindCommitters`, do not produce cards. They populate the **Lines of code** and **Contributing developers** cards in the DevCenter's Organizational ownership section. Include both in every DevCenter recipe; without them, those two cards remain empty.
+:::
 
 <figure>
   ![DevCenter card for Move to Java 21 showing a donut chart with repo categories and an Upgrade button](./assets/example-card.png)
@@ -166,6 +172,8 @@ recipeList:
   - io.moderne.devcenter.JUnitJupiterUpgrade:
       upgradeRecipe: org.openrewrite.java.testing.junit5.JUnit4to5Migration
   - io.moderne.devcenter.SecurityStarter
+  - io.moderne.devcenter.FindOrganizationStatistics
+  - org.openrewrite.search.FindCommitters
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: io.moderne.devcenter.UpgradeQuarkus
@@ -211,6 +219,8 @@ recipeList:
   - io.moderne.devcenter.JUnitJupiterUpgrade:
       upgradeRecipe: org.openrewrite.java.testing.junit5.JUnit4to5Migration
   - io.moderne.devcenter.SecurityStarter
+  - io.moderne.devcenter.FindOrganizationStatistics
+  - org.openrewrite.search.FindCommitters
 ---
 type: specs.openrewrite.org/v1beta/recipe
 name: io.moderne.devcenter.UpgradeApacheMavenParent
