@@ -1799,7 +1799,7 @@ so we can resolve the recipe that was used at the time of the run (not the curre
 | `changelog` | (first: Int = 50, after: String, where: [ChangelogEntryWhereInput](#changelogentrywhereinput), orderBy: [[ChangelogEntryOrderByInput](#changelogentryorderbyinput)!]): [ChangelogEntryConnection](#changelogentryconnection)! | PR and commit activity feed for repositories in this organization. |
 | `participants` | (first: Int = 50, after: String, where: [ChangelogParticipantWhereInput](#changelogparticipantwhereinput), orderBy: [[ChangelogParticipantOrderByInput](#changelogparticipantorderbyinput)!]): [ChangelogParticipantConnection](#changelogparticipantconnection)! | All unique participants across the changelog for this organization, aggregated from authors, assignees, closers, and reviewers. |
 | `commitOptions` | [[CommitOption](#commitoption)!]! | Available commit options for this organization. |
-| `changesets` | (first: Int = 50, after: String, where: [OrganizationChangesetWhereInput](#organizationchangesetwhereinput), orderBy: [[OrganizationChangesetOrderByInput](#organizationchangesetorderbyinput)!]): [OrganizationChangesetConnection](#organizationchangesetconnection)! |  |
+| `changesets` | (first: Int = 50, after: String, before: String, where: [OrganizationChangesetWhereInput](#organizationchangesetwhereinput), orderBy: [[OrganizationChangesetOrderByInput](#organizationchangesetorderbyinput)!]): [OrganizationChangesetConnection](#organizationchangesetconnection)! |  |
 | `devCenter` | [DevCenter](#devcenter) | DevCenter provides organization-wide campaign progress tracking. |
 | `moddy` | [Moddy](#moddy)! |  |
 | `name` | String! |  |
@@ -4836,6 +4836,7 @@ these tokens are preferred over stored OAuth tokens.
 | Field | Type | Description |
 |-------|------|-------------|
 | `email` | [StringFilter](#stringfilter) |  |
+| `tokenCount` | [IntFilter](#intfilter) | Filter by the number of Moderne access tokens the user holds (e.g. \{ _gt: 0 \} for users with at least one token). |
 | `_and` | [[UserWhereInput](#userwhereinput)!] |  |
 | `_or` | [[UserWhereInput](#userwhereinput)!] |  |
 | `_not` | [UserWhereInput](#userwhereinput) |  |

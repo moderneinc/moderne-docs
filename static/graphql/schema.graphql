@@ -3118,7 +3118,7 @@ type Organization
 
   """Available commit options for this organization."""
   commitOptions: [CommitOption!]! @join__field(graph: CHANGESETCOMMITTER)
-  changesets(first: Int = 50, after: String, where: OrganizationChangesetWhereInput, orderBy: [OrganizationChangesetOrderByInput!]): OrganizationChangesetConnection! @join__field(graph: CHANGESETREADER)
+  changesets(first: Int = 50, after: String, before: String, where: OrganizationChangesetWhereInput, orderBy: [OrganizationChangesetOrderByInput!]): OrganizationChangesetConnection! @join__field(graph: CHANGESETREADER)
 
   """DevCenter provides organization-wide campaign progress tracking."""
   devCenter: DevCenter @join__field(graph: CHANGESETREADER)
@@ -6120,6 +6120,11 @@ input UserWhereInput
   @join__type(graph: RECIPEWORKER)
 {
   email: StringFilter
+
+  """
+  Filter by the number of Moderne access tokens the user holds (e.g. { _gt: 0 } for users with at least one token).
+  """
+  tokenCount: IntFilter
   _and: [UserWhereInput!]
   _or: [UserWhereInput!]
   _not: UserWhereInput
