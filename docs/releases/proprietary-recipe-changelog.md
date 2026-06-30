@@ -10,6 +10,13 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## June 30, 2026
+
+#### rewrite-program-analysis - 0.13.2
+
+* perf(dataflow): lazy PathCondition variable index + memoized isFeasible (apex edit 649.8s→81.4s)
+* perf(dataflow): faster path-sensitive null analysis (lazy index, fixpoint hashing, structural tree equality)
+
 ## June 25, 2026
 
 #### rewrite-program-analysis - 0.13.1
