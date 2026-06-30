@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v13.3.1 (2026/06/30)
+
+- Bug fixes and other improvements.
+
 ### UI v13.3.0 (2026/06/29)
 
 - Neo data tables view — dual card/grid + schema inspector
