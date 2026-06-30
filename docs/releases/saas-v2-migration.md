@@ -178,12 +178,16 @@ There are three opt-in paths through your existing tenant hostnames. You don't n
 | Traffic                                                 | How to land on v2                                                                                             |
 |:--------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
 | API requests (`api.<tenant>.moderne.io`)                | Send header `X-Moderne-Platform-Version: v2` on the request.                                                  |
-| Browser / UI sessions (`<tenant>.moderne.io`)           | Set cookie `moderne-version=v2` for the domain. Subsequent apex page loads land on v2 moderneui.              |
+| Browser / UI sessions (`<tenant>.moderne.io`)           | Open the account menu (your avatar, top-right) and select **Try the new platform**.                           |
 | Connector traffic (`api.<tenant>.moderne.io/connector`) | **Automatic.** The `/connector` path always routes to v2 once Moderne wires up coexistence. No header needed. |
 
-Browsers only auto-send cookies (not custom headers), so the cookie is the practical way to pin a human session to v2; without it, the next apex page navigation bounces back to v1.
+Selecting **Try the new platform** pins your browser session to v2 and reloads the platform. The same menu then reads **Switch to the legacy platform** to take you back to v1. The entry appears once Moderne has placed your tenant in coexistence mode.
 
-To pin a session, set the cookie in DevTools (or via a small bookmarklet) for `.<tenant>.moderne.io`, then reload. To leave v2 and go back to v1, clear the cookie.
+![The account menu expanded, showing the "Try the new platform" in the account menu](./assets/try-the-new-platform.png)
+
+When you click on the **Try the new platform** button, a `moderne-version=v2` cookie scoped to `.<tenant>.moderne.io` will be set. This ensure that all calls to `api.<tenant>.moderne.io` carry it, too. Browsers only auto-send cookies (not custom headers), which is why the cookie, rather than a header, is what keeps you on v2.
+
+To pin a scripted or non-UI client, set that cookie directly. Clearing it (or selecting **Switch to the legacy platform**) returns to you v1.
 
 ### How long does the soak phase last?
 
