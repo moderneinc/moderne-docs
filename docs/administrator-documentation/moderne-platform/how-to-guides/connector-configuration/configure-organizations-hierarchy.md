@@ -68,7 +68,7 @@ If you set up a [Mass Ingest](../mass-ingest.md) pipeline, the `mod publish` ste
 | `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_BEARERTOKEN`       | `false`  |         | Bearer token for the HTTP endpoint. Mutually exclusive with `USERNAME`/`PASSWORD`.                                                                                       |
 | `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_PROXY_HOST`        | `false`  |         | The hostname of a proxy server to use for connections to the HTTP endpoint. If specified, `PROXY_PORT` must also be set.                                                 |
 | `MODERNE_ORGANIZATION_SOURCES_HTTP_{index}_PROXY_PORT`        | `false`  |         | The port of the proxy server to use for connections to the HTTP endpoint. If specified, `PROXY_HOST` must also be set.                                                   |
-| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_URI`                 | `false`  |         | The S3 URI of a CSV object (e.g., `s3://my-bucket/repos.csv`). For the full set of S3 auth/region/endpoint variables, please see [S3 organization source](./configure-a-connector-with-s3-access.md). |
+| `MODERNE_ORGANIZATION_SOURCES_S3_{index}_URI`                 | `false`  |         | The S3 URI of a CSV object (e.g., `s3://my-bucket/repos-lock.csv`). For the full set of S3 auth/region/endpoint variables, please see [S3 organization source](./configure-a-connector-with-s3-access.md). |
 
 **Example using a local file:**
 
@@ -93,7 +93,7 @@ docker run \
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_ORGANIZATION_SOURCES_S3_0_URI=s3://my-bucket/repos.csv \
+-e MODERNE_ORGANIZATION_SOURCES_S3_0_URI=s3://my-bucket/repos-lock.csv \
 # ... Additional variables
 ```
 
@@ -112,7 +112,7 @@ docker run \
 | `--moderne.organization.sources.http[{index}].bearerToken` | `false`  |         | Bearer token for the HTTP endpoint. Mutually exclusive with `username`/`password`.                                                                                         |
 | `--moderne.organization.sources.http[{index}].proxy.host`  | `false`  |         | The hostname of a proxy server to use for connections to the HTTP endpoint. If specified, `proxy.port` must also be set.                                                   |
 | `--moderne.organization.sources.http[{index}].proxy.port`  | `false`  |         | The port of the proxy server to use for connections to the HTTP endpoint. If specified, `proxy.host` must also be set.                                                     |
-| `--moderne.organization.sources.s3[{index}].uri`           | `false`  |         | The S3 URI of a CSV object (e.g., `s3://my-bucket/repos.csv`). For the full set of S3 auth/region/endpoint arguments, please see [S3 organization source](./configure-a-connector-with-s3-access.md). |
+| `--moderne.organization.sources.s3[{index}].uri`           | `false`  |         | The S3 URI of a CSV object (e.g., `s3://my-bucket/repos-lock.csv`). For the full set of S3 auth/region/endpoint arguments, please see [S3 organization source](./configure-a-connector-with-s3-access.md). |
 
 **Example using a local file:**
 
@@ -137,7 +137,7 @@ java -jar connector-{version}.jar \
 ```bash
 java -jar connector-{version}.jar \
 # ... Existing arguments
---moderne.organization.sources.s3[0].uri=s3://my-bucket/repos.csv \
+--moderne.organization.sources.s3[0].uri=s3://my-bucket/repos-lock.csv \
 # ... Additional arguments
 ```
 
