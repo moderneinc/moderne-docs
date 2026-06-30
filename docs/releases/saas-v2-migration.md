@@ -178,14 +178,16 @@ There are three opt-in paths through your existing tenant hostnames. You don't n
 | Traffic                                                 | How to land on v2                                                                                             |
 |:--------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
 | API requests (`api.<tenant>.moderne.io`)                | Send header `X-Moderne-Platform-Version: v2` on the request.                                                  |
-| Browser / UI sessions (`<tenant>.moderne.io`)           | Open the account menu (your avatar, top-right) and select **Try the new platform**.                          |
+| Browser / UI sessions (`<tenant>.moderne.io`)           | Open the account menu (your avatar, top-right) and select **Try the new platform**.                           |
 | Connector traffic (`api.<tenant>.moderne.io/connector`) | **Automatic.** The `/connector` path always routes to v2 once Moderne wires up coexistence. No header needed. |
 
 Selecting **Try the new platform** pins your browser session to v2 and reloads the platform. The same menu then reads **Switch to the legacy platform** to take you back to v1. The entry appears once Moderne has placed your tenant in coexistence mode.
 
-![The account menu expanded, showing the "Try the new platform" entry below "Command menu"](./assets/try-the-new-platform.png)
+![The account menu expanded, showing the "Try the new platform" in the account menu](./assets/try-the-new-platform.png)
 
-Behind the menu, this sets a `moderne-version=v2` cookie scoped to `.<tenant>.moderne.io`, so that calls to `api.<tenant>.moderne.io` carry it too. Browsers only auto-send cookies (not custom headers), which is why the cookie, rather than a header, is what keeps a human session on v2. To pin a scripted or non-UI client, set that cookie directly; clearing it (or selecting **Switch to the legacy platform**) returns you to v1.
+When you click on the **Try the new platform** button, a `moderne-version=v2` cookie scoped to `.<tenant>.moderne.io` will be set. This ensure that all calls to `api.<tenant>.moderne.io` carry it, too. Browsers only auto-send cookies (not custom headers), which is why the cookie, rather than a header, is what keeps you on v2.
+
+To pin a scripted or non-UI client, set that cookie directly. Clearing it (or selecting **Switch to the legacy platform**) returns to you v1.
 
 ### How long does the soak phase last?
 
