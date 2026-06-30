@@ -344,7 +344,7 @@ Before Moderne can run recipes on your code, the Connector needs two things:
 1. The list of repositories you want Moderne to index.
 2. The [LST](../../references/lossless-semantic-trees.md) artifact location for each repository.
 
-Both come from a CSV file that you point the Connector at.
+Both of these things can come from a CSV file that you point the Connector to.
 
 #### Configure where your CSV lives
 
@@ -367,7 +367,7 @@ You have two options:
   * **[Artifactory](./configure-a-connector-with-artifactory-access.md)** - uses [AQL](https://www.jfrog.com/confluence/display/JFROG/Artifactory+Query+Language) to discover LSTs in near real-time (within a minute or two of publishing). Recommended for Artifactory users.
   * **[Maven repository](./configure-a-connector-with-maven-repository-access.md)** - works with any Maven-formatted repository (Artifactory, Nexus, etc.) via the [Maven Indexer](https://maven.apache.org/maven-indexer/). There will be a delay between when an LST is published and when it shows up in Moderne, controlled by a batch index-update process.
 
-The Connector picks between these two paths automatically based on whether you've configured poll repositories. If you need to force one or the other, set `moderne.connector.organization.mode` - see the [agent variables reference](./connector-variables.md) for the full list of values.
+The Connector picks between these two paths automatically based on whether you've configured poll repositories. If you need to force one or the other, set `moderne.connector.organization.mode` - see the [connector variables reference](./connector-variables.md) for the full list of values.
 
 Below is an example of what a Connector run command might look like at the end of this step.
 
@@ -622,8 +622,8 @@ For high availability and increased throughput, you can run multiple Moderne Con
 
 * Each Connector instance must have a unique `MODERNE_CONNECTOR_NICKNAME`
 * Each instance requires its own port mapping (e.g., 8080, 8081, 8082)
-* All instances should use the same `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`
-* All instances should connect to the same `MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI`
+* All instances must use the same `MODERNE_CONNECTOR_CRYPTO_SYMMETRICKEY`
+* All instances must connect to the same `MODERNE_CONNECTOR_APIGATEWAYRSOCKETURI`
 
 **Example multi-instance deployment:**
 
