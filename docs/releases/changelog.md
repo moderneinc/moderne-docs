@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v13.4.0 (2026/06/30)
+
+- Bug fixes and other improvements.
+
 ### UI v13.3.1 (2026/06/30)
 
 - Bug fixes and other improvements.
