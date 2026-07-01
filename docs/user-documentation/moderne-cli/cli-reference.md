@@ -72,6 +72,11 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config build environment delete**](#mod-config-build-environment-delete)
 * [**mod config build environment edit**](#mod-config-build-environment-edit)
 * [**mod config build environment show**](#mod-config-build-environment-show)
+* [**mod config build go**](#mod-config-build-go)
+* [**mod config build go gomemlimit**](#mod-config-build-go-gomemlimit)
+* [**mod config build go gomemlimit delete**](#mod-config-build-go-gomemlimit-delete)
+* [**mod config build go gomemlimit edit**](#mod-config-build-go-gomemlimit-edit)
+* [**mod config build go gomemlimit show**](#mod-config-build-go-gomemlimit-show)
 * [**mod config build gradle**](#mod-config-build-gradle)
 * [**mod config build gradle arguments**](#mod-config-build-gradle-arguments)
 * [**mod config build gradle arguments delete**](#mod-config-build-gradle-arguments-delete)
@@ -1478,6 +1483,7 @@ mod config build [subcommands]
 * `bazel`: Configures Bazel as it is used for LST production.
 * `dotnet`: Configures dotnet as it is used for LST production.
 * `environment`: Configure environment variables to apply to build tool when building LSTs.
+* `go`: Configures Go as it is used to produce LSTs and run recipes.
 * `gradle`: Configures Gradle as it is used to resolve recipe dependencies and when running recipes.
 * `javascript`: Configures JavaScript/TypeScript as it is used to produce LSTs.
 * `mainframe`: Configures the mainframe parsers (Cobol, JCL, Control-M) as they are used for LST production.
@@ -1937,6 +1943,115 @@ Displays the configured build environment variables.
 
 ```
 mod config build environment show
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build go
+
+Configures Go as it is used to produce LSTs and run recipes.
+
+
+
+
+### Usage
+
+```
+mod config build go [subcommands]
+```
+
+### Examples
+
+```
+mod config build go gomemlimit edit "8GiB"
+```
+
+
+### Subcommands
+
+* `gomemlimit`: Configure the Go runtime memory limit.
+
+## mod config build go gomemlimit
+
+Configure the Go runtime memory limit.
+
+
+Sets the GOMEMLIMIT environment variable for the Go engine when building LSTs and running recipes. Accepts a Go memory limit such as '4GiB', '512MiB', or 'off'. Defaults to 4GiB.
+
+### Usage
+
+```
+mod config build go gomemlimit [subcommands]
+```
+
+
+### Subcommands
+
+* `delete`: Removes the configured Go memory limit.
+* `edit`: Configure the Go runtime memory limit.
+* `show`: Displays the configured Go memory limit.
+
+## mod config build go gomemlimit delete
+
+Removes the configured Go memory limit.
+
+
+### Usage
+
+```
+mod config build go gomemlimit delete
+```
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build go gomemlimit edit
+
+Configure the Go runtime memory limit.
+
+
+Sets the GOMEMLIMIT environment variable for the Go engine when building LSTs and running recipes.
+
+### Usage
+
+```
+mod config build go gomemlimit edit [parameters]
+```
+
+### Parameters
+
+| Name | Description |
+| ---- | ----------- |
+| `value` |  The Go memory limit, e.g. '4GiB', '512MiB', or 'off' to disable it. |
+
+### Options
+
+| Name | Description |
+| ---- | ----------- |
+| `--local` |  Apply this command recursively to all repositories found within the specified directory path, modifying each repository's git-ignored file **.moderne/moderne-uncommitted.yml**<br/>Has no impact on the global configuration. |
+| `--save` |  Apply the operation to the file **.moderne/moderne.yml** which can be committed to source control as opposed to the git-ignored variant.<br/>Can only be used with `--local`.<br/>Has no effect on the global configuration. |
+
+
+## mod config build go gomemlimit show
+
+Displays the configured Go memory limit.
+
+
+### Usage
+
+```
+mod config build go gomemlimit show
 ```
 
 ### Options
@@ -2577,6 +2692,12 @@ Build arguments are added to the end of the Maven command line when building LST
 
 ```
 mod config build maven arguments edit
+```
+
+### Examples
+
+```
+mod config build maven arguments edit -Dexec.skip=true
 ```
 
 ### Options
@@ -9240,6 +9361,7 @@ mod search /path/to/working-set "@Autowired"
 | `-m`, `--max` |  Maximum number of results per repository (default: 100). An explicit **count:** filter in the query overrides this. |
 | `--output` |  Output mode: rich (default, highlighted diffs with run directory) or plain (fast text output) |
 | `--syntax` |  Query syntax: sourcegraph (default) or zoekt |
+| `-y`, `--yes` |  Proceed without confirmation for a search that cannot use the trigram index and must scan every file. Required when there is no console to prompt on. |
 
 
 ## mod study

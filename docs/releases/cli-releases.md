@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.6           |
+| CLI version | 4.3.7           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,45 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.7 (2026-07-01)
+
+#### What's Changed
+* Add an `annotated:` filter to trigrep symbol search
+* Narrow recipe runs for all MethodMatcher separator forms
+* trace analyze: surface builds with undetermined tool versions
+* Report target-count progress and phases for Bazel monorepo builds
+* Share the repository-markers parse across source sets
+* mcp: compact trigrep_search content-mode results for token efficiency
+* Stop parsing `manifest.csv` to detect LST format version
+* mcp: guard run_recipe against missing required options
+* Prevent invalid rows from reaching repos-lock.csv
+* `GoRpcServerWithRecipes`
+* Fail Bazel build when the server crashes mid-build (truncated build event stream)
+* Speed up the V3 .tree read path: ByteBuffer fast paths, heap header read, single-open
+* Fix corrupted GolangRecipeBundleResolver import breaking the build
+* Revert "Synthesize V3 build LST node ids on read instead of persisting them (#4230)"
+* Raise Gradle classpath-extraction timeout from 2 to 5 minutes
+* Re-land synthesized V3 build-LST ids; degrade unreadable trees to quarks
+* Release class bytes before writeTo to prevent OOM on large JARs
+* Back JavaSourceSetProxy.getTypeFactory() with the V3 type-table chain
+* Skip the resource build step when no resource files changed incrementally
+* Pick up SNAPSHOT recipe republishes immediately
+* Index V3LstReader.findByPath by pathHash (fixes quadratic stall on file-generating recipes)
+* Write data tables to a single shared file per table for RPC-language recipes
+* Drop the ANTLR4 codegen tool from the CLI runtime (CVE-2026-13500)
+* Comby structural fidelity fixes + full-scan guard for non-narrowable searches
+* Go: add memory limits and a way to configure them
+* Fixing race condition in PlainProgressBar
+* Bound the build-metadata git walk to the committers window
+* Eliminate allocation hotspot and exception-as-control-flow in mini-builds
+* Filter cross-package resources in Bazel LST aspect to eliminate duplicate manifest entries
+* mcp: hand back the queryable DataTable name + matchCount honesty on run_recipe
+* mcp: trigrep_search robustness — parse leniency + typed-search redirect
+* MCP: stream recipe data tables to disk instead of buffering them in memory
+* Detect Gradle Daemon JVM criteria for LST builds
+* Fix rewrite-polyglot install rejected with wrong-GAV suggestion
+* Include sibling source-set outputs on the Gradle test parse classpath
 
 ### CLI / DX v4.3.6 (2026-06-23)
 
