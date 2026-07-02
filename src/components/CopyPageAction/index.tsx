@@ -8,6 +8,7 @@ import CopyPageButton from 'docusaurus-plugin-copy-page-button/react';
 export const SuppressCopyPageContext = createContext(false);
 
 const GITHUB_RAW_DOCS = 'https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs';
+const DOCS_BASE_URL = 'https://docs.moderne.io';
 
 /**
  * Where the View / Open-in-ChatGPT / Open-in-Claude actions fetch markdown from:
@@ -18,8 +19,8 @@ const GITHUB_RAW_DOCS = 'https://raw.githubusercontent.com/moderneinc/moderne-do
  * (The clipboard "Copy" action always DOM-scrapes; this only redirects View + the AI links.)
  */
 const markdownUrlFor = (pageUrl: string): string => {
-  const path = new URL(pageUrl, 'https://docs.moderne.io').pathname.replace(/\/$/, '');
-  return path.includes('/recipe-catalog/') ? `${GITHUB_RAW_DOCS}${path}.md` : `${path}.md`;
+  const path = new URL(pageUrl, DOCS_BASE_URL).pathname.replace(/\/$/, '');
+  return path.includes('/recipe-catalog/') ? `${GITHUB_RAW_DOCS}${path}.md` : `${DOCS_BASE_URL}${path}.md`;
 };
 
 /**
