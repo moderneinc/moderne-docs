@@ -8,10 +8,11 @@
 #
 # Two variants can be built (see RECIPE_VERSIONS):
 #   * released  - jars resolved to their newest stable release (RELEASE), for
-#                 conservative users. Written to static/recipes-v5-released.csv.
+#                 conservative users. Written to
+#                 static/marketplace/recipes-v5-released.csv.
 #   * snapshot  - jars resolved to the newest available build (LATEST), which
 #                 includes Maven snapshots, for users who want to stay current.
-#                 Written to static/recipes-v5-snapshot.csv.
+#                 Written to static/marketplace/recipes-v5-snapshot.csv.
 # pip/npm/go modules are installed unversioned (newest published) in both.
 #
 # Uses the `mod` CLI already on your PATH if present; otherwise downloads the
@@ -35,7 +36,7 @@
 #   MODERNE_OPTS          Extra JVM options passed to `java` when the jar is
 #                         downloaded (e.g. -Xmx4g). Ignored when using PATH `mod`.
 #   MARKETPLACE_CSV_DEST  Where to copy the finished CSV
-#                         (default: <repo>/static/recipes-v5.csv).
+#                         (default: <repo>/static/marketplace/<variant>.csv).
 #   MODULES_DOC           Markdown doc to read the module install commands from
 #                         (default: the generated latest-versions doc in this repo).
 #
@@ -55,7 +56,7 @@ case "$RECIPE_VERSIONS" in
   released) DEFAULT_CSV=recipes-v5-released.csv ;; # jars at RELEASE (newest stable release)
   *) die "RECIPE_VERSIONS must be 'snapshot' or 'released', got '$RECIPE_VERSIONS'" ;;
 esac
-MARKETPLACE_CSV_DEST="${MARKETPLACE_CSV_DEST:-$REPO_ROOT/static/$DEFAULT_CSV}"
+MARKETPLACE_CSV_DEST="${MARKETPLACE_CSV_DEST:-$REPO_ROOT/static/marketplace/$DEFAULT_CSV}"
 
 [ -f "$MODULES_DOC" ] || die "Modules doc not found: $MODULES_DOC"
 

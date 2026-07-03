@@ -1,4 +1,4 @@
-# Build the recipe marketplace CSVs (static/recipes-v5-{released,snapshot}.csv)
+# Build the recipe marketplace CSVs (static/marketplace/recipes-v5-{released,snapshot}.csv)
 # by installing every OpenRewrite recipe module with the latest Moderne CLI.
 # All logic lives in scripts/build-recipe-marketplace.sh so it can also be run
 # locally. The two variants build in parallel, then a single job commits both.
@@ -71,12 +71,12 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      # Download both variants directly into static/ before committing together,
-      # so the two parallel builds never race to push the same branch.
+      # Download both variants directly into static/marketplace/ before committing
+      # together, so the two parallel builds never race to push the same branch.
       - uses: actions/download-artifact@v4
         with:
           pattern: recipes-v5-*
-          path: static/
+          path: static/marketplace/
           merge-multiple: true
 
       - name: Commit and push
@@ -85,5 +85,5 @@ jobs:
         run: |
           git config user.email "team@moderne.io"
           git config user.name "team-moderne[bot]"
-          git add static/recipes-v5-released.csv static/recipes-v5-snapshot.csv
+          git add static/marketplace/recipes-v5-released.csv static/marketplace/recipes-v5-snapshot.csv
           git diff --cached --quiet || (git commit -m "[Auto] Update recipe marketplace CSVs as of $(date +'%Y-%m-%dT%H%M')" && git push origin "HEAD:${{ github.ref_name }}")
