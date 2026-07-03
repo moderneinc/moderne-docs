@@ -55,8 +55,10 @@ jobs:
         run: scripts/build-recipe-marketplace.sh
 
       - name: Commit and push
+        # Push back to the ref the workflow ran on: main for the scheduled/push
+        # runs, or the selected branch for a manual workflow_dispatch.
         run: |
           git config user.email "team@moderne.io"
           git config user.name "team-moderne[bot]"
           git add static/recipes-v5.csv
-          git diff --cached --quiet || (git commit -m "[Auto] Update recipe marketplace CSV as of $(date +'%Y-%m-%dT%H%M')" && git push origin main)
+          git diff --cached --quiet || (git commit -m "[Auto] Update recipe marketplace CSV as of $(date +'%Y-%m-%dT%H%M')" && git push origin "HEAD:${{ github.ref_name }}")
