@@ -1,6 +1,7 @@
-# Build the recipe marketplace CSV (static/recipes-v5.csv) by installing every
-# OpenRewrite recipe module with the latest Moderne CLI. All logic lives in
-# scripts/build-recipe-marketplace.sh so it can also be run locally.
+# Build the recipe marketplace CSVs (static/recipes-v5-{released,snapshot}.csv)
+# by installing every OpenRewrite recipe module with the latest Moderne CLI.
+# All logic lives in scripts/build-recipe-marketplace.sh so it can also be run
+# locally. The two variants build in parallel, then a single job commits both.
 name: Build recipe marketplace
 
 on:
@@ -24,13 +25,15 @@ permissions:
 
 jobs:
   build:
-    name: Build recipe marketplace
+    name: Build ${{ matrix.versions }} marketplace
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        versions: [released, snapshot]
     steps:
       - uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
 
       # Toolchains needed by the CLI (Java runs the CLI itself; pip/npm/go back
       # the non-jar recipe ecosystems). Versions mirror update-docs.yml.
@@ -50,9 +53,31 @@ jobs:
 
       - name: Build marketplace CSV
         env:
+          RECIPE_VERSIONS: ${{ matrix.versions }}
           # Isolate CLI state to the runner temp dir.
           MODERNE_CLI_HOME: ${{ runner.temp }}/moderne-cli-home
+          MARKETPLACE_CSV_DEST: ${{ runner.temp }}/recipes-v5-${{ matrix.versions }}.csv
         run: scripts/build-recipe-marketplace.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: recipes-v5-${{ matrix.versions }}
+          path: ${{ runner.temp }}/recipes-v5-${{ matrix.versions }}.csv
+
+  commit:
+    name: Commit marketplace CSVs
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # Download both variants directly into static/ before committing together,
+      # so the two parallel builds never race to push the same branch.
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: recipes-v5-*
+          path: static/
+          merge-multiple: true
 
       - name: Commit and push
         # Push back to the ref the workflow ran on: main for the scheduled/push
@@ -60,5 +85,5 @@ jobs:
         run: |
           git config user.email "team@moderne.io"
           git config user.name "team-moderne[bot]"
-          git add static/recipes-v5.csv
-          git diff --cached --quiet || (git commit -m "[Auto] Update recipe marketplace CSV as of $(date +'%Y-%m-%dT%H%M')" && git push origin "HEAD:${{ github.ref_name }}")
+          git add static/recipes-v5-released.csv static/recipes-v5-snapshot.csv
+          git diff --cached --quiet || (git commit -m "[Auto] Update recipe marketplace CSVs as of $(date +'%Y-%m-%dT%H%M')" && git push origin "HEAD:${{ github.ref_name }}")

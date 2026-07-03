@@ -6,6 +6,14 @@
 # versions of every OpenRewrite module" doc, then copies the resulting
 # recipes-v5.csv into this repository as a static resource.
 #
+# Two variants can be built (see RECIPE_VERSIONS):
+#   * released  - jars resolved to their newest stable release (RELEASE), for
+#                 conservative users. Written to static/recipes-v5-released.csv.
+#   * snapshot  - jars resolved to the newest available build (LATEST), which
+#                 includes Maven snapshots, for users who want to stay current.
+#                 Written to static/recipes-v5-snapshot.csv.
+# pip/npm/go modules are installed unversioned (newest published) in both.
+#
 # Uses the `mod` CLI already on your PATH if present; otherwise downloads the
 # latest moderne-cli jar from Maven Central and runs it with `java`.
 #
@@ -19,6 +27,7 @@
 # never reads or overwrites your personal ~/.moderne/cli catalog.
 #
 # Environment variables (all optional):
+#   RECIPE_VERSIONS       'snapshot' (default) or 'released'; see above.
 #   MODERNE_CLI_HOME      Base directory for CLI state. The marketplace CSV is
 #                         written to $MODERNE_CLI_HOME/recipes-v5.csv. Defaults to
 #                         a fresh temp dir so a local run starts from an empty
@@ -39,7 +48,14 @@ die() { printf 'ERROR: %s\n' "$*" >&2; exit 1; }
 REPO_ROOT="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --show-toplevel)"
 
 MODULES_DOC="${MODULES_DOC:-$REPO_ROOT/docs/user-documentation/recipes/lists/latest-versions-of-every-openrewrite-module.md}"
-MARKETPLACE_CSV_DEST="${MARKETPLACE_CSV_DEST:-$REPO_ROOT/static/recipes-v5.csv}"
+RECIPE_VERSIONS="${RECIPE_VERSIONS:-snapshot}"
+
+case "$RECIPE_VERSIONS" in
+  snapshot) DEFAULT_CSV=recipes-v5-snapshot.csv ;; # jars at LATEST (newest, incl. snapshots)
+  released) DEFAULT_CSV=recipes-v5-released.csv ;; # jars at RELEASE (newest stable release)
+  *) die "RECIPE_VERSIONS must be 'snapshot' or 'released', got '$RECIPE_VERSIONS'" ;;
+esac
+MARKETPLACE_CSV_DEST="${MARKETPLACE_CSV_DEST:-$REPO_ROOT/static/$DEFAULT_CSV}"
 
 [ -f "$MODULES_DOC" ] || die "Modules doc not found: $MODULES_DOC"
 
@@ -109,8 +125,13 @@ tool_available() {
   esac
 }
 
+log "Installing recipe modules using $RECIPE_VERSIONS versions"
 SKIPPED=()
 for cmd in "${INSTALL_CMDS[@]}"; do
+  # The snapshot/released distinction only applies to jars: `:LATEST` picks the
+  # newest artifact (including Maven snapshots) while `:RELEASE` picks the newest
+  # stable release. pip/npm/go lines carry no version token, so this is a no-op.
+  [ "$RECIPE_VERSIONS" = released ] && cmd="${cmd//:LATEST/:RELEASE}"
   read -ra parts <<< "$cmd"          # mod config recipes <ecosystem> install <artifacts...>
   ecosystem="${parts[3]}"
   if ! tool_available "$ecosystem"; then

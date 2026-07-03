@@ -36,10 +36,13 @@ The simplest starting point is an existing marketplace that already contains the
 
 If you already have the Moderne or OpenRewrite catalog installed locally, your current marketplace lives at `~/.moderne/cli/recipes-v5.csv`. This is a well-formed CSV following the [recipe marketplace format](../references/recipes-csv.md). You can query it directly with [DuckDB](https://duckdb.org/) or [SQLite](https://www.sqlite.org/index.html), both of which can read CSV files natively.
 
-If you do not have the catalog installed locally, or you want a canonical copy that stays current, download the full published catalog. Moderne rebuilds it weekly from the [latest versions of every OpenRewrite module](../../recipes/lists/latest-versions-of-every-openrewrite-module.md) and hosts it at `https://docs.moderne.io/recipes-v5.csv`.
+If you do not have the catalog installed locally, or you want a canonical copy that stays current, download the full published catalog. Moderne rebuilds both variants weekly from the [latest versions of every OpenRewrite module](../../recipes/lists/latest-versions-of-every-openrewrite-module.md):
+
+* [`recipes-v5-released.csv`](https://docs.moderne.io/recipes-v5-released.csv) pins each recipe to its newest stable release, best for teams that value reproducibility.
+* [`recipes-v5-snapshot.csv`](https://docs.moderne.io/recipes-v5-snapshot.csv) tracks the newest available build, including snapshots, for teams that want the latest fixes as soon as they land.
 
 ```bash
-curl -fLo recipes-v5.csv https://docs.moderne.io/recipes-v5.csv
+curl -fLo recipes-v5.csv https://docs.moderne.io/recipes-v5-released.csv
 ```
 
 Point the queries below at whichever file you started from. For example, to extract just the "Migrate to Java 25" row into a new file:
