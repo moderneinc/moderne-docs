@@ -20,7 +20,8 @@ export interface RecipeHeaderProps {
   tags: string[];
   license: string;
   fqName: string;
-  /** Maven coordinates `groupId:artifactId`, shown as a second code-chip when present. */
+  /** Install coordinates for the recipe's distribution package, shown as a second code-chip when
+   *  present. Format varies by distribution: Maven `groupId:artifactId`, npm/pip/NuGet package name. */
   artifact?: string;
   appLink: string;
   /** Raw markdown source URL (e.g. a raw.githubusercontent.com link). Consumed by the page-level
