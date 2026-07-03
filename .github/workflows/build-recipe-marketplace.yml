@@ -1,0 +1,89 @@
+# Build the recipe marketplace CSVs (static/marketplace/recipes-v5-{released,snapshot}.csv)
+# by installing every OpenRewrite recipe module with the latest Moderne CLI.
+# All logic lives in scripts/build-recipe-marketplace.sh so it can also be run
+# locally. The two variants build in parallel, then a single job commits both.
+name: Build recipe marketplace
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 3 * * 4 # Weekly on Thursday (after the usual Wednesday release), to pick up new CLI releases
+  push:
+    branches: [main]
+    paths:
+      # Rebuild whenever the module list or the build logic changes.
+      - docs/user-documentation/recipes/lists/latest-versions-of-every-openrewrite-module.md
+      - scripts/build-recipe-marketplace.sh
+      - .github/workflows/build-recipe-marketplace.yml
+
+concurrency:
+  group: build-recipe-marketplace
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build ${{ matrix.versions }} marketplace
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        versions: [released, snapshot]
+    steps:
+      - uses: actions/checkout@v7
+
+      # Toolchains needed by the CLI (Java runs the CLI itself; pip/npm/go back
+      # the non-jar recipe ecosystems). Versions mirror update-docs.yml.
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: 25
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.25'
+
+      - name: Build marketplace CSV
+        env:
+          RECIPE_VERSIONS: ${{ matrix.versions }}
+          # Isolate CLI state to the runner temp dir.
+          MODERNE_CLI_HOME: ${{ runner.temp }}/moderne-cli-home
+          MARKETPLACE_CSV_DEST: ${{ runner.temp }}/recipes-v5-${{ matrix.versions }}.csv
+        run: scripts/build-recipe-marketplace.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: recipes-v5-${{ matrix.versions }}
+          path: ${{ runner.temp }}/recipes-v5-${{ matrix.versions }}.csv
+
+  commit:
+    name: Commit marketplace CSVs
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # Download both variants directly into static/marketplace/ before committing
+      # together, so the two parallel builds never race to push the same branch.
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: recipes-v5-*
+          path: static/marketplace/
+          merge-multiple: true
+
+      - name: Commit and push
+        # Push back to the ref the workflow ran on: main for the scheduled/push
+        # runs, or the selected branch for a manual workflow_dispatch.
+        run: |
+          git config user.email "team@moderne.io"
+          git config user.name "team-moderne[bot]"
+          git add static/marketplace/recipes-v5-released.csv static/marketplace/recipes-v5-snapshot.csv
+          git diff --cached --quiet || (git commit -m "[Auto] Update recipe marketplace CSVs as of $(date +'%Y-%m-%dT%H%M')" && git push origin "HEAD:${{ github.ref_name }}")
