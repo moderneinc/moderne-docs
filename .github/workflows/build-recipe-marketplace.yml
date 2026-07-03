@@ -8,7 +8,7 @@ on:
   schedule:
     - cron: 0 3 * * 4 # Weekly on Thursday (after the usual Wednesday release), to pick up new CLI releases
   push:
-    branches: [main, tim/cli-marketplace-csv-workflow] # TEMP: test branch, remove before merge
+    branches: [main]
     paths:
       # Rebuild whenever the module list or the build logic changes.
       - docs/user-documentation/recipes/lists/latest-versions-of-every-openrewrite-module.md
