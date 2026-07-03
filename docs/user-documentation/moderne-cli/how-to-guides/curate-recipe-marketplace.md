@@ -36,7 +36,13 @@ The simplest starting point is an existing marketplace that already contains the
 
 If you already have the Moderne or OpenRewrite catalog installed locally, your current marketplace lives at `~/.moderne/cli/recipes-v5.csv`. This is a well-formed CSV following the [recipe marketplace format](../references/recipes-csv.md). You can query it directly with [DuckDB](https://duckdb.org/) or [SQLite](https://www.sqlite.org/index.html), both of which can read CSV files natively.
 
-For example, to extract just the "Migrate to Java 25" row into a new file:
+If you do not have the catalog installed locally, or you want a canonical copy that stays current, download the full published catalog. Moderne rebuilds it weekly from the [latest versions of every OpenRewrite module](../../recipes/lists/latest-versions-of-every-openrewrite-module.md) and hosts it at `https://docs.moderne.io/recipes-v5.csv`.
+
+```bash
+curl -fLo recipes-v5.csv https://docs.moderne.io/recipes-v5.csv
+```
+
+Point the queries below at whichever file you started from. For example, to extract just the "Migrate to Java 25" row into a new file:
 
 ```bash
 duckdb -c "
