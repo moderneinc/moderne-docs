@@ -149,12 +149,9 @@ For the "pick up the newest version" behavior to work, install your recipe bundl
 
 ## DevCenter
 
-In SaaS v1, the DevCenter Organizational ownership cards (Repositories, Contributing developers, and Lines of code) were populated automatically from your ingested LSTs each time the DevCenter ran. In SaaS v2, the Contributing developers and Lines of code cards are produced by two recipes that must be part of your DevCenter recipe:
+In SaaS v1, the DevCenter Organizational ownership cards (**Repositories**, **Contributing developers**, and **Lines of code**) were populated automatically from your ingested LSTs each time the DevCenter ran. In SaaS v2, the **Contributing developers** and **Lines of code** cards are produced by two recipes that must be part of your DevCenter recipe: `io.moderne.devcenter.FindOrganizationStatistics` and `org.openrewrite.search.FindCommitters`. See [Organizational ownership recipes](../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md#organizational-ownership-recipes) for the details.
 
-* `io.moderne.devcenter.FindOrganizationStatistics` populates Lines of code.
-* `org.openrewrite.search.FindCommitters` populates Contributing developers.
-
-If your DevCenter recipe does not include both, those two cards stay empty in v2, even though the Repositories card still works. Add both recipes to the `recipeList` of your DevCenter recipe, redeploy the recipe artifact, and re-run the DevCenter. The default [DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml) already includes them. For more details, see [Creating a DevCenter recipe](../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md).
+If your DevCenter recipe does not include both, those two cards stay empty in v2, even though the **Repositories** card still works. Add both recipes to the `recipeList` of your DevCenter recipe, redeploy the recipe artifact, and re-run the DevCenter. The default [DevCenterStarter recipe](https://github.com/moderneinc/rewrite-devcenter/blob/main/src/main/resources/META-INF/rewrite/devcenter-starter.yml) already includes them.
 
 ## What gets migrated and when
 
@@ -281,7 +278,7 @@ Run these with v1 still serving as your front door, using the header, cookie, an
 * [ ] Marketplace lists the recipes you expect (including non-Java recipes if applicable).
 * [ ] Repositories view shows the orgs and repos you expect.
 * [ ] Run a small recipe against a small org end-to-end. This single test exercises LST fetch, recipe execution, SCM result presentation, and marketplace resolution. By far the most efficient smoke test.
-* [ ] If you use DevCenter, confirm your DevCenter recipe includes `io.moderne.devcenter.FindOrganizationStatistics` and `org.openrewrite.search.FindCommitters` (required in v2 to populate the Contributing developers and Lines of code cards; see [DevCenter](#devcenter)), redeploy it, then configure and load it at `/devcenter/configure?organizationId={org}`.
+* [ ] If you use DevCenter, confirm your DevCenter recipe includes the two org-statistics recipes required in v2 (see [DevCenter](#devcenter)) and redeploy it, then configure and load it at `/devcenter/configure?organizationId={org}`.
 * [ ] Update internal bookmarks, runbooks, and any automation that references removed or renamed URLs (`/admin/status`, `/admin/agents`, `/batch-changes`, the bare GraphQL endpoint).
 * [ ] Coordinate the final user-data migration window with your Moderne contact. Tokens, activity, commits, orgs, and audit logs will be migrated then.
 
