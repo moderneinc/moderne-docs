@@ -14,7 +14,7 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 This guide explains how to point the Moderne Connector at a repository CSV stored in Amazon S3 or an S3-compatible service (e.g., MinIO). On each polling cycle, the Connector fetches that CSV to discover your repositories. When the CSV includes `publishUri` values, the Connector uses them to locate each repository's LST artifact. 
 
-Any of the CSV variants documented in the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md) work here: a minimal CSV with just `origin`, `path`, and `branch` columns; one that adds organization hierarchy columns; or a full `repos-lock.csv` produced by Mass Ingest's `mod publish`.
+Any of the CSV variants documented in the [repos.csv reference](../../../../user-documentation/moderne-cli/references/repos-csv.md) work here, as long as the CSV defines your [organizational hierarchy](./configure-organizations-hierarchy.md): a minimal CSV with `origin`, `path`, `branch`, and at least one `org` column, or a full `repos-lock.csv` produced by Mass Ingest's `mod publish`.
 
 For background on how the Connector uses CSV sources and how S3 fits into the overall Connector configuration, please see [how the Connector finds your repositories and their LSTs](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts).
 

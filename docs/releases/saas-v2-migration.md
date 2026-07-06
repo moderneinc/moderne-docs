@@ -245,6 +245,7 @@ You can tick items off as you go, but selections are not persisted across page r
 
 See [Configuring organizations hierarchy](../administrator-documentation/moderne-platform/how-to-guides/connector-configuration/configure-organizations-hierarchy.md) for setup details.
 
+* [ ] `repos.csv` defines an organizational hierarchy (at least one `org` column). This is required by the Connector; a single `ALL` organization is a fine starting point.
 * [ ] `repos.csv` is uploaded to the **root** of the bucket or repo you publish LSTs to.
 * [ ] `repos-lock.csv` is being produced and updated by your `mod publish` runs.
 * [ ] `MODERNE_ORGANIZATION_SOURCES_S3_0_URI` (or `..._HTTP_0_URI`) points at the `repos-lock.csv` file, not the original `repos.csv` file.

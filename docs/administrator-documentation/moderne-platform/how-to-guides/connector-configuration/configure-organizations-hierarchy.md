@@ -36,9 +36,13 @@ it after their internal reporting hierarchy.
 
 ## Is an organizational hierarchy mandatory?
 
-No. If no organization hierarchy is configured, all repositories will default to the `All` organization. This setup can
-be suitable when managing a relatively small number of repositories. However, as your repository count grows, we
-recommend establishing an organization hierarchy to improve structure and scalability.
+Yes. The Connector requires that you provide an organizational hierarchy. Defining the hierarchy yourself puts you in
+control: you get visibility at every level of the hierarchy (a team, a manager's set of teams, the whole company), and
+individual teams can run recipes against just their own set of repositories rather than everything at once.
+
+This is not an all-or-nothing decision, and you don't need to model your entire company up front. A common way to start
+is with a single `ALL` organization containing every repository, plus one organization for a single team that is
+piloting Moderne. From there, you can expand to more organizations and more levels of hierarchy as adoption grows.
 
 ## How is an organizational hierarchy defined?
 
