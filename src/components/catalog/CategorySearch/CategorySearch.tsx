@@ -77,7 +77,7 @@ export const CategoryFilter: FunctionComponent<CategoryFilterProps> = ({
     <div className={styles.wrapper}>
       <div className={styles.inputRow}>
         <span className={styles.searchIcon}>
-          <ListFilter size={16} />
+          <ListFilter size={16} aria-hidden="true" />
         </span>
         <input
           type="text"
@@ -94,7 +94,7 @@ export const CategoryFilter: FunctionComponent<CategoryFilterProps> = ({
             onClick={() => setQuery('')}
             aria-label="Clear filter"
           >
-            <X size={16} />
+            <X size={16} aria-hidden="true" />
           </button>
         )}
       </div>

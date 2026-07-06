@@ -140,7 +140,7 @@ html[data-theme='dark'] .strip:hover .name {
 
 html[data-theme='dark'] .breadcrumbSegment,
 html[data-theme='dark'] .breadcrumbSeparator {
-  color: var(--neo-grey-500);
+  color: var(--neo-grey-400);
 }
 
 html[data-theme='dark'] .arrow {

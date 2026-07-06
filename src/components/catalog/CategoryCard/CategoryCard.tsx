@@ -60,13 +60,14 @@ export const CategoryCard: FunctionComponent<CategoryCardProps> = ({
                 key={sub.label}
                 role="link"
                 tabIndex={0}
+                aria-label={`${sub.label}, ${formatCount(sub.totalRecipeCount)} recipes`}
                 className={clsx(recipeShared.chip, styles.subChip)}
                 style={highlightedSubs?.has(sub.label.toLowerCase()) ? { outline: '2px solid var(--neo-digital-blue-400)' } : undefined}
                 onClick={(e) => onChipClick(e, sub.href)}
                 onKeyDown={(e) => { if (e.key === 'Enter') onChipClick(e as unknown as React.MouseEvent, sub.href); }}
               >
-                {sub.label}
-                <span className={styles.chipCount}>{formatCount(sub.totalRecipeCount)}</span>
+                <span aria-hidden="true">{sub.label}</span>
+                <span className={styles.chipCount} aria-hidden="true">{formatCount(sub.totalRecipeCount)}</span>
               </span>
             ))}
             {remaining > 0 && (

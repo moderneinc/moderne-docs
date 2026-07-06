@@ -78,7 +78,7 @@ html[data-theme='dark'] .count {
 }
 
 html[data-theme='dark'] .chipCount {
-  color: var(--neo-grey-500);
+  color: var(--neo-grey-400);
 }
 
 html[data-theme='dark'] .subChip:hover {

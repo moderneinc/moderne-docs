@@ -75,7 +75,7 @@ export const CategoryDetail: FunctionComponent<CategoryDetailProps> = ({
       {subcategories.length > 0 && (
         <section>
           <h2 className={styles.sectionTitle}>Subcategories</h2>
-          <div className={styles.subcatGrid}>
+          <div id="subcategory-grid" className={styles.subcatGrid}>
             {visibleSubs.map((sub) => (
               <Link key={sub.href} href={sub.href} className={docCardStyles.cardContainer}>
                 <div className={docCardStyles.cardContent}>
@@ -93,11 +93,12 @@ export const CategoryDetail: FunctionComponent<CategoryDetailProps> = ({
               className={styles.showAllButton}
               onClick={() => setShowAll(!showAll)}
               aria-expanded={showAll}
+              aria-controls="subcategory-grid"
             >
               {showAll ? (
-                <>Show fewer <ChevronUp size={14} /></>
+                <>Show fewer <ChevronUp size={14} aria-hidden="true" /></>
               ) : (
-                <>Show all {subcategories.length} subcategories <ChevronDown size={14} /></>
+                <>Show all {subcategories.length} subcategories <ChevronDown size={14} aria-hidden="true" /></>
               )}
             </button>
           )}

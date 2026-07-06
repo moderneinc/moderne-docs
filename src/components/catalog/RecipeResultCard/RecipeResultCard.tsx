@@ -24,7 +24,7 @@ export const RecipeResultCard: FunctionComponent<RecipeResultCardProps> = ({
       <div className={styles.content}>
         <div className={styles.topLine}>
           <span className={styles.name}>{displayName}</span>
-          <span className={styles.breadcrumb} aria-label="Category path">
+          <span className={styles.breadcrumb} aria-hidden="true">
             {categoryPath.map((segment, i) => (
               <React.Fragment key={segment}>
                 {i > 0 && <span className={styles.breadcrumbSeparator}>/</span>}
@@ -35,7 +35,7 @@ export const RecipeResultCard: FunctionComponent<RecipeResultCardProps> = ({
         </div>
         {!isStrip && <p className={docCardStyles.cardDescription}>{description}</p>}
       </div>
-      <span className={styles.arrow}>
+      <span className={styles.arrow} aria-hidden="true">
         <ArrowRight size={isStrip ? 14 : 16} />
       </span>
     </Link>

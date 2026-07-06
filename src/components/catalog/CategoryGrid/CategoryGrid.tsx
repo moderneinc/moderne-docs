@@ -22,7 +22,7 @@ export const CategoryGrid: FunctionComponent<CategoryGridProps> = ({
     return (
       <div className={styles.grid}>
         <div className={styles.empty}>
-          <ListX size={32} className={styles.emptyIcon} />
+          <ListX size={32} className={styles.emptyIcon} aria-hidden="true" />
           <p className={styles.emptyTitle}>No categories match</p>
           <p className={styles.emptyDescription}>
             Try a different filter term, or clear the filter to browse all categories.
