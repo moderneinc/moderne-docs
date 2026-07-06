@@ -1,6 +1,6 @@
 # Build the recipe marketplace CSVs (static/marketplace/recipes-v5-{released,snapshot}.csv)
 # by installing every OpenRewrite recipe module with the latest Moderne CLI.
-# All logic lives in scripts/build-recipe-marketplace.sh so it can also be run
+# All logic lives in .github/scripts/build-recipe-marketplace.sh so it can also be run
 # locally. The two variants build in parallel, then a single job commits both.
 name: Build recipe marketplace
 
@@ -13,7 +13,7 @@ on:
     paths:
       # Rebuild whenever the module list or the build logic changes.
       - docs/user-documentation/recipes/lists/latest-versions-of-every-openrewrite-module.md
-      - scripts/build-recipe-marketplace.sh
+      - .github/scripts/build-recipe-marketplace.sh
       - .github/workflows/build-recipe-marketplace.yml
 
 concurrency:
@@ -57,7 +57,7 @@ jobs:
           # Isolate CLI state to the runner temp dir.
           MODERNE_CLI_HOME: ${{ runner.temp }}/moderne-cli-home
           MARKETPLACE_CSV_DEST: ${{ runner.temp }}/recipes-v5-${{ matrix.versions }}.csv
-        run: scripts/build-recipe-marketplace.sh
+        run: .github/scripts/build-recipe-marketplace.sh
 
       - uses: actions/upload-artifact@v4
         with:
