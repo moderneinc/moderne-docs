@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.7           |
+| CLI version | 4.3.8           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,31 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.8 (2026-07-06)
+
+#### What's Changed
+* Speed up the organization-directory walk (read git metadata from files)
+* mcp: rebase trigrep fragment offsets onto the trimmed line
+* Fix Gradle metadata extraction crash on older Gradle wrapper versions
+* Tell users to reload their shell after the curl installer updates PATH
+* Move the CI scheduled run to the UTC evening
+* Extend OWASP vuln suppression for azure
+* Set maxStringLength on edit-store and LST-writer serializers
+* mcp: query_datatable echoes the bare view name as `name`, not the dotted FQN
+* Fix NPE writing null JavaTypes in the V3 type-table writer
+* mcp: steer the agent on a 0-result run_recipe instead of going silent
+* Generate typed structural and comment serializers for non-Java V3 trees
+* Skip the organization walk for large orgs with a stat cache
+* actions/checkout@v7
+* Upgrade official GitHub Actions to their latest versions
+* Fix the StatCacheTests
+* mcp: accept the bare Comby form trigrep_structural_search advertises
+* Bound exported metric cardinality (and stop per-repo registry leak) in mod run
+* Validate the run_recipe 'recipe' argument before the LST/store precondition
+* Aggregate mod study data tables bottom-up without build-time dedup
+* Fix MavenResolutionResult dependencies losing their depth field during serialization roundtrip
+* Add responsive layout so the trace analyzer table keeps usable rows on short screens
 
 ### CLI / DX v4.3.7 (2026-07-01)
 
