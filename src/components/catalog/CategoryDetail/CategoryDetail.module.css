@@ -1,0 +1,204 @@
+/* ── CategoryDetail ────────────────────────────────────────────────
+   Subcategory cards reuse DocCard styles (src/theme/DocCard/styles.module.css).
+   Only layout, breadcrumbs, show-all toggle, and recipe list are defined here. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_4);
+}
+
+/* ── Breadcrumb ───────────────────────────────────────────────────── */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+  flex-wrap: wrap;
+}
+
+.breadcrumbLink {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-regular);
+  color: var(--neo-typography-link-primary);
+  text-decoration: none;
+}
+
+.breadcrumbLink:hover {
+  color: var(--neo-digital-blue-700);
+  text-decoration: underline;
+}
+
+.breadcrumbSeparator {
+  font-size: var(--neo-font-size-sm);
+  color: var(--neo-typography-body-secondary);
+}
+
+.breadcrumbCurrent {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-input-default);
+}
+
+/* ── Header ───────────────────────────────────────────────────────── */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+}
+
+.title {
+  font-family: var(--neo-font-family-heading), sans-serif;
+  font-size: var(--neo-font-size-h2);
+  font-weight: var(--neo-font-weight-semi-bold);
+  letter-spacing: -0.01em;
+  color: var(--neo-typography-input-default);
+  margin: 0;
+}
+
+.description {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-default);
+  font-weight: var(--neo-font-weight-regular);
+  line-height: 1.65;
+  color: var(--neo-grey-700);
+  margin: 0;
+  max-width: 64ch;
+}
+
+.count {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-regular);
+  color: var(--neo-typography-body-secondary);
+}
+
+/* ── Section titles ───────────────────────────────────────────────── */
+
+.sectionTitle {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-default);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-input-default);
+  margin: 0 0 var(--neo-spacing_1_1_2) 0;
+}
+
+/* ── Subcategory grid layout ──────────────────────────────────────── */
+
+.subcatGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--neo-spacing_2);
+}
+
+@media (max-width: 996px) {
+  .subcatGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .subcatGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Show all / Show fewer toggle ─────────────────────────────────── */
+
+.showAllButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_2);
+  margin-top: var(--neo-spacing_2);
+  padding: var(--neo-spacing_1) 0;
+  border: none;
+  background: transparent;
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-link-primary);
+  cursor: pointer;
+  transition: color var(--ifm-transition-fast) ease;
+}
+
+.showAllButton:hover {
+  color: var(--neo-digital-blue-700);
+}
+
+/* ── Recipe list ──────────────────────────────────────────────────── */
+
+.recipeList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipeItem {
+  padding: var(--neo-spacing_1) 0;
+  border-top: 1px solid var(--neo-border-secondary);
+}
+
+.recipeItem:first-child {
+  border-top: none;
+}
+
+.recipeLink {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-regular);
+  color: var(--neo-typography-link-primary);
+  text-decoration: none;
+}
+
+.recipeLink:hover {
+  color: var(--neo-digital-blue-700);
+  text-decoration: underline;
+}
+
+/* ── Dark mode ────────────────────────────────────────────────────── */
+
+html[data-theme='dark'] .breadcrumbLink {
+  color: var(--neo-digital-green-300);
+}
+
+html[data-theme='dark'] .breadcrumbLink:hover {
+  color: var(--neo-digital-green-200);
+}
+
+html[data-theme='dark'] .breadcrumbCurrent {
+  color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+html[data-theme='dark'] .title,
+html[data-theme='dark'] .sectionTitle {
+  color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+html[data-theme='dark'] .description {
+  color: var(--neo-grey-400);
+}
+
+html[data-theme='dark'] .recipeItem {
+  border-top-color: var(--neo-grey-800);
+}
+
+html[data-theme='dark'] .recipeLink {
+  color: var(--neo-digital-green-300);
+}
+
+html[data-theme='dark'] .recipeLink:hover {
+  color: var(--neo-digital-green-200);
+}
+
+html[data-theme='dark'] .showAllButton {
+  color: var(--neo-digital-green-300);
+}
+
+html[data-theme='dark'] .showAllButton:hover {
+  color: var(--neo-digital-green-200);
+}

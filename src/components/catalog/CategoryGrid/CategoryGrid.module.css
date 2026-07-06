@@ -1,0 +1,94 @@
+/* ── CategoryGrid ─────────────────────────────────────────────────── */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--neo-spacing_2);
+}
+
+@media (max-width: 996px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Categories section header ────────────────────────────────────── */
+
+.categoriesHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--neo-spacing_1);
+  margin-bottom: var(--neo-spacing_2);
+}
+
+.categoriesTitle {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-default);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-input-default);
+  margin: 0;
+}
+
+.categoriesCount {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-regular);
+  color: var(--neo-typography-body-secondary);
+}
+
+/* ── Empty state ──────────────────────────────────────────────────── */
+
+.empty {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--neo-spacing_1);
+  padding: var(--neo-spacing_6) var(--neo-spacing_3);
+  text-align: center;
+}
+
+.emptyIcon {
+  color: var(--neo-typography-body-secondary);
+}
+
+.emptyTitle {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-default);
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-input-default);
+  margin: 0;
+}
+
+.emptyDescription {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-regular);
+  color: var(--neo-typography-body-secondary);
+  margin: 0;
+  max-width: 400px;
+}
+
+/* ── Dark mode ────────────────────────────────────────────────────── */
+
+html[data-theme='dark'] .categoriesTitle {
+  color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+html[data-theme='dark'] .categoriesCount {
+  color: var(--neo-grey-400);
+}
+
+html[data-theme='dark'] .emptyTitle {
+  color: var(--neo-surfaces-white);
+}
+
+html[data-theme='dark'] .emptyDescription {
+  color: var(--neo-grey-400);
+}

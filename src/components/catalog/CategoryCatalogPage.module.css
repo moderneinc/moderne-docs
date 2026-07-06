@@ -1,0 +1,41 @@
+/* ── CategoryCatalogPage ───────────────────────────────────────────── */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_4);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1);
+}
+
+.title {
+  font-family: var(--neo-font-family-heading), sans-serif;
+  font-size: var(--neo-font-size-h1);
+  font-weight: var(--neo-font-weight-semi-bold);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--neo-typography-input-default);
+  margin: 0;
+}
+
+.subtitle {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-default);
+  font-weight: var(--neo-font-weight-regular);
+  line-height: 1.65;
+  color: var(--neo-grey-700);
+  margin: 0;
+  max-width: 64ch;
+}
+
+html[data-theme='dark'] .title {
+  color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+html[data-theme='dark'] .subtitle {
+  color: var(--neo-grey-400);
+}

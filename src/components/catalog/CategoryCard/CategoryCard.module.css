@@ -1,0 +1,92 @@
+/* ── CategoryCard additions ────────────────────────────────────────
+   Base card, title, description, and dark mode inherit from DocCard
+   (src/theme/DocCard/styles.module.css). Chips inherit from recipe
+   shared styles. Only layout and new elements are defined here. */
+
+.card {
+  flex-direction: column;
+  gap: var(--neo-spacing_1_1_2);
+}
+
+/* ── Top row: label + recipe count ────────────────────────────────── */
+
+.topRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--neo-spacing_2);
+}
+
+.count {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-medium);
+  color: var(--neo-typography-body-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Subcategory preview chips (clickable — navigate to subcategory) ── */
+
+.subcategories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--neo-spacing_1_2);
+  margin-top: var(--neo-spacing_1_2);
+}
+
+.subChip {
+  cursor: pointer;
+  transition: background-color var(--ifm-transition-fast) ease;
+}
+
+.subChip:hover {
+  background-color: var(--neo-digital-blue-50);
+  color: var(--neo-digital-blue-700);
+  text-decoration: underline;
+}
+
+.subChip:focus-visible {
+  outline: 2px solid var(--neo-digital-blue-400);
+  outline-offset: 1px;
+}
+
+.chipCount {
+  font-weight: var(--neo-font-weight-regular);
+  color: var(--neo-typography-body-secondary);
+  font-size: var(--neo-font-size-xxs);
+  margin-left: var(--neo-spacing_1_2);
+}
+
+.moreChip {
+  display: inline-flex;
+  align-items: baseline;
+  padding: var(--neo-spacing_1_2) var(--neo-spacing_1_1_2);
+  border-radius: var(--neo-border-radius-full);
+  background-color: transparent;
+  border: 1px solid var(--neo-border-secondary);
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-regular);
+  color: var(--neo-typography-body-secondary);
+  line-height: 1.4;
+}
+
+/* ── Dark mode (only new elements) ────────────────────────────────── */
+
+html[data-theme='dark'] .count {
+  color: var(--neo-grey-400);
+}
+
+html[data-theme='dark'] .chipCount {
+  color: var(--neo-grey-500);
+}
+
+html[data-theme='dark'] .subChip:hover {
+  background-color: var(--neo-grey-700);
+  color: var(--neo-digital-green-300);
+}
+
+html[data-theme='dark'] .moreChip {
+  border-color: var(--neo-grey-700);
+  color: var(--neo-grey-400);
+}

@@ -1,0 +1,116 @@
+/* ── CategoryFilter ────────────────────────────────────────────────── */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_2);
+}
+
+/* ── Filter input ─────────────────────────────────────────────────── */
+
+.inputRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: var(--neo-spacing_1_1_2);
+  color: var(--neo-typography-body-secondary);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: var(--neo-spacing_1_1_2) var(--neo-spacing_1_1_2) var(--neo-spacing_1_1_2) var(--neo-spacing_5);
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-regular);
+  line-height: 1.4;
+  color: var(--neo-typography-input-default);
+  background-color: var(--neo-input-background);
+  border: 1px solid var(--neo-border-input);
+  border-radius: var(--neo-border-radius-input);
+  outline: none;
+  transition:
+    border-color var(--ifm-transition-fast) ease,
+    box-shadow var(--ifm-transition-fast) ease;
+}
+
+.input::placeholder {
+  color: var(--neo-typography-input-placeholder);
+}
+
+.input:focus {
+  border-color: var(--neo-digital-blue-400);
+  box-shadow: 0 0 0 2px var(--neo-digital-blue-100);
+}
+
+.clearButton {
+  position: absolute;
+  right: var(--neo-spacing_1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--neo-spacing_1_2);
+  border: none;
+  background: transparent;
+  color: var(--neo-typography-body-secondary);
+  cursor: pointer;
+  border-radius: var(--neo-border-radius-button);
+  transition: background-color var(--ifm-transition-fast) ease;
+}
+
+.clearButton:hover {
+  background-color: var(--neo-surfaces-list-hover);
+}
+
+/* ── Results summary ──────────────────────────────────────────────── */
+
+.summary {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-xs);
+  font-weight: var(--neo-font-weight-regular);
+  color: var(--neo-typography-body-secondary);
+}
+
+.summaryBold {
+  font-weight: var(--neo-font-weight-semi-bold);
+  color: var(--neo-typography-input-default);
+}
+
+/* ── Dark mode ────────────────────────────────────────────────────── */
+
+html[data-theme='dark'] .input {
+  background-color: var(--neo-icons-default);
+  border-color: var(--neo-grey-700);
+  color: var(--neo-surfaces-snackbar-dark-mode);
+}
+
+html[data-theme='dark'] .input::placeholder {
+  color: var(--neo-grey-500);
+}
+
+html[data-theme='dark'] .input:focus {
+  border-color: var(--neo-digital-blue-400);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+html[data-theme='dark'] .clearButton {
+  color: var(--neo-grey-400);
+}
+
+html[data-theme='dark'] .clearButton:hover {
+  background-color: var(--neo-grey-800);
+}
+
+html[data-theme='dark'] .summary {
+  color: var(--neo-grey-400);
+}
+
+html[data-theme='dark'] .summaryBold {
+  color: var(--neo-surfaces-white);
+}

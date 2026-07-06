@@ -1,0 +1,153 @@
+/* ── RecipeResultCard ──────────────────────────────────────────────
+   Card variant reuses DocCard container + description styles.
+   Only layout, strip variant, name, breadcrumb, and arrow are defined here. */
+
+/* ── Card variant overrides ───────────────────────────────────────── */
+
+.card {
+  align-items: flex-start;
+}
+
+/* ── Strip variant (popular recipes — no border, compact) ─────────── */
+
+.strip {
+  display: flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_1_2);
+  padding: var(--neo-spacing_1) 0;
+  border-radius: var(--neo-border-radius-button);
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color var(--ifm-transition-fast) ease;
+}
+
+.strip:hover {
+  background-color: var(--neo-surfaces-list-hover);
+  text-decoration: none;
+  color: inherit;
+}
+
+.strip .content {
+  gap: 0;
+}
+
+.strip .topLine {
+  gap: var(--neo-spacing_1_1_2);
+  align-items: center;
+}
+
+.strip .name {
+  font-size: var(--neo-font-size-sm);
+}
+
+.strip .arrow {
+  margin-top: 0;
+  opacity: 0;
+  transition: opacity var(--ifm-transition-fast) ease, color var(--ifm-transition-fast) ease, transform var(--ifm-transition-fast) ease;
+}
+
+.strip:hover .arrow {
+  opacity: 1;
+  color: var(--neo-digital-blue-500);
+  transform: translateX(2px);
+}
+
+/* ── Shared layout ────────────────────────────────────────────────── */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--neo-spacing_1_2);
+  flex: 1;
+  min-width: 0;
+}
+
+.topLine {
+  display: flex;
+  align-items: baseline;
+  gap: var(--neo-spacing_1);
+  flex-wrap: wrap;
+}
+
+.name {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-sm);
+  font-weight: var(--neo-font-weight-semi-bold);
+  line-height: 1.4;
+  color: var(--neo-typography-link-primary);
+  margin: 0;
+}
+
+.card:hover .name,
+.strip:hover .name {
+  color: var(--neo-digital-blue-700);
+  text-decoration: underline;
+}
+
+/* ── Category breadcrumb path ─────────────────────────────────────── */
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--neo-spacing_1_4);
+}
+
+.breadcrumbSegment {
+  font-family: var(--neo-font-family-body), sans-serif;
+  font-size: var(--neo-font-size-xxs);
+  font-weight: var(--neo-font-weight-regular);
+  color: var(--neo-typography-body-secondary);
+}
+
+.breadcrumbSeparator {
+  font-size: var(--neo-font-size-xxs);
+  color: var(--neo-typography-body-secondary);
+  opacity: 0.5;
+}
+
+/* ── CTA arrow ────────────────────────────────────────────────────── */
+
+.arrow {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--neo-typography-body-secondary);
+  margin-top: var(--neo-spacing_1_2);
+  transition: color var(--ifm-transition-fast) ease, transform var(--ifm-transition-fast) ease;
+}
+
+.card:hover .arrow {
+  color: var(--neo-digital-blue-500);
+  transform: translateX(2px);
+}
+
+/* ── Dark mode ────────────────────────────────────────────────────── */
+
+html[data-theme='dark'] .strip:hover {
+  background-color: var(--neo-grey-800);
+}
+
+html[data-theme='dark'] .name {
+  color: var(--neo-digital-green-300);
+}
+
+html[data-theme='dark'] .card:hover .name,
+html[data-theme='dark'] .strip:hover .name {
+  color: var(--neo-digital-green-200);
+}
+
+html[data-theme='dark'] .breadcrumbSegment,
+html[data-theme='dark'] .breadcrumbSeparator {
+  color: var(--neo-grey-500);
+}
+
+html[data-theme='dark'] .arrow {
+  color: var(--neo-grey-500);
+}
+
+html[data-theme='dark'] .card:hover .arrow,
+html[data-theme='dark'] .strip:hover .arrow {
+  color: var(--neo-digital-blue-400);
+}
