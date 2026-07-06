@@ -18,7 +18,7 @@ jobs:
           ref: ${{ github.event.pull_request.base.ref }}
 
       - name: Add warning comment to pull request
-        uses: actions/github-script@v6
+        uses: actions/github-script@v9
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
