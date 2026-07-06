@@ -4443,16 +4443,3 @@ Republishing to update dependencies
 
 * refactor: org.openrewrite.mavencentral
 
-## July 4, 2025
-
-#### rewrite-devcenter - 1.4.4
-
-* Use updated organizations-format method
-
-#### rewrite-devcenter - 1.4.3
-
-* Reflective DevCenter card
-* rename aggregation -&gt; summarizing in javadoc
-* refactor: org.openrewrite.mavencentral
-* Pin organizations-format to be able to build & release for a CLI patch release
-
