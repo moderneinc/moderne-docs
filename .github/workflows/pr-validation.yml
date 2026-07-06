@@ -26,7 +26,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Check file types
-        run: node scripts/check-file-types.js
+        run: node .github/scripts/check-file-types.js
         env:
           BASE_REF: ${{ github.event.pull_request.base.sha }}
 

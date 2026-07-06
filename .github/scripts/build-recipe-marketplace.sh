@@ -22,7 +22,7 @@
 # CI (.github/workflows/build-recipe-marketplace.yml) and locally.
 #
 # Local usage:
-#   scripts/build-recipe-marketplace.sh
+#   .github/scripts/build-recipe-marketplace.sh
 #
 # By default this writes CLI state to a throwaway temp directory, so a local run
 # never reads or overwrites your personal ~/.moderne/cli catalog.
