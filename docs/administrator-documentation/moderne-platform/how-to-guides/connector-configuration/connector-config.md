@@ -339,12 +339,13 @@ java -jar connector-{version}.jar \
 
 ### Step 5: Configure the Connector to find your repositories and their LSTs
 
-Before Moderne can run recipes on your code, the Connector needs two things:
+Before Moderne can run recipes on your code, the Connector needs three things:
 
 1. The list of repositories you want Moderne to index.
-2. The [LST](../../references/lossless-semantic-trees.md) artifact location for each repository.
+2. An [organizational hierarchy](./configure-organizations-hierarchy.md) that groups those repositories into organizations (at least one `org` column in the CSV). This doesn't need to be elaborate to start; a single `ALL` organization plus an organization for one team is a perfectly fine starting point that you can expand later.
+3. The [LST](../../references/lossless-semantic-trees.md) artifact location for each repository.
 
-Both of these things can come from a CSV file that you point the Connector to.
+All of these things can come from a CSV file that you point the Connector to.
 
 #### Configure where your CSV lives
 
