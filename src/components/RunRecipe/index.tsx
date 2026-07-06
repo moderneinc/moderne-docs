@@ -66,6 +66,7 @@ export default function RunRecipe({
 
   // Python recipes
   if (pipPackage) {
+    const pipPackageSpec = version ? `${pipPackage}==${version}` : pipPackage;
     return (
       <>
         <p>
@@ -74,7 +75,7 @@ export default function RunRecipe({
         </p>
         <p>Once the CLI is installed, you can install this Python recipe package by running the following command:</p>
         <CodeBlock language="shell" title="Install the recipe package">
-          {`mod config recipes pip install ${pipPackage}`}
+          {`mod config recipes pip install ${pipPackageSpec}`}
         </CodeBlock>
         <p>Then, you can run the recipe via:</p>
         <CodeBlock language="shell" title="Run the recipe">

@@ -154,11 +154,11 @@ Presuming everything has been set up correctly, you should see output similar to
 In order to run recipes, you'll need to make sure the recipes are installed on your local machine. For example, you can install recipes from a JAR or a pip package:
 
 ```bash
-mod config recipes jar install org.openrewrite:rewrite-python:LATEST
+mod config recipes jar install org.openrewrite:rewrite-python:{{VERSION_ORG_OPENREWRITE_REWRITE_PYTHON}}
 ```
 
 ```bash
-mod config recipes pip install openrewrite-migrate-python
+mod config recipes pip install openrewrite-migrate-python=={{VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON}}
 ```
 
 :::tip
