@@ -1,4 +1,13 @@
 # Platform changelog
+### UI v13.5.0 (2026/07/06)
+
+- surface LST availability states with current schema
+- show run stats on the progress bar for the Running state
+- migrate raw MUI Alert to NeoAlert across app
+- show error reason on chip label without hover
+- apply status icons + add reduced-motion fallback
+- wire status colors to Neo semantic tokens
+
 ### UI v13.4.0 (2026/06/30)
 
 - Bug fixes and other improvements.
