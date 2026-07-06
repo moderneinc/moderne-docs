@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v13.5.1 (2026/07/06)
+
+- Bug fixes and other improvements.
+
 ### UI v13.5.0 (2026/07/06)
 
 - surface LST availability states with current schema
