@@ -618,6 +618,10 @@ html[data-theme='dark'] .markdown :not(pre) > code {
 
 .theme-admonition [class*='admonitionContent_'] {
   flex: 1;
+  /* Allow the content column to shrink below its intrinsic width so nested
+     block content (e.g. code blocks) stays inside the box and scrolls
+     horizontally, instead of overflowing and eating the right-hand padding. */
+  min-width: 0;
   color: inherit;
 }
 

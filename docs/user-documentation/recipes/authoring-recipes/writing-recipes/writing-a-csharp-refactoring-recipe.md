@@ -8,10 +8,10 @@ keywords: [csharp recipe, c# recipe, csharp refactoring, openrewrite csharp, wri
 
 Across a large codebase, you often need to make the same change many times over: replacing a deprecated API, tightening up a sloppy pattern, modernizing an idiom. When you run into this situation, the best thing you can do is write a recipe so that these changes can be made consistently and accurately. Then, you can use Moderne to apply these changes to thousands of repositories at once.
 
-While we've done our best to provide you with [a wide variety of C# recipes](../recipe-catalog/csharp/README.md), you may find it useful to write your own. In this guide, we will walk you through everything you need to know to get started with creating and publishing your own C# recipe.
+While we've done our best to provide you with [a wide variety of C# recipes](../../recipe-catalog/csharp/README.md), you may find it useful to write your own. In this guide, we will walk you through everything you need to know to get started with creating and publishing your own C# recipe.
 
 :::info
-This guide focuses on authoring recipes in **C#**. If you would rather write recipes in another language, OpenRewrite has companion guides for [writing a Java refactoring recipe](https://docs.openrewrite.org/authoring-recipes/writing-a-java-refactoring-recipe), [writing a JavaScript refactoring recipe](https://docs.openrewrite.org/authoring-recipes/writing-a-javascript-refactoring-recipe), and [writing a Python refactoring recipe](./writing-python-recipes.md). The core concepts carry over closely, since C# recipes build on the same Java model those guides use.
+This guide focuses on authoring recipes in **C#**. If you would rather write recipes in another language, there are companion guides for [writing a Java refactoring recipe](./writing-a-java-refactoring-recipe.md), [writing a JavaScript refactoring recipe](./writing-a-javascript-refactoring-recipe.md), and [writing a Python refactoring recipe](./writing-python-recipes.md). The core concepts carry over closely, since C# recipes build on the same Java model those guides use.
 :::
 
 ## Prerequisites
@@ -20,21 +20,21 @@ This guide assumes that:
 
 * You have the [.NET SDK](https://dotnet.microsoft.com/download) 10.0 or higher installed
 * You are comfortable writing and running C# unit tests (this guide uses [xUnit](https://xunit.net/))
-* You have [installed and configured the Moderne CLI](../../moderne-cli/getting-started/cli-intro.md) so you can test your recipe against real repositories
-* You have [configured the Moderne CLI to work for C# projects](../../moderne-cli/how-to-guides/csharp.md)
+* You have [installed and configured the Moderne CLI](../../../moderne-cli/getting-started/cli-intro.md) so you can test your recipe against real repositories
+* You have [configured the Moderne CLI to work for C# projects](../../../moderne-cli/how-to-guides/csharp.md)
 
 ## How C# recipes work
 
 Before we dive into how to write your own recipe, it's a good idea to take a few minutes to learn about C# recipes at a high level.
 
-OpenRewrite represents C# code as a [Lossless Semantic Tree (LST)](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md): a tree that preserves the code's exact formatting and is [type-attributed](https://docs.openrewrite.org/concepts-and-explanations/type-attribution), so every element carries its resolved type. Working against that tree instead of the raw text is what lets a recipe make precise, type-aware changes.
+OpenRewrite represents C# code as a [Lossless Semantic Tree (LST)](../concepts/lossless-semantic-trees.md): a tree that preserves the code's exact formatting and is [type-attributed](../concepts/type-attribution.md), so every element carries its resolved type. Working against that tree instead of the raw text is what lets a recipe make precise, type-aware changes.
 
-Every [recipe](https://docs.openrewrite.org/concepts-and-explanations/recipes) is a class that describes itself with a display name and a description, and that returns a [visitor](https://docs.openrewrite.org/concepts-and-explanations/visitors) from its `GetVisitor()` method. The visitor traverses the LST and returns modified nodes wherever it wants to make a change. Anything it returns unchanged is left exactly as it was, formatting included.
+Every [recipe](../concepts/recipes.md) is a class that describes itself with a display name and a description, and that returns a [visitor](../concepts/visitors.md) from its `GetVisitor()` method. The visitor traverses the LST and returns modified nodes wherever it wants to make a change. Anything it returns unchanged is left exactly as it was, formatting included.
 
-The C# LST builds on the [Java LST](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/tree/J.java). Shared constructs such as method invocations, identifiers, literals, and blocks come from the Java model (the `J` namespace), while C#-specific constructs live in the C# model (the `Cs` namespace). Because of this, a C# visitor works with familiar `J` node types — `J.MethodInvocation`, `J.Binary`, `J.Identifier`, and so on — for most transformations.
+The C# LST builds on the [Java LST](https://github.com/openrewrite/rewrite/blob/main/rewrite-java/src/main/java/org/openrewrite/java/tree/J.java). Shared constructs such as method invocations, identifiers, literals, and blocks come from the Java model (the `J` namespace), while C#-specific constructs live in the C# model (the `Cs` namespace). Because of this, a C# visitor works with familiar `J` node types (`J.MethodInvocation`, `J.Binary`, `J.Identifier`, and so on) for most transformations.
 
 :::tip
-Rather than inspecting and rebuilding LST nodes by hand, most C# recipes are written declaratively with **structural patterns and templates** (`CSharpPattern` and `CSharpTemplate`). A pattern describes the code to match — with _captures_ for the parts that vary — and a template describes the replacement. Because the template is parsed as real C#, its output is fully type-attributed, which keeps downstream recipes working correctly. We use this approach in the example below.
+Rather than inspecting and rebuilding LST nodes by hand, most C# recipes are written declaratively with **structural patterns and templates** (`CSharpPattern` and `CSharpTemplate`). A pattern describes the code to match (with _captures_ for the parts that vary), and a template describes the replacement. Because the template is parsed as real C#, its output is fully type-attributed, which keeps downstream recipes working correctly. We use this approach in the example below.
 :::
 
 ## Setting up your project
@@ -80,7 +80,7 @@ dotnet add reference ../MyOrg.Recipes/MyOrg.Recipes.csproj
 dotnet add package OpenRewrite.CSharp
 ```
 
-Because the recipe project references the SDK with `PrivateAssets="all"`, that reference does not flow through to the test project — so the test project references `OpenRewrite.CSharp` directly (this is what gives it the `OpenRewrite.Test` testing helpers).
+Because the recipe project references the SDK with `PrivateAssets="all"`, that reference does not flow through to the test project, so the test project references `OpenRewrite.CSharp` directly (this is what gives it the `OpenRewrite.Test` testing helpers).
 
 ## Outlining the recipe
 
@@ -124,7 +124,7 @@ A few things to call out here:
 
 * The recipe is a class that subclasses `Recipe` and provides a `DisplayName` and a `Description`.
 * You do **not** declare a name for the recipe. Its globally-unique identifier is the fully-qualified type name, so this recipe is `MyOrg.Recipes.UseStringContains`. This is the identifier you will use to run the recipe later.
-* The `[Category, CSharp]` attribute declares where the recipe appears in the marketplace category tree. **This attribute is required**: the CLI only installs recipes that declare a placement, so a recipe with no `[Category]` marker is silently skipped (you will see `Found 0 recipes` when you install the package). `[Category]` opens a path and the descriptors that follow it (here `CSharp`) form the levels of that path. The SDK ships a few common leaves — `CSharp`, `Csproj`, `Xml`, and `Migration` — in `OpenRewrite.CSharp.Recipes.Categories`, which is why we add `using static OpenRewrite.CSharp.Recipes.Categories;`.
+* The `[Category, CSharp]` attribute declares where the recipe appears in the marketplace category tree. **This attribute is required**: the CLI only installs recipes that declare a placement, so a recipe with no `[Category]` marker is silently skipped (you will see `Found 0 recipes` when you install the package). `[Category]` opens a path and the descriptors that follow it (here `CSharp`) form the levels of that path. The SDK ships a few common leaves (`CSharp`, `Csproj`, `Xml`, and `Migration`) in `OpenRewrite.CSharp.Recipes.Categories`, which is why we add `using static OpenRewrite.CSharp.Recipes.Categories;`.
 * For now, `GetVisitor()` returns a bare visitor that does nothing, so the recipe is a no-op. We will add the real logic after we finish writing tests.
 
 :::tip
@@ -145,7 +145,7 @@ Repeat the `[Category, ...]` stack to place one recipe under multiple paths.
 :::
 
 :::tip
-If your recipe _does_ need configuration, expose it as a public property annotated with `[Option(DisplayName = "...", Description = "...", Example = "...")]`. Only properties carrying `[Option]` are treated as options, and each one becomes a `-P<PropertyName>` flag on the CLI. Always give options a default value — the framework instantiates your recipe with no arguments to build its descriptor, and a recipe whose options can't be read that way can't be discovered or run.
+If your recipe _does_ need configuration, expose it as a public property annotated with `[Option(DisplayName = "...", Description = "...", Example = "...")]`. Only properties carrying `[Option]` are treated as options, and each one becomes a `-P<PropertyName>` flag on the CLI. Always give options a default value. The framework instantiates your recipe with no arguments to build its descriptor, and a recipe whose options can't be read that way can't be discovered or run.
 :::
 
 ### Registering the package's recipes
@@ -166,7 +166,7 @@ public class Activator : IRecipeActivator
 }
 ```
 
-You only need one activator per package, regardless of how many recipes it contains — `InstallAssembly` discovers every `[Category]`-annotated recipe in the assembly. Without an activator, the CLI loads your package but installs nothing (again, `Found 0 recipes`).
+You only need one activator per package, regardless of how many recipes it contains. `InstallAssembly` discovers every `[Category]`-annotated recipe in the assembly. Without an activator, the CLI loads your package but installs nothing (again, `Found 0 recipes`).
 
 ## Writing tests first
 
@@ -252,7 +252,7 @@ The `CSharp()` helper accepts either one or two arguments:
 * Two arguments (`CSharp(before, after)`) assert that the recipe transforms `before` into `after`.
 * One argument (`CSharp(before)`) asserts that the recipe makes no change.
 
-Always include at least one no-change test — such as `LeavesNonStringIndexOfUnchanged` above — so that you can be confident your recipe does not touch code it should not. That test is important here: `List<T>.IndexOf` returns an `int` too, so a recipe that matched on the printed shape alone would wrongly rewrite it. We'll rely on type attribution to avoid that. The harness also checks output **whitespace-exactly**, so formatting differences are treated as failures.
+Always include at least one no-change test, such as `LeavesNonStringIndexOfUnchanged` above, so that you can be confident your recipe does not touch code it should not. That test is important here: `List<T>.IndexOf` returns an `int` too, so a recipe that matched on the printed shape alone would wrongly rewrite it. We'll rely on type attribution to avoid that. The harness also checks output **whitespace-exactly**, so formatting differences are treated as failures.
 
 If we run the suite now, we'll see the expected starting state: the two replacement tests fail because the visitor doesn't do anything yet, while the no-change test already passes.
 
@@ -260,7 +260,7 @@ If we run the suite now, we'll see the expected starting state: the two replacem
 
 With the tests written, let's make them pass. Instead of inspecting and rebuilding nodes by hand, we describe the transformation declaratively with a `CSharpPattern` (what to match) and a `CSharpTemplate` (the replacement).
 
-Start with the common case — a single pattern and template. `CSharpTemplate.Rewrite(pattern, template)` returns a ready-made visitor that finds every match and applies the template, with no visitor boilerplate:
+Start with the common case, a single pattern and template. `CSharpTemplate.Rewrite(pattern, template)` returns a ready-made visitor that finds every match and applies the template, with no visitor boilerplate:
 
 ```csharp
 public override JavaVisitor<ExecutionContext> GetVisitor()
@@ -276,15 +276,17 @@ public override JavaVisitor<ExecutionContext> GetVisitor()
 
 Here's what this does:
 
-* `Capture.Expression(type: "string")` captures a sub-expression **and constrains it by type**. Because both captures are typed as `string`, the pattern only matches when the receiver and argument actually resolve to strings. This is the type attestation that keeps the recipe from rewriting `List<T>.IndexOf` — and it's why our no-change test passes. Matching on resolved type rather than on the printed name is what makes a recipe safe to run across a large codebase.
+* `Capture.Expression(type: "string")` captures a sub-expression **and constrains it by type**. Because both captures are typed as `string`, the pattern only matches when the receiver and argument actually resolve to strings. This type constraint is what keeps the recipe from rewriting `List<T>.IndexOf`, and it's why our no-change test passes. Matching on resolved type rather than on the printed name is what makes a recipe safe to run across a large codebase.
 * `CSharpPattern.Expression(...)` and `CSharpTemplate.Expression(...)` parse their interpolated strings as real C# expressions, splicing the captures in by value. Because the template is parsed as C#, the rewritten `s.Contains(x)` is fully type-attributed.
 * `CSharpTemplate.Rewrite(...)` builds the visitor for you and applies the template wherever the pattern matches.
 
-The pattern matcher also handles common C# equivalences automatically — for example `Foo()` matches `this.Foo()` for instance calls, and short type names match their fully-qualified forms — so a single pattern covers more cases than a literal text match would.
+The pattern matcher also handles common C# equivalences automatically. For example, `Foo()` matches `this.Foo()` for instance calls, and short type names match their fully-qualified forms, so a single pattern covers more cases than a literal text match would.
+
+Run the suite again and `ReplacesIndexOfGreaterOrEqualZero` and the no-change test pass, but `ReplacesIndexOfEqualsMinusOneWithNegation` still fails: `s.IndexOf(x) == -1` is a different comparison, and it maps to a negated replacement that this single pattern doesn't cover.
 
 ### Handling additional forms
 
-The same comparison can be written several equivalent ways (`>= 0`, `> -1`, `== -1`, `< 0`, ...), and the two directions map to different templates (`Contains` vs. `!Contains`). When you need to match a small set of related forms, pair each pattern with its template and apply them in a `J.Binary` visitor — `IndexOf(...)` comparisons are all binary expressions:
+That failing test points at a more general issue: the same comparison can be written several equivalent ways (`>= 0`, `> -1`, `== -1`, `< 0`, and so on), and the two directions map to different templates (`Contains` vs. `!Contains`). When you need to match a small set of related forms, pair each pattern with its template and apply them in a `J.Binary` visitor, since `IndexOf(...)` comparisons are all binary expressions:
 
 ```csharp
 public override JavaVisitor<ExecutionContext> GetVisitor()
@@ -319,6 +321,8 @@ private class Visitor((CSharpPattern pat, CSharpTemplate tmpl)[] rules) : CSharp
 ```
 
 Notice the visitor calls `base.VisitBinary(...)` first so that children are visited before the node itself (the safe bottom-up default), then tries each rule and applies the first one that matches. Anything that doesn't match is returned unchanged.
+
+We've written tests only for the `>= 0` and `== -1` forms above. In a real recipe, add a `before`/`after` case for each spelling you handle so that the behavior stays specified as you extend the rule set.
 
 ## Running the tests
 
@@ -369,9 +373,9 @@ mod build /path/to/your/repo
 mod run /path/to/your/repo --recipe=MyOrg.Recipes.UseStringContains
 ```
 
-If your recipe declares options, pass each one as a `-P` flag using the option property name — for example `-PMyOption=value`.
+If your recipe declares options, pass each one as a `-P` flag using the option property name, for example `-PMyOption=value`.
 
-To review and apply the results, use [`mod git apply`](../../moderne-cli/getting-started/cli-intro.md):
+To review and apply the results, use [`mod git apply`](../../../moderne-cli/getting-started/cli-intro.md):
 
 ```bash
 mod git apply /path/to/your/repo --last-recipe-run
@@ -402,13 +406,13 @@ Once the package is on a feed the CLI is configured to read, anyone can install 
 mod config recipes nuget install MyOrg.Recipes
 ```
 
-If the feed requires credentials, register it with the CLI first using [`mod config recipes artifacts nuget add`](../../moderne-cli/how-to-guides/csharp.md).
+If the feed requires credentials, register it with the CLI first using [`mod config recipes artifacts nuget add`](../../../moderne-cli/how-to-guides/csharp.md).
 
 ## Next steps
 
 Now that you've written your first C# recipe, you can go deeper:
 
-* Browse the [C# recipes in the Moderne recipe catalog](../recipe-catalog/csharp/README.md) for real-world examples to learn from and build on
-* Read OpenRewrite's [Java refactoring recipe guide](https://docs.openrewrite.org/authoring-recipes/writing-a-java-refactoring-recipe) for deeper coverage of visitors, preconditions, and templates that apply to the shared LST model
-* Learn more about [setting up and using C# LSTs with the Moderne CLI](../../moderne-cli/how-to-guides/csharp.md)
-* Work through the [recipe authoring fundamentals workshop](../../../hands-on-learning/fundamentals/workshop-overview.md) for a hands-on introduction to recipe development
+* Browse the [C# recipes in the Moderne recipe catalog](../../recipe-catalog/csharp/README.md) for real-world examples to learn from and build on
+* Read the [Java refactoring recipe guide](./writing-a-java-refactoring-recipe.md) and [JavaScript refactoring recipe guide](./writing-a-javascript-refactoring-recipe.md) for deeper coverage of visitors, preconditions, and templates that apply to the shared LST model
+* Learn more about [setting up and using C# LSTs with the Moderne CLI](../../../moderne-cli/how-to-guides/csharp.md)
+* Work through the [recipe authoring fundamentals workshop](../../../../hands-on-learning/fundamentals/workshop-overview.md) for a hands-on introduction to recipe development
