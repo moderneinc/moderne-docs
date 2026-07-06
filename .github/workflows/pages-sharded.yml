@@ -57,7 +57,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Cache bundler artifacts (per shard)
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: node_modules/.cache
           key: docusaurus-shard-${{ matrix.shard }}-${{ runner.os }}-${{ hashFiles('yarn.lock', 'docusaurus.config.ts', 'src/theme/**') }}
