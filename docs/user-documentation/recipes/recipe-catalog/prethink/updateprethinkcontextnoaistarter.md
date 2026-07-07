@@ -38,7 +38,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<OptionsTable options={[{"type":"String","name":"targetConfigFile","required":false,"description":"Which agent config file to update. If not specified, updates all found files.","example":"CLAUDE.md"}]}>
+<OptionsTable options={[{"type":"List","name":"targetConfigFiles","required":false,"description":"Which agent config files to update, creating any that do not exist yet. If not specified, updates all found files, creating `CLAUDE.md` when none exist.","example":"CLAUDE.md"}]}>
 
 ## Options
 

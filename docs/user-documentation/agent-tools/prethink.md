@@ -153,9 +153,9 @@ This recipe performs architectural discovery, test coverage mapping, dependency 
 
 #### Options
 
-| Option             | Description                                                                                                                                                                                 | Example     |
-|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `targetConfigFile` | Which agent config file to update. If not specified and no agent config files exist, will create a `CLAUDE.md`. If at least one agent config file exists, it will update each one it finds. | `CLAUDE.md` |
+| Option              | Description                                                                                                                                                                                                                      | Example                  |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+| `targetConfigFiles` | Which agent config files to update, creating any that do not exist yet. If not specified and no agent config files exist, will create a `CLAUDE.md`. If at least one agent config file exists, it will update each one it finds. | `[CLAUDE.md, AGENTS.md]` |
 
 ### Update Prethink context (base recipe)
 
@@ -164,7 +164,7 @@ Generates a FINOS CALM architecture diagram and updates agent configuration file
 * **Recipe:** [`org.openrewrite.prethink.UpdatePrethinkContext`](https://app.moderne.io/recipes/org.openrewrite.prethink.UpdatePrethinkContext)
 * **Module:** `org.openrewrite.recipe:rewrite-prethink`
 
-Use this recipe when building custom Prethink configurations with your own discovery recipes. This recipe has no configurable options.
+Use this recipe when building custom Prethink configurations with your own discovery recipes. This recipe accepts the same `targetConfigFiles` option as the starter recipe.
 
 ### Supporting recipes
 
