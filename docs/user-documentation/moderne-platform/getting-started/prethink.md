@@ -10,12 +10,12 @@ import VersionBanner from '@site/src/components/VersionBanner';
 
 # Running Moderne Prethink recipes on the Moderne Platform
 
-Moderne Prethink recipes generate structured context that gives AI coding agents a clear, accurate understanding of your codebase. Instead of forcing AI agents to infer your architecture from raw code, Prethink provides pre-resolved knowledge about service endpoints, dependencies, test coverage, and more.
+Moderne Prethink generates structured context that gives AI coding agents a clear, accurate understanding of your codebase. Instead of forcing AI agents to infer your architecture from raw code, Prethink provides pre-resolved knowledge about service endpoints, dependencies, test coverage, and more.
 
 In this guide, we will walk you through everything you need to know to get started with them in the Moderne Platform.
 
 :::tip
-For a deeper understanding of what Moderne Prethink is and how it works, see our [Moderne Prethink recipes documentation](../../agent-tools/prethink.md).
+For a deeper understanding of what Moderne Prethink is and how it works, see our [Moderne Prethink documentation](../../agent-tools/prethink.md).
 :::
 
 ## Prerequisites
@@ -24,32 +24,18 @@ This doc assumes that you are familiar with [finding and running recipes in the 
 
 ## Prethink recipes
 
-There are two key Prethink recipes in the Moderne Platform:
+The Moderne Platform provides the **Update Prethink context (no AI)** recipe:
 
 <figure>
-  ![Two Prethink recipes listed: Update Prethink context with AI and without AI](./assets/prethink-recipes.png)
-  <figcaption>_Prethink recipes_</figcaption>
+  ![The Update Prethink context (no AI) recipe listed in the Moderne Platform recipe catalog](./assets/prethink-recipes.png)
+  <figcaption>_The Prethink recipe in the Moderne Platform_</figcaption>
 </figure>
-
-### Update Prethink context (with AI)
-
-_[Link to the recipe](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextStarter)_
-
-This recipe generates comprehensive context files - including AI-powered code comprehension, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams.
-
-If you want the richest possible context about your code, use this recipe. 
-
-:::note
-This recipe requires configuring an LLM provider (OpenAI, Gemini, or Poolside) to generate code descriptions and test summaries.
-:::
 
 ### Update Prethink context (no AI)
 
 _[Link to the recipe](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextNoAiStarter)_
 
 This recipe generates context _without_ requiring an LLM provider. It will discover architectural patterns, map tests to implementation methods, generate dependency inventory, and create CALM architecture diagrams - without using AI. 
-
-Use this for a quick start or when AI comprehension isn't needed.
 
 ## Example results
 
@@ -70,7 +56,7 @@ Use this for a quick start or when AI comprehension isn't needed.
 
 ## Visualizations
 
-In addition to generating context files, Prethink recipes produce a suite of code quality visualizations. You can find these in the **Visualizations** tab after a recipe run completes. For general information on how to view visualizations, see the [visualizations guide](./visualizations.md).
+In addition to generating context files, Prethink produces a suite of code quality visualizations. You can find these in the **Visualizations** tab after a recipe run completes. For general information on how to view visualizations, see the [visualizations guide](./visualizations.md).
 
 <figure>
   ![Code quality executive dashboard showing code health by repository and top refactoring targets](./assets/prethink-executive-dashboard.png)

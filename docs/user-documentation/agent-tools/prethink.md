@@ -1,13 +1,13 @@
 ---
 sidebar_label: Moderne Prethink
-description: Generate structured context for AI coding agents with Moderne Prethink recipes.
+description: Generate structured context for AI coding agents with Moderne Prethink.
 ---
 
 import ReactPlayer from '@site/src/components/VideoPlayer';
 
-# Moderne Prethink recipes
+# Moderne Prethink
 
-Moderne Prethink recipes generate structured context that gives AI coding agents a clear, accurate understanding of your entire codebase. Instead of forcing AI agents to infer your architecture from raw code, Prethink provides pre-resolved knowledge about service endpoints, dependencies, test coverage, and more.
+Moderne Prethink generates structured context that gives AI coding agents a clear, accurate understanding of your entire codebase. Instead of forcing AI agents to infer your architecture from raw code, Prethink provides pre-resolved knowledge about service endpoints, dependencies, test coverage, and more.
 
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=BFXrZ8JfbVU' controls="true" />
 
@@ -32,28 +32,28 @@ Moderne Prethink delivers pre-resolved, verified knowledge that AI agents can re
 * **Code smell detection**: Composite-threshold detection of God Class, Feature Envy, and Data Class patterns - which are common issues that AI coding agents tend to introduce
 * **Test coverage and quality**: Test-to-implementation mappings, untested method risk rankings, and test quality issue detection (flaky tests, silent failures, ghost tests)
 * **Resolved dependency graphs**: Complete dependency trees, including transitive dependencies
-* **Known vulnerabilities**: Security issues identified across your repositories
-* **Declared migration targets**: Your organization's upgrade and modernization goals
-* **Deterministic recipes**: Structured transformations that can be applied reliably
+* **API contracts**: Per-endpoint request and response schemas, parameters, and DTO field details for OpenAPI and contract-test generation
+* **Architecture diagrams**: FINOS CALM and Mermaid diagrams of services, databases, messaging, and external integrations
+* **Coding conventions and error handling**: Naming patterns, import organization, and exception-handling strategies detected across the codebase
 
 With Prethink:
 
 * Code structure is documented, not guessed
 * Relationships between services are already mapped
 * Quality problems are identified with metric evidence, not guessed from code patterns
-* Your goals and constraints are part of the context
+* Test coverage and gaps are mapped, not inferred
 * AI reasons over facts instead of reconstructing them
 
-## How Prethink works
+## The Prethink recipe
 
-Prethink is delivered as a set of OpenRewrite recipes that generate multi-repo, trusted context for AI agents. When you run Prethink recipes against your codebase, they produce structured outputs that capture context, including:
+You generate Prethink context by running a single OpenRewrite recipe against your codebase. It is a composite recipe that runs dozens of discovery and analysis recipes in phases, then exports the results as trusted, multi-repo context for AI agents. A single run produces:
 
 * **Code data tables**: Deep insights only discoverable using Moderne's Lossless Semantic Tree (LST) code model
 * **Dependency inventory**: Complete picture of libraries including transitive dependencies
 * **Knowledge graph** (optional): System-level map of how components, dependencies, and behaviors connect
 * **CALM-formatted artifacts**: Architecture diagrams with nodes and relationships that can be visualized with [CALM](https://calm.finos.org/)-compatible tools
 
-These outputs can be continuously updated as your codebase evolves by re-running Prethink recipes. This ensures your AI agents always have current, accurate context.
+Re-run the recipe as your codebase evolves so your AI agents always have current, accurate context. See [Available recipes](#available-recipes) for the exact recipe name and options.
 
 ## Code quality as agent feedback
 
@@ -140,32 +140,16 @@ This module provides the infrastructure but expects you to supply your own recip
 
 ## Available recipes
 
-### Update Prethink context (with AI)
-
-Generates Moderne Prethink context files with AI-generated code comprehension, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. Maps tests to implementation methods and optionally generates AI summaries of what each test verifies when an LLM provider is configured.
-
-* **Recipe:** [`io.moderne.prethink.UpdatePrethinkContextStarter`](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextStarter)
-* **Module:** `io.moderne.recipe:rewrite-prethink`
-
-#### Options
-
-| Option              | Description                                                                  | Example                               |
-|---------------------|------------------------------------------------------------------------------|---------------------------------------|
-| `provider`          | LLM provider for generating summaries                                        | `openai`, `gemini`, `poolside`        |
-| `apiKey`            | API key for the LLM provider                                                 | `ps-...`                              |
-| `model`             | Model name to use                                                            | `Malibu-v2.20251021`                  |
-| `baseUrl`           | Custom base URL for the provider                                             | `https://divers.poolsi.de/openai/v1/` |
-| `requestsPerMinute` | Rate limit for LLM requests                                                  | `60`                                  |
-| `targetConfigFile`  | Which agent config file to update (updates all found files if not specified) | `CLAUDE.md`                           |
+You generate Prethink context by running a single recipe, **Update Prethink context (no AI)**. The other recipes listed here are building blocks for [composing your own Prethink recipe](#creating-custom-prethink-recipes).
 
 ### Update Prethink context (no AI)
 
-Generates Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider - use the [Update Prethink context (with AI) recipe](#update-prethink-context-with-ai) if you want AI-generated code comprehension and test summaries.
+Generates Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider.
 
 * **Recipe:** [`io.moderne.prethink.UpdatePrethinkContextNoAiStarter`](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextNoAiStarter)
 * **Module:** `io.moderne.recipe:rewrite-prethink`
 
-This recipe includes the same architectural discovery, test coverage mapping, dependency inventory, and CALM architecture generation as the AI version, but skips AI-generated code comprehension. Instead, it estimates token usage for methods so you can evaluate AI costs before enabling comprehension.
+This recipe performs architectural discovery, test coverage mapping, dependency inventory, and CALM architecture generation without AI-generated code comprehension. Instead, it estimates token usage for methods so you can evaluate the cost of AI comprehension.
 
 #### Options
 
@@ -198,7 +182,7 @@ If the built-in recipes don't meet your needs, you can create custom Prethink re
 
 ### Customizing the starter recipes
 
-The starter recipes (`UpdatePrethinkContextStarter` and `UpdatePrethinkContextNoAiStarter`) are composite recipes that bundle all of the [Moderne module's discovery and analysis capabilities](#what-the-moderne-module-discovers) into a single recipe you can run out of the box.
+The `UpdatePrethinkContextNoAiStarter` starter recipe is a composite recipe that bundles all of the [Moderne module's discovery and analysis capabilities](#what-the-moderne-module-discovers) into a single recipe you can run out of the box.
 
 You can customize what Prethink generates by creating your own Prethink recipe. Check out the recipe definition below for a starting point of what the base Prethink recipe looks like. From there, you can wrap it in a new recipe to add custom discovery, or you could copy and modify it to remove built-in recipes you don't need.
 
@@ -527,25 +511,6 @@ recipeList:
   - org.openrewrite.prethink.UpdateAgentConfig
 ```
 
-#### Prethink with AI summaries
-
-To enable AI-generated summaries, configure the LLM provider:
-
-```yaml
-type: specs.openrewrite.org/v1beta/recipe
-name: com.example.prethink.PrethinkWithAI
-displayName: Prethink context with AI summaries
-description: >-
-  Generates Prethink context with AI-enhanced test summaries.
-recipeList:
-  - io.moderne.prethink.calm.FindProjectMetadata
-  - io.moderne.prethink.calm.FindServiceEndpoints
-  - io.moderne.prethink.FindTestCoverage:
-      provider: poolside
-  - io.moderne.prethink.calm.GenerateCalmArchitecture
-  - org.openrewrite.prethink.UpdateAgentConfig
-```
-
 #### Custom discovery with OpenRewrite module
 
 When using the OpenRewrite module, you provide your own discovery recipes:
@@ -581,7 +546,7 @@ Recipes do not have to be in the same file or even the same module. You can comp
 
 ### Data tables
 
-Prethink recipes populate several data tables that capture different aspects of your codebase:
+Prethink populates several data tables that capture different aspects of your codebase:
 
 | Data table                 | Description                                                                                              |
 |----------------------------|----------------------------------------------------------------------------------------------------------|
@@ -609,8 +574,8 @@ Prethink recipes populate several data tables that capture different aspects of 
 | `CalmRelationships`        | Method call graph for discovering relationships between architectural entities                           |
 | `ContextRegistry`          | Registry of available context files for coding agents                                                    |
 | `SourceSetLanguageSummary` | Language versions, file counts, and build tools per source set                                           |
-| `ClassDescriptions`        | AI-generated class descriptions (with AI recipe)                                                         |
-| `MethodDescriptions`       | AI-generated method descriptions (with AI recipe)                                                        |
+| `ClassDescriptions`        | AI-generated class descriptions                                                                          |
+| `MethodDescriptions`       | AI-generated method descriptions                                                                         |
 
 For the full schema definitions, see the data table source code in [openrewrite/rewrite-prethink](https://github.com/openrewrite/rewrite-prethink/tree/main/src/main/java/org/openrewrite/prethink/table) and [moderneinc/rewrite-prethink](https://github.com/moderneinc/rewrite-prethink/tree/main/src/main/java/io/moderne/prethink/table).
 
@@ -696,14 +661,14 @@ The agent configuration includes a table of available context types with descrip
 
 ## Incremental Prethink via MCP
 
-When using the [Moderne MCP server](./mcp/overview.md), AI coding agents can use the `run_recipe` tool to run Prethink recipes and incrementally regenerate context as they edit code. Rather than treating Prethink as a one-time setup step, agents can re-run Prethink after making changes to get updated quality metrics, test gap analysis, and code smell detection reflecting their modifications.
+When using the [Moderne MCP server](./mcp/overview.md), AI coding agents can use the `run_recipe` tool to run the Prethink recipe and incrementally regenerate context as they edit code. Rather than treating Prethink as a one-time setup step, agents can re-run Prethink after making changes to get updated quality metrics, test gap analysis, and code smell detection reflecting their modifications.
 
 This creates a feedback loop: the agent writes code, regenerates Prethink context, reads the updated quality metrics, and refactors based on what it finds. For example, if an agent introduces a God Class while implementing a feature, the next Prethink run surfaces it immediately so the agent can split the class before moving on.
 
 ## Next steps
 
 {/* Hidden until ready to share publicly: * [Try the hands-on agent tools workshop](../../hands-on-learning/agent-tools/workshop-overview.md) to run Prethink end-to-end on a sample workspace */}
-* [Run Prethink recipes on the Moderne Platform](../moderne-platform/getting-started/prethink.md)
+* [Run Prethink on the Moderne Platform](../moderne-platform/getting-started/prethink.md)
 * [Generate Prethink context with the CLI](../moderne-cli/how-to-guides/cli-prethink.md)
 * [Explore Prethink code quality visualizations](../moderne-platform/getting-started/visualizations.md#prethink-code-quality-visualizations) for dashboards including executive summaries, coupling/cohesion matrices, and method risk radar charts
 * [Read our blog on code quality metrics that AI coding agents can actually use](https://www.moderne.ai/blog/code-quality-metrics-that-ai-coding-agents-can-actually-use) for a deep dive into why these metrics matter for AI-generated code
