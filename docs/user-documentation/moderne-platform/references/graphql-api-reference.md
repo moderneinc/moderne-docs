@@ -2089,6 +2089,9 @@ The installation lives in a specific organization's marketplace.
 
 **Implements:** [OrganizationChangeset](#organizationchangeset), [OrganizationRecipeRun](#organizationreciperun)
 
+Deprecated: recipe runs no longer emit a Syncing state. A run that syncs
+intrinsically (`mod run --sync-csv`) starts in Running immediately.
+
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
@@ -2654,7 +2657,7 @@ Paginated connection for repository changesets.
   the completion status reached prior to cancellation.
 
 Sync totals (`syncPending`, `synced`, `syncFailed`, `syncCanceled`, `syncSkipped`)
-track repository sync progress during the SYNCING phase. Their sum equals `count`.
+track repository sync progress as each repository's LST is synced. Their sum equals `count`.
 
 | Field | Type | Description |
 |-------|------|-------------|

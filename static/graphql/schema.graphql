@@ -3814,7 +3814,7 @@ enum OrganizationRecipeRunState
   @join__type(graph: CHANGESETREADER)
 {
   QUEUED @join__enumValue(graph: CHANGESETREADER)
-  SYNCING @join__enumValue(graph: CHANGESETREADER)
+  SYNCING @join__enumValue(graph: CHANGESETREADER) @deprecated(reason: "Runs no longer surface a Syncing state; a sync-and-run starts in RUNNING immediately. Retained for in-flight and historical runs.")
   RUNNING @join__enumValue(graph: CHANGESETREADER)
   FINISHED @join__enumValue(graph: CHANGESETREADER)
   CANCELED @join__enumValue(graph: CHANGESETREADER)
@@ -3830,6 +3830,10 @@ input OrganizationRecipeRunStateFilter
   _nin: [OrganizationRecipeRunState!]
 }
 
+"""
+Deprecated: recipe runs no longer emit a Syncing state. A run that syncs
+intrinsically (`mod run --sync-csv`) starts in Running immediately.
+"""
 type OrganizationRecipeRunSyncing implements OrganizationChangeset & OrganizationRecipeRun
   @join__implements(graph: CHANGESETREADER, interface: "OrganizationChangeset")
   @join__implements(graph: CHANGESETREADER, interface: "OrganizationRecipeRun")
@@ -5253,7 +5257,7 @@ Paginated connection for repository changesets.
   the completion status reached prior to cancellation.
 
 Sync totals (`syncPending`, `synced`, `syncFailed`, `syncCanceled`, `syncSkipped`)
-track repository sync progress during the SYNCING phase. Their sum equals `count`.
+track repository sync progress as each repository's LST is synced. Their sum equals `count`.
 """
 type RepositoryChangesetConnection
   @join__type(graph: CHANGESETREADER)
