@@ -5,7 +5,7 @@ description: How to generate Moderne Prethink context for AI agents using the Mo
 
 # How to generate Moderne Prethink context with the CLI
 
-Moderne Prethink recipes generate structured context that gives AI coding agents a clear, accurate understanding of your entire codebase. In this guide, we will walk you through how to generate this Prethink context locally using the Moderne CLI.
+Moderne Prethink generates structured context that gives AI coding agents a clear, accurate understanding of your entire codebase. In this guide, we will walk you through how to generate this Prethink context locally using the Moderne CLI.
 
 For more background on what Moderne Prethink is and the available recipes, please check out our [Moderne Prethink documentation](../../agent-tools/prethink.md).
 
@@ -32,7 +32,7 @@ We recommend using the [mod git sync command](../cli-reference.md#mod-git-sync) 
 
 ## Step 2: Build the LSTs
 
-With the repositories cloned, build or download LSTs to run Prethink recipes on:
+With the repositories cloned, build or download LSTs to run Prethink on:
 
 ```bash
 mod build prethink-demo
@@ -51,21 +51,13 @@ If you only need the core building blocks for custom discovery recipes, you can 
 
 ## Step 4: Run a Prethink recipe
 
-You can either run the starter recipe without AI:
+Run the starter recipe:
 
 ```bash
 mod run prethink-demo --recipe io.moderne.prethink.UpdatePrethinkContextNoAiStarter
 ```
 
-Or, if you want AI-generated code comprehension and test summaries, you can run the AI version with your LLM provider credentials:
-
-```bash
-mod run prethink-demo --recipe io.moderne.prethink.UpdatePrethinkContextStarter \
-  -P provider=openai \
-  -P apiKey=sk-...
-```
-
-In either case, the recipe will:
+The recipe will:
 
 * Discover service endpoints, database connections, external service calls, and messaging patterns
 * Map test methods to implementation methods

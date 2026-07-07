@@ -129,13 +129,13 @@ If you'd rather have the entire catalog available, run `mod config recipes moder
 
 #### Step 2: Confirm the recipes are installed
 
-Search for one of the Prethink recipes to confirm it resolved:
+Search for the Prethink recipe to confirm it resolved:
 
 ```bash
 mod config recipes search UpdatePrethinkContext
 ```
 
-The CLI walks through each matching recipe interactively and asks whether to set it as the active recipe. You should see at least the `io.moderne.prethink.UpdatePrethinkContextNoAiStarter` and `io.moderne.prethink.UpdatePrethinkContextStarter` recipes show up. Press `n` (or just `Enter`) at each prompt to skip — you'll select recipes explicitly with `--recipe` later.
+The CLI walks through each matching recipe interactively and asks whether to set it as the active recipe. You should see at least the `io.moderne.prethink.UpdatePrethinkContextNoAiStarter` recipe show up. Press `n` (or just `Enter`) at each prompt to skip — you'll select recipes explicitly with `--recipe` later.
 
 ### Takeaways
 
