@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"GitHub Actions best practices"}
-  description={"Applies best practices to GitHub Actions workflows, including enabling dependency caching, using cached distributions, finding missing timeouts, removing unused inputs, and preferring block-style job dependencies."}
+  description={"Applies best practices to GitHub Actions workflows, including enabling dependency caching, using cached distributions, finding missing timeouts, removing unused inputs, preferring block-style job dependencies, and upgrading official actions to their latest versions."}
   fqName={"org.openrewrite.github.GitHubActionsBestPractices"}
   languages={["OpenRewrite"]}
   license={"Moderne Source Available License"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>GitHub Actions best practices</RecipeHeader.Title>
 
-<RecipeHeader.Description>Applies best practices to GitHub Actions workflows, including enabling dependency caching, using cached distributions, finding missing timeouts, removing unused inputs, and preferring block-style job dependencies.</RecipeHeader.Description>
+<RecipeHeader.Description>Applies best practices to GitHub Actions workflows, including enabling dependency caching, using cached distributions, finding missing timeouts, removing unused inputs, preferring block-style job dependencies, and upgrading official actions to their latest versions.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Find jobs missing timeout","href":"/user-documentation/recipes/recipe-catalog/github/findmissingtimeout/"},{"name":"Prefer block style for job dependencies","href":"/user-documentation/recipes/recipe-catalog/github/preferblockstylejobdependencies/"},{"name":"Use `actions/setup-java` `temurin` distribution as they are cached in hosted runners","href":"/user-documentation/recipes/recipe-catalog/github/prefertemurindistributions/"},{"name":"Remove unused workflow dispatch inputs","href":"/user-documentation/recipes/recipe-catalog/github/removeunusedworkflowdispatchinputs/"},{"name":"Setup Java dependency caching","href":"/user-documentation/recipes/recipe-catalog/github/setupjavacaching/"}]}>
+<RecipeList recipes={[{"name":"Find jobs missing timeout","href":"/user-documentation/recipes/recipe-catalog/github/findmissingtimeout/"},{"name":"Prefer block style for job dependencies","href":"/user-documentation/recipes/recipe-catalog/github/preferblockstylejobdependencies/"},{"name":"Use `actions/setup-java` `temurin` distribution as they are cached in hosted runners","href":"/user-documentation/recipes/recipe-catalog/github/prefertemurindistributions/"},{"name":"Remove unused workflow dispatch inputs","href":"/user-documentation/recipes/recipe-catalog/github/removeunusedworkflowdispatchinputs/"},{"name":"Setup Java dependency caching","href":"/user-documentation/recipes/recipe-catalog/github/setupjavacaching/"},{"name":"Upgrade official GitHub Actions to their latest versions","href":"/user-documentation/recipes/recipe-catalog/github/upgradeofficialgithubactions/"}]}>
 
 ## Definition
 

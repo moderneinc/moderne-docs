@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.cleanup.DefaultMutableArg"}
-  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  artifact={"openrewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.DefaultMutableArg"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/defaultmutablearg.md"}
   moderneOnly

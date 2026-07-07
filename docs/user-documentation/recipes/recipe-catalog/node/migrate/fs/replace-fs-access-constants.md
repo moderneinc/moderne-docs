@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={["DEP0176"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.node.migrate.fs.replace-fs-access-constants"}
-  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  artifact={"@openrewrite/recipes-nodejs"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.fs.replace-fs-access-constants"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-fs-access-constants.md"}
   moderneOnly

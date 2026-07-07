@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find weak cryptographic algorithms"}
-  description={"Finds uses of broken or risky cryptographic algorithms such as MD5, SHA-1, DES, DESede (3DES), RC2, RC4, and Blowfish in calls to `Cipher.getInstance()`, `MessageDigest.getInstance()`, `Mac.getInstance()`, `KeyGenerator.getInstance()`, and `SecretKeyFactory.getInstance()`."}
+  description={"Finds uses of broken or risky cryptographic algorithms such as MD5, SHA-1, DES, DESede (3DES), RC2, RC4, and Blowfish in calls to `Cipher.getInstance()`, `MessageDigest.getInstance()`, `Mac.getInstance()`, `KeyGenerator.getInstance()`, and `SecretKeyFactory.getInstance()`. Also flags instantiation of `javax.crypto.NullCipher`, which performs no encryption."}
   fqName={"org.openrewrite.java.security.search.FindWeakCryptoAlgorithm"}
   languages={["Java"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Java"]}
-  tags={["CWE-327","CWE-328"]}
+  tags={["CWE-327","CWE-328","RSPEC-S5547"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.java.security.search.FindWeakCryptoAlgorithm"}
   artifact={"org.openrewrite.recipe:rewrite-java-security"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find weak cryptographic algorithms</RecipeHeader.Title>
 
-<RecipeHeader.Description>Finds uses of broken or risky cryptographic algorithms such as MD5, SHA-1, DES, DESede (3DES), RC2, RC4, and Blowfish in calls to `Cipher.getInstance()`, `MessageDigest.getInstance()`, `Mac.getInstance()`, `KeyGenerator.getInstance()`, and `SecretKeyFactory.getInstance()`.</RecipeHeader.Description>
+<RecipeHeader.Description>Finds uses of broken or risky cryptographic algorithms such as MD5, SHA-1, DES, DESede (3DES), RC2, RC4, and Blowfish in calls to `Cipher.getInstance()`, `MessageDigest.getInstance()`, `Mac.getInstance()`, `KeyGenerator.getInstance()`, and `SecretKeyFactory.getInstance()`. Also flags instantiation of `javax.crypto.NullCipher`, which performs no encryption.</RecipeHeader.Description>
 
 </RecipeHeader>
 

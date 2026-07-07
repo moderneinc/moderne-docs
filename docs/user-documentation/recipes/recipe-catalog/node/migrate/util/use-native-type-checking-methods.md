@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={["DEP0052","DEP0053","DEP0054","DEP0044","DEP0055","DEP0050","DEP0051","DEP0049","DEP0045","DEP0056","DEP0046","DEP0057","DEP0047","DEP0058","DEP0048"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.node.migrate.util.use-native-type-checking-methods"}
-  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  artifact={"@openrewrite/recipes-nodejs"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.util.use-native-type-checking-methods"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/util/use-native-type-checking-methods.md"}
   moderneOnly

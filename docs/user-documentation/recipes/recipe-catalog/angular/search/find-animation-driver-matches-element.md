@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.angular.search.find-animation-driver-matches-element"}
-  artifact={"io.moderne.recipe:rewrite-angular"}
+  artifact={"@openrewrite/recipes-angular"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.angular.search.find-animation-driver-matches-element"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/angular/search/find-animation-driver-matches-element.md"}
   moderneOnly

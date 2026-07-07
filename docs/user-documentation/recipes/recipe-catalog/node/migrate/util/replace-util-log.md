@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={["DEP0059"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.node.migrate.util.replace-util-log"}
-  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  artifact={"@openrewrite/recipes-nodejs"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.util.replace-util-log"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-util-log.md"}
   moderneOnly

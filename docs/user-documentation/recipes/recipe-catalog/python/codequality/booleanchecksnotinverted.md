@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={["python","code-quality","RSPEC-S1940"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.codequality.BooleanChecksNotInverted"}
-  artifact={"org.openrewrite.recipe:rewrite-migrate-python"}
+  artifact={"openrewrite-migrate-python"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.codequality.BooleanChecksNotInverted"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/codequality/booleanchecksnotinverted.md"}
   moderneOnly
@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.python.codequality.BooleanChecksNotInverted","displayName":"Boolean checks should not be inverted","pipPackage":"openrewrite-migrate-python"}}>
+<UsageList usage={{"recipeName":"org.openrewrite.python.codequality.BooleanChecksNotInverted","displayName":"Boolean checks should not be inverted","pipPackage":"openrewrite-migrate-python","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON"}}>
 
 ## Usage
 

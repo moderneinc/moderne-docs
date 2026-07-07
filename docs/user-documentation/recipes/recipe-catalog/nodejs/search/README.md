@@ -23,6 +23,5 @@ _Recipes that include further recipes, often including the individual recipes be
 ## Recipes
 
 * [Find Node.js projects](./findnodeprojects.md)
-* [Node.js dependency insight](./dependencyinsight.md)
 
 

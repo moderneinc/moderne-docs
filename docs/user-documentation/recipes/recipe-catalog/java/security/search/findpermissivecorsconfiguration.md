@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Java"]}
-  tags={["CWE-942"]}
+  tags={["CWE-942","RSPEC-S5122"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.java.security.search.FindPermissiveCorsConfiguration"}
   artifact={"org.openrewrite.recipe:rewrite-java-security"}

@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={["csharp","code-quality"]}
   license={"Moderne Proprietary License"}
   fqName={"OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UseRegexIsMatch"}
-  artifact={"io.moderne.recipe:recipes-code-quality"}
+  artifact={"OpenRewrite.Recipes.CSharp.CodeQuality"}
   appLink={"https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.UseRegexIsMatch"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/csharp/recipes/csharp/codequality/performance/useregexismatch.md"}
   moderneOnly

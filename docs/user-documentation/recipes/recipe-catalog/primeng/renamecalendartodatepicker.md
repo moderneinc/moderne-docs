@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.primeng.RenameCalendarToDatePicker"}
-  artifact={"io.moderne.recipe:rewrite-angular"}
+  artifact={"@openrewrite/recipes-angular"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.primeng.RenameCalendarToDatePicker"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/primeng/renamecalendartodatepicker.md"}
   moderneOnly

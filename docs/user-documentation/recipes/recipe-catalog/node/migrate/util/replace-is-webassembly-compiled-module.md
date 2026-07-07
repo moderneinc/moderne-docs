@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={["DEP0177"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.node.migrate.util.replace-is-webassembly-compiled-module"}
-  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  artifact={"@openrewrite/recipes-nodejs"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.util.replace-is-webassembly-compiled-module"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/util/replace-is-webassembly-compiled-module.md"}
   moderneOnly

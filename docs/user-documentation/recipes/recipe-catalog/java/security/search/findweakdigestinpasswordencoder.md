@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Java"]}
-  tags={["security","CWE-327","CWE-916"]}
+  tags={["security","CWE-327","CWE-916","RSPEC-S5344"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.java.security.search.FindWeakDigestInPasswordEncoder"}
   artifact={"org.openrewrite.recipe:rewrite-java-security"}

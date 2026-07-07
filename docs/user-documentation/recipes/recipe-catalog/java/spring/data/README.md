@@ -16,6 +16,7 @@ _Recipes that include further recipes, often including the individual recipes be
 
 ## Recipes
 
+* [Add `@ProjectedPayload` to web projection interfaces](./addprojectedpayloadannotation.md)
 * [Add `CrudRepository` to interfaces extending `PagingAndSortingRepository`](./migratepagingandsortingrepository.md)
 * [Convert `JdbcTemplate.queryForLong(..)` to `queryForObject(..)`](./jdbctemplatequeryforlongmigration.md)
 * [Make AuditorAware.getCurrentAuditor return `Optional`](./migrateauditorawaretooptional.md)

@@ -10,6 +10,8 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Change numeric field types for Elasticsearch 9](./changeapinumericfieldtypes.md)
 * [Migrate from Elasticsearch 8 to 9](./migratetoelasticsearch9.md)
+* [Migrate from Elasticsearch 8 to 9 (API renames, transport-agnostic)](./migratetoelasticsearch9core.md)
+* [Migrate from Elasticsearch 8 to 9 (legacy Apache HttpClient 4.x transport)](./migratetoelasticsearch9legacytransport.md)
 * [Rename API fields for Elasticsearch 9](./renameapifields.md)
 
 ## Recipes

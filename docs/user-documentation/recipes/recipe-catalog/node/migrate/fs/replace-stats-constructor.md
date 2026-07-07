@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={["DEP0180"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.node.migrate.fs.replace-stats-constructor"}
-  artifact={"org.openrewrite.recipe:rewrite-nodejs"}
+  artifact={"@openrewrite/recipes-nodejs"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.node.migrate.fs.replace-stats-constructor"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/node/migrate/fs/replace-stats-constructor.md"}
   moderneOnly

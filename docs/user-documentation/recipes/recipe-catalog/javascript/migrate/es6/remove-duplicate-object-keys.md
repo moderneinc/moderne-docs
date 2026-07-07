@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.javascript.migrate.es6.remove-duplicate-object-keys"}
-  artifact={"org.openrewrite:rewrite-javascript"}
+  artifact={"@openrewrite/rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.migrate.es6.remove-duplicate-object-keys"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/migrate/es6/remove-duplicate-object-keys.md"}
   moderneOnly

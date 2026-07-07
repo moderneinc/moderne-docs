@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Java"]}
-  tags={["CWE-1004"]}
+  tags={["CWE-1004","RSPEC-S3330"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.java.security.servlet.CookieSetHttpOnly"}
   artifact={"org.openrewrite.recipe:rewrite-java-security"}

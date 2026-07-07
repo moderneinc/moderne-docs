@@ -1,14 +1,14 @@
 ---
-title: "Migrate trailing slash matching to explicit routes"
-sidebar_label: "Migrate trailing slash matching to explicit routes"
+title: "Register a `UrlHandlerFilter` to preserve trailing slash matching"
+sidebar_label: "Register a `UrlHandlerFilter` to preserve trailing slash matching"
 hide_title: true
 ---
 
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Migrate trailing slash matching to explicit routes"}
-  description={"Migrates deprecated `setUseTrailingSlashMatch()` configuration removed in Spring Framework 7.0. Only adds explicit trailing slash routes when the project previously enabled trailing slash matching via `setUseTrailingSlashMatch(true)`. The deprecated configuration calls are always removed."}
+  displayName={"Register a `UrlHandlerFilter` to preserve trailing slash matching"}
+  description={"Spring Framework 7.0 removes `PathMatchConfigurer.setUseTrailingSlashMatch(true)`. When trailing slash matching was enabled, this recipe registers a `UrlHandlerFilter` bean (Spring Framework 6.2+/Boot 4) that transparently handles trailing slashes, preserving behavior regardless of how routes are declared. The filter is ordered ahead of the security filter chain (per its javadoc): the servlet variant via a `FilterRegistrationBean`, the reactive variant as an `@Order`ed `WebFilter` bean. A literal `false` argument enables nothing, so no filter is registered."}
   fqName={"io.moderne.java.spring.framework.MigrateTrailingSlashMatch"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -26,19 +26,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   moderneOnly
 >
 
-<RecipeHeader.Title>Migrate trailing slash matching to explicit routes</RecipeHeader.Title>
+<RecipeHeader.Title>Register a `UrlHandlerFilter` to preserve trailing slash matching</RecipeHeader.Title>
 
-<RecipeHeader.Description>Migrates deprecated `setUseTrailingSlashMatch()` configuration removed in Spring Framework 7.0. Only adds explicit trailing slash routes when the project previously enabled trailing slash matching via `setUseTrailingSlashMatch(true)`. The deprecated configuration calls are always removed.</RecipeHeader.Description>
+<RecipeHeader.Description>Spring Framework 7.0 removes `PathMatchConfigurer.setUseTrailingSlashMatch(true)`. When trailing slash matching was enabled, this recipe registers a `UrlHandlerFilter` bean (Spring Framework 6.2+/Boot 4) that transparently handles trailing slashes, preserving behavior regardless of how routes are declared. The filter is ordered ahead of the security filter chain (per its javadoc): the servlet variant via a `FilterRegistrationBean`, the reactive variant as an `@Order`ed `WebFilter` bean. A literal `false` argument enables nothing, so no filter is registered.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<ExampleList examples={[{"unchanged":{"language":"java","code":"import org.springframework.context.annotation.Configuration;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n    @Override\n    public void configurePathMatch(PathMatchConfigurer configurer) {\n        configurer.setUseTrailingSlashMatch(true);\n    }\n}\n"},"variants":[{"language":"java","before":"import org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\npublic class TestController {\n    @GetMapping(\"/api/hello\")\n    public String hello() {\n        return \"hello\";\n    }\n}\n","after":"import org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\npublic class TestController {\n    @GetMapping({\"/api/hello\", \"/api/hello/\"})\n    public String hello() {\n        return \"hello\";\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\n@RestController\npublic class TestController {\n-   @GetMapping(\"/api/hello\")\n+   @GetMapping({\"/api/hello\", \"/api/hello/\"})\n    public String hello() {\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.context.annotation.Configuration;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n    @Override\n    public void configurePathMatch(PathMatchConfigurer configurer) {\n        configurer.setUseTrailingSlashMatch(true);\n    }\n}\n","after":"import org.springframework.boot.web.servlet.FilterRegistrationBean;\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.core.Ordered;\nimport org.springframework.web.filter.UrlHandlerFilter;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\nimport org.springframework.web.servlet.config.annotation.WebMvcConfigurer;\n\n@Configuration\npublic class MyWebConfiguration implements WebMvcConfigurer {\n    @Override\n    public void configurePathMatch(PathMatchConfigurer configurer) {\n        configurer.setUseTrailingSlashMatch(true);\n    }\n\n    @Bean\n    FilterRegistrationBean<UrlHandlerFilter> urlHandlerFilterRegistration() {\n        // Preserve trailing-slash matching removed in Spring Framework 7.0 (replaces the deprecated\n        // PathMatchConfigurer.setUseTrailingSlashMatch(true)). Ordered ahead of the security filter\n        // chain so routing and security resolve the same path.\n        FilterRegistrationBean<UrlHandlerFilter> registration = new FilterRegistrationBean<>(\n                UrlHandlerFilter.trailingSlashHandler(\"/**\").wrapRequest().build());\n        registration.setOrder(Ordered.HIGHEST_PRECEDENCE);\n        return registration;\n    }\n}\n","diff":"@@ -1,0 +1,2 @@\n+import org.springframework.boot.web.servlet.FilterRegistrationBean;\n+import org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\n@@ -2,0 +4,2 @@\nimport org.springframework.context.annotation.Configuration;\n+import org.springframework.core.Ordered;\n+import org.springframework.web.filter.UrlHandlerFilter;\nimport org.springframework.web.servlet.config.annotation.PathMatchConfigurer;\n@@ -11,0 +15,11 @@\n        configurer.setUseTrailingSlashMatch(true);\n    }\n+\n+   @Bean\n+   FilterRegistrationBean<UrlHandlerFilter> urlHandlerFilterRegistration() {\n+       // Preserve trailing-slash matching removed in Spring Framework 7.0 (replaces the deprecated\n+       // PathMatchConfigurer.setUseTrailingSlashMatch(true)). Ordered ahead of the security filter\n+       // chain so routing and security resolve the same path.\n+       FilterRegistrationBean<UrlHandlerFilter> registration = new FilterRegistrationBean<>(\n+               UrlHandlerFilter.trailingSlashHandler(\"/**\").wrapRequest().build());\n+       registration.setOrder(Ordered.HIGHEST_PRECEDENCE);\n+       return registration;\n+   }\n}\n","newFile":false}]}]}>
 
 ## Examples
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"io.moderne.java.spring.framework.MigrateTrailingSlashMatch","displayName":"Migrate trailing slash matching to explicit routes","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"io.moderne.java.spring.framework.MigrateTrailingSlashMatch","displayName":"Register a `UrlHandlerFilter` to preserve trailing slash matching","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage
 

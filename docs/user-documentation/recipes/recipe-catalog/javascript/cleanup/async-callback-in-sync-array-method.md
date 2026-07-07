@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={["async","bug","cleanup","typescript","javascript"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method"}
-  artifact={"org.openrewrite:rewrite-javascript"}
+  artifact={"@openrewrite/rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.cleanup.async-callback-in-sync-array-method"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/cleanup/async-callback-in-sync-array-method.md"}
   moderneOnly

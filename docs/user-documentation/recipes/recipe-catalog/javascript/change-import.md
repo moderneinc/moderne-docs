@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.javascript.change-import"}
-  artifact={"org.openrewrite:rewrite-javascript"}
+  artifact={"@openrewrite/rewrite"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.change-import"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/change-import.md"}
   moderneOnly

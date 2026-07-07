@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Migrate to Jakarta EE 10","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee10/"},{"name":"Jakarta Faces 4.0 to 4.1","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces4xmigrationtofaces41x/"},{"name":"Update Jakarta EE Platform Dependencies to 11.0.x","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaplatform11/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
+<RecipeList recipes={[{"name":"Migrate to Jakarta EE 10","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/jakartaee10/"},{"name":"Jakarta Faces 4.0 to 4.1","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/faces4xmigrationtofaces41x/"},{"name":"Update Jakarta EE Platform Dependencies to 11.0.x","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/updatejakartaplatform11/"},{"name":"Update Plugins for Jakarta EE 11","href":"/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta11/"}]} preconditions={[{"name":"Singleton","href":"/user-documentation/recipes/recipe-catalog/core/singleton/"}]}>
 
 ## Definition
 

@@ -16,12 +16,9 @@ _Recipes that include further recipes, often including the individual recipes be
 
 * [Update Prethink context](./updateprethinkcontext.md)
 * [Update Prethink context (no AI)](./updateprethinkcontextnoaistarter.md)
-* [Update Prethink context (with AI)](./updateprethinkcontextstarter.md)
 
 ## Recipes
 
-* [Comprehend code with AI](./comprehendcode.md)
-* [Estimate comprehension token usage](./comprehendcodetokencounter.md)
 * [Export context files](./exportcontext.md)
 * [Extract Go dependencies and usage](./extractgodependencies.md)
 * [Extract coding conventions](./extractcodingconventions.md)

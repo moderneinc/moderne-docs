@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Java"]}
-  tags={["CWE-338"]}
+  tags={["CWE-338","RSPEC-S2245"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.java.security.FixCwe338"}
   artifact={"org.openrewrite.recipe:rewrite-java-security"}

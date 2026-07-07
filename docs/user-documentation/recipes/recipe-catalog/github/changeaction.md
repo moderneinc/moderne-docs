@@ -37,19 +37,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"oldAction","required":true,"description":"Name of the action to match.","example":"gradle/wrapper-validation-action"},{"type":"String","name":"newAction","required":true,"description":"Name of the action to use instead.","example":"gradle/actions/wrapper-validation"},{"type":"String","name":"newVersion","required":true,"description":"New version to use.","example":"v3"}]}>
+<OptionsTable options={[{"type":"String","name":"oldAction","required":true,"description":"Name of the action to match.","example":"gradle/wrapper-validation-action"},{"type":"String","name":"oldSha","required":false,"description":"Restricts the change by the existing `uses:` ref. When omitted, the action is changed regardless of how it is pinned (the default; commit SHA pins are rewritten). When set to an empty string, only references that are **not** pinned to a 40-character commit SHA are changed, leaving deliberate SHA pins on the original action untouched. When set to a specific commit SHA, only references pinned to exactly that SHA are changed.","example":"8f4b7f84864484a7bf31766abe9204da3cbe65b3"},{"type":"String","name":"newAction","required":true,"description":"Name of the action to use instead.","example":"gradle/actions/wrapper-validation"},{"type":"String","name":"newVersion","required":true,"description":"New version to use.","example":"v3"}]}>
 
 ## Options
 
 </OptionsTable>
 
-<ExampleList examples={[{"parameters":[{"parameter":"oldAction","value":"gradle/wrapper-validation-action"},{"parameter":"newAction","value":"gradle/actions/wrapper-validation"},{"parameter":"newVersion","value":"v3"}],"variants":[{"language":"yaml","before":"jobs:\n  deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n      - name: Validate wrapper\n        uses: gradle/wrapper-validation-action@v2\n","after":"jobs:\n  deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n      - name: Validate wrapper\n        uses: gradle/actions/wrapper-validation@v3\n","diff":"--- .github/workflows/ci.yml\n+++ .github/workflows/ci.yml\n@@ -8,1 +8,1 @@\n        uses: actions/checkout@v4\n      - name: Validate wrapper\n-       uses: gradle/wrapper-validation-action@v2\n+       uses: gradle/actions/wrapper-validation@v3\n\n","newFile":false}]}]}>
+<ExampleList examples={[{"parameters":[{"parameter":"oldAction","value":"gradle/wrapper-validation-action"},{"parameter":"oldSha","value":"gradle/actions/wrapper-validation"},{"parameter":"newAction","value":"v3"}],"variants":[{"language":"yaml","before":"jobs:\n  deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n      - name: Validate wrapper\n        uses: gradle/wrapper-validation-action@v2\n","after":"jobs:\n  deploy:\n    runs-on: ubuntu-latest\n    steps:\n      - name: Checkout\n        uses: actions/checkout@v4\n      - name: Validate wrapper\n        uses: gradle/actions/wrapper-validation@v3\n","diff":"--- .github/workflows/ci.yml\n+++ .github/workflows/ci.yml\n@@ -8,1 +8,1 @@\n        uses: actions/checkout@v4\n      - name: Validate wrapper\n-       uses: gradle/wrapper-validation-action@v2\n+       uses: gradle/actions/wrapper-validation@v3\n\n","newFile":false}]}]}>
 
 ## Examples
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.github.ChangeAction","displayName":"Change GitHub Action","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldAction=gradle/wrapper-validation-action\" --recipe-option \"newAction=gradle/actions/wrapper-validation\" --recipe-option \"newVersion=v3\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.github.ChangeAction","displayName":"Change GitHub Action","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":true,"cliOptions":" --recipe-option \"oldAction=gradle/wrapper-validation-action\" --recipe-option \"oldSha=8f4b7f84864484a7bf31766abe9204da3cbe65b3\" --recipe-option \"newAction=gradle/actions/wrapper-validation\" --recipe-option \"newVersion=v3\""}}>
 
 ## Usage
 

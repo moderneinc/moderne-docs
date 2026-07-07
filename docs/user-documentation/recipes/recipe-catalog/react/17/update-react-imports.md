@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.react.17.update-react-imports"}
-  artifact={"io.moderne.recipe:rewrite-react"}
+  artifact={"@openrewrite/recipes-react"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.react.17.update-react-imports"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/react/17/update-react-imports.md"}
   moderneOnly

@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={["python","cleanup","naming","pep8"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.cleanup.InstanceMethodFirstArgName"}
-  artifact={"org.openrewrite.recipe:rewrite-static-analysis-python"}
+  artifact={"openrewrite-static-analysis"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.cleanup.InstanceMethodFirstArgName"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/cleanup/instancemethodfirstargname.md"}
   moderneOnly

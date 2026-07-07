@@ -654,36 +654,208 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ### rewrite-nullability
 
-#### [io.moderne.nullability.search.NullAwayReadinessReport](/user-documentation/recipes/recipe-catalog/nullability/search/nullawayreadinessreport.md)
-  * **NullAway readiness scorecard**
-  * Produces a per-class readiness scorecard for a NullAway rollout as a data table, without modifying any source. For every Java class (top-level and nested) it counts the methods, fields, and parameters that already carry a `@Nullable` annotation, the instance fields that are non-null but uninitialized (the residual field-initialization risk NullAway flags once a scope is marked), and whether the class or its enclosing `package-info` is already `@NullMarked`. A consumer can use these numbers to compute annotation coverage and weigh it against field-init risk, then prioritize which packages or modules to mark `@NullMarked` first. This is a triage report, not a transformation: the recipe emits no source changes.
+#### [io.moderne.nullability.AddMonotonicNonNullToUninitializedField](/user-documentation/recipes/recipe-catalog/nullability/addmonotonicnonnulltouninitializedfield.md)
+  * **Add `@MonotonicNonNull` to an uninitialized field**
+  * Adds the Checker Framework `@MonotonicNonNull` to a non-primitive, non-`final` reference field inside a `@NullMarked` scope that has no nullability annotation, no initializer, no dependency-injection annotation, and is not definitely assigned by the end of construction (or is read before assignment) — the condition for NullAway's &quot;@NonNull field not initialized&quot; error. A field that is also assigned a literal `null` is genuinely nullable and gets JSpecify `@Nullable` instead. Java sources only; idempotent; only annotations are added.
 
 ##### Data tables:
 
-  * **io.moderne.nullability.search.NullAwayReadinessReport$ReadinessReport**: *A per-class scorecard of `@Nullable`/`@NullMarked` coverage and uninitialized non-null field risk, used to prioritize the order in which packages are marked `@NullMarked`.*
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.AddNullableToNullAssignedField](/user-documentation/recipes/recipe-catalog/nullability/addnullabletonullassignedfield.md)
+  * **Add `@Nullable` to a field assigned a nullable value**
+  * Adds a JSpecify `@Nullable` to a `@NonNull` reference field that is assigned a provably-nullable value, which would otherwise trigger NullAway's &quot;assigning @Nullable expression to @NonNull field&quot; error inside a `@NullMarked` scope. A value is provably nullable when it is the `null` literal, a call to a nullable-returning method, or a reference to a `@Nullable` variable or field. Only fires where NullAway is active; idempotent, and leaves a field unchanged when it cannot be resolved. Java sources only.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.AddNullableToNullReturningMethod](/user-documentation/recipes/recipe-catalog/nullability/addnullabletonullreturningmethod.md)
+  * **Add `@Nullable` to a method that can return null**
+  * Adds JSpecify `@Nullable` to a method or lambda whose effective return type is non-null but that returns a provably-nullable value, a NullAway error inside a `@NullMarked` scope. A regular method has its return type widened to JSpecify `@Nullable` in the type-use position; when the non-null return contract cannot be widened (an override of a non-null supertype return, or a lambda whose functional-interface return is non-null) the returned expression is wrapped in `java.util.Objects.requireNonNull(...)` instead, leaving runtime behavior unchanged. Nullability is determined from type attribution, and an unconditional `return null` is left for a human. The recipe is idempotent and conservative; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.AddNullnessContractToValidationHelper](/user-documentation/recipes/recipe-catalog/nullability/addnullnesscontracttovalidationhelper.md)
+  * **Add a `@Contract` nullness contract to a validation helper**
+  * Adds an `org.jetbrains.annotations.@Contract` annotation to a single-`@Nullable`-parameter helper method whose body provably encodes a nullness contract, so the checker can narrow at every call site without any runtime assertion. Three canonical body shapes are recognized: a `boolean`-returning method whose body is `return arg != null &amp;&amp; ...;` (the argument's non-nullity is a required conjunct) becomes `@Contract(&quot;null -&gt; false&quot;)`; a method that unconditionally throws — or delegates to `requireNonNull` / `checkNotNull` — when the argument is `null` becomes `@Contract(&quot;null -&gt; fail&quot;)`; and an identity pass-through that returns the argument unchanged becomes `@Contract(&quot;null -&gt; null&quot;)`. Only methods with exactly one parameter, a simple recognizable body, and no existing `@Contract` are annotated. The edit is annotation-only and behavior-preserving — runtime semantics are unchanged. Idempotent and conservative; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.AlignOverrideNullabilityWithSupertype](/user-documentation/recipes/recipe-catalog/nullability/alignoverridenullabilitywithsupertype.md)
+  * **Align override nullability with the supertype**
+  * Aligns a method or lambda parameter whose declared nullability is inconsistent with the supertype member it overrides, a contract violation under [NullAway](https://github.com/uber/NullAway). An override that restricts a `@Nullable` supertype parameter to non-null has JSpecify `@Nullable` added to that parameter (parameters are contravariant); an override that widens a non-null supertype return to `@Nullable` has the erroneous `@Nullable` removed from its return type and its `@Nullable` returns wrapped in `java.util.Objects.requireNonNull(...)` (return types are covariant), which leaves runtime behavior unchanged. Conservative: a supertype's annotations are trusted only when the supertype is itself in an annotated scope, a `return null` and a null-guarded return are never wrapped, and nothing is changed when a participating type cannot be resolved. Idempotent; Java sources only.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.CollapseOptionalPresentGuardToGet](/user-documentation/recipes/recipe-catalog/nullability/collapseoptionalpresentguardtoget.md)
+  * **Route a guarded raw accessor through its present `Optional`**
+  * Inside the then-branch of an `if (xOpt().isPresent()) \{ ... \}` guard, rewrites a sibling raw nullable accessor `getX()` to `xOpt().get()`, so the checker flows non-null through the `Optional` instead of needing a `requireNonNull`. NullAway flags the bare `getX()` dereference because the accessor is `@Nullable`, but the enclosing `isPresent()` guard already proves the corresponding `Optional` is present; reading through `xOpt().get()` re-expresses the same value via the guarded, provably-present `Optional`. The rewrite is gated for correctness over coverage: the guard must be exactly `&lt;recv&gt;.isPresent()` on a no-argument, side-effect-free `Optional` accessor; the rewritten `getX()` must be the matching no-argument raw accessor (same enclosing receiver, and `&lt;recv&gt;` named `getX` plus an `Optional` suffix) that is provably `@Nullable` here; and the use must be lexically inside the then-block so the guard dominates it. Because the `Optional` is proven present in the guarded branch, `.get()` cannot throw where the raw accessor did not, so runtime behavior is unchanged. Idempotent and conservative; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.ExtractRepeatedNullableInvocationToLocal](/user-documentation/recipes/recipe-catalog/nullability/extractrepeatednullableinvocationtolocal.md)
+  * **Extract a repeated `@Nullable` invocation into a local variable**
+  * When the same side-effect-free `@Nullable` method invocation (textually identical receiver, name, and no arguments — e.g. `source.get()`) appears two or more times in one block, hoists it into a single local `@Nullable Type x = source.get();` declared just before the first use and replaces every occurrence with `x`. NullAway cannot refine a `@Nullable` return across two separate calls — the second could return a different value — so `if (source.get() != null) \{ source.get().foo(); \}` is rejected; one local gives the checker a single narrowing point. The rewrite is strictly gated: the call must be provably `@Nullable` (resolved from the nullability model), side-effect free (only a no-argument getter-style call whose receiver is a simple identifier or `this`, never an argument-bearing or unresolved-type call), all occurrences must be in the same block, and the receiver must not be reassigned anywhere in that block (which could change the value between calls). A pure call evaluated once rather than N times yields the same value, so runtime behavior is unchanged. Idempotent and conservative; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.NullSafety](/user-documentation/recipes/recipe-catalog/nullability/nullsafety.md)
+  * **Make a codebase null-safe**
+  * Make Java code null-safe end to end. Infers and adds JSpecify `@Nullable`/`@MonotonicNonNull` from the code's own signals (returns, parameters, fields, override hierarchies, Kotlin call sites, and the JSpecify generic frontier), then detects and repairs the residual nullability violations — dereferences, unboxing, `switch`, enhanced-`for`, passing a nullable argument, nullable returns, uninitialized non-null fields, and override consistency — directly from the LST. Behavior-preserving and idempotent; run to a fixpoint over recipe cycles. If the code still uses non-JSpecify annotation flavors, run `org.openrewrite.java.jspecify.MigrateToJSpecify` first.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.RelaxOptionalOfToOfNullable](/user-documentation/recipes/recipe-catalog/nullability/relaxoptionaloftoofnullable.md)
+  * **Relax `Optional.of` to `Optional.ofNullable` on nullable values**
+  * Rewrites `Optional.of(x)` to `Optional.ofNullable(x)` where the argument `x` is provably `@Nullable` at the call site. `Optional.of(null)` throws `NullPointerException`, while `Optional.ofNullable(null)` yields `Optional.empty()`, so the two factories diverge on the `null` path: this rewrite **changes observable runtime behavior** (an NPE becomes an empty optional) and therefore marks every call it changes for human review. The call is matched on `java.util.Optional of(..)`; the argument's nullness is resolved from the nullness oracle and the path-sensitive flow engine (no name-based heuristics), so a value already null-checked on the path is not flagged. A non-null literal argument, or one already protected by a non-null assertion (`requireNonNull` / `castToNonNull` / …), is left untouched, keeping the recipe idempotent. Gated on the call site being in an annotated scope; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.RemoveProvablyDeadNullGuard](/user-documentation/recipes/recipe-catalog/nullability/removeprovablydeadnullguard.md)
+  * **Remove a provably-dead `if (x == null)` guard**
+  * Removes an `if (x == null) \{ ... \}` guard whose then-branch the flow engine proves unreachable because `x` is already non-null at that point (e.g. after an earlier assertion, guard, or assignment). Such a guard is dead code: the `x == null` test can never be true, so its then-branch never executes and deleting it — while keeping any `else` body, the only live path — preserves behavior. To match the aggressiveness Airbnb endorses and no further, the removal fires only when the path-sensitive flow analysis decisively proves `x` non-null at the guard, and never on a parameter of a `public` method (the service-edge / untrusted-input validation point NullAway guidance explicitly excludes). The condition must be a bare `x == null` / `null == x` on a simple local or parameter; a compound condition, a field, or anything not flow-proven is left untouched. Behavior-preserving (it removes only unreachable code), idempotent, and conservative; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.RemoveRedundantNonNullAnnotation](/user-documentation/recipes/recipe-catalog/nullability/removeredundantnonnullannotation.md)
+  * **Remove a redundant `@NonNull` annotation under `@NullMarked`**
+  * Removes an explicit `@NonNull` / `@Nonnull` annotation that is redundant inside a `@NullMarked` scope, where non-null is already the default. In JSpecify-normalized code an unannotated declaration in an annotated scope is already non-null, so the annotation merely restates the default; removing it leaves the declared nullability — and therefore runtime behavior — unchanged. Conservative: it acts only on a declaration whose enclosing type is in the fix scope (`@NullMarked` / `AnnotatedPackages`), removing the annotation from either the leading (declaration) position or the TYPE_USE position; it never touches `@Nullable`, `@CheckForNull`, or `@MonotonicNonNull`. The annotation import is dropped when this was its last use. Annotation-only and idempotent; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.ReplaceNullableToStringWithStringValueOf](/user-documentation/recipes/recipe-catalog/nullability/replacenullabletostringwithstringvalueof.md)
+  * **Replace nullable `x.toString()` with `String.valueOf(x)`**
+  * Rewrites `x.toString()` to `String.valueOf(x)` when the receiver `x` is provably nullable at that site. `x.toString()` dereferences `x` and throws `NullPointerException` when `x` is `null`, which NullAway flags inside an annotated scope; `String.valueOf(x)` returns the string `&quot;null&quot;` instead. This is a behavior change on the null path (`NullPointerException` becomes the string `&quot;null&quot;`), so every rewritten call is marked for review — it is not behavior-preserving. Only the no-arg `toString()` whose receiver is a reference value is rewritten; a primitive receiver, a type or package qualifier, a `.class` literal, and `this`/`super` are never touched, and a receiver already asserted non-null is skipped. The receiver's nullness is resolved by attribution from the nullability model and a path-sensitive flow analysis (a value already null-checked on the path is not flagged). The fix never rewrites a call whose receiver is genuinely non-null at the site. Conservative; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.ReturnEmptyCollectionInsteadOfNull](/user-documentation/recipes/recipe-catalog/nullability/returnemptycollectioninsteadofnull.md)
+  * **Return an empty collection instead of `null`**
+  * Rewrites a bare `return null;` to return an empty immutable collection when the enclosing method's declared return type is `java.util.List`, `java.util.Set`, `java.util.Collection`, or `java.util.Map` (raw or generic): `List` and `Collection` become `Collections.emptyList()`, `Set` becomes `Collections.emptySet()`, and `Map` becomes `Collections.emptyMap()` (each statically imported). Returning an empty collection rather than `null` spares every caller a null check, but a caller that distinguishes `null` from empty observes a different result, so this is a behavior change and every rewritten `return` is flagged for review. Only the literal `return null;` statement is rewritten — a `return someNullableExpr;` is left untouched — and a method whose return is annotated `@Nullable` is skipped, since there the `null` is intended. The recipe is gated on `@NullMarked` scope, idempotent, and conservative; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.SafeNullableBooleanCondition](/user-documentation/recipes/recipe-catalog/nullability/safenullablebooleancondition.md)
+  * **Make a nullable `Boolean` condition null-safe with `Boolean.TRUE.equals(...)`**
+  * Rewrites a provably-nullable boxed `Boolean` used as a condition that auto-unboxes to `boolean` — the control expression of an `if`, `while`, or `do`/`while`, the condition of a `for`, or the condition of a ternary `?:` — to `Boolean.TRUE.equals(cond)`. Inside an annotated scope NullAway flags such an unboxing because it throws `NullPointerException` when the `Boolean` is `null`; the `Boolean.TRUE.equals(...)` form yields `false` on `null` instead. This is a behavior change on the null path (a thrown `NullPointerException` becomes `false`), so each rewritten condition is stamped with a behavior-change marker recording exactly that. The fix fires only when the condition's static type is the boxed `java.lang.Boolean` (a primitive `boolean` is never touched) and it is provably nullable at the site; nullability comes from type attribution and a path-sensitive flow analysis (a value already null-checked on the path is not rewritten). A condition already wrapped in `Boolean.TRUE.equals(...)` or `requireNonNull(...)` is left unchanged (idempotent). The recipe is conservative — a value not proven nullable is never rewritten; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.WrapNullableArgumentInRequireNonNull](/user-documentation/recipes/recipe-catalog/nullability/wrapnullableargumentinrequirenonnull.md)
+  * **Wrap nullable arguments passed to non-null parameters in `requireNonNull`**
+  * Wraps in `java.util.Objects.requireNonNull(...)` (statically imported) each argument that passes a provably-nullable value to a callee parameter that is not declared `@Nullable`. Inside a `@NullMarked` scope NullAway treats every unannotated parameter as non-null, so such a call is an error; `requireNonNull` throws only where the `@NonNull` callee would already misbehave on `null`, so runtime behavior is unchanged. Argument and parameter nullness are resolved from the nullness oracle and the flow engine (no name-based heuristics). The fix only fires where the call site is `@NullMarked` and the callee is itself in an annotated scope, and never asserts non-null on a value that is genuinely nullable at the site (a value read inside its own null-check is left for a human). A value that is explicitly `null` on some path (a bare `null` literal or a ternary with a `null` arm) is not wrapped but flagged for review with an advisory marker, since the parameter likely should be `@Nullable`. Idempotent and conservative; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.WrapNullableDereferenceInRequireNonNull](/user-documentation/recipes/recipe-catalog/nullability/wrapnullabledereferenceinrequirenonnull.md)
+  * **Wrap nullable dereferenced values in `requireNonNull`**
+  * Wraps in `java.util.Objects.requireNonNull(...)` (statically imported) a provably-nullable value that is being dereferenced — the receiver of a method call (`x.foo()`), the target of a field access (`x.field`, including `x.length`), the base of an array index (`x[i]`), the qualifier of a method reference (`x::foo`), the outer instance of a qualified `new`, or the lock of a `synchronized (x)`. Inside an annotated scope NullAway treats such a dereference as an error because it throws `NullPointerException` when the value is `null`; `requireNonNull` throws exactly when the dereference already would, so runtime behavior is unchanged. The value's nullness is resolved by attribution from the nullability model and a path-sensitive flow analysis (a value already null-checked on the path is not flagged). A `.class` literal, a type or package qualifier, a primitive, and a `throw` expression are never touched. The fix never asserts non-null on a value that is genuinely nullable at the site. Idempotent and conservative; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.WrapNullableForEachIterableInRequireNonNull](/user-documentation/recipes/recipe-catalog/nullability/wrapnullableforeachiterableinrequirenonnull.md)
+  * **Wrap a nullable for-each iterable in `requireNonNull`**
+  * Wraps the iterable of an enhanced-for (for-each) loop in `java.util.Objects.requireNonNull(...)` (statically imported) when it is a provably-nullable value. Inside an annotated scope NullAway treats the for-each iterable as non-null, so iterating a nullable expression is an error; iterating a `null` already throws `NullPointerException` when the loop obtains its iterator, so `requireNonNull` throws exactly where the loop already would and runtime behavior is unchanged. The iterable's nullness is resolved by attribution from the nullability model and a path-sensitive flow analysis. The fix never asserts non-null on a value that is genuinely nullable at the site. Idempotent and conservative; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.WrapNullableSwitchSelectorInRequireNonNull](/user-documentation/recipes/recipe-catalog/nullability/wrapnullableswitchselectorinrequirenonnull.md)
+  * **Wrap nullable `switch` selectors in `requireNonNull`**
+  * Wraps a provably-nullable `switch` selector in `java.util.Objects.requireNonNull(...)` (statically imported). Switching on a `null` selector already throws `NullPointerException` (the selector is dereferenced before any case matches), so inside an annotated scope NullAway flags a nullable selector as an error; `requireNonNull` throws only where the `switch` would already fail, so runtime behavior is unchanged. The selector's nullness is resolved by attribution from the nullability model and a path-sensitive flow analysis. A `switch` that already has a `case null` label is never touched. The fix never asserts non-null on a value that is genuinely nullable at the site. Idempotent and conservative; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.WrapNullableThrownExpressionInRequireNonNull](/user-documentation/recipes/recipe-catalog/nullability/wrapnullablethrownexpressioninrequirenonnull.md)
+  * **Wrap nullable thrown expressions in `requireNonNull`**
+  * Wraps a provably-nullable `throw` operand in `java.util.Objects.requireNonNull(...)` (statically imported), turning `throw ex;` into `throw requireNonNull(ex);`. A `throw` of a `null` `Throwable` itself throws `NullPointerException` (the JVM dereferences the operand to raise it), so inside an annotated scope NullAway flags a nullable thrown value as an error; `requireNonNull` throws exactly where the bare `throw` already would, so runtime behavior is unchanged. The operand's nullness is resolved by attribution from the nullability model and a path-sensitive flow analysis (a value already null-checked on the path is not flagged). The fix never asserts non-null on a value that is genuinely nullable at the site. Idempotent and conservative; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
+
+
+#### [io.moderne.nullability.WrapNullableUnboxingInRequireNonNull](/user-documentation/recipes/recipe-catalog/nullability/wrapnullableunboxinginrequirenonnull.md)
+  * **Wrap nullable values that are auto-unboxed in `requireNonNull`**
+  * Wraps a provably-nullable boxed value (`Integer`, `Long`, `Boolean`, ...) that is used in a primitive context in `java.util.Objects.requireNonNull(...)` (statically imported). Unboxing such a value is a NullAway error inside an annotated scope, and auto-unboxing a `null` already throws `NullPointerException`, so `requireNonNull` throws exactly where the unboxing already would and runtime behavior is unchanged. The primitive contexts handled are an operand of an arithmetic, relational, or bitwise expression whose other side is a primitive (including `==`/`!=` against a primitive, but not a reference comparison or string concatenation), an argument bound to a primitive callee parameter, an array index, an `if`/`while`/`do`/`for`/ternary condition, and the `return` of a primitive-returning method. Nullability is determined from type attribution. The fix only fires where NullAway is active and never asserts non-null on a value that is genuinely nullable at the site. The recipe is idempotent and conservative; only Java sources are modified.
+
+##### Data tables:
+
+  * **io.moderne.nullability.table.NullFixes**: *Each residual null-safety fix applied, tagged with the precedence rung that produced it, so the share bottoming out at a last-resort `requireNonNull` assertion can be tracked.*
+  * **io.moderne.nullability.table.DeclinedNullFixes**: *Each site the recipe declined to auto-fix because the fix is a design decision (the value is explicitly `null` on some path, so the slot likely should be `@Nullable`), for human triage.*
 
 
 
 ### rewrite-prethink
-
-#### [io.moderne.prethink.ComprehendCode](/user-documentation/recipes/recipe-catalog/prethink/comprehendcode.md)
-  * **Comprehend code with AI**
-  * Use an LLM to generate descriptions for classes and methods in the codebase. Descriptions are cached based on source code checksums to avoid regenerating descriptions for unchanged code.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.MethodDescriptions**: *AI-generated descriptions of methods in the codebase with inference time and token usage metrics.*
-  * **io.moderne.prethink.table.ClassDescriptions**: *AI-generated descriptions of classes in the codebase with inference time and token usage metrics.*
-
-
-#### [io.moderne.prethink.ComprehendCodeTokenCounter](/user-documentation/recipes/recipe-catalog/prethink/comprehendcodetokencounter.md)
-  * **Estimate comprehension token usage**
-  * Estimate the input token counts that would be sent to an LLM for method comprehension, without actually calling a model. Uses OpenAI's tokenizer locally. Outputs to the MethodDescriptions table with blank descriptions.
-
-##### Data tables:
-
-  * **io.moderne.prethink.table.MethodDescriptions**: *AI-generated descriptions of methods in the codebase with inference time and token usage metrics.*
-
 
 #### [io.moderne.prethink.ExtractCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/extractcodingconventions.md)
   * **Extract coding conventions**
@@ -741,7 +913,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.UpdatePrethinkContextNoAiStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
   * **Update Prethink context (no AI)**
-  * Generate Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider - use UpdatePrethinkContextStarter if you want AI-generated code comprehension and test summaries.
+  * Generate Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider.
 
 ##### Data tables:
 
@@ -770,50 +942,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.prethink.table.ClassQualityMetrics**: *Per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.*
   * **io.moderne.prethink.table.PackageQualityMetrics**: *Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership.*
   * **io.moderne.prethink.table.CodeSmells**: *Detected code smells including God Class, Feature Envy, and Data Class with severity ratings and the metric evidence that triggered detection.*
-  * **io.moderne.prethink.table.MethodDescriptions**: *AI-generated descriptions of methods in the codebase with inference time and token usage metrics.*
-  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
-  * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
-  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
-  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies*
-  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
-  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
-  * **org.openrewrite.prethink.table.ContextRegistry**: *Registry of available context files for coding agents.*
-
-
-#### [io.moderne.prethink.UpdatePrethinkContextStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter.md)
-  * **Update Prethink context (with AI)**
-  * Generate Moderne Prethink context files with AI-generated code comprehension, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. Maps tests to implementation methods and optionally generates AI summaries of what each test verifies when LLM provider is configured.
-
-##### Data tables:
-
-  * **org.openrewrite.prethink.table.ProjectMetadata**: *Project-level identity and structure for each build module. Includes Maven GAV coordinates, display name, description, parent project lineage, and submodule count. Use this to understand what the project is, how it relates to parent projects, and whether it is a multi-module aggregator.*
-  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
-  * **io.moderne.prethink.table.EndpointSchemas**: *Per-endpoint request body and response body bindings, one row per (endpoint, status code) pair. Supports OpenAPI 3.0.3 generation by giving the LLM a full mapping from handler to body DTO FQNs.*
-  * **io.moderne.prethink.table.EndpointParameters**: *Per-parameter detail for REST endpoint handlers - path, query, header, form. Join to service-endpoints.csv via endpointId.*
-  * **org.openrewrite.prethink.table.DatabaseConnections**: *Database connections and data access patterns in the application.*
-  * **org.openrewrite.prethink.table.ExternalServiceCalls**: *Outbound HTTP/REST calls to external services.*
-  * **org.openrewrite.prethink.table.MessagingConnections**: *Message queue producers and consumers in the application.*
-  * **org.openrewrite.prethink.table.ServerConfiguration**: *Server configuration properties extracted from application.properties/yml.*
-  * **org.openrewrite.prethink.table.DataAssets**: *Data entities, DTOs, and records that represent the application's data model.*
-  * **io.moderne.prethink.table.DtoFieldSchemas**: *Per-field schema detail for request/response DTOs: wire name, type, required flag, OpenAPI format, validation constraints, and any @Schema(example=) example values.*
-  * **io.moderne.prethink.table.FieldExamples**: *Raw (fixturePath, jsonPath, value, valueType) rows mined from JSON fixture files. Supply realistic example payloads for contract test generation. LLM correlates jsonPath to DTO fields at spec/contract generation time.*
-  * **org.openrewrite.prethink.table.DeploymentArtifacts**: *Deployment configuration files (Dockerfile, Kubernetes manifests, docker-compose).*
-  * **org.openrewrite.prethink.table.SecurityConfiguration**: *Security configuration including authentication methods, CORS settings, and OAuth2 configuration.*
-  * **org.openrewrite.prethink.table.ServiceComponents**: *Service layer components (@Service, @Component, @Named) in the application.*
-  * **io.moderne.prethink.table.ScheduledTasks**: *Scheduled tasks, cron jobs, and background processing detected in the application.*
-  * **org.openrewrite.prethink.table.CodingConventions**: *Coding conventions and patterns detected in the codebase.*
-  * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
-  * **io.moderne.prethink.table.ExceptionHandlers**: *Spring @ExceptionHandler and @ControllerAdvice bindings: exception type -&gt; HTTP status -&gt; response body FQN. Used to complete the 'responses' section of an OpenAPI spec with non-2xx branches.*
-  * **io.moderne.prethink.table.EndpointSecurity**: *Per-endpoint security requirements: roles, scopes, and the raw SpEL/permission expressions from @PreAuthorize/@Secured/@RolesAllowed at method or class level.*
-  * **org.openrewrite.prethink.table.DependencyUsage**: *External library dependencies and how they are used in the codebase.*
-  * **org.openrewrite.prethink.table.CalmRelationships**: *Method call graph for discovering relationships between architectural entities. Records all method calls within the repository with entity markers for graph traversal.*
-  * **io.moderne.prethink.table.MethodQualityMetrics**: *Per-method code quality metrics including cyclomatic complexity, cognitive complexity, nesting depth, Halstead measures, and ABC metric.*
-  * **io.moderne.prethink.table.ClassQualityMetrics**: *Per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.*
-  * **io.moderne.prethink.table.PackageQualityMetrics**: *Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership.*
-  * **io.moderne.prethink.table.CodeSmells**: *Detected code smells including God Class, Feature Envy, and Data Class with severity ratings and the metric evidence that triggered detection.*
-  * **io.moderne.prethink.table.MethodDescriptions**: *AI-generated descriptions of methods in the codebase with inference time and token usage metrics.*
-  * **io.moderne.prethink.table.ClassDescriptions**: *AI-generated descriptions of classes in the codebase with inference time and token usage metrics.*
-  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
+  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to the implementation methods they exercise.*
   * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
   * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
   * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies*
@@ -1009,7 +1138,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
+  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to the implementation methods they exercise.*
 
 
 #### [io.moderne.prethink.calm.FindDtoFieldSchemas](/user-documentation/recipes/recipe-catalog/prethink/calm/finddtofieldschemas.md)
@@ -1163,7 +1292,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
+  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to the implementation methods they exercise.*
 
 
 #### [io.moderne.prethink.calm.FindGraphQLEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findgraphqlendpoints.md)
@@ -1262,7 +1391,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
+  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to the implementation methods they exercise.*
 
 
 #### [io.moderne.prethink.calm.FindPrismaUsage](/user-documentation/recipes/recipe-catalog/prethink/calm/findprismausage.md)
@@ -1298,7 +1427,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
+  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to the implementation methods they exercise.*
 
 
 #### [io.moderne.prethink.calm.FindSQLAlchemyModels](/user-documentation/recipes/recipe-catalog/prethink/calm/findsqlalchemymodels.md)
@@ -1456,11 +1585,11 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.testing.coverage.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestcoverage.md)
   * **Find test coverage mapping**
-  * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships. Optionally generates AI summaries of what each test is verifying when LLM provider is configured.
+  * Map test methods to their corresponding implementation methods. Uses JavaType.Method matching to determine coverage relationships.
 
 ##### Data tables:
 
-  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to implementation methods with optional AI-generated summaries and inference metrics.*
+  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to the implementation methods they exercise.*
 
 
 #### [io.moderne.prethink.testing.coverage.FindTestGaps](/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestgaps.md)
@@ -2021,6 +2150,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [io.moderne.java.spring.boot4.UpgradeSpringBoot_4_1](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradespringboot_4_1.md)
   * **Migrate to Spring Boot 4.1**
   * Migrate applications to the latest Spring Boot 4.1 release. This recipe will modify an application's build files, make changes to deprecated/preferred APIs, and migrate configuration settings that have changes between versions. This recipe will also chain additional framework migrations (Spring Framework, Spring Data, etc) that are required as part of the migration to Spring Boot 4.1.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [io.moderne.java.spring.boot4.UpgradeToJava21WhenUsingJooq](/user-documentation/recipes/recipe-catalog/java/spring/boot4/upgradetojava21whenusingjooq.md)
+  * **Upgrade to Java 21 when using jOOQ**
+  * Spring Boot 4 keeps a Java 17 baseline, but the jOOQ version it manages (3.20+) requires Java 21 or later. This recipe upgrades modules that depend on jOOQ to Java 21 so they remain compatible after the Spring Boot 4.0 upgrade. Modules that do not use jOOQ are left on their current Java baseline. See https://github.com/spring-projects/spring-boot/issues/48619.
 
 ##### Data tables:
 
@@ -6411,7 +6549,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-06-15T1301.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-06-29T1230.
 
 ##### Data tables:
 
@@ -6438,7 +6576,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Maven/Gradle dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-06-15T1301.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-06-29T1230.
 
 ##### Data tables:
 
@@ -6556,6 +6694,20 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
   * **org.openrewrite.java.dependencies.table.VulnerabilityReport**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.*
   * **org.openrewrite.java.dependencies.table.DependencyOriginsReport**: *A report that maps dependencies to their originating root node represented as dependency graph. The information can be used to understand which direct dependencies are responsible for bringing in specific transitive dependencies.*
+
+
+#### [org.openrewrite.java.security.OwaspTopTen2025](/user-documentation/recipes/recipe-catalog/java/security/owasptopten2025.md)
+  * **Remediate vulnerabilities from the OWASP Top Ten 2025**
+  * [OWASP](https://owasp.org) publishes a list of the most impactful common security vulnerabilities. These recipes identify and remediate vulnerabilities from the [OWASP Top Ten 2025](https://owasp.org/Top10/2025/).
+
+##### Data tables:
+
+  * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+  * **org.openrewrite.java.security.table.MissingAuthorization**: *Spring MVC handler methods reachable to anonymous users without an explicit authorization annotation.*
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.java.dependencies.table.VulnerabilityReport**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.*
+  * **org.openrewrite.java.dependencies.table.DependencyOriginsReport**: *A report that maps dependencies to their originating root node represented as dependency graph. The information can be used to understand which direct dependencies are responsible for bringing in specific transitive dependencies.*
+  * **org.openrewrite.analysis.java.taint.table.TaintFlowTable**: *Records taint flows from sources to sinks with their taint types.*
 
 
 #### [org.openrewrite.java.security.search.FindExpressionLanguageInjection](/user-documentation/recipes/recipe-catalog/java/security/search/findexpressionlanguageinjection.md)
@@ -6997,6 +7149,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
 
 
+#### [org.openrewrite.java.migrate.jakarta.JavaxEjbToJakartaEjb](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxejbtojakartaejb.md)
+  * **Migrate deprecated `javax.ejb` packages to `jakarta.ejb`**
+  * Java EE has been rebranded to Jakarta EE, necessitating a package relocation.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
 #### [org.openrewrite.java.migrate.jakarta.JavaxMigrationToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/javaxmigrationtojakarta.md)
   * **Migrate to Jakarta EE 9**
   * Jakarta EE 9 is the first version of Jakarta EE that uses the new `jakarta` namespace.
@@ -7018,6 +7179,24 @@ _This doc contains all of the recipes with **unique** data tables that have been
 #### [org.openrewrite.java.migrate.jakarta.MigratePluginsForJakarta10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta10.md)
   * **Update Plugins for Jakarta EE 10**
   * Update plugin to be compatible with Jakarta EE 10.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.MigratePluginsForJakarta11](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta11.md)
+  * **Update Plugins for Jakarta EE 11**
+  * Update plugins to be compatible with Jakarta EE 11.
+
+##### Data tables:
+
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+
+
+#### [org.openrewrite.java.migrate.jakarta.MigratePluginsForJakarta9](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta9.md)
+  * **Update Plugins for Jakarta EE 9**
+  * Update plugins to be compatible with Jakarta EE 9.
 
 ##### Data tables:
 
@@ -7213,16 +7392,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.nodejs.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
-
-
-#### [org.openrewrite.nodejs.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight.md)
-  * **Node.js dependency insight**
-  * Identify the direct and transitive Node.js dependencies used in a project.
-
-##### Data tables:
-
-  * **org.openrewrite.nodejs.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
 
 
 #### [org.openrewrite.nodejs.search.FindNodeProjects](/user-documentation/recipes/recipe-catalog/nodejs/search/findnodeprojects.md)
@@ -7240,7 +7410,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.nodejs.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
 
 
 #### [org.openrewrite.nodejs.search.LintingFormattingInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/lintingformattinginsights.md)
@@ -7249,7 +7419,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.nodejs.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
 
 
 #### [org.openrewrite.nodejs.search.RealTimeCommunicationInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/realtimecommunicationinsights.md)
@@ -7258,7 +7428,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.nodejs.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
 
 
 #### [org.openrewrite.nodejs.search.SecurityInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/securityinsights.md)
@@ -7267,7 +7437,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.nodejs.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
 
 
 #### [org.openrewrite.nodejs.search.ServerSideFrameworksInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/serversideframeworksinsights.md)
@@ -7276,7 +7446,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.nodejs.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
 
 
 #### [org.openrewrite.nodejs.search.StateManagementInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/statemanagementinsights.md)
@@ -7285,7 +7455,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.nodejs.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
 
 
 #### [org.openrewrite.nodejs.search.TaskRunnersBuildToolsInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/taskrunnersbuildtoolsinsights.md)
@@ -7294,7 +7464,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.nodejs.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
 
 
 #### [org.openrewrite.nodejs.search.TestingInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/testinginsights.md)
@@ -7303,7 +7473,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.nodejs.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
 
 
 #### [org.openrewrite.nodejs.search.UIInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/uiinsights.md)
@@ -7312,7 +7482,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.nodejs.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
 
 
 #### [org.openrewrite.nodejs.search.UtilityInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/utilityinsights.md)
@@ -7321,7 +7491,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **org.openrewrite.nodejs.table.DependenciesInUse**: *Direct and transitive dependencies in use.*
+  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
 
 
 #### [org.openrewrite.nodejs.security.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/nodejs/security/dependencyvulnerabilitycheck.md)

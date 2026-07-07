@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer `Map.of(..)`"}
-  description={"Prefer `Map.of(..)` instead of using `java.util.Map#put(..)` in Java 10 or higher."}
+  description={"Prefer `Map.of(..)` instead of using `java.util.Map#put(..)` in Java 10 or higher. Two input shapes are recognised:\n\n- Anonymous-class initialization (`new HashMap<>() {{ put(k, v); ... }}`), which is replaced wholesale with `Map.of(k, v, ...)` (or `Map.ofEntries(...)` past ten entries) — immutable result.\n- A `new HashMap<>()` declaration followed by a chain of `target.put(k, v)` statements, which is collapsed to `new HashMap<>(Map.of(..))` (or `new HashMap<>(Map.ofEntries(..))`) — preserving the mutable `HashMap`."}
   fqName={"org.openrewrite.java.migrate.util.UseMapOf"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,14 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer `Map.of(..)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Map.of(..)` instead of using `java.util.Map#put(..)` in Java 10 or higher.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Prefer `Map.of(..)` instead of using `java.util.Map#put(..)` in Java 10 or higher. Two input shapes are recognised:
+
+- Anonymous-class initialization (`new HashMap<>() {{ put(k, v); ... }}`), which is replaced wholesale with `Map.of(k, v, ...)` (or `Map.ofEntries(...)` past ten entries) — immutable result.
+- A `new HashMap<>()` declaration followed by a chain of `target.put(k, v)` statements, which is collapsed to `new HashMap<>(Map.of(..))` (or `new HashMap<>(Map.ofEntries(..))`) — preserving the mutable `HashMap`.
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

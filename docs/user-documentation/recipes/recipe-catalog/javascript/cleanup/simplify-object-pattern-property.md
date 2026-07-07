@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={[]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.javascript.cleanup.simplify-object-pattern-property"}
-  artifact={"io.moderne.recipe:rewrite-react"}
+  artifact={"@openrewrite/recipes-react"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.javascript.cleanup.simplify-object-pattern-property"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/javascript/cleanup/simplify-object-pattern-property.md"}
   moderneOnly

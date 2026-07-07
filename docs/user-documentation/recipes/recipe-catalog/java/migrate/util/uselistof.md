@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Prefer `List.of(..)`"}
-  description={"Prefer `List.of(..)` instead of using `java.util.List#add(..)` in anonymous ArrayList initializers in Java 10 or higher. This recipe will not modify code where the List is later mutated since `List.of` returns an immutable list."}
+  description={"Prefer `List.of(..)` in Java 10 or higher. Two input shapes are recognised:\n\n- Anonymous-class initialization (`new ArrayList<>() {{ add(\"a\"); add(\"b\"); }}`), which is replaced wholesale with `List.of(\"a\", \"b\")` (immutable result, matching the anonymous-class idiom's typical intent).\n- A `new ArrayList<>()` declaration followed by a chain of `target.add(..)` statements, which is collapsed to `new ArrayList<>(List.of(..))` (preserving the mutable `ArrayList`)."}
   fqName={"org.openrewrite.java.migrate.util.UseListOf"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,7 +33,14 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Prefer `List.of(..)`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `List.of(..)` instead of using `java.util.List#add(..)` in anonymous ArrayList initializers in Java 10 or higher. This recipe will not modify code where the List is later mutated since `List.of` returns an immutable list.</RecipeHeader.Description>
+<RecipeHeader.Description>
+
+Prefer `List.of(..)` in Java 10 or higher. Two input shapes are recognised:
+
+- Anonymous-class initialization (`new ArrayList<>() {{ add("a"); add("b"); }}`), which is replaced wholesale with `List.of("a", "b")` (immutable result, matching the anonymous-class idiom's typical intent).
+- A `new ArrayList<>()` declaration followed by a chain of `target.add(..)` statements, which is collapsed to `new ArrayList<>(List.of(..))` (preserving the mutable `ArrayList`).
+
+</RecipeHeader.Description>
 
 </RecipeHeader>
 

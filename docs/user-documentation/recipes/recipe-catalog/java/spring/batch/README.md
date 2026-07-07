@@ -8,12 +8,14 @@ description: Spring Batch OpenRewrite recipes.
 
 _Recipes that include further recipes, often including the individual recipes below._
 
+* [Flag deprecated `ChunkListener` callbacks for manual migration to `ChunkListener&lt;I, O&gt;`](./flagchunklistenerformanualmigration.md)
 * [Migrate to Spring Batch 5.0 from 4.3](./springbatch4to5migration.md)
 * [Migrate to Spring Batch 6.0 from 5.2](./springbatch5to6migration.md)
 * [Transform classes that extend `*ListenerSupport` to implement the `*Listener` interfaces instead](./listenersupportclasstointerface.md)
 
 ## Recipes
 
+* [Add `@EnableJdbcJobRepository` alongside `@EnableBatchProcessing`](./addenablejdbcjobrepository.md)
 * [Add `PlatformTransactionManager` to `tasklet()` and `chunk()` calls](./addtransactionmanagertotaskletandchunk.md)
 * [Add class argument to `JobParameters`](./migratejobparameter.md)
 * [Add `setJobRegistry(..)` to manually configured `TaskExecutorJobOperator`](./addjobregistrytotaskexecutorjoboperator.md)

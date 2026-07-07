@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find weak Spring Security password encoders"}
-  description={"Finds uses of Spring Security password encoders that are unsuitable for production password storage: `NoOpPasswordEncoder` (plaintext), `StandardPasswordEncoder` (deprecated SHA-256), `MessageDigestPasswordEncoder` (raw message digest), `Md4PasswordEncoder` (MD4, broken), and `LdapShaPasswordEncoder` (deprecated). Use an adaptive function such as `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, `Pbkdf2PasswordEncoder`, or `SCryptPasswordEncoder` instead."}
+  description={"Finds uses of Spring Security password encoders that are unsuitable for production password storage: `NoOpPasswordEncoder` (plaintext), `StandardPasswordEncoder` (deprecated SHA-256), `MessageDigestPasswordEncoder` (raw message digest), `Md4PasswordEncoder` (MD4, broken), `LdapShaPasswordEncoder` (deprecated), `Md5PasswordEncoder` and `ShaPasswordEncoder` (from the deprecated `authentication.encoding` package), and `SCryptPasswordEncoder` (deprecated in current Spring Security). Use an adaptive function such as `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, or `Pbkdf2PasswordEncoder` instead."}
   fqName={"org.openrewrite.java.security.search.FindWeakSpringPasswordEncoder"}
   languages={["Java"]}
   license={"Moderne Proprietary License"}
@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["Java"]}
-  tags={["security","CWE-327","CWE-916"]}
+  tags={["security","CWE-327","CWE-916","RSPEC-S5344","CWE-256"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.java.security.search.FindWeakSpringPasswordEncoder"}
   artifact={"org.openrewrite.recipe:rewrite-java-security"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find weak Spring Security password encoders</RecipeHeader.Title>
 
-<RecipeHeader.Description>Finds uses of Spring Security password encoders that are unsuitable for production password storage: `NoOpPasswordEncoder` (plaintext), `StandardPasswordEncoder` (deprecated SHA-256), `MessageDigestPasswordEncoder` (raw message digest), `Md4PasswordEncoder` (MD4, broken), and `LdapShaPasswordEncoder` (deprecated). Use an adaptive function such as `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, `Pbkdf2PasswordEncoder`, or `SCryptPasswordEncoder` instead.</RecipeHeader.Description>
+<RecipeHeader.Description>Finds uses of Spring Security password encoders that are unsuitable for production password storage: `NoOpPasswordEncoder` (plaintext), `StandardPasswordEncoder` (deprecated SHA-256), `MessageDigestPasswordEncoder` (raw message digest), `Md4PasswordEncoder` (MD4, broken), `LdapShaPasswordEncoder` (deprecated), `Md5PasswordEncoder` and `ShaPasswordEncoder` (from the deprecated `authentication.encoding` package), and `SCryptPasswordEncoder` (deprecated in current Spring Security). Use an adaptive function such as `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, or `Pbkdf2PasswordEncoder` instead.</RecipeHeader.Description>
 
 </RecipeHeader>
 

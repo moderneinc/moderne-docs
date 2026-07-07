@@ -2569,8 +2569,11 @@ _10 recipes_
 
 _License: Moderne Proprietary License_
 
-_6 recipes_
+_7 recipes_
 
+* [org.openrewrite.dotnet.MigrateDotNetInstallUrls](/user-documentation/recipes/recipe-catalog/dotnet/migratedotnetinstallurls.md)
+  * **Migrate .NET install URLs from retiring Azure CDN domains**
+  * Replace references to retiring Azure CDN domains used for .NET SDK and runtime downloads with the new `builds.dotnet.microsoft.com` domain. See https://devblogs.microsoft.com/dotnet/critical-dotnet-install-links-are-changing/ for details. This recipe changes any LST files into PlainText, so it's not safe to be combined with other recipes. Instead, run this as an isolated effort as the URLs should be drop in replacements without further changes.
 * [org.openrewrite.dotnet.MigrateToNet6](/user-documentation/recipes/recipe-catalog/dotnet/migratetonet6.md)
   * **Upgrade to .NET 6.0 using upgrade-assistant**
   * Run [upgrade-assistant upgrade](https://learn.microsoft.com/en-us/dotnet/core/porting/upgrade-assistant-overview) across a repository to upgrade projects to .NET 6.0.
@@ -2594,7 +2597,7 @@ _6 recipes_
 
 _License: Moderne Source Available License_
 
-_27 recipes_
+_33 recipes_
 
 * [org.openrewrite.featureflags.RemoveBooleanFlag](/user-documentation/recipes/recipe-catalog/featureflags/removebooleanflag.md)
   * **Remove a boolean feature flag for feature key**
@@ -2617,6 +2620,24 @@ _27 recipes_
 * [org.openrewrite.featureflags.launchdarkly.ChangeVariationDefault](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/changevariationdefault.md)
   * **Change the default value for feature key**
   * Change the default value for `Variation` invocations for feature key.
+* [org.openrewrite.featureflags.launchdarkly.MarkIncompatibleEvaluationDetailAccessors](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/markincompatibleevaluationdetailaccessors.md)
+  * **Mark incompatible LaunchDarkly `EvaluationDetail` accessors**
+  * OpenFeature's `FlagEvaluationDetails` does not offer a direct replacement for every `EvaluationDetail` accessor. Add a `TODO` comment on `getVariationIndex()`, `isDefaultValue()` and `getReason()` calls so they are migrated by hand, since `getVariationIndex()` and `isDefaultValue()` have no equivalent and `getReason()` returns a `String` rather than an `EvaluationReason`.
+* [org.openrewrite.featureflags.launchdarkly.MigrateLDClientLifecycle](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/migrateldclientlifecycle.md)
+  * **Migrate LaunchDarkly `LDClient` lifecycle calls to OpenFeature**
+  * Migrate `LDClient` lifecycle calls: `close()` becomes `OpenFeatureAPI.getInstance().shutdown()` and `isInitialized()` becomes `OpenFeatureAPI.getInstance().getClient().getProviderState() == ProviderState.READY`. OpenFeature manages provider state globally rather than per client instance, so the original receiver is dropped.
+* [org.openrewrite.featureflags.launchdarkly.MigrateLDClientToOpenFeature](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/migrateldclienttoopenfeature.md)
+  * **Migrate LaunchDarkly `LDClient` construction to OpenFeature**
+  * Replace `new LDClient(...)` with `OpenFeatureAPI.getInstance().getClient()`. When the client is assigned to a local variable, the one-time provider bootstrap `OpenFeatureAPI.getInstance().setProviderAndWait(new Provider(...))` is generated from the original SDK key and configuration. In other positions (such as fields) the original configuration is preserved in a `TODO` comment instead, as a statement cannot be inserted there.
+* [org.openrewrite.featureflags.launchdarkly.MigrateLDContextToEvaluationContext](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/migrateldcontexttoevaluationcontext.md)
+  * **Migrate LaunchDarkly `LDContext` to OpenFeature `MutableContext`**
+  * Convert `LDContext.create(...)` and `LDContext.builder(...)` construction to OpenFeature's `MutableContext`, mapping `name(...)` and `set(...)` attributes to `add(...)` and dropping the terminal `build()` call. Targeting `kind`, multi-context and private attributes are left untouched for manual review.
+* [org.openrewrite.featureflags.launchdarkly.MigrateLDValueToValue](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/migrateldvaluetovalue.md)
+  * **Migrate LaunchDarkly `LDValue` and `jsonValueVariation` to OpenFeature**
+  * Migrate `jsonValueVariation`/`jsonValueVariationDetail` to OpenFeature's `getObjectValue`/`getObjectDetails` (reordering the context argument to last) and convert scalar `LDValue.of(...)` and `LDValue.ofNull()` defaults to `dev.openfeature.sdk.Value`. To keep the result compilable, this recipe is skipped for files that use the structured builders `LDValue.buildObject()`, `LDValue.buildArray()`, `LDValue.parse(...)` or `LDValue.of(long)`, which require manual migration to `Structure`/`List&lt;Value&gt;`.
+* [org.openrewrite.featureflags.launchdarkly.MigrateLaunchDarklyToOpenFeature](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/migratelaunchdarklytoopenfeature.md)
+  * **Migrate from LaunchDarkly to OpenFeature**
+  * Migrate call sites from the LaunchDarkly server SDK to the vendor-neutral [OpenFeature](https://openfeature.dev/) API, backed by the LaunchDarkly OpenFeature provider. Flag evaluations are renamed and their arguments reordered (LaunchDarkly takes the context as the second argument; OpenFeature takes it last), `LDContext` construction becomes `MutableContext`, and `LDClient` becomes `dev.openfeature.sdk.Client`. The one-time provider bootstrap (`OpenFeatureAPI.setProviderAndWait(...)`) is intentionally left for manual configuration.
 * [org.openrewrite.featureflags.launchdarkly.MigrateUserToContext](/user-documentation/recipes/recipe-catalog/featureflags/launchdarkly/migrateusertocontext.md)
   * **Migrate `LDUser` to `LDContext`**
   * Migrate from `LDUser` and `LDUser.Builder` to `LDContext` and `ContextBuilder`.
@@ -2682,7 +2703,7 @@ _27 recipes_
 
 _License: Moderne Source Available License_
 
-_54 recipes_
+_55 recipes_
 
 * [org.openrewrite.github.AddCronTrigger](/user-documentation/recipes/recipe-catalog/github/addcrontrigger.md)
   * **Add cron workflow trigger**
@@ -2719,7 +2740,7 @@ _54 recipes_
   * Find GitHub Actions jobs missing a timeout.
 * [org.openrewrite.github.GitHubActionsBestPractices](/user-documentation/recipes/recipe-catalog/github/githubactionsbestpractices.md)
   * **GitHub Actions best practices**
-  * Applies best practices to GitHub Actions workflows, including enabling dependency caching, using cached distributions, finding missing timeouts, removing unused inputs, and preferring block-style job dependencies.
+  * Applies best practices to GitHub Actions workflows, including enabling dependency caching, using cached distributions, finding missing timeouts, removing unused inputs, preferring block-style job dependencies, and upgrading official actions to their latest versions.
 * [org.openrewrite.github.IsGitHubActionsWorkflow](/user-documentation/recipes/recipe-catalog/github/isgithubactionsworkflow.md)
   * **Is GitHub Actions Workflow**
   * Checks if the file is a GitHub Actions workflow file.
@@ -2774,6 +2795,9 @@ _54 recipes_
 * [org.openrewrite.github.SetupPythonToUv](/user-documentation/recipes/recipe-catalog/github/setuppythontouv.md)
   * **Replace `actions/setup-python` with `astral-sh/setup-uv`**
   * Replace `actions/setup-python` action with `astral-sh/setup-uv` action for faster Python environment setup and dependency management.  **Benefits of UV:**  - Significantly faster package installation and environment setup  - Built-in dependency resolution and locking  - Integrated caching for improved CI performance  - Drop-in replacement for pip workflows  **Transformations applied:**  - `actions/setup-python@v5` → `astral-sh/setup-uv@v6`  - `cache: 'pip'` → `enable-cache: 'true'`  - `pip install -r requirements.txt` → `uv sync` (configurable strategy)  - `python -m &lt;module&gt;` → `uv run &lt;module&gt;`  - Removes unnecessary `pip install --upgrade pip` steps  **Sync strategies:**  - `basic`: Basic synchronization (`uv sync`)  - `locked`: Use locked dependencies (`uv sync --locked`)  - `full`: Install all extras and dev dependencies (`uv sync --all-extras --dev`)  See the [UV GitHub integration guide](https://docs.astral.sh/uv/guides/integration/github/) for more details.
+* [org.openrewrite.github.UpgradeOfficialGitHubActions](/user-documentation/recipes/recipe-catalog/github/upgradeofficialgithubactions.md)
+  * **Upgrade official GitHub Actions to their latest versions**
+  * Upgrades actions from the official `actions` and `github` organizations to the newest known version, working entirely offline. Each reference is upgraded while preserving its existing precision: a major version (`v4`) moves to the newest major, a full version (`v4.1.2`) to the newest full version, and a commit SHA to the latest known commit. Actions that are not official, not known, or already up to date are left untouched.
 * [org.openrewrite.github.UpgradeSlackNotificationVersion2](/user-documentation/recipes/recipe-catalog/github/upgradeslacknotificationversion2.md)
   * **Upgrade `slackapi/slack-github-action`**
   * Update the Slack GitHub Action to use version 2.0.
@@ -3009,7 +3033,7 @@ _26 recipes_
 
 _License: Apache License Version 2.0_
 
-_42 recipes_
+_44 recipes_
 
 * [org.openrewrite.java.jackson.AddJsonCreatorToPrivateConstructors](/user-documentation/recipes/recipe-catalog/java/jackson/addjsoncreatortoprivateconstructors.md)
   * **Add `@JsonCreator` to non-public constructors**
@@ -3035,6 +3059,9 @@ _42 recipes_
 * [org.openrewrite.java.jackson.JacksonBestPractices](/user-documentation/recipes/recipe-catalog/java/jackson/jacksonbestpractices.md)
   * **Jackson best practices**
   * Apply best practices for using Jackson library, including upgrade to Jackson 2.x and removing redundant annotations.
+* [org.openrewrite.java.jackson.JsonSerializeIncludeToJsonInclude](/user-documentation/recipes/recipe-catalog/java/jackson/jsonserializeincludetojsoninclude.md)
+  * **Migrate deprecated `@JsonSerialize(include = ...)` to `@JsonInclude`**
+  * Move the deprecated `include` attribute of FasterXML's `@JsonSerialize` to a separate `@JsonInclude` annotation. The `include` attribute was deprecated in Jackson 2.x and removed in Jackson 3.x; running this recipe before the Jackson 2 → 3 package rename produces a correct `tools.jackson.annotation.JsonInclude` on the Jackson 3 side.
 * [org.openrewrite.java.jackson.LombokJacksonizedConfig](/user-documentation/recipes/recipe-catalog/java/jackson/lombokjacksonizedconfig.md)
   * **Update `lombok.config` for Jackson 3 compatibility**
   * When `@Jacksonized` is used, Lombok generates Jackson annotations. By default it generates Jackson 2.x annotations. This recipe adds `lombok.jacksonized.jacksonVersion += 3` to `lombok.config` so Lombok generates Jackson 3 compatible annotations.
@@ -3044,6 +3071,9 @@ _42 recipes_
 * [org.openrewrite.java.jackson.MigrateMapperSettersToBuilder](/user-documentation/recipes/recipe-catalog/java/jackson/migratemappersetterstobuilder.md)
   * **Migrate mapper setter calls to builder pattern**
   * In Jackson 3, `JsonMapper` and other format-aligned mappers are immutable. Configuration methods like `setFilterProvider`, `addMixIn`, `disable`, `enable`, etc. must be called on the builder instead. This recipe migrates setter calls to the builder pattern when safe, or adds TODO comments when automatic migration is not possible.
+* [org.openrewrite.java.jackson.ReadValueUrlToOpenStream](/user-documentation/recipes/recipe-catalog/java/jackson/readvalueurltoopenstream.md)
+  * **Migrate `ObjectMapper.readValue(URL, ...)` to use `openStream()`**
+  * Jackson 3.x removed every `URL`-accepting `readValue` overload from `ObjectMapper`. Rewrite call sites to feed `URL.openStream()` into the surviving `readValue(InputStream, ...)` overload, which is what `readValue(URL, ...)` did internally in Jackson 2.x. The caller's checked-exception story is unchanged: `URL.openStream()` declares `IOException`, the same checked exception the removed `readValue(URL, ...)` declared.
 * [org.openrewrite.java.jackson.RemoveBuiltInModuleRegistrations](/user-documentation/recipes/recipe-catalog/java/jackson/removebuiltinmoduleregistrations.md)
   * **Remove registrations of modules built-in to Jackson 3**
   * In Jackson 3, `ParameterNamesModule`, `Jdk8Module`, and `JavaTimeModule` are built into `jackson-databind` and no longer need to be registered manually. This recipe removes `ObjectMapper.registerModule()` and `MapperBuilder.addModule()` calls for these modules.
@@ -3203,14 +3233,14 @@ _18 recipes_
 
 _License: Moderne Proprietary License_
 
-_118 recipes_
+_120 recipes_
 
 * [org.openrewrite.csharp.dependencies.DependencyInsight](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyinsight.md)
   * **Dependency insight for C#**
   * Finds dependencies in `*.csproj` and `packages.config`.
 * [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-06-15T1301.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-06-29T1230.
 * [org.openrewrite.csharp.dependencies.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/csharp/dependencies/upgradedependencyversion.md)
   * **Upgrade C# dependency versions**
   * Upgrades dependencies in `*.csproj`, `Directory.Packages.props`, and `packages.config`.
@@ -3222,7 +3252,7 @@ _118 recipes_
   * Locates and reports on all licenses in use.
 * [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Maven/Gradle dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-06-15T1301.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-06-29T1230.
 * [org.openrewrite.java.dependencies.RemoveUnusedDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/removeunuseddependencies.md)
   * **Remove unused dependencies**
   * Scans through source code collecting references to types and methods, removing any dependencies that are not used from Maven or Gradle build files. This is best effort and not guaranteed to work well in all cases; false positives are still possible.  This recipe takes reflective access into account: - When reflective access to a class is made unambiguously via a string literal, such as: `Class.forName(&quot;java.util.List&quot;)` that is counted correctly. - When reflective access to a class is made ambiguously via anything other than a string literal no dependencies will be removed.  This recipe takes transitive dependencies into account: - When a direct dependency is not used but a transitive dependency it brings in _is_ in use the direct dependency is not removed.
@@ -3295,6 +3325,9 @@ _118 recipes_
 * [org.openrewrite.java.security.OwaspTopTen](/user-documentation/recipes/recipe-catalog/java/security/owasptopten.md)
   * **Remediate vulnerabilities from the OWASP Top Ten**
   * [OWASP](https://owasp.org) publishes a list of the most impactful common security vulnerabilities. These recipes identify and remediate vulnerabilities from the OWASP Top Ten.
+* [org.openrewrite.java.security.OwaspTopTen2025](/user-documentation/recipes/recipe-catalog/java/security/owasptopten2025.md)
+  * **Remediate vulnerabilities from the OWASP Top Ten 2025**
+  * [OWASP](https://owasp.org) publishes a list of the most impactful common security vulnerabilities. These recipes identify and remediate vulnerabilities from the [OWASP Top Ten 2025](https://owasp.org/Top10/2025/).
 * [org.openrewrite.java.security.PartialPathTraversalVulnerability](/user-documentation/recipes/recipe-catalog/java/security/partialpathtraversalvulnerability.md)
   * **Partial path traversal vulnerability**
   * Replaces `dir.getCanonicalPath().startsWith(parent.getCanonicalPath()`, which is vulnerable to partial path traversal attacks, with the more secure `dir.getCanonicalFile().toPath().startsWith(parent.getCanonicalFile().toPath())`.  To demonstrate this vulnerability, consider `&quot;/usr/outnot&quot;.startsWith(&quot;/usr/out&quot;)`. The check is bypassed although `/outnot` is not under the `/out` directory. It's important to understand that the terminating slash may be removed when using various `String` representations of the `File` object. For example, on Linux, `println(new File(&quot;/var&quot;))` will print `/var`, but `println(new File(&quot;/var&quot;, &quot;/&quot;)` will print `/var/`; however, `println(new File(&quot;/var&quot;, &quot;/&quot;).getCanonicalPath())` will print `/var`.
@@ -3355,6 +3388,9 @@ _118 recipes_
 * [org.openrewrite.java.security.search.FindInadequateKeySize](/user-documentation/recipes/recipe-catalog/java/security/search/findinadequatekeysize.md)
   * **Find inadequate cryptographic key sizes**
   * Finds cryptographic key generation with inadequate key sizes. RSA and DSA keys should be at least 2048 bits, EC keys at least 224 bits, and symmetric keys (AES) at least 128 bits. Weak named EC curves (e.g. `secp112r1`, `prime192v1`) are also flagged. NIST SP 800-131A Rev 2 requires RSA/DSA 2048+, EC 224+, AES 128+.
+* [org.openrewrite.java.security.search.FindInsecureCipherMode](/user-documentation/recipes/recipe-catalog/java/security/search/findinsecureciphermode.md)
+  * **Find insecure cipher modes and padding schemes**
+  * Finds uses of `Cipher.getInstance(...)` whose transformation string selects an insecure mode or padding. Flags two patterns: ECB mode for any non-RSA algorithm (repeated plaintext blocks produce identical ciphertext blocks), and CBC mode with a padding scheme other than `NoPadding` (vulnerable to padding oracle attacks). For AES, prefer an authenticated mode such as GCM; for RSA, see `FindRsaWithoutOaep`.
 * [org.openrewrite.java.security.search.FindInsecureRememberMeConfig](/user-documentation/recipes/recipe-catalog/java/security/search/findinsecureremembermeconfig.md)
   * **Find insecure Spring Security RememberMe configuration**
   * Finds Spring Security RememberMe configurations with insecure settings: `useSecureCookie(false)` (allows cookie transmission over HTTP), `alwaysRemember(true)` (bypasses user opt-in), or `tokenValiditySeconds(...)` set longer than 30 days (extends the window in which a stolen remember-me cookie can be replayed).
@@ -3411,7 +3447,7 @@ _118 recipes_
   * Identify where attackers can deserialize gadgets into a target field.
 * [org.openrewrite.java.security.search.FindWeakCryptoAlgorithm](/user-documentation/recipes/recipe-catalog/java/security/search/findweakcryptoalgorithm.md)
   * **Find weak cryptographic algorithms**
-  * Finds uses of broken or risky cryptographic algorithms such as MD5, SHA-1, DES, DESede (3DES), RC2, RC4, and Blowfish in calls to `Cipher.getInstance()`, `MessageDigest.getInstance()`, `Mac.getInstance()`, `KeyGenerator.getInstance()`, and `SecretKeyFactory.getInstance()`.
+  * Finds uses of broken or risky cryptographic algorithms such as MD5, SHA-1, DES, DESede (3DES), RC2, RC4, and Blowfish in calls to `Cipher.getInstance()`, `MessageDigest.getInstance()`, `Mac.getInstance()`, `KeyGenerator.getInstance()`, and `SecretKeyFactory.getInstance()`. Also flags instantiation of `javax.crypto.NullCipher`, which performs no encryption.
 * [org.openrewrite.java.security.search.FindWeakDigestInPasswordEncoder](/user-documentation/recipes/recipe-catalog/java/security/search/findweakdigestinpasswordencoder.md)
   * **Find weak message digests used inside custom `PasswordEncoder` implementations**
   * Finds calls to `MessageDigest.getInstance(&quot;...&quot;)` whose algorithm is unsuitable for password storage, scoped to classes implementing `org.springframework.security.crypto.password.PasswordEncoder`. Unsalted and non-iterated digests (MD2, MD4, MD5, SHA-1, SHA-224/256/384/512) are unsuitable for password hashing regardless of how they are wrapped. Delegate to `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, `Pbkdf2PasswordEncoder`, or `SCryptPasswordEncoder` instead of implementing `PasswordEncoder` yourself.
@@ -3423,7 +3459,7 @@ _118 recipes_
   * Finds uses of `MessageDigest.getInstance()` with algorithms unsuitable for password hashing (MD5, SHA-1, SHA-256, SHA-384, SHA-512). Passwords should be hashed with a purpose-built password hashing function such as bcrypt, scrypt, Argon2, or PBKDF2 that includes a salt and a tunable work factor.
 * [org.openrewrite.java.security.search.FindWeakSpringPasswordEncoder](/user-documentation/recipes/recipe-catalog/java/security/search/findweakspringpasswordencoder.md)
   * **Find weak Spring Security password encoders**
-  * Finds uses of Spring Security password encoders that are unsuitable for production password storage: `NoOpPasswordEncoder` (plaintext), `StandardPasswordEncoder` (deprecated SHA-256), `MessageDigestPasswordEncoder` (raw message digest), `Md4PasswordEncoder` (MD4, broken), and `LdapShaPasswordEncoder` (deprecated). Use an adaptive function such as `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, `Pbkdf2PasswordEncoder`, or `SCryptPasswordEncoder` instead.
+  * Finds uses of Spring Security password encoders that are unsuitable for production password storage: `NoOpPasswordEncoder` (plaintext), `StandardPasswordEncoder` (deprecated SHA-256), `MessageDigestPasswordEncoder` (raw message digest), `Md4PasswordEncoder` (MD4, broken), `LdapShaPasswordEncoder` (deprecated), `Md5PasswordEncoder` and `ShaPasswordEncoder` (from the deprecated `authentication.encoding` package), and `SCryptPasswordEncoder` (deprecated in current Spring Security). Use an adaptive function such as `BCryptPasswordEncoder`, `Argon2PasswordEncoder`, or `Pbkdf2PasswordEncoder` instead.
 * [org.openrewrite.java.security.search.FindXPathInjection](/user-documentation/recipes/recipe-catalog/java/security/search/findxpathinjection.md)
   * **Find XPath injection vectors**
   * Finds calls to `XPath.evaluate()` and `XPath.compile()` which, when the expression is built from user input, can allow XPath injection attacks. Use parameterized XPath expressions or input validation instead.
@@ -4399,7 +4435,7 @@ _39 recipes_
 
 _License: Moderne Source Available License_
 
-_463 recipes_
+_467 recipes_
 
 * [com.google.guava.InlineGuavaMethods](/user-documentation/recipes/recipe-catalog/google/guava/inlineguavamethods.md)
   * **Inline `guava` methods annotated with `@InlineMe`**
@@ -5190,6 +5226,12 @@ _463 recipes_
 * [org.openrewrite.java.migrate.jakarta.MigratePluginsForJakarta10](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta10.md)
   * **Update Plugins for Jakarta EE 10**
   * Update plugin to be compatible with Jakarta EE 10.
+* [org.openrewrite.java.migrate.jakarta.MigratePluginsForJakarta11](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta11.md)
+  * **Update Plugins for Jakarta EE 11**
+  * Update plugins to be compatible with Jakarta EE 11.
+* [org.openrewrite.java.migrate.jakarta.MigratePluginsForJakarta9](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migratepluginsforjakarta9.md)
+  * **Update Plugins for Jakarta EE 9**
+  * Update plugins to be compatible with Jakarta EE 9.
 * [org.openrewrite.java.migrate.jakarta.MigrationToJakarta10Apis](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/migrationtojakarta10apis.md)
   * **Migrate Jakarta EE 9 api dependencies to Jakarta EE 10 versions**
   * Jakarta EE 10 updates some apis compared to Jakarta EE 9.
@@ -5223,6 +5265,9 @@ _463 recipes_
 * [org.openrewrite.java.migrate.jakarta.RemovedUIComponentConstant](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/removeduicomponentconstant.md)
   * **Replace `CURRENT_COMPONENT` and `CURRENT_COMPOSITE_COMPONENT` with `getCurrentComponent()` and `getCurrentCompositeComponent()`**
   * Replace `jakarta.faces.component.UIComponent.CURRENT_COMPONENT` and `CURRENT_COMPOSITE_COMPONENT` constants with `jakarta.faces.component.UIComponent.getCurrentComponent()` and `getCurrentCompositeComponent()`. that were added in JSF 2.0.
+* [org.openrewrite.java.migrate.jakarta.ReplaceJakartaJwsWithJakartaXmlWs](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/replacejakartajwswithjakartaxmlws.md)
+  * **Replace `jakarta.jws-api` with `jakarta.xml.ws-api`**
+  * Starting with Jakarta EE 10, the standalone `jakarta.jws-api` artifact was retired and its content was merged into `jakarta.xml.ws-api`. This recipe replaces a declared `jakarta.jws:jakarta.jws-api` dependency in place with `jakarta.xml.ws:jakarta.xml.ws-api`, and adds `jakarta.xml.ws:jakarta.xml.ws-api` directly when `jakarta.jws` was only available transitively.
 * [org.openrewrite.java.migrate.jakarta.RestAssuredJavaxToJakarta](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/restassuredjavaxtojakarta.md)
   * **Migrate RestAssured from javax to jakarta namespace by upgrading to a version compatible with J2EE9**
   * Java EE has been rebranded to Jakarta EE.  This recipe replaces existing RestAssured dependencies with their counterparts that are compatible with Jakarta EE 9.
@@ -5301,6 +5346,9 @@ _463 recipes_
 * [org.openrewrite.java.migrate.jakarta.UpgradeFaces4OpenSourceLibraries](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgradefaces4opensourcelibraries.md)
   * **Upgrade Faces open source libraries**
   * Upgrade PrimeFaces, OmniFaces, and MyFaces libraries to Jakarta EE10 versions.
+* [org.openrewrite.java.migrate.jakarta.UpgradeMavenEjbPluginConfiguration](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/upgrademavenejbpluginconfiguration.md)
+  * **Set `maven-ejb-plugin` ejbVersion to 4.0**
+  * Updates the `&lt;ejbVersion&gt;` configuration of `maven-ejb-plugin` to `4.0` when the current value (or its resolved Maven property) indicates EJB 3.x. Handles the common pattern where `&lt;ejbVersion&gt;` is coupled to the `javax.ejb-api` dependency version via a shared property, decoupling them after migration.
 * [org.openrewrite.java.migrate.jakarta.WsWsocServerContainerDeprecation](/user-documentation/recipes/recipe-catalog/java/migrate/jakarta/wswsocservercontainerdeprecation.md)
   * **Replace `doUpgrade(..)` with `ServerContainer.upgradeHttpToWebSocket(..)`**
   * Deprecated `WsWsocServerContainer.doUpgrade(..)` is replaced by the Jakarta WebSocket 2.1 specification `ServerContainer.upgradeHttpToWebSocket(..)`.
@@ -5774,19 +5822,19 @@ _463 recipes_
   * Prefer `EnumSet of(..)` instead of using `Set of(..)` when the arguments are enums in Java 9 or higher.
 * [org.openrewrite.java.migrate.util.UseListOf](/user-documentation/recipes/recipe-catalog/java/migrate/util/uselistof.md)
   * **Prefer `List.of(..)`**
-  * Prefer `List.of(..)` instead of using `java.util.List#add(..)` in anonymous ArrayList initializers in Java 10 or higher. This recipe will not modify code where the List is later mutated since `List.of` returns an immutable list.
+  * Prefer `List.of(..)` in Java 10 or higher. Two input shapes are recognised:  - Anonymous-class initialization (`new ArrayList&lt;&gt;() \{\{ add(&quot;a&quot;); add(&quot;b&quot;); \}\}`), which is replaced wholesale with `List.of(&quot;a&quot;, &quot;b&quot;)` (immutable result, matching the anonymous-class idiom's typical intent). - A `new ArrayList&lt;&gt;()` declaration followed by a chain of `target.add(..)` statements, which is collapsed to `new ArrayList&lt;&gt;(List.of(..))` (preserving the mutable `ArrayList`).
 * [org.openrewrite.java.migrate.util.UseLocaleOf](/user-documentation/recipes/recipe-catalog/java/migrate/util/uselocaleof.md)
   * **Prefer `Locale.of(..)` over `new Locale(..)`**
   * Prefer `Locale.of(..)` over `new Locale(..)` in Java 19 or higher.
 * [org.openrewrite.java.migrate.util.UseMapOf](/user-documentation/recipes/recipe-catalog/java/migrate/util/usemapof.md)
   * **Prefer `Map.of(..)`**
-  * Prefer `Map.of(..)` instead of using `java.util.Map#put(..)` in Java 10 or higher.
+  * Prefer `Map.of(..)` instead of using `java.util.Map#put(..)` in Java 10 or higher. Two input shapes are recognised:  - Anonymous-class initialization (`new HashMap&lt;&gt;() \{\{ put(k, v); ... \}\}`), which is replaced wholesale with `Map.of(k, v, ...)` (or `Map.ofEntries(...)` past ten entries) — immutable result. - A `new HashMap&lt;&gt;()` declaration followed by a chain of `target.put(k, v)` statements, which is collapsed to `new HashMap&lt;&gt;(Map.of(..))` (or `new HashMap&lt;&gt;(Map.ofEntries(..))`) — preserving the mutable `HashMap`.
 * [org.openrewrite.java.migrate.util.UsePredicateNot](/user-documentation/recipes/recipe-catalog/java/migrate/util/usepredicatenot.md)
   * **Prefer `Predicate.not(..)` over casting to `Predicate` and calling `negate()`**
   * Replace `((Predicate&lt;T&gt;) lambdaOrMethodRef).negate()` with `Predicate.not(lambdaOrMethodRef)` as of Java 11.
 * [org.openrewrite.java.migrate.util.UseSetOf](/user-documentation/recipes/recipe-catalog/java/migrate/util/usesetof.md)
   * **Prefer `Set.of(..)`**
-  * Prefer `Set.of(..)` instead of using `java.util.Set#add(..)` in anonymous HashSet initializers in Java 10 or higher. This recipe will not modify code where the Set is later mutated since `Set.of` returns an immutable set.
+  * Prefer `Set.of(..)` in Java 10 or higher. Two input shapes are recognised:  - Anonymous-class initialization (`new HashSet&lt;&gt;() \{\{ add(&quot;a&quot;); add(&quot;b&quot;); \}\}`), which is replaced wholesale with `Set.of(&quot;a&quot;, &quot;b&quot;)` (immutable result, matching the anonymous-class idiom's typical intent). - A `new HashSet&lt;&gt;()` declaration followed by a chain of `target.add(..)` statements, which is collapsed to `new HashSet&lt;&gt;(Set.of(..))` (preserving the mutable `HashSet`).
 * [org.openrewrite.scala.migrate.UpgradeScala_2_12](/user-documentation/recipes/recipe-catalog/scala/migrate/upgradescala_2_12.md)
   * **Migrate to Scala 2.12.+**
   * Upgrade the Scala version for compatibility with newer Java versions.
@@ -5901,7 +5949,7 @@ _33 recipes_
 
 _License: Moderne Proprietary License_
 
-_14 recipes_
+_136 recipes_
 
 * [org.openrewrite.python.codequality.AllBranchesIdentical](/user-documentation/recipes/recipe-catalog/python/codequality/allbranchesidentical.md)
   * **Remove conditional with identical branches**
@@ -5933,18 +5981,384 @@ _14 recipes_
 * [org.openrewrite.python.migrate.DependencyInsight](/user-documentation/recipes/recipe-catalog/python/migrate/dependencyinsight.md)
   * **Python dependency insight**
   * Find Python dependencies, including transitive dependencies, matching a package name pattern. Results include the resolved version, scope, and whether the dependency is direct or transitive.
+* [org.openrewrite.python.migrate.FindAifcModule](/user-documentation/recipes/recipe-catalog/python/migrate/findaifcmodule.md)
+  * **Find deprecated `aifc` module usage**
+  * The `aifc` module was deprecated in Python 3.11 and removed in Python 3.13. Use third-party audio libraries instead.
+* [org.openrewrite.python.migrate.FindAsyncioCoroutineDecorator](/user-documentation/recipes/recipe-catalog/python/migrate/findasynciocoroutinedecorator.md)
+  * **Find deprecated `@asyncio.coroutine` decorator**
+  * Find usage of the deprecated `@asyncio.coroutine` decorator which was removed in Python 3.11. Convert to `async def` syntax with `await` instead of `yield from`.
+* [org.openrewrite.python.migrate.FindAudioopModule](/user-documentation/recipes/recipe-catalog/python/migrate/findaudioopmodule.md)
+  * **Find deprecated `audioop` module usage**
+  * The `audioop` module was deprecated in Python 3.11 and removed in Python 3.13. Use pydub, numpy, or scipy for audio operations.
+* [org.openrewrite.python.migrate.FindCgiModule](/user-documentation/recipes/recipe-catalog/python/migrate/findcgimodule.md)
+  * **Find deprecated `cgi` module usage**
+  * The `cgi` module was deprecated in Python 3.11 and removed in Python 3.13. Use `urllib.parse` for query string parsing, `html.escape()` for escaping, and web frameworks or `email.message` for form handling.
+* [org.openrewrite.python.migrate.FindCgitbModule](/user-documentation/recipes/recipe-catalog/python/migrate/findcgitbmodule.md)
+  * **Find deprecated `cgitb` module usage**
+  * The `cgitb` module was deprecated in Python 3.11 and removed in Python 3.13. Use the standard `logging` and `traceback` modules for error handling.
+* [org.openrewrite.python.migrate.FindChunkModule](/user-documentation/recipes/recipe-catalog/python/migrate/findchunkmodule.md)
+  * **Find deprecated `chunk` module usage**
+  * The `chunk` module was deprecated in Python 3.11 and removed in Python 3.13. Implement IFF chunk reading manually or use specialized libraries.
+* [org.openrewrite.python.migrate.FindCryptModule](/user-documentation/recipes/recipe-catalog/python/migrate/findcryptmodule.md)
+  * **Find deprecated `crypt` module usage**
+  * The `crypt` module was deprecated in Python 3.11 and removed in Python 3.13. Use `bcrypt`, `argon2-cffi`, or `passlib` instead.
+* [org.openrewrite.python.migrate.FindDistutilsUsage](/user-documentation/recipes/recipe-catalog/python/migrate/finddistutilsusage.md)
+  * **Find deprecated distutils module usage**
+  * Find imports of the deprecated `distutils` module which was removed in Python 3.12. Migrate to `setuptools` or other modern build tools.
+* [org.openrewrite.python.migrate.FindFunctoolsCmpToKey](/user-documentation/recipes/recipe-catalog/python/migrate/findfunctoolscmptokey.md)
+  * **Find `functools.cmp_to_key()` usage**
+  * Find usage of `functools.cmp_to_key()` which is a Python 2 compatibility function. Consider using a key function directly.
 * [org.openrewrite.python.migrate.FindFutureImports](/user-documentation/recipes/recipe-catalog/python/migrate/findfutureimports.md)
   * **Find `__future__` imports**
   * Find `__future__` imports and add a search marker.
+* [org.openrewrite.python.migrate.FindImghdrModule](/user-documentation/recipes/recipe-catalog/python/migrate/findimghdrmodule.md)
+  * **Find deprecated `imghdr` module usage**
+  * The `imghdr` module was deprecated in Python 3.11 and removed in Python 3.13. Use `filetype`, `python-magic`, or `Pillow` instead.
+* [org.openrewrite.python.migrate.FindImpUsage](/user-documentation/recipes/recipe-catalog/python/migrate/findimpusage.md)
+  * **Find deprecated imp module usage**
+  * Find imports of the deprecated `imp` module which was removed in Python 3.12. Migrate to `importlib`.
+* [org.openrewrite.python.migrate.FindLocaleGetdefaultlocale](/user-documentation/recipes/recipe-catalog/python/migrate/findlocalegetdefaultlocale.md)
+  * **Find deprecated `locale.getdefaultlocale()` usage**
+  * `locale.getdefaultlocale()` was deprecated in Python 3.11. Use `locale.setlocale()`, `locale.getlocale()`, or `locale.getpreferredencoding(False)` instead.
+* [org.openrewrite.python.migrate.FindMacpathModule](/user-documentation/recipes/recipe-catalog/python/migrate/findmacpathmodule.md)
+  * **Find removed `macpath` module usage**
+  * The `macpath` module was removed in Python 3.8. Use `os.path` instead.
+* [org.openrewrite.python.migrate.FindMailcapModule](/user-documentation/recipes/recipe-catalog/python/migrate/findmailcapmodule.md)
+  * **Find deprecated `mailcap` module usage**
+  * The `mailcap` module was deprecated in Python 3.11 and removed in Python 3.13. Use `mimetypes` module for MIME type handling.
 * [org.openrewrite.python.migrate.FindMethods](/user-documentation/recipes/recipe-catalog/python/migrate/findmethods.md)
   * **Find Python function and method usages**
   * Find function and method calls by pattern. Covers standalone functions, class methods, static methods, and constructor calls.
+* [org.openrewrite.python.migrate.FindMsilibModule](/user-documentation/recipes/recipe-catalog/python/migrate/findmsilibmodule.md)
+  * **Find deprecated `msilib` module usage**
+  * The `msilib` module was deprecated in Python 3.11 and removed in Python 3.13. Use platform-specific tools for MSI creation.
+* [org.openrewrite.python.migrate.FindNisModule](/user-documentation/recipes/recipe-catalog/python/migrate/findnismodule.md)
+  * **Find deprecated `nis` module usage**
+  * The `nis` module was deprecated in Python 3.11 and removed in Python 3.13. There is no direct replacement.
+* [org.openrewrite.python.migrate.FindNntplibModule](/user-documentation/recipes/recipe-catalog/python/migrate/findnntplibmodule.md)
+  * **Find deprecated `nntplib` module usage**
+  * The `nntplib` module was deprecated in Python 3.11 and removed in Python 3.13. NNTP is largely obsolete; consider alternatives if needed.
+* [org.openrewrite.python.migrate.FindOsPopen](/user-documentation/recipes/recipe-catalog/python/migrate/findospopen.md)
+  * **Find deprecated `os.popen()` usage**
+  * `os.popen()` has been deprecated since Python 3.6. Use `subprocess.run()` or `subprocess.Popen()` instead for better control over process creation and output handling.
+* [org.openrewrite.python.migrate.FindOsSpawn](/user-documentation/recipes/recipe-catalog/python/migrate/findosspawn.md)
+  * **Find deprecated `os.spawn*()` usage**
+  * The `os.spawn*()` family of functions are deprecated. Use `subprocess.run()` or `subprocess.Popen()` instead.
+* [org.openrewrite.python.migrate.FindOssaudiodevModule](/user-documentation/recipes/recipe-catalog/python/migrate/findossaudiodevmodule.md)
+  * **Find deprecated `ossaudiodev` module usage**
+  * The `ossaudiodev` module was deprecated in Python 3.11 and removed in Python 3.13. There is no direct replacement.
+* [org.openrewrite.python.migrate.FindPathlibLinkTo](/user-documentation/recipes/recipe-catalog/python/migrate/findpathliblinkto.md)
+  * **Find deprecated `Path.link_to()` usage**
+  * Find usage of `Path.link_to()` which was deprecated in Python 3.10 and removed in 3.12. Use `hardlink_to()` instead (note: argument order is reversed).
+* [org.openrewrite.python.migrate.FindPipesModule](/user-documentation/recipes/recipe-catalog/python/migrate/findpipesmodule.md)
+  * **Find deprecated `pipes` module usage**
+  * The `pipes` module was deprecated in Python 3.11 and removed in Python 3.13. Use subprocess with shlex.quote() for shell escaping.
+* [org.openrewrite.python.migrate.FindRemovedModules312](/user-documentation/recipes/recipe-catalog/python/migrate/findremovedmodules312.md)
+  * **Find modules removed in Python 3.12**
+  * Find imports of modules that were removed in Python 3.12, including asynchat, asyncore, and smtpd.
+* [org.openrewrite.python.migrate.FindShutilRmtreeOnerror](/user-documentation/recipes/recipe-catalog/python/migrate/findshutilrmtreeonerror.md)
+  * **Find deprecated `shutil.rmtree(onerror=...)` parameter**
+  * The `onerror` parameter of `shutil.rmtree()` was deprecated in Python 3.12 in favor of `onexc`. The `onexc` callback receives the exception object directly rather than an exc_info tuple.
+* [org.openrewrite.python.migrate.FindSndhdrModule](/user-documentation/recipes/recipe-catalog/python/migrate/findsndhdrmodule.md)
+  * **Find deprecated `sndhdr` module usage**
+  * The `sndhdr` module was deprecated in Python 3.11 and removed in Python 3.13. Use `filetype` or audio libraries like `pydub` instead.
+* [org.openrewrite.python.migrate.FindSocketGetFQDN](/user-documentation/recipes/recipe-catalog/python/migrate/findsocketgetfqdn.md)
+  * **Find `socket.getfqdn()` usage**
+  * Find usage of `socket.getfqdn()` which can be slow and unreliable. Consider using `socket.gethostname()` instead.
+* [org.openrewrite.python.migrate.FindSpwdModule](/user-documentation/recipes/recipe-catalog/python/migrate/findspwdmodule.md)
+  * **Find deprecated `spwd` module usage**
+  * The `spwd` module was deprecated in Python 3.11 and removed in Python 3.13. There is no direct replacement.
+* [org.openrewrite.python.migrate.FindSslMatchHostname](/user-documentation/recipes/recipe-catalog/python/migrate/findsslmatchhostname.md)
+  * **Find deprecated `ssl.match_hostname()`**
+  * Find usage of the deprecated `ssl.match_hostname()` function which was removed in Python 3.12. Use `ssl.SSLContext.check_hostname` instead.
+* [org.openrewrite.python.migrate.FindSunauModule](/user-documentation/recipes/recipe-catalog/python/migrate/findsunaumodule.md)
+  * **Find deprecated `sunau` module usage**
+  * The `sunau` module was deprecated in Python 3.11 and removed in Python 3.13. Use `soundfile` or `pydub` instead.
+* [org.openrewrite.python.migrate.FindSysCoroutineWrapper](/user-documentation/recipes/recipe-catalog/python/migrate/findsyscoroutinewrapper.md)
+  * **Find removed `sys.set_coroutine_wrapper()` / `sys.get_coroutine_wrapper()`**
+  * `sys.set_coroutine_wrapper()` and `sys.get_coroutine_wrapper()` were deprecated in Python 3.7 and removed in Python 3.8.
+* [org.openrewrite.python.migrate.FindTelnetlibModule](/user-documentation/recipes/recipe-catalog/python/migrate/findtelnetlibmodule.md)
+  * **Find deprecated `telnetlib` module usage**
+  * The `telnetlib` module was deprecated in Python 3.11 and removed in Python 3.13. Consider using `telnetlib3` from PyPI, direct socket usage, or SSH-based alternatives like paramiko.
+* [org.openrewrite.python.migrate.FindTempfileMktemp](/user-documentation/recipes/recipe-catalog/python/migrate/findtempfilemktemp.md)
+  * **Find deprecated `tempfile.mktemp()` usage**
+  * Find usage of `tempfile.mktemp()` which is deprecated due to security concerns (race condition). Use `mkstemp()` or `NamedTemporaryFile()` instead.
 * [org.openrewrite.python.migrate.FindTypes](/user-documentation/recipes/recipe-catalog/python/migrate/findtypes.md)
   * **Find Python types**
   * Find type references by name. Identifies classes matching a type pattern. In Python, all type definitions use the `class` keyword, covering regular classes, abstract base classes, protocols, enums, dataclasses, named tuples, typed dicts, and more.
+* [org.openrewrite.python.migrate.FindUrllibParseSplitFunctions](/user-documentation/recipes/recipe-catalog/python/migrate/findurllibparsesplitfunctions.md)
+  * **Find deprecated urllib.parse split functions**
+  * Find usage of deprecated urllib.parse split functions (splithost, splitport, etc.) removed in Python 3.14. Use urlparse() instead.
+* [org.openrewrite.python.migrate.FindUrllibParseToBytes](/user-documentation/recipes/recipe-catalog/python/migrate/findurllibparsetobytes.md)
+  * **Find deprecated `urllib.parse.to_bytes()` usage**
+  * Find usage of `urllib.parse.to_bytes()` which was deprecated in Python 3.8 and removed in 3.14. Use str.encode() directly.
+* [org.openrewrite.python.migrate.FindUuModule](/user-documentation/recipes/recipe-catalog/python/migrate/finduumodule.md)
+  * **Find deprecated `uu` module usage**
+  * The `uu` module was deprecated in Python 3.11 and removed in Python 3.13. Use `base64` module instead for encoding binary data.
+* [org.openrewrite.python.migrate.FindXdrlibModule](/user-documentation/recipes/recipe-catalog/python/migrate/findxdrlibmodule.md)
+  * **Find deprecated `xdrlib` module usage**
+  * The `xdrlib` module was deprecated in Python 3.11 and removed in Python 3.13. Use `struct` module for binary packing/unpacking.
+* [org.openrewrite.python.migrate.MigrateAsyncioCoroutine](/user-documentation/recipes/recipe-catalog/python/migrate/migrateasynciocoroutine.md)
+  * **Migrate `@asyncio.coroutine` to `async def`**
+  * Migrate functions using the deprecated `@asyncio.coroutine` decorator to use `async def` syntax. Also transforms `yield from` to `await`. The decorator was removed in Python 3.11.
 * [org.openrewrite.python.migrate.MigrateToPyprojectToml](/user-documentation/recipes/recipe-catalog/python/migrate/migratetopyprojecttoml.md)
   * **Migrate to `pyproject.toml`**
   * Migrate Python projects from `requirements.txt` and/or `setup.cfg` to `pyproject.toml` with `hatchling` build backend.
+* [org.openrewrite.python.migrate.RemoveFutureImports](/user-documentation/recipes/recipe-catalog/python/migrate/removefutureimports.md)
+  * **Remove obsolete `__future__` imports**
+  * Remove `from __future__ import ...` statements for features that are enabled by default in Python 3.
+* [org.openrewrite.python.migrate.ReplaceArrayFromstring](/user-documentation/recipes/recipe-catalog/python/migrate/replacearrayfromstring.md)
+  * **Replace `array.fromstring()` with `array.frombytes()`**
+  * Replace `fromstring()` with `frombytes()` on array objects. The fromstring() method was deprecated in Python 3.2 and removed in 3.14.
+* [org.openrewrite.python.migrate.ReplaceArrayTostring](/user-documentation/recipes/recipe-catalog/python/migrate/replacearraytostring.md)
+  * **Replace `array.tostring()` with `array.tobytes()`**
+  * Replace `tostring()` with `tobytes()` on array objects. The tostring() method was deprecated in Python 3.2 and removed in 3.14.
+* [org.openrewrite.python.migrate.ReplaceAstBytes](/user-documentation/recipes/recipe-catalog/python/migrate/replaceastbytes.md)
+  * **Replace `ast.Bytes` with `ast.Constant`**
+  * The `ast.Bytes` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `isinstance(node.value, bytes)`.
+* [org.openrewrite.python.migrate.ReplaceAstEllipsis](/user-documentation/recipes/recipe-catalog/python/migrate/replaceastellipsis.md)
+  * **Replace `ast.Ellipsis` with `ast.Constant`**
+  * The `ast.Ellipsis` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `node.value is ...`.
+* [org.openrewrite.python.migrate.ReplaceAstNameConstant](/user-documentation/recipes/recipe-catalog/python/migrate/replaceastnameconstant.md)
+  * **Replace `ast.NameConstant` with `ast.Constant`**
+  * The `ast.NameConstant` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `node.value in (True, False, None)`.
+* [org.openrewrite.python.migrate.ReplaceAstNum](/user-documentation/recipes/recipe-catalog/python/migrate/replaceastnum.md)
+  * **Replace `ast.Num` with `ast.Constant`**
+  * The `ast.Num` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `isinstance(node.value, (int, float, complex))`.
+* [org.openrewrite.python.migrate.ReplaceAstStr](/user-documentation/recipes/recipe-catalog/python/migrate/replaceaststr.md)
+  * **Replace `ast.Str` with `ast.Constant`**
+  * The `ast.Str` node type was deprecated in Python 3.8 and removed in Python 3.14. Replace with `ast.Constant` and check `isinstance(node.value, str)`.
+* [org.openrewrite.python.migrate.ReplaceCalendarConstants](/user-documentation/recipes/recipe-catalog/python/migrate/replacecalendarconstants.md)
+  * **Replace deprecated calendar constants with uppercase**
+  * Replace deprecated mixed-case calendar constants like `calendar.January` with their uppercase equivalents like `calendar.JANUARY`. The mixed-case constants were deprecated in Python 3.12.
+* [org.openrewrite.python.migrate.ReplaceCgiParseQs](/user-documentation/recipes/recipe-catalog/python/migrate/replacecgiparseqs.md)
+  * **Replace `cgi.parse_qs()` with `urllib.parse.parse_qs()`**
+  * `cgi.parse_qs()` was removed in Python 3.8. Use `urllib.parse.parse_qs()` instead. Note: this rewrites call sites but does not manage imports. Use with `ChangeImport` in a composite recipe to update `from` imports.
+* [org.openrewrite.python.migrate.ReplaceCgiParseQsl](/user-documentation/recipes/recipe-catalog/python/migrate/replacecgiparseqsl.md)
+  * **Replace `cgi.parse_qsl()` with `urllib.parse.parse_qsl()`**
+  * `cgi.parse_qsl()` was removed in Python 3.8. Use `urllib.parse.parse_qsl()` instead. Note: this rewrites call sites but does not manage imports. Use with `ChangeImport` in a composite recipe to update `from` imports.
+* [org.openrewrite.python.migrate.ReplaceCollectionsAbcImports](/user-documentation/recipes/recipe-catalog/python/migrate/replacecollectionsabcimports.md)
+  * **Replace `collections` ABC imports with `collections.abc`**
+  * Migrate deprecated abstract base class imports from `collections` to `collections.abc`. These imports were deprecated in Python 3.3 and removed in Python 3.10.
+* [org.openrewrite.python.migrate.ReplaceConditionNotifyAll](/user-documentation/recipes/recipe-catalog/python/migrate/replaceconditionnotifyall.md)
+  * **Replace `Condition.notifyAll()` with `Condition.notify_all()`**
+  * Replace `notifyAll()` method calls with `notify_all()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceConfigparserReadfp](/user-documentation/recipes/recipe-catalog/python/migrate/replaceconfigparserreadfp.md)
+  * **Replace `ConfigParser.readfp()` with `read_file()`**
+  * The `ConfigParser.readfp()` method was deprecated in Python 3.2 and removed in Python 3.13. Replace with `read_file()`.
+* [org.openrewrite.python.migrate.ReplaceConfigparserSafeConfigParser](/user-documentation/recipes/recipe-catalog/python/migrate/replaceconfigparsersafeconfigparser.md)
+  * **Replace `configparser.SafeConfigParser` with `ConfigParser`**
+  * The `configparser.SafeConfigParser` class was deprecated in Python 3.2 and removed in Python 3.12. Replace with `configparser.ConfigParser`.
+* [org.openrewrite.python.migrate.ReplaceDatetimeUtcFromTimestamp](/user-documentation/recipes/recipe-catalog/python/migrate/replacedatetimeutcfromtimestamp.md)
+  * **Replace `datetime.utcfromtimestamp()` with `datetime.fromtimestamp(ts, UTC)`**
+  * The `datetime.utcfromtimestamp()` method is deprecated in Python 3.12. Replace it with `datetime.fromtimestamp(ts, datetime.UTC)` for timezone-aware datetime objects.
+* [org.openrewrite.python.migrate.ReplaceDatetimeUtcNow](/user-documentation/recipes/recipe-catalog/python/migrate/replacedatetimeutcnow.md)
+  * **Replace `datetime.utcnow()` with `datetime.now(UTC)`**
+  * The `datetime.utcnow()` method is deprecated in Python 3.12. Replace it with `datetime.now(datetime.UTC)` for timezone-aware datetime objects.
+* [org.openrewrite.python.migrate.ReplaceDistutilsVersion](/user-documentation/recipes/recipe-catalog/python/migrate/replacedistutilsversion.md)
+  * **Replace deprecated distutils.version usage**
+  * Detect usage of deprecated `distutils.version.LooseVersion` and `distutils.version.StrictVersion`. These should be migrated to `packaging.version.Version`. Note: Manual migration is required as `packaging.version.Version` is not a drop-in replacement.
+* [org.openrewrite.python.migrate.ReplaceElementGetchildren](/user-documentation/recipes/recipe-catalog/python/migrate/replaceelementgetchildren.md)
+  * **Replace `Element.getchildren()` with `list(element)`**
+  * Replace `getchildren()` with `list(element)` on XML Element objects. Deprecated in Python 3.9.
+* [org.openrewrite.python.migrate.ReplaceElementGetiterator](/user-documentation/recipes/recipe-catalog/python/migrate/replaceelementgetiterator.md)
+  * **Replace `Element.getiterator()` with `Element.iter()`**
+  * Replace `getiterator()` with `iter()` on XML Element objects. The getiterator() method was deprecated in Python 3.9.
+* [org.openrewrite.python.migrate.ReplaceEventIsSet](/user-documentation/recipes/recipe-catalog/python/migrate/replaceeventisset.md)
+  * **Replace `Event.isSet()` with `Event.is_set()`**
+  * Replace `isSet()` method calls with `is_set()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceGettextDeprecations](/user-documentation/recipes/recipe-catalog/python/migrate/replacegettextdeprecations.md)
+  * **Replace deprecated gettext l*gettext() functions**
+  * Replace deprecated gettext functions like `lgettext()` with their modern equivalents like `gettext()`. The l*gettext() functions were removed in Python 3.11.
+* [org.openrewrite.python.migrate.ReplaceHtmlParserUnescape](/user-documentation/recipes/recipe-catalog/python/migrate/replacehtmlparserunescape.md)
+  * **Replace `HTMLParser.unescape()` with `html.unescape()`**
+  * `HTMLParser.unescape()` was removed in Python 3.9. Use `html.unescape()` instead.
+* [org.openrewrite.python.migrate.ReplaceLocaleResetlocale](/user-documentation/recipes/recipe-catalog/python/migrate/replacelocaleresetlocale.md)
+  * **Replace `locale.resetlocale()` with `locale.setlocale(LC_ALL, '')`**
+  * The `locale.resetlocale()` function was deprecated in Python 3.11 and removed in Python 3.13. Replace with `locale.setlocale(locale.LC_ALL, '')`.
+* [org.openrewrite.python.migrate.ReplacePercentFormatWithFString](/user-documentation/recipes/recipe-catalog/python/migrate/replacepercentformatwithfstring.md)
+  * **Replace `%` formatting with f-string**
+  * Replace `&quot;...&quot; % (...)` expressions with f-strings (Python 3.6+). Only converts `%s` and `%r` specifiers where the format string is a literal and the conversion is safe.
+* [org.openrewrite.python.migrate.ReplacePkgutilFindLoader](/user-documentation/recipes/recipe-catalog/python/migrate/replacepkgutilfindloader.md)
+  * **Replace `pkgutil.find_loader()` with `importlib.util.find_spec()`**
+  * The `pkgutil.find_loader()` function was deprecated in Python 3.12. Replace with `importlib.util.find_spec()`. Note: returns ModuleSpec, use .loader for loader.
+* [org.openrewrite.python.migrate.ReplacePkgutilGetLoader](/user-documentation/recipes/recipe-catalog/python/migrate/replacepkgutilgetloader.md)
+  * **Replace `pkgutil.get_loader()` with `importlib.util.find_spec()`**
+  * The `pkgutil.get_loader()` function was deprecated in Python 3.12. Replace with `importlib.util.find_spec()`. Note: returns ModuleSpec, use .loader for loader.
+* [org.openrewrite.python.migrate.ReplacePlatformPopen](/user-documentation/recipes/recipe-catalog/python/migrate/replaceplatformpopen.md)
+  * **Replace `platform.popen()` with `subprocess.check_output()`**
+  * `platform.popen()` was removed in Python 3.8. Use `subprocess.check_output(cmd, shell=True)` instead. Note: this rewrites call sites but does not manage imports.
+* [org.openrewrite.python.migrate.ReplaceReTemplate](/user-documentation/recipes/recipe-catalog/python/migrate/replaceretemplate.md)
+  * **Replace `re.template()` with `re.compile()` and flag `re.TEMPLATE`/`re.T`**
+  * `re.template()` was deprecated in Python 3.11 and removed in 3.13. Calls are auto-replaced with `re.compile()`. `re.TEMPLATE`/`re.T` flags have no direct replacement and are flagged for manual review.
+* [org.openrewrite.python.migrate.ReplaceStrFormatWithFString](/user-documentation/recipes/recipe-catalog/python/migrate/replacestrformatwithfstring.md)
+  * **Replace `str.format()` with f-string**
+  * Replace `&quot;...&quot;.format(...)` calls with f-strings (Python 3.6+). Only converts cases where the format string is a literal and the conversion is safe.
+* [org.openrewrite.python.migrate.ReplaceSysLastExcInfo](/user-documentation/recipes/recipe-catalog/python/migrate/replacesyslastexcinfo.md)
+  * **Replace `sys.last_type` / `sys.last_value` / `sys.last_traceback` with `sys.last_exc`**
+  * `sys.last_type`, `sys.last_value`, and `sys.last_traceback` were deprecated in Python 3.12. Replace them with their `sys.last_exc`-based equivalents: `type(sys.last_exc)`, `sys.last_exc`, and `sys.last_exc.__traceback__` respectively.
+* [org.openrewrite.python.migrate.ReplaceTarfileFilemode](/user-documentation/recipes/recipe-catalog/python/migrate/replacetarfilefilemode.md)
+  * **Replace `tarfile.filemode` with `stat.filemode`**
+  * `tarfile.filemode` was removed in Python 3.8. Use `stat.filemode()` instead.
+* [org.openrewrite.python.migrate.ReplaceThreadGetName](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadgetname.md)
+  * **Replace `Thread.getName()` with `Thread.name`**
+  * Replace `getName()` method calls with the `name` property. Deprecated in Python 3.10, removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadIsAlive](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadisalive.md)
+  * **Replace `Thread.isAlive()` with `Thread.is_alive()`**
+  * Replace `isAlive()` method calls with `is_alive()`. Deprecated in Python 3.1 and removed in 3.9.
+* [org.openrewrite.python.migrate.ReplaceThreadIsDaemon](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadisdaemon.md)
+  * **Replace `Thread.isDaemon()` with `Thread.daemon`**
+  * Replace `isDaemon()` method calls with the `daemon` property. Deprecated in Python 3.10, removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadSetDaemon](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadsetdaemon.md)
+  * **Replace `Thread.setDaemon()` with `Thread.daemon = ...`**
+  * Replace `setDaemon()` method calls with `daemon` property assignment. Deprecated in Python 3.10, removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadSetName](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadsetname.md)
+  * **Replace `Thread.setName()` with `Thread.name = ...`**
+  * Replace `setName()` method calls with `name` property assignment. Deprecated in Python 3.10, removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadingActiveCount](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadingactivecount.md)
+  * **Replace `threading.activeCount()` with `threading.active_count()`**
+  * Replace `threading.activeCount()` with `threading.active_count()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceThreadingCurrentThread](/user-documentation/recipes/recipe-catalog/python/migrate/replacethreadingcurrentthread.md)
+  * **Replace `threading.currentThread()` with `threading.current_thread()`**
+  * Replace `threading.currentThread()` with `threading.current_thread()`. The camelCase version was deprecated in Python 3.10 and removed in 3.12.
+* [org.openrewrite.python.migrate.ReplaceTypingCallableWithCollectionsAbcCallable](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingcallablewithcollectionsabccallable.md)
+  * **Replace `typing.Callable` with `collections.abc.Callable`**
+  * PEP 585 deprecated `typing.Callable` in Python 3.9. Replace with `collections.abc.Callable` for type annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingDictWithDict](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingdictwithdict.md)
+  * **Replace `typing.Dict` with `dict`**
+  * PEP 585 deprecated `typing.Dict` in Python 3.9. Replace with the built-in `dict` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingListWithList](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypinglistwithlist.md)
+  * **Replace `typing.List` with `list`**
+  * PEP 585 deprecated `typing.List` in Python 3.9. Replace with the built-in `list` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingOptionalWithUnion](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingoptionalwithunion.md)
+  * **Replace `typing.Optional[X]` with `X | None`**
+  * PEP 604 introduced the `|` operator for union types in Python 3.10. Replace `Optional[X]` with the more concise `X | None` syntax.
+* [org.openrewrite.python.migrate.ReplaceTypingSetWithSet](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingsetwithset.md)
+  * **Replace `typing.Set` with `set`**
+  * PEP 585 deprecated `typing.Set` in Python 3.9. Replace with the built-in `set` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingText](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingtext.md)
+  * **Replace `typing.Text` with `str`**
+  * `typing.Text` is deprecated as of Python 3.11. It was an alias for `str` for Python 2/3 compatibility. Replace with `str`.
+* [org.openrewrite.python.migrate.ReplaceTypingTupleWithTuple](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingtuplewithtuple.md)
+  * **Replace `typing.Tuple` with `tuple`**
+  * PEP 585 deprecated `typing.Tuple` in Python 3.9. Replace with the built-in `tuple` type for generic annotations.
+* [org.openrewrite.python.migrate.ReplaceTypingUnionWithPipe](/user-documentation/recipes/recipe-catalog/python/migrate/replacetypingunionwithpipe.md)
+  * **Replace `typing.Union[X, Y]` with `X | Y`**
+  * PEP 604 introduced the `|` operator for union types in Python 3.10. Replace `Union[X, Y, ...]` with the more concise `X | Y | ...` syntax.
+* [org.openrewrite.python.migrate.ReplaceUnittestDeprecatedAliases](/user-documentation/recipes/recipe-catalog/python/migrate/replaceunittestdeprecatedaliases.md)
+  * **Replace deprecated unittest method aliases**
+  * Replace deprecated unittest.TestCase method aliases like `assertEquals` with their modern equivalents like `assertEqual`. These aliases were removed in Python 3.11/3.12.
+* [org.openrewrite.python.migrate.UpgradePythonDockerImage](/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythondockerimage.md)
+  * **Upgrade Python Docker base image**
+  * Update the Python version of `Dockerfile` base images (`FROM python:&lt;version&gt;`) to a target version. Tag suffixes such as `-slim` are preserved, any patch component is dropped, and an image already on a newer version is left as-is.
+* [org.openrewrite.python.migrate.UpgradePythonVersion](/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonversion.md)
+  * **Upgrade Python version in project files**
+  * Update the Python version referenced in project metadata and packaging files to a target version. Updates `Pipfile` (`python_version` / `python_full_version`), `pyproject.toml` (`[project] requires-python` and Poetry's `[tool.poetry.dependencies] python`), `setup.cfg` (`python_requires`), and `.python-version` files. When a lock file (`uv.lock` or `Pipfile.lock`) is present and the matching package manager (`uv` or `pipenv`) is available on `PATH`, the lock file is regenerated to match. Only references older than the target are changed; a file already on a newer version is left as-is. `Dockerfile` base images are handled separately by `UpgradePythonDockerImage`, and `requirements.txt` is not modified because it pins package versions, not the interpreter version.
+* [org.openrewrite.python.migrate.UpgradePythonVersionTo310](/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonversionto310.md)
+  * **Upgrade Python version in project files to 3.10**
+  * Update the Python version referenced in `pyproject.toml`, `Pipfile`, `setup.cfg`, `.python-version`, and `Dockerfile` base images to 3.10.
+* [org.openrewrite.python.migrate.UpgradePythonVersionTo311](/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonversionto311.md)
+  * **Upgrade Python version in project files to 3.11**
+  * Update the Python version referenced in `pyproject.toml`, `Pipfile`, `setup.cfg`, `.python-version`, and `Dockerfile` base images to 3.11.
+* [org.openrewrite.python.migrate.UpgradePythonVersionTo312](/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonversionto312.md)
+  * **Upgrade Python version in project files to 3.12**
+  * Update the Python version referenced in `pyproject.toml`, `Pipfile`, `setup.cfg`, `.python-version`, and `Dockerfile` base images to 3.12.
+* [org.openrewrite.python.migrate.UpgradePythonVersionTo313](/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonversionto313.md)
+  * **Upgrade Python version in project files to 3.13**
+  * Update the Python version referenced in `pyproject.toml`, `Pipfile`, `setup.cfg`, `.python-version`, and `Dockerfile` base images to 3.13.
+* [org.openrewrite.python.migrate.UpgradePythonVersionTo314](/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonversionto314.md)
+  * **Upgrade Python version in project files to 3.14**
+  * Update the Python version referenced in `pyproject.toml`, `Pipfile`, `setup.cfg`, `.python-version`, and `Dockerfile` base images to 3.14.
+* [org.openrewrite.python.migrate.UpgradePythonVersionTo38](/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonversionto38.md)
+  * **Upgrade Python version in project files to 3.8**
+  * Update the Python version referenced in `pyproject.toml`, `Pipfile`, `setup.cfg`, `.python-version`, and `Dockerfile` base images to 3.8.
+* [org.openrewrite.python.migrate.UpgradePythonVersionTo39](/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonversionto39.md)
+  * **Upgrade Python version in project files to 3.9**
+  * Update the Python version referenced in `pyproject.toml`, `Pipfile`, `setup.cfg`, `.python-version`, and `Dockerfile` base images to 3.9.
+* [org.openrewrite.python.migrate.UpgradeToPython310](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython310.md)
+  * **Upgrade to Python 3.10**
+  * Migrate deprecated APIs and adopt new syntax for Python 3.10 compatibility. This includes adopting PEP 604 union type syntax (`X | Y`) and other modernizations between Python 3.9 and 3.10.
+* [org.openrewrite.python.migrate.UpgradeToPython311](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython311.md)
+  * **Upgrade to Python 3.11**
+  * Migrate deprecated and removed APIs for Python 3.11 compatibility. This includes handling removed modules, deprecated functions, and API changes between Python 3.10 and 3.11.
+* [org.openrewrite.python.migrate.UpgradeToPython312](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython312.md)
+  * **Upgrade to Python 3.12**
+  * Migrate deprecated and removed APIs for Python 3.12 compatibility. This includes detecting usage of the removed `imp` module and other legacy modules that were removed in Python 3.12.
+* [org.openrewrite.python.migrate.UpgradeToPython313](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython313.md)
+  * **Upgrade to Python 3.13**
+  * Migrate deprecated and removed APIs for Python 3.13 compatibility. This includes detecting usage of modules removed in PEP 594 ('dead batteries') and other API changes between Python 3.12 and 3.13.
+* [org.openrewrite.python.migrate.UpgradeToPython314](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython314.md)
+  * **Upgrade to Python 3.14**
+  * Migrate deprecated and removed APIs for Python 3.14 compatibility. This includes replacing deprecated AST node types with `ast.Constant` and other API changes between Python 3.13 and 3.14.
+* [org.openrewrite.python.migrate.UpgradeToPython38](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython38.md)
+  * **Upgrade to Python 3.8**
+  * Migrate deprecated APIs and detect legacy patterns for Python 3.8 compatibility.
+* [org.openrewrite.python.migrate.UpgradeToPython39](/user-documentation/recipes/recipe-catalog/python/migrate/upgradetopython39.md)
+  * **Upgrade to Python 3.9**
+  * Migrate deprecated APIs for Python 3.9 compatibility. This includes PEP 585 built-in generics, removed base64 functions, and deprecated XML Element methods.
+* [org.openrewrite.python.migrate.langchain.FindDeprecatedLangchainAgents](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/finddeprecatedlangchainagents.md)
+  * **Find deprecated LangChain agent patterns**
+  * Find usage of deprecated LangChain agent patterns including `initialize_agent`, `AgentExecutor`, and `LLMChain`. These were deprecated in LangChain v0.2 and removed in v1.0.
+* [org.openrewrite.python.migrate.langchain.FindLangchainCreateReactAgent](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/findlangchaincreatereactagent.md)
+  * **Find `create_react_agent` usage (replace with `create_agent`)**
+  * Find `from langgraph.prebuilt import create_react_agent` which should be replaced with `from langchain.agents import create_agent` in LangChain v1.0.
+* [org.openrewrite.python.migrate.langchain.ReplaceLangchainClassicImports](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/replacelangchainclassicimports.md)
+  * **Replace `langchain` legacy imports with `langchain_classic`**
+  * Migrate legacy chain, retriever, and indexing imports from `langchain` to `langchain_classic`. These were moved in LangChain v1.0.
+* [org.openrewrite.python.migrate.langchain.ReplaceLangchainCommunityImports](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/replacelangchaincommunityimports.md)
+  * **Replace `langchain` imports with `langchain_community`**
+  * Migrate third-party integration imports from `langchain` to `langchain_community`. These integrations were moved in LangChain v0.2.
+* [org.openrewrite.python.migrate.langchain.ReplaceLangchainProviderImports](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/replacelangchainproviderimports.md)
+  * **Replace `langchain_community` imports with provider packages**
+  * Migrate provider-specific imports from `langchain_community` to dedicated provider packages like `langchain_openai`, `langchain_anthropic`, etc.
+* [org.openrewrite.python.migrate.langchain.UpgradeToLangChain02](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/upgradetolangchain02.md)
+  * **Upgrade to LangChain 0.2**
+  * Migrate to LangChain 0.2 by updating imports from `langchain` to `langchain_community` and provider-specific packages.
+* [org.openrewrite.python.migrate.langchain.UpgradeToLangChain1](/user-documentation/recipes/recipe-catalog/python/migrate/langchain/upgradetolangchain1.md)
+  * **Upgrade to LangChain 1.0**
+  * Migrate to LangChain 1.0 by applying all v0.2 migrations and then moving legacy functionality to `langchain_classic`.
+* [org.openrewrite.python.migrate.pydantic.FindDeprecatedJsonEncoders](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/finddeprecatedjsonencoders.md)
+  * **Find deprecated `json_encoders` config option**
+  * Pydantic deprecated the `json_encoders` option in `ConfigDict`. Its replacements (`@field_serializer` / `@model_serializer` or `Annotated[..., PlainSerializer(...)]`) require restructuring, so this recipe flags its use for review.
+* [org.openrewrite.python.migrate.pydantic.FindDeprecatedSchemaGenerator](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/finddeprecatedschemagenerator.md)
+  * **Find deprecated `schema_generator` config option**
+  * Pydantic 2.10 deprecated the `schema_generator` option in `ConfigDict`. It has no public replacement yet, so this recipe flags its use for review.
+* [org.openrewrite.python.migrate.pydantic.FindEvalTypeBackportUsage](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/findevaltypebackportusage.md)
+  * **Find `eval_type_backport` usage removed in Pydantic 2.14**
+  * Pydantic 2.14 removed its support for the `eval_type_backport` package. With the Python 3.10 minimum it is no longer needed. This recipe flags `import eval_type_backport` and `from eval_type_backport import ...` for review.
+* [org.openrewrite.python.migrate.pydantic.FindModelValidatorAfterClassmethod](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/findmodelvalidatorafterclassmethod.md)
+  * **Find `@model_validator(mode='after')` on a classmethod**
+  * Pydantic 2.12 deprecated `@model_validator` with `mode='after'` on a classmethod; the implicit classmethod conversion for `after` model validators is removed in V3. Such validators should be instance methods (`self`, no `@classmethod`). This recipe flags the decorator for review, since the rewrite is not safe to mechanize. `field_validator` is unaffected.
+* [org.openrewrite.python.migrate.pydantic.FindSerializeAsAnyUsage](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/findserializeasanyusage.md)
+  * **Find `serialize_as_any` usage affected by the Pydantic 2.12 unification**
+  * Pydantic 2.12 unified the `serialize_as_any` flag with the `SerializeAsAny` annotation, which can change serialization output versus 2.11. This recipe flags `serialize_as_any=` on `model_dump` / `model_dump_json` (and `TypeAdapter.dump_python` / `dump_json`) for review, since there is no safe mechanical rewrite.
+* [org.openrewrite.python.migrate.pydantic.RemoveEllipsisFromField](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/removeellipsisfromfield.md)
+  * **Remove `...` (Ellipsis) from `Field()`**
+  * Pydantic 2.10 recommends against using `Ellipsis` (`...`) with `Field` to mark a field as required, as it does not play well with static type checkers. Rewrite `Field(...)` to `Field()` (and `Field(..., x=y)` to `Field(x=y)`), keeping the remaining arguments. Only calls resolving to `pydantic.fields.Field` are rewritten.
+* [org.openrewrite.python.migrate.pydantic.ReplaceFinalFieldWithClassVar](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/replacefinalfieldwithclassvar.md)
+  * **Replace `Final` model fields with a default with `ClassVar`**
+  * Pydantic 2.11 deprecates annotating a model field as `Final` with a default value (such fields were treated as class variables). Replace `Final[X] = default` with `ClassVar[X] = default`, which preserves the existing class-variable behavior and is the replacement Pydantic recommends.
+* [org.openrewrite.python.migrate.pydantic.ReplaceModelFieldsInstanceAccess](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/replacemodelfieldsinstanceaccess.md)
+  * **Replace instance access of `model_fields` / `model_computed_fields`**
+  * Pydantic 2.11 deprecated accessing `model_fields` and `model_computed_fields` on a model instance; these are removed in Pydantic 3.0. Replace `&lt;instance&gt;.model_fields` with `type(&lt;instance&gt;).model_fields` (and likewise for `model_computed_fields`) when the receiver resolves to a Pydantic model, so the attribute is accessed on the class. Class access and `cls` access are left untouched.
+* [org.openrewrite.python.migrate.pydantic.ReplacePopulateByNameWithValidateByName](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/replacepopulatebynamewithvalidatebyname.md)
+  * **Replace `populate_by_name` with `validate_by_name`**
+  * Pydantic 2.11 introduced `validate_by_name` as the equivalent of `populate_by_name`, which is pending deprecation in Pydantic V3. Rename `ConfigDict(populate_by_name=...)` to `ConfigDict(validate_by_name=...)`. This is behavior-preserving (`validate_by_alias` defaults to `True`) and future-proofs the configuration.
+* [org.openrewrite.python.migrate.pydantic.UpgradeToPydantic210](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/upgradetopydantic210.md)
+  * **Upgrade to Pydantic 2.10**
+  * Flag and migrate code affected by deprecations introduced in Pydantic 2.10, such as the deprecated `schema_generator` config option and the discouraged `Field(...)` Ellipsis form. Also flags the deprecated `json_encoders` config option.
+* [org.openrewrite.python.migrate.pydantic.UpgradeToPydantic211](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/upgradetopydantic211.md)
+  * **Upgrade to Pydantic 2.11**
+  * Migrate code affected by deprecations introduced in Pydantic 2.11 (and 2.10). Rewrites instance access of `model_fields` / `model_computed_fields` to class access, rewrites `Final` model fields with default values to `ClassVar`, and renames `populate_by_name` to `validate_by_name`.
+* [org.openrewrite.python.migrate.pydantic.UpgradeToPydantic212](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/upgradetopydantic212.md)
+  * **Upgrade to Pydantic 2.12**
+  * Migrate code affected by changes introduced in Pydantic 2.12 (and 2.10/2.11). Flags `serialize_as_any` usage affected by the 2.12 unification with the `SerializeAsAny` annotation.
+* [org.openrewrite.python.migrate.pydantic.UpgradeToPydantic213](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/upgradetopydantic213.md)
+  * **Upgrade to Pydantic 2.13**
+  * Migrate code for Pydantic 2.13. Pydantic 2.13 introduced no new deprecations (an additive release), so this applies all Pydantic 2.12 migrations (which chain back to 2.10).
+* [org.openrewrite.python.migrate.pydantic.UpgradeToPydantic214](/user-documentation/recipes/recipe-catalog/python/migrate/pydantic/upgradetopydantic214.md)
+  * **Upgrade to Pydantic 2.14**
+  * Migrate code affected by changes introduced in Pydantic 2.14 (and 2.10-2.13). Flags `eval_type_backport` usage, whose support 2.14 removed. Note: 2.14 is in prerelease; verify against the 2.14.0 GA release.
 
 ## rewrite-netty
 
@@ -5987,7 +6401,7 @@ _10 recipes_
 
 _License: Moderne Proprietary License_
 
-_45 recipes_
+_43 recipes_
 
 * [org.openrewrite.node.migrate.buffer.replace-deprecated-slice](/user-documentation/recipes/recipe-catalog/node/migrate/buffer/replace-deprecated-slice.md)
   * **Replace deprecated `Buffer.slice()` with `Buffer.subarray()`**
@@ -6076,15 +6490,9 @@ _45 recipes_
 * [org.openrewrite.node.migrate.zlib.replace-bytes-read](/user-documentation/recipes/recipe-catalog/node/migrate/zlib/replace-bytes-read.md)
   * **Replace deprecated `zlib.bytesRead` with `zlib.bytesWritten`**
   * Replace deprecated `bytesRead` property on zlib streams with `bytesWritten`.
-* [org.openrewrite.nodejs.UpgradeDependencyVersion](/user-documentation/recipes/recipe-catalog/nodejs/upgradedependencyversion.md)
-  * **Upgrade Node.js dependencies**
-  * Upgrade matching Node.js direct dependencies.
 * [org.openrewrite.nodejs.search.DatabaseInteractionInsights](/user-documentation/recipes/recipe-catalog/nodejs/search/databaseinteractioninsights.md)
   * **Javascript database interaction library insights**
   * Discover which popular javascript database interaction libraries (Sequelize, TypeORM, Mongoose, etc.) are being used in your projects.
-* [org.openrewrite.nodejs.search.DependencyInsight](/user-documentation/recipes/recipe-catalog/nodejs/search/dependencyinsight.md)
-  * **Node.js dependency insight**
-  * Identify the direct and transitive Node.js dependencies used in a project.
 * [org.openrewrite.nodejs.search.FindNodeProjects](/user-documentation/recipes/recipe-catalog/nodejs/search/findnodeprojects.md)
   * **Find Node.js projects**
   * Find Node.js projects and summarize data about them.
@@ -7749,7 +8157,7 @@ _11 recipes_
 
 _License: Moderne Source Available License_
 
-_181 recipes_
+_192 recipes_
 
 * [org.openrewrite.recipe.rewrite-static-analysis.InlineDeprecatedMethods](/user-documentation/recipes/recipe-catalog/recipe/rewrite-static-analysis/inlinedeprecatedmethods.md)
   * **Inline deprecated delegating methods**
@@ -7763,6 +8171,9 @@ _181 recipes_
 * [org.openrewrite.staticanalysis.AddSerialVersionUidToSerializable](/user-documentation/recipes/recipe-catalog/staticanalysis/addserialversionuidtoserializable.md)
   * **Add `serialVersionUID` to a `Serializable` class when missing**
   * A `serialVersionUID` field is strongly recommended in all `Serializable` classes. If this is not defined on a `Serializable` class, the compiler will generate this value. If a change is later made to the class, the generated value will change and attempts to deserialize the class will fail. Explicitly declaring this field gives you control over binary compatibility across versions.
+* [org.openrewrite.staticanalysis.AllBranchesIdentical](/user-documentation/recipes/recipe-catalog/staticanalysis/allbranchesidentical.md)
+  * **All branches in a conditional should not have the same implementation**
+  * When every branch of an `if`/`else` chain executes the same code, the condition serves no purpose and the code block can be used directly.
 * [org.openrewrite.staticanalysis.AnnotateNullableMethods](/user-documentation/recipes/recipe-catalog/staticanalysis/annotatenullablemethods.md)
   * **Annotate methods which may return `null` with `@Nullable`**
   * Add `@Nullable` to non-private methods that may return `null`. By default `org.jspecify.annotations.Nullable` is used, but through the `nullableAnnotationClass` option a custom annotation can be provided. Both `@Target(TYPE_USE)` and declaration annotations (e.g. `javax.annotation.CheckForNull`) are supported. Methods that already carry a known nullable annotation (matched by simple name) are skipped to avoid duplication. This recipe scans for methods that do not already have a `@Nullable` annotation and checks their return statements for potential null values. It also identifies known methods from standard libraries that may return null, such as methods from `Map`, `Queue`, `Deque`, `NavigableSet`, and `Spliterator`. The return of streams, or lambdas are not taken into account.
@@ -7814,6 +8225,9 @@ _181 recipes_
 * [org.openrewrite.staticanalysis.CodeCleanup](/user-documentation/recipes/recipe-catalog/staticanalysis/codecleanup.md)
   * **Code cleanup**
   * Automatically cleanup code, e.g. remove unnecessary parentheses, simplify expressions.
+* [org.openrewrite.staticanalysis.CollapsibleIfStatements](/user-documentation/recipes/recipe-catalog/staticanalysis/collapsibleifstatements.md)
+  * **Mergeable &quot;if&quot; statements should be combined**
+  * When an `if` statement body contains only another `if` with no `else`, the two conditions can be combined with `&amp;&amp;`. Merging the conditions reduces nesting and makes the code easier to read.
 * [org.openrewrite.staticanalysis.CollectionToArrayShouldHaveProperType](/user-documentation/recipes/recipe-catalog/staticanalysis/collectiontoarrayshouldhavepropertype.md)
   * **'Collection.toArray()' should be passed an array of the proper type**
   * Using `Collection.toArray()` without parameters returns an `Object[]`, which requires casting. It is more efficient and clearer to use `Collection.toArray(new T[0])` instead. The parameterless form can cause a `ClassCastException` at runtime when the returned `Object[]` is cast to a more specific array type.
@@ -7931,6 +8345,9 @@ _181 recipes_
 * [org.openrewrite.staticanalysis.MemberNameCaseInsensitiveDuplicates](/user-documentation/recipes/recipe-catalog/staticanalysis/membernamecaseinsensitiveduplicates.md)
   * **Members should not have names differing only by capitalization**
   * Looking at the set of methods and fields in a class and all of its parents, no two members should have names that differ only in capitalization. This rule will not report if a method overrides a parent method. Members with near-identical names are easily confused, leading to bugs where the wrong field or method is referenced.
+* [org.openrewrite.staticanalysis.MergeIdenticalBranches](/user-documentation/recipes/recipe-catalog/staticanalysis/mergeidenticalbranches.md)
+  * **Branches with identical implementations should be merged**
+  * When two consecutive branches of an `if`/`else if` chain execute the same code, they can be merged by combining their conditions with `||`. This removes duplication and makes the intent clearer.
 * [org.openrewrite.staticanalysis.MethodNameCasing](/user-documentation/recipes/recipe-catalog/staticanalysis/methodnamecasing.md)
   * **Standardize method name casing**
   * Fixes method names that do not follow standard naming conventions. For example, `String getFoo_bar()` would be adjusted to `String getFooBar()` and `int DoSomething()` would be adjusted to `int doSomething()`. Following a consistent casing convention for method names improves code readability and helps developers quickly distinguish methods from classes or constants.
@@ -8021,6 +8438,9 @@ _181 recipes_
 * [org.openrewrite.staticanalysis.RemoveCallsToSystemGc](/user-documentation/recipes/recipe-catalog/staticanalysis/removecallstosystemgc.md)
   * **Remove garbage collection invocations**
   * Removes calls to `System.gc()` and `Runtime.gc()`. When to invoke garbage collection is best left to the JVM. Manual GC calls produce unpredictable results across different JVM implementations and can cause unnecessary application pauses.
+* [org.openrewrite.staticanalysis.RemoveDuplicateConditions](/user-documentation/recipes/recipe-catalog/staticanalysis/removeduplicateconditions.md)
+  * **Related &quot;if/else if&quot; conditions should not be the same**
+  * When an `if`/`else if` chain contains the same condition more than once, the second branch can never execute because the first matching branch always wins. The duplicate branch is dead code and should be removed.
 * [org.openrewrite.staticanalysis.RemoveEmptyJavaDocParameters](/user-documentation/recipes/recipe-catalog/staticanalysis/removeemptyjavadocparameters.md)
   * **Remove JavaDoc `@param`, `@return`, and `@throws` with no description**
   * Removes `@param`, `@return`, and `@throws` with no description from JavaDocs.
@@ -8048,18 +8468,27 @@ _181 recipes_
 * [org.openrewrite.staticanalysis.RemoveRedundantTypeCast](/user-documentation/recipes/recipe-catalog/staticanalysis/removeredundanttypecast.md)
   * **Remove redundant casts**
   * Removes unnecessary type casts. Does not currently check casts in lambdas and class constructors. Redundant casts add visual noise and can obscure the actual type relationships in the code, making it harder to follow the data flow.
+* [org.openrewrite.staticanalysis.RemoveSelfAssignment](/user-documentation/recipes/recipe-catalog/staticanalysis/removeselfassignment.md)
+  * **Variables should not be self-assigned**
+  * Self-assignments such as `x = x` have no effect and indicate a copy-paste error or typo where the left-hand or right-hand side should reference a different variable.
 * [org.openrewrite.staticanalysis.RemoveSystemOutPrintln](/user-documentation/recipes/recipe-catalog/staticanalysis/removesystemoutprintln.md)
   * **Remove `System.out#println` statements**
   * Print statements are often left accidentally after debugging an issue. This recipe removes all `System.out#println` and `System.err#println` statements from the code. Production code should use a proper logging framework which provides consistent formatting, configurable log levels, and centralized output control.
 * [org.openrewrite.staticanalysis.RemoveToStringCallsFromArrayInstances](/user-documentation/recipes/recipe-catalog/staticanalysis/removetostringcallsfromarrayinstances.md)
   * **Remove `toString()` calls on arrays**
   * The result from `toString()` calls on arrays is largely useless. The output does not actually reflect the contents of the array. `Arrays.toString(array)` should be used instead as it gives the contents of the array. Since arrays do not override `toString()` from `Object`, calling it produces only the type name and memory address, which is rarely what was intended.
+* [org.openrewrite.staticanalysis.RemoveUnconditionalValueOverwrite](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunconditionalvalueoverwrite.md)
+  * **Map values should not be replaced unconditionally**
+  * When `map.put(key, value)` is called twice in a row with the same key, the first call is dead code because its value is immediately overwritten. Remove the first call to make the intent clear.
 * [org.openrewrite.staticanalysis.RemoveUnneededAssertion](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunneededassertion.md)
   * **Remove unneeded assertions**
   * Remove unneeded assertions like `assert true`, `assertTrue(true)`, or `assertFalse(false)`.
 * [org.openrewrite.staticanalysis.RemoveUnneededBlock](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunneededblock.md)
   * **Remove unneeded block**
   * Flatten blocks into inline statements when possible. Unnecessary nested blocks add indentation and scope boundaries that obscure the control flow, often indicating code that should be extracted into its own method.
+* [org.openrewrite.staticanalysis.RemoveUnreachableMultiCatchAlternative](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunreachablemulticatchalternative.md)
+  * **Remove unreachable `catch` alternatives shadowed by earlier `catch` clauses**
+  * When an earlier `catch` clause already covers a type, any later `catch` (including a multi-catch alternative) for the same type or a subtype is unreachable and is a Java compile error. This commonly appears after type-substitution migrations (for example, renaming an exception so that two `catch` clauses end up overlapping). This recipe drops the unreachable alternatives from later multi-catches, collapses a multi-catch to a regular `catch` when only one alternative remains, and removes the entire `catch` clause when all of its declared types are already covered.
 * [org.openrewrite.staticanalysis.RemoveUnusedLabels](/user-documentation/recipes/recipe-catalog/staticanalysis/removeunusedlabels.md)
   * **Remove unused labels**
   * Remove labels that are not referenced by any `break` or `continue` statement.
@@ -8171,6 +8600,9 @@ _181 recipes_
 * [org.openrewrite.staticanalysis.SimplifyForLoopBoundaryComparison](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyforloopboundarycomparison.md)
   * **Simplify for loop boundary comparisons**
   * Replace `&lt;=` with `&lt;` in for loop conditions by adjusting the comparison operands. For example, `i &lt;= n - 1` simplifies to `i &lt; n`, and `i &lt;= n` becomes `i &lt; n + 1`.
+* [org.openrewrite.staticanalysis.SimplifyRedundantLogicalExpression](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyredundantlogicalexpression.md)
+  * **Identical expressions used with logical operators should be simplified**
+  * When the same expression appears on both sides of `&amp;&amp;`, `||`, `&amp;`, or `|`, the result is always equal to that expression. For example, `x &amp;&amp; x` is always just `x`. This is typically a copy-paste error where one side should have been different.
 * [org.openrewrite.staticanalysis.SimplifyTernaryRecipes](/user-documentation/recipes/recipe-catalog/staticanalysis/simplifyternaryrecipes.md)
   * **Simplify ternary expressions**
   * Simplifies various types of ternary expressions to improve code readability. Ternaries that simply select between `true` and `false` are redundant wrappers around the condition itself and add unnecessary complexity.
@@ -8273,6 +8705,15 @@ _181 recipes_
 * [org.openrewrite.staticanalysis.UseStandardCharset](/user-documentation/recipes/recipe-catalog/staticanalysis/usestandardcharset.md)
   * **Use `StandardCharset` constants**
   * Replaces `Charset.forName(java.lang.String)` with the equivalent `StandardCharset` constant. Using the predefined constants is both compile-time safe and avoids the need to handle `UnsupportedEncodingException` for charsets that are guaranteed to exist on every JVM.
+* [org.openrewrite.staticanalysis.UseStringCaseInsensitiveOrderRecipes](/user-documentation/recipes/recipe-catalog/staticanalysis/usestringcaseinsensitiveorderrecipes.md)
+  * **Use `String.CASE_INSENSITIVE_ORDER`**
+  * Replaces case-insensitive string comparator lambdas and method references with the JDK constant `String.CASE_INSENSITIVE_ORDER`. Improves readability and removes one closure allocation per call site.
+* [org.openrewrite.staticanalysis.UseStringCaseInsensitiveOrderRecipes$FromLambdaRecipe](/user-documentation/recipes/recipe-catalog/staticanalysis/usestringcaseinsensitiveorderrecipes$fromlambdarecipe.md)
+  * **Use `String.CASE_INSENSITIVE_ORDER` instead of a lambda**
+  * Replace `(a, b) -&gt; a.compareToIgnoreCase(b)` with `String.CASE_INSENSITIVE_ORDER` when used as a `Comparator&lt;String&gt;`.
+* [org.openrewrite.staticanalysis.UseStringCaseInsensitiveOrderRecipes$FromMethodReferenceRecipe](/user-documentation/recipes/recipe-catalog/staticanalysis/usestringcaseinsensitiveorderrecipes$frommethodreferencerecipe.md)
+  * **Use `String.CASE_INSENSITIVE_ORDER` instead of `String::compareToIgnoreCase`**
+  * Replace the method reference `String::compareToIgnoreCase` with `String.CASE_INSENSITIVE_ORDER` when used as a `Comparator&lt;String&gt;`.
 * [org.openrewrite.staticanalysis.UseStringReplace](/user-documentation/recipes/recipe-catalog/staticanalysis/usestringreplace.md)
   * **Use `String::replace()` when first parameter is not a real regular expression**
   * When `String::replaceAll` is used, the first argument should be a real regular expression. If it’s not the case, `String::replace` does exactly the same thing as `String::replaceAll` without the performance drawback of the regex.

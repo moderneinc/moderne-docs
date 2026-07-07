@@ -20,7 +20,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   tags={["python","code-quality","RSPEC-S1764"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression"}
-  artifact={"org.openrewrite.recipe:rewrite-migrate-python"}
+  artifact={"openrewrite-migrate-python"}
   appLink={"https://app.moderne.io/recipes/org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/python/codequality/simplifyredundantlogicalexpression.md"}
   moderneOnly
@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression","displayName":"Simplify redundant logical expressions","pipPackage":"openrewrite-migrate-python"}}>
+<UsageList usage={{"recipeName":"org.openrewrite.python.codequality.SimplifyRedundantLogicalExpression","displayName":"Simplify redundant logical expressions","pipPackage":"openrewrite-migrate-python","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON"}}>
 
 ## Usage
 
