@@ -7,11 +7,22 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.150.82 |
+| Connector | 0.150.141 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.82/connector-0.150.82.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.141/connector-0.150.141.jar)
 
 ## Changelog
+
+## July 2026
+
+### v0.150.141 – 2026-07-08
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.150.141/connector-0.150.141.jar)
+
+* Fix(connector): reject non-JAR payloads on LST download (#1548)
+* Make connector Artifactory connectivity failures self-diagnosing (#1497)
+* Remove legacy remoting servers and switch to rewrite releases (#1449)
+* Fix(connector): stop a null-response WS handshake from wedging gateway reconnect (#1375)
 
 ## June 2026
 
