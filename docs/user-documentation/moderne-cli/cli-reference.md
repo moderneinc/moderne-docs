@@ -9396,7 +9396,6 @@ mod study /path/to/project --last-recipe-run --data-table <DATA-TABLE-NAME>
 | `--csv` |  Output in CSV format |
 | `--data-table` |  The name of the data table to study. |
 | `--group` |  When multiple data tables share a fully-qualified name, disambiguate by group. A null/absent value matches ungrouped tables. |
-| `--gzip` |  Gzip-compress the CSV output (.csv.gz). |
 | `--json` |  Output the data table in JSON format with the specified fields. If no value is provided, all columns from the data table will be kept. |
 | `--last-recipe-run` |  Select the ID of the last recipe run. The last recipe run is determined from the whole repository group, not on an individual repository basis. |
 | `-o`, `--output-file` |  The location to output the data table. When neither --csv nor --json is given, the format is inferred from this file's extension (.csv, .json, or .xlsx), defaulting to Excel. |
