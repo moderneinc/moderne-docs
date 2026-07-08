@@ -1,4 +1,10 @@
 # Platform changelog
+### UI v13.7.0 (2026/07/08)
+
+- priority-lane status indicators
+- make Name, Organization, and Start time columns resizable
+- weight repo names and center the commit-all button
+
 ### UI v13.6.0 (2026/07/08)
 
 - surface repository-level recipe errors on the Results tab
