@@ -28,7 +28,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * remove leftover merge conflict markers in V3 tree registry
 * Custom JVM build tools: pick up hand-authored prebuild trees + V3 book chapter
 * Expand external SYSIN/SYSTSIN .prm members into the JCL LST during build
-* Call JclParser parmMembers(List<Path>) for the rewrite-cobol 2.20.1 seam
+* Call JclParser parmMembers(List`<Path>`) for the rewrite-cobol 2.20.1 seam
 
 ### CLI / DX v4.3.8 (2026-07-06)
 
