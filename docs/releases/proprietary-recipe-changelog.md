@@ -10,6 +10,20 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## July 8, 2026
+
+#### rewrite-java-security - 3.34.3
+
+* Fix DependnecyVulnerabilityCheck not considering maven settings set via execution context
+* Report disclosed-but-unpatched CVEs in the vulnerability report
+* Add DependencyVulnerabilityCheck for Go
+
+## July 7, 2026
+
+#### rewrite-cobol - 2.20.1
+
+* Read and tokenize JCL .prm members once by path, not per source
+
 ## July 1, 2026
 
 #### rewrite-ai - 0.4.2
