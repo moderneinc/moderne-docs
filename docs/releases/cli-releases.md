@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.8           |
+| CLI version | main           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,19 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.9 (2026-07-07)
+
+#### What's Changed
+* Migrate from tibdex/github-app-token to actions/create-github-app-token
+* Re-record build tool versions after validation so node/python traces carry real versions
+* serialize Remote recipe results in the V3 tree codec
+* Add `--gzip` to `mod study` for compressed CSV output
+* Approximate mod study Excel column widths instead of POI autoSizeColumn
+* remove leftover merge conflict markers in V3 tree registry
+* Custom JVM build tools: pick up hand-authored prebuild trees + V3 book chapter
+* Expand external SYSIN/SYSTSIN .prm members into the JCL LST during build
+* Call JclParser parmMembers(List<Path>) for the rewrite-cobol 2.20.1 seam
 
 ### CLI / DX v4.3.8 (2026-07-06)
 
