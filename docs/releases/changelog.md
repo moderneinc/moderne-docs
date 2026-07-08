@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v13.6.0 (2026/07/08)
+
+- surface repository-level recipe errors on the Results tab
+- use neo-design's filled status icons and animated dots
+
 ### UI v13.5.2 (2026/07/07)
 
 - Bug fixes and other improvements.
