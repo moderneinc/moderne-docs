@@ -47,7 +47,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-      - uses: actions/setup-go@v5
+      - uses: actions/setup-go@v6
         with:
           go-version: '1.25'
 
@@ -59,7 +59,7 @@ jobs:
           MARKETPLACE_CSV_DEST: ${{ runner.temp }}/recipes-v5-${{ matrix.versions }}.csv
         run: .github/scripts/build-recipe-marketplace.sh
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: recipes-v5-${{ matrix.versions }}
           path: ${{ runner.temp }}/recipes-v5-${{ matrix.versions }}.csv
@@ -73,7 +73,7 @@ jobs:
 
       # Download both variants directly into static/marketplace/ before committing
       # together, so the two parallel builds never race to push the same branch.
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           pattern: recipes-v5-*
           path: static/marketplace/
