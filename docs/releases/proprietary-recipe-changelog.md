@@ -18,6 +18,10 @@ This changelog is automatically generated from GitHub releases and only contains
 * Report disclosed-but-unpatched CVEs in the vulnerability report
 * Add DependencyVulnerabilityCheck for Go
 
+#### rewrite-sql - 2.13.0
+
+* Add SQL performance anti-pattern recipes
+
 ## July 7, 2026
 
 #### rewrite-cobol - 2.20.1
@@ -4388,43 +4392,15 @@ Republishing to update dependencies
 
 ## July 9, 2025
 
-#### rewrite-ai-search - 0.28.1
-
-* Updated repository to use OpenRewrite version v8.57.0
-
-#### rewrite-android - 0.10.1
-
-* Updated repository to use OpenRewrite version v8.57.0
-
-#### rewrite-circleci - 3.6.1
-
-* Updated repository to use OpenRewrite version v8.57.0
-
-#### rewrite-codemods - 0.15.0
-
-* common static analysis issues
-
-#### rewrite-codemods-ng - 0.11.0
-
-* Make the local `npm install` be aware of the .npmrc file
-
 #### rewrite-compiled-analysis - v0.7.1
 
 * Update for maven central
-
-#### rewrite-concourse - 3.5.1
-
-* Updated repository to use OpenRewrite version v8.57.0
 
 #### rewrite-cryptography - 0.5.0
 
 * refactor: org.openrewrite.mavencentral
 
 #### rewrite-devcenter - 1.4.5
-
-* Updated repository to use OpenRewrite version v8.57.0
-
-#### rewrite-dotnet - 0.11.1
 
 * Updated repository to use OpenRewrite version v8.57.0
 
@@ -4446,10 +4422,6 @@ Republishing to update dependencies
 * Migrate `display-name` and `env-entry`
 
 #### rewrite-struts - 0.17.1
-
-* Updated repository to use OpenRewrite version v8.57.0
-
-#### rewrite-terraform - 3.5.1
 
 * Updated repository to use OpenRewrite version v8.57.0
 
