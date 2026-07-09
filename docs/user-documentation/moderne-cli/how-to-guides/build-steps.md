@@ -21,6 +21,10 @@ The CLI supports the following build step types:
 
 In the default configuration, only the external build tool steps and the resource step run automatically. Language-specific steps must be [explicitly configured](#configuring-build-steps-explicitly) in your `moderne.yml` file.
 
+:::tip
+For a JVM build tool the CLI does not natively support, such as a homegrown or internal build system, you can hand-author the prebuild tree yourself and the CLI will parse it with full type attribution. See [authoring a prebuild for a custom JVM build tool](./custom-build-tool-prebuild.md).
+:::
+
 ### External build tool steps
 
 Each external build tool step scans the repository for the root build files of its type — that is, the build files that represent independent projects rather than submodules — and invokes the build tool on each one.
