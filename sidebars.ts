@@ -575,6 +575,7 @@ const cli = {
         'user-documentation/moderne-cli/how-to-guides/execute-user-supplied-commands',
         'user-documentation/moderne-cli/how-to-guides/on-prem-scm-config',
         'user-documentation/moderne-cli/how-to-guides/build-steps',
+        'user-documentation/moderne-cli/how-to-guides/custom-build-tool-prebuild',
         'user-documentation/moderne-cli/how-to-guides/custom-parser-mappings',
         'user-documentation/moderne-cli/how-to-guides/build-partitions',
         'user-documentation/moderne-cli/how-to-guides/batch-changes',
