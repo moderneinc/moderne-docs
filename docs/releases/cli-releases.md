@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.8           |
+| CLI version | 4.3.10           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,16 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.10 (2026-07-08)
+
+#### What's Changed
+* Cache reflection accessors in TreeWriter's remaining generic write paths
+* Run the delegated structure sync inside the host run's output and record Skipped sync outcomes for repos with no published LST
+* Fix issue with manual CLI publishing
+* Match local recipe bundles by absolute path on uninstall
+* Add lines added/removed metrics to recipe run report
+* Fix RPC servers running on Windows - `error: unknown option --package'`
 
 ### CLI / DX v4.3.9 (2026-07-07)
 
