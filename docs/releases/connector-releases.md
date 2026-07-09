@@ -7,13 +7,19 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.150.141 |
+| Connector | 0.150.142 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.141/connector-0.150.141.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.142/connector-0.150.142.jar)
 
 ## Changelog
 
 ## July 2026
+
+### v0.150.142 – 2026-07-08
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.150.142/connector-0.150.142.jar)
+
+* Fix(connector): name the failing tool on connectivity-check failure (#1549)
 
 ### v0.150.141 – 2026-07-08
 
