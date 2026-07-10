@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.11           |
+| CLI version | 4.3.12           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,15 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.12 (2026-07-10)
+
+#### What's Changed
+* Add LST v3 entries for go.sum
+* Add `mod mcp --no-build` (INCUBATING) to serve search over a prebuilt index
+* Verify Bazel CLI distribution download + self-heal a corrupt cli_dist
+* Fall back to default Maven settings in the prebuild MavenParser pass
+* Pass configured recipe artifact repositories to RPC servers during recipe resolution
 
 ### CLI / DX v4.3.10 (2026-07-08)
 
