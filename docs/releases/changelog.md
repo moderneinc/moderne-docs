@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v13.8.0 (2026/07/10)
+
+- make the Scoped column filterable
+- show estimated time saved while a run is in progress
+
 ### UI v13.7.0 (2026/07/08)
 
 - priority-lane status indicators
