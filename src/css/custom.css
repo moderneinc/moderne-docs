@@ -568,6 +568,12 @@ html[data-theme='dark'] .markdown :not(pre) > code {
   color: var(--neo-grey-100);
 }
 
+/* Inline code used as link text should inherit the link color so it reads as clickable. */
+.markdown a > code,
+html[data-theme='dark'] .markdown a > code {
+  color: inherit;
+}
+
 /* Replit-style admonitions: rounded, subtle border, icon inline with text.
    When a title is present (`:::info[My title]`), the container stacks vertically
    so the heading row sits above the content. */
