@@ -3702,6 +3702,15 @@ sampling run on separate channels and are always on.
 * `VERSION`
 * `FINISHED_AT`
 
+##### `RecipeInstallationScopeType`
+
+The kind of scope a `RecipeInstallation` lives in -- the discriminant of the
+`RecipeInstallationScope` union, exposed here for `where` filtering.
+
+* `UNIVERSAL`
+* `ORGANIZATION`
+* `USER`
+
 ##### `RecipeInstallationStatus`
 
 * `QUEUED`
@@ -4608,6 +4617,15 @@ Filter input for RecipeCategory queries.
 | `field` | [RecipeInstallationOrderByField](#recipeinstallationorderbyfield)! |  |
 | `direction` | [SortOrder](#sortorder)! |  |
 
+##### `RecipeInstallationScopeFilter`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [RecipeInstallationScopeType](#recipeinstallationscopetype) |  |
+| `_neq` | [RecipeInstallationScopeType](#recipeinstallationscopetype) |  |
+| `_in` | [[RecipeInstallationScopeType](#recipeinstallationscopetype)!] |  |
+| `_nin` | [[RecipeInstallationScopeType](#recipeinstallationscopetype)!] |  |
+
 ##### `RecipeInstallationStatusFilter`
 
 | Field | Type | Description |
@@ -4626,6 +4644,7 @@ Filter input for RecipeCategory queries.
 | `startedAt` | [DateTimeFilter](#datetimefilter) |  |
 | `user` | [UserWhereInput](#userwhereinput) |  |
 | `organization` | [IDFilter](#idfilter) |  |
+| `scope` | [RecipeInstallationScopeFilter](#recipeinstallationscopefilter) | Filter by scope kind (universal, organization, or user). Complements the `organization`/`user` filters, which match a specific id/email; this matches the kind of scope. Can only narrow the set of installations already visible to the caller -- it is not an access-control bypass. |
 | `bundle` | [RecipeBundleWhereInput](#recipebundlewhereinput) | Filter by bundle properties (packageName, ecosystem, version, etc.). |
 | `_and` | [[RecipeInstallationWhereInput](#recipeinstallationwhereinput)!] |  |
 | `_or` | [[RecipeInstallationWhereInput](#recipeinstallationwhereinput)!] |  |

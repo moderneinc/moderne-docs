@@ -4925,6 +4925,27 @@ union RecipeInstallationScope
   @join__unionMember(graph: RECIPEMARKETPLACE, member: "UserInstallScope")
  = UniversalInstallScope | OrganizationInstallScope | UserInstallScope
 
+input RecipeInstallationScopeFilter
+  @join__type(graph: RECIPEMARKETPLACE)
+{
+  _eq: RecipeInstallationScopeType
+  _neq: RecipeInstallationScopeType
+  _in: [RecipeInstallationScopeType!]
+  _nin: [RecipeInstallationScopeType!]
+}
+
+"""
+The kind of scope a `RecipeInstallation` lives in -- the discriminant of the
+`RecipeInstallationScope` union, exposed here for `where` filtering.
+"""
+enum RecipeInstallationScopeType
+  @join__type(graph: RECIPEMARKETPLACE)
+{
+  UNIVERSAL @join__enumValue(graph: RECIPEMARKETPLACE)
+  ORGANIZATION @join__enumValue(graph: RECIPEMARKETPLACE)
+  USER @join__enumValue(graph: RECIPEMARKETPLACE)
+}
+
 enum RecipeInstallationStatus
   @join__type(graph: RECIPEMARKETPLACE)
 {
@@ -4951,6 +4972,14 @@ input RecipeInstallationWhereInput
   startedAt: DateTimeFilter
   user: UserWhereInput
   organization: IDFilter
+
+  """
+  Filter by scope kind (universal, organization, or user). Complements the
+  `organization`/`user` filters, which match a specific id/email; this matches
+  the kind of scope. Can only narrow the set of installations already visible
+  to the caller -- it is not an access-control bypass.
+  """
+  scope: RecipeInstallationScopeFilter
 
   """Filter by bundle properties (packageName, ecosystem, version, etc.)."""
   bundle: RecipeBundleWhereInput
