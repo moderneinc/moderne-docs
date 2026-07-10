@@ -1,4 +1,5 @@
 ---
+title: Proof of value (POV) process for C#
 sidebar_label: Proof of value process (C#)
 description: Describes what a typical C# proof of value process looks like.
 ---
@@ -57,7 +58,11 @@ The recipes below progress from simple to complex. Links go to the [public Moder
 1. **Install the Moderne CLI** – Follow the [installation steps in the getting started guide](../../moderne-cli/getting-started/cli-intro.md#installation-and-configuration) to install the CLI for your platform.
     * **Note:** You may experience a few speed bumps related to your internal nexus/scanners that block recipes JARs. Ideally this is not an issue, but if it is, please let us know, and we'll work together with you to address it.
 
-2. **Install the .NET SDK** – The CLI uses `dotnet` to restore and parse C# projects. Install a recent .NET SDK (.NET 8 or later) and verify it with `dotnet --version`. The CLI selects the SDK automatically from `$PATH`, or you can configure it explicitly with `mod config dotnet installation edit`.
+2. **Install the .NET SDK and enable C# builds** – The CLI uses `dotnet` to restore and parse C# projects, so a few things need to be in place:
+    * **Install .NET 10 or later.** The C# recipe runtime (`rewrite-csharp`) ships as a `net10.0` application, so .NET 8 and 9 will not work. Verify your install with `dotnet --version`.
+    * **Let the CLI find your SDK.** It selects the SDK automatically from `$PATH`, or you can configure it explicitly with `mod config dotnet installation edit`.
+    * **Enable the .NET build step.** Add `- type: dotnet` to the build steps in your `~/.moderne/cli/moderne.yml` file.
+    * For the full walkthrough, including registering a non-standard SDK location and raising the build timeout for large solutions, see our [C# configuration guide](../../moderne-cli/how-to-guides/csharp.md).
 
 3. **Clone repos to your local machine** – In order for the CLI to run recipes against your code, you will need to provide it with [a repos.csv file](../../moderne-cli/references/repos-csv.md).
     * Once you've created the `repos.csv` file, create a directory somewhere on your machine and run the following command:
@@ -92,6 +97,7 @@ The recipes below progress from simple to complex. Links go to the [public Moder
     ```
 
 6. **Install the recipes** – Copy and run the [Moderne CLI command under CLI installation](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation).
+    * The C# code quality and .NET migration recipes are distributed separately as NuGet packages. Install them with `mod config recipes nuget install`, following [Install recipes](../../moderne-cli/how-to-guides/csharp.md#step-5-install-recipes) in the C# configuration guide.
 
 7. **Try your first recipe** – Try a simple recipe to test that you can execute successfully against the LSTs you built in step 4. We recommend the C# code quality recipe, which will apply a curated set of code quality improvements across your repos. To run this recipe, run the following command:
 
@@ -136,13 +142,13 @@ mod study . --last-recipe-run --data-table CallGraph
 
 ### [Find blocking calls in async methods](https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindBlockingCallsInAsync)
 
-> Locates synchronous blocking calls (`.Result`, `.Wait()`, `Task.Run` over sync work) inside `async` methods. Useful for triaging async hygiene issues at scale before a performance or stability push.
+> Locates synchronous blocking calls (`.Wait()`, `.Result`, and `.GetAwaiter().GetResult()`) inside `async` methods. Useful for triaging async hygiene issues at scale before a performance or stability push.
 
 #### CLI commands
 
 ```bash
 mod run . --recipe OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindBlockingCallsInAsync
-mod study . --last-recipe-run --data-table RecipeRunStats
+mod study . --last-recipe-run --data-table SourcesFileResults
 ```
 
 ### [Find methods that could be static](https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindMakeMethodStatic)
@@ -153,7 +159,7 @@ mod study . --last-recipe-run --data-table RecipeRunStats
 
 ```bash
 mod run . --recipe OpenRewrite.Recipes.CSharp.CodeQuality.Performance.FindMakeMethodStatic
-mod study . --last-recipe-run --data-table RecipeRunStats
+mod study . --last-recipe-run --data-table SourcesFileResults
 ```
 
 ### [Find TODO/HACK/FIXME comments](https://app.moderne.io/recipes/OpenRewrite.Recipes.CSharp.CodeQuality.Naming.FindFixTodoComment)
@@ -164,8 +170,45 @@ mod study . --last-recipe-run --data-table RecipeRunStats
 
 ```bash
 mod run . --recipe OpenRewrite.Recipes.CSharp.CodeQuality.Naming.FindFixTodoComment
-mod study . --last-recipe-run --data-table RecipeRunStats
+mod study . --last-recipe-run --data-table SourcesFileResults
 ```
+
+## DevCenter
+
+A DevCenter gives you a high-level, single-page overview of where every repository in your organization stands. The default C# configuration tracks .NET version adoption and reports organization statistics like repository counts, contributing developers, and lines of code. This makes it an effective way to frame a proof of value for leadership before diving into individual recipes.
+
+There are two ways to view a DevCenter:
+
+* **In the Moderne Platform** – organizations configured with a DevCenter display it via the `DevCenter` link in the left navigation. See [Understanding the Moderne DevCenter](./dev-center.md) for a walkthrough of each component.
+* **Locally with the CLI** – you can generate an HTML dashboard for any set of repositories you have cloned and built. See [Generating DevCenters locally](../../moderne-cli/how-to-guides/cli-dev-center.md) for the full guide.
+
+### [DevCenter for C#](https://app.moderne.io/recipes/io.moderne.devcenter.DevCenterCSharpStarter)
+
+> A default DevCenter configuration for C# repositories that tracks .NET version adoption across your organization, along with organization statistics like repository counts, contributing developers, and lines of code.
+
+#### CLI commands
+
+```bash
+# Install the DevCenter recipes
+mod config recipes jar install io.moderne.recipe:rewrite-devcenter:LATEST
+
+# Run the C# DevCenter starter to produce the required data tables
+mod run . --recipe io.moderne.devcenter.DevCenterCSharpStarter
+
+# Generate the HTML DevCenter dashboard
+mod devcenter . --last-recipe-run
+```
+
+#### Recipe results
+
+<figure style={{maxWidth: '800px', margin: '0 auto'}}>
+  ![DevCenter dashboard showing organizational ownership, change campaigns, and security sections](./assets/large-devcenter.png)
+  <figcaption>_Example DevCenter dashboard_</figcaption>
+</figure>
+
+:::tip
+`DevCenterCSharpStarter` is the default C# configuration. DevCenters are available for many other ecosystems too, including Java, Python, Node.js, Angular, Kotlin, Quarkus, and Apache Maven. Browse the full set in the [DevCenter recipe catalog](../../recipes/recipe-catalog/devcenter/README.md), or learn how to [create a custom DevCenter recipe](../../../administrator-documentation/moderne-platform/how-to-guides/creating-a-devcenter-recipe.md).
+:::
 
 ## Dependency management
 
@@ -207,7 +250,6 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 ```bash
 mod run . --recipe org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck
-
 mod study . --last-recipe-run --data-table SourcesFileResults
 ```
 
@@ -228,7 +270,7 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 ## AI agent context
 
-AI coding agents like Claude Code, Cursor, and GitHub Copilot work better when they have structured knowledge about your codebase rather than inferring architecture from raw code. Prethink recipes generate this context automatically, mapping service endpoints, dependencies, test coverage, and architecture so agents reason over facts instead of guessing. To learn more, please [check out our Prethink documentation](../../agent-tools/prethink.md).
+AI coding agents like Claude Code, Cursor, and GitHub Copilot work better when they have structured knowledge about your codebase rather than inferring architecture from raw code. Prethink generates this context automatically, mapping service endpoints, dependencies, test coverage, and architecture so agents reason over facts instead of guessing. To learn more, please [check out our Prethink documentation](../../agent-tools/prethink.md).
 
 ### [Update Prethink context (no AI)](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextNoAiStarter)
 
