@@ -4383,10 +4383,3 @@ Republishing to update dependencies
 
 * Adjust ordinal to be non-sparse
 
-## July 11, 2025
-
-#### rewrite-devcenter - 1.4.6
-
-* common static analysis issues
-* Do not return measures above the major version. for JavaVersionUpgrade
-
