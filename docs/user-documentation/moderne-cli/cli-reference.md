@@ -45,6 +45,9 @@ description: Auto-generated documentation for all Moderne CLI commands.
 * [**mod config agent-tools codex**](#mod-config-agent-tools-codex)
 * [**mod config agent-tools codex install**](#mod-config-agent-tools-codex-install)
 * [**mod config agent-tools codex uninstall**](#mod-config-agent-tools-codex-uninstall)
+* [**mod config agent-tools opencode**](#mod-config-agent-tools-opencode)
+* [**mod config agent-tools opencode install**](#mod-config-agent-tools-opencode-install)
+* [**mod config agent-tools opencode uninstall**](#mod-config-agent-tools-opencode-uninstall)
 * [**mod config agent-tools prethink**](#mod-config-agent-tools-prethink)
 * [**mod config agent-tools prethink edit**](#mod-config-agent-tools-prethink-edit)
 * [**mod config agent-tools prethink show**](#mod-config-agent-tools-prethink-show)
@@ -842,7 +845,7 @@ mod config moderne edit --api <tenant-api-gateway> --token <token>
 Manage Moderne agent tools for coding agents.
 
 
-Install and update Moderne agent tools (skills and MCP servers) for Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, and OpenAI Codex.
+Install and update Moderne agent tools (skills and MCP servers) for Claude Code, Windsurf, Cursor, GitHub Copilot, GitHub Copilot CLI, Sourcegraph Amp, OpenAI Codex, and opencode.
 
 ### Usage
 
@@ -868,6 +871,7 @@ mod config agent-tools install
 * `copilot`: Manage Moderne agent tools for GitHub Copilot.
 * `amp`: Manage Moderne agent tools for Sourcegraph Amp.
 * `codex`: Manage Moderne agent tools for OpenAI Codex.
+* `opencode`: Manage Moderne agent tools for opencode.
 * `prethink`: Configures the Prethink context refreshed live by the Moderne MCP server.
 
 ## mod config agent-tools install
@@ -1377,6 +1381,73 @@ mod config agent-tools codex uninstall
 
 ```
 mod config agent-tools codex uninstall
+```
+
+
+
+## mod config agent-tools opencode
+
+Manage Moderne agent tools for opencode.
+
+
+Installs skills under ~/.config/opencode/skills/ (auto-discovered by opencode) and registers the Moderne MCP server in ~/.config/opencode/opencode.json(c).
+
+### Usage
+
+```
+mod config agent-tools opencode [subcommands]
+```
+
+### Examples
+
+```
+mod config agent-tools opencode install
+```
+
+
+### Subcommands
+
+* `install`: Install Moderne agent tools for opencode.
+* `uninstall`: Remove Moderne agent tools from opencode.
+
+## mod config agent-tools opencode install
+
+Install Moderne agent tools for opencode.
+
+
+Installs skills (edit-code, analyze-code, search-code, find-symbols, pattern-replace, inspect-status, change-symbols, query-datatable) under ~/.config/opencode/skills/ and registers the Moderne MCP server in ~/.config/opencode/opencode.json. Safe to run multiple times.
+
+### Usage
+
+```
+mod config agent-tools opencode install
+```
+
+### Examples
+
+```
+mod config agent-tools opencode install
+```
+
+
+
+## mod config agent-tools opencode uninstall
+
+Remove Moderne agent tools from opencode.
+
+
+Removes skills and unregisters the Moderne MCP server from opencode.
+
+### Usage
+
+```
+mod config agent-tools opencode uninstall
+```
+
+### Examples
+
+```
+mod config agent-tools opencode uninstall
 ```
 
 

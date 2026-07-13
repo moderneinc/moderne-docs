@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.13           |
+| CLI version | 4.3.14           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,12 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.14 (2026-07-13)
+
+#### What's Changed
+* Add opencode support to `mod config agent-tools`
+* Ensure that we preserve maven settings repositories in the built LST
 
 ### CLI / DX v4.3.13 (2026-07-12)
 
