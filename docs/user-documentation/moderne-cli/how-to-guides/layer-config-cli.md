@@ -5,7 +5,7 @@ description: How to set global or project-specific build arguments in the Modern
 
 # Layered configuration in the Moderne CLI
 
-One big challenge that comes with building [LSTs](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) for many repositories on many machines is configuration. What arguments do you need to build each repository? Are there Maven specific ones? Gradle specific ones? Do they change depending on the group of projects? How do you share these configurations with new people on the team?
+One big challenge that comes with building [LSTs](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md) for many repositories on many machines is configuration. What arguments do you need to build each repository? Are there Maven specific ones? Gradle specific ones? Do they change depending on the group of projects? How do you share these configurations with new people on the team?
 
 To meet all of these needs, the Moderne CLI offers a few options for how you can include global or project-specific build arguments. In this guide, we'll walk through each of them and explain when you should use one over another.
 

@@ -6,7 +6,7 @@ description: Why Moderne recommends producing LST artifacts through mass ingest 
 
 # Why use mass ingest instead of CI-integrated LST builds
 
-If your repositories already build in a CI system, it's natural to wonder why you shouldn't produce their [Lossless Semantic Tree (LST)](./lossless-semantic-trees.md) artifacts there too, instead of running a separate [mass ingest](../how-to-guides/mass-ingest.md) pipeline.
+If your repositories already build in a CI system, it's natural to wonder why you shouldn't produce their [Lossless Semantic Tree (LST)](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) artifacts there too, instead of running a separate [mass ingest](../how-to-guides/mass-ingest.md) pipeline.
 
 In short, mass ingest gives you a complete, current set of LSTs across every repository - whereas CI builds can't. This page explains why, and walks through the objections that come up most often.
 

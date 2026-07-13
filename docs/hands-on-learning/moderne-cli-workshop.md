@@ -1,3 +1,0 @@
-import { Redirect } from '@docusaurus/router';
-
-<Redirect to="/user-documentation/moderne-cli/getting-started/moderne-cli-workshop" />;

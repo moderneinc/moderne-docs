@@ -149,7 +149,7 @@ apache          awslabs         finos           Netflix         openrewrite     
 
 ## Part 3: Building LSTs
 
-If the [Lossless Semantic Trees](../../../administrator-documentation/moderne-platform/references/lossless-semantic-trees.md) (LSTs) were available to download from Moderne, then they will have been downloaded with the `mod git sync moderne` command. If the LST(s) were unavailable for some reason, you can generate them locally by running the `mod build .` command.
+If the [Lossless Semantic Trees](../../recipes/authoring-recipes/concepts/lossless-semantic-trees.md) (LSTs) were available to download from Moderne, then they will have been downloaded with the `mod git sync moderne` command. If the LST(s) were unavailable for some reason, you can generate them locally by running the `mod build .` command.
 
 :::info
 By default, the CLI is able to build LSTs for well-formed projects (i.e. projects that build well with a plain `mvn verify` or `gradle build`). At times, however, you may encounter a project that fails to build. This could be because of a hidden dependency on certain tooling, like NPM, or because specific dependencies or repositories are not available without additional configuration.
