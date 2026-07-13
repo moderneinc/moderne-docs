@@ -19,7 +19,7 @@ The key difference is that DX relies more on developers to drive value and creat
 
 DX delivers these capabilities through two customizable pipelines:
 
-* **Mass ingest** produces [LSTs](../../moderne-platform/references/lossless-semantic-trees.md) for all your repositories and publishes them to your artifact repository (e.g., Artifactory). You can then use this central data store to quickly answer questions like, "What's the impact of the Log4Shell vulnerability?" or "How are we doing migrating our services to Java 21?"
+* **Mass ingest** produces [LSTs](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) for all your repositories and publishes them to your artifact repository (e.g., Artifactory). You can then use this central data store to quickly answer questions like, "What's the impact of the Log4Shell vulnerability?" or "How are we doing migrating our services to Java 21?"
 * **Mass run** executes recipes at scale across those repositories, enabling large-scale remediation and reporting.
 
 Both pipelines are customizable blueprints that work with your existing infrastructure - no central service required.

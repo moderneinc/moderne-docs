@@ -29,7 +29,7 @@ Looking for a complete, working example? Check out the [Moderne Connector exampl
 
 The Moderne Connector:
 
-* Encrypts and ships [LST](../../references/lossless-semantic-trees.md) and recipe artifacts from your artifact repository (e.g., Artifactory) to the Moderne SaaS
+* Encrypts and ships [LST](../../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) and recipe artifacts from your artifact repository (e.g., Artifactory) to the Moderne SaaS
 * Provides the symmetric key that Moderne needs to decrypt your artifacts
 * Forwards requests from the Moderne SaaS to your SCM(s) (e.g., GitHub)
 * Forwards requests from the Moderne SaaS to the organization service (if configured)
@@ -343,7 +343,7 @@ Before Moderne can run recipes on your code, the Connector needs three things:
 
 1. The list of repositories you want Moderne to index.
 2. An [organizational hierarchy](./configure-organizations-hierarchy.md) that groups those repositories into organizations (at least one `org` column in the CSV). This doesn't need to be elaborate to start; a single `ALL` organization plus an organization for one team is a perfectly fine starting point that you can expand later.
-3. The [LST](../../references/lossless-semantic-trees.md) artifact location for each repository.
+3. The [LST](../../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) artifact location for each repository.
 
 All of these things can come from a CSV file that you point the Connector to.
 

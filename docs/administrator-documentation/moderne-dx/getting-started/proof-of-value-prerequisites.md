@@ -32,7 +32,7 @@ The easiest way to generate this file is with our [repository fetcher scripts](h
 
 ## Mass ingest
 
-While mass ingest is typically set up after the initial POV rather than during it, you may want to plan for it early. Mass ingest builds all of your repositories and creates the [LST artifacts](../../moderne-platform/references/lossless-semantic-trees.md) that recipes run against. It runs as a Docker container.
+While mass ingest is typically set up after the initial POV rather than during it, you may want to plan for it early. Mass ingest builds all of your repositories and creates the [LST artifacts](../../../user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees.md) that recipes run against. It runs as a Docker container.
 
 | Resource | Minimum |
 |----------|---------|
