@@ -247,14 +247,14 @@ Data tables for each organization with rows are linked above
 
 ## Troubleshooting
 
-### `mod` runs Mono's tool instead of the Moderne CLI
+### `mod` runs Mono's tool instead of the Moderne CLI (`mod` returns: `Usage: mod.exe Url`)
 
-Mono installs its own `mod` executable and adds its directory to your `PATH` (via `/etc/paths.d/mono-commands` on macOS). Depending on your `PATH` order, that `mod` can shadow the Moderne CLI, so running `mod` launches the wrong tool.
+When you install Mono on a Mac, you will often find that the `mod` command no longer does what you expect (you'll get weird HTML responses depending on what you enter). This is because Mono installs its own `mod` executable and adds its directory to your `PATH` (via `/etc/paths.d/mono-commands`). When it does that, the Mono `mod` typically takes higher precedence than the Moderne `mod`.
 
-Confirm the conflict with `which -a mod`. If a Mono path appears above `~/.moderne/cli/bin/mod`, prepend the Moderne CLI's `bin` directory to your `PATH` in your shell's startup file (`~/.zshrc` for zsh, `~/.bashrc` or `~/.bash_profile` for bash), then open a new terminal:
+To fix this, you need to adjust the Moderne `mod` to be prepended to your `PATH` in your shell's startup file (`~/.zshrc` or `~/.bashrc` or `~/.bash_profile`):
 
 ```bash
 export PATH="$HOME/.moderne/cli/bin:$PATH"
 ```
 
-Don't delete Mono's `mod`. Mono recreates it on its next update, and the `PATH` change keeps both tools available.
+Once you've done that, open a new terminal and everything should work as expected.
