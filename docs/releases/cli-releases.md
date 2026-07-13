@@ -24,7 +24,7 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 * Remove CLI telemetry sweep
 * Strip non-host platform natives from per-platform CLI distributions
 * Trigrep search fidelity: javadoc-ref symbol kind, balance-aware structural holes, dependency-type ref coverage
-* Inject moderne_cli via the module graph on Bazel <8 with Bzlmod active
+* Inject moderne_cli via the module graph on Bazel < 8 with Bzlmod active
 * Download each shared type table once in the Bazel harvest
 * Derive missing type tables from dependencies.bin, dropping types-manifest.txt
 * Kill the process tree on build timeout, tolerate list-shaped android manifests, and lead with the verb for bazel wrappers
