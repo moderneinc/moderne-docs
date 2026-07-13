@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.12           |
+| CLI version | 4.3.13           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,18 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.13 (2026-07-12)
+
+#### What's Changed
+* Upgrade to Jackson 2.21.5
+* Remove CLI telemetry sweep
+* Strip non-host platform natives from per-platform CLI distributions
+* Trigrep search fidelity: javadoc-ref symbol kind, balance-aware structural holes, dependency-type ref coverage
+* Inject moderne_cli via the module graph on Bazel <8 with Bzlmod active
+* Download each shared type table once in the Bazel harvest
+* Derive missing type tables from dependencies.bin, dropping types-manifest.txt
+* Kill the process tree on build timeout, tolerate list-shaped android manifests, and lead with the verb for bazel wrappers
 
 ### CLI / DX v4.3.12 (2026-07-10)
 
