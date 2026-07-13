@@ -14,9 +14,9 @@ In this guide, we'll walk you through how to configure the Moderne CLI to take a
 
 This guide assumes that:
 
-* You have [installed and configured the Moderne CLI](../getting-started/cli-intro.md) (version `4.3.13` or higher)
+* You have [installed and configured the Moderne CLI](../getting-started/cli-intro.md) (version `4.3.7` or higher)
 * You are familiar with running Moderne CLI commands (if not, work through our [CLI workshop](../getting-started/moderne-cli-workshop.md))
-* You have Go installed on your machine
+* You have [Go installed](https://go.dev/doc/install) on your machine
 
 ## Step 1: Update your `moderne.yml` file
 
@@ -156,7 +156,7 @@ mod config recipes go install github.com/moderneinc/recipes-go
 ```
 
 :::tip
-You can find the specific installation command for any recipe on its page in the [recipe catalog](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/).
+You can find the specific installation command for any recipe on its page in the [recipe catalog](../../recipes/recipe-catalog).
 :::
 
 ## Step 6: Run recipes
