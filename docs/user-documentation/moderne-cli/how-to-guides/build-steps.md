@@ -16,7 +16,7 @@ In the default configuration, the CLI first looks for Gradle build files, then B
 The CLI supports the following build step types:
 
 * **External build tool steps**: `maven`, `gradle`, and `bazel`. These shell out to the respective build tool to compile and parse source code with full type attribution.
-* **Language-specific steps**: `python`, `javascript`, `dotnet`, and `mainframe`. These use dedicated parsers to handle their respective language ecosystems.
+* **Language-specific steps**: `python`, `javascript`, `dotnet`, `go`, and `mainframe`. These use dedicated parsers to handle their respective language ecosystems.
 * **Resource step**: `resource`. A catch-all step that parses files not handled by other steps (YAML, XML, JSON, Terraform, properties, etc.).
 
 In the default configuration, only the external build tool steps and the resource step run automatically. Language-specific steps must be [explicitly configured](#configuring-build-steps-explicitly) in your `moderne.yml` file.
@@ -69,6 +69,7 @@ Language-specific steps use dedicated parsers via RPC to handle their respective
 * **`python`** - Parses Python projects. Detects projects via `pyproject.toml`, `setup.py`, or `.py` files. Requires Python 3.9+. See [Python configuration](./python.md) for setup details.
 * **`javascript`** - Parses JavaScript and TypeScript projects. Detects projects via `package.json` files. Automatically discovers the appropriate package manager (npm, yarn, pnpm, or bun) and Node.js version. See [JavaScript configuration](./javascript.md) for setup details.
 * **`dotnet`** - Parses C# projects. Detects projects via `.sln`, `.slnx`, or `.csproj` files. Requires .NET SDK 10.0+. See [C# configuration](./csharp.md) for setup details.
+* **`go`** - Parses Go projects. Detects projects via `go.mod` files. Uses the Go installation on your `$PATH`. See [Go configuration](./go.md) for setup details.
 * **`mainframe`** - Parses COBOL, JCL, and Control-M code.
 
 ### Resource step
@@ -108,7 +109,7 @@ build:
         **/*
 ```
 
-The available step types are: `maven`, `gradle`, `bazel`, `python`, `javascript`, `dotnet`, `mainframe`, and `resource`.
+The available step types are: `maven`, `gradle`, `bazel`, `python`, `javascript`, `dotnet`, `go`, `mainframe`, and `resource`.
 
 :::danger
 Be careful if you remove a build step type as that will make it so that build type will never be used. For instance, if you removed the `bazel` build step, Bazel will never be used to build any files -- even if there were Bazel files present. Instead, Bazel files would be parsed with the `resource` parser.

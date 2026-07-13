@@ -563,6 +563,7 @@ const cli = {
           label: 'Language support',
           items: [
             'user-documentation/moderne-cli/how-to-guides/csharp',
+            'user-documentation/moderne-cli/how-to-guides/go',
             'user-documentation/moderne-cli/how-to-guides/java',
             'user-documentation/moderne-cli/how-to-guides/javascript',
             'user-documentation/moderne-cli/how-to-guides/python',
