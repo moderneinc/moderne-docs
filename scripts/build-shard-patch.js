@@ -33,7 +33,9 @@ const HEAVY_ROUTE_PATTERNS = [
 ];
 
 ssgExecutor.executeSSG = async function shardedExecuteSSG(opts) {
-  const allPaths = [...opts.props.routesPaths].sort();
+  // Kept so we can restore the full list after SSG (see below).
+  const originalRoutesPaths = opts.props.routesPaths;
+  const allPaths = [...originalRoutesPaths].sort();
   const DEDICATED_SHARD = SHARD_TOTAL - 1;
 
   const isHeavy = (p) => HEAVY_ROUTE_PATTERNS.some((pat) => p === pat || p.startsWith(pat + '/'));
@@ -56,6 +58,10 @@ ssgExecutor.executeSSG = async function shardedExecuteSSG(opts) {
   opts.props.routesPaths = mine;
 
   const result = await originalExecuteSSG.call(this, opts);
+
+  // Restore the full route list so postBuild plugins (client-redirects,
+  // sitemap) validate/emit against every route, not just this shard's subset.
+  opts.props.routesPaths = originalRoutesPaths;
 
   serializeShardMeta(result, opts);
 
