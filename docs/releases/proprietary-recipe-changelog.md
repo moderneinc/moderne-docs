@@ -10,6 +10,195 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## July 14, 2026
+
+#### rewrite-ai - 0.4.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-ai-search - 0.35.2
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-android - 0.18.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-angular - 1.6.0
+
+* actions/checkout@v7
+* Upgrade official GitHub Actions to their latest versions
+
+#### rewrite-circleci - 3.12.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-cobol - 2.20.2
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-codemods - 0.27.1
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-codemods-ng - 0.21.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-compiled-analysis - 0.14.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-concourse - 3.11.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-cryptography - 0.14.9
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-devcenter - 1.28.0
+
+* Add Go version upgrade card
+
+#### rewrite-dotnet - 0.17.1
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-dropwizard - 0.5.5
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-dropwizard - 0.5.4
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-elastic - 0.8.1
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-hibernate - 0.26.2
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-jasperreports - 0.6.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-java-application-server - 0.7.8
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-java-security - 3.35.0
+
+* Respect maximumUpgradeDelta when advisories reference unpublished versions
+* Recognize Gradle dependencies blocks that lack type attribution
+* Go: support nested modules in DependencyVulnerabilityCheck
+* Go: fix DependencyVulnerabilityCheck never to downgrade
+* feat: Integrate End of Life detection recipes from rewrite-end-of-life
+* Single-source vulnerability target selection
+* Regenerate recipes.csv picking up new edited-dependency columns
+* Go: DependencyVulnerabilityCheck not to alter go.sum, if no changes t…
+* Update logback-core CVE expectations for new advisory
+
+#### rewrite-kafka - 0.7.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-kubernetes - 3.17.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-migrate-kotlin - 0.6.2
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-migrate-python - 0.9.4
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-nodejs - 0.47.1
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-nullability - 0.3.0
+
+* docs: NullSafety adoption book for Treehouse
+* fix: add dataTables column to recipes.csv so tables resolve in the SaaS UI
+
+#### rewrite-prethink - 0.9.0
+
+* Add duplicate-code and similar-code detection recipes
+* Richer Type-3 clone detection: gapped (insert/delete) alignment + tandem-repeat suppression
+* Marry duplicate + similar detection: anchor-free method alignment, shared MinHash/LSH
+* Fix star-alignment region-shrink and groupKey clone collapse
+* Suppress string-literal-concatenation blobs as Type-2 clone false positives
+* Support specifying multiple target agent config files
+* Rename the Prethink starter and route both legacy recipe ids to it
+* Detect JAX-RS/Jakarta EE ExceptionMapper handlers (#2760)
+* Add Python gRPC servicer detection for parity with Java, Go, and .NET
+* Document and test JAX-RS/Jakarta EE endpoint security detection
+* Detect raw kafka-clients, AWS SQS, Redis pub/sub, and EJB messaging
+* Detect ScheduledExecutorService and ManagedScheduledExecutorService scheduled tasks
+* Capture Django URL paths and resolve Flask/FastAPI route prefixes
+* Fix new UpdatePrethinkContext() call
+
+#### rewrite-program-analysis - 0.13.5
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-react - 0.3.4
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-reactive-streams - 0.20.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-release-metromap - 0.4.2
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-spring - 0.38.0
+
+* Use constructor injection for StoredProcedureItemReader (Spring Batch 6)
+* Guard withHttpClientDefaults recipe behind a Spring Boot &lt;4.1 precondition
+* Co-exclude `UserDetailsServiceAutoConfiguration` when `SecurityAutoConfiguration` is excluded (#2663)
+* Migrate RestTemplate to RestClient (incl. setter-based bean configuration)
+* Use `KotlinTemplate` for `@Retryable` migration on Kotlin sources
+* Fix MigrateSpringRetryRecoverToRetryTemplate wiping method bodies when @Retryable(value = {X.class}) uses array-initializer syntax
+* Run the SecurityAutoConfiguration co-exclude before the Boot 4 relocation (#2664)
+* Modularize legacy spring-session-data-redis and raw spring-data-redis under SB4
+* Remove `@ExpectedToFail` from now-passing Kotlin `@Retryable` migration tests
+* Replace removed `RedisCacheConfiguration.getTtl()` in Spring Data Redis 4.0
+* Add SB4 boot-jdbc and boot-hibernate namespace triggers to AddModularStarters
+* Convert `GatewayRedisAutoConfiguration` `exclude` to `excludeName` before SCG 5.0 upgrade
+
+#### rewrite-sql - 2.14.0
+
+* Guard against null Function names from table functions
+* Fix SQL anti-pattern false positives (concatenation + non-SQL DELETE) and add INSERT-without-columns recipe
+* Tighten non-SQL DELETE detection and add INSERT-without-columns recipe
+* Detect and inventory stored procedure calls (EXEC/EXECUTE/CALL)
+* Add limit-without-order-by and constant-predicate SQL anti-pattern recipes
+* Add surgical auto-remediations for null-comparison and order-by-in-subquery anti-patterns
+
+#### rewrite-struts - 0.26.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-tapestry - 0.4.3
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-terraform - 3.14.5
+
+* Updated repository to use OpenRewrite version v8.87.0
+
+#### rewrite-vulncheck - 0.7.5
+
+* Updated repository to use OpenRewrite version v8.87.0
+
 ## July 8, 2026
 
 #### rewrite-java-security - 3.34.3
