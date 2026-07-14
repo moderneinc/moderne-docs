@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v13.10.0 (2026/07/14)
+
+- configure recipe options before adding to the tree
+
 ### UI v13.9.0 (2026/07/14)
 
 - update Results view tree component
