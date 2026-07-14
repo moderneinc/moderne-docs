@@ -76,6 +76,24 @@ To create a custom recipe you will need to:
 
 9. Victory!
 
+## How custom recipes appear in the marketplace
+
+Custom recipes you build can appear in a personal category in the marketplace that only you can see. This makes it easy to find and re-run the recipes you've built without recreating them each time.
+
+Moderne adds a recipe to this category when you:
+
+* Run it from the builder (for example, by clicking **Dry Run**), or
+* Edit the recipe's YAML in the builder and save it.
+
+The category a recipe appears under comes from the package structure of its ID. If you let Moderne auto-generate the ID from the recipe's name, it follows the pattern `org.<username>.<RecipeName>`, which groups all of your auto-generated recipes under a single category named after your username:
+
+<figure>
+  ![Marketplace category list with a personal category named after the user highlighted, containing the user's custom recipes](./assets/marketplace-custom-recipe-category.png)
+  <figcaption>_Custom recipes grouped under a personal marketplace category_</figcaption>
+</figure>
+
+If you'd rather organize your recipes differently, you can set the ID yourself when you create the recipe. The package segments you choose determine the category, and any nested subcategories, that your recipe appears under.
+
 ## How to create or add recipes from the marketplace
 
 From any recipe in the marketplace, you can click on the `Add to builder` button:
