@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.14           |
+| CLI version | 4.3.15           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,11 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.15 (2026-07-14)
+
+#### What's Changed CLI
+* Incorporates the latest versions of OpenRewrite ([v8.87.0](https://github.com/openrewrite/rewrite/releases/tag/v8.87.0)), the rewrite-gradle-plugin ([v7.37.0](https://github.com/openrewrite/rewrite-gradle-plugin/releases/tag/v7.37.0)), and the rewrite-maven-plugin ([v6.44.0](https://github.com/openrewrite/rewrite-maven-plugin/releases/tag/v6.44.0)) to improve code parsing accuracy and recipe execution reliability.
 
 ### CLI / DX v4.3.14 (2026-07-13)
 
