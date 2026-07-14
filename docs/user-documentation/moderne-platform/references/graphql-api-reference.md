@@ -1466,7 +1466,7 @@ Connection for file changes with aggregate statistics.
 | `edges` | [[FileChangeEdge](#filechangeedge)!]! |  |
 | `pageInfo` | [PageInfo](#pageinfo)! |  |
 | `count` | Int! |  |
-| `searched` | Int! | Total files searched. |
+| `searched` | Int! | Files with search results only — matched by the recipe but not changed (i.e. `count - changed`). Zero for a pure change run. |
 | `changed` | Int! | Files with committable changes. |
 | `errors` | Int! | Files with errors. |
 
