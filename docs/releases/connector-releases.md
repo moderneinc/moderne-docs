@@ -7,13 +7,20 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.150.142 |
+| Connector | 0.150.155 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.142/connector-0.150.142.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.155/connector-0.150.155.jar)
 
 ## Changelog
 
 ## July 2026
+
+### v0.150.155 – 2026-07-14
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.150.155/connector-0.150.155.jar)
+
+* Bound connector metric source tag to Atlas tag-value limit (#1567)
+* Perf(connector): abort non-JAR LST downloads early (#1576)
 
 ### v0.150.142 – 2026-07-08
 
