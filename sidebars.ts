@@ -39,6 +39,7 @@ const platform = {
           'user-documentation/moderne-platform/getting-started/running-your-first-recipe',
           'user-documentation/moderne-platform/getting-started/proof-of-value-prerequisites',
           'user-documentation/moderne-platform/getting-started/proof-of-value',
+          'user-documentation/moderne-platform/getting-started/proof-of-value-csharp',
           'user-documentation/moderne-platform/getting-started/code-quality',
           'user-documentation/moderne-platform/getting-started/data-tables',
           'user-documentation/moderne-platform/getting-started/visualizations',
