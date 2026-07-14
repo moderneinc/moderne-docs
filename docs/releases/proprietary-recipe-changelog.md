@@ -166,7 +166,7 @@ This changelog is automatically generated from GitHub releases and only contains
 * Co-exclude `UserDetailsServiceAutoConfiguration` when `SecurityAutoConfiguration` is excluded (#2663)
 * Migrate RestTemplate to RestClient (incl. setter-based bean configuration)
 * Use `KotlinTemplate` for `@Retryable` migration on Kotlin sources
-* Fix MigrateSpringRetryRecoverToRetryTemplate wiping method bodies when @Retryable(value = {X.class}) uses array-initializer syntax
+* Fix MigrateSpringRetryRecoverToRetryTemplate wiping method bodies when `@Retryable(value = {X.class})` uses array-initializer syntax
 * Run the SecurityAutoConfiguration co-exclude before the Boot 4 relocation (#2664)
 * Modularize legacy spring-session-data-redis and raw spring-data-redis under SB4
 * Remove `@ExpectedToFail` from now-passing Kotlin `@Retryable` migration tests

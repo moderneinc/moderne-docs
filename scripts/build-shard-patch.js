@@ -33,7 +33,13 @@ const HEAVY_ROUTE_PATTERNS = [
 ];
 
 ssgExecutor.executeSSG = async function shardedExecuteSSG(opts) {
-  const allPaths = [...opts.props.routesPaths].sort();
+  // Keep the untouched full route list so we can restore it after SSG. The
+  // reduced list below only limits what THIS shard renders; postBuild plugins
+  // (client-redirects, sitemap) must still see every route or they validate
+  // their targets against a partial route set and fail (e.g. redirects to
+  // pages rendered by another shard look "missing").
+  const originalRoutesPaths = opts.props.routesPaths;
+  const allPaths = [...originalRoutesPaths].sort();
   const DEDICATED_SHARD = SHARD_TOTAL - 1;
 
   const isHeavy = (p) => HEAVY_ROUTE_PATTERNS.some((pat) => p === pat || p.startsWith(pat + '/'));
@@ -56,6 +62,13 @@ ssgExecutor.executeSSG = async function shardedExecuteSSG(opts) {
   opts.props.routesPaths = mine;
 
   const result = await originalExecuteSSG.call(this, opts);
+
+  // Restore the full route list now that this shard is done rendering, so
+  // postBuild lifecycle plugins (client-redirects target validation, sitemap)
+  // operate on the complete set of routes rather than this shard's subset.
+  // Every shard then emits the same redirect/sitemap files, which merge-shards
+  // deduplicates via last-wins.
+  opts.props.routesPaths = originalRoutesPaths;
 
   serializeShardMeta(result, opts);
 
