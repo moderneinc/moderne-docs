@@ -482,6 +482,7 @@ const dx = {
       items: [
         'administrator-documentation/moderne-dx/how-to-guides/mass-ingest-dx',
         'administrator-documentation/moderne-dx/how-to-guides/mass-run-dx',
+        'administrator-documentation/moderne-dx/how-to-guides/configure-telemetry-dx',
       ],
     },
     {

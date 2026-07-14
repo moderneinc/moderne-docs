@@ -138,7 +138,7 @@ The `run` command's `trace.json` includes telemetry for the `clone` and `build` 
 
 ### `trace.json` schema
 
-The following tables describe the `trace.json` schema, including metadata common to all commands and fields specific to each command type:
+The following tables describe the `trace.json` schema, including metadata common to all commands and fields specific to each command type. For the equivalent reference of the ingested CSV format (along with ready-made BI table definitions and report templates), see the [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) repository and its [trace.csv data dictionary](https://github.com/moderneinc/moderne-bi-templates/blob/main/data-dictionary/trace-csv.md).
 
 #### Repository and organization metadata
 
@@ -245,11 +245,38 @@ When you push changes with `mod git push`, a `push` block is created with these 
 | `remoteBranch` | string  | The remote branch into which changes are pushed                       |
 | `setUpstream`  | boolean | True if you set a specific upstream during this push, false otherwise |
 
+### MCP tool-call telemetry
+
+The MCP server (`mod mcp`) emits telemetry differently from the commands above. Instead of writing a `trace.json`, it appends **one CSV row per MCP tool call** directly to the telemetry queue at `~/.moderne/cli/trace/mcp/`. Each row uses the `mcp` command type (`type=mcp`) and carries an `mcp` block with these fields:
+
+| Field           | Type   | Description                                                                                          |
+|-----------------|--------|-----------------------------------------------------------------------------------------------------|
+| `outcome`       | string | Tool-call outcome (e.g., `Succeeded`, `Failed`)                                                      |
+| `startTime`     | string | ISO 8601 timestamp when the tool call started                                                        |
+| `endTime`       | string | ISO 8601 timestamp when the tool call completed                                                      |
+| `sessionId`     | string | The `mod mcp` session identifier, so all rows from one session correlate                             |
+| `toolName`      | string | The MCP tool that was invoked (e.g., `run_recipe`, `find_types`)                                     |
+| `recipeId`      | string | Fully qualified recipe ID for recipe-oriented tools; empty for tools that take a query instead       |
+| `matchCount`    | number | Number of matches the tool produced                                                                  |
+| `changeCount`   | number | Number of changes the tool produced                                                                  |
+| `runId`         | string | Identifier of the underlying recipe run, when the tool triggered one                                 |
+| `resultBytes`   | number | Size of the tool result in bytes                                                                     |
+| `arguments`     | string | Truncated (~120 character) summary of the tool arguments. No full arguments or secrets are recorded  |
+| `elapsedTimeMs` | number | Duration of the tool call in milliseconds                                                            |
+
+In the aggregate CSV these become the `mcp`-prefixed columns (`mcpOutcome`, `mcpStartTime`, `mcpEndTime`, `mcpSessionId`, `mcpToolName`, `mcpRecipeId`, `mcpMatchCount`, `mcpChangeCount`, `mcpRunId`, `mcpResultBytes`, `mcpArguments`, `mcpElapsedTimeMs`), alongside the standard `origin`, `path`, `branch`, `developer`, and `organization` columns.
+
+:::note
+MCP telemetry is always-on and CSV-only: each tool call is appended straight to the `~/.moderne/cli/trace/mcp/` queue and is never written to a `trace.json`. For a CLI signed in to a tenant, these rows flush on the CLI's normal auto-push (when it refreshes its license lease) or with `mod telemetry publish`, the same as other command telemetry.
+:::
+
 ## Organization-level telemetry
 
-The Moderne CLI is designed to operate against many repositories simultaneously. Because of this, in addition to creating repository-specific `trace.json` files, it generates an aggregate `trace.csv` file in the `.moderne/<command>` directory. This CSV contains the same data as the individual JSON files, with each row representing a repository and each column representing a field.
+The Moderne CLI is designed to operate against many repositories simultaneously. Because of this, in addition to creating repository-specific `trace.json` files, it generates an aggregate `trace.csv` file in the `.moderne/<command>` directory, with each row representing a repository and each column representing a field.
 
-This CSV is also copied to `$MODERNE_HOME/cli/trace`, making it easy to examine and share telemetry across all runs in a centralized location:
+This CSV (not the `trace.json` files) is what gets ingested by BI tools and pushed to your Moderne tenant. It carries the same data as the JSON plus a few extra columns, with some fields flattened or omitted, as detailed below.
+
+It is also copied to `$MODERNE_HOME/cli/trace`, making it easy to examine and share telemetry across all runs in a centralized location:
 
 ```
 Per-Repository Files:          Aggregate File:
@@ -258,191 +285,57 @@ repo2/.moderne/build/trace.json ─┼─> .moderne/build/trace.csv ─> $MODERN
 repo3/.moderne/build/trace.json ─┘
 ```
 
-Note that these centralized CSV files **do not** include `log` field paths, as those are specific to your local environment.
+### How the CSV columns differ from `trace.json`
+
+The CSV adds columns that don't exist in the JSON:
+
+| Column      | When        | Source                  | Description                                                                                                                                       |
+|-------------|-------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `developer` | Always      | Local git configuration | The git email of the developer who ran the command (`git config user.email`), or empty if it cannot be determined. It appears as the fourth common column, after `origin`, `path`, and `branch`. |
+| `tag.<key>` | On demand   | `--trace-tag key=value` | One column per tag you supply on the command (e.g., `--trace-tag team=payments` adds a `tag.team` column). Repeat the option to add multiple tags. Useful for slicing telemetry by CI pipeline, team, or migration wave. |
+
+The CSV also reshapes or omits some JSON fields:
+
+* **Flattened and renamed (same data):** the nested `repository.origin`, `repository.path`, and `repository.branch` become top-level `origin`, `path`, and `branch` columns; the top-level `org` field becomes the `organization` column; and each command stage's nested fields become prefixed columns (e.g., `run.outcome` becomes `runOutcome`, and each stage adds a `<stage>ElapsedTimeMs` column).
+* **Omitted:** `repository.partition` is not written to the CSV.
+* **Omitted in centralized copies:** the `log` field paths are stripped from the CSV files copied to `$MODERNE_HOME/cli/trace`, as those paths are specific to your local environment.
 
 ## Collecting results in a central location
 
 Many organizations use centralized observability and business intelligence (BI) tools to monitor developer workflows and measure productivity initiatives. The Moderne CLI's telemetry is designed to integrate seamlessly with these systems.
 
+Several of the paths below turn on whether you use a *wrapper*. That means a customized copy of the [`modw` script](./cli-wrapper.md), the entry point every `mod` command already runs through, which your platform team can extend to publish telemetry to a destination you control. [Publishing telemetry with a custom wrapper](#publishing-telemetry-with-a-custom-wrapper) covers how it works.
+
+Where your telemetry ends up, and whether you have to do anything to route it into BI, depends on how your CLI is deployed:
+
+| Scenario                                            | Source        | Where telemetry lands                                                                                                             | Publish it yourself?                       | Does Moderne receive it?                                          | How you get it into BI                                                                        |
+|-----------------------------------------------------|---------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| Platform / web UI                                   | `saas`        | Moderne's managed bucket under your tenant prefix, uploaded server-side by the recipe workers                                     | No (server-side)                             | Yes                                                              | Moderne replicates it into a bucket you own                                                   |
+| CLI signed in to a tenant (happy path)              | `cli` / `mcp` | Queued locally, then auto-pushed to Moderne's bucket through the tenant gateway on license-lease refresh (or `mod telemetry publish`) | No                                           | Yes                                                              | Replication alongside the `saas` data; a wrapper can *also* publish to a destination you control |
+| CLI not signed in, but your org is a SaaS customer  | `cli` / `mcp` | Queued locally; nothing reaches the gateway while disconnected                                                                    | No                                           | Not while disconnected. Once you're signed in, it flushes on the next license-lease refresh as above (but a short-lived host can spin down before it ever flushes) | Replication once the queue flushes; use a wrapper to your own destination if the host may stay disconnected or spin down first (for example, ephemeral mass-ingest VMs) |
+| Moderne DX or air-gapped (no tenant)                | `cli` / `mcp` | Local only; there is no gateway or Moderne bucket to push to                                                                     | Yes. Nothing pushes it for you     | No, by design (no tenant to flush to, and replication does not run) | You publish it yourself, typically by customizing the wrapper, and hold the complete picture                          |
+
+A signed-in CLI's auto-push happens when it refreshes its license lease (at most once every three days). To flush queued telemetry on demand (for example, from CI, or right before pulling a report), run `mod telemetry publish`.
+
+:::info
+If your CLI is signed in to a Moderne SaaS v2 tenant, Moderne can replicate your telemetry into a bucket or storage account you own. See [Configuring telemetry exports and reports](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/overview.md) ([AWS](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/aws-replication.md), [Azure](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/azure-replication.md)). The self-publishing wrapper covered below is for Moderne DX customers, CLI-only deployments not connected to a tenant, or anyone who *also* wants telemetry in a destination they control.
+:::
+
 As mentioned earlier, the CLI automatically aggregates CSV files to the `$MODERNE_HOME/cli/trace` directory. These files are ready to be ingested by your existing BI tools - allowing you to track CLI usage, recipe adoption, and impact across your entire organization.
 
 You can publish these files with every command run, or you can collect them on a scheduled cadence.
 
-:::tip
-If your organization uses AWS, you can [automate S3 export with Hive-style partitioning](./cli-telemetry-s3-export.md) for direct Athena querying.
-:::
+### Publishing telemetry with a custom wrapper
 
-### Wrapping the CLI to publish telemetry
+The recommended way to publish telemetry is to customize the CLI wrapper itself: the [`modw` script](./cli-wrapper.md) (`modw.cmd` on Windows), the supported entry point that `mod` symlinks to. Your central platform team maintains the customized wrapper and distributes it to your CLI users, the same way large organizations manage a customized Maven or Gradle wrapper, so users keep using a single `mod` command.
 
-Due to the fact every organization's BI system is different, we strongly recommend that you wrap the Moderne CLI in a script that handles telemetry publishing and any necessary data transformation.
-
-A wrapper script allows you to:
+Customizing the wrapper lets you:
 
 * Run pre- and post-processing steps
-* Publish telemetry to your BI endpoint
+* Publish telemetry to a destination you control: object storage, an HTTP/BI endpoint, or anywhere else
 * Transform data to match your system's requirements
 
-Here's a basic wrapper script template:
-
-```bash title="mod.sh"
-# Main execution
-main() {
-    # Extract the first command argument (e.g., "build" from "mod.sh build .")
-    local command_name="$1"
-    
-    if [[ -f "$MOD_JAR" ]]; then
-      # Execute the Moderne CLI jar with provided arguments
-      java -jar "$MOD_JAR" "$@"
-      CLI_EXIT_CODE=$?
-    elif command -v mod &> /dev/null; then
-      # Execute the Moderne CLI binary
-      mod "$@"
-      CLI_EXIT_CODE=$?
-    else
-      echo -e "Error: Moderne CLI not found at $MOD_JAR" >&2
-      echo "Please set the correct path to the Moderne CLI JAR file" >&2
-      exit 1
-    fi
-    
-    # Add a newline after mod output
-    echo >&2
-    
-    # TODO: Run any post-processing work here now that the Moderne CLI command is completed
-    
-    # Exit with the same code as the CLI
-    exit $CLI_EXIT_CODE
-}
-
-# Run main function
-main "$@"
-```
-
-<details>
-
-<summary>Example of a `mod.sh` that publishes telemetry to an API endpoint</summary>
-
-```bash title="mod.sh"
-# Function to publish telemetry data
-publish_telemetry() {
-    local command_name="$1"
-    
-    # Skip if no command name provided
-    if [[ -z "$command_name" ]]; then
-        return 0
-    fi
-    
-    if [[ ! -d "$TELEMETRY_DIR" ]]; then
-        return 0
-    fi
-    
-    # Look for CSV files under the command subdirectory
-    local search_dir="$TELEMETRY_DIR/$command_name"
-    if [[ ! -d "$search_dir" ]]; then
-        return 0
-    fi
-    
-    # Find all CSV files in the search directory and subdirectories recursively
-    # Using find for compatibility with older bash versions (macOS default is 3.2)
-    CSV_FILES=()
-    while IFS= read -r -d '' file; do
-        CSV_FILES+=("$file")
-    done < <(find "$search_dir" -name "*.csv" -type f -print0 2>/dev/null)
-    
-    if [[ ${#CSV_FILES[@]} -eq 0 ]]; then
-        return 0
-    fi
-    
-    echo "Publishing telemetry data to $BI_ENDPOINT..." >&2
-    
-    for csv_file in "${CSV_FILES[@]}"; do
-        if [[ -f "$csv_file" ]]; then
-            parent_dir="$(dirname "$csv_file")"
-            # Get relative path from current directory
-            relative_path="${csv_file#$(pwd)/}"
-            echo "Processing: $relative_path" >&2
-            # Only attempt to publish if endpoint is configured
-            if [[ -n "$BI_ENDPOINT" ]]; then
-                # Build curl command with optional parameters
-                CURL_CMD=(curl -X POST -H "Content-Type: text/csv" --data-binary "@$csv_file")
-                
-                # Add basic authentication if configured
-                if [[ -n "$BI_AUTH_USER" && -n "$BI_AUTH_PASS" ]]; then
-                    CURL_CMD+=(--user "$BI_AUTH_USER:$BI_AUTH_PASS")
-                fi
-                
-                # Add proxy configuration if configured
-                # Determine which proxy to use based on endpoint URL
-                PROXY_URL=""
-                if [[ "$BI_ENDPOINT" == https://* && -n "$HTTPS_PROXY" ]]; then
-                    PROXY_URL="$HTTPS_PROXY"
-                elif [[ -n "$HTTP_PROXY" ]]; then
-                    PROXY_URL="$HTTP_PROXY"
-                fi
-                
-                if [[ -n "$PROXY_URL" ]]; then
-                    CURL_CMD+=(--proxy "$PROXY_URL")
-                    
-                    # Add proxy authentication if configured
-                    if [[ -n "$PROXY_USER" && -n "$PROXY_PASS" ]]; then
-                        CURL_CMD+=(--proxy-user "$PROXY_USER:$PROXY_PASS")
-                    fi
-                fi
-                
-                # Add endpoint and common options
-                CURL_CMD+=("$BI_ENDPOINT" --silent --fail --show-error)
-                
-                # Execute curl command
-                ERROR_MSG=$("${CURL_CMD[@]}" 2>&1)
-                
-                if [[ $? -eq 0 ]]; then
-                    # Delete parent directory on successful post (e.g., 20250822153915-gemmm/)
-                    rm -rf "$parent_dir"
-                    echo -e "${GREEN}[OK] Published: $relative_path${NC}" >&2
-                else
-                    echo -e "${YELLOW}[WARN] Failed to publish: $relative_path${NC}" >&2
-                    echo -e "${YELLOW}       Error: $ERROR_MSG${NC}" >&2
-                fi
-            else
-                echo -e "${YELLOW}Note: Telemetry endpoint not configured. Skipping: $relative_path${NC}" >&2
-            fi
-        fi
-    done
-}
-
-# Main execution
-main() {
-    # Extract the first command argument (e.g., "build" from "mod.sh build .")
-    local command_name="$1"
-    
-    if [[ -f "$MOD_JAR" ]]; then
-      # Execute the Moderne CLI jar with provided arguments
-      java -jar "$MOD_JAR" "$@"
-      CLI_EXIT_CODE=$?
-    elif command -v mod &> /dev/null; then
-      # Execute the Moderne CLI binary
-      mod "$@"
-      CLI_EXIT_CODE=$?
-    else
-      echo -e "Error: Moderne CLI not found at $MOD_JAR" >&2
-      echo "Please set the correct path to the Moderne CLI JAR file" >&2
-      exit 1
-    fi
-    
-    # Add a newline after mod output
-    echo >&2
-    
-    # Publish telemetry data after CLI execution, passing the command name
-    publish_telemetry "$command_name"
-    
-    # Exit with the same code as the CLI
-    exit $CLI_EXIT_CODE
-}
-
-# Run main function
-main "$@"
-```
-
-</details>
+The wrapper launches the CLI as its final step, so you publish telemetry by capturing the CLI's exit code, uploading the aggregate CSV files, and exiting with that code. For the complete worked example (the `modw` and `modw.cmd` edits, configuration, how CLI upgrades affect the customized wrapper, and an AWS S3 upload example), see [Exporting CLI telemetry to Amazon S3](./cli-telemetry-s3-export.md). If you keep that example's path structure, the data lands in the same layout as replicated tenant data, so you query it with the shared [Querying and BI](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/querying-and-bi.md) guide.
 
 ### Valuable metrics to monitor
 
