@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v13.9.0 (2026/07/14)
+
+- update Results view tree component
+
 ### UI v13.8.0 (2026/07/10)
 
 - make the Scoped column filterable
