@@ -19,14 +19,14 @@ In this exercise, you will generate a recipe from an existing Refaster template 
 
 * Understand how OpenRewrite supports Refaster recipes.
 * See how Refaster recipes are written in Java, and how they can be run as recipes.
-* Use IDE support for generating Refaster recipes.
+* Generate an OpenRewrite recipe from a Refaster template.
 
 ### Steps
 
 #### Step 1: See how Refaster recipes are generated from templates
 
 1. Open [src/main/java/com/yourorg/SimplifyTernary.java](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/java/com/yourorg/SimplifyTernary.java) and take a look at the Refaster template to see the before/after pattern it's matching to simplify ternary expressions.
-2. Build the project (Ctrl/Cmd + F9) to trigger Refaster code generation. This will automatically create an imperative OpenRewrite recipe in a new file with the name `SimplifyTernaryRecipes.java`. 
+2. Build the project to trigger Refaster code generation (in IntelliJ, use Ctrl/Cmd + F9; or run `mvn compile` or `./gradlew build` from the command line). This will automatically create an imperative OpenRewrite recipe in a new file with the name `SimplifyTernaryRecipes.java`. 
 :::info
 Refaster template recipe names are the class name followed by `Recipe` or `Recipes` (depending on if there is more than one template in the class).
 :::
@@ -73,11 +73,11 @@ Now that you've seen how Refaster template recipes work, you can create your own
 
 #### Step 3: Build and re-run the tests
 
-1. Build the project (Ctrl/Cmd + F9) to generate the recipe class the tests expect.
+1. Build the project (in IntelliJ, Ctrl/Cmd + F9; or run `mvn compile` or `./gradlew build`) to generate the recipe class the tests expect.
 2. Re-run the tests and use the remaining failures to decide the next template. (This iterative pattern is a common method for recipe development.)
 
 :::tip
-With the Moderne plugin installed, you can generate a new Refaster recipe from any method invocation by right-clicking the invocation, selecting "Refactor", then "Create OpenRewrite Recipe", then "Create Recipe (Refaster Style)". For example, you could generate a Refaster template to convert `StringUtils.trim(..)` to `StringUtils.strip(..)` as you did in the previous module using a declarative recipe.
+With the Moderne plugin installed (which requires a [licensed CLI](../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md)), you can generate a new Refaster recipe from any method invocation by right-clicking the invocation, selecting "Refactor", then "Create OpenRewrite Recipe", then "Create Recipe (Refaster Style)". For example, you could generate a Refaster template to convert `StringUtils.trim(..)` to `StringUtils.strip(..)` as you did in the previous module using a declarative recipe.
 :::
 
 #### Step 4: Complete coverage
@@ -154,6 +154,6 @@ public class StringIsEmpty {
 
 * Refaster templates are converted into regular OpenRewrite recipes, and can be run as such.
 * Common base classes, and embedding options lighten the load in implementing Refaster templates.
-* Refaster templates can be generated from the IDE, and used as a starting point for more complex recipe implementations.
+* Refaster templates can be used as a starting point for more complex recipe implementations.
 * A Refaster rule can contain more than one before template, to match different ways to check for an empty string.
 * You can customize the Recipe name and description, with the help of the `@RecipeDescriptor` annotation.

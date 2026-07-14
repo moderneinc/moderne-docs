@@ -1,6 +1,6 @@
 ---
 sidebar_label: "Module 1: Environment setup"
-description: How to set up your IDE to write custom recipes.
+description: How to set up your environment to write custom recipes.
 ---
 
 # Module 1: Recipe development environment
@@ -14,10 +14,14 @@ You'll want to have the following installed:
 * Java 21, as our [RewriteTests](../../user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-testing.md#rewritetest-interface) use text blocks.
   * The [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) project expects JDK 21. (Temurin JDK 21.0.7 (`temurin-21.0.7`), for example, has been specified in the `.sdkmanrc` file, but other version 21 JDKs may work as well.)
   * Recipes use Java 8 source level, so they can run on Java 8 and higher.
-* IntelliJ IDEA (2025.3+ recommended)
+* A Java IDE or editor. This workshop demonstrates IntelliJ IDEA (2025.3+ recommended), but you can follow along in any IDE or from the command line.
+* A build tool (Maven or Gradle) to compile the project and run tests. The starter project supports both.
+* [The Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs. The CLI is free to use against public repositories.
+
+If you use IntelliJ IDEA, the following plugins can improve the experience, but neither is required to complete this workshop:
+
 * The [OpenRewrite plugin](https://plugins.jetbrains.com/plugin/23814-openrewrite), to run and write YAML recipes.
-* [The Moderne plugin](../../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md), for faster recipe development and to help debug recipes.
-* [The Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md), to run recipes at scale locally, and debug against serialized LSTs.
+* [The Moderne plugin](../../user-documentation/moderne-ide-integration/how-to-guides/moderne-plugin-install.md), for faster recipe development and to help debug recipes. Note that this plugin requires the CLI to be configured with a [Moderne license](../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md).
 
 :::warning
 If you have not already completed the [Introduction to OpenRewrite course](../introduction/workshop-overview.md), go there first and complete at least Module 1 before continuing. The exercises in this workshop assume that module has been completed - meaning that the Moderne CLI is working and that you have a `~/moderne-workshop` directory with the `Default` org synced.
@@ -36,9 +40,8 @@ If you have not already completed the [Introduction to OpenRewrite course](../in
 #### Step 1: Clone and open the project
 
 1. Clone or fork the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) project or [use it as a template](https://github.com/new?template_name=rewrite-recipe-starter&template_owner=moderneinc).
-2. Open the project in IntelliJ IDEA.
-3. If prompted, choose Maven or Gradle import (your preference).
-4. Enable annotation processing if IntelliJ suggests it.
+2. Open the project in your IDE (this workshop demonstrates IntelliJ IDEA).
+3. If you're using IntelliJ, choose Maven or Gradle import when prompted (your preference), and enable annotation processing if the IDE suggests it. These steps will differ if you're using the command line or another IDE.
 
 :::tip
 For a better idea about the reference recipes and tests that are included in the starter project, review the [`README.md`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/README.md) there. Many of them will be referenced later in this workshop.
@@ -46,9 +49,10 @@ For a better idea about the reference recipes and tests that are included in the
 
 #### Step 2: Run tests once
 
-1. Run all unit tests to confirm your environment is working. To do this in IntelliJ, navigate to the `src/test/java` folder in the Project Tool window and right-click on it. Then select the green play button that says Run 'All Tests' (if you're using Maven), or 'Run Tests in rewrite-recipe-starter' (if you're using Gradle).
+1. Run all unit tests to confirm your environment is working.
+    * From the command line, run `mvn test` (Maven) or `./gradlew test` (Gradle) from the root of the project.
+    * In IntelliJ, you can instead navigate to the `src/test/java` folder in the Project Tool window, right-click it, and select the green play button (Run 'All Tests' for Maven, or 'Run Tests in rewrite-recipe-starter' for Gradle). If you're using Gradle and tests feel slow, consider [updating the way tests run in IntelliJ](https://docs.openrewrite.org/reference/building-openrewrite-from-source#developing-tips) for faster feedback.
 2. Confirm that all tests pass, and you should see a message that the project was successfully built. You can ignore any warnings as long as the build is successful.
-3. _(Optional)_ If you're using Gradle and tests feel slow, consider [updating the way tests run in IntelliJ](https://docs.openrewrite.org/reference/building-openrewrite-from-source#developing-tips) for faster feedback.
 
 #### Step 3: _(Optional)_ Customize coordinates
 
@@ -76,15 +80,15 @@ mvn install
 mod config recipes jar install com.yourorg:rewrite-recipe-starter:LATEST
 ```
 
-3. To confirm that everything is set up for testing imperative recipes, open the `AssertEqualsToAssertThat` class in IntelliJ, right-click the class name, and select **Set Active Recipe**. Then open a terminal, navigate to your workshop directory, and run:
+3. To confirm that everything is set up for testing imperative recipes, run one of the starter project's recipes by name. Open a terminal, navigate to your workshop directory, and run:
 
   ```bash
   cd ~/moderne-workshop
-  mod run . --active-recipe
+  mod run . --recipe=com.yourorg.AssertEqualsToAssertThat
   ```
 
-:::note
-This requires the Moderne plugin; if it is not installed, the **Set Active Recipe** option will not appear. You can still run the recipe with the `mod` CLI if you refer to the recipe by name (as in the next step).
+:::tip
+If you have the Moderne plugin installed (which requires a [licensed CLI](../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md)), you can instead open the `AssertEqualsToAssertThat` class in IntelliJ, right-click the class name, select **Set Active Recipe**, and run `mod run . --active-recipe`.
 :::
 
 ### Takeaways

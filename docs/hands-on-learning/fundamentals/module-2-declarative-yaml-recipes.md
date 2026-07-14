@@ -29,7 +29,7 @@ A declarative YAML recipe consists of [at least] metadata fields (`type`, `name`
 
 The recipe starter project already contains a migration recipe for replacing Spring string utilities with Apache string utilities, but it's just a start and is missing some cases that still need to be covered. For one, you'll want to change from Spring's `trimWhitespace(String)` to Apache Common's `StringUtils.strip(String)`.
 
-1. Open [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml) from your project in IntelliJ.
+1. Open [src/main/resources/META-INF/rewrite/stringutils.yml](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/src/main/resources/META-INF/rewrite/stringutils.yml) from your project in your IDE.
 2. Add [`org.openrewrite.java.ChangeMethodName`](https://docs.openrewrite.org/recipes/java/changemethodname) to the end of `recipeList`.
 3. Set the options for this recipe as follows:
     * `methodPattern: org.apache.commons.lang3.StringUtils trimWhitespace(java.lang.String)`
@@ -62,9 +62,9 @@ recipeList:
 You may notice that [the method pattern](../../user-documentation/recipes/authoring-recipes/references/method-patterns.md) actually refers to a method that does not exist. Apache Commons does not have a `trimWhitespace` method, but Spring does. However, because recipes in the `recipeList` are executed in order and the `ChangeType` recipe comes before the new `ChangeMethodName` recipe, when `ChangeMethodName` runs, the type will already be Apache Commons and there will no longer be a Spring `trimWhitespace` method. This is an important point to keep in mind when chaining recipes together.
 
 :::tip
-IntelliJ can suggest recipe options. Place your cursor between `description` and `recipeList`, then trigger auto-complete (Ctrl/Cmd + Space) to see optional fields that may be missing (like `estimatedEffortPerOccurrence` in this example).
+If you're using IntelliJ, it can suggest recipe options. Place your cursor between `description` and `recipeList`, then trigger auto-complete (Ctrl/Cmd + Space) to see optional fields that may be missing (like `estimatedEffortPerOccurrence` in this example).
 
-You can also click through in IntelliJ on a recipe name (like `AddDependency` or `ChangeType`) to open its definition using Ctrl/Cmd + Click.
+You can also click through on a recipe name (like `AddDependency` or `ChangeType`) to open its definition using Ctrl/Cmd + Click.
 :::
 
 #### Step 2: Add a unit test
@@ -77,7 +77,7 @@ Even for declarative recipes, you should always write tests. Make sure you expan
      * The existing `replacesStringEquals` test uses `rewriteRun(SourceSpecs...)` with a single `java(String, String)` before/after text block, which asserts the recipe transforms the "before" code into the "after" code.
      * The `noChangeWhenAlreadyUsingCommonsLang3` test only includes a before block, which as the comment mentions, indicates that the after code block should be the same as the before code block.
      * The `//language=java` injection on the text blocks enables IntelliJ syntax highlighting and code completion.
-2. Now run the existing `replacesStringEquals` test (use the green play icon to the left of the test method) to confirm it passes. This takes care of that particular case, but now you need to cover the method name change that you just implemented.
+2. Now run the tests to confirm the existing `replacesStringEquals` case passes (in IntelliJ, you can run just that test using the green play icon to the left of the method). This takes care of that particular case, but now you need to cover the method name change that you just implemented.
 3. Add a unit test that validates `trimWhitespace` is converted to `strip`.
 <details>
 <summary>Reference example: trimWhitespace test</summary>
