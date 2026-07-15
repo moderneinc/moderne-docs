@@ -59,6 +59,14 @@ jobs:
           MARKETPLACE_CSV_DEST: ${{ runner.temp }}/recipes-v5-${{ matrix.versions }}.csv
         run: .github/scripts/build-recipe-marketplace.sh
 
+      # Surface the CLI recipe logs (the real install error lives here, not stdout).
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: recipe-logs-${{ matrix.versions }}
+          path: ${{ runner.temp }}/moderne-cli-home/recipes/**/.moderne/recipes.log
+          if-no-files-found: ignore
+
       - uses: actions/upload-artifact@v7
         with:
           name: recipes-v5-${{ matrix.versions }}
