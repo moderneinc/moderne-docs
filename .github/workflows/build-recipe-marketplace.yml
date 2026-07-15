@@ -52,6 +52,7 @@ jobs:
           go-version: '1.25'
 
       - name: Build marketplace CSV
+        id: build
         env:
           RECIPE_VERSIONS: ${{ matrix.versions }}
           # Isolate CLI state to the runner temp dir.
@@ -61,20 +62,30 @@ jobs:
 
       # Surface the CLI recipe logs (the real install error lives here, not stdout).
       - uses: actions/upload-artifact@v7
-        if: failure()
+        if: failure() || steps.build.outputs.failed-ecosystems != ''
         with:
           name: recipe-logs-${{ matrix.versions }}
           path: ${{ runner.temp }}/moderne-cli-home/recipes/**/.moderne/recipes.log
           if-no-files-found: ignore
 
+      # Upload before the gate below so the partial CSV still reaches the commit job.
       - uses: actions/upload-artifact@v7
         with:
           name: recipes-v5-${{ matrix.versions }}
           path: ${{ runner.temp }}/recipes-v5-${{ matrix.versions }}.csv
 
+      # Turn the run red when an ecosystem shipped no modules (still committed below).
+      - name: Fail run if any ecosystem was missing
+        if: steps.build.outputs.failed-ecosystems != ''
+        run: |
+          echo "::error title=Marketplace ecosystem missing::${{ matrix.versions }} marketplace built without ecosystem(s): ${{ steps.build.outputs.failed-ecosystems }}. The partial CSV was still committed; check the recipe-logs-${{ matrix.versions }} artifact, fix the install, and re-run."
+          exit 1
+
   commit:
     name: Commit marketplace CSVs
     needs: build
+    # Still commit the partial CSVs when a build job went red over a missing ecosystem.
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
