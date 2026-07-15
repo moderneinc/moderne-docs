@@ -128,6 +128,7 @@ tool_available() {
 
 log "Installing recipe modules using $RECIPE_VERSIONS versions"
 SKIPPED=()
+FAILED=()
 for cmd in "${INSTALL_CMDS[@]}"; do
   # The snapshot/released distinction only applies to jars: `:LATEST` picks the
   # newest artifact (including Maven snapshots) while `:RELEASE` picks the newest
@@ -141,7 +142,13 @@ for cmd in "${INSTALL_CMDS[@]}"; do
     continue
   fi
   log "Installing '$ecosystem' recipe modules"
-  mod "${parts[@]:1}"                # drop the literal leading `mod`
+  # Best effort: a single ecosystem failing to install (e.g. a flaky upstream
+  # module) shouldn't discard the marketplace CSV built from the others. Warn
+  # and carry on so the modules that did install still ship.
+  if ! mod "${parts[@]:1}"; then     # drop the literal leading `mod`
+    warn "Failed to install '$ecosystem' recipe modules; continuing without them"
+    FAILED+=("$ecosystem")
+  fi
 done
 
 # ---------------------------------------------------------------------------
@@ -165,4 +172,7 @@ log "Wrote marketplace CSV to $MARKETPLACE_CSV_DEST"
 
 if [ "${#SKIPPED[@]}" -gt 0 ]; then
   warn "Marketplace is missing modules for ecosystem(s): ${SKIPPED[*]} (toolchain unavailable)"
+fi
+if [ "${#FAILED[@]}" -gt 0 ]; then
+  warn "Marketplace is missing modules for ecosystem(s): ${FAILED[*]} (install failed)"
 fi
