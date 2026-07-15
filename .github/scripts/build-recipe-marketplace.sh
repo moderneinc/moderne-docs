@@ -114,6 +114,14 @@ done < <(awk '
 
 [ "${#INSTALL_CMDS[@]}" -gt 0 ] || die "No install commands found in $MODULES_DOC"
 
+# Pin GOROOT to the on-PATH `go` so the Go recipe build helper doesn't mix a second
+# Go install's compiler with this driver ("compile: version goX does not match goY").
+if command -v go >/dev/null 2>&1; then
+  GOROOT="$(go env GOROOT)"
+  export GOROOT
+  log "Pinned GOROOT=$GOROOT ($(go version))"
+fi
+
 # Each non-jar ecosystem shells out to an external toolchain. Skip (with a loud
 # warning) any ecosystem whose toolchain is missing rather than failing the run.
 tool_available() {
