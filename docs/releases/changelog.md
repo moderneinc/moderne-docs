@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v13.11.0 (2026/07/15)
+
+- compact filter tabs and search on Results view
+
 ### UI v13.10.0 (2026/07/14)
 
 - configure recipe options before adding to the tree
