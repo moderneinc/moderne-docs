@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.15           |
+| CLI version | 4.3.16           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,16 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.16 (2026-07-15)
+
+#### What's Changed
+* Solve Lombok warnings
+* Explain 'mod git apply' failures by showing the conflicting code
+* Drop commas from organization directory names
+* Fix proguard config for bazel
+* Float httpclient5 to latest.release (CVE-2026-54399, CVE-2026-54428)
+* Add kind-qualified ref: filters to trigrep symbol search
 
 ### CLI / DX v4.3.15 (2026-07-14)
 
