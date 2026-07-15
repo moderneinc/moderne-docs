@@ -1986,10 +1986,7 @@ type FileChangeConnection
   pageInfo: PageInfo!
   count: Int!
 
-  """
-  Files with search results only — matched by the recipe but not changed
-  (i.e. `count - changed`). Zero for a pure change run.
-  """
+  """Total files searched."""
   searched: Int!
 
   """Files with committable changes."""
