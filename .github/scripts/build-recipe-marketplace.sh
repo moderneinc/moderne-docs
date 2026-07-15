@@ -178,9 +178,17 @@ mkdir -p "$(dirname "$MARKETPLACE_CSV_DEST")"
 cp "$CSV_SRC" "$MARKETPLACE_CSV_DEST"
 log "Wrote marketplace CSV to $MARKETPLACE_CSV_DEST"
 
+# Export any ecosystem that shipped no modules so CI can fail the run; the CSV
+# above is still built and committed either way. No-op locally (var unset).
+PROBLEM=()
 if [ "${#SKIPPED[@]}" -gt 0 ]; then
   warn "Marketplace is missing modules for ecosystem(s): ${SKIPPED[*]} (toolchain unavailable)"
+  PROBLEM+=("${SKIPPED[@]}")
 fi
 if [ "${#FAILED[@]}" -gt 0 ]; then
   warn "Marketplace is missing modules for ecosystem(s): ${FAILED[*]} (install failed)"
+  PROBLEM+=("${FAILED[@]}")
+fi
+if [ "${#PROBLEM[@]}" -gt 0 ] && [ -n "${GITHUB_OUTPUT:-}" ]; then
+  printf 'failed-ecosystems=%s\n' "${PROBLEM[*]}" >> "$GITHUB_OUTPUT"
 fi
