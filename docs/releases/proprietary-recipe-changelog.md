@@ -4566,9 +4566,3 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.59.1
 
-## July 15, 2025
-
-#### rewrite-devcenter - 1.4.7
-
-* Adjust ordinal to be non-sparse
-
