@@ -10,6 +10,16 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## July 16, 2026
+
+#### rewrite-migrate-python - v0.10.0
+
+* Update CloudFormation, .whitesource, and COPY --from images in Python upgrades
+* Attach lock-regeneration failure warning to the lock file too
+* Migrate avro-python3 to avro; inline 3.13-incompatible dependency bumps
+* Use ChangeType for the typing.* PEP 585 type renames
+* Simplify UpgradePythonDockerImage using the unified DockerImageReference trait
+
 ## July 14, 2026
 
 #### rewrite-ai - 0.4.3
