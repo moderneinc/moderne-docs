@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.16           |
+| CLI version | 4.3.17           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,18 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.17 (2026-07-16)
+
+#### What's Changed
+* Union macOS system roots and keychain trust for `trust-store edit system`
+* share the Maven auth cache with POM resolution in the recipe bundle downloader
+* Fix incorrect comments + description about parallelization
+* Fix ModerneCliRepoGenerator self extract
+* Align text in plain progress bar wrt different lengths of time descri…
+* populate run.log for other languages too
+* Correct Prethink recipe id in examples and config test
+* Intern JavaTemplate types on the V2 read path to prevent recipe-run OOM
 
 ### CLI / DX v4.3.16 (2026-07-15)
 
