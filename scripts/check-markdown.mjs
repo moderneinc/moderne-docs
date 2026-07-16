@@ -172,16 +172,46 @@ const processor = unified()
  * @returns {Promise<{ rule: string, line: number, col: number, message: string, severity: string }[]>}
  */
 export async function checkMarkdown(content, filename) {
-  const file = new VFile({ value: content, path: filename });
-  const tree = processor.parse(file);
-  await processor.run(tree, file);
+  const issues = [];
+
+  // Classic heading ids (`## Heading {#id}`) parse as an MDX expression and crash
+  // the build (markdown format defaults to mdx); flag, then strip so parsing continues.
+  const source = content.split('\n').map((line, i) => {
+    const m = line.match(/^(#{1,6}[ \t].*?)[ \t]*\{#([a-zA-Z0-9_-]+)\}[ \t]*$/);
+    if (!m) return line;
+    issues.push({
+      rule: 'no-classic-heading-id',
+      line: i + 1,
+      col: line.indexOf('{#') + 1,
+      message: `Classic heading id {#${m[2]}} breaks the MDX build. ` +
+        `Use the comment form instead: {/* #${m[2]} */}`,
+      severity: 'error',
+    });
+    return m[1];
+  }).join('\n');
+
+  const file = new VFile({ value: source, path: filename });
+  try {
+    const tree = processor.parse(file);
+    await processor.run(tree, file);
+  } catch (err) {
+    const place = err?.place ?? err;
+    issues.push({
+      rule: err?.ruleId ?? err?.source ?? 'parse-error',
+      line: place?.line ?? 0,
+      col: place?.column ?? 0,
+      message: err?.reason ?? err?.message ?? String(err),
+      severity: 'error',
+    });
+    return issues;
+  }
   const isReleasesFile = /\bdocs[\\/]releases[\\/]/.test(filename ?? '');
   const isGeneratedFile = /\bdocs[\\/]user-documentation[\\/]recipes[\\/](recipe-catalog|lists)[\\/]/.test(filename ?? '') ||
     /\bdocs[\\/]user-documentation[\\/]moderne-cli[\\/]cli-reference\.md$/.test(filename ?? '') ||
     /\bdocs[\\/]user-documentation[\\/]moderne-platform[\\/]references[\\/]graphql-api-reference\.md$/.test(filename ?? '');
   const GENERATED_EXCLUDED = new Set(['no-h1-in-body', 'no-consecutive-blank-lines', 'unordered-list-marker-style']);
   const RELEASES_EXCLUDED = new Set(['unordered-list-marker-style', 'image-alt-text']);
-  return file.messages
+  const messages = file.messages
     .filter(msg => !(isReleasesFile && RELEASES_EXCLUDED.has(msg.ruleId)))
     .filter(msg => !(isGeneratedFile && GENERATED_EXCLUDED.has(msg.ruleId)))
     .map(msg => {
@@ -194,6 +224,7 @@ export async function checkMarkdown(content, filename) {
         severity: msg.fatal === true ? 'error' : 'warning',
       };
     });
+  return [...issues, ...messages];
 }
 
 // ---------------------------------------------------------------------------
