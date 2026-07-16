@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"unchanged":{"language":"xml","code":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>jakarta.jws</groupId>\n            <artifactId>jakarta.jws-api</artifactId>\n            <version>3.0.0</version>\n        </dependency>\n    </dependencies>\n</project>\n"},"variants":[]},{"unchanged":{"language":"xml","code":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <dependencies>\n        <dependency>\n            <groupId>jakarta.jws</groupId>\n            <artifactId>jakarta.jws-api</artifactId>\n            <version>3.0.0</version>\n        </dependency>\n    </dependencies>\n</project>\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.ReplaceJakartaJwsWithJakartaXmlWs","displayName":"Replace `jakarta.jws-api` with `jakarta.xml.ws-api`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage

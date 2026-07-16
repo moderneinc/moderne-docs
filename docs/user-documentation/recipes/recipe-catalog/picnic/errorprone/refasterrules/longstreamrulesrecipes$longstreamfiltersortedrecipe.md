@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `LongStreamRules.LongStreamFilterSorted`"}
-  description={"Apply `LongStream#filter(LongPredicate)` before `LongStream#sorted()` to reduce the number of elements to sort."}
+  description={"Prefer `LongStream#filter(LongPredicate)` before `LongStream#sorted()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.LongStreamRulesRecipes$LongStreamFilterSortedRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `LongStreamRules.LongStreamFilterSorted`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Apply `LongStream#filter(LongPredicate)` before `LongStream#sorted()` to reduce the number of elements to sort.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `LongStream#filter(LongPredicate)` before `LongStream#sorted()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","jooq","boot","java21"]}
+  tags={["spring","boot","jooq","java21"]}
   license={"Moderne Proprietary License"}
   fqName={"io.moderne.java.spring.boot4.UpgradeToJava21WhenUsingJooq"}
   artifact={"io.moderne.recipe:rewrite-spring"}
@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 ## Definition
 
 </RecipeList>
+
+<ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"test-maven"},"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <properties>\n        <maven.compiler.source>17</maven.compiler.source>\n        <maven.compiler.target>17</maven.compiler.target>\n    </properties>\n    <dependencies>\n        <dependency>\n            <groupId>org.jooq</groupId>\n            <artifactId>jooq</artifactId>\n            <version>3.19.0</version>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <properties>\n        <maven.compiler.source>21</maven.compiler.source>\n        <maven.compiler.target>21</maven.compiler.target>\n    </properties>\n    <dependencies>\n        <dependency>\n            <groupId>org.jooq</groupId>\n            <artifactId>jooq</artifactId>\n            <version>3.19.0</version>\n        </dependency>\n    </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -7,2 +7,2 @@\n    <version>0.0.1-SNAPSHOT</version>\n    <properties>\n-       <maven.compiler.source>17</maven.compiler.source>\n-       <maven.compiler.target>17</maven.compiler.target>\n+       <maven.compiler.source>21</maven.compiler.source>\n+       <maven.compiler.target>21</maven.compiler.target>\n    </properties>\n","newFile":false}]},{"unchanged":{"language":"mavenProject","code":"test-maven"},"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <properties>\n        <maven.compiler.source>17</maven.compiler.source>\n        <maven.compiler.target>17</maven.compiler.target>\n    </properties>\n    <dependencies>\n        <dependency>\n            <groupId>org.jooq</groupId>\n            <artifactId>jooq</artifactId>\n            <version>3.19.0</version>\n        </dependency>\n    </dependencies>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>com.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>0.0.1-SNAPSHOT</version>\n    <properties>\n        <maven.compiler.source>21</maven.compiler.source>\n        <maven.compiler.target>21</maven.compiler.target>\n    </properties>\n    <dependencies>\n        <dependency>\n            <groupId>org.jooq</groupId>\n            <artifactId>jooq</artifactId>\n            <version>3.19.0</version>\n        </dependency>\n    </dependencies>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -7,2 +7,2 @@\n    <version>0.0.1-SNAPSHOT</version>\n    <properties>\n-       <maven.compiler.source>17</maven.compiler.source>\n-       <maven.compiler.target>17</maven.compiler.target>\n+       <maven.compiler.source>21</maven.compiler.source>\n+       <maven.compiler.target>21</maven.compiler.target>\n    </properties>\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
 
 <UsageList usage={{"recipeName":"io.moderne.java.spring.boot4.UpgradeToJava21WhenUsingJooq","displayName":"Upgrade to Java 21 when using jOOQ","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

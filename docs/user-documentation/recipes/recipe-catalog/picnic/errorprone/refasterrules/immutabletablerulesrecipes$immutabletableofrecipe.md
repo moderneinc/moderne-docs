@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ImmutableTableRules.ImmutableTableOf`"}
-  description={"Prefer `ImmutableTable#of()` over more contrived alternatives ."}
+  description={"Prefer `ImmutableTable#of()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ImmutableTableRulesRecipes$ImmutableTableOfRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ImmutableTableRules.ImmutableTableOf`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `ImmutableTable#of()` over more contrived alternatives .</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ImmutableTable#of()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.launchdarkly.sdk.LDValue;\n\nclass A {\n    LDValue flag() {\n        return LDValue.of(\"on\");\n    }\n}\n","after":"import dev.openfeature.sdk.Value;\n\nclass A {\n    Value flag() {\n        return new Value(\"on\");\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import com.launchdarkly.sdk.LDValue;\n+import dev.openfeature.sdk.Value;\n\n@@ -4,2 +4,2 @@\n\nclass A {\n-   LDValue flag() {\n-       return LDValue.of(\"on\");\n+   Value flag() {\n+       return new Value(\"on\");\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.featureflags.launchdarkly.MigrateLDValueToValue","displayName":"Migrate LaunchDarkly `LDValue` and `jsonValueVariation` to OpenFeature","groupId":"org.openrewrite.recipe","artifactId":"rewrite-feature-flags","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_FEATURE_FLAGS","requiresConfiguration":false}}>
 
 ## Usage

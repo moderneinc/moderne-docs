@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test(boolean a, boolean b) {\n        if (a) {\n            System.out.println(\"same\");\n        } else if (b) {\n            System.out.println(\"same\");\n        } else {\n            System.out.println(\"different\");\n        }\n    }\n}\n","after":"class Test {\n    void test(boolean a, boolean b) {\n        if (a || b) {\n            System.out.println(\"same\");\n        } else {\n            System.out.println(\"different\");\n        }\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    void test(boolean a, boolean b) {\n-       if (a) {\n+       if (a || b) {\n            System.out.println(\"same\");\n@@ -5,2 +5,0 @@\n        if (a) {\n            System.out.println(\"same\");\n-       } else if (b) {\n-           System.out.println(\"same\");\n        } else {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.MergeIdenticalBranches","displayName":"Branches with identical implementations should be merged","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ComparatorRules.MinByNaturalOrder`"}
-  description={"Prefer `Comparator#naturalOrder()` over `Comparator#reverseOrder()` where possible."}
+  description={"Prefer `Collectors#minBy(Comparator)` with `Comparator#naturalOrder()` over less explicit or more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$MinByNaturalOrderRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ComparatorRules.MinByNaturalOrder`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Comparator#naturalOrder()` over `Comparator#reverseOrder()` where possible.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Collectors#minBy(Comparator)` with `Comparator#naturalOrder()` over less explicit or more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

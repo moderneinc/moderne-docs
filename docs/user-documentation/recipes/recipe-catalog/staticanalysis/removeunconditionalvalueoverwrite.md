@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.HashMap;\nimport java.util.Map;\n\nclass Test {\n    void test() {\n        Map<String, Integer> map = new HashMap<>();\n        map.put(\"key\", 1);\n        map.put(\"key\", 2);\n    }\n}\n","after":"import java.util.HashMap;\nimport java.util.Map;\n\nclass Test {\n    void test() {\n        Map<String, Integer> map = new HashMap<>();\n        map.put(\"key\", 2);\n    }\n}\n","diff":"@@ -7,1 +7,0 @@\n    void test() {\n        Map<String, Integer> map = new HashMap<>();\n-       map.put(\"key\", 1);\n        map.put(\"key\", 2);\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveUnconditionalValueOverwrite","displayName":"Map values should not be replaced unconditionally","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

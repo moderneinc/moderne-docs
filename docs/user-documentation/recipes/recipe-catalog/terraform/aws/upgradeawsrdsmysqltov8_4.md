@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["RDS","terraform","AWS"]}
+  tags={["RDS","AWS","terraform"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.aws.UpgradeAwsRdsMySqlToV8_4"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

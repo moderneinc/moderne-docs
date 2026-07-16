@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["Azure","terraform","CKV_AZURE_88"]}
+  tags={["CKV_AZURE_88","terraform","Azure"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.azure.EnsureAppServicesUseAzureFiles"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

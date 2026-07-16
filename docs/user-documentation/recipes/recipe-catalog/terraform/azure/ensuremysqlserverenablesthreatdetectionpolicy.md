@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["Azure","CKV_AZURE_127","terraform"]}
+  tags={["CKV_AZURE_127","terraform","Azure"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.azure.EnsureMySQLServerEnablesThreatDetectionPolicy"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

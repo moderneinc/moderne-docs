@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade Python version in project files to 3.11"}
-  description={"Update the Python version referenced in `pyproject.toml`, `Pipfile`, `setup.cfg`, `.python-version`, and `Dockerfile` base images to 3.11."}
+  description={"Update the Python version referenced in `pyproject.toml`, `Pipfile`, `setup.cfg`, `.python-version`, `Dockerfile` base images, CloudFormation/SAM template runtimes, and Mend `.whitesource` files to 3.11."}
   fqName={"org.openrewrite.python.migrate.UpgradePythonVersionTo311"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,11 +28,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade Python version in project files to 3.11</RecipeHeader.Title>
 
-<RecipeHeader.Description>Update the Python version referenced in `pyproject.toml`, `Pipfile`, `setup.cfg`, `.python-version`, and `Dockerfile` base images to 3.11.</RecipeHeader.Description>
+<RecipeHeader.Description>Update the Python version referenced in `pyproject.toml`, `Pipfile`, `setup.cfg`, `.python-version`, `Dockerfile` base images, CloudFormation/SAM template runtimes, and Mend `.whitesource` files to 3.11.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Upgrade Python version in project files","href":"/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonversion/"},{"name":"Upgrade Python Docker base image","href":"/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythondockerimage/"}]}>
+<RecipeList recipes={[{"name":"Upgrade Python version in project files","href":"/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonversion/"},{"name":"Upgrade Python Docker base image","href":"/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythondockerimage/"},{"name":"Upgrade Python runtime in CloudFormation templates","href":"/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythoncloudformationruntime/"},{"name":"Upgrade Python version in Mend `.whitesource` files","href":"/user-documentation/recipes/recipe-catalog/python/migrate/upgradepythonwhitesourceconfig/"}]}>
 
 ## Definition
 

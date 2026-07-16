@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ReactorRules.MonoIdentity`"}
-  description={"Don't unnecessarily transform a `Mono` to an equivalent instance."}
+  description={"Prefer using `Mono`s as-is over less efficient transformations to equivalent instances."}
   fqName={"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoIdentityRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ReactorRules.MonoIdentity`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Don't unnecessarily transform a `Mono` to an equivalent instance.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer using `Mono`s as-is over less efficient transformations to equivalent instances.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["junit","testing","byteman"]}
+  tags={["byteman","junit","testing"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.testing.byteman.BytemanJUnit4ToBytemanJUnit5"}
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}

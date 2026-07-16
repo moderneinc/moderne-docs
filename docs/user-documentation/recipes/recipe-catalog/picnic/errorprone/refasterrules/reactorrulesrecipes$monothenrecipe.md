@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ReactorRules.MonoThen`"}
-  description={"Prefer direct invocation of `Mono#then()`} over more contrived alternatives."}
+  description={"Prefer direct invocation of `Mono#then()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoThenRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ReactorRules.MonoThen`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer direct invocation of `Mono#then()`} over more contrived alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer direct invocation of `Mono#then()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

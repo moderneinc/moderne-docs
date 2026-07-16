@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.launchdarkly.sdk.EvaluationDetail;\n\nclass A {\n    void inspect(EvaluationDetail<Boolean> detail) {\n        int index = detail.getVariationIndex();\n        boolean isDefault = detail.isDefaultValue();\n    }\n}\n","after":"import com.launchdarkly.sdk.EvaluationDetail;\n\nclass A {\n    void inspect(EvaluationDetail<Boolean> detail) {\n        int index = /* TODO OpenFeature migration: `getVariationIndex()` has no OpenFeature equivalent; `FlagEvaluationDetails` exposes `getVariant()` (a String) instead */ detail.getVariationIndex();\n        boolean isDefault = /* TODO OpenFeature migration: `isDefaultValue()` has no OpenFeature equivalent; inspect `getReason()` / `getErrorCode()` instead */ detail.isDefaultValue();\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass A {\n    void inspect(EvaluationDetail<Boolean> detail) {\n-       int index = detail.getVariationIndex();\n-       boolean isDefault = detail.isDefaultValue();\n+       int index = /* TODO OpenFeature migration: `getVariationIndex()` has no OpenFeature equivalent; `FlagEvaluationDetails` exposes `getVariant()` (a String) instead */ detail.getVariationIndex();\n+       boolean isDefault = /* TODO OpenFeature migration: `isDefaultValue()` has no OpenFeature equivalent; inspect `getReason()` / `getErrorCode()` instead */ detail.isDefaultValue();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.featureflags.launchdarkly.MarkIncompatibleEvaluationDetailAccessors","displayName":"Mark incompatible LaunchDarkly `EvaluationDetail` accessors","groupId":"org.openrewrite.recipe","artifactId":"rewrite-feature-flags","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_FEATURE_FLAGS","requiresConfiguration":false}}>
 
 ## Usage

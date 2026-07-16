@@ -1,11 +1,13 @@
 ---
-description: Node OpenRewrite recipes.
+description: Node.js OpenRewrite recipes.
 ---
 
-# Node
+# Node.js
+
+_Recipes for Node.js codebases._
 
 ## Categories
 
-* [Migrate](/user-documentation/recipes/recipe-catalog/node/migrate)
+* [Dependencies](/user-documentation/recipes/recipe-catalog/node/dependencies)
 
 

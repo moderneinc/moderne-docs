@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Kotlin"]}
-  tags={["compose","kotlin"]}
+  tags={["kotlin","compose"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.kotlin.compose.ReplaceDeprecatedComposeMethods"}
   artifact={"org.openrewrite.recipe:rewrite-migrate-kotlin"}

@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.databind.annotation.JsonSerialize;\nimport com.fasterxml.jackson.databind.JsonSerializer.None;\nimport static com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion.NON_NULL;\n\n@JsonSerialize(include = NON_NULL, using = None.class)\nclass Test {\n}\n","after":"import com.fasterxml.jackson.databind.annotation.JsonSerialize;\nimport com.fasterxml.jackson.annotation.JsonInclude;\nimport com.fasterxml.jackson.databind.JsonSerializer.None;\n\n@JsonInclude(value = JsonInclude.Include.NON_NULL)\n@JsonSerialize(using = None.class)\nclass Test {\n}\n","diff":"@@ -2,0 +2,1 @@\nimport com.fasterxml.jackson.databind.annotation.JsonSerialize;\n+import com.fasterxml.jackson.annotation.JsonInclude;\nimport com.fasterxml.jackson.databind.JsonSerializer.None;\n@@ -3,1 +4,0 @@\nimport com.fasterxml.jackson.databind.annotation.JsonSerialize;\nimport com.fasterxml.jackson.databind.JsonSerializer.None;\n-import static com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion.NON_NULL;\n\n@@ -5,1 +5,2 @@\nimport static com.fasterxml.jackson.databind.annotation.JsonSerialize.Inclusion.NON_NULL;\n\n-@JsonSerialize(include = NON_NULL, using = None.class)\n+@JsonInclude(value = JsonInclude.Include.NON_NULL)\n+@JsonSerialize(using = None.class)\nclass Test {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.jackson.JsonSerializeIncludeToJsonInclude","displayName":"Migrate deprecated `@JsonSerialize(include = ...)` to `@JsonInclude`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
 
 ## Usage

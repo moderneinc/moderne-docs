@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJObjectRules.AssertThatIsSameAs`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsSameAs<T> {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(T object1, T object2) {\n        return Refaster.anyOf(assertThat(object1 == object2).isTrue(), assertThat(object1 != object2).isFalse());\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ObjectAssert<T> after(T object1, T object2) {\n        return assertThat(object1).isSameAs(object2);\n    }\n}\n```\n."}
+  description={"Prefer `ObjectAssert#isSameAs(Object)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes$AssertThatIsSameAsRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJObjectRules.AssertThatIsSameAs`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsSameAs<T> {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(T object1, T object2) {
-        return Refaster.anyOf(assertThat(object1 == object2).isTrue(), assertThat(object1 != object2).isFalse());
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    ObjectAssert<T> after(T object1, T object2) {
-        return assertThat(object1).isSameAs(object2);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ObjectAssert#isSameAs(Object)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

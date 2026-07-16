@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.core.JsonFactory;\n\nclass A {\n    JsonFactory factory = new JsonFactory();\n}\n","after":"import com.fasterxml.jackson.core.JsonFactory;\n\nclass A {\n    JsonFactory factory = JsonFactory.builder()\n            .build();\n}\n","diff":"@@ -4,1 +4,2 @@\n\nclass A {\n-   JsonFactory factory = new JsonFactory();\n+   JsonFactory factory = JsonFactory.builder()\n+           .build();\n}\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.core.JsonFactory;\n\nclass A {\n    JsonFactory factory = new JsonFactory();\n}\n","after":"import com.fasterxml.jackson.core.JsonFactory;\nimport com.fasterxml.jackson.core.JsonFactoryBuilder;\n\nclass A {\n    JsonFactory factory = new JsonFactoryBuilder()\n            .build();\n}\n","diff":"@@ -2,0 +2,1 @@\nimport com.fasterxml.jackson.core.JsonFactory;\n+import com.fasterxml.jackson.core.JsonFactoryBuilder;\n\n@@ -4,1 +5,2 @@\n\nclass A {\n-   JsonFactory factory = new JsonFactory();\n+   JsonFactory factory = new JsonFactoryBuilder()\n+           .build();\n}\n","newFile":false}]}]}>
 
 ## Examples
 

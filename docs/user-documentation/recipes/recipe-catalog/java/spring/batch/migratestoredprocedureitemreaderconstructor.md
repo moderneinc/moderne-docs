@@ -1,0 +1,52 @@
+---
+title: "Use constructor injection for `StoredProcedureItemReader`"
+sidebar_label: "Use constructor injection for `StoredProcedureItemReader`"
+hide_title: true
+---
+
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
+
+<RecipeMeta
+  displayName={"Use constructor injection for `StoredProcedureItemReader`"}
+  description={"Spring Batch 6.0 removed the no-arg `StoredProcedureItemReader()` constructor and made the `DataSource`, procedure name and `RowMapper` required constructor arguments. This recipe folds `setDataSource(..)`, `setProcedureName(..)` and `setRowMapper(..)` into the constructor (`new StoredProcedureItemReader<>(dataSource, procedureName, rowMapper)`) and removes those setters when the reader is created with the no-arg constructor in the same block, for both Java and Kotlin sources. Other configuration (`setParameters`, `setPreparedStatementSetter`, ...) is preserved. When the three setters cannot be safely folded, the reader is left unchanged for manual migration."}
+  fqName={"io.moderne.java.spring.batch.MigrateStoredProcedureItemReaderConstructor"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
+
+<RecipeHeader
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"io.moderne.java.spring.batch.MigrateStoredProcedureItemReaderConstructor"}
+  artifact={"io.moderne.recipe:rewrite-spring"}
+  appLink={"https://app.moderne.io/recipes/io.moderne.java.spring.batch.MigrateStoredProcedureItemReaderConstructor"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/spring/batch/migratestoredprocedureitemreaderconstructor.md"}
+  moderneOnly
+>
+
+<RecipeHeader.Title>Use constructor injection for `StoredProcedureItemReader`</RecipeHeader.Title>
+
+<RecipeHeader.Description>Spring Batch 6.0 removed the no-arg `StoredProcedureItemReader()` constructor and made the `DataSource`, procedure name and `RowMapper` required constructor arguments. This recipe folds `setDataSource(..)`, `setProcedureName(..)` and `setRowMapper(..)` into the constructor (`new StoredProcedureItemReader<>(dataSource, procedureName, rowMapper)`) and removes those setters when the reader is created with the no-arg constructor in the same block, for both Java and Kotlin sources. Other configuration (`setParameters`, `setPreparedStatementSetter`, ...) is preserved. When the three setters cannot be safely folded, the reader is left unchanged for manual migration.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.batch.item.database.StoredProcedureItemReader;\nimport org.springframework.jdbc.core.RowMapper;\n\nimport javax.sql.DataSource;\n\nclass BatchConfig {\n    void configure(DataSource dataSource, RowMapper<String> rowMapper) {\n        StoredProcedureItemReader<String> reader = new StoredProcedureItemReader<>();\n        reader.setDataSource(dataSource);\n        reader.setProcedureName(\"GET_ITEMS\");\n        reader.setRowMapper(rowMapper);\n    }\n}\n","after":"import org.springframework.batch.infrastructure.item.database.StoredProcedureItemReader;\nimport org.springframework.jdbc.core.RowMapper;\n\nimport javax.sql.DataSource;\n\nclass BatchConfig {\n    void configure(DataSource dataSource, RowMapper<String> rowMapper) {\n        StoredProcedureItemReader<String> reader = new StoredProcedureItemReader<>(dataSource, \"GET_ITEMS\", rowMapper);\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.springframework.batch.item.database.StoredProcedureItemReader;\n+import org.springframework.batch.infrastructure.item.database.StoredProcedureItemReader;\nimport org.springframework.jdbc.core.RowMapper;\n@@ -8,4 +8,1 @@\nclass BatchConfig {\n    void configure(DataSource dataSource, RowMapper<String> rowMapper) {\n-       StoredProcedureItemReader<String> reader = new StoredProcedureItemReader<>();\n-       reader.setDataSource(dataSource);\n-       reader.setProcedureName(\"GET_ITEMS\");\n-       reader.setRowMapper(rowMapper);\n+       StoredProcedureItemReader<String> reader = new StoredProcedureItemReader<>(dataSource, \"GET_ITEMS\", rowMapper);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
+<UsageList usage={{"recipeName":"io.moderne.java.spring.batch.MigrateStoredProcedureItemReaderConstructor","displayName":"Use constructor injection for `StoredProcedureItemReader`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
+
+## Usage
+
+</UsageList>
+
+<DataTableList tables={[{"name":"org.openrewrite.table.SourcesFileResults","displayName":"Source files that had results","description":"Source files that were modified by the recipe run.","columns":[{"name":"Source path before the run","description":"The source path of the file before the run. `null` when a source file was created during the run."},{"name":"Source path after the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Parent of the recipe that made changes","description":"In a hierarchical recipe, the parent of the recipe that made a change. Empty if this is the root of a hierarchy or if the recipe is not hierarchical at all."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Estimated time saving","description":"An estimated effort that a developer to fix manually instead of using this recipe, in unit of seconds."},{"name":"Cycle","description":"The recipe cycle in which the change was made."}]},{"name":"org.openrewrite.table.SearchResults","displayName":"Source files that had search results","description":"Search results that were found during the recipe run.","columns":[{"name":"Source path of search result before the run","description":"The source path of the file with the search result markers present."},{"name":"Source path of search result after run the run","description":"A recipe may modify the source path. This is the path after the run. `null` when a source file was deleted during the run."},{"name":"Result","description":"The trimmed printed tree of the LST element that the marker is attached to."},{"name":"Description","description":"The content of the description of the marker."},{"name":"Recipe that added the search marker","description":"The specific recipe that added the Search marker."}]},{"name":"org.openrewrite.table.SourcesFileErrors","displayName":"Source files that errored on a recipe","description":"The details of all errors produced by a recipe run.","columns":[{"name":"Source path","description":"The file that failed to parse."},{"name":"Recipe that made changes","description":"The specific recipe that made a change."},{"name":"Stack trace","description":"The stack trace of the failure."}]},{"name":"org.openrewrite.table.RecipeRunStats","displayName":"Recipe performance","description":"Statistics used in analyzing the performance of recipes.","columns":[{"name":"The recipe","description":"The recipe whose stats are being measured both individually and cumulatively."},{"name":"Source file count","description":"The number of source files the recipe ran over."},{"name":"Source file changed count","description":"The number of source files which were changed in the recipe run. Includes files created, deleted, and edited."},{"name":"Cumulative scanning time (ns)","description":"The total time spent across the scanning phase of this recipe."},{"name":"Max scanning time (ns)","description":"The max time scanning any one source file."},{"name":"Cumulative edit time (ns)","description":"The total time spent across the editing phase of this recipe."},{"name":"Max edit time (ns)","description":"The max time editing any one source file."}]}]}>
+
+## Data tables
+
+</DataTableList>
+

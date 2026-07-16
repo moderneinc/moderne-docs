@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["spring","thymeleaf","boot"]}
+  tags={["spring","boot","thymeleaf"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.spring.boot3.MigrateThymeleafDependencies"}
   artifact={"org.openrewrite.recipe:rewrite-spring"}
@@ -42,6 +42,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 ## Definition
 
 </RecipeList>
+
+<ExampleList examples={[{"unchanged":{"language":"xml","code":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>com.example</groupId>\n  <artifactId>demo</artifactId>\n  <version>0.0.1-SNAPSHOT</version>\n  <dependencies>\n    <dependency>\n      <groupId>org.thymeleaf</groupId>\n      <artifactId>thymeleaf-spring5</artifactId>\n      <version>3.0.15.RELEASE</version>\n    </dependency>\n  </dependencies>\n</project>\n"},"variants":[]},{"unchanged":{"language":"xml","code":"<project>\n  <modelVersion>4.0.0</modelVersion>\n  <groupId>com.example</groupId>\n  <artifactId>demo</artifactId>\n  <version>0.0.1-SNAPSHOT</version>\n  <dependencies>\n    <dependency>\n      <groupId>org.thymeleaf</groupId>\n      <artifactId>thymeleaf-spring5</artifactId>\n      <version>3.0.15.RELEASE</version>\n    </dependency>\n  </dependencies>\n</project>\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.java.spring.boot3.MigrateThymeleafDependencies","displayName":"Migrate thymeleaf dependencies to Spring Boot 3.x","groupId":"org.openrewrite.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 

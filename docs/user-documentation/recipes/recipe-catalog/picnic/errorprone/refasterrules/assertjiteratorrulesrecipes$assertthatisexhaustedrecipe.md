@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJIteratorRules.AssertThatIsExhausted`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsExhausted<T> {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Iterator<T> iterator) {\n        return assertThat(iterator.hasNext()).isFalse();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    IteratorAssert<T> after(Iterator<T> iterator) {\n        return assertThat(iterator).isExhausted();\n    }\n}\n```\n."}
+  description={"Prefer `IteratorAssert#isExhausted()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJIteratorRulesRecipes$AssertThatIsExhaustedRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJIteratorRules.AssertThatIsExhausted`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsExhausted<T> {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(Iterator<T> iterator) {
-        return assertThat(iterator.hasNext()).isFalse();
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    IteratorAssert<T> after(Iterator<T> iterator) {
-        return assertThat(iterator).isExhausted();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `IteratorAssert#isExhausted()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

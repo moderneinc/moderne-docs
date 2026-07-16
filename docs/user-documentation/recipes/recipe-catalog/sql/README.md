@@ -8,6 +8,7 @@ _SQL query processing and analysis._
 
 ## Categories
 
+* [Antipattern](/user-documentation/recipes/recipe-catalog/sql/antipattern)
 * [Search](/user-documentation/recipes/recipe-catalog/sql/search)
 
 ## Composite Recipes

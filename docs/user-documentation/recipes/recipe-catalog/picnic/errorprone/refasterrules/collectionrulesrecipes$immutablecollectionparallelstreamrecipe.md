@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `CollectionRules.ImmutableCollectionParallelStream`"}
-  description={"Don't call `ImmutableCollection#asList()` if `ImmutableCollection#parallelStream()` is called on the result; call it directly."}
+  description={"Prefer `ImmutableCollection#parallelStream()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$ImmutableCollectionParallelStreamRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `CollectionRules.ImmutableCollectionParallelStream`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Don't call `ImmutableCollection#asList()` if `ImmutableCollection#parallelStream()` is called on the result; call it directly.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ImmutableCollection#parallelStream()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

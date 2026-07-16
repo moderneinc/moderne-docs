@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `TimeRules.OffsetDateTimeIsAfter`"}
-  description={"Prefer `OffsetDateTime#isBefore(OffsetDateTime)` over explicit comparison, as it yields more readable code."}
+  description={"Prefer `OffsetDateTime#isAfter(OffsetDateTime)` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$OffsetDateTimeIsAfterRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `TimeRules.OffsetDateTimeIsAfter`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `OffsetDateTime#isBefore(OffsetDateTime)` over explicit comparison, as it yields more readable code.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `OffsetDateTime#isAfter(OffsetDateTime)` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJFileRules.AssertThatHasParentFile`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasParentFile {\n    \n    @BeforeTemplate\n    AbstractFileAssert<?> before(File actual, File expected) {\n        return assertThat(actual.getParentFile()).isEqualTo(expected);\n    }\n    \n    @AfterTemplate\n    AbstractFileAssert<?> after(File actual, File expected) {\n        return assertThat(actual).hasParent(expected);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractFileAssert#hasParent(File)` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJFileRulesRecipes$AssertThatHasParentFileRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJFileRules.AssertThatHasParentFile`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatHasParentFile {
-    
-    @BeforeTemplate
-    AbstractFileAssert<?> before(File actual, File expected) {
-        return assertThat(actual.getParentFile()).isEqualTo(expected);
-    }
-    
-    @AfterTemplate
-    AbstractFileAssert<?> after(File actual, File expected) {
-        return assertThat(actual).hasParent(expected);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractFileAssert#hasParent(File)` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

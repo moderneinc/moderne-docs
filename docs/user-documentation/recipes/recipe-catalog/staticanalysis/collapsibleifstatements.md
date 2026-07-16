@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test(boolean a, boolean b) {\n        if (a) {\n            if (b) {\n                System.out.println();\n            }\n        }\n    }\n}\n","after":"class Test {\n    void test(boolean a, boolean b) {\n        if (a && b) {\n            System.out.println();\n        }\n    }\n}\n","diff":"@@ -3,4 +3,2 @@\nclass Test {\n    void test(boolean a, boolean b) {\n-       if (a) {\n-           if (b) {\n-               System.out.println();\n-           }\n+       if (a && b) {\n+           System.out.println();\n        }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.CollapsibleIfStatements","displayName":"Mergeable \"if\" statements should be combined","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

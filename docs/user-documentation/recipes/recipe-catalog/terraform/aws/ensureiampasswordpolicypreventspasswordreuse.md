@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["CKV_AWS_13","terraform","AWS"]}
+  tags={["AWS","terraform","CKV_AWS_13"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.aws.EnsureIAMPasswordPolicyPreventsPasswordReuse"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertWithFailMessage`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractThrowableAssertWithFailMessage {\n    \n    @BeforeTemplate\n    AbstractThrowableAssert<?, ? extends Throwable> before(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated\n    Object args) {\n        return abstractThrowableAssert.withFailMessage(message.formatted(args));\n    }\n    \n    @AfterTemplate\n    AbstractThrowableAssert<?, ? extends Throwable> after(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated\n    Object args) {\n        return abstractThrowableAssert.withFailMessage(message, args);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractThrowableAssert#withFailMessage(String, Object...)` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AbstractThrowableAssertWithFailMessageRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,28 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AbstractThrowableAssertWithFailMessage`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractThrowableAssertWithFailMessage {
-    
-    @BeforeTemplate
-    AbstractThrowableAssert<?, ? extends Throwable> before(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated
-    Object args) {
-        return abstractThrowableAssert.withFailMessage(message.formatted(args));
-    }
-    
-    @AfterTemplate
-    AbstractThrowableAssert<?, ? extends Throwable> after(AbstractThrowableAssert<?, ? extends Throwable> abstractThrowableAssert, String message, @Repeated
-    Object args) {
-        return abstractThrowableAssert.withFailMessage(message, args);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractThrowableAssert#withFailMessage(String, Object...)` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

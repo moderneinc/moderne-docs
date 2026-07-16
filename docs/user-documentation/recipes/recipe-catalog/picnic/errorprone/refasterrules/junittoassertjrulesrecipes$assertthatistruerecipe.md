@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `JUnitToAssertJRules.AssertThatIsTrue`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsTrue {\n    \n    @BeforeTemplate\n    void before(boolean actual) {\n        assertTrue(actual);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(boolean actual) {\n        assertThat(actual).isTrue();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractBooleanAssert#isTrue()` over non-AssertJ alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatIsTrueRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatIsTrue`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsTrue {
-    
-    @BeforeTemplate
-    void before(boolean actual) {
-        assertTrue(actual);
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    void after(boolean actual) {
-        assertThat(actual).isTrue();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractBooleanAssert#isTrue()` over non-AssertJ alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

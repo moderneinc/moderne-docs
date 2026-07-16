@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.launchdarkly.sdk.LDContext;\n\nclass A {\n    LDContext context() {\n        return LDContext.builder(\"user-key-123abc\")\n                .name(\"Sandy\")\n                .set(\"email\", \"sandy@example.com\")\n                .build();\n    }\n}\n","after":"import dev.openfeature.sdk.EvaluationContext;\nimport dev.openfeature.sdk.MutableContext;\n\nclass A {\n    EvaluationContext context() {\n        return new MutableContext(\"user-key-123abc\")\n                .add(\"name\", \"Sandy\")\n                .add(\"email\", \"sandy@example.com\");\n    }\n}\n","diff":"@@ -1,1 +1,2 @@\n-import com.launchdarkly.sdk.LDContext;\n+import dev.openfeature.sdk.EvaluationContext;\n+import dev.openfeature.sdk.MutableContext;\n\n@@ -4,5 +5,4 @@\n\nclass A {\n-   LDContext context() {\n-       return LDContext.builder(\"user-key-123abc\")\n-               .name(\"Sandy\")\n-               .set(\"email\", \"sandy@example.com\")\n-               .build();\n+   EvaluationContext context() {\n+       return new MutableContext(\"user-key-123abc\")\n+               .add(\"name\", \"Sandy\")\n+               .add(\"email\", \"sandy@example.com\");\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.featureflags.launchdarkly.MigrateLDContextToEvaluationContext","displayName":"Migrate LaunchDarkly `LDContext` to OpenFeature `MutableContext`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-feature-flags","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_FEATURE_FLAGS","requiresConfiguration":false}}>
 
 ## Usage

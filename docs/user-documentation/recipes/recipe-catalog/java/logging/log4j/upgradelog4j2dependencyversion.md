@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["security","log4shell","logging","CVE-2021-44228","log4j"]}
+  tags={["logging","security","log4shell","CVE-2021-44228","log4j"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.logging.log4j.UpgradeLog4J2DependencyVersion"}
   artifact={"org.openrewrite.recipe:rewrite-logging-frameworks"}

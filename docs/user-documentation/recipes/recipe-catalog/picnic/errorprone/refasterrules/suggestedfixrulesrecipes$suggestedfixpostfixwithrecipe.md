@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `SuggestedFixRules.SuggestedFixPostfixWith`"}
-  description={"Prefer `SuggestedFix#postfixWith(Tree, String)`} over more contrived alternatives."}
+  description={"Prefer `SuggestedFix#postfixWith(Tree, String)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.SuggestedFixRulesRecipes$SuggestedFixPostfixWithRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `SuggestedFixRules.SuggestedFixPostfixWith`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `SuggestedFix#postfixWith(Tree, String)`} over more contrived alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `SuggestedFix#postfixWith(Tree, String)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

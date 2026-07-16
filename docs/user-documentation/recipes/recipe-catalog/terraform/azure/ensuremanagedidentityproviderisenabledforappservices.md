@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["Azure","CKV_AZURE_71","terraform"]}
+  tags={["terraform","Azure","CKV_AZURE_71"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.azure.EnsureManagedIdentityProviderIsEnabledForAppServices"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

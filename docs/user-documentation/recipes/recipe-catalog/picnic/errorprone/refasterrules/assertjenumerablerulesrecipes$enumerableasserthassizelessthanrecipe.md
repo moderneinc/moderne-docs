@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeLessThan`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class EnumerableAssertHasSizeLessThan<E> {\n    \n    @BeforeTemplate\n    AbstractIterableAssert<?, ?, E, ?> before(AbstractIterableAssert<?, ?, E, ?> enumAssert, int size) {\n        return enumAssert.size().isLessThan(size).returnToIterable();\n    }\n    \n    @BeforeTemplate\n    AbstractIterableSizeAssert<?, ?, E, ?> before2(AbstractIterableAssert<?, ?, E, ?> enumAssert, int size) {\n        return enumAssert.size().isLessThan(size);\n    }\n    \n    @AfterTemplate\n    EnumerableAssert<?, E> after(EnumerableAssert<?, E> enumAssert, int size) {\n        return enumAssert.hasSizeLessThan(size);\n    }\n}\n```\n."}
+  description={"Prefer `EnumerableAssert#hasSizeLessThan(int)` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJEnumerableRulesRecipes$EnumerableAssertHasSizeLessThanRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,31 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJEnumerableRules.EnumerableAssertHasSizeLessThan`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class EnumerableAssertHasSizeLessThan<E> {
-    
-    @BeforeTemplate
-    AbstractIterableAssert<?, ?, E, ?> before(AbstractIterableAssert<?, ?, E, ?> enumAssert, int size) {
-        return enumAssert.size().isLessThan(size).returnToIterable();
-    }
-    
-    @BeforeTemplate
-    AbstractIterableSizeAssert<?, ?, E, ?> before2(AbstractIterableAssert<?, ?, E, ?> enumAssert, int size) {
-        return enumAssert.size().isLessThan(size);
-    }
-    
-    @AfterTemplate
-    EnumerableAssert<?, E> after(EnumerableAssert<?, E> enumAssert, int size) {
-        return enumAssert.hasSizeLessThan(size);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `EnumerableAssert#hasSizeLessThan(int)` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

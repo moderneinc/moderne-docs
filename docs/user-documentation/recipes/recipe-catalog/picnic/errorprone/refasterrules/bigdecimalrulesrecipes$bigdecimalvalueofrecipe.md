@@ -1,6 +1,6 @@
 ---
-title: "Refaster template `BigDecimalRules.BigDecimalValueOf`"
-sidebar_label: "Refaster template `BigDecimalRules.BigDecimalValueOf`"
+title: "Prefer `BigDecimal#valueOf(double)` over the associated constructor"
+sidebar_label: "Prefer `BigDecimal#valueOf(double)` over the associated constructor"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster template `BigDecimalRules.BigDecimalValueOf`"}
-  description={"Prefer `BigDecimal#valueOf(double)` over the associated constructor."}
+  displayName={"Prefer `BigDecimal#valueOf(double)` over the associated constructor"}
+  description={"<strong>Warning:</strong> this rewrite changes the `BigDecimal` value created, as\n `BigDecimal#valueOf(double)` uses the double's canonical string representation, while\n `BigDecimal#BigDecimal(double)` uses the exact binary floating-point value."}
   fqName={"tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalValueOfRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/bigdecimalrulesrecipes$bigdecimalvalueofrecipe.md"}
 >
 
-<RecipeHeader.Title>Refaster template `BigDecimalRules.BigDecimalValueOf`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `BigDecimal#valueOf(double)` over the associated constructor</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `BigDecimal#valueOf(double)` over the associated constructor.</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rewrite changes the `BigDecimal` value created, as  `BigDecimal#valueOf(double)` uses the double's canonical string representation, while  `BigDecimal#BigDecimal(double)` uses the exact binary floating-point value.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalValueOfRecipe","displayName":"Refaster template `BigDecimalRules.BigDecimalValueOf`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalValueOfRecipe","displayName":"Prefer `BigDecimal#valueOf(double)` over the associated constructor","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

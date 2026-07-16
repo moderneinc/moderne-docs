@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `MultimapRules.MultimapValuesStream`"}
-  description={"Don't unnecessarily use `Multimap#entries()`."}
+  description={"Prefer `multimap.values().stream()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.MultimapRulesRecipes$MultimapValuesStreamRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `MultimapRules.MultimapValuesStream`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Don't unnecessarily use `Multimap#entries()`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `multimap.values().stream()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","gradle","boot"]}
+  tags={["spring","boot","gradle"]}
   license={"Moderne Proprietary License"}
   fqName={"io.moderne.java.spring.boot3.UpgradeGradle7Spring34"}
   artifact={"io.moderne.recipe:rewrite-spring"}

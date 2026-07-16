@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamCollectLeastStream`"}
-  description={"Prefer `Comparators#least(int, Comparator)` over alternatives that require space proportional to the size of the input stream, rather than space proportional to the result stream."}
+  description={"Prefer `Comparators#least(int, Comparator)` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamCollectLeastStreamRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamCollectLeastStream`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Comparators#least(int, Comparator)` over alternatives that require space proportional to the size of the input stream, rather than space proportional to the result stream.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Comparators#least(int, Comparator)` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

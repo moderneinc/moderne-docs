@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `OptionalRules.OptionalOfNullable`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class OptionalOfNullable<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"TernaryOperatorOptionalNegativeFiltering\")\n    Optional<T> before(@Nullable\n    T object) {\n        return object == null ? Optional.empty() : Optional.of(object);\n    }\n    \n    @AfterTemplate\n    Optional<T> after(T object) {\n        return Optional.ofNullable(object);\n    }\n}\n```\n."}
+  description={"Prefer `Optional#ofNullable(Object)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalOfNullableRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,28 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `OptionalRules.OptionalOfNullable`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class OptionalOfNullable<T> {
-    
-    @BeforeTemplate
-    @SuppressWarnings(value = "TernaryOperatorOptionalNegativeFiltering")
-    Optional<T> before(@Nullable
-    T object) {
-        return object == null ? Optional.empty() : Optional.of(object);
-    }
-    
-    @AfterTemplate
-    Optional<T> after(T object) {
-        return Optional.ofNullable(object);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Optional#ofNullable(Object)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

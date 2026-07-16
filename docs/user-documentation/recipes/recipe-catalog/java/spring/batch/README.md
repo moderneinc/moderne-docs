@@ -29,5 +29,6 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Migration invocation of JobParameter.toString to JobParameter.getValue.toString](./jobparametertostring.md)
 * [Remove `DefaultBatchConfigurer`](./removedefaultbatchconfigurer.md)
 * [Transform classes that extend a given Class to implement the given Interface instead](./replacesupportclasswithitsinterface.md)
+* [Use constructor injection for `StoredProcedureItemReader`](./migratestoredprocedureitemreaderconstructor.md)
 
 

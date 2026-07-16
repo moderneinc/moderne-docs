@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Remove redundant explicit dependencies"}
-  description={"Remove explicit dependencies that are already provided transitively by a specified dependency. This recipe downloads and resolves the parent dependency's POM to determine its true transitive dependencies, allowing it to detect redundancies even when both dependencies are explicitly declared."}
+  description={"Remove explicit dependencies that are already provided transitively by a specified dependency. This recipe downloads and resolves the parent dependency's POM to determine its true transitive dependencies, allowing it to detect redundancies even when both dependencies are explicitly declared. A direct dependency is only removed when the transitive one provides it at the exact same scope and with the same exclusions, so that removing it does not change the effective classpath."}
   fqName={"org.openrewrite.java.dependencies.RemoveRedundantDependencies"}
   languages={["Java"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Remove redundant explicit dependencies</RecipeHeader.Title>
 
-<RecipeHeader.Description>Remove explicit dependencies that are already provided transitively by a specified dependency. This recipe downloads and resolves the parent dependency's POM to determine its true transitive dependencies, allowing it to detect redundancies even when both dependencies are explicitly declared.</RecipeHeader.Description>
+<RecipeHeader.Description>Remove explicit dependencies that are already provided transitively by a specified dependency. This recipe downloads and resolves the parent dependency's POM to determine its true transitive dependencies, allowing it to detect redundancies even when both dependencies are explicitly declared. A direct dependency is only removed when the transitive one provides it at the exact same scope and with the same exclusions, so that removing it does not change the effective classpath.</RecipeHeader.Description>
 
 </RecipeHeader>
 

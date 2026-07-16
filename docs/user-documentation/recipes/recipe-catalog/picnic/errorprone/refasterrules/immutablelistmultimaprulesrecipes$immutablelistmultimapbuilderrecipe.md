@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ImmutableListMultimapRules.ImmutableListMultimapBuilder`"}
-  description={"Prefer `ImmutableListMultimap#builder()` over the associated constructor on constructions that produce a less-specific type."}
+  description={"Prefer `ImmutableListMultimap#builder()` over the associated constructor or imprecisely typed alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ImmutableListMultimapRulesRecipes$ImmutableListMultimapBuilderRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ImmutableListMultimapRules.ImmutableListMultimapBuilder`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `ImmutableListMultimap#builder()` over the associated constructor on constructions that produce a less-specific type.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ImmutableListMultimap#builder()` over the associated constructor or imprecisely typed alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -7,5 +7,6 @@ description: Search OpenRewrite recipes.
 ## Recipes
 
 * [Find SQL function](./findfunction.md)
+* [Find stored procedure calls](./findstoredprocedurecall.md)
 
 

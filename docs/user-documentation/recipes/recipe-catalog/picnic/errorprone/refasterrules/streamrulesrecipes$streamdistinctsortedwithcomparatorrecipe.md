@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamDistinctSortedWithComparator`"}
-  description={"Apply `Stream#distinct()` before `Stream#sorted(Comparator)` to reduce the number of elements to sort."}
+  description={"Prefer `Stream#distinct()` before `Stream#sorted(Comparator)` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamDistinctSortedWithComparatorRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamDistinctSortedWithComparator`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Apply `Stream#distinct()` before `Stream#sorted(Comparator)` to reduce the number of elements to sort.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Stream#distinct()` before `Stream#sorted(Comparator)` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

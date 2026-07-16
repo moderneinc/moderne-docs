@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `PrimitiveRules.IntegerCompareUnsigned`"}
-  description={"Prefer JDK's `Integer#compareUnsigned(int, int)` over third-party alternatives."}
+  description={"Prefer `Integer#compareUnsigned(int, int)` over non-JDK alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$IntegerCompareUnsignedRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `PrimitiveRules.IntegerCompareUnsigned`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer JDK's `Integer#compareUnsigned(int, int)` over third-party alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Integer#compareUnsigned(int, int)` over non-JDK alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

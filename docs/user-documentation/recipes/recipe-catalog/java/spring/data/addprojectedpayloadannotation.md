@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"java","code":"package com.example;\n\nimport org.springframework.web.bind.annotation.GetMapping;\nimport org.springframework.web.bind.annotation.RestController;\n\n@RestController\nclass CustomerController {\n    @GetMapping(\"/customers\")\n    String customer(CustomerProjection projection) {\n        return projection.getName();\n    }\n}\n"},"variants":[{"language":"java","before":"package com.example;\n\ninterface CustomerProjection {\n    String getName();\n}\n","after":"package com.example;\n\nimport org.springframework.data.web.ProjectedPayload;\n\n@ProjectedPayload\ninterface CustomerProjection {\n    String getName();\n}\n","diff":"@@ -3,0 +3,3 @@\npackage com.example;\n\n+import org.springframework.data.web.ProjectedPayload;\n+\n+@ProjectedPayload\ninterface CustomerProjection {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.java.spring.data.AddProjectedPayloadAnnotation","displayName":"Add `@ProjectedPayload` to web projection interfaces","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

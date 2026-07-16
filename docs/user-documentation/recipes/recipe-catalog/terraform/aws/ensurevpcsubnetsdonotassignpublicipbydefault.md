@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["terraform","AWS","CKV_AWS_130"]}
+  tags={["AWS","terraform","CKV_AWS_130"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.aws.EnsureVPCSubnetsDoNotAssignPublicIPByDefault"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

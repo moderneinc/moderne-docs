@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `PrimitiveRules.IntegerSignumIsNegative`"}
-  description={"Prefer an `Integer#signum(int)` comparison to 0 over less idiomatic alternatives."}
+  description={"Prefer `Integer.signum(i) < 0` over less idiomatic alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$IntegerSignumIsNegativeRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `PrimitiveRules.IntegerSignumIsNegative`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer an `Integer#signum(int)` comparison to 0 over less idiomatic alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Integer.signum(i) < 0` over less idiomatic alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -8,6 +8,7 @@ description: Dependencies OpenRewrite recipes.
 
 * [Dependency insight for C#](./dependencyinsight.md)
 * [Find and fix vulnerable Nuget dependencies](./dependencyvulnerabilitycheck.md)
+* [Find end-of-life NuGet dependencies](./findendoflifedependencies.md)
 * [Upgrade C# dependency versions](./upgradedependencyversion.md)
 
 

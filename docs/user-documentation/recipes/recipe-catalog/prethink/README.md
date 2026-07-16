@@ -14,8 +14,8 @@ description: Prethink OpenRewrite recipes.
 
 _Recipes that include further recipes, often including the individual recipes below._
 
+* [Update Prethink context](./updateprethinkcontextstarter.md)
 * [Update Prethink context](./updateprethinkcontext.md)
-* [Update Prethink context (no AI)](./updateprethinkcontextnoaistarter.md)
 
 ## Recipes
 
@@ -27,6 +27,7 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Find Go coding conventions](./findgocodingconventions.md)
 * [Find Go error handling patterns](./findgoerrorpatterns.md)
 * [Update .gitignore for Prethink context](./updategitignore.md)
+* [Update Prethink context (no AI)](./updateprethinkcontextnoaistarter.md)
 * [Update agent configuration files](./updateagentconfig.md)
 
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `MockitoRules.Never`"}
-  description={"Prefer `Mockito#never()`} over explicitly specifying that the associated invocation must happen precisely zero times."}
+  description={"Prefer `Mockito#never()` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.MockitoRulesRecipes$NeverRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `MockitoRules.Never`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Mockito#never()`} over explicitly specifying that the associated invocation must happen precisely zero times.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Mockito#never()` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

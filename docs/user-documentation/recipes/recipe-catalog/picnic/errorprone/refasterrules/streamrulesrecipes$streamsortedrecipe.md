@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamSorted`"}
-  description={"Prefer `Stream#sorted()` over more contrived alternatives."}
+  description={"Prefer `Stream#sorted()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamSortedRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamSorted`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Stream#sorted()` over more contrived alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Stream#sorted()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

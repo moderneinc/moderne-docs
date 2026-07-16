@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.example.grpc.GreeterGrpc;\n\npublic class GreeterClient {\n    private GreeterGrpc.GreeterBlockingStub stub;\n}\n","after":"import com.example.grpc.GreeterGrpc;\n\n// TODO: Spring gRPC 1.1 no longer auto-registers generated client stubs. Add `@ImportGrpcClients` (listing the stub types, or a base package) to a `@Configuration` class so the gRPC client stubs injected here are registered as beans. See https://github.com/spring-projects/spring-grpc/wiki/Spring-gRPC-1.1-Migration-Guide\n\n/*~~(Spring gRPC 1.1 requires `@ImportGrpcClients` to register client stubs that were previously auto-scanned.)~~>*/public class GreeterClient {\n    private GreeterGrpc.GreeterBlockingStub stub;\n}\n","diff":"@@ -3,1 +3,3 @@\nimport com.example.grpc.GreeterGrpc;\n\n-public class GreeterClient {\n+// TODO: Spring gRPC 1.1 no longer auto-registers generated client stubs. Add `@ImportGrpcClients` (listing the stub types, or a base package) to a `@Configuration` class so the gRPC client stubs injected here are registered as beans. See https://github.com/spring-projects/spring-grpc/wiki/Spring-gRPC-1.1-Migration-Guide\n+\n+/*~~(Spring gRPC 1.1 requires `@ImportGrpcClients` to register client stubs that were previously auto-scanned.)~~>*/public class GreeterClient {\n    private GreeterGrpc.GreeterBlockingStub stub;\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.java.spring.boot4.FlagGrpcClientStubsForImportGrpcClients","displayName":"Flag gRPC client stub injections that need `@ImportGrpcClients`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

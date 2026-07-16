@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJStringRules.AssertThatMatches`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatMatches {\n    \n    @BeforeTemplate\n    AbstractAssert<?, ?> before(String string, String regex) {\n        return assertThat(string.matches(regex)).isTrue();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractAssert<?, ?> after(String string, String regex) {\n        return assertThat(string).matches(regex);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractStringAssert#matches(CharSequence)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJStringRulesRecipes$AssertThatMatchesRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJStringRules.AssertThatMatches`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatMatches {
-    
-    @BeforeTemplate
-    AbstractAssert<?, ?> before(String string, String regex) {
-        return assertThat(string.matches(regex)).isTrue();
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    AbstractAssert<?, ?> after(String string, String regex) {
-        return assertThat(string).matches(regex);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractStringAssert#matches(CharSequence)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

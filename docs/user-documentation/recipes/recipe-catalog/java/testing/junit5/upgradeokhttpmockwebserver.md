@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["junit","testing","okhttp"]}
+  tags={["junit","okhttp","testing"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.testing.junit5.UpgradeOkHttpMockWebServer"}
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}

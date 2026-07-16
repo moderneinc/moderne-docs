@@ -1,6 +1,6 @@
 ---
-title: "Refaster template `FileRules.FilesNewBufferedReader`"
-sidebar_label: "Refaster template `FileRules.FilesNewBufferedReader`"
+title: "Prefer `Files#newBufferedReader(Path)` over more verbose or contrived alternatives"
+sidebar_label: "Prefer `Files#newBufferedReader(Path)` over more verbose or contrived alternatives"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster template `FileRules.FilesNewBufferedReader`"}
-  description={"Prefer `Files#newBufferedReader(Path)` over more verbose or contrived alternatives."}
+  displayName={"Prefer `Files#newBufferedReader(Path)` over more verbose or contrived alternatives"}
+  description={"<strong>Warning:</strong> this rewrite changes behavior when no charset is specified: the\n original code uses the default charset, while the replacement always uses UTF-8."}
   fqName={"tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewBufferedReaderRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/filerulesrecipes$filesnewbufferedreaderrecipe.md"}
 >
 
-<RecipeHeader.Title>Refaster template `FileRules.FilesNewBufferedReader`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `Files#newBufferedReader(Path)` over more verbose or contrived alternatives</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Files#newBufferedReader(Path)` over more verbose or contrived alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rewrite changes behavior when no charset is specified: the  original code uses the default charset, while the replacement always uses UTF-8.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewBufferedReaderRecipe","displayName":"Refaster template `FileRules.FilesNewBufferedReader`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesNewBufferedReaderRecipe","displayName":"Prefer `Files#newBufferedReader(Path)` over more verbose or contrived alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

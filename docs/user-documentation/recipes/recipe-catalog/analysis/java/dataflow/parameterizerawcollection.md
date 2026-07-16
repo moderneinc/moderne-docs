@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.ArrayList;\nimport java.util.List;\n\nclass Test {\n    void m() {\n        List names = new ArrayList();\n        names.add(\"Bob\");\n        names.add(\"alice\");\n        names.add(\"Charlie\");\n    }\n}\n","after":"import java.util.ArrayList;\nimport java.util.List;\n\nclass Test {\n    void m() {\n        List<String> names = new ArrayList<>();\n        names.add(\"Bob\");\n        names.add(\"alice\");\n        names.add(\"Charlie\");\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\nclass Test {\n    void m() {\n-       List names = new ArrayList();\n+       List<String> names = new ArrayList<>();\n        names.add(\"Bob\");\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.analysis.java.dataflow.ParameterizeRawCollection","displayName":"Parameterize raw `Collection`-typed local variables","groupId":"io.moderne.recipe","artifactId":"rewrite-program-analysis","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_PROGRAM_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

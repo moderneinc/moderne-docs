@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"java","code":"class MyService {\n    private String compute() { return \"result\"; }\n}\n"},"variants":[{"language":"java","before":"import org.powermock.reflect.Whitebox;\n\nclass MyServiceTest {\n    void testInvoke() {\n        MyService service = new MyService();\n        String result = Whitebox.invokeMethod(service, \"compute\");\n    }\n}\n","after":"import java.lang.reflect.Method;\n\nclass MyServiceTest {\n    void testInvoke() throws Exception {\n        MyService service = new MyService();\n        Method computeMethod = service.getClass().getDeclaredMethod(\"compute\");\n        computeMethod.setAccessible(true);\n        String result = (String) computeMethod.invoke(service);\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.powermock.reflect.Whitebox;\n+import java.lang.reflect.Method;\n\n@@ -4,1 +4,1 @@\n\nclass MyServiceTest {\n-   void testInvoke() {\n+   void testInvoke() throws Exception {\n        MyService service = new MyService();\n@@ -6,1 +6,3 @@\n    void testInvoke() {\n        MyService service = new MyService();\n-       String result = Whitebox.invokeMethod(service, \"compute\");\n+       Method computeMethod = service.getClass().getDeclaredMethod(\"compute\");\n+       computeMethod.setAccessible(true);\n+       String result = (String) computeMethod.invoke(service);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.PowerMockWhiteboxInvokeMethodToJavaReflection","displayName":"Replace PowerMock `Whitebox.invokeMethod()` with Java reflection","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

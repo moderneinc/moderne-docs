@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `SuggestedFixRules.SuggestedFixToBuilder`"}
-  description={"Prefer `SuggestedFix#toBuilder()`} over more contrived alternatives."}
+  description={"Prefer `SuggestedFix#toBuilder()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.SuggestedFixRulesRecipes$SuggestedFixToBuilderRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `SuggestedFixRules.SuggestedFixToBuilder`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `SuggestedFix#toBuilder()`} over more contrived alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `SuggestedFix#toBuilder()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

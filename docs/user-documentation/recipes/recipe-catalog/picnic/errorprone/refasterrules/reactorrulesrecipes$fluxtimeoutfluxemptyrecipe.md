@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ReactorRules.FluxTimeoutFluxEmpty`"}
-  description={"Prefer `Flux#timeout(Duration, Publisher)` over more contrived or less performant alternatives."}
+  description={"Prefer `Flux#timeout(Duration, Publisher)` over more contrived or less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxTimeoutFluxEmptyRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ReactorRules.FluxTimeoutFluxEmpty`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Flux#timeout(Duration, Publisher)` over more contrived or less performant alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Flux#timeout(Duration, Publisher)` over more contrived or less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `BugCheckerRules.BugCheckerRefactoringTestHelperIdentity`"}
-  description={"Avoid calling `BugCheckerRefactoringTestHelper#setFixChooser(FixChooser)` or `BugCheckerRefactoringTestHelper#setImportOrder(String)` with their respective default values."}
+  description={"Prefer the `BugCheckerRefactoringTestHelper` as-is over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.BugCheckerRulesRecipes$BugCheckerRefactoringTestHelperIdentityRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `BugCheckerRules.BugCheckerRefactoringTestHelperIdentity`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Avoid calling `BugCheckerRefactoringTestHelper#setFixChooser(FixChooser)` or `BugCheckerRefactoringTestHelper#setImportOrder(String)` with their respective default values.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer the `BugCheckerRefactoringTestHelper` as-is over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

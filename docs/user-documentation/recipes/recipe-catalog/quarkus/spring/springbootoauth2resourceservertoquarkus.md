@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","security","quarkus","oauth2"]}
+  tags={["spring","security","oauth2","quarkus"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.quarkus.spring.SpringBootOAuth2ResourceServerToQuarkus"}
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}

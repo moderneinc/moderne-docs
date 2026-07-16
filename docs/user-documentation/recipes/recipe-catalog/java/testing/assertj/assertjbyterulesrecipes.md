@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import org.assertj.core.api.Assertions;\n\nclass A {\n    public void test(byte b) {\n        Assertions.assertThat(b).isEqualTo((byte)0);\n    }\n}\n","after":"import org.assertj.core.api.Assertions;\n\nclass A {\n    public void test(byte b) {\n        Assertions.assertThat(b).isZero();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass A {\n    public void test(byte b) {\n-       Assertions.assertThat(b).isEqualTo((byte)0);\n+       Assertions.assertThat(b).isZero();\n    }\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.assertj.core.api.Assertions;\n\nclass A {\n    public void test(byte b) {\n        Assertions.assertThat(b).isEqualTo((byte)0);\n        Assertions.assertThat(b).isSameAs((byte)0);\n    }\n}\n","after":"import org.assertj.core.api.Assertions;\n\nclass A {\n    public void test(byte b) {\n        Assertions.assertThat(b).isZero();\n        Assertions.assertThat(b).isZero();\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass A {\n    public void test(byte b) {\n-       Assertions.assertThat(b).isEqualTo((byte)0);\n-       Assertions.assertThat(b).isSameAs((byte)0);\n+       Assertions.assertThat(b).isZero();\n+       Assertions.assertThat(b).isZero();\n    }\n","newFile":false}]}]}>
 
 ## Examples
 

@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","reactive","quarkus","webflux"]}
+  tags={["spring","webflux","reactive","quarkus"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.quarkus.spring.SpringBootWebFluxToQuarkusReactive"}
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}

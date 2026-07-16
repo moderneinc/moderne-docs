@@ -364,6 +364,18 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
 
 
+#### [io.moderne.devcenter.DevCenterGoStarter](/user-documentation/recipes/recipe-catalog/devcenter/devcentergostarter.md)
+  * **DevCenter for Go**
+  * A default DevCenter configuration for Go repositories. Track Go version adoption across your organization.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
+  * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
+  * **org.openrewrite.table.DistinctCommitters**: *The distinct set of committers per repository.*
+  * **org.openrewrite.table.CommitsByDay**: *The commit activity by day by committer.*
+
+
 #### [io.moderne.devcenter.DevCenterKotlin](/user-documentation/recipes/recipe-catalog/devcenter/devcenterkotlin.md)
   * **DevCenter Kotlin**
   * This is a DevCenter helping you to track general Kotlin Modernisations.
@@ -425,6 +437,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.devcenter.table.OrganizationStatistics**: *Per-repository statistics aggregated at the organization level.*
+
+
+#### [io.moderne.devcenter.GoVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/goversionupgrade.md)
+  * **Move to a later Go version**
+  * Determine the current state of a repository relative to a desired Go version upgrade.
+
+##### Data tables:
+
+  * **io.moderne.devcenter.table.UpgradesAndMigrations**: *Progress towards organizational objectives on library or language migrations and upgrades.*
 
 
 #### [io.moderne.devcenter.GroovyVersionUpgrade](/user-documentation/recipes/recipe-catalog/devcenter/groovyversionupgrade.md)
@@ -913,7 +934,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.UpdatePrethinkContextNoAiStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
   * **Update Prethink context (no AI)**
-  * Generate Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider.
+  * Deprecated alias for `io.moderne.prethink.UpdatePrethinkContextStarter`, retained for backward compatibility with references to the former recipe name. Prethink no longer has an AI-based variant, so the &quot;(no AI)&quot; distinction is unnecessary. Use `io.moderne.prethink.UpdatePrethinkContextStarter` instead.
 
 ##### Data tables:
 
@@ -934,7 +955,47 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **io.moderne.prethink.table.ScheduledTasks**: *Scheduled tasks, cron jobs, and background processing detected in the application.*
   * **org.openrewrite.prethink.table.CodingConventions**: *Coding conventions and patterns detected in the codebase.*
   * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
-  * **io.moderne.prethink.table.ExceptionHandlers**: *Spring @ExceptionHandler and @ControllerAdvice bindings: exception type -&gt; HTTP status -&gt; response body FQN. Used to complete the 'responses' section of an OpenAPI spec with non-2xx branches.*
+  * **io.moderne.prethink.table.ExceptionHandlers**: *Spring @ExceptionHandler/@ControllerAdvice and JAX-RS ExceptionMapper bindings: exception type -&gt; HTTP status -&gt; response body FQN. Used to complete the 'responses' section of an OpenAPI spec with non-2xx branches.*
+  * **io.moderne.prethink.table.EndpointSecurity**: *Per-endpoint security requirements: roles, scopes, and the raw SpEL/permission expressions from @PreAuthorize/@Secured/@RolesAllowed at method or class level.*
+  * **org.openrewrite.prethink.table.DependencyUsage**: *External library dependencies and how they are used in the codebase.*
+  * **org.openrewrite.prethink.table.CalmRelationships**: *Method call graph for discovering relationships between architectural entities. Records all method calls within the repository with entity markers for graph traversal.*
+  * **io.moderne.prethink.table.MethodQualityMetrics**: *Per-method code quality metrics including cyclomatic complexity, cognitive complexity, nesting depth, Halstead measures, and ABC metric.*
+  * **io.moderne.prethink.table.ClassQualityMetrics**: *Per-class code quality metrics including WMC, LCOM4, TCC, CBO, and maintainability index.*
+  * **io.moderne.prethink.table.PackageQualityMetrics**: *Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership.*
+  * **io.moderne.prethink.table.CodeSmells**: *Detected code smells including God Class, Feature Envy, and Data Class with severity ratings and the metric evidence that triggered detection.*
+  * **io.moderne.prethink.table.TestMapping**: *Maps test methods to the implementation methods they exercise.*
+  * **io.moderne.prethink.table.TestGaps**: *Public non-trivial methods that have no test coverage, ranked by risk score.*
+  * **io.moderne.prethink.table.TestQualityIssues**: *Issues found in test code that may cause flakiness, silent failures, or maintenance burden. Each row includes a rich evidence message with what was found, why it matters, and how to fix it.*
+  * **org.openrewrite.java.dependencies.table.DependencyListReport**: *Lists all Gradle and Maven dependencies*
+  * **org.openrewrite.maven.table.MavenMetadataFailures**: *Attempts to resolve maven metadata that failed.*
+  * **org.openrewrite.javascript.table.NodeDependenciesInUse**: *Direct and transitive dependencies in use in Node.js projects.*
+  * **org.openrewrite.prethink.table.ContextRegistry**: *Registry of available context files for coding agents.*
+
+
+#### [io.moderne.prethink.UpdatePrethinkContextStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextstarter.md)
+  * **Update Prethink context**
+  * Generate Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.ProjectMetadata**: *Project-level identity and structure for each build module. Includes Maven GAV coordinates, display name, description, parent project lineage, and submodule count. Use this to understand what the project is, how it relates to parent projects, and whether it is a multi-module aggregator.*
+  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
+  * **io.moderne.prethink.table.EndpointSchemas**: *Per-endpoint request body and response body bindings, one row per (endpoint, status code) pair. Supports OpenAPI 3.0.3 generation by giving the LLM a full mapping from handler to body DTO FQNs.*
+  * **io.moderne.prethink.table.EndpointParameters**: *Per-parameter detail for REST endpoint handlers - path, query, header, form. Join to service-endpoints.csv via endpointId.*
+  * **org.openrewrite.prethink.table.DatabaseConnections**: *Database connections and data access patterns in the application.*
+  * **org.openrewrite.prethink.table.ExternalServiceCalls**: *Outbound HTTP/REST calls to external services.*
+  * **org.openrewrite.prethink.table.MessagingConnections**: *Message queue producers and consumers in the application.*
+  * **org.openrewrite.prethink.table.ServerConfiguration**: *Server configuration properties extracted from application.properties/yml.*
+  * **org.openrewrite.prethink.table.DataAssets**: *Data entities, DTOs, and records that represent the application's data model.*
+  * **io.moderne.prethink.table.DtoFieldSchemas**: *Per-field schema detail for request/response DTOs: wire name, type, required flag, OpenAPI format, validation constraints, and any @Schema(example=) example values.*
+  * **io.moderne.prethink.table.FieldExamples**: *Raw (fixturePath, jsonPath, value, valueType) rows mined from JSON fixture files. Supply realistic example payloads for contract test generation. LLM correlates jsonPath to DTO fields at spec/contract generation time.*
+  * **org.openrewrite.prethink.table.DeploymentArtifacts**: *Deployment configuration files (Dockerfile, Kubernetes manifests, docker-compose).*
+  * **org.openrewrite.prethink.table.SecurityConfiguration**: *Security configuration including authentication methods, CORS settings, and OAuth2 configuration.*
+  * **org.openrewrite.prethink.table.ServiceComponents**: *Service layer components (@Service, @Component, @Named) in the application.*
+  * **io.moderne.prethink.table.ScheduledTasks**: *Scheduled tasks, cron jobs, and background processing detected in the application.*
+  * **org.openrewrite.prethink.table.CodingConventions**: *Coding conventions and patterns detected in the codebase.*
+  * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
+  * **io.moderne.prethink.table.ExceptionHandlers**: *Spring @ExceptionHandler/@ControllerAdvice and JAX-RS ExceptionMapper bindings: exception type -&gt; HTTP status -&gt; response body FQN. Used to complete the 'responses' section of an OpenAPI spec with non-2xx branches.*
   * **io.moderne.prethink.table.EndpointSecurity**: *Per-endpoint security requirements: roles, scopes, and the raw SpEL/permission expressions from @PreAuthorize/@Secured/@RolesAllowed at method or class level.*
   * **org.openrewrite.prethink.table.DependencyUsage**: *External library dependencies and how they are used in the codebase.*
   * **org.openrewrite.prethink.table.CalmRelationships**: *Method call graph for discovering relationships between architectural entities. Records all method calls within the repository with entity markers for graph traversal.*
@@ -1048,7 +1109,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 ##### Data tables:
 
-  * **io.moderne.prethink.table.ExceptionHandlers**: *Spring @ExceptionHandler and @ControllerAdvice bindings: exception type -&gt; HTTP status -&gt; response body FQN. Used to complete the 'responses' section of an OpenAPI spec with non-2xx branches.*
+  * **io.moderne.prethink.table.ExceptionHandlers**: *Spring @ExceptionHandler/@ControllerAdvice and JAX-RS ExceptionMapper bindings: exception type -&gt; HTTP status -&gt; response body FQN. Used to complete the 'responses' section of an OpenAPI spec with non-2xx branches.*
 
 
 #### [io.moderne.prethink.calm.FindDotnetGraphQLEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/finddotnetgraphqlendpoints.md)
@@ -1162,7 +1223,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindEndpointSecurity](/user-documentation/recipes/recipe-catalog/prethink/calm/findendpointsecurity.md)
   * **Find endpoint security**
-  * Per-endpoint security requirements (roles, scopes, raw expressions) extracted from @PreAuthorize/@Secured/@RolesAllowed/@PermitAll annotations at method or class level. Joins to service-endpoints.csv via endpointId.
+  * Per-endpoint security requirements (roles, scopes, raw expressions) extracted from Spring Security (@PreAuthorize/@PostAuthorize/@Secured) and JAX-RS/Jakarta EE (@RolesAllowed/@PermitAll/@DenyAll, jakarta + javax) annotations at method or class level. Joins to service-endpoints.csv via endpointId.
 
 ##### Data tables:
 
@@ -1180,11 +1241,11 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindExceptionHandlers](/user-documentation/recipes/recipe-catalog/prethink/calm/findexceptionhandlers.md)
   * **Find exception handlers**
-  * Capture @ControllerAdvice and controller-local @ExceptionHandler methods so that OpenAPI 3.0.3 specs include non-2xx response branches. Emits one row per (scope, exception type, status) triple.
+  * Capture @ControllerAdvice and controller-local @ExceptionHandler methods, plus JAX-RS/Jakarta EE ExceptionMapper implementations, so that OpenAPI 3.0.3 specs include non-2xx response branches. Emits one row per (scope, exception type, status) triple.
 
 ##### Data tables:
 
-  * **io.moderne.prethink.table.ExceptionHandlers**: *Spring @ExceptionHandler and @ControllerAdvice bindings: exception type -&gt; HTTP status -&gt; response body FQN. Used to complete the 'responses' section of an OpenAPI spec with non-2xx branches.*
+  * **io.moderne.prethink.table.ExceptionHandlers**: *Spring @ExceptionHandler/@ControllerAdvice and JAX-RS ExceptionMapper bindings: exception type -&gt; HTTP status -&gt; response body FQN. Used to complete the 'responses' section of an OpenAPI spec with non-2xx branches.*
 
 
 #### [io.moderne.prethink.calm.FindExpressEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findexpressendpoints.md)
@@ -1315,7 +1376,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindMessagingConnections](/user-documentation/recipes/recipe-catalog/prethink/calm/findmessagingconnections.md)
   * **Find messaging connections**
-  * Identify message queue producers and consumers. Detects Kafka, RabbitMQ, JMS, Spring Cloud Stream, AWS SQS, and SmallRye Reactive Messaging.
+  * Identify message queue producers and consumers. Detects Kafka (Spring and raw kafka-clients), RabbitMQ, JMS, Spring Cloud Stream, AWS SQS (annotation and raw SDK), Redis pub/sub, EJB message-driven beans, and SmallRye Reactive Messaging.
 
 ##### Data tables:
 
@@ -1412,6 +1473,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.ProjectMetadata**: *Project-level identity and structure for each build module. Includes Maven GAV coordinates, display name, description, parent project lineage, and submodule count. Use this to understand what the project is, how it relates to parent projects, and whether it is a multi-module aggregator.*
 
 
+#### [io.moderne.prethink.calm.FindPythonGrpcServices](/user-documentation/recipes/recipe-catalog/prethink/calm/findpythongrpcservices.md)
+  * **Find Python gRPC services**
+  * Detect gRPC service implementations in Python by classes subclassing generated *Servicer base classes (grpcio), emitting one endpoint per RPC handler method.
+
+##### Data tables:
+
+  * **org.openrewrite.prethink.table.ServiceEndpoints**: *REST/HTTP endpoints exposed by the application.*
+
+
 #### [io.moderne.prethink.calm.FindPythonProjectMetadata](/user-documentation/recipes/recipe-catalog/prethink/calm/findpythonprojectmetadata.md)
   * **Find Python project metadata**
   * Extract project metadata (name, version, description) from Python pyproject.toml files.
@@ -1441,7 +1511,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [io.moderne.prethink.calm.FindScheduledTasks](/user-documentation/recipes/recipe-catalog/prethink/calm/findscheduledtasks.md)
   * **Find scheduled tasks**
-  * Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quarkus @Scheduled, Quartz Job, Jakarta/Javax EJB Timer, and JobRunr @Recurring annotations.
+  * Identify scheduled tasks and background jobs in the application. Supports Spring @Scheduled, Quarkus @Scheduled, Quartz Job, Jakarta/Javax EJB Timer, and JobRunr @Recurring annotations, as well as programmatic scheduling through java.util.concurrent.ScheduledExecutorService and Jakarta/Javax EE ManagedScheduledExecutorService.
 
 ##### Data tables:
 
@@ -1538,6 +1608,16 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.prethink.table.ErrorHandlingPatterns**: *Error and exception handling patterns detected in the codebase.*
 
 
+#### [io.moderne.prethink.quality.FindDuplicateCode](/user-documentation/recipes/recipe-catalog/prethink/quality/findduplicatecode.md)
+  * **Find duplicate code**
+  * Detect duplicate and likely-duplicate code across the codebase by AST-subtree fingerprinting and MinHash/LSH method alignment (zero AI). Reports Type-1 (exact), Type-2 (renamed), and Type-3 (gapped: inserted/removed/edited statements) clone groups ranked by the volume of code that would collapse if the duplication were refactored away.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.DuplicateCode**: *Groups of duplicated code detected across the codebase by AST-subtree fingerprinting. One row per clone group; sort by redundant volume to surface the highest-value refactoring targets.*
+  * **io.moderne.prethink.table.DuplicateCodeOccurrences**: *One row per individual occurrence of a duplicated fragment, with the machine coordinates a remediation recipe needs to locate and converge each clone. Join to the duplicate code data table on clone group id.*
+
+
 #### [io.moderne.prethink.quality.FindGoCodeSmells](/user-documentation/recipes/recipe-catalog/prethink/quality/findgocodesmells.md)
   * **Find Go code smells**
   * Detect God Struct, Feature Envy, Large Interface, and Long Function code smells in Go. Data Class is intentionally excluded (idiomatic in Go).
@@ -1581,6 +1661,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **io.moderne.prethink.table.PackageQualityMetrics**: *Per-package architectural metrics including afferent/efferent coupling, instability, abstractness, distance from main sequence, and dependency cycle membership.*
+
+
+#### [io.moderne.prethink.quality.FindSimilarCode](/user-documentation/recipes/recipe-catalog/prethink/quality/findsimilarcode.md)
+  * **Find similar code**
+  * Detect structurally similar (but not identical) methods with MinHash/LSH near-duplicate matching over their AST shingles (zero AI), reporting an approximate similarity percentage. Complements exact duplicate detection by surfacing restructured near-duplicates worth consolidating.
+
+##### Data tables:
+
+  * **io.moderne.prethink.table.SimilarCode**: *Groups of structurally similar methods detected by MinHash/LSH near-duplicate matching, with an approximate similarity percentage. Complements exact duplicate detection by finding restructured near-duplicates.*
 
 
 #### [io.moderne.prethink.testing.coverage.FindTestCoverage](/user-documentation/recipes/recipe-catalog/prethink/testing/coverage/findtestcoverage.md)
@@ -6549,11 +6638,40 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.csharp.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/csharp/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Nuget dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-06-29T1230.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Dependencies following [Semantic Versioning](https://semver.org/) will see their _patch_ version updated where applicable. Last updated: 2026-07-13T1200.
 
 ##### Data tables:
 
   * **org.openrewrite.csharp.dependencies.table.VulnerabilityReport**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.*
+
+
+#### [org.openrewrite.csharp.dependencies.FindEndOfLifeDependencies](/user-documentation/recipes/recipe-catalog/csharp/dependencies/findendoflifedependencies.md)
+  * **Find end-of-life NuGet dependencies**
+  * Find NuGet packages whose upstream release is end-of-life or scheduled for end-of-life soon, using a snapshot of [endoflife.date](https://endoflife.date). Direct package references are marked in source; all matches (direct and transitive) are reported in the data table.
+
+##### Data tables:
+
+  * **org.openrewrite.csharp.dependencies.table.EndOfLifeDependencyReport**: *NuGet packages whose upstream release is end-of-life or scheduled for end-of-life soon, as reported by https://endoflife.date.*
+
+
+#### [org.openrewrite.dependencies.endoflife.FindEndOfLifeDependenciesDefault](/user-documentation/recipes/recipe-catalog/dependencies/endoflife/findendoflifedependenciesdefault.md)
+  * **Find end-of-life dependencies (defaults)**
+  * Flags Maven, Gradle, npm, and NuGet dependencies whose upstream release is end-of-life or reaches end-of-life within the next 180 days, using the bundled endoflife.date snapshot. Aggregates the per-ecosystem find-end-of-life recipes with their default settings.
+
+##### Data tables:
+
+  * **org.openrewrite.java.dependencies.endoflife.table.EndOfLifeDependencyReport**: *Maven and Gradle dependencies whose upstream release is end-of-life or scheduled for end-of-life soon, as reported by https://endoflife.date.*
+  * **org.openrewrite.csharp.dependencies.table.EndOfLifeDependencyReport**: *NuGet packages whose upstream release is end-of-life or scheduled for end-of-life soon, as reported by https://endoflife.date.*
+  * **org.openrewrite.node.dependencies.table.EndOfLifeDependencyReport**: *npm dependencies whose upstream release is end-of-life or scheduled for end-of-life soon, as reported by https://endoflife.date.*
+
+
+#### [org.openrewrite.golang.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/golang/dependencies/dependencyvulnerabilitycheck.md)
+  * **Find and fix vulnerable Go dependencies**
+  * This software composition analysis (SCA) tool detects and upgrades Go module dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades `go.mod` to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version. If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government.   When a `go.sum` file is present it is regenerated to match the upgraded `go.mod` by running `go mod download`, which requires the `go` toolchain to be installed. If the toolchain is unavailable the `go.mod` change is still applied and the `go.sum` is flagged so it can be brought back in sync with `go mod tidy`. Because the module graph is not re-resolved, upgrades that introduce new indirect requirements may still need a follow-up `go mod tidy`.   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically.
+
+##### Data tables:
+
+  * **org.openrewrite.golang.dependencies.table.VulnerabilityReport**: *A vulnerability report that includes detailed information about the affected artifact and the corresponding CVEs.*
 
 
 #### [org.openrewrite.java.dependencies.AddExplicitTransitiveDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/addexplicittransitivedependencies.md)
@@ -6576,7 +6694,7 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
 #### [org.openrewrite.java.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/java/dependencies/dependencyvulnerabilitycheck.md)
   * **Find and fix vulnerable Maven/Gradle dependencies**
-  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-06-29T1230.
+  * This software composition analysis (SCA) tool detects and upgrades dependencies with publicly disclosed vulnerabilities. This recipe both generates a report of vulnerable dependencies and upgrades to newer versions with fixes. This recipe by default only upgrades to the latest **patch** version.  If a minor or major upgrade is required to reach the fixed version, this can be controlled using the `maximumUpgradeDelta` option. Vulnerability information comes from the [GitHub Security Advisory Database](https://docs.github.com/en/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database), which aggregates vulnerability data from several public databases, including the [National Vulnerability Database](https://nvd.nist.gov/) maintained by the United States government. Upgrades dependencies versioned according to [Semantic Versioning](https://semver.org/).   ## Customizing Vulnerability Data  This recipe can be customized by extending `DependencyVulnerabilityCheckBase` and overriding the vulnerability data sources:   - **`baselineVulnerabilities(ExecutionContext ctx)`**: Provides the default set of known vulnerabilities. The base implementation loads vulnerability data from the GitHub Security Advisory Database CSV file using `ResourceUtils.parseResourceAsCsv()`. Override this method to replace the entire vulnerability dataset with your own curated list.   - **`supplementalVulnerabilities(ExecutionContext ctx)`**: Allows adding custom vulnerability data beyond the baseline. The base implementation returns an empty list. Override this method to add organization-specific vulnerabilities, internal security advisories, or vulnerabilities from additional sources while retaining the baseline GitHub Advisory Database.  Both methods return `List&lt;Vulnerability&gt;` objects. Vulnerability data can be loaded from CSV files using `ResourceUtils.parseResourceAsCsv(path, Vulnerability.class, consumer)` or constructed programmatically. To customize, extend `DependencyVulnerabilityCheckBase` and override one or both methods depending on your needs. For example, override `supplementalVulnerabilities()` to add custom CVEs while keeping the standard vulnerability database, or override `baselineVulnerabilities()` to use an entirely different vulnerability data source. Last updated: 2026-07-13T1200.
 
 ##### Data tables:
 
@@ -6592,6 +6710,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.dependencies.table.DependencyUsageEvidence**: *Evidence showing that a dependency is in use in the project.*
+
+
+#### [org.openrewrite.java.dependencies.endoflife.FindEndOfLifeDependencies](/user-documentation/recipes/recipe-catalog/java/dependencies/endoflife/findendoflifedependencies.md)
+  * **Find end-of-life dependencies**
+  * Find Maven and Gradle dependencies whose upstream release is end-of-life or scheduled for end-of-life soon, using a snapshot of [endoflife.date](https://endoflife.date). Direct dependencies are marked in source; all matches (direct and transitive) are reported in the data table.
+
+##### Data tables:
+
+  * **org.openrewrite.java.dependencies.endoflife.table.EndOfLifeDependencyReport**: *Maven and Gradle dependencies whose upstream release is end-of-life or scheduled for end-of-life soon, as reported by https://endoflife.date.*
 
 
 #### [org.openrewrite.java.security.Owasp2025A01](/user-documentation/recipes/recipe-catalog/java/security/owasp2025a01.md)
@@ -6808,6 +6935,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 ##### Data tables:
 
   * **org.openrewrite.java.table.MethodCalls**: *The text of matching method invocations.*
+
+
+#### [org.openrewrite.node.dependencies.FindEndOfLifeDependencies](/user-documentation/recipes/recipe-catalog/node/dependencies/findendoflifedependencies.md)
+  * **Find end-of-life npm dependencies**
+  * Find npm dependencies whose upstream release is end-of-life or scheduled for end-of-life soon, using a snapshot of [endoflife.date](https://endoflife.date). Direct dependencies declared in `package.json` are marked in source; all matches (direct and transitive) are reported in the data table.
+
+##### Data tables:
+
+  * **org.openrewrite.node.dependencies.table.EndOfLifeDependencyReport**: *npm dependencies whose upstream release is end-of-life or scheduled for end-of-life soon, as reported by https://endoflife.date.*
 
 
 #### [org.openrewrite.python.dependencies.DependencyVulnerabilityCheck](/user-documentation/recipes/recipe-catalog/python/dependencies/dependencyvulnerabilitycheck.md)
@@ -7970,6 +8106,204 @@ _This doc contains all of the recipes with **unique** data tables that have been
   * **org.openrewrite.sql.table.DatabaseFunctions**: *Shows matching SQL functions and the queries that contain them.*
 
 
+#### [org.openrewrite.sql.antipattern.FindCartesianJoin](/user-documentation/recipes/recipe-catalog/sql/antipattern/findcartesianjoin.md)
+  * **Find cartesian joins**
+  * Joins that lack a real linking predicate multiply row counts instead of matching related rows: an `ON` condition comparing a column to itself is always true, and comma-separated tables with no `WHERE` predicate relating them pair every row with every row. Explicit `CROSS JOIN` and `NATURAL` joins are treated as intentional and are not flagged.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindConstantPredicate](/user-documentation/recipes/recipe-catalog/sql/antipattern/findconstantpredicate.md)
+  * **Find constant predicates that are always true or always false**
+  * A comparison whose operands are both constant, such as `1 = 1` or `1 = 0`, evaluates the same for every row regardless of the data. Combined with `OR` an always-true constant makes the whole condition always true, so every row matches and the other filters are ignored; an always-false constant used as a filter can never be satisfied, so the query returns nothing. An always-true constant on its own or joined with `AND`, a common query-builder idiom, is not flagged.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindCorrelatedAggregateSubquery](/user-documentation/recipes/recipe-catalog/sql/antipattern/findcorrelatedaggregatesubquery.md)
+  * **Find correlated aggregate subqueries in `WHERE`**
+  * A scalar subquery that computes an aggregate like `MAX` while referencing the outer query runs once per outer row on engines that cannot decorrelate it. A window function or a join to a pre-aggregated derived table computes every group in a single pass. Uncorrelated aggregate subqueries and `EXISTS` or `IN` subqueries are not flagged.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindCountAsExistenceCheck](/user-documentation/recipes/recipe-catalog/sql/antipattern/findcountasexistencecheck.md)
+  * **Find `COUNT` subqueries used as existence checks**
+  * A scalar `COUNT` subquery compared to `0` or `1` tallies every matching row even though the outcome is decided by the first one. `EXISTS` or `NOT EXISTS` lets the engine stop as soon as a match is found. Comparisons against other values, such as `&gt; 5`, express a genuine cardinality requirement and are not flagged.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindDistinctWithJoin](/user-documentation/recipes/recipe-catalog/sql/antipattern/finddistinctwithjoin.md)
+  * **Find `DISTINCT` masking join fan-out**
+  * `DISTINCT` paired with a `JOIN` frequently compensates for row multiplication that a correct join condition or an `EXISTS` test would avoid, and `DISTINCT` alongside `GROUP BY` is redundant because grouping already collapses duplicate rows. A `DISTINCT` on a single-table query without `GROUP BY` is not flagged.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindDmlWithoutWhere](/user-documentation/recipes/recipe-catalog/sql/antipattern/finddmlwithoutwhere.md)
+  * **Find `UPDATE` and `DELETE` statements without a `WHERE` clause**
+  * An `UPDATE` or `DELETE` with no `WHERE` clause touches every row in the table, holding locks for the duration, flooding replication, and risking unintended data loss if the missing predicate was an oversight.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindHavingWithoutAggregate](/user-documentation/recipes/recipe-catalog/sql/antipattern/findhavingwithoutaggregate.md)
+  * **Find `HAVING` conditions that use no aggregate**
+  * A `HAVING` condition that references no aggregate forces the database to build every group before throwing unwanted ones away. The same condition in `WHERE` filters rows before grouping, doing strictly less work.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindInsertWithoutColumns](/user-documentation/recipes/recipe-catalog/sql/antipattern/findinsertwithoutcolumns.md)
+  * **Find `INSERT ... VALUES` statements that omit the column list**
+  * An `INSERT ... VALUES` with no column list binds each value to a column by position, so adding, dropping, or reordering a column silently shifts values into the wrong columns or breaks the statement; naming the target columns keeps it correct across schema changes. `INSERT ... SELECT` is left alone, since its projection makes the column correspondence explicit.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindLeadingWildcardLike](/user-documentation/recipes/recipe-catalog/sql/antipattern/findleadingwildcardlike.md)
+  * **Find `LIKE` patterns starting with a wildcard**
+  * A `LIKE` pattern whose first character is `%` or `_` gives the database no prefix to seek in a B-tree index, so every row must be inspected. When a prefix search is not possible, a trigram or full-text index can serve the query instead. Parameter placeholders and patterns with only trailing wildcards are not flagged.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindLimitWithoutOrderBy](/user-documentation/recipes/recipe-catalog/sql/antipattern/findlimitwithoutorderby.md)
+  * **Find row limiters without an `ORDER BY`**
+  * A `LIMIT`, `OFFSET`, `FETCH`, or `TOP` clause selects a subset of rows, but without an `ORDER BY` the engine is free to return any rows in any order, so the result is arbitrary and can differ from one execution to the next. Queries that can only ever produce a single row, such as a bare aggregate with no `GROUP BY`, and limiters inside an `EXISTS` subquery, where order does not matter, are not flagged.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindNonSargablePredicate](/user-documentation/recipes/recipe-catalog/sql/antipattern/findnonsargablepredicate.md)
+  * **Find non-sargable predicates**
+  * A comparison that wraps a column in a function, `CAST`, or arithmetic must evaluate the expression for every row, so an index on the bare column cannot be used for a range scan. Keeping the column alone on one side, e.g. `amount &gt; 100 - 1` rather than `amount + 1 &gt; 100`, keeps the predicate index-eligible.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindNotInSubquery](/user-documentation/recipes/recipe-catalog/sql/antipattern/findnotinsubquery.md)
+  * **Find `NOT IN` with a subquery**
+  * When the subquery can return a `NULL`, `NOT IN` evaluates to unknown for every row and the outer query silently returns nothing. Many planners also fail to rewrite `NOT IN` as an efficient anti-join. `NOT EXISTS` avoids both problems. `NOT IN` over a literal list is not flagged.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindOffsetPagination](/user-documentation/recipes/recipe-catalog/sql/antipattern/findoffsetpagination.md)
+  * **Find `OFFSET`-based pagination**
+  * `OFFSET n` reads and throws away `n` rows before returning any, so each later page costs linearly more than the one before it. Parameterized offsets and large literal offsets are flagged; keyset pagination (`WHERE key &gt; last-seen ORDER BY key`) reads only the requested page. Small literal offsets are not flagged.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindOptionalParameterOr](/user-documentation/recipes/recipe-catalog/sql/antipattern/findoptionalparameteror.md)
+  * **Find optional filters written as `OR` parameter `IS NULL`**
+  * The `col = ? OR ? IS NULL` pattern turns a filter on and off at runtime, so the planner must settle on one generic plan that works for every parameter combination instead of an index-driven plan for the filtered case. An `IS NULL` test on a column inside an `OR` is ordinary SQL and is not flagged.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindOrderByRandom](/user-documentation/recipes/recipe-catalog/sql/antipattern/findorderbyrandom.md)
+  * **Find `ORDER BY` on a random function**
+  * Sorting by `RAND()`, `RANDOM()`, `NEWID()`, or `DBMS_RANDOM` computes a random value for every row and sorts the entire table just to keep a few rows. Sample by a key range or use the dialect's table sampling instead.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindOversizedInList](/user-documentation/recipes/recipe-catalog/sql/antipattern/findoversizedinlist.md)
+  * **Find oversized `IN` lists**
+  * A very long `IN` list is parsed and planned on every execution, tends to pollute the statement cache, and some databases hard-cap the number of elements it may contain. Loading the values into a temporary table and joining against it scales far better. `IN` with a subquery is not flagged.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindScalarSubqueryInSelect](/user-documentation/recipes/recipe-catalog/sql/antipattern/findscalarsubqueryinselect.md)
+  * **Find scalar subqueries in the `SELECT` list**
+  * A subquery used as an expression in the `SELECT` list may execute once per result row, turning a single scan into N+1 queries. A `JOIN` (or `LATERAL` join) produces the same values in one pass. Subqueries in `WHERE`, `FROM`, or `JOIN` conditions are not flagged.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindSelectStar](/user-documentation/recipes/recipe-catalog/sql/antipattern/findselectstar.md)
+  * **Find `SELECT *` queries**
+  * Wildcard projections fetch columns the code does not use, defeat covering indexes, and change behavior when the schema changes. `SELECT *` under `EXISTS (...)` or inside aggregate functions like `COUNT(*)` is not flagged because no columns are materialized there.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.FindUnionInsteadOfUnionAll](/user-documentation/recipes/recipe-catalog/sql/antipattern/findunioninsteadofunionall.md)
+  * **Find `UNION` where `UNION ALL` may suffice**
+  * Plain `UNION` de-duplicates the combined rows, forcing a sort or hash over the entire result even when the branches cannot overlap. `UNION ALL` skips that work. `UNION` inside a `WITH` item is not flagged because recursive CTEs rely on plain `UNION` semantics to terminate.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.RemoveOrderByInSubquery](/user-documentation/recipes/recipe-catalog/sql/antipattern/removeorderbyinsubquery.md)
+  * **Remove redundant `ORDER BY` from subqueries**
+  * An `ORDER BY` inside a subquery or CTE without a `LIMIT`, `OFFSET`, or `FETCH` does not affect the rows the outer query returns, so the database either discards the sort or pays for ordering that nothing observes. Remove the clause, leaving the rest of the statement untouched. Sort in the outermost query if a specific order is required.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.ReplaceNullComparisonWithIsNull](/user-documentation/recipes/recipe-catalog/sql/antipattern/replacenullcomparisonwithisnull.md)
+  * **Replace `= NULL` and `&lt;&gt; NULL` with `IS NULL` and `IS NOT NULL`**
+  * Under three-valued logic a comparison with `NULL` evaluates to UNKNOWN rather than true, so `col = NULL` and `col &lt;&gt; NULL` match no rows. Rewrite them to the intended `col IS NULL` and `col IS NOT NULL`, changing only the compared operator so the rest of the statement is left untouched.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
+#### [org.openrewrite.sql.antipattern.SqlAntiPatterns](/user-documentation/recipes/recipe-catalog/sql/antipattern/sqlantipatterns.md)
+  * **Find and fix SQL performance anti-patterns**
+  * Analyzes SQL found in code and resource files for statically detectable performance anti-patterns such as `SELECT *`, `COUNT(*)` used as an existence check, scalar subqueries in the `SELECT` list, non-sargable predicates, and missing join conditions. Every occurrence is reported to the `SqlAntiPatterns` data table with a severity and suggested remediation, then fixed in place where a safe rewrite exists or marked in source otherwise.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.SqlAntiPatterns**: *SQL statements matching performance anti-pattern rules.*
+
+
 #### [org.openrewrite.sql.search.FindFunction](/user-documentation/recipes/recipe-catalog/sql/search/findfunction.md)
   * **Find SQL function**
   * Find SQL functions by name.
@@ -7978,6 +8312,15 @@ _This doc contains all of the recipes with **unique** data tables that have been
 
   * **org.openrewrite.sql.table.DatabaseQueries**: *Shows matching SQL queries.*
   * **org.openrewrite.sql.table.DatabaseFunctions**: *Shows matching SQL functions and the queries that contain them.*
+
+
+#### [org.openrewrite.sql.search.FindStoredProcedureCall](/user-documentation/recipes/recipe-catalog/sql/search/findstoredprocedurecall.md)
+  * **Find stored procedure calls**
+  * Find stored procedures invoked from SQL via `EXEC`, `EXECUTE`, or `CALL`. Useful for taking inventory of the stored procedures a codebase depends on when planning a database migration.
+
+##### Data tables:
+
+  * **org.openrewrite.sql.table.StoredProcedureCalls**: *Shows stored procedures invoked from SQL, e.g. via `EXEC`, `EXECUTE`, or `CALL`.*
 
 
 

@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatcharsequenceisemptyrecipe/"},{"name":"Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceIsNotEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatcharsequenceisnotemptyrecipe/"},{"name":"Refaster template `AssertJCharSequenceRules.AssertThatCharSequenceHasSize`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatcharsequencehassizerecipe/"}]}>
+<RecipeList recipes={[{"name":"Refaster template `AssertJCharSequenceRules.AssertThatIsEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatisemptyrecipe/"},{"name":"Refaster template `AssertJCharSequenceRules.AssertThatIsNotEmpty`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthatisnotemptyrecipe/"},{"name":"Refaster template `AssertJCharSequenceRules.AssertThatHasSize`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/assertjcharsequencerulesrecipes$assertthathassizerecipe/"}]}>
 
 ## Definition
 

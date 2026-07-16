@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.launchdarkly.sdk.server.LDClient;\n\nclass A {\n    void shutdown(LDClient client) {\n        client.close();\n    }\n}\n","after":"import com.launchdarkly.sdk.server.LDClient;\nimport dev.openfeature.sdk.OpenFeatureAPI;\n\nclass A {\n    void shutdown(LDClient client) {\n        OpenFeatureAPI.getInstance().shutdown();\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport com.launchdarkly.sdk.server.LDClient;\n+import dev.openfeature.sdk.OpenFeatureAPI;\n\n@@ -5,1 +6,1 @@\nclass A {\n    void shutdown(LDClient client) {\n-       client.close();\n+       OpenFeatureAPI.getInstance().shutdown();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.featureflags.launchdarkly.MigrateLDClientLifecycle","displayName":"Migrate LaunchDarkly `LDClient` lifecycle calls to OpenFeature","groupId":"org.openrewrite.recipe","artifactId":"rewrite-feature-flags","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_FEATURE_FLAGS","requiresConfiguration":false}}>
 
 ## Usage

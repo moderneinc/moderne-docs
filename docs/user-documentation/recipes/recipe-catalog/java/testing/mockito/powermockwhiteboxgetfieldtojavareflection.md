@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"java","code":"class MyService {\n    private String name;\n}\n"},"variants":[{"language":"java","before":"import java.lang.reflect.Field;\nimport org.powermock.reflect.Whitebox;\n\nclass MyServiceTest {\n    void test() {\n        Field f = Whitebox.getField(MyService.class, \"name\");\n    }\n}\n","after":"import java.lang.reflect.Field;\n\nclass MyServiceTest {\n    void test() throws Exception {\n        Field f = MyService.class.getDeclaredField(\"name\");\n        f.setAccessible(true);\n    }\n}\n","diff":"@@ -2,1 +2,0 @@\nimport java.lang.reflect.Field;\n-import org.powermock.reflect.Whitebox;\n\n@@ -5,2 +4,3 @@\n\nclass MyServiceTest {\n-   void test() {\n-       Field f = Whitebox.getField(MyService.class, \"name\");\n+   void test() throws Exception {\n+       Field f = MyService.class.getDeclaredField(\"name\");\n+       f.setAccessible(true);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.PowerMockWhiteboxGetFieldToJavaReflection","displayName":"Replace PowerMock `Whitebox.getField()` with Java reflection","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

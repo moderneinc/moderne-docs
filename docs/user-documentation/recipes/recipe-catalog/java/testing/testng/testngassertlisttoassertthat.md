@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\n\nimport static org.testng.Assert.assertListContainsObject;\nimport static org.testng.Assert.assertListNotContainsObject;\n\nclass Test {\n    void test(List<String> list, String value) {\n        assertListContainsObject(list, value, \"foo\");\n        assertListNotContainsObject(list, value, \"bar\");\n    }\n}\n","after":"import java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass Test {\n    void test(List<String> list, String value) {\n        assertThat(list).as(\"foo\").contains(value);\n        assertThat(list).as(\"bar\").doesNotContain(value);\n    }\n}\n","diff":"@@ -3,2 +3,1 @@\nimport java.util.List;\n\n-import static org.testng.Assert.assertListContainsObject;\n-import static org.testng.Assert.assertListNotContainsObject;\n+import static org.assertj.core.api.Assertions.assertThat;\n\n@@ -8,2 +7,2 @@\nclass Test {\n    void test(List<String> list, String value) {\n-       assertListContainsObject(list, value, \"foo\");\n-       assertListNotContainsObject(list, value, \"bar\");\n+       assertThat(list).as(\"foo\").contains(value);\n+       assertThat(list).as(\"bar\").doesNotContain(value);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.testng.TestNgAssertListToAssertThat","displayName":"TestNG `assertList*` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"unchanged":{"language":"xml","code":"<project>\n  <groupId>com.example</groupId>\n  <artifactId>my-ejb</artifactId>\n  <version>1.0</version>\n  <dependencies>\n    <dependency>\n      <groupId>javax.ejb</groupId>\n      <artifactId>javax.ejb-api</artifactId>\n      <version>3.2.2</version>\n      <scope>provided</scope>\n    </dependency>\n  </dependencies>\n  <build>\n    <plugins>\n      <plugin>\n        <groupId>org.apache.maven.plugins</groupId>\n        <artifactId>maven-ejb-plugin</artifactId>\n        <version>2.5</version>\n        <configuration>\n          <ejbVersion>3.0</ejbVersion>\n        </configuration>\n      </plugin>\n    </plugins>\n  </build>\n</project>\n"},"variants":[]},{"unchanged":{"language":"xml","code":"<project>\n  <groupId>com.example</groupId>\n  <artifactId>my-ejb</artifactId>\n  <version>1.0</version>\n  <dependencies>\n    <dependency>\n      <groupId>javax.ejb</groupId>\n      <artifactId>javax.ejb-api</artifactId>\n      <version>3.2.2</version>\n      <scope>provided</scope>\n    </dependency>\n  </dependencies>\n  <build>\n    <plugins>\n      <plugin>\n        <groupId>org.apache.maven.plugins</groupId>\n        <artifactId>maven-ejb-plugin</artifactId>\n        <version>2.5</version>\n        <configuration>\n          <ejbVersion>3.0</ejbVersion>\n        </configuration>\n      </plugin>\n    </plugins>\n  </build>\n</project>\n"},"variants":[]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.jakarta.JavaxEjbToJakartaEjb","displayName":"Migrate deprecated `javax.ejb` packages to `jakarta.ejb`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage

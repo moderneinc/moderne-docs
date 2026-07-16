@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"groovy","before":"def checkTasks = tasks.findAll { it.name.startsWith(\"check\") }\n","after":"def checkTasks = tasks.matching { it.name.startsWith(\"check\") }\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -1,1 +1,1 @@\n-def checkTasks = tasks.findAll { it.name.startsWith(\"check\") }\n+def checkTasks = tasks.matching { it.name.startsWith(\"check\") }\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.gradle.gradle9.UseMatchingInsteadOfFindAll","displayName":"Use `matching(Closure)` instead of `findAll(Closure)` on Gradle container collections","groupId":"org.openrewrite","artifactId":"rewrite-gradle","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_GRADLE","requiresConfiguration":false}}>
 
 ## Usage

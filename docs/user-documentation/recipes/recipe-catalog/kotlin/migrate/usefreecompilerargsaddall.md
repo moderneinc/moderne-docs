@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<ExampleList examples={[{"variants":[{"language":"kotlin","before":"plugins {\n    kotlin(\"jvm\") version \"1.9.24\"\n}\ntasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {\n    compilerOptions {\n        freeCompilerArgs = listOf(\"-Xjsr305=strict\")\n    }\n}\n","after":"plugins {\n    kotlin(\"jvm\") version \"1.9.24\"\n}\ntasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {\n    compilerOptions {\n        freeCompilerArgs.addAll(\"-Xjsr305=strict\")\n    }\n}\n","diff":"--- build.gradle.kts\n+++ build.gradle.kts\n@@ -6,1 +6,1 @@\ntasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {\n    compilerOptions {\n-       freeCompilerArgs = listOf(\"-Xjsr305=strict\")\n+       freeCompilerArgs.addAll(\"-Xjsr305=strict\")\n    }\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"buildGradleKts","before":"plugins {\n    kotlin(\"jvm\") version \"1.9.24\"\n}\ntasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {\n    compilerOptions {\n        freeCompilerArgs = listOf(\"-Xjsr305=strict\")\n    }\n}\n","after":"plugins {\n    kotlin(\"jvm\") version \"1.9.24\"\n}\ntasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {\n    compilerOptions {\n        freeCompilerArgs.addAll(\"-Xjsr305=strict\")\n    }\n}\n","diff":"@@ -6,1 +6,1 @@\ntasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {\n    compilerOptions {\n-       freeCompilerArgs = listOf(\"-Xjsr305=strict\")\n+       freeCompilerArgs.addAll(\"-Xjsr305=strict\")\n    }\n","newFile":false}]}]}>
 
 ## Examples
 

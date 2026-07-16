@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test(boolean a) {\n        if (a) {\n            System.out.println(\"hello\");\n        } else {\n            System.out.println(\"hello\");\n        }\n    }\n}\n","after":"class Test {\n    void test(boolean a) {\n        System.out.println(\"hello\");\n    }\n}\n","diff":"@@ -3,5 +3,1 @@\nclass Test {\n    void test(boolean a) {\n-       if (a) {\n-           System.out.println(\"hello\");\n-       } else {\n-           System.out.println(\"hello\");\n-       }\n+       System.out.println(\"hello\");\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.AllBranchesIdentical","displayName":"All branches in a conditional should not have the same implementation","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

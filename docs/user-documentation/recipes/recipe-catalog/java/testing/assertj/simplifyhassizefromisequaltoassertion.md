@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    void testMethod(List<String> predecessors) {\n        assertThat(4).isEqualTo(predecessors.size());\n    }\n}\n","after":"import java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    void testMethod(List<String> predecessors) {\n        assertThat(predecessors).hasSize(4);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass MyTest {\n    void testMethod(List<String> predecessors) {\n-       assertThat(4).isEqualTo(predecessors.size());\n+       assertThat(predecessors).hasSize(4);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.SimplifyHasSizeFromIsEqualToAssertion","displayName":"Simplify literal-first AssertJ size assertions to `hasSize`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

@@ -1,6 +1,6 @@
 ---
-title: "Refaster template `ReactorRules.MonoTimeoutDuration`"
-sidebar_label: "Refaster template `ReactorRules.MonoTimeoutDuration`"
+title: "Prefer `Mono#timeout(Duration, Mono)` over more contrived or less efficient alternatives"
+sidebar_label: "Prefer `Mono#timeout(Duration, Mono)` over more contrived or less efficient alternatives"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster template `ReactorRules.MonoTimeoutDuration`"}
-  description={"Prefer `Mono#timeout(Duration, Mono)` over more contrived or less performant alternatives."}
+  displayName={"Prefer `Mono#timeout(Duration, Mono)` over more contrived or less efficient alternatives"}
+  description={"<strong>Warning:</strong> this rewrite changes behavior if the source can emit or propagate\n a `TimeoutException`: the original code suppresses any such signal, while the replacement\n only handles the one emitted by the `timeout` operator itself."}
   fqName={"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoTimeoutDurationRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes$monotimeoutdurationrecipe.md"}
 >
 
-<RecipeHeader.Title>Refaster template `ReactorRules.MonoTimeoutDuration`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `Mono#timeout(Duration, Mono)` over more contrived or less efficient alternatives</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Mono#timeout(Duration, Mono)` over more contrived or less performant alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rewrite changes behavior if the source can emit or propagate  a `TimeoutException`: the original code suppresses any such signal, while the replacement  only handles the one emitted by the `timeout` operator itself.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoTimeoutDurationRecipe","displayName":"Refaster template `ReactorRules.MonoTimeoutDuration`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoTimeoutDurationRecipe","displayName":"Prefer `Mono#timeout(Duration, Mono)` over more contrived or less efficient alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

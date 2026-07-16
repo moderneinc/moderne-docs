@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
-<ExampleList examples={[{"parameters":[{"parameter":"action","value":"actions/setup-java"},{"parameter":"version","value":"v4"}],"variants":[{"language":"yaml","before":"jobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-java@main\n","after":"jobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-java@v4\n","diff":"--- .github/workflows/ci.yaml\n+++ .github/workflows/ci.yaml\n@@ -6,1 +6,1 @@\n    steps:\n      - uses: actions/checkout@v2\n-     - uses: actions/setup-java@main\n+     - uses: actions/setup-java@v4\n\n","newFile":false}]}]}>
+<ExampleList examples={[{"parameters":[{"parameter":"action","value":"actions/setup-java"},{"parameter":"version","value":"v4"},{"parameter":"oldSha","value":"null"}],"variants":[{"language":"yaml","before":"jobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-java@main\n","after":"jobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-java@v4\n","diff":"--- .github/workflows/ci.yaml\n+++ .github/workflows/ci.yaml\n@@ -6,1 +6,1 @@\n    steps:\n      - uses: actions/checkout@v2\n-     - uses: actions/setup-java@main\n+     - uses: actions/setup-java@v4\n\n","newFile":false}]}]}>
 
 ## Examples
 

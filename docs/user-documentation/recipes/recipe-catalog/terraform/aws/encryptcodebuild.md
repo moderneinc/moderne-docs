@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["CKV_AWS_147","terraform","AWS"]}
+  tags={["AWS","CKV_AWS_147","terraform"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.aws.EncryptCodeBuild"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

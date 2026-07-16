@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test(int x) {\n        x = x;\n    }\n}\n","after":"class Test {\n    void test(int x) {\n    }\n}\n","diff":"@@ -3,1 +3,0 @@\nclass Test {\n    void test(int x) {\n-       x = x;\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveSelfAssignment","displayName":"Variables should not be self-assigned","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

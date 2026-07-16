@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["CKV_AWS_79","terraform","AWS"]}
+  tags={["AWS","terraform","CKV_AWS_79"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.aws.DisableInstanceMetadataServiceV1"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

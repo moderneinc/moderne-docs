@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    boolean test(boolean a) {\n        return a && a;\n    }\n}\n","after":"class Test {\n    boolean test(boolean a) {\n        return a;\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nclass Test {\n    boolean test(boolean a) {\n-       return a && a;\n+       return a;\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.SimplifyRedundantLogicalExpression","displayName":"Identical expressions used with logical operators should be simplified","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

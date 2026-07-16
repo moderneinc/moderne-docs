@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","plugin","build","maven","quarkus","migration"]}
+  tags={["spring","migration","plugin","build","maven","quarkus"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.quarkus.spring.CustomizeQuarkusPluginGoals"}
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}

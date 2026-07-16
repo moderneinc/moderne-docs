@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["javax","batch","jakarta"]}
+  tags={["batch","javax","jakarta"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.migrate.jakarta.JavaxBatchMigrationToJakartaBatch"}
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}

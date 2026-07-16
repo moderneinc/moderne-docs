@@ -38,6 +38,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.kafka.streams.RecoveringDeserializationExceptionHandler;\n\nclass Config {\n    String recovererKey() {\n        return RecoveringDeserializationExceptionHandler.KSTREAM_DESERIALIZATION_RECOVERER;\n    }\n}\n","after":"import org.springframework.kafka.streams.RecoveringDeserializationExceptionHandler;\n\nclass Config {\n    String recovererKey() {\n        return RecoveringDeserializationExceptionHandler.RECOVERER;\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Config {\n    String recovererKey() {\n-       return RecoveringDeserializationExceptionHandler.KSTREAM_DESERIALIZATION_RECOVERER;\n+       return RecoveringDeserializationExceptionHandler.RECOVERER;\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import org.springframework.kafka.streams.RecoveringDeserializationExceptionHandler;\n\nclass Config {\n    String recovererKey() {\n        return RecoveringDeserializationExceptionHandler.KSTREAM_DESERIALIZATION_RECOVERER;\n    }\n}\n","after":"import org.springframework.kafka.streams.RecoveringDeserializationExceptionHandler;\n\nclass Config {\n    String recovererKey() {\n        return RecoveringDeserializationExceptionHandler.RECOVERER;\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass Config {\n    String recovererKey() {\n-       return RecoveringDeserializationExceptionHandler.KSTREAM_DESERIALIZATION_RECOVERER;\n+       return RecoveringDeserializationExceptionHandler.RECOVERER;\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.java.spring.boot4.UpgradeSpringKafka_4_1","displayName":"Migrate to Spring Kafka 4.1","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

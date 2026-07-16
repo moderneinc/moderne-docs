@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["spring","opentracing","migration","opentelemetry","boot"]}
+  tags={["spring","migration","opentelemetry","boot","opentracing"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.spring.opentelemetry.MigrateOpenTracingToOpenTelemetry"}
   artifact={"org.openrewrite.recipe:rewrite-spring"}

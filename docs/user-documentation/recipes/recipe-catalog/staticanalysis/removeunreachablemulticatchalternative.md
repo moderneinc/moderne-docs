@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.io.IOException;\nimport java.io.FileNotFoundException;\n\nclass A {\n    void m() {\n        try {\n            throw new FileNotFoundException();\n        } catch (FileNotFoundException e) {\n            System.out.println(e);\n        } catch (FileNotFoundException | IOException e) {\n            System.out.println(e);\n        }\n    }\n}\n","after":"import java.io.IOException;\nimport java.io.FileNotFoundException;\n\nclass A {\n    void m() {\n        try {\n            throw new FileNotFoundException();\n        } catch (FileNotFoundException e) {\n            System.out.println(e);\n        } catch (IOException e) {\n            System.out.println(e);\n        }\n    }\n}\n","diff":"@@ -10,1 +10,1 @@\n        } catch (FileNotFoundException e) {\n            System.out.println(e);\n-       } catch (FileNotFoundException | IOException e) {\n+       } catch (IOException e) {\n            System.out.println(e);\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveUnreachableMultiCatchAlternative","displayName":"Remove unreachable `catch` alternatives shadowed by earlier `catch` clauses","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

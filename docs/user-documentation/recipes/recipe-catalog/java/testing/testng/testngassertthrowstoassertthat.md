@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import static org.testng.Assert.assertThrows;\n\nclass Test {\n    void test() {\n        assertThrows(RuntimeException.class, () -> {\n            throw new RuntimeException();\n        });\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThatExceptionOfType;\n\nclass Test {\n    void test() {\n        assertThatExceptionOfType(RuntimeException.class).isThrownBy(() -> {\n            throw new RuntimeException();\n        });\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static org.testng.Assert.assertThrows;\n+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;\n\n@@ -5,1 +5,1 @@\nclass Test {\n    void test() {\n-       assertThrows(RuntimeException.class, () -> {\n+       assertThatExceptionOfType(RuntimeException.class).isThrownBy(() -> {\n            throw new RuntimeException();\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.testng.TestNgAssertThrowsToAssertThat","displayName":"TestNG `assertThrows`/`expectThrows` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

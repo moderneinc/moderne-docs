@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `Jackson3Rules.ObjectMapperValueToTree`"}
-  description={"Prefer `ObjectMapper#valueToTree(Object)` over more contrived and less efficient alternatives."}
+  description={"Prefer `ObjectMapper#valueToTree(Object)` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.Jackson3RulesRecipes$ObjectMapperValueToTreeRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `Jackson3Rules.ObjectMapperValueToTree`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `ObjectMapper#valueToTree(Object)` over more contrived and less efficient alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ObjectMapper#valueToTree(Object)` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

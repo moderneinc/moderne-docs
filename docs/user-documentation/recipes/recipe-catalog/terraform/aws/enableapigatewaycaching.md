@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["CKV_AWS_120","terraform","AWS"]}
+  tags={["CKV_AWS_120","AWS","terraform"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.aws.EnableApiGatewayCaching"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

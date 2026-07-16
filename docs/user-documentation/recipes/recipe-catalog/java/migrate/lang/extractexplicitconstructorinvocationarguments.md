@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.Objects;\n\nclass Parent {\n    Parent(String name) {\n    }\n}\n\nclass Child extends Parent {\n    Child(String name) {\n        super(Objects.requireNonNull(name));\n    }\n}\n","after":"import java.util.Objects;\n\nclass Parent {\n    Parent(String name) {\n    }\n}\n\nclass Child extends Parent {\n    Child(String name) {\n        String name1 = Objects.requireNonNull(name);\n        super(name1);\n    }\n}\n","diff":"@@ -10,1 +10,2 @@\nclass Child extends Parent {\n    Child(String name) {\n-       super(Objects.requireNonNull(name));\n+       String name1 = Objects.requireNonNull(name);\n+       super(name1);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.lang.ExtractExplicitConstructorInvocationArguments","displayName":"Extract complex `super(..)` and `this(..)` arguments into local variables","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":false}}>
 
 ## Usage

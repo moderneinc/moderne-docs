@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"java","code":"import org.junit.jupiter.api.Test;\nimport org.mockito.Mock;\n\nclass MyTest {\n    @Mock\n    Object myMock;\n\n    @Test\n    void someTest() {\n    }\n}\n"},"variants":[{"language":"groovy","before":"plugins {\n    id 'java-library'\n}\nrepositories {\n    mavenCentral()\n}\ndependencies {\n    testImplementation(\"org.junit.jupiter:junit-jupiter-api:5.11.4\")\n    testImplementation(\"org.mockito:mockito-core:3.12.4\")\n}\ntest {\n    useJUnitPlatform()\n}\n","after":"plugins {\n    id 'java-library'\n}\nrepositories {\n    mavenCentral()\n}\ndependencies {\n    testImplementation(\"org.junit.jupiter:junit-jupiter-api:5.11.4\")\n    testImplementation(\"org.mockito:mockito-core:3.12.4\")\n    testImplementation \"org.mockito:mockito-junit-jupiter:3.12.4\"\n}\ntest {\n    useJUnitPlatform()\n}\n","diff":"--- build.gradle\n+++ build.gradle\n@@ -10,0 +10,1 @@\n    testImplementation(\"org.junit.jupiter:junit-jupiter-api:5.11.4\")\n    testImplementation(\"org.mockito:mockito-core:3.12.4\")\n+   testImplementation \"org.mockito:mockito-junit-jupiter:3.12.4\"\n}\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.AddMockitoJupiterDependency","displayName":"Add mockito-junit-jupiter dependency","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","quarkus","panache","migration","mongodb"]}
+  tags={["spring","migration","mongodb","quarkus","panache"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.quarkus.spring.MigrateSpringDataMongodb"}
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}

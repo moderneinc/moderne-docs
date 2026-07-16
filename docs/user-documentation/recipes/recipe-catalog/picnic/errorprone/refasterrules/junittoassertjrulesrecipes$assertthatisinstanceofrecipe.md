@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `JUnitToAssertJRules.AssertThatIsInstanceOf`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsInstanceOf<T> {\n    \n    @BeforeTemplate\n    void before(Object actual, Class<T> clazz) {\n        assertInstanceOf(clazz, actual);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Object actual, Class<T> clazz) {\n        assertThat(actual).isInstanceOf(clazz);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractAssert#isInstanceOf(Class)` over non-AssertJ alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatIsInstanceOfRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatIsInstanceOf`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsInstanceOf<T> {
-    
-    @BeforeTemplate
-    void before(Object actual, Class<T> clazz) {
-        assertInstanceOf(clazz, actual);
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    void after(Object actual, Class<T> clazz) {
-        assertThat(actual).isInstanceOf(clazz);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractAssert#isInstanceOf(Class)` over non-AssertJ alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

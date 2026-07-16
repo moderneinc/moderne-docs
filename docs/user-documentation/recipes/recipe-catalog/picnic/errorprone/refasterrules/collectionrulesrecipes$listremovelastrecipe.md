@@ -1,6 +1,6 @@
 ---
-title: "Refaster template `CollectionRules.ListRemoveLast`"
-sidebar_label: "Refaster template `CollectionRules.ListRemoveLast`"
+title: "Prefer `List#removeLast()` over less idiomatic alternatives"
+sidebar_label: "Prefer `List#removeLast()` over less idiomatic alternatives"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster template `CollectionRules.ListRemoveLast`"}
-  description={"Prefer `List#removeLast()`} over less idiomatic alternatives."}
+  displayName={"Prefer `List#removeLast()` over less idiomatic alternatives"}
+  description={"<strong>Warning:</strong> this rewrite changes the exception thrown for empty lists from\n `IndexOutOfBoundsException` to `NoSuchElementException`."}
   fqName={"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$ListRemoveLastRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/collectionrulesrecipes$listremovelastrecipe.md"}
 >
 
-<RecipeHeader.Title>Refaster template `CollectionRules.ListRemoveLast`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `List#removeLast()` over less idiomatic alternatives</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `List#removeLast()`} over less idiomatic alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rewrite changes the exception thrown for empty lists from  `IndexOutOfBoundsException` to `NoSuchElementException`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$ListRemoveLastRecipe","displayName":"Refaster template `CollectionRules.ListRemoveLast`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$ListRemoveLastRecipe","displayName":"Prefer `List#removeLast()` over less idiomatic alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

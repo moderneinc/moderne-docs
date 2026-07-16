@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StringRules.StringValueOf`"}
-  description={"Prefer direct invocation of `String#valueOf(Object)` over the indirection introduced by `Objects#toString(Object)`."}
+  description={"Prefer `String#valueOf(Object)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StringRulesRecipes$StringValueOfRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StringRules.StringValueOf`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer direct invocation of `String#valueOf(Object)` over the indirection introduced by `Objects#toString(Object)`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `String#valueOf(Object)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

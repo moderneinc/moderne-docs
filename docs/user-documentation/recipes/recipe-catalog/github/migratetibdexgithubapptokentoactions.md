@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["github","actions"]}
+  tags={["actions","github"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.github.MigrateTibdexGitHubAppTokenToActions"}
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}
@@ -42,6 +42,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 ## Definition
 
 </RecipeList>
+
+<ExampleList examples={[{"variants":[{"language":"yaml","before":"jobs:\n  token:\n    runs-on: ubuntu-latest\n    steps:\n      - id: create_token\n        uses: tibdex/github-app-token@v2\n        with:\n          app_id: ${{ secrets.APP_ID }}\n          private_key: ${{ secrets.APP_PRIVATE_KEY }}\n","after":"jobs:\n  token:\n    runs-on: ubuntu-latest\n    steps:\n      - id: create_token\n        uses: actions/create-github-app-token@v3\n        with:\n          app-id: ${{ secrets.APP_ID }}\n          private-key: ${{ secrets.APP_PRIVATE_KEY }}\n","diff":"--- .github/workflows/ci.yml\n+++ .github/workflows/ci.yml\n@@ -6,1 +6,1 @@\n    steps:\n      - id: create_token\n-       uses: tibdex/github-app-token@v2\n+       uses: actions/create-github-app-token@v3\n        with:\n@@ -8,2 +8,2 @@\n        uses: tibdex/github-app-token@v2\n        with:\n-         app_id: ${{ secrets.APP_ID }}\n-         private_key: ${{ secrets.APP_PRIVATE_KEY }}\n+         app-id: ${{ secrets.APP_ID }}\n+         private-key: ${{ secrets.APP_PRIVATE_KEY }}\n\n","newFile":false}]},{"variants":[{"language":"yaml","before":"jobs:\n  token:\n    runs-on: ubuntu-latest\n    steps:\n      - id: create_token\n        uses: tibdex/github-app-token@v2\n        with:\n          app_id: ${{ secrets.APP_ID }}\n          private_key: ${{ secrets.APP_PRIVATE_KEY }}\n","after":"jobs:\n  token:\n    runs-on: ubuntu-latest\n    steps:\n      - id: create_token\n        uses: actions/create-github-app-token@v3\n        with:\n          app-id: ${{ secrets.APP_ID }}\n          private-key: ${{ secrets.APP_PRIVATE_KEY }}\n","diff":"--- .github/workflows/ci.yml\n+++ .github/workflows/ci.yml\n@@ -6,1 +6,1 @@\n    steps:\n      - id: create_token\n-       uses: tibdex/github-app-token@v2\n+       uses: actions/create-github-app-token@v3\n        with:\n@@ -8,2 +8,2 @@\n        uses: tibdex/github-app-token@v2\n        with:\n-         app_id: ${{ secrets.APP_ID }}\n-         private_key: ${{ secrets.APP_PRIVATE_KEY }}\n+         app-id: ${{ secrets.APP_ID }}\n+         private-key: ${{ secrets.APP_PRIVATE_KEY }}\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.github.MigrateTibdexGitHubAppTokenToActions","displayName":"Migrate from tibdex/github-app-token to actions/create-github-app-token","groupId":"org.openrewrite.recipe","artifactId":"rewrite-github-actions","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_GITHUB_ACTIONS","requiresConfiguration":false}}>
 

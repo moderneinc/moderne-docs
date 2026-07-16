@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJDurationRules.AssertThatHasHours`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasHours {\n    \n    @BeforeTemplate\n    AbstractLongAssert<?> before(Duration duration, long hours) {\n        return assertThat(duration.toHours()).isEqualTo(hours);\n    }\n    \n    @AfterTemplate\n    AbstractDurationAssert<?> after(Duration duration, long hours) {\n        return assertThat(duration).hasHours(hours);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractDurationAssert#hasHours(long)` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatHasHoursRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJDurationRules.AssertThatHasHours`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatHasHours {
-    
-    @BeforeTemplate
-    AbstractLongAssert<?> before(Duration duration, long hours) {
-        return assertThat(duration.toHours()).isEqualTo(hours);
-    }
-    
-    @AfterTemplate
-    AbstractDurationAssert<?> after(Duration duration, long hours) {
-        return assertThat(duration).hasHours(hours);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractDurationAssert#hasHours(long)` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

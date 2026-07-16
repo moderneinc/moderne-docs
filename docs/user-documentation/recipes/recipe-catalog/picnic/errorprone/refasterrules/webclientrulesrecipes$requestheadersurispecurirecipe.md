@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `WebClientRules.RequestHeadersUriSpecUri`"}
-  description={"Don't unnecessarily use `RequestHeadersUriSpec#uri(Function)`."}
+  description={"Prefer `RequestHeadersUriSpec#uri(String, Object...)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.WebClientRulesRecipes$RequestHeadersUriSpecUriRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `WebClientRules.RequestHeadersUriSpecUri`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Don't unnecessarily use `RequestHeadersUriSpec#uri(Function)`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `RequestHeadersUriSpec#uri(String, Object...)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"version","value":"21"}],"variants":[{"language":"xml","before":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>org.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>1.0.0</version>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.jetbrains.kotlin</groupId>\n                <artifactId>kotlin-maven-plugin</artifactId>\n                <version>1.9.24</version>\n                <configuration>\n                    <jvmTarget>11</jvmTarget>\n                    <args>\n                        <arg>-Xjsr305=strict</arg>\n                    </args>\n                </configuration>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n","after":"<project>\n    <modelVersion>4.0.0</modelVersion>\n    <groupId>org.example</groupId>\n    <artifactId>demo</artifactId>\n    <version>1.0.0</version>\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.jetbrains.kotlin</groupId>\n                <artifactId>kotlin-maven-plugin</artifactId>\n                <version>1.9.24</version>\n                <configuration>\n                    <jvmTarget>21</jvmTarget>\n                    <args>\n                        <arg>-Xjsr305=strict</arg>\n                    </args>\n                </configuration>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n","diff":"--- pom.xml\n+++ pom.xml\n@@ -13,1 +13,1 @@\n                <version>1.9.24</version>\n                <configuration>\n-                   <jvmTarget>11</jvmTarget>\n+                   <jvmTarget>21</jvmTarget>\n                    <args>\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.migrate.UpgradeKotlinJvmTargetVersion","displayName":"Upgrade Kotlin `jvmTarget` to match the Java version","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-java","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=21\""}}>
 
 ## Usage

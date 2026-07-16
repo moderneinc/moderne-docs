@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `OptionalRules.OptionalFilter`"}
-  description={"Avoid unnecessary `Optional` to `Stream` conversion when filtering a value of the former type."}
+  description={"Prefer `Optional#filter(Predicate)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.OptionalRulesRecipes$OptionalFilterRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `OptionalRules.OptionalFilter`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Avoid unnecessary `Optional` to `Stream` conversion when filtering a value of the former type.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Optional#filter(Predicate)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `TimeRules.ChronoLocalDateTimeIsBefore`"}
-  description={"Prefer `ChronoLocalDateTime#isBefore(ChronoLocalDateTime)` over explicit comparison, as it yields more readable code."}
+  description={"Prefer `ChronoLocalDateTime#isBefore(ChronoLocalDateTime)` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$ChronoLocalDateTimeIsBeforeRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `TimeRules.ChronoLocalDateTimeIsBefore`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `ChronoLocalDateTime#isBefore(ChronoLocalDateTime)` over explicit comparison, as it yields more readable code.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ChronoLocalDateTime#isBefore(ChronoLocalDateTime)` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

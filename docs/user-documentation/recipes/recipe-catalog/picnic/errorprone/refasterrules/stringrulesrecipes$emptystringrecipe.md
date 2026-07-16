@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StringRules.EmptyString`"}
-  description={"Avoid unnecessary creation of new empty `String` objects; use the empty string literal instead."}
+  description={"Prefer `\"\"` over less efficient or less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StringRulesRecipes$EmptyStringRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StringRules.EmptyString`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Avoid unnecessary creation of new empty `String` objects; use the empty string literal instead.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `""` over less efficient or less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

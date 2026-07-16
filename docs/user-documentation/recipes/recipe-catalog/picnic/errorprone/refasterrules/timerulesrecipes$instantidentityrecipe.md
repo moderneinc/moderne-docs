@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `TimeRules.InstantIdentity`"}
-  description={"Don't unnecessarily transform an `Instant` to an equivalent instance."}
+  description={"Prefer using `Instant`s as-is over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$InstantIdentityRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `TimeRules.InstantIdentity`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Don't unnecessarily transform an `Instant` to an equivalent instance.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer using `Instant`s as-is over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ReactorRules.MonoErrorSupplier`"}
-  description={"Don't unnecessarily pass `Mono#error(Supplier)` a method reference or lambda expression."}
+  description={"Prefer passing `Mono#error(Supplier)` a direct supplier reference over a lambda or method reference that invokes another supplier."}
   fqName={"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoErrorSupplierRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ReactorRules.MonoErrorSupplier`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Don't unnecessarily pass `Mono#error(Supplier)` a method reference or lambda expression.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer passing `Mono#error(Supplier)` a direct supplier reference over a lambda or method reference that invokes another supplier.</RecipeHeader.Description>
 
 </RecipeHeader>
 

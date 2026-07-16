@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find endpoint security"}
-  description={"Per-endpoint security requirements (roles, scopes, raw expressions) extracted from @PreAuthorize/@Secured/@RolesAllowed/@PermitAll annotations at method or class level. Joins to service-endpoints.csv via endpointId."}
+  description={"Per-endpoint security requirements (roles, scopes, raw expressions) extracted from Spring Security (@PreAuthorize/@PostAuthorize/@Secured) and JAX-RS/Jakarta EE (@RolesAllowed/@PermitAll/@DenyAll, jakarta + javax) annotations at method or class level. Joins to service-endpoints.csv via endpointId."}
   fqName={"io.moderne.prethink.calm.FindEndpointSecurity"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find endpoint security</RecipeHeader.Title>
 
-<RecipeHeader.Description>Per-endpoint security requirements (roles, scopes, raw expressions) extracted from @PreAuthorize/@Secured/@RolesAllowed/@PermitAll annotations at method or class level. Joins to service-endpoints.csv via endpointId.</RecipeHeader.Description>
+<RecipeHeader.Description>Per-endpoint security requirements (roles, scopes, raw expressions) extracted from Spring Security (@PreAuthorize/@PostAuthorize/@Secured) and JAX-RS/Jakarta EE (@RolesAllowed/@PermitAll/@DenyAll, jakarta + javax) annotations at method or class level. Joins to service-endpoints.csv via endpointId.</RecipeHeader.Description>
 
 </RecipeHeader>
 

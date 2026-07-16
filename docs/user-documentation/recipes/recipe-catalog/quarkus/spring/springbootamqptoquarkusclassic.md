@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","classic","amqp","quarkus","rabbitmq"]}
+  tags={["spring","classic","rabbitmq","amqp","quarkus"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.quarkus.spring.SpringBootAmqpToQuarkusClassic"}
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}

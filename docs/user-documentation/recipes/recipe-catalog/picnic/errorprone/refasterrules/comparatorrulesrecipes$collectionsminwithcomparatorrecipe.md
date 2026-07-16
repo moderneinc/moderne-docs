@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ComparatorRules.CollectionsMinWithComparator`"}
-  description={"Avoid unnecessary creation of a `Stream` to determine the minimum of a known collection of values."}
+  description={"Prefer `Collections#min(Collection, Comparator)` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ComparatorRulesRecipes$CollectionsMinWithComparatorRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ComparatorRules.CollectionsMinWithComparator`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Avoid unnecessary creation of a `Stream` to determine the minimum of a known collection of values.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Collections#min(Collection, Comparator)` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

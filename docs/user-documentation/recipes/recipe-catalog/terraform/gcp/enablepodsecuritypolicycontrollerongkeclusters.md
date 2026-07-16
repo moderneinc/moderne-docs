@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["GCP","CKV_GCP_24","terraform"]}
+  tags={["GCP","terraform","CKV_GCP_24"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.gcp.EnablePodSecurityPolicyControllerOnGKEClusters"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

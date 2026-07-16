@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </OptionsTable>
 
+<ExampleList examples={[{"parameters":[{"parameter":"thresholdSeconds","value":"null"}],"variants":[{"language":"java","before":"import org.junit.jupiter.api.Timeout;\n\nclass MyTest {\n    @Timeout(10000)\n    void test() {\n    }\n}\n","after":"import org.junit.jupiter.api.Timeout;\n\nimport java.util.concurrent.TimeUnit;\n\nclass MyTest {\n    @Timeout(value = 167, unit = TimeUnit.MINUTES)\n    void test() {\n    }\n}\n","diff":"@@ -3,0 +3,2 @@\nimport org.junit.jupiter.api.Timeout;\n\n+import java.util.concurrent.TimeUnit;\n+\nclass MyTest {\n@@ -4,1 +6,1 @@\n\nclass MyTest {\n-   @Timeout(10000)\n+   @Timeout(value = 167, unit = TimeUnit.MINUTES)\n    void test() {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.junit5.ImplausibleTimeoutToMinutes","displayName":"Make implausibly long `@Timeout` values explicit in minutes","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

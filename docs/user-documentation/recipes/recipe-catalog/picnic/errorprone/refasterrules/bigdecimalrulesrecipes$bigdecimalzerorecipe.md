@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `BigDecimalRules.BigDecimalZero`"}
-  description={"Prefer using the constant `BigDecimal#ZERO` when possible."}
+  description={"Prefer `BigDecimal#ZERO` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalZeroRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `BigDecimalRules.BigDecimalZero`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer using the constant `BigDecimal#ZERO` when possible.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `BigDecimal#ZERO` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

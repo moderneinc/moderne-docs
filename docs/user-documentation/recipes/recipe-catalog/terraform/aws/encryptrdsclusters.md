@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["terraform","AWS","CKV_AWS_16"]}
+  tags={["AWS","terraform","CKV_AWS_16"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.aws.EncryptRDSClusters"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

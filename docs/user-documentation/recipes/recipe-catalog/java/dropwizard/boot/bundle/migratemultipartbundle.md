@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"api"},"variants":[{"language":"yaml","before":"server:\n  port: 8080\n","after":"server:\n  port: 8080\nspring:\n  servlet:\n    multipart:\n      enabled: true\n      # TODO: Unbounded (-1) mirrors the Dropwizard default — review whether an explicit limit is appropriate.\n      max-file-size: '-1'\n      # TODO: Unbounded (-1) mirrors the Dropwizard default — review whether an explicit limit is appropriate.\n      max-request-size: '-1'\n","diff":"--- application.yml\n+++ application.yml\n@@ -3,0 +3,8 @@\nserver:\n  port: 8080\n+spring:\n+ servlet:\n+   multipart:\n+     enabled: true\n+     # TODO: Unbounded (-1) mirrors the Dropwizard default — review whether an explicit limit is appropriate.\n+     max-file-size: '-1'\n+     # TODO: Unbounded (-1) mirrors the Dropwizard default — review whether an explicit limit is appropriate.\n+     max-request-size: '-1'\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.java.dropwizard.boot.bundle.MigrateMultiPartBundle","displayName":"Migrate Dropwizard `MultiPartBundle` to Spring multipart configuration","groupId":"io.moderne.recipe","artifactId":"rewrite-dropwizard","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_DROPWIZARD","requiresConfiguration":false}}>
 
 ## Usage

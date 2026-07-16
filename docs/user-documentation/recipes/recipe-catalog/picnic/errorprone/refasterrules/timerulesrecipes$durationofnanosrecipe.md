@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `TimeRules.DurationOfNanos`"}
-  description={"Prefer `Duration#ofNanos(long)` over alternative representations."}
+  description={"Prefer `Duration#ofNanos(long)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.TimeRulesRecipes$DurationOfNanosRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `TimeRules.DurationOfNanos`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Duration#ofNanos(long)` over alternative representations.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Duration#ofNanos(long)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

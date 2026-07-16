@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `CollectionRules.CollectionIteratorNext`"}
-  description={"Prefer `collection.iterator().next()` over more contrived alternatives."}
+  description={"Prefer `collection.iterator().next()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionIteratorNextRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `CollectionRules.CollectionIteratorNext`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `collection.iterator().next()` over more contrived alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `collection.iterator().next()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

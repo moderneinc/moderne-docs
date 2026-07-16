@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["GCP","CKV_GCP_26","terraform"]}
+  tags={["CKV_GCP_26","GCP","terraform"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.gcp.EnableVPCFlowLogsForSubnetworks"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

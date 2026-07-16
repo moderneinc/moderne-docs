@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `BigDecimalRules.BigDecimalTen`"}
-  description={"Prefer using the constant `BigDecimal#TEN` when possible."}
+  description={"Prefer `BigDecimal#TEN` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.BigDecimalRulesRecipes$BigDecimalTenRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `BigDecimalRules.BigDecimalTen`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer using the constant `BigDecimal#TEN` when possible.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `BigDecimal#TEN` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

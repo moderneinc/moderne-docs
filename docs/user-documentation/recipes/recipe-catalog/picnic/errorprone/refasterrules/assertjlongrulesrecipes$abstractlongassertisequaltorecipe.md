@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJLongRules.AbstractLongAssertIsEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractLongAssertIsEqualTo {\n    \n    @BeforeTemplate\n    AbstractLongAssert<?> before(AbstractLongAssert<?> longAssert, long n) {\n        return Refaster.anyOf(longAssert.isCloseTo(n, offset(0L)), longAssert.isCloseTo(n, withPercentage(0)));\n    }\n    \n    @AfterTemplate\n    AbstractLongAssert<?> after(AbstractLongAssert<?> longAssert, long n) {\n        return longAssert.isEqualTo(n);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractLongAssert#isEqualTo(long)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJLongRulesRecipes$AbstractLongAssertIsEqualToRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJLongRules.AbstractLongAssertIsEqualTo`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractLongAssertIsEqualTo {
-    
-    @BeforeTemplate
-    AbstractLongAssert<?> before(AbstractLongAssert<?> longAssert, long n) {
-        return Refaster.anyOf(longAssert.isCloseTo(n, offset(0L)), longAssert.isCloseTo(n, withPercentage(0)));
-    }
-    
-    @AfterTemplate
-    AbstractLongAssert<?> after(AbstractLongAssert<?> longAssert, long n) {
-        return longAssert.isEqualTo(n);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractLongAssert#isEqualTo(long)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

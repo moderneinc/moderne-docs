@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJEnumerableRules.EnumerableAssertIsNotEmpty`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class EnumerableAssertIsNotEmpty<E> {\n    \n    @BeforeTemplate\n    EnumerableAssert<?, E> before(EnumerableAssert<?, E> enumAssert) {\n        return Refaster.anyOf(enumAssert.hasSizeGreaterThan(0), enumAssert.hasSizeGreaterThanOrEqualTo(1));\n    }\n    \n    @BeforeTemplate\n    AbstractIterableAssert<?, ?, E, ?> before(AbstractIterableAssert<?, ?, E, ?> enumAssert) {\n        return Refaster.anyOf(enumAssert.size().isNotEqualTo(0).returnToIterable(), enumAssert.size().isPositive().returnToIterable());\n    }\n    \n    @BeforeTemplate\n    AbstractIntegerAssert<?> before2(AbstractIterableAssert<?, ?, E, ?> enumAssert) {\n        return Refaster.anyOf(enumAssert.size().isNotEqualTo(0), enumAssert.size().isPositive());\n    }\n    \n    @AfterTemplate\n    EnumerableAssert<?, E> after(EnumerableAssert<?, E> enumAssert) {\n        return enumAssert.isNotEmpty();\n    }\n}\n```\n."}
+  description={"Prefer `EnumerableAssert#isNotEmpty()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJEnumerableRulesRecipes$EnumerableAssertIsNotEmptyRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,36 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJEnumerableRules.EnumerableAssertIsNotEmpty`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class EnumerableAssertIsNotEmpty<E> {
-    
-    @BeforeTemplate
-    EnumerableAssert<?, E> before(EnumerableAssert<?, E> enumAssert) {
-        return Refaster.anyOf(enumAssert.hasSizeGreaterThan(0), enumAssert.hasSizeGreaterThanOrEqualTo(1));
-    }
-    
-    @BeforeTemplate
-    AbstractIterableAssert<?, ?, E, ?> before(AbstractIterableAssert<?, ?, E, ?> enumAssert) {
-        return Refaster.anyOf(enumAssert.size().isNotEqualTo(0).returnToIterable(), enumAssert.size().isPositive().returnToIterable());
-    }
-    
-    @BeforeTemplate
-    AbstractIntegerAssert<?> before2(AbstractIterableAssert<?, ?, E, ?> enumAssert) {
-        return Refaster.anyOf(enumAssert.size().isNotEqualTo(0), enumAssert.size().isPositive());
-    }
-    
-    @AfterTemplate
-    EnumerableAssert<?, E> after(EnumerableAssert<?, E> enumAssert) {
-        return enumAssert.isNotEmpty();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `EnumerableAssert#isNotEmpty()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

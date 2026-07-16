@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    void testMethod(String[] array) {\n        assertThat(array.length).isEqualTo(7);\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass MyTest {\n    void testMethod(String[] array) {\n        assertThat(array).hasSize(7);\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass MyTest {\n    void testMethod(String[] array) {\n-       assertThat(array.length).isEqualTo(7);\n+       assertThat(array).hasSize(7);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.SimplifyArrayLengthAssertion","displayName":"Simplify AssertJ assertions on an array's `length`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

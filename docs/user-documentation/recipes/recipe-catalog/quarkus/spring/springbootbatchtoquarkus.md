@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","scheduler","quarkus","batch"]}
+  tags={["spring","batch","scheduler","quarkus"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.quarkus.spring.SpringBootBatchToQuarkus"}
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}

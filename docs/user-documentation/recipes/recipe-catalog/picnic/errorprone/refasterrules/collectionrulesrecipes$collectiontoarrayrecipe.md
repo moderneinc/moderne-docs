@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `CollectionRules.CollectionToArray`"}
-  description={"Prefer calling `Collection#toArray()` over more contrived alternatives."}
+  description={"Prefer `Collection#toArray()` over less efficient or more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$CollectionToArrayRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `CollectionRules.CollectionToArray`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer calling `Collection#toArray()` over more contrived alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Collection#toArray()` over less efficient or more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

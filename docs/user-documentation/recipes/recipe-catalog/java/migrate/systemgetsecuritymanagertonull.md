@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["security","java25","deprecation"]}
+  tags={["deprecation","java25","security"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.migrate.SystemGetSecurityManagerToNull"}
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}

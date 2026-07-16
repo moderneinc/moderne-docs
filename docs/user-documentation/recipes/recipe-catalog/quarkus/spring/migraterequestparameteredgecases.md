@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","jaxrs","web","quarkus","migration"]}
+  tags={["spring","migration","jaxrs","web","quarkus"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.quarkus.spring.MigrateRequestParameterEdgeCases"}
   artifact={"org.openrewrite.recipe:rewrite-spring-to-quarkus"}

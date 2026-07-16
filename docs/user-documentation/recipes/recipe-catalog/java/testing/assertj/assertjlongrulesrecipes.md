@@ -43,7 +43,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
-<ExampleList examples={[{"variants":[{"language":"java","before":"import org.assertj.core.api.Assertions;\n\nclass A {\n    public void test(long l) {\n        Assertions.assertThat(l).isEqualTo(0L);\n    }\n}\n","after":"import org.assertj.core.api.Assertions;\n\nclass A {\n    public void test(long l) {\n        Assertions.assertThat(l).isZero();\n    }\n}\n","diff":"@@ -5,1 +5,1 @@\nclass A {\n    public void test(long l) {\n-       Assertions.assertThat(l).isEqualTo(0L);\n+       Assertions.assertThat(l).isZero();\n    }\n","newFile":false}]}]}>
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.assertj.core.api.Assertions;\n\nclass A {\n    public void test(long l) {\n        Assertions.assertThat(l).isEqualTo(0L);\n        Assertions.assertThat(l).isSameAs(0L);\n    }\n}\n","after":"import org.assertj.core.api.Assertions;\n\nclass A {\n    public void test(long l) {\n        Assertions.assertThat(l).isZero();\n        Assertions.assertThat(l).isZero();\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass A {\n    public void test(long l) {\n-       Assertions.assertThat(l).isEqualTo(0L);\n-       Assertions.assertThat(l).isSameAs(0L);\n+       Assertions.assertThat(l).isZero();\n+       Assertions.assertThat(l).isZero();\n    }\n","newFile":false}]}]}>
 
 ## Examples
 

@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["security","CWE-470"]}
+  tags={["CWE-470","security"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.java.security.search.FindUnsafeReflection"}
   artifact={"org.openrewrite.recipe:rewrite-java-security"}

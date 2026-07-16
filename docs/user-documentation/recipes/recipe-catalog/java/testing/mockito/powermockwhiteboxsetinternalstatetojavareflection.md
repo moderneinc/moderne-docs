@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"java","code":"class MyService {\n    private String name;\n}\n"},"variants":[{"language":"java","before":"import org.powermock.reflect.Whitebox;\n\nclass MyServiceTest {\n    void testSetField() {\n        MyService service = new MyService();\n        Whitebox.setInternalState(service, \"name\", \"expectedValue\");\n    }\n}\n","after":"import java.lang.reflect.Field;\n\nclass MyServiceTest {\n    void testSetField() throws Exception {\n        MyService service = new MyService();\n        Field nameField = service.getClass().getDeclaredField(\"name\");\n        nameField.setAccessible(true);\n        nameField.set(service, \"expectedValue\");\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.powermock.reflect.Whitebox;\n+import java.lang.reflect.Field;\n\n@@ -4,1 +4,1 @@\n\nclass MyServiceTest {\n-   void testSetField() {\n+   void testSetField() throws Exception {\n        MyService service = new MyService();\n@@ -6,1 +6,3 @@\n    void testSetField() {\n        MyService service = new MyService();\n-       Whitebox.setInternalState(service, \"name\", \"expectedValue\");\n+       Field nameField = service.getClass().getDeclaredField(\"name\");\n+       nameField.setAccessible(true);\n+       nameField.set(service, \"expectedValue\");\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.PowerMockWhiteboxSetInternalStateToJavaReflection","displayName":"Replace PowerMock `Whitebox.setInternalState()` with Java reflection","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

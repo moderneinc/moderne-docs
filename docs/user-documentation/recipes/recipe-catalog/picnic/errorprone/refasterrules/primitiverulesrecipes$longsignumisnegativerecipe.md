@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `PrimitiveRules.LongSignumIsNegative`"}
-  description={"Prefer an `Long#signum(long)` comparison to 0 over less idiomatic alternatives."}
+  description={"Prefer `Long.signum(i) < 0` over less idiomatic alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$LongSignumIsNegativeRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `PrimitiveRules.LongSignumIsNegative`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer an `Long#signum(long)` comparison to 0 over less idiomatic alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Long.signum(i) < 0` over less idiomatic alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

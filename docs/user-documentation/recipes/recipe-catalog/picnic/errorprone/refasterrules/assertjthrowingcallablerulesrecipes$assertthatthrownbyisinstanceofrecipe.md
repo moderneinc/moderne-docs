@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIsInstanceOf`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatThrownByIsInstanceOf<T extends Throwable> {\n    \n    @BeforeTemplate\n    void before(ThrowingCallable throwingCallable, Class<T> exceptionType) {\n        Refaster.anyOf(assertThatThrownBy(throwingCallable).asInstanceOf(throwable(exceptionType)), assertThatThrownBy(throwingCallable).asInstanceOf(type(exceptionType)));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(ThrowingCallable throwingCallable, Class<T> exceptionType) {\n        assertThatThrownBy(throwingCallable).isInstanceOf(exceptionType);\n    }\n}\n```\n."}
+  description={"Prefer `org.assertj.core.api.AbstractAssert#isInstanceOf` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJThrowingCallableRulesRecipes$AssertThatThrownByIsInstanceOfRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJThrowingCallableRules.AssertThatThrownByIsInstanceOf`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatThrownByIsInstanceOf<T extends Throwable> {
-    
-    @BeforeTemplate
-    void before(ThrowingCallable throwingCallable, Class<T> exceptionType) {
-        Refaster.anyOf(assertThatThrownBy(throwingCallable).asInstanceOf(throwable(exceptionType)), assertThatThrownBy(throwingCallable).asInstanceOf(type(exceptionType)));
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    void after(ThrowingCallable throwingCallable, Class<T> exceptionType) {
-        assertThatThrownBy(throwingCallable).isInstanceOf(exceptionType);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `org.assertj.core.api.AbstractAssert#isInstanceOf` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

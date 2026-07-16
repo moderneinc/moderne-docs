@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import static org.testng.Assert.assertSame;\n\nclass Test {\n    void test(Object actual, Object expected) {\n        assertSame(actual, expected);\n        assertSame(actual, expected, \"foo\");\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass Test {\n    void test(Object actual, Object expected) {\n        assertThat(actual).isSameAs(expected);\n        assertThat(actual).as(\"foo\").isSameAs(expected);\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import static org.testng.Assert.assertSame;\n+import static org.assertj.core.api.Assertions.assertThat;\n\n@@ -5,2 +5,2 @@\nclass Test {\n    void test(Object actual, Object expected) {\n-       assertSame(actual, expected);\n-       assertSame(actual, expected, \"foo\");\n+       assertThat(actual).isSameAs(expected);\n+       assertThat(actual).as(\"foo\").isSameAs(expected);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.testng.TestNgAssertSameToAssertThat","displayName":"TestNG `assertSame` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

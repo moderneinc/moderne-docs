@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJObjectRules.AssertThatIsNull`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsNull<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatIsSameAs\")\n    void before(T object) {\n        assertThat(object == null).isTrue();\n    }\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatIsSameAs\")\n    void before2(T object) {\n        assertThat(object != null).isFalse();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(T object) {\n        assertThat(object).isNull();\n    }\n}\n```\n."}
+  description={"Prefer `ObjectAssert#isNull()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes$AssertThatIsNullRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,34 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJObjectRules.AssertThatIsNull`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsNull<T> {
-    
-    @BeforeTemplate
-    @SuppressWarnings(value = "AssertThatIsSameAs")
-    void before(T object) {
-        assertThat(object == null).isTrue();
-    }
-    
-    @BeforeTemplate
-    @SuppressWarnings(value = "AssertThatIsSameAs")
-    void before2(T object) {
-        assertThat(object != null).isFalse();
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    void after(T object) {
-        assertThat(object).isNull();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ObjectAssert#isNull()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

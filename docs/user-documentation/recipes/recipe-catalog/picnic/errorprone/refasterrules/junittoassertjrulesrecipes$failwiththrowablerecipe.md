@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `JUnitToAssertJRules.FailWithThrowable`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class FailWithThrowable<T> {\n    \n    @BeforeTemplate\n    T before(Throwable throwable) {\n        return Assertions.fail(throwable);\n    }\n    \n    @AfterTemplate\n    @DoNotCall\n    T after(Throwable throwable) {\n        return fail(throwable);\n    }\n}\n```\n."}
+  description={"Prefer `org.assertj.core.api.Assertions#fail(Throwable)` over non-AssertJ alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$FailWithThrowableRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `JUnitToAssertJRules.FailWithThrowable`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class FailWithThrowable<T> {
-    
-    @BeforeTemplate
-    T before(Throwable throwable) {
-        return Assertions.fail(throwable);
-    }
-    
-    @AfterTemplate
-    @DoNotCall
-    T after(Throwable throwable) {
-        return fail(throwable);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `org.assertj.core.api.Assertions#fail(Throwable)` over non-AssertJ alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

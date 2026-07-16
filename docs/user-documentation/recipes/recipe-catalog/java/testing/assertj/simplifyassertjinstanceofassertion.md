@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass A {\n    void foo(Object error) {\n        assertThat(error instanceof RuntimeException).isTrue();\n        assertThat(error instanceof RuntimeException).isFalse();\n    }\n}\n","after":"import static org.assertj.core.api.Assertions.assertThat;\n\nclass A {\n    void foo(Object error) {\n        assertThat(error).isInstanceOf(RuntimeException.class);\n        assertThat(error).isNotInstanceOf(RuntimeException.class);\n    }\n}\n","diff":"@@ -5,2 +5,2 @@\nclass A {\n    void foo(Object error) {\n-       assertThat(error instanceof RuntimeException).isTrue();\n-       assertThat(error instanceof RuntimeException).isFalse();\n+       assertThat(error).isInstanceOf(RuntimeException.class);\n+       assertThat(error).isNotInstanceOf(RuntimeException.class);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.assertj.SimplifyAssertJInstanceOfAssertion","displayName":"Simplify AssertJ assertions on `instanceof` expressions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

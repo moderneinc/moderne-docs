@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `BugCheckerRules.BugCheckerRefactoringTestHelperAddInputLinesExpectUnchanged`"}
-  description={"Prefer `BugCheckerRefactoringTestHelper.ExpectOutput#expectUnchanged()` over repeating the input."}
+  description={"Prefer `BugCheckerRefactoringTestHelper.ExpectOutput#expectUnchanged()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.BugCheckerRulesRecipes$BugCheckerRefactoringTestHelperAddInputLinesExpectUnchangedRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `BugCheckerRules.BugCheckerRefactoringTestHelperAddInputLinesExpectUnchanged`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `BugCheckerRefactoringTestHelper.ExpectOutput#expectUnchanged()` over repeating the input.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `BugCheckerRefactoringTestHelper.ExpectOutput#expectUnchanged()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

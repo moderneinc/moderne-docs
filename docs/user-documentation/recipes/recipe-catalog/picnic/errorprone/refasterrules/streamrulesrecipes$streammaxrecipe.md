@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamMax`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamMax<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4266\")\n    Optional<T> before(Stream<T> stream, Comparator<? super T> comparator) {\n        return Refaster.anyOf(stream.min(comparator.reversed()), Streams.findLast(stream.sorted(comparator)), stream.collect(maxBy(comparator)));\n    }\n    \n    @AfterTemplate\n    Optional<T> after(Stream<T> stream, Comparator<? super T> comparator) {\n        return stream.max(comparator);\n    }\n}\n```\n."}
+  description={"Prefer `Stream#max(Comparator)` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMaxRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamMax`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class StreamMax<T> {
-    
-    @BeforeTemplate
-    @SuppressWarnings(value = "java:S4266")
-    Optional<T> before(Stream<T> stream, Comparator<? super T> comparator) {
-        return Refaster.anyOf(stream.min(comparator.reversed()), Streams.findLast(stream.sorted(comparator)), stream.collect(maxBy(comparator)));
-    }
-    
-    @AfterTemplate
-    Optional<T> after(Stream<T> stream, Comparator<? super T> comparator) {
-        return stream.max(comparator);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Stream#max(Comparator)` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

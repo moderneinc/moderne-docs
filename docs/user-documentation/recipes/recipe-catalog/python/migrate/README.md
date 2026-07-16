@@ -13,6 +13,7 @@ description: Migrate OpenRewrite recipes.
 
 _Recipes that include further recipes, often including the individual recipes below._
 
+* [Migrate the deprecated `avro-python3` package to `avro`](./migrateavropython3toavro.md)
 * [Upgrade Python version in project files to 3.10](./upgradepythonversionto310.md)
 * [Upgrade Python version in project files to 3.11](./upgradepythonversionto311.md)
 * [Upgrade Python version in project files to 3.12](./upgradepythonversionto312.md)
@@ -121,6 +122,8 @@ _Recipes that include further recipes, often including the individual recipes be
 * [Replace `typing.Tuple` with `tuple`](./replacetypingtuplewithtuple.md)
 * [Replace `typing.Union[X, Y]` with `X | Y`](./replacetypingunionwithpipe.md)
 * [Upgrade Python Docker base image](./upgradepythondockerimage.md)
+* [Upgrade Python runtime in CloudFormation templates](./upgradepythoncloudformationruntime.md)
+* [Upgrade Python version in Mend `.whitesource` files](./upgradepythonwhitesourceconfig.md)
 * [Upgrade Python version in project files](./upgradepythonversion.md)
 
 

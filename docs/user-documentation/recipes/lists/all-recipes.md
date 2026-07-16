@@ -6,14 +6,17 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc indexes per-module recipe lists. Click a groupId to see its recipes._
 
-Total recipes: 7647
+Total recipes: 7698
 
 
 ## io.moderne.recipe
 
 * [recipes-code-quality](all-recipes-io-moderne-recipe.md#recipes-code-quality)
+* [recipes-csharp-core](all-recipes-io-moderne-recipe.md#recipes-csharp-core)
 * [recipes-kotlin](all-recipes-io-moderne-recipe.md#recipes-kotlin)
+* [recipes-migrate-dotnet](all-recipes-io-moderne-recipe.md#recipes-migrate-dotnet)
 * [recipes-scala](all-recipes-io-moderne-recipe.md#recipes-scala)
+* [recipes-tunit](all-recipes-io-moderne-recipe.md#recipes-tunit)
 * [rewrite-ai](all-recipes-io-moderne-recipe.md#rewrite-ai)
 * [rewrite-angular](all-recipes-io-moderne-recipe.md#rewrite-angular)
 * [rewrite-cryptography](all-recipes-io-moderne-recipe.md#rewrite-cryptography)
@@ -39,6 +42,7 @@ Total recipes: 7647
 * [rewrite-cobol](all-recipes-org-openrewrite.md#rewrite-cobol)
 * [rewrite-core](all-recipes-org-openrewrite.md#rewrite-core)
 * [rewrite-docker](all-recipes-org-openrewrite.md#rewrite-docker)
+* [rewrite-go](all-recipes-org-openrewrite.md#rewrite-go)
 * [rewrite-gradle](all-recipes-org-openrewrite.md#rewrite-gradle)
 * [rewrite-groovy](all-recipes-org-openrewrite.md#rewrite-groovy)
 * [rewrite-hcl](all-recipes-org-openrewrite.md#rewrite-hcl)
@@ -59,7 +63,6 @@ Total recipes: 7647
 
 ## org.openrewrite.recipe
 
-* [recipes-go](all-recipes-org-openrewrite-recipe.md#recipes-go)
 * [rewrite-all](all-recipes-org-openrewrite-recipe.md#rewrite-all)
 * [rewrite-android](all-recipes-org-openrewrite-recipe.md#rewrite-android)
 * [rewrite-apache](all-recipes-org-openrewrite-recipe.md#rewrite-apache)

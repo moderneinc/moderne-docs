@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import tools.jackson.core.json.JsonFactory;\nimport tools.jackson.core.json.JsonFactoryBuilder;\n\nclass A {\n    JsonFactory factory = new JsonFactoryBuilder().build();\n}\n","after":"import tools.jackson.core.json.JsonFactory;\n\nclass A {\n    JsonFactory factory = JsonFactory.builder().build();\n}\n","diff":"@@ -2,1 +2,0 @@\nimport tools.jackson.core.json.JsonFactory;\n-import tools.jackson.core.json.JsonFactoryBuilder;\n\n@@ -5,1 +4,1 @@\n\nclass A {\n-   JsonFactory factory = new JsonFactoryBuilder().build();\n+   JsonFactory factory = JsonFactory.builder().build();\n}\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.jackson.UseJsonFactoryStaticBuilder","displayName":"Use `JsonFactory.builder()` over `new JsonFactoryBuilder()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
 
 ## Usage

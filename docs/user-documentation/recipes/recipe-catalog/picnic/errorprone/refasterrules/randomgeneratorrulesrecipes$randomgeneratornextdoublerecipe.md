@@ -1,6 +1,6 @@
 ---
-title: "Refaster template `RandomGeneratorRules.RandomGeneratorNextDouble`"
-sidebar_label: "Refaster template `RandomGeneratorRules.RandomGeneratorNextDouble`"
+title: "Prefer `RandomGenerator#nextDouble(double)` over more fragile alternatives"
+sidebar_label: "Prefer `RandomGenerator#nextDouble(double)` over more fragile alternatives"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster template `RandomGeneratorRules.RandomGeneratorNextDouble`"}
-  description={"Prefer `RandomGenerator#nextDouble(double)` over alternatives that yield a smaller domain of values and may result in `Double#isInfinite() inifinity`."}
+  displayName={"Prefer `RandomGenerator#nextDouble(double)` over more fragile alternatives"}
+  description={"<strong>Warning:</strong> this rewrite may change the domain of generated values; in\n particular, the before-template can yield values outside `[0, bound)` or even `Double#isInfinite() infinity`."}
   fqName={"tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextDoubleRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/randomgeneratorrulesrecipes$randomgeneratornextdoublerecipe.md"}
 >
 
-<RecipeHeader.Title>Refaster template `RandomGeneratorRules.RandomGeneratorNextDouble`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `RandomGenerator#nextDouble(double)` over more fragile alternatives</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `RandomGenerator#nextDouble(double)` over alternatives that yield a smaller domain of values and may result in `Double#isInfinite() inifinity`.</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rewrite may change the domain of generated values; in  particular, the before-template can yield values outside `[0, bound)` or even `Double#isInfinite() infinity`.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextDoubleRecipe","displayName":"Refaster template `RandomGeneratorRules.RandomGeneratorNextDouble`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.RandomGeneratorRulesRecipes$RandomGeneratorNextDoubleRecipe","displayName":"Prefer `RandomGenerator#nextDouble(double)` over more fragile alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

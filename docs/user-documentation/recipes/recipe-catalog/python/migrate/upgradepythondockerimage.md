@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Upgrade Python Docker base image"}
-  description={"Update the Python version of `Dockerfile` base images (`FROM python:<version>`) to a target version. Tag suffixes such as `-slim` are preserved, any patch component is dropped, and an image already on a newer version is left as-is."}
+  description={"Update the Python version of Python images in Dockerfiles to a target version: `FROM python:<version>` base images and `COPY --from=<python image>` / `ADD --from=<python image>` stage references (e.g. `COPY --from=registry.example.com/approved-images/python:3.10-ubuntu22.04 /usr /usr`). Tag suffixes such as `-slim` are preserved, any patch component is dropped, and an image already on a newer version is left as-is. `--from` references to named build stages are not image references and are left untouched."}
   fqName={"org.openrewrite.python.migrate.UpgradePythonDockerImage"}
   languages={["Python"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Upgrade Python Docker base image</RecipeHeader.Title>
 
-<RecipeHeader.Description>Update the Python version of `Dockerfile` base images (`FROM python:<version>`) to a target version. Tag suffixes such as `-slim` are preserved, any patch component is dropped, and an image already on a newer version is left as-is.</RecipeHeader.Description>
+<RecipeHeader.Description>Update the Python version of Python images in Dockerfiles to a target version: `FROM python:<version>` base images and `COPY --from=<python image>` / `ADD --from=<python image>` stage references (e.g. `COPY --from=registry.example.com/approved-images/python:3.10-ubuntu22.04 /usr /usr`). Tag suffixes such as `-slim` are preserved, any patch component is dropped, and an image already on a newer version is left as-is. `--from` references to named build stages are not image references and are left untouched.</RecipeHeader.Description>
 
 </RecipeHeader>
 
@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 ## Options
 
 </OptionsTable>
+
+<ExampleList examples={[{"parameters":[{"parameter":"version","value":"3.12"}],"variants":[{"language":"docker","before":"FROM python:3.11-slim\nWORKDIR /app\n","after":"FROM python:3.12-slim\nWORKDIR /app\n","diff":"--- Dockerfile\n+++ Dockerfile\n@@ -1,1 +1,1 @@\n-FROM python:3.11-slim\n+FROM python:3.12-slim\nWORKDIR /app\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
 
 <UsageList usage={{"recipeName":"org.openrewrite.python.migrate.UpgradePythonDockerImage","displayName":"Upgrade Python Docker base image","groupId":"org.openrewrite.recipe","artifactId":"rewrite-migrate-python","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_MIGRATE_PYTHON","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=3.12\""}}>
 

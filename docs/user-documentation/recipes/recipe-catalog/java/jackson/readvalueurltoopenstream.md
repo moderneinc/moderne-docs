@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.fasterxml.jackson.databind.ObjectMapper;\nimport java.io.IOException;\nimport java.net.URL;\n\nclass Test {\n    Object load(ObjectMapper mapper, URL url) throws IOException {\n        return mapper.readValue(url, Object.class);\n    }\n}\n","after":"import com.fasterxml.jackson.databind.ObjectMapper;\nimport java.io.IOException;\nimport java.net.URL;\n\nclass Test {\n    Object load(ObjectMapper mapper, URL url) throws IOException {\n        return mapper.readValue(url.openStream(), Object.class);\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass Test {\n    Object load(ObjectMapper mapper, URL url) throws IOException {\n-       return mapper.readValue(url, Object.class);\n+       return mapper.readValue(url.openStream(), Object.class);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.jackson.ReadValueUrlToOpenStream","displayName":"Migrate `ObjectMapper.readValue(URL, ...)` to use `openStream()`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-jackson","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_JACKSON","requiresConfiguration":false}}>
 
 ## Usage

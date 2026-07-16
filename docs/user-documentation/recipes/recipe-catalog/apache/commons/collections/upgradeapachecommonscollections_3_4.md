@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["apache","collections","commons"]}
+  tags={["collections","commons","apache"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.apache.commons.collections.UpgradeApacheCommonsCollections_3_4"}
   artifact={"org.openrewrite.recipe:rewrite-apache"}

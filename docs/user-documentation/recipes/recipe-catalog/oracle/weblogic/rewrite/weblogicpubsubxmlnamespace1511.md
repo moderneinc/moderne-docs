@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["schemas","weblogic","pubsub"]}
+  tags={["weblogic","pubsub","schemas"]}
   license={"Apache License Version 2.0"}
   fqName={"com.oracle.weblogic.rewrite.WebLogicPubSubXmlNamespace1511"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

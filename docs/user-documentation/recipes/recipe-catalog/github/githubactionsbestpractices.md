@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["github","actions"]}
+  tags={["actions","github"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.github.GitHubActionsBestPractices"}
   artifact={"org.openrewrite.recipe:rewrite-github-actions"}

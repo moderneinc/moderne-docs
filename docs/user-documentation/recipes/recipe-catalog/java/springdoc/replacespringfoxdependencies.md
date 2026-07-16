@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["springfox","springdoc"]}
+  tags={["springdoc","springfox"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.springdoc.ReplaceSpringFoxDependencies"}
   artifact={"org.openrewrite.recipe:rewrite-spring"}

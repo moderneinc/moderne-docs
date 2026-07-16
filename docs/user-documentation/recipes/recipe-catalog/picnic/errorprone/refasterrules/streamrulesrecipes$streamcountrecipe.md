@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamCount`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamCount<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"java:S4266\")\n    long before(Stream<T> stream) {\n        return stream.collect(counting());\n    }\n    \n    @AfterTemplate\n    long after(Stream<T> stream) {\n        return stream.count();\n    }\n}\n```\n."}
+  description={"Prefer `Stream#count()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamCountRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamCount`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class StreamCount<T> {
-    
-    @BeforeTemplate
-    @SuppressWarnings(value = "java:S4266")
-    long before(Stream<T> stream) {
-        return stream.collect(counting());
-    }
-    
-    @AfterTemplate
-    long after(Stream<T> stream) {
-        return stream.count();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Stream#count()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

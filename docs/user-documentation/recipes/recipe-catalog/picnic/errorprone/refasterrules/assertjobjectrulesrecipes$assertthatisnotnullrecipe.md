@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJObjectRules.AssertThatIsNotNull`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsNotNull<T> {\n    \n    @BeforeTemplate\n    @SuppressWarnings(value = \"AssertThatIsNotSameAs\")\n    AbstractBooleanAssert<? extends AbstractBooleanAssert<?>> before(T object) {\n        return Refaster.anyOf(assertThat(object == null).isFalse(), assertThat(object != null).isTrue());\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ObjectAssert<T> after(T object) {\n        return assertThat(object).isNotNull();\n    }\n}\n```\n."}
+  description={"Prefer `ObjectAssert#isNotNull()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes$AssertThatIsNotNullRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,28 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJObjectRules.AssertThatIsNotNull`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsNotNull<T> {
-    
-    @BeforeTemplate
-    @SuppressWarnings(value = "AssertThatIsNotSameAs")
-    AbstractBooleanAssert<? extends AbstractBooleanAssert<?>> before(T object) {
-        return Refaster.anyOf(assertThat(object == null).isFalse(), assertThat(object != null).isTrue());
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    ObjectAssert<T> after(T object) {
-        return assertThat(object).isNotNull();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ObjectAssert#isNotNull()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

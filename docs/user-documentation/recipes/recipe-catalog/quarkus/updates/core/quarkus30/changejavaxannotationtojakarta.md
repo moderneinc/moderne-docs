@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["javax","batch","jakarta"]}
+  tags={["batch","javax","jakarta"]}
   license={"Apache License Version 2.0"}
   fqName={"io.quarkus.updates.core.quarkus30.ChangeJavaxAnnotationToJakarta"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

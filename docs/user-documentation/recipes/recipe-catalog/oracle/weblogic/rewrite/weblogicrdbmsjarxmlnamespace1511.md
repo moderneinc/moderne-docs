@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["schemas","weblogic","rdbms-jar"]}
+  tags={["weblogic","rdbms-jar","schemas"]}
   license={"Apache License Version 2.0"}
   fqName={"com.oracle.weblogic.rewrite.WebLogicRdbmsJarXmlNamespace1511"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}

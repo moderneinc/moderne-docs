@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["oracle","flyway"]}
+  tags={["flyway","oracle"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.flyway.AddFlywayModuleOracle"}
   artifact={"org.openrewrite.recipe:rewrite-spring"}

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `WebClientRules.WebClientPatch`"}
-  description={"Prefer `WebClient#patch()` over `WebClient#method(HttpMethod)` with `HttpMethod#PATCH`."}
+  description={"Prefer `WebClient#patch()` over less idiomatic alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.WebClientRulesRecipes$WebClientPatchRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `WebClientRules.WebClientPatch`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `WebClient#patch()` over `WebClient#method(HttpMethod)` with `HttpMethod#PATCH`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `WebClient#patch()` over less idiomatic alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

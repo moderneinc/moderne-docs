@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ReactorRules.PublisherProbeEmpty`"}
-  description={"Prefer `PublisherProbe#empty()`} over more verbose alternatives."}
+  description={"Prefer `PublisherProbe#empty()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$PublisherProbeEmptyRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ReactorRules.PublisherProbeEmpty`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `PublisherProbe#empty()`} over more verbose alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `PublisherProbe#empty()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

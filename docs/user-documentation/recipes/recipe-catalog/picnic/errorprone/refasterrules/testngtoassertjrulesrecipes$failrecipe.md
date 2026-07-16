@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `TestNGToAssertJRules.Fail`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class Fail {\n    \n    @BeforeTemplate\n    void before() {\n        Assert.fail();\n    }\n    \n    @AfterTemplate\n    @DoNotCall\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after() {\n        fail();\n    }\n}\n```\n."}
+  description={"Prefer `Assertions#fail()` over non-AssertJ alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.TestNGToAssertJRulesRecipes$FailRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,28 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `TestNGToAssertJRules.Fail`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class Fail {
-    
-    @BeforeTemplate
-    void before() {
-        Assert.fail();
-    }
-    
-    @AfterTemplate
-    @DoNotCall
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    void after() {
-        fail();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Assertions#fail()` over non-AssertJ alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

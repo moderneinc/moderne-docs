@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJDurationRules.AssertThatHasNanos`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasNanos {\n    \n    @BeforeTemplate\n    AbstractLongAssert<?> before(Duration duration, long nanos) {\n        return assertThat(duration.toNanos()).isEqualTo(nanos);\n    }\n    \n    @AfterTemplate\n    AbstractDurationAssert<?> after(Duration duration, long nanos) {\n        return assertThat(duration).hasNanos(nanos);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractDurationAssert#hasNanos(long)` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatHasNanosRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJDurationRules.AssertThatHasNanos`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatHasNanos {
-    
-    @BeforeTemplate
-    AbstractLongAssert<?> before(Duration duration, long nanos) {
-        return assertThat(duration.toNanos()).isEqualTo(nanos);
-    }
-    
-    @AfterTemplate
-    AbstractDurationAssert<?> after(Duration duration, long nanos) {
-        return assertThat(duration).hasNanos(nanos);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractDurationAssert#hasNanos(long)` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

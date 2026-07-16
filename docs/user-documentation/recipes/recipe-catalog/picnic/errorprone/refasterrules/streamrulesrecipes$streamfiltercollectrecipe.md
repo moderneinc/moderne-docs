@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamFilterCollect`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamFilterCollect<T, R> {\n    \n    @BeforeTemplate\n    R before(Stream<T> stream, Predicate<? super T> predicate, Collector<? super T, ?, R> collector) {\n        return stream.collect(filtering(predicate, collector));\n    }\n    \n    @AfterTemplate\n    R after(Stream<T> stream, Predicate<? super T> predicate, Collector<? super T, ?, R> collector) {\n        return stream.filter(predicate).collect(collector);\n    }\n}\n```\n."}
+  description={"Prefer `Stream#filter(Predicate)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFilterCollectRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamFilterCollect`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class StreamFilterCollect<T, R> {
-    
-    @BeforeTemplate
-    R before(Stream<T> stream, Predicate<? super T> predicate, Collector<? super T, ?, R> collector) {
-        return stream.collect(filtering(predicate, collector));
-    }
-    
-    @AfterTemplate
-    R after(Stream<T> stream, Predicate<? super T> predicate, Collector<? super T, ?, R> collector) {
-        return stream.filter(predicate).collect(collector);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Stream#filter(Predicate)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

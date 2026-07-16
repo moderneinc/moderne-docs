@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJPathRules.AssertThatHasNoParent`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasNoParent {\n    \n    @BeforeTemplate\n    void before(Path actual) {\n        assertThat(actual.getParent()).isNull();\n    }\n    \n    @AfterTemplate\n    void after(Path actual) {\n        assertThat(actual).hasNoParent();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractPathAssert#hasNoParent()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJPathRulesRecipes$AssertThatHasNoParentRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJPathRules.AssertThatHasNoParent`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatHasNoParent {
-    
-    @BeforeTemplate
-    void before(Path actual) {
-        assertThat(actual.getParent()).isNull();
-    }
-    
-    @AfterTemplate
-    void after(Path actual) {
-        assertThat(actual).hasNoParent();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractPathAssert#hasNoParent()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

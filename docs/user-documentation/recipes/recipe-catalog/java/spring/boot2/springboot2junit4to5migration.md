@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["spring","junit","test","jupiter","boot"]}
+  tags={["spring","junit","jupiter","test","boot"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.spring.boot2.SpringBoot2JUnit4to5Migration"}
   artifact={"org.openrewrite.recipe:rewrite-spring"}

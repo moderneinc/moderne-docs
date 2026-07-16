@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["richfaces","jsf"]}
+  tags={["jsf","richfaces"]}
   license={"Moderne Proprietary License"}
   fqName={"io.moderne.java.jsf.richfaces.update45.UpdateXHTMLTags"}
   artifact={"io.moderne.recipe:rewrite-spring"}

@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;\nimport org.springframework.context.annotation.Configuration;\n\n@Configuration\n@EnableBatchProcessing(dataSourceRef = \"batchDataSource\", transactionManagerRef = \"batchTransactionManager\")\nclass BatchConfig {\n}\n","after":"import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;\nimport org.springframework.batch.core.configuration.annotation.EnableJdbcJobRepository;\nimport org.springframework.context.annotation.Configuration;\n\n@Configuration\n@EnableBatchProcessing(transactionManagerRef = \"batchTransactionManager\")\n@EnableJdbcJobRepository(dataSourceRef = \"batchDataSource\", transactionManagerRef = \"batchTransactionManager\")\nclass BatchConfig {\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;\n+import org.springframework.batch.core.configuration.annotation.EnableJdbcJobRepository;\nimport org.springframework.context.annotation.Configuration;\n@@ -5,1 +6,2 @@\n\n@Configuration\n-@EnableBatchProcessing(dataSourceRef = \"batchDataSource\", transactionManagerRef = \"batchTransactionManager\")\n+@EnableBatchProcessing(transactionManagerRef = \"batchTransactionManager\")\n+@EnableJdbcJobRepository(dataSourceRef = \"batchDataSource\", transactionManagerRef = \"batchTransactionManager\")\nclass BatchConfig {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.java.spring.batch.AddEnableJdbcJobRepository","displayName":"Add `@EnableJdbcJobRepository` alongside `@EnableBatchProcessing`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJPrimitiveRules.AssertThatIsGreaterThan`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsGreaterThan {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(double actual, double expected) {\n        return Refaster.anyOf(assertThat(actual > expected).isTrue(), assertThat(actual <= expected).isFalse());\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    AbstractDoubleAssert<?> after(double actual, double expected) {\n        return assertThat(actual).isGreaterThan(expected);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractDoubleAssert#isGreaterThan` over less idiomatic alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJPrimitiveRulesRecipes$AssertThatIsGreaterThanRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJPrimitiveRules.AssertThatIsGreaterThan`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsGreaterThan {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(double actual, double expected) {
-        return Refaster.anyOf(assertThat(actual > expected).isTrue(), assertThat(actual <= expected).isFalse());
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    AbstractDoubleAssert<?> after(double actual, double expected) {
-        return assertThat(actual).isGreaterThan(expected);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractDoubleAssert#isGreaterThan` over less idiomatic alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

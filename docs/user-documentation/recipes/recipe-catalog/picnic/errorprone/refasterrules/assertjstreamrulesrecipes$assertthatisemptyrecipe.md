@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJStreamRules.AssertThatIsEmpty`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsEmpty<T, S> {\n    \n    @BeforeTemplate\n    void before(Stream<T> stream) {\n        assertThat(stream.findAny()).isEmpty();\n    }\n    \n    @BeforeTemplate\n    void before2(Stream<T> stream) {\n        assertThat(stream.findFirst()).isEmpty();\n    }\n    \n    @BeforeTemplate\n    void before3(Stream<T> stream) {\n        assertThat(stream.toArray()).isEmpty();\n    }\n    \n    @BeforeTemplate\n    void before4(Stream<T> stream, IntFunction<S[]> generator) {\n        assertThat(stream.toArray(generator)).isEmpty();\n    }\n    \n    @BeforeTemplate\n    void before5(Stream<T> stream) {\n        assertThat(stream.toList()).isEmpty();\n    }\n    \n    @BeforeTemplate\n    void before6(Stream<T> stream, Collector<T, ?, ? extends Iterable<S>> collector) {\n        assertThat(stream.collect(collector)).isEmpty();\n    }\n    \n    @BeforeTemplate\n    void before7(Stream<T> stream, Collector<T, ?, ? extends Collection<S>> collector) {\n        assertThat(stream.collect(collector)).isEmpty();\n    }\n    \n    @BeforeTemplate\n    void before8(Stream<T> stream, Collector<T, ?, ? extends List<S>> collector) {\n        assertThat(stream.collect(collector)).isEmpty();\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Stream<T> stream) {\n        assertThat(stream).isEmpty();\n    }\n}\n```\n."}
+  description={"Prefer `assertThat(stream).isEmpty()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJStreamRulesRecipes$AssertThatIsEmptyRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,62 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJStreamRules.AssertThatIsEmpty`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsEmpty<T, S> {
-    
-    @BeforeTemplate
-    void before(Stream<T> stream) {
-        assertThat(stream.findAny()).isEmpty();
-    }
-    
-    @BeforeTemplate
-    void before2(Stream<T> stream) {
-        assertThat(stream.findFirst()).isEmpty();
-    }
-    
-    @BeforeTemplate
-    void before3(Stream<T> stream) {
-        assertThat(stream.toArray()).isEmpty();
-    }
-    
-    @BeforeTemplate
-    void before4(Stream<T> stream, IntFunction<S[]> generator) {
-        assertThat(stream.toArray(generator)).isEmpty();
-    }
-    
-    @BeforeTemplate
-    void before5(Stream<T> stream) {
-        assertThat(stream.toList()).isEmpty();
-    }
-    
-    @BeforeTemplate
-    void before6(Stream<T> stream, Collector<T, ?, ? extends Iterable<S>> collector) {
-        assertThat(stream.collect(collector)).isEmpty();
-    }
-    
-    @BeforeTemplate
-    void before7(Stream<T> stream, Collector<T, ?, ? extends Collection<S>> collector) {
-        assertThat(stream.collect(collector)).isEmpty();
-    }
-    
-    @BeforeTemplate
-    void before8(Stream<T> stream, Collector<T, ?, ? extends List<S>> collector) {
-        assertThat(stream.collect(collector)).isEmpty();
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    void after(Stream<T> stream) {
-        assertThat(stream).isEmpty();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `assertThat(stream).isEmpty()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamMaxNaturalOrder`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamMaxNaturalOrder<T extends Comparable<? super T>> {\n    \n    @BeforeTemplate\n    Optional<T> before(Stream<T> stream) {\n        return Refaster.anyOf(stream.min(reverseOrder()), Streams.findLast(stream.sorted()));\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    Optional<T> after(Stream<T> stream) {\n        return stream.max(naturalOrder());\n    }\n}\n```\n."}
+  description={"Prefer `Stream#max(Comparator)` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamMaxNaturalOrderRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamMaxNaturalOrder`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class StreamMaxNaturalOrder<T extends Comparable<? super T>> {
-    
-    @BeforeTemplate
-    Optional<T> before(Stream<T> stream) {
-        return Refaster.anyOf(stream.min(reverseOrder()), Streams.findLast(stream.sorted()));
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    Optional<T> after(Stream<T> stream) {
-        return stream.max(naturalOrder());
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Stream#max(Comparator)` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

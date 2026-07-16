@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `PrimitiveRules.IntegerParseUnsignedInt`"}
-  description={"Prefer JDK's `Integer#parseUnsignedInt(String)` over third-party or more verbose alternatives."}
+  description={"Prefer `Integer#parseUnsignedInt(String)` over non-JDK or more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$IntegerParseUnsignedIntRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `PrimitiveRules.IntegerParseUnsignedInt`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer JDK's `Integer#parseUnsignedInt(String)` over third-party or more verbose alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Integer#parseUnsignedInt(String)` over non-JDK or more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

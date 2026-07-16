@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `CollectionRules.ListAdd`"}
-  description={"Prefer `List#add(Object)` over less idiomatic alternatives."}
+  description={"Prefer `List#add(Object)` over less idiomatic or more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$ListAddRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `CollectionRules.ListAdd`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `List#add(Object)` over less idiomatic alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `List#add(Object)` over less idiomatic or more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

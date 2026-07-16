@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `JUnitRules.ArgumentsEnumeration`"}
-  description={"Prefer statically imported `Arguments#arguments` over `Arguments#of` calls."}
+  description={"Prefer `Arguments#arguments(Object...)` over less idiomatic alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.JUnitRulesRecipes$ArgumentsEnumerationRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `JUnitRules.ArgumentsEnumeration`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer statically imported `Arguments#arguments` over `Arguments#of` calls.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Arguments#arguments(Object...)` over less idiomatic alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

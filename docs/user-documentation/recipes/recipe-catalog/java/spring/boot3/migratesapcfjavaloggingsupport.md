@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["spring","sap","cloudfoundry","logging","boot"]}
+  tags={["spring","cloudfoundry","logging","sap","boot"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.spring.boot3.MigrateSapCfJavaLoggingSupport"}
   artifact={"org.openrewrite.recipe:rewrite-spring"}

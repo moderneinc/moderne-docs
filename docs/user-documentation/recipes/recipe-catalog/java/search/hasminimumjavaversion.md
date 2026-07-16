@@ -1,6 +1,6 @@
 ---
-title: "Find the oldest Java version in use"
-sidebar_label: "Find the oldest Java version in use"
+title: "Has minimum Java version"
+sidebar_label: "Has minimum Java version"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Find the oldest Java version in use"}
-  description={"The oldest Java version in use is the lowest Java version in use in any source set of any subproject of a repository. It is possible that, for example, the main source set of a project uses Java 8, but a test source set uses Java 17. In this case, the oldest Java version in use is Java 8."}
+  displayName={"Has minimum Java version"}
+  description={"Finds source files when the oldest Java version in use meets the supplied minimum version. Java version is attributed per source set (for example `src/main/java` and `src/test/java`), so the oldest Java version in use is the lowest version across every source set of every subproject in a repository. For example, the main source set of a project may use Java 8 while its test source set uses Java 17; in that case the oldest Java version in use is Java 8."}
   fqName={"org.openrewrite.java.search.HasMinimumJavaVersion"}
   languages={["Java"]}
   license={"Apache License Version 2.0"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/java/search/hasminimumjavaversion.md"}
 >
 
-<RecipeHeader.Title>Find the oldest Java version in use</RecipeHeader.Title>
+<RecipeHeader.Title>Has minimum Java version</RecipeHeader.Title>
 
-<RecipeHeader.Description>The oldest Java version in use is the lowest Java version in use in any source set of any subproject of a repository. It is possible that, for example, the main source set of a project uses Java 8, but a test source set uses Java 17. In this case, the oldest Java version in use is Java 8.</RecipeHeader.Description>
+<RecipeHeader.Description>Finds source files when the oldest Java version in use meets the supplied minimum version. Java version is attributed per source set (for example `src/main/java` and `src/test/java`), so the oldest Java version in use is the lowest version across every source set of every subproject in a repository. For example, the main source set of a project may use Java 8 while its test source set uses Java 17; in that case the oldest Java version in use is Java 8.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"version","required":true,"description":"An exact version number or node-style semver selector used to select the version number.","example":"17.X"},{"type":"Boolean","name":"checkTargetCompatibility","required":false,"description":"The source and target compatibility versions can be different. This option allows you to check against the target compatibility version instead of the source compatibility version.","example":"17.X"}]}>
+<OptionsTable options={[{"type":"String","name":"version","required":true,"description":"A minimum version number or a node-style semver selector. Plain values like `17` or `17.0.1` match that version or higher. To match an exact version, use `HasJavaVersion` instead.","example":"17"},{"type":"Boolean","name":"checkTargetCompatibility","required":false,"description":"The source and target compatibility versions can be different. This option allows you to check against the target compatibility version instead of the source compatibility version.","example":"17.X"}]}>
 
 ## Options
 
@@ -49,7 +49,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </ExampleList>
 
-<UsageList usage={{"recipeName":"org.openrewrite.java.search.HasMinimumJavaVersion","displayName":"Find the oldest Java version in use","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=17.X\" --recipe-option \"checkTargetCompatibility=17.X\""}}>
+<UsageList usage={{"recipeName":"org.openrewrite.java.search.HasMinimumJavaVersion","displayName":"Has minimum Java version","groupId":"org.openrewrite","artifactId":"rewrite-java","versionKey":"VERSION_ORG_OPENREWRITE_REWRITE_JAVA","requiresConfiguration":true,"cliOptions":" --recipe-option \"version=17\" --recipe-option \"checkTargetCompatibility=17.X\""}}>
 
 ## Usage
 

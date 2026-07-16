@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ReactorRules.MonoFlux`"}
-  description={"Prefer `Mono#flux()`} over more contrived alternatives."}
+  description={"Prefer `Mono#flux()` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoFluxRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ReactorRules.MonoFlux`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Mono#flux()`} over more contrived alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Mono#flux()` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

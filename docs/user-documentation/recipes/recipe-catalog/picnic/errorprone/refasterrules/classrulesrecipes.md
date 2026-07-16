@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"`ClassRules` Refaster recipes"}
-  description={"Refaster rules related to expressions dealing with classes.\n[Source](https://error-prone.picnic.tech/refasterrules/ClassRules)."}
+  description={"Refaster rules related to expressions dealing with `Class`es.\n[Source](https://error-prone.picnic.tech/refasterrules/ClassRules)."}
   fqName={"tech.picnic.errorprone.refasterrules.ClassRulesRecipes"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,11 +33,11 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>`ClassRules` Refaster recipes</RecipeHeader.Title>
 
-<RecipeHeader.Description>Refaster rules related to expressions dealing with classes. [Source](https://error-prone.picnic.tech/refasterrules/ClassRules).</RecipeHeader.Description>
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `Class`es. [Source](https://error-prone.picnic.tech/refasterrules/ClassRules).</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Refaster template `ClassRules.ClassIsInstance`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/classrulesrecipes$classisinstancerecipe/"},{"name":"Refaster template `ClassRules.ClassReferenceIsInstancePredicate`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/classrulesrecipes$classreferenceisinstancepredicaterecipe/"},{"name":"Refaster template `ClassRules.ClassReferenceCast`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/classrulesrecipes$classreferencecastrecipe/"}]}>
+<RecipeList recipes={[{"name":"Refaster template `ClassRules.ClassIsInstanceWithClassAndObject`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/classrulesrecipes$classisinstancewithclassandobjectrecipe/"},{"name":"Refaster template `ClassRules.ClassIsInstanceWithClass`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/classrulesrecipes$classisinstancewithclassrecipe/"},{"name":"Refaster template `ClassRules.ClassCast`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/classrulesrecipes$classcastrecipe/"}]}>
 
 ## Definition
 

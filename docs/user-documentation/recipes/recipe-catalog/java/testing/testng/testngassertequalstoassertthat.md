@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import java.util.List;\n\nimport static org.testng.Assert.assertEquals;\n\nclass Test {\n    void test(List<String> actual, List<String> expected) {\n        assertEquals(actual, expected);\n        assertEquals(actual, expected, \"foo\");\n    }\n}\n","after":"import java.util.List;\n\nimport static org.assertj.core.api.Assertions.assertThat;\n\nclass Test {\n    void test(List<String> actual, List<String> expected) {\n        assertThat(actual).containsExactlyElementsOf(expected);\n        assertThat(actual).as(\"foo\").containsExactlyElementsOf(expected);\n    }\n}\n","diff":"@@ -3,1 +3,1 @@\nimport java.util.List;\n\n-import static org.testng.Assert.assertEquals;\n+import static org.assertj.core.api.Assertions.assertThat;\n\n@@ -7,2 +7,2 @@\nclass Test {\n    void test(List<String> actual, List<String> expected) {\n-       assertEquals(actual, expected);\n-       assertEquals(actual, expected, \"foo\");\n+       assertThat(actual).containsExactlyElementsOf(expected);\n+       assertThat(actual).as(\"foo\").containsExactlyElementsOf(expected);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.testng.TestNgAssertEqualsToAssertThat","displayName":"TestNG `assertEquals` to AssertJ","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

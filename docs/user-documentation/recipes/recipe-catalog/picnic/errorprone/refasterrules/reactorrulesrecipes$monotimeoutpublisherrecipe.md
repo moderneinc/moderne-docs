@@ -1,6 +1,6 @@
 ---
-title: "Refaster template `ReactorRules.MonoTimeoutPublisher`"
-sidebar_label: "Refaster template `ReactorRules.MonoTimeoutPublisher`"
+title: "Prefer `Mono#timeout(Publisher, Mono)` over more contrived or less efficient alternatives"
+sidebar_label: "Prefer `Mono#timeout(Publisher, Mono)` over more contrived or less efficient alternatives"
 hide_title: true
 ---
 
@@ -12,8 +12,8 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster template `ReactorRules.MonoTimeoutPublisher`"}
-  description={"Prefer `Mono#timeout(Publisher, Mono)` over more contrived or less performant alternatives."}
+  displayName={"Prefer `Mono#timeout(Publisher, Mono)` over more contrived or less efficient alternatives"}
+  description={"<strong>Warning:</strong> this rewrite changes behavior if the source can emit or propagate\n a `TimeoutException`: the original code suppresses any such signal, while the replacement\n only handles the one emitted by the `timeout` operator itself."}
   fqName={"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoTimeoutPublisherRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/reactorrulesrecipes$monotimeoutpublisherrecipe.md"}
 >
 
-<RecipeHeader.Title>Refaster template `ReactorRules.MonoTimeoutPublisher`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `Mono#timeout(Publisher, Mono)` over more contrived or less efficient alternatives</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Mono#timeout(Publisher, Mono)` over more contrived or less performant alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rewrite changes behavior if the source can emit or propagate  a `TimeoutException`: the original code suppresses any such signal, while the replacement  only handles the one emitted by the `timeout` operator itself.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoTimeoutPublisherRecipe","displayName":"Refaster template `ReactorRules.MonoTimeoutPublisher`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoTimeoutPublisherRecipe","displayName":"Prefer `Mono#timeout(Publisher, Mono)` over more contrived or less efficient alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

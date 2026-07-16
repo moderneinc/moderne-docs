@@ -1,6 +1,6 @@
 ---
-title: "Prefer `Sets#immutableEnumSet(Iterable)` for enum collections to take advantage of the internally used `EnumSet`"
-sidebar_label: "Prefer `Sets#immutableEnumSet(Iterable)` for enum collections to take advantage of the internally used `EnumSet`"
+title: "Prefer `Sets#immutableEnumSet(Iterable)` over less efficient alternatives"
+sidebar_label: "Prefer `Sets#immutableEnumSet(Iterable)` over less efficient alternatives"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Prefer `Sets#immutableEnumSet(Iterable)` for enum collections to take advantage of the internally used `EnumSet`"}
+  displayName={"Prefer `Sets#immutableEnumSet(Iterable)` over less efficient alternatives"}
   description={"<strong>Warning:</strong> this rule is not completely behavior preserving: while the\n original code produces a set that iterates over its elements in the same order as the input\n `Iterable`, the replacement code iterates over the elements in enum definition order."}
   fqName={"tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetIterableRecipe"}
   languages={["OpenRewrite"]}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutableenumsetrulesrecipes$setsimmutableenumsetiterablerecipe.md"}
 >
 
-<RecipeHeader.Title>Prefer `Sets#immutableEnumSet(Iterable)` for enum collections to take advantage of the internally used `EnumSet`</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `Sets#immutableEnumSet(Iterable)` over less efficient alternatives</RecipeHeader.Title>
 
 <RecipeHeader.Description>&lt;strong>Warning:&lt;/strong> this rule is not completely behavior preserving: while the  original code produces a set that iterates over its elements in the same order as the input  `Iterable`, the replacement code iterates over the elements in enum definition order.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetIterableRecipe","displayName":"Prefer `Sets#immutableEnumSet(Iterable)` for enum collections to take advantage of the internally used `EnumSet`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetIterableRecipe","displayName":"Prefer `Sets#immutableEnumSet(Iterable)` over less efficient alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

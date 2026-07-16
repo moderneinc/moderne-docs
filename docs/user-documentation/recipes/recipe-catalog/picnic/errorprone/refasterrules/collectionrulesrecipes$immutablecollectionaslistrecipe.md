@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `CollectionRules.ImmutableCollectionAsList`"}
-  description={"Prefer `ImmutableCollection#asList()` over the more verbose alternative."}
+  description={"Prefer `ImmutableCollection#asList()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.CollectionRulesRecipes$ImmutableCollectionAsListRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `CollectionRules.ImmutableCollectionAsList`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `ImmutableCollection#asList()` over the more verbose alternative.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ImmutableCollection#asList()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

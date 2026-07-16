@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJDurationRules.AssertThatIsZero`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsZero {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Duration duration) {\n        return assertThat(duration.isZero()).isTrue();\n    }\n    \n    @BeforeTemplate\n    AbstractDurationAssert<?> before2(Duration duration) {\n        return assertThat(duration).isEqualTo(Duration.ZERO);\n    }\n    \n    @AfterTemplate\n    AbstractDurationAssert<?> after(Duration duration) {\n        return assertThat(duration).isZero();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractDurationAssert#isZero()` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatIsZeroRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,31 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJDurationRules.AssertThatIsZero`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsZero {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(Duration duration) {
-        return assertThat(duration.isZero()).isTrue();
-    }
-    
-    @BeforeTemplate
-    AbstractDurationAssert<?> before2(Duration duration) {
-        return assertThat(duration).isEqualTo(Duration.ZERO);
-    }
-    
-    @AfterTemplate
-    AbstractDurationAssert<?> after(Duration duration) {
-        return assertThat(duration).isZero();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractDurationAssert#isZero()` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

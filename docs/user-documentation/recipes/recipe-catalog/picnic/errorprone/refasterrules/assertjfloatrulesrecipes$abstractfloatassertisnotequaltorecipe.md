@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJFloatRules.AbstractFloatAssertIsNotEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractFloatAssertIsNotEqualTo {\n    \n    @BeforeTemplate\n    AbstractFloatAssert<?> before(AbstractFloatAssert<?> floatAssert, float n) {\n        return Refaster.anyOf(floatAssert.isNotCloseTo(n, offset(0.0F)), floatAssert.isNotCloseTo(n, withPercentage(0)));\n    }\n    \n    @AfterTemplate\n    AbstractFloatAssert<?> after(AbstractFloatAssert<?> floatAssert, float n) {\n        return floatAssert.isNotEqualTo(n);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractFloatAssert#isNotEqualTo(float)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJFloatRulesRecipes$AbstractFloatAssertIsNotEqualToRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJFloatRules.AbstractFloatAssertIsNotEqualTo`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractFloatAssertIsNotEqualTo {
-    
-    @BeforeTemplate
-    AbstractFloatAssert<?> before(AbstractFloatAssert<?> floatAssert, float n) {
-        return Refaster.anyOf(floatAssert.isNotCloseTo(n, offset(0.0F)), floatAssert.isNotCloseTo(n, withPercentage(0)));
-    }
-    
-    @AfterTemplate
-    AbstractFloatAssert<?> after(AbstractFloatAssert<?> floatAssert, float n) {
-        return floatAssert.isNotEqualTo(n);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractFloatAssert#isNotEqualTo(float)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

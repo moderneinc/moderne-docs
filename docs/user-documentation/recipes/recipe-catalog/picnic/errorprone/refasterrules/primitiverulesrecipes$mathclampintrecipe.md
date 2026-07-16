@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `PrimitiveRules.MathClampInt`"}
-  description={"Prefer `Math#clamp(long, int, int)` over more verbose alternatives."}
+  description={"Prefer `Math#clamp(long, int, int)` over non-JDK or more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$MathClampIntRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `PrimitiveRules.MathClampInt`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Math#clamp(long, int, int)` over more verbose alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Math#clamp(long, int, int)` over non-JDK or more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["refactoring","var","java10"]}
+  tags={["refactoring","java10","var"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.migrate.lang.UseVar"}
   artifact={"org.openrewrite.recipe:rewrite-migrate-java"}

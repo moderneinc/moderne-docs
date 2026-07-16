@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["spring","testing","boot"]}
+  tags={["spring","boot","testing"]}
   license={"Moderne Proprietary License"}
   fqName={"io.moderne.java.spring.boot4.MigrateMockMvcToAssertJ"}
   artifact={"io.moderne.recipe:rewrite-spring"}

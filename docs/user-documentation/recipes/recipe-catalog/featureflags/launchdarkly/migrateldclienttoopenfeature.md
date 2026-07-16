@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import com.launchdarkly.sdk.server.LDClient;\n\nclass A {\n    void init() {\n        LDClient client = new LDClient(\"sdk-key-123abc\");\n    }\n}\n","after":"import com.launchdarkly.openfeature.serverprovider.Provider;\nimport dev.openfeature.sdk.Client;\nimport dev.openfeature.sdk.OpenFeatureAPI;\n\nclass A {\n    void init() {\n        OpenFeatureAPI.getInstance().setProviderAndWait(new Provider(\"sdk-key-123abc\"));\n        Client client = OpenFeatureAPI.getInstance().getClient();\n    }\n}\n","diff":"@@ -1,1 +1,3 @@\n-import com.launchdarkly.sdk.server.LDClient;\n+import com.launchdarkly.openfeature.serverprovider.Provider;\n+import dev.openfeature.sdk.Client;\n+import dev.openfeature.sdk.OpenFeatureAPI;\n\n@@ -5,1 +7,2 @@\nclass A {\n    void init() {\n-       LDClient client = new LDClient(\"sdk-key-123abc\");\n+       OpenFeatureAPI.getInstance().setProviderAndWait(new Provider(\"sdk-key-123abc\"));\n+       Client client = OpenFeatureAPI.getInstance().getClient();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.featureflags.launchdarkly.MigrateLDClientToOpenFeature","displayName":"Migrate LaunchDarkly `LDClient` construction to OpenFeature","groupId":"org.openrewrite.recipe","artifactId":"rewrite-feature-flags","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_FEATURE_FLAGS","requiresConfiguration":false}}>
 
 ## Usage

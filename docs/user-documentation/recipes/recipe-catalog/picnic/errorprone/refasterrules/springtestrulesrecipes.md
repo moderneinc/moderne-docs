@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Refaster template `SpringTestRules.BodyContentSpecJsonLenient`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/springtestrulesrecipes$bodycontentspecjsonlenientrecipe/"},{"name":"Refaster template `SpringTestRules.BodyContentSpecJsonStrict`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/springtestrulesrecipes$bodycontentspecjsonstrictrecipe/"}]}>
+<RecipeList recipes={[{"name":"Refaster template `SpringTestRules.BodyContentSpecJsonJsonCompareModeLenient`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/springtestrulesrecipes$bodycontentspecjsonjsoncomparemodelenientrecipe/"},{"name":"Refaster template `SpringTestRules.BodyContentSpecJsonJsonCompareModeStrict`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/springtestrulesrecipes$bodycontentspecjsonjsoncomparemodestrictrecipe/"}]}>
 
 ## Definition
 

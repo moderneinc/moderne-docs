@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"`PatternRules` Refaster recipes"}
-  description={"Refaster rules related to code dealing with regular expressions.\n[Source](https://error-prone.picnic.tech/refasterrules/PatternRules)."}
+  description={"Refaster rules related to expressions dealing with `Pattern`s.\n[Source](https://error-prone.picnic.tech/refasterrules/PatternRules)."}
   fqName={"tech.picnic.errorprone.refasterrules.PatternRulesRecipes"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>`PatternRules` Refaster recipes</RecipeHeader.Title>
 
-<RecipeHeader.Description>Refaster rules related to code dealing with regular expressions. [Source](https://error-prone.picnic.tech/refasterrules/PatternRules).</RecipeHeader.Description>
+<RecipeHeader.Description>Refaster rules related to expressions dealing with `Pattern`s. [Source](https://error-prone.picnic.tech/refasterrules/PatternRules).</RecipeHeader.Description>
 
 </RecipeHeader>
 

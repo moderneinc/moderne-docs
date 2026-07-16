@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJObjectRules.AssertThatHasToString`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatHasToString<T> {\n    \n    @BeforeTemplate\n    AbstractStringAssert<?> before(T object, String str) {\n        return assertThat(object.toString()).isEqualTo(str);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    ObjectAssert<T> after(T object, String str) {\n        return assertThat(object).hasToString(str);\n    }\n}\n```\n."}
+  description={"Prefer `ObjectAssert#hasToString(String)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJObjectRulesRecipes$AssertThatHasToStringRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJObjectRules.AssertThatHasToString`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatHasToString<T> {
-    
-    @BeforeTemplate
-    AbstractStringAssert<?> before(T object, String str) {
-        return assertThat(object.toString()).isEqualTo(str);
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    ObjectAssert<T> after(T object, String str) {
-        return assertThat(object).hasToString(str);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ObjectAssert#hasToString(String)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"class Test {\n    void test(int x) {\n        if (x > 0) {\n            System.out.println(\"positive\");\n        } else if (x > 0) {\n            System.out.println(\"also positive\");\n        } else {\n            System.out.println(\"non-positive\");\n        }\n    }\n}\n","after":"class Test {\n    void test(int x) {\n        if (x > 0) {\n            System.out.println(\"positive\");\n        } else {\n            System.out.println(\"non-positive\");\n        }\n    }\n}\n","diff":"@@ -5,2 +5,0 @@\n        if (x > 0) {\n            System.out.println(\"positive\");\n-       } else if (x > 0) {\n-           System.out.println(\"also positive\");\n        } else {\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.staticanalysis.RemoveDuplicateConditions","displayName":"Related \"if/else if\" conditions should not be the same","groupId":"org.openrewrite.recipe","artifactId":"rewrite-static-analysis","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_STATIC_ANALYSIS","requiresConfiguration":false}}>
 
 ## Usage

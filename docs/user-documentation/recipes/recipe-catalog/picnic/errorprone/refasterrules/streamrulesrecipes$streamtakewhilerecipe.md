@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamTakeWhile`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class StreamTakeWhile<T> {\n    \n    @BeforeTemplate\n    Stream<T> before(Stream<T> stream, Predicate<? super T> predicate) {\n        return stream.takeWhile(predicate).filter(predicate);\n    }\n    \n    @AfterTemplate\n    Stream<T> after(Stream<T> stream, Predicate<? super T> predicate) {\n        return stream.takeWhile(predicate);\n    }\n}\n```\n."}
+  description={"Prefer `Stream#takeWhile(Predicate)` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamTakeWhileRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamTakeWhile`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class StreamTakeWhile<T> {
-    
-    @BeforeTemplate
-    Stream<T> before(Stream<T> stream, Predicate<? super T> predicate) {
-        return stream.takeWhile(predicate).filter(predicate);
-    }
-    
-    @AfterTemplate
-    Stream<T> after(Stream<T> stream, Predicate<? super T> predicate) {
-        return stream.takeWhile(predicate);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Stream#takeWhile(Predicate)` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

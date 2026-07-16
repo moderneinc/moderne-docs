@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"mavenProject","code":"server"},"variants":[{"language":"properties","before":"spring.grpc.server.address=localhost:9090\n","after":"spring.grpc.server.address=localhost\nspring.grpc.server.port=9090\n","diff":"--- application.properties\n+++ application.properties\n@@ -1,1 +1,2 @@\n-spring.grpc.server.address=localhost:9090\n+spring.grpc.server.address=localhost\n+spring.grpc.server.port=9090\n\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.java.spring.boot4.SplitSpringGrpcServerAddress","displayName":"Split `spring.grpc.server.address` into `address` and `port`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

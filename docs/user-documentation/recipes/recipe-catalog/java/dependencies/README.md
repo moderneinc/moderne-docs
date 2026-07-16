@@ -6,6 +6,7 @@ description: Dependencies OpenRewrite recipes.
 
 ## Categories
 
+* [End of life](/user-documentation/recipes/recipe-catalog/java/dependencies/endoflife)
 * [Search](/user-documentation/recipes/recipe-catalog/java/dependencies/search)
 
 ## Recipes

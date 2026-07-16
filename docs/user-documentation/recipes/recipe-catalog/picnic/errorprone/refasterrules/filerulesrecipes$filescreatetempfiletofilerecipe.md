@@ -1,6 +1,6 @@
 ---
-title: "Prefer `Files#createTempFile(String, String, FileAttribute[])` over alternatives that create files with more liberal permissions"
-sidebar_label: "Prefer `Files#createTempFile(String, String, FileAttribute[])` over alternatives that create files with more liberal permissions"
+title: "Prefer `Files#createTempFile(String, String, FileAttribute[])` over less secure alternatives"
+sidebar_label: "Prefer `Files#createTempFile(String, String, FileAttribute[])` over less secure alternatives"
 hide_title: true
 ---
 
@@ -12,7 +12,7 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Prefer `Files#createTempFile(String, String, FileAttribute[])` over alternatives that create files with more liberal permissions"}
+  displayName={"Prefer `Files#createTempFile(String, String, FileAttribute[])` over less secure alternatives"}
   description={"Note that `File#createTempFile` treats the given prefix as a path, and ignores all but\n its file name. That is, the actual prefix used is derived from all characters following the\n final file separator (if any). This is not the case with `Files#createTempFile`, which\n will instead throw an `IllegalArgumentException` if the prefix contains any file\n separators."}
   fqName={"tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesCreateTempFileToFileRecipe"}
   languages={["OpenRewrite"]}
@@ -31,13 +31,13 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/filerulesrecipes$filescreatetempfiletofilerecipe.md"}
 >
 
-<RecipeHeader.Title>Prefer `Files#createTempFile(String, String, FileAttribute[])` over alternatives that create files with more liberal permissions</RecipeHeader.Title>
+<RecipeHeader.Title>Prefer `Files#createTempFile(String, String, FileAttribute[])` over less secure alternatives</RecipeHeader.Title>
 
 <RecipeHeader.Description>Note that `File#createTempFile` treats the given prefix as a path, and ignores all but  its file name. That is, the actual prefix used is derived from all characters following the  final file separator (if any). This is not the case with `Files#createTempFile`, which  will instead throw an `IllegalArgumentException` if the prefix contains any file  separators.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesCreateTempFileToFileRecipe","displayName":"Prefer `Files#createTempFile(String, String, FileAttribute[])` over alternatives that create files with more liberal permissions","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.FileRulesRecipes$FilesCreateTempFileToFileRecipe","displayName":"Prefer `Files#createTempFile(String, String, FileAttribute[])` over less secure alternatives","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

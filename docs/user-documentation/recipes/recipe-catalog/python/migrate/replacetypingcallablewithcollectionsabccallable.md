@@ -32,7 +32,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Change import","href":"/user-documentation/recipes/recipe-catalog/python/changeimport/"}]}>
+<RecipeList recipes={[{"name":"Change type","href":"/user-documentation/recipes/recipe-catalog/python/changetype/"}]}>
 
 ## Definition
 

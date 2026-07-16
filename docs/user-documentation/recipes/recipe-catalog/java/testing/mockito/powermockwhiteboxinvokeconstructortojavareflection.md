@@ -37,6 +37,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"unchanged":{"language":"java","code":"class MyService {\n    private MyService() {\n    }\n}\n"},"variants":[{"language":"java","before":"import org.powermock.reflect.Whitebox;\n\nclass MyServiceTest {\n    void test() {\n        MyService s = Whitebox.invokeConstructor(MyService.class);\n    }\n}\n","after":"import java.lang.reflect.Constructor;\n\nclass MyServiceTest {\n    void test() throws Exception {\n        Constructor<MyService> myServiceConstructor = MyService.class.getDeclaredConstructor();\n        myServiceConstructor.setAccessible(true);\n        MyService s = myServiceConstructor.newInstance();\n    }\n}\n","diff":"@@ -1,1 +1,1 @@\n-import org.powermock.reflect.Whitebox;\n+import java.lang.reflect.Constructor;\n\n@@ -4,2 +4,4 @@\n\nclass MyServiceTest {\n-   void test() {\n-       MyService s = Whitebox.invokeConstructor(MyService.class);\n+   void test() throws Exception {\n+       Constructor<MyService> myServiceConstructor = MyService.class.getDeclaredConstructor();\n+       myServiceConstructor.setAccessible(true);\n+       MyService s = myServiceConstructor.newInstance();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.mockito.PowerMockWhiteboxInvokeConstructorToJavaReflection","displayName":"Replace PowerMock `Whitebox.invokeConstructor()` with Java reflection","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `IntStreamRules.IntStreamTakeWhile`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class IntStreamTakeWhile {\n    \n    @BeforeTemplate\n    IntStream before(IntStream stream, IntPredicate predicate) {\n        return stream.takeWhile(predicate).filter(predicate);\n    }\n    \n    @AfterTemplate\n    IntStream after(IntStream stream, IntPredicate predicate) {\n        return stream.takeWhile(predicate);\n    }\n}\n```\n."}
+  description={"Prefer `IntStream#takeWhile(IntPredicate)` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.IntStreamRulesRecipes$IntStreamTakeWhileRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `IntStreamRules.IntStreamTakeWhile`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class IntStreamTakeWhile {
-    
-    @BeforeTemplate
-    IntStream before(IntStream stream, IntPredicate predicate) {
-        return stream.takeWhile(predicate).filter(predicate);
-    }
-    
-    @AfterTemplate
-    IntStream after(IntStream stream, IntPredicate predicate) {
-        return stream.takeWhile(predicate);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `IntStream#takeWhile(IntPredicate)` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

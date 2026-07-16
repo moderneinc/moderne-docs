@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["junit","testing","mockito"]}
+  tags={["mockito","junit","testing"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.java.testing.junit5.UseMockitoExtension"}
   artifact={"org.openrewrite.recipe:rewrite-testing-frameworks"}

@@ -1,6 +1,6 @@
 ---
-title: "Refaster template `ImmutableEnumSetRules.SetsImmutableEnumSetVarArgs`"
-sidebar_label: "Refaster template `ImmutableEnumSetRules.SetsImmutableEnumSetVarArgs`"
+title: "Refaster template `ImmutableEnumSetRules.SetsImmutableEnumSetVarargs`"
+sidebar_label: "Refaster template `ImmutableEnumSetRules.SetsImmutableEnumSetVarargs`"
 hide_title: true
 ---
 
@@ -12,12 +12,12 @@ hide_title: true
 import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
 
 <RecipeMeta
-  displayName={"Refaster template `ImmutableEnumSetRules.SetsImmutableEnumSetVarArgs`"}
-  description={"Prefer `Sets#immutableEnumSet(Enum, Enum[])` for enum collections to take advantage of the internally used `EnumSet`."}
-  fqName={"tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetVarArgsRecipe"}
+  displayName={"Refaster template `ImmutableEnumSetRules.SetsImmutableEnumSetVarargs`"}
+  description={"Prefer `Sets#immutableEnumSet(Enum, Enum[])` over less efficient alternatives."}
+  fqName={"tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetVarargsRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
-  sourceUrl={"https://github.com/search?type=code&q=tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetVarArgsRecipe"}
+  sourceUrl={"https://github.com/search?type=code&q=tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetVarargsRecipe"}
 />
 
 <RecipeHeader
@@ -25,19 +25,19 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
   languages={["OpenRewrite"]}
   tags={[]}
   license={"Apache License Version 2.0"}
-  fqName={"tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetVarArgsRecipe"}
+  fqName={"tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetVarargsRecipe"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
-  appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetVarArgsRecipe"}
+  appLink={"https://app.moderne.io/recipes/tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetVarargsRecipe"}
   markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/immutableenumsetrulesrecipes$setsimmutableenumsetvarargsrecipe.md"}
 >
 
-<RecipeHeader.Title>Refaster template `ImmutableEnumSetRules.SetsImmutableEnumSetVarArgs`</RecipeHeader.Title>
+<RecipeHeader.Title>Refaster template `ImmutableEnumSetRules.SetsImmutableEnumSetVarargs`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Sets#immutableEnumSet(Enum, Enum[])` for enum collections to take advantage of the internally used `EnumSet`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Sets#immutableEnumSet(Enum, Enum[])` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetVarArgsRecipe","displayName":"Refaster template `ImmutableEnumSetRules.SetsImmutableEnumSetVarArgs`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
+<UsageList usage={{"recipeName":"tech.picnic.errorprone.refasterrules.ImmutableEnumSetRulesRecipes$SetsImmutableEnumSetVarargsRecipe","displayName":"Refaster template `ImmutableEnumSetRules.SetsImmutableEnumSetVarargs`","groupId":"org.openrewrite.recipe","artifactId":"rewrite-third-party","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_THIRD_PARTY","requiresConfiguration":false}}>
 
 ## Usage
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ReactorRules.FluxThenMany`"}
-  description={"Avoid vacuous invocations of `Flux#ignoreElements()`."}
+  description={"Prefer `Flux#thenMany(Publisher)` over vacuously invoking `Flux#ignoreElements()`."}
   fqName={"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$FluxThenManyRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ReactorRules.FluxThenMany`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Avoid vacuous invocations of `Flux#ignoreElements()`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Flux#thenMany(Publisher)` over vacuously invoking `Flux#ignoreElements()`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.Joining`"}
-  description={"Prefer `Collectors#joining()` over `Collectors#joining(CharSequence)` with an empty delimiter string."}
+  description={"Prefer `Collectors#joining()` over more verbose alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$JoiningRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.Joining`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Collectors#joining()` over `Collectors#joining(CharSequence)` with an empty delimiter string.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Collectors#joining()` over more verbose alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

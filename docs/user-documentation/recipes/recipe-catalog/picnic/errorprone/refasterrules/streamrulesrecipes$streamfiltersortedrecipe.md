@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `StreamRules.StreamFilterSorted`"}
-  description={"Apply `Stream#filter(Predicate)` before `Stream#sorted()` to reduce the number of elements to sort."}
+  description={"Prefer `Stream#filter(Predicate)` before `Stream#sorted()` over less efficient alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.StreamRulesRecipes$StreamFilterSortedRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `StreamRules.StreamFilterSorted`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Apply `Stream#filter(Predicate)` before `Stream#sorted()` to reduce the number of elements to sort.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Stream#filter(Predicate)` before `Stream#sorted()` over less efficient alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

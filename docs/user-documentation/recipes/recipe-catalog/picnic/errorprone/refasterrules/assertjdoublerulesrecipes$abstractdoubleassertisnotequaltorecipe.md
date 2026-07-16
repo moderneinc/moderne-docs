@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsNotEqualTo`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AbstractDoubleAssertIsNotEqualTo {\n    \n    @BeforeTemplate\n    AbstractDoubleAssert<?> before(AbstractDoubleAssert<?> doubleAssert, double n) {\n        return Refaster.anyOf(doubleAssert.isNotCloseTo(n, offset(0.0)), doubleAssert.isNotCloseTo(n, withPercentage(0.0)));\n    }\n    \n    @AfterTemplate\n    AbstractDoubleAssert<?> after(AbstractDoubleAssert<?> doubleAssert, double n) {\n        return doubleAssert.isNotEqualTo(n);\n    }\n}\n```\n."}
+  description={"Prefer `AbstractDoubleAssert#isNotEqualTo(double)` over more contrived alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJDoubleRulesRecipes$AbstractDoubleAssertIsNotEqualToRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,26 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJDoubleRules.AbstractDoubleAssertIsNotEqualTo`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AbstractDoubleAssertIsNotEqualTo {
-    
-    @BeforeTemplate
-    AbstractDoubleAssert<?> before(AbstractDoubleAssert<?> doubleAssert, double n) {
-        return Refaster.anyOf(doubleAssert.isNotCloseTo(n, offset(0.0)), doubleAssert.isNotCloseTo(n, withPercentage(0.0)));
-    }
-    
-    @AfterTemplate
-    AbstractDoubleAssert<?> after(AbstractDoubleAssert<?> doubleAssert, double n) {
-        return doubleAssert.isNotEqualTo(n);
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractDoubleAssert#isNotEqualTo(double)` over more contrived alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

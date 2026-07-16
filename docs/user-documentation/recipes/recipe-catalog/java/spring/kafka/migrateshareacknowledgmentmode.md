@@ -32,6 +32,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.springframework.kafka.listener.ContainerProperties;\n\nclass Config {\n    void configure(ContainerProperties props) {\n        props.setExplicitShareAcknowledgment(true);\n    }\n}\n","after":"import org.springframework.kafka.listener.ContainerProperties;\nimport org.springframework.kafka.listener.ContainerProperties.ShareAckMode;\n\nclass Config {\n    void configure(ContainerProperties props) {\n        props.setShareAckMode(ShareAckMode.MANUAL);\n    }\n}\n","diff":"@@ -2,0 +2,1 @@\nimport org.springframework.kafka.listener.ContainerProperties;\n+import org.springframework.kafka.listener.ContainerProperties.ShareAckMode;\n\n@@ -5,1 +6,1 @@\nclass Config {\n    void configure(ContainerProperties props) {\n-       props.setExplicitShareAcknowledgment(true);\n+       props.setShareAckMode(ShareAckMode.MANUAL);\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"io.moderne.java.spring.kafka.MigrateShareAcknowledgmentMode","displayName":"Migrate `setExplicitShareAcknowledgment` to `setShareAckMode`","groupId":"io.moderne.recipe","artifactId":"rewrite-spring","versionKey":"VERSION_IO_MODERNE_RECIPE_REWRITE_SPRING","requiresConfiguration":false}}>
 
 ## Usage

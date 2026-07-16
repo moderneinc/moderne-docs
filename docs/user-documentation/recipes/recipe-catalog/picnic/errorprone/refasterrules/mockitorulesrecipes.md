@@ -37,7 +37,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeHeader>
 
-<RecipeList recipes={[{"name":"Refaster template `MockitoRules.Never`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mockitorulesrecipes$neverrecipe/"},{"name":"Refaster template `MockitoRules.VerifyOnce`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mockitorulesrecipes$verifyoncerecipe/"},{"name":"Refaster template `MockitoRules.InvocationOnMockGetArguments`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mockitorulesrecipes$invocationonmockgetargumentsrecipe/"}]}>
+<RecipeList recipes={[{"name":"Refaster template `MockitoRules.Never`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mockitorulesrecipes$neverrecipe/"},{"name":"Refaster template `MockitoRules.Verify`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mockitorulesrecipes$verifyrecipe/"},{"name":"Refaster template `MockitoRules.InvocationOnMockGetArgument`","href":"/user-documentation/recipes/recipe-catalog/picnic/errorprone/refasterrules/mockitorulesrecipes$invocationonmockgetargumentrecipe/"}]}>
 
 ## Definition
 

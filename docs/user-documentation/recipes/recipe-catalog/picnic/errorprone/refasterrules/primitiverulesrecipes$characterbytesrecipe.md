@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `PrimitiveRules.CharacterBytes`"}
-  description={"Prefer `Character#BYTES` over the Guava alternative."}
+  description={"Prefer `Character#BYTES` over non-JDK alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$CharacterBytesRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `PrimitiveRules.CharacterBytes`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `Character#BYTES` over the Guava alternative.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Character#BYTES` over non-JDK alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

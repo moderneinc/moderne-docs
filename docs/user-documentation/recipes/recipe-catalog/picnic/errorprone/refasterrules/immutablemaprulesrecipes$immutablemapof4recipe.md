@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ImmutableMapRules.ImmutableMapOf4`"}
-  description={"Prefer `ImmutableMap#of(Object, Object, Object, Object, Object, Object, Object, Object)` over alternatives that don't communicate the immutability of the resulting map at the type level."}
+  description={"Prefer `ImmutableMap#of(Object, Object, Object, Object)` over more verbose or imprecisely typed alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.ImmutableMapRulesRecipes$ImmutableMapOf4Recipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Single recipe"}
   languages={["OpenRewrite"]}
-  tags={["RSPEC-S107"]}
+  tags={[]}
   license={"Apache License Version 2.0"}
   fqName={"tech.picnic.errorprone.refasterrules.ImmutableMapRulesRecipes$ImmutableMapOf4Recipe"}
   artifact={"org.openrewrite.recipe:rewrite-third-party"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ImmutableMapRules.ImmutableMapOf4`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `ImmutableMap#of(Object, Object, Object, Object, Object, Object, Object, Object)` over alternatives that don't communicate the immutability of the resulting map at the type level.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `ImmutableMap#of(Object, Object, Object, Object)` over more verbose or imprecisely typed alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

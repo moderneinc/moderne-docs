@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Comment out Spring properties"}
-  description={"Add comment to specified Spring properties, and comment out the property."}
+  description={"Add comment to specified Spring properties, and optionally comment out the property."}
   fqName={"org.openrewrite.java.spring.CommentOutSpringPropertyKey"}
   languages={["Java"]}
   license={"Moderne Source Available License"}
@@ -33,17 +33,17 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Comment out Spring properties</RecipeHeader.Title>
 
-<RecipeHeader.Description>Add comment to specified Spring properties, and comment out the property.</RecipeHeader.Description>
+<RecipeHeader.Description>Add comment to specified Spring properties, and optionally comment out the property.</RecipeHeader.Description>
 
 </RecipeHeader>
 
-<OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The name of the property key to comment out.","example":"management.metrics.binders.files.enabled"},{"type":"String","name":"comment","required":true,"description":"Comment to replace the property key.","example":"This property is deprecated and no longer applicable starting from Spring Boot 3.0.x"}]}>
+<OptionsTable options={[{"type":"String","name":"propertyKey","required":true,"description":"The name of the property key to comment out.","example":"management.metrics.binders.files.enabled"},{"type":"String","name":"comment","required":true,"description":"Comment to replace the property key.","example":"This property is deprecated and no longer applicable starting from Spring Boot 3.0.x"},{"type":"Boolean","name":"commentOutProperty","required":false,"description":"If `false` the property is kept and only the comment is added. Defaults to `true`."}]}>
 
 ## Options
 
 </OptionsTable>
 
-<ExampleList examples={[{"parameters":[{"parameter":"propertyKey","value":"server.port"},{"parameter":"comment","value":"This property has been removed."}],"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"yaml","before":"server.port: 8080","after":"# This property has been removed.\n# server.port: 8080\n","diff":"@@ -1,1 +1,3 @@\n-server.port: 8080\n+# This property has been removed.\n+# server.port: 8080\n+\n","newFile":false}]}]}>
+<ExampleList examples={[{"parameters":[{"parameter":"propertyKey","value":"server.port"},{"parameter":"comment","value":"This property has been removed."},{"parameter":"commentOutProperty","value":"null"}],"unchanged":{"language":"mavenProject","code":"project"},"variants":[{"language":"yaml","before":"server.port: 8080","after":"# This property has been removed.\n# server.port: 8080\n","diff":"@@ -1,1 +1,3 @@\n-server.port: 8080\n+# This property has been removed.\n+# server.port: 8080\n+\n","newFile":false}]}]}>
 
 ## Examples
 

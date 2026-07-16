@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `AssertJDurationRules.AssertThatIsNegative`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsNegative {\n    \n    @BeforeTemplate\n    AbstractBooleanAssert<?> before(Duration duration) {\n        return assertThat(duration.isNegative()).isTrue();\n    }\n    \n    @BeforeTemplate\n    AbstractDurationAssert<?> before2(Duration duration) {\n        return assertThat(duration).isLessThan(Duration.ZERO);\n    }\n    \n    @AfterTemplate\n    AbstractDurationAssert<?> after(Duration duration) {\n        return assertThat(duration).isNegative();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractDurationAssert#isNegative()` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.AssertJDurationRulesRecipes$AssertThatIsNegativeRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,31 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `AssertJDurationRules.AssertThatIsNegative`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsNegative {
-    
-    @BeforeTemplate
-    AbstractBooleanAssert<?> before(Duration duration) {
-        return assertThat(duration.isNegative()).isTrue();
-    }
-    
-    @BeforeTemplate
-    AbstractDurationAssert<?> before2(Duration duration) {
-        return assertThat(duration).isLessThan(Duration.ZERO);
-    }
-    
-    @AfterTemplate
-    AbstractDurationAssert<?> after(Duration duration) {
-        return assertThat(duration).isNegative();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractDurationAssert#isNegative()` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

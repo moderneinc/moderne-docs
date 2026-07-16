@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `JUnitToAssertJRules.AssertThatIsNull`"}
-  description={"Recipe created for the following Refaster template:\n```java\nstatic final class AssertThatIsNull {\n    \n    @BeforeTemplate\n    void before(Object actual) {\n        assertNull(actual);\n    }\n    \n    @AfterTemplate\n    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)\n    void after(Object actual) {\n        assertThat(actual).isNull();\n    }\n}\n```\n."}
+  description={"Prefer `AbstractAssert#isNull()` over non-AssertJ alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.JUnitToAssertJRulesRecipes$AssertThatIsNullRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,27 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `JUnitToAssertJRules.AssertThatIsNull`</RecipeHeader.Title>
 
-<RecipeHeader.Description>
-
-Recipe created for the following Refaster template:
-```java
-static final class AssertThatIsNull {
-    
-    @BeforeTemplate
-    void before(Object actual) {
-        assertNull(actual);
-    }
-    
-    @AfterTemplate
-    @UseImportPolicy(value = STATIC_IMPORT_ALWAYS)
-    void after(Object actual) {
-        assertThat(actual).isNull();
-    }
-}
-```
-.
-
-</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `AbstractAssert#isNull()` over non-AssertJ alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

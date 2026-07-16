@@ -23,7 +23,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["codemods","lodash","underscore"]}
+  tags={["codemods","underscore","lodash"]}
   license={"Moderne Source Available License"}
   fqName={"org.openrewrite.codemods.migrate.lodash.LodashUnderscoreFunction"}
   artifact={"org.openrewrite.recipe:rewrite-codemods"}

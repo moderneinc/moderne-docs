@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["OpenRewrite"]}
-  tags={["terraform","CKV_AWS_18","AWS"]}
+  tags={["CKV_AWS_18","AWS","terraform"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.terraform.aws.EnsureTheS3BucketHasAccessLoggingEnabled"}
   artifact={"org.openrewrite.recipe:rewrite-terraform"}

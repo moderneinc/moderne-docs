@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `PrimitiveRules.LongRemainderUnsigned`"}
-  description={"Prefer JDK's `Long#remainderUnsigned(long, long)` over third-party alternatives."}
+  description={"Prefer `Long#remainderUnsigned(long, long)` over non-JDK alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.PrimitiveRulesRecipes$LongRemainderUnsignedRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `PrimitiveRules.LongRemainderUnsigned`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer JDK's `Long#remainderUnsigned(long, long)` over third-party alternatives.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Long#remainderUnsigned(long, long)` over non-JDK alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

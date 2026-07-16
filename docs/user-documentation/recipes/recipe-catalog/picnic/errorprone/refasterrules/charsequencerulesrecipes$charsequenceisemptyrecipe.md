@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `CharSequenceRules.CharSequenceIsEmpty`"}
-  description={"Prefer `CharSequence#isEmpty()` over alternatives that consult the char sequence's length."}
+  description={"Prefer `CharSequence#isEmpty()` over less explicit alternatives."}
   fqName={"tech.picnic.errorprone.refasterrules.CharSequenceRulesRecipes$CharSequenceIsEmptyRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `CharSequenceRules.CharSequenceIsEmpty`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Prefer `CharSequence#isEmpty()` over alternatives that consult the char sequence's length.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `CharSequence#isEmpty()` over less explicit alternatives.</RecipeHeader.Description>
 
 </RecipeHeader>
 

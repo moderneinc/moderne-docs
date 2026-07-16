@@ -13,7 +13,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Refaster template `ReactorRules.MonoThenEmpty`"}
-  description={"Avoid vacuous invocations of `Mono#ignoreElement()`."}
+  description={"Prefer `Mono#thenEmpty(Publisher)` over vacuously invoking `Mono#ignoreElement()`."}
   fqName={"tech.picnic.errorprone.refasterrules.ReactorRulesRecipes$MonoThenEmptyRecipe"}
   languages={["OpenRewrite"]}
   license={"Apache License Version 2.0"}
@@ -33,7 +33,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Refaster template `ReactorRules.MonoThenEmpty`</RecipeHeader.Title>
 
-<RecipeHeader.Description>Avoid vacuous invocations of `Mono#ignoreElement()`.</RecipeHeader.Description>
+<RecipeHeader.Description>Prefer `Mono#thenEmpty(Publisher)` over vacuously invoking `Mono#ignoreElement()`.</RecipeHeader.Description>
 
 </RecipeHeader>
 

@@ -43,6 +43,12 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 </RecipeList>
 
+<ExampleList examples={[{"variants":[{"language":"java","before":"import org.testcontainers.containers.localstack.LocalStackContainer;\n\nimport java.net.URI;\n\nclass A {\n    URI endpoint(LocalStackContainer localStackContainer) {\n        return localStackContainer.getEndpointOverride(LocalStackContainer.Service.SQS);\n    }\n}\n","after":"import org.testcontainers.containers.localstack.LocalStackContainer;\n\nimport java.net.URI;\n\nclass A {\n    URI endpoint(LocalStackContainer localStackContainer) {\n        return localStackContainer.getEndpoint();\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass A {\n    URI endpoint(LocalStackContainer localStackContainer) {\n-       return localStackContainer.getEndpointOverride(LocalStackContainer.Service.SQS);\n+       return localStackContainer.getEndpoint();\n    }\n","newFile":false}]},{"variants":[{"language":"java","before":"import org.testcontainers.containers.localstack.LocalStackContainer;\n\nimport java.net.URI;\n\nclass A {\n    URI endpoint(LocalStackContainer localStackContainer) {\n        return localStackContainer.getEndpointOverride(LocalStackContainer.Service.SQS);\n    }\n}\n","after":"import org.testcontainers.containers.localstack.LocalStackContainer;\n\nimport java.net.URI;\n\nclass A {\n    URI endpoint(LocalStackContainer localStackContainer) {\n        return localStackContainer.getEndpoint();\n    }\n}\n","diff":"@@ -7,1 +7,1 @@\nclass A {\n    URI endpoint(LocalStackContainer localStackContainer) {\n-       return localStackContainer.getEndpointOverride(LocalStackContainer.Service.SQS);\n+       return localStackContainer.getEndpoint();\n    }\n","newFile":false}]}]}>
+
+## Examples
+
+</ExampleList>
+
 <UsageList usage={{"recipeName":"org.openrewrite.java.testing.testcontainers.Testcontainers2LocalStack","displayName":"Migrate removed `LocalStackContainer` members to Testcontainers 2.x","groupId":"org.openrewrite.recipe","artifactId":"rewrite-testing-frameworks","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_REWRITE_TESTING_FRAMEWORKS","requiresConfiguration":false}}>
 
 ## Usage

@@ -17,7 +17,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 <RecipeHeader
   type={"Composite recipe"}
   languages={["Java"]}
-  tags={["security","CWE-95","CWE-94"]}
+  tags={["CWE-94","security","CWE-95"]}
   license={"Moderne Proprietary License"}
   fqName={"org.openrewrite.java.security.search.FindScriptEngineInjection"}
   artifact={"org.openrewrite.recipe:rewrite-java-security"}
