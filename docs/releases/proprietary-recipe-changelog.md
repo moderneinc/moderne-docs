@@ -20,6 +20,13 @@ This changelog is automatically generated from GitHub releases and only contains
 * Use ChangeType for the typing.* PEP 585 type renames
 * Simplify UpgradePythonDockerImage using the unified DockerImageReference trait
 
+#### rewrite-prethink - v0.10.0
+
+* Delete retired AI-format context files in the Prethink starter
+* Mark Spring-specific detector descriptions per non-Spring framework audit
+* Detect classic .NET Framework HTTP endpoints (Web API 2/MVC 5, WCF, Web Forms)
+* Add a Python dependency report to the shared dependency-list-report
+
 ## July 14, 2026
 
 #### rewrite-ai - 0.4.3
