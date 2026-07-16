@@ -146,7 +146,7 @@ You generate Prethink context by running a single recipe, **Update Prethink cont
 
 Generates Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider.
 
-* **Recipe:** [`io.moderne.prethink.UpdatePrethinkContextNoAiStarter`](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextNoAiStarter)
+* **Recipe:** [`io.moderne.prethink.UpdatePrethinkContextStarter`](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextStarter)
 * **Module:** `io.moderne.recipe:rewrite-prethink`
 
 This recipe performs architectural discovery, test coverage mapping, dependency inventory, and CALM architecture generation without AI-generated code comprehension. Instead, it estimates token usage for methods so you can evaluate the cost of AI comprehension.
@@ -182,20 +182,20 @@ If the built-in recipes don't meet your needs, you can create custom Prethink re
 
 ### Customizing the starter recipes
 
-The `UpdatePrethinkContextNoAiStarter` starter recipe is a composite recipe that bundles all of the [Moderne module's discovery and analysis capabilities](#what-the-moderne-module-discovers) into a single recipe you can run out of the box.
+The `UpdatePrethinkContextStarter` starter recipe is a composite recipe that bundles all of the [Moderne module's discovery and analysis capabilities](#what-the-moderne-module-discovers) into a single recipe you can run out of the box.
 
 You can customize what Prethink generates by creating your own Prethink recipe. Check out the recipe definition below for a starting point of what the base Prethink recipe looks like. From there, you can wrap it in a new recipe to add custom discovery, or you could copy and modify it to remove built-in recipes you don't need.
 
 <details>
-<summary>UpdatePrethinkContextNoAiStarter recipe definition</summary>
+<summary>UpdatePrethinkContextStarter recipe definition</summary>
 
 :::tip
-This recipe is continuously updated with new discoveries and analysis. To view the latest version, check out [the recipe on the Moderne Platform](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextNoAiStarter). The YAML below is a snapshot and may not reflect the most recent changes.
+This recipe is continuously updated with new discoveries and analysis. To view the latest version, check out [the recipe on the Moderne Platform](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextStarter). The YAML below is a snapshot and may not reflect the most recent changes.
 :::
 
 ```yaml
 type: specs.openrewrite.org/v1beta/recipe
-name: io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+name: io.moderne.prethink.UpdatePrethinkContextStarter
 displayName: Update Prethink context (no AI)
 description: >-
   Generate Moderne Prethink context files with architectural discovery,
@@ -412,7 +412,7 @@ description: >-
   for internal frameworks and configuration files.
 recipeList:
   # Include everything from the standard starter
-  - io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+  - io.moderne.prethink.UpdatePrethinkContextStarter
 
   # Add custom discovery for your proprietary patterns
   - com.example.discovery.FindPropertyFileRelationships
