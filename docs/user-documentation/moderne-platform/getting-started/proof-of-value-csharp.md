@@ -272,14 +272,14 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 AI coding agents like Claude Code, Cursor, and GitHub Copilot work better when they have structured knowledge about your codebase rather than inferring architecture from raw code. Prethink generates this context automatically, mapping service endpoints, dependencies, test coverage, and architecture so agents reason over facts instead of guessing. To learn more, please [check out our Prethink documentation](../../agent-tools/prethink.md).
 
-### [Update Prethink context (no AI)](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextNoAiStarter)
+### [Update Prethink context (no AI)](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextStarter)
 
 > Generates Prethink context files with architectural discovery, dependency inventory, and architecture diagrams without requiring an LLM provider. Works for C# projects.
 
 #### CLI commands
 
 ```bash
-mod run . --recipe io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+mod run . --recipe io.moderne.prethink.UpdatePrethinkContextStarter
 
 mod git apply . --last-recipe-run
 ```

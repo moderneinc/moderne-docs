@@ -33,7 +33,7 @@ The Moderne Platform provides the **Update Prethink context (no AI)** recipe:
 
 ### Update Prethink context (no AI)
 
-_[Link to the recipe](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextNoAiStarter)_
+_[Link to the recipe](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextStarter)_
 
 This recipe generates context _without_ requiring an LLM provider. It will discover architectural patterns, map tests to implementation methods, generate dependency inventory, and create CALM architecture diagrams - without using AI. 
 

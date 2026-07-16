@@ -135,7 +135,7 @@ Search for the Prethink recipe to confirm it resolved:
 mod config recipes search UpdatePrethinkContext
 ```
 
-The CLI walks through each matching recipe interactively and asks whether to set it as the active recipe. You should see at least the `io.moderne.prethink.UpdatePrethinkContextNoAiStarter` recipe show up. Press `n` (or just `Enter`) at each prompt to skip — you'll select recipes explicitly with `--recipe` later.
+The CLI walks through each matching recipe interactively and asks whether to set it as the active recipe. You should see at least the `io.moderne.prethink.UpdatePrethinkContextStarter` recipe show up. Press `n` (or just `Enter`) at each prompt to skip — you'll select recipes explicitly with `--recipe` later.
 
 ### Takeaways
 

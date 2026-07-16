@@ -54,7 +54,7 @@ If you only need the core building blocks for custom discovery recipes, you can 
 Run the starter recipe:
 
 ```bash
-mod run prethink-demo --recipe io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+mod run prethink-demo --recipe io.moderne.prethink.UpdatePrethinkContextStarter
 ```
 
 The recipe will:

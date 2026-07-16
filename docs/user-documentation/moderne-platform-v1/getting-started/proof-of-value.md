@@ -755,7 +755,7 @@ AI coding agents like Claude Code, Cursor, and GitHub Copilot work better when t
 #### CLI commands
 
 ```bash
-mod run . --recipe io.moderne.prethink.UpdatePrethinkContextNoAiStarter
+mod run . --recipe io.moderne.prethink.UpdatePrethinkContextStarter
 
 mod git apply . --last-recipe-run
 ```

@@ -1468,7 +1468,7 @@ mod config agent-tools prethink [subcommands]
 ### Examples
 
 ```
-mod config agent-tools prethink edit --recipe io.moderne.recipe.UpdatePrethinkContextNoAiStarter --enabled
+mod config agent-tools prethink edit --recipe io.moderne.prethink.UpdatePrethinkContextStarter --enabled
 ```
 
 ### Subcommands
@@ -1493,7 +1493,7 @@ mod config agent-tools prethink edit
 ### Examples
 
 ```
-mod config agent-tools prethink edit --recipe io.moderne.recipe.UpdatePrethinkContextNoAiStarter --enabled
+mod config agent-tools prethink edit --recipe io.moderne.prethink.UpdatePrethinkContextStarter --enabled
 ```
 
 ### Options
@@ -1502,7 +1502,7 @@ mod config agent-tools prethink edit --recipe io.moderne.recipe.UpdatePrethinkCo
 | ---- | ----------- | ---------- |
 | `--enabled` |  Enables the live Prethink context refresh. Disabled by default. |  |
 | `--option` |  A recipe option as **key=value**. May be repeated to supply multiple options. |  |
-| `--recipe` |  The fully-qualified name of the Prethink recipe to run on refresh. | `io.moderne.recipe.UpdatePrethinkContextNoAiStarter` |
+| `--recipe` |  The fully-qualified name of the Prethink recipe to run on refresh. | `io.moderne.prethink.UpdatePrethinkContextStarter` |
 
 
 ## mod config agent-tools prethink show
