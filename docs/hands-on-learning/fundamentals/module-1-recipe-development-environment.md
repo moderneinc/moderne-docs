@@ -33,7 +33,7 @@ If you have not already completed the [Introduction to OpenRewrite course](../in
 
 * Set up a new recipe module in your IDE, based on the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) project.
 * Run the unit tests for the recipe module, to ensure everything is set up correctly.
-* Install your recipe module to your local Maven repository for debugging later.
+* Run your in-development recipe against a real repository using the CLI's active recipe.
 
 ### Steps
 
@@ -42,6 +42,10 @@ If you have not already completed the [Introduction to OpenRewrite course](../in
 1. Clone or fork the [`rewrite-recipe-starter`](https://github.com/moderneinc/rewrite-recipe-starter) project or [use it as a template](https://github.com/new?template_name=rewrite-recipe-starter&template_owner=moderneinc).
 2. Open the project in your IDE (this workshop demonstrates IntelliJ IDEA).
 3. Import either the Maven or Gradle build (your preference) into your IDE and enable annotation processing. 
+
+:::note
+If your IDE compiles sources itself rather than delegating to Maven or Gradle (IntelliJ delegates by default), add `-parameters` to your IDE's Java compiler options. Without it, the `RewriteTest` framework may report that your recipe fails a serialization check, which would prevent the CLI from loading the recipe later.
+:::
 
 :::tip
 For a better idea about the reference recipes and tests that are included in the starter project, review the [`README.md`](https://github.com/moderneinc/rewrite-recipe-starter/blob/main/README.md) there. Many of them will be referenced later in this workshop.
@@ -62,33 +66,39 @@ To make the project your own and allow it to be versioned and shared without con
 For the purposes of this workshop, this step isn't required, so feel free to leave it alone and continue to use `com.yourorg`.
 :::
 
-#### Step 4: Install and verify locally
+#### Step 4: Set an active recipe and run it locally
 
-1. Install the project to your local Maven repository by running one of the following commands from the root of your project, depending on which build tool you prefer:
+To try your in-development recipe against a real repository, set it as the CLI's **active recipe**. This points the CLI directly at your recipe source, so you only need to recompile between runs, with no jar to publish each time you make a change.
 
-```bash
-# Maven
-mvn install
+1. Point the CLI at your recipe source (a `.java` or `.yml` file):
 
-# Gradle
-./gradlew publishToMavenLocal
-```
+  ```bash
+  mod config recipes active set src/main/java/com/yourorg/AssertEqualsToAssertThat.java
+  ```
 
-2. Install the recipe package to the local recipe marketplace with the Moderne CLI:
+2. Compile the project using your preferred build tool command:
 
-```bash
-mod config recipes jar install com.yourorg:rewrite-recipe-starter:LATEST
-```
+  ```bash
+  # Gradle (add --continuous so Gradle rebuilds automatically on every change)
+  ./gradlew classes
 
-3. To confirm that everything is set up for testing imperative recipes, run one of the starter project's recipes by name. Open a terminal, navigate to your workshop directory, and run:
+  # Maven
+  ./mvnw compile
+  ```
+
+:::note
+You need to do this every time you change the recipe. Alternatively, you can build and publish the jar to your local Maven repository (`mvn install` or `./gradlew publishToMavenLocal`) and reinstall it each time with `mod config recipes jar install com.yourorg:rewrite-recipe-starter:LATEST`.
+:::
+
+3. Run the active recipe against your workshop repositories:
 
   ```bash
   cd ~/moderne-workshop
-  mod run . --recipe=com.yourorg.AssertEqualsToAssertThat
+  mod run . --active-recipe
   ```
 
 :::tip
-If you have the Moderne plugin installed (which requires a [licensed CLI](../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md)), you can instead open the `AssertEqualsToAssertThat` class in IntelliJ, right-click the class name, select **Set Active Recipe**, and run `mod run . --active-recipe`.
+The Moderne plugin's **Set Active Recipe** action is a UI shortcut for `mod config recipes active set`. The plugin requires a [licensed CLI](../../user-documentation/moderne-cli/getting-started/moderne-cli-license.md), but the commands above do not need the plugin.
 :::
 
 ### Takeaways
