@@ -247,7 +247,7 @@ Data tables for each organization with rows are linked above
 
 ## Troubleshooting
 
-### `mod` runs Mono's tool instead of the Moderne CLI (`mod` returns: `Usage: mod.exe Url`) {#mod-runs-monos-tool-instead-of-the-moderne-cli}
+### `mod` runs Mono's tool instead of the Moderne CLI (`mod` returns: `Usage: mod.exe Url`) {/* #mod-runs-monos-tool-instead-of-the-moderne-cli */}
 
 When you install Mono on a Mac, you will often find that the `mod` command no longer does what you expect (you'll get weird HTML responses depending on what you enter). This is because Mono installs its own `mod` executable and adds its directory to your `PATH` (via `/etc/paths.d/mono-commands`). When it does that, the Mono `mod` typically takes higher precedence than the Moderne `mod`.
 

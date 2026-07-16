@@ -182,19 +182,27 @@ describe('valid-admonition-type', () => {
 // ---------------------------------------------------------------------------
 // Explicit heading ids
 //
-// Docusaurus supports `## Heading {#custom-id}`. The raw remark-mdx pipeline
-// would parse `{#id}` as an MDX expression and crash acorn on the `#`, so the
-// anchor must be stripped before parsing rather than aborting the whole run.
+// Classic `## Heading {#id}` parses as an MDX expression and breaks the build,
+// so it is flagged. The MDX-comment form `{/* #id */}` compiles and is allowed.
 // ---------------------------------------------------------------------------
 
 describe('explicit heading ids', () => {
-  it('does not crash on a heading with an explicit {#id} anchor', async () => {
+  it('flags classic {#id} heading anchors as build-breaking', async () => {
     const md = '### `mod` returns `Usage: mod.exe Url` {#mod-runs-monos-tool}\n\nBody.';
+    const flagged = (await checkMarkdown(md, 'test.md')).filter(i => i.rule === 'no-classic-heading-id');
+    expect(flagged).toHaveLength(1);
+    expect(flagged[0].severity).toBe('error');
+    expect(flagged[0].line).toBe(1);
+  });
+
+  it('does not crash and does not flag the MDX-comment id form {/* #id */}', async () => {
+    const md = '### Heading {/* #my-id */}\n\nBody.';
     const issues = await checkMarkdown(md, 'test.md');
+    expect(issues.some(i => i.rule === 'no-classic-heading-id')).toBe(false);
     expect(issues.some(i => i.rule === 'parse-error')).toBe(false);
   });
 
-  it('keeps line numbers accurate for issues after a heading id', async () => {
+  it('keeps line numbers accurate for issues after a stripped anchor', async () => {
     const md = '## Heading {#anchor}\n\nVisit {account} now.';
     const issues = (await checkMarkdown(md, 'test.md')).filter(i => i.rule === 'no-bare-mdx-expression');
     expect(issues).toHaveLength(1);
