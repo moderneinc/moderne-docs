@@ -180,6 +180,29 @@ describe('valid-admonition-type', () => {
 });
 
 // ---------------------------------------------------------------------------
+// Explicit heading ids
+//
+// Docusaurus supports `## Heading {#custom-id}`. The raw remark-mdx pipeline
+// would parse `{#id}` as an MDX expression and crash acorn on the `#`, so the
+// anchor must be stripped before parsing rather than aborting the whole run.
+// ---------------------------------------------------------------------------
+
+describe('explicit heading ids', () => {
+  it('does not crash on a heading with an explicit {#id} anchor', async () => {
+    const md = '### `mod` returns `Usage: mod.exe Url` {#mod-runs-monos-tool}\n\nBody.';
+    const issues = await checkMarkdown(md, 'test.md');
+    expect(issues.some(i => i.rule === 'parse-error')).toBe(false);
+  });
+
+  it('keeps line numbers accurate for issues after a heading id', async () => {
+    const md = '## Heading {#anchor}\n\nVisit {account} now.';
+    const issues = (await checkMarkdown(md, 'test.md')).filter(i => i.rule === 'no-bare-mdx-expression');
+    expect(issues).toHaveLength(1);
+    expect(issues[0].line).toBe(3);
+  });
+});
+
+// ---------------------------------------------------------------------------
 // Rule: unordered-list-marker-style
 //
 // STYLE_GUIDE Rule 3: use * for bullets, not -. Exception: docs/releases/

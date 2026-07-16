@@ -172,9 +172,29 @@ const processor = unified()
  * @returns {Promise<{ rule: string, line: number, col: number, message: string, severity: string }[]>}
  */
 export async function checkMarkdown(content, filename) {
-  const file = new VFile({ value: content, path: filename });
-  const tree = processor.parse(file);
-  await processor.run(tree, file);
+  // Docusaurus extracts explicit heading ids (`## Heading {#custom-id}`) before
+  // MDX compilation. Our raw remark-mdx pipeline would instead parse `{#id}` as
+  // an MDX expression and crash acorn on the `#`, so strip the anchor first —
+  // trailing-only removal keeps every other line number intact.
+  const source = content.replace(
+    /^(#{1,6}[ \t].*?)[ \t]*\{#[a-zA-Z0-9_-]+\}[ \t]*$/gm,
+    '$1',
+  );
+  const file = new VFile({ value: source, path: filename });
+  let tree;
+  try {
+    tree = processor.parse(file);
+    await processor.run(tree, file);
+  } catch (err) {
+    const place = err?.place ?? err;
+    return [{
+      rule: err?.ruleId ?? err?.source ?? 'parse-error',
+      line: place?.line ?? 0,
+      col: place?.column ?? 0,
+      message: err?.reason ?? err?.message ?? String(err),
+      severity: 'error',
+    }];
+  }
   const isReleasesFile = /\bdocs[\\/]releases[\\/]/.test(filename ?? '');
   const isGeneratedFile = /\bdocs[\\/]user-documentation[\\/]recipes[\\/](recipe-catalog|lists)[\\/]/.test(filename ?? '') ||
     /\bdocs[\\/]user-documentation[\\/]moderne-cli[\\/]cli-reference\.md$/.test(filename ?? '') ||
