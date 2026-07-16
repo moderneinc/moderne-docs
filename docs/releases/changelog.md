@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v13.11.1 (2026/07/16)
+
+- Bug fixes and other improvements.
+
 ### UI v13.11.0 (2026/07/15)
 
 - compact filter tabs and search on Results view
