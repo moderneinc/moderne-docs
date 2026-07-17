@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v13.12.1 (2026/07/17)
+
+- Bug fixes and other improvements.
+
 ### UI v13.12.0 (2026/07/17)
 
 - add ERROR_MESSAGES catalog for engineering review
