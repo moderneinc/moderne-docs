@@ -15,7 +15,7 @@ In the default configuration, the CLI first looks for Gradle build files, then B
 
 The CLI supports the following build step types:
 
-* **External build tool steps**: `maven`, `gradle`, and `bazel`. These shell out to the respective build tool to compile and parse source code with full type attribution.
+* **External build tool steps**: `maven`, `gradle`, and `bazel`. These invoke the respective build tool to extract build metadata — the project structure, source sets, and classpaths — and then the CLI parses the source code itself with full type attribution. The build tool is used only for discovery; the CLI does the parsing (see [discovery and parsing](#discovery-and-parsing)).
 * **Language-specific steps**: `python`, `javascript`, `dotnet`, `go`, and `mainframe`. These use dedicated parsers to handle their respective language ecosystems.
 * **Resource step**: `resource`. A catch-all step that parses files not handled by other steps (YAML, XML, JSON, Terraform, properties, etc.).
 
@@ -29,7 +29,17 @@ For a JVM build tool the CLI does not natively support, such as a homegrown or i
 
 Each external build tool step scans the repository for the root build files of its type — that is, the build files that represent independent projects rather than submodules — and invokes the build tool on each one.
 
-For most projects, an external build tool step will result in one execution of the external build tool. For example, even a multi-module Gradle project with the following directory structure results in one execution of the Moderne Gradle plugin to parse all the source sets of all projects in the multi-module project:
+#### Discovery and parsing
+
+Each external build tool step runs in two phases: **discovery** and **parsing**.
+
+In the **discovery** phase, the CLI invokes the build tool to extract build metadata — the project's modules, source sets, compiler settings, and the classpath each source set compiled against. For Maven, this runs a lightweight metadata goal; for Gradle, a lightweight metadata task. The build tool is never asked to produce LSTs — it only reports the structure of the build — and the CLI records that structure under `.moderne/prebuild/` (see [`mod prebuild`](../cli-reference.md#mod-prebuild)).
+
+In the **parsing** phase, the CLI reads that recorded structure and parses the source code itself, inside its own JVM, into type-attributed LSTs. Every JVM build tool — Maven, Gradle, Bazel, sbt, and [custom build tools](./custom-build-tool-prebuild.md) — shares this same parser, so parsing behaves consistently no matter which build tool discovered the sources.
+
+The CLI no longer injects an OpenRewrite plugin into your Maven or Gradle build to parse LSTs in place. Because the build tool only reports its model, the step is less intrusive, and discovery and parsing can be split across machines — for example, running [`mod prebuild`](../cli-reference.md#mod-prebuild) on CI and `mod build` locally.
+
+For most projects, an external build tool step will result in one invocation of the external build tool. For example, even a multi-module Gradle project with the following directory structure results in a single Gradle invocation that extracts the metadata for all the source sets of all projects in the multi-module project:
 
 ```bash
 payments/
@@ -46,7 +56,7 @@ payments/
   build.gradle # the top level gradle file
 ```
 
-Sometimes monorepo(ish) repositories are structured in such a way that there are multiple top-level Gradle projects in subdirectories of the root repository directory. While they are stored in the same repository in VCS, they effectively possess disconnected build processes in the sense that no one Gradle command could operate on these disparate parts of the codebase. For example in the following structure the payments, rating, and underwriting functions of this policy administration repository are not related. In this case, the Gradle build step would execute three distinct Gradle tasks to parse LSTs using the Moderne Gradle plugin -- one for each business functional unit.
+Sometimes monorepo(ish) repositories are structured in such a way that there are multiple top-level Gradle projects in subdirectories of the root repository directory. While they are stored in the same repository in VCS, they effectively possess disconnected build processes in the sense that no one Gradle command could operate on these disparate parts of the codebase. For example in the following structure the payments, rating, and underwriting functions of this policy administration repository are not related. In this case, the Gradle build step would execute three distinct Gradle invocations to extract metadata -- one for each business functional unit.
 
 ```bash
 insurance-policy-administration/
