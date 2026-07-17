@@ -106,13 +106,11 @@ claude  # or launch your preferred agent
 
 #### Step 2: Invoke the skill with the change specification
 
-Invoke the `create-recipe` skill and feed it the change specification from Exercise 5-1. The prompt should describe the concrete changes, not just "fix QueryDSL."
+Feed the agent the change specification from Exercise 5-1 — it should load the `create-recipe` skill on its own. The prompt should describe the concrete changes, not just "fix QueryDSL."
 
 <details>
 <summary>Suggested prompt</summary>
 
-> `/moderne:create-recipe`
->
 > I need a recipe to upgrade QueryDSL from 3.x (com.mysema.querydsl) to 5.x (com.querydsl) for use with Spring Boot 4 / Jakarta EE. Reference: https://github.com/querydsl/querydsl/releases/tag/QUERYDSL_4_0_0
 >
 > The specific changes are:

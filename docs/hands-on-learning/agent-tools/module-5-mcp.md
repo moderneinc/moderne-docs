@@ -198,7 +198,7 @@ The `search_recipes` tool returns a paginated list of matching recipes ranked by
 The `query_datatable` tool runs SQL against the recipe's output data tables (DuckDB under the hood). This is how the agent goes from raw recipe output to a structured answer.
 
 :::tip
-This is the same workflow `analyze-impact` skill walks the agent through, but driven by you. If you want the skill to do the orchestration, invoke it explicitly: `/moderne:analyze-impact` (Claude Code) or the equivalent in your agent.
+The `query-datatable` skill teaches the agent when to reach for this tool on its own. Ask a question about the run's results in plain language and it should get there without you naming the tool.
 :::
 
 ### Takeaways
