@@ -287,16 +287,19 @@ mod build /path/to/your/repos
 Presuming everything has been set up correctly, you should see output similar to:
 
 ```bash
-▶ spring-projects/spring-petclinic@main
-    Build output will be written to build.log
+● Building LST(s)
+
+    ▶ spring-projects/spring-petclinic@main
+        Build output will be written to build.log
     # highlight-start
-    > Step 1 - build with Maven
-        Selected JDK 17.0.7-tem
-        Running mvn install
-    ✓ Built spring-petclinic-20260424120000000-ast.jar
+        Installing Maven prebuild plugin
+        ✓ Maven · JDK 17.0.7-tem
     # highlight-end
-    Cleaned 1 older builds
+
+Built 1 repository.
 ```
+
+The `Installing Maven prebuild plugin` line is the discovery phase — the CLI extracts build metadata with a lightweight Maven goal, then parses the sources itself. See [discovery and parsing](./build-steps.md#discovery-and-parsing) for details.
 
 ## Step 7: Install recipes
 
