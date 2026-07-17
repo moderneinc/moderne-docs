@@ -154,3 +154,31 @@ java -jar connector-{version}.jar \
 ```
 </TabItem>
 </Tabs>
+
+### AWS CodeArtifact
+
+When a poll repository URL points at an AWS CodeArtifact endpoint (`<domain>-<account-id>.d.codeartifact.<region>.amazonaws.com`) and you leave the password unset, the Connector mints and refreshes CodeArtifact authorization tokens itself instead of relying on a manually rotated token. This behaves the same way here as it does for recipe artifact repositories; see [AWS CodeArtifact under Recipe marketplace repositories](./configure-recipe-marketplace-repositories.md#aws-codeartifact) for how token minting works and the IAM permissions the Connector's AWS identity needs. Configure the repository with only its CodeArtifact `uri` and leave `password` unset.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_ORGANIZATION_SOURCES_HTTP_0_POLL_MAVEN_0_URI=https://my-domain-111122223333.d.codeartifact.us-east-1.amazonaws.com/maven/my-repo/ \
+# ... Additional variables
+```
+
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.organization.sources.http[0].poll.maven[0].uri=https://my-domain-111122223333.d.codeartifact.us-east-1.amazonaws.com/maven/my-repo/ \
+# ... Additional arguments
+```
+
+</TabItem>
+</Tabs>
