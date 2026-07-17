@@ -10,6 +10,17 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## July 17, 2026
+
+#### rewrite-java-security - 3.35.2
+
+* Fix NPE in FindInsecureTlsConfig
+
+#### rewrite-java-security - 3.35.1
+
+* Derive EOL status from eolFrom relative to asOf date
+* Go security recipes
+
 ## July 16, 2026
 
 #### rewrite-migrate-python - v0.10.0
