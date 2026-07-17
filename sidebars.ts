@@ -47,7 +47,6 @@ const platform = {
           'user-documentation/moderne-platform/getting-started/changelog',
           'user-documentation/moderne-platform/getting-started/prethink',
           'user-documentation/moderne-platform/getting-started/activity-view',
-          'user-documentation/moderne-platform/getting-started/code-mods',
         ],
       },
       {
@@ -267,7 +266,6 @@ const platformV1 = {
           'user-documentation/moderne-platform-v1/getting-started/dev-center',
           'user-documentation/moderne-platform-v1/getting-started/prethink',
           'user-documentation/moderne-platform-v1/getting-started/activity-view',
-          'user-documentation/moderne-platform-v1/getting-started/code-mods',
         ],
       },
       {
@@ -772,7 +770,6 @@ const recipes = {
             'user-documentation/recipes/authoring-recipes/advanced-authoring/multiple-versions',
             'user-documentation/recipes/authoring-recipes/advanced-authoring/automate-breaking-changes',
             'user-documentation/recipes/authoring-recipes/advanced-authoring/modifying-methods-with-javatemplate',
-            'user-documentation/recipes/authoring-recipes/advanced-authoring/recipe-with-npm-dependency',
             'user-documentation/recipes/authoring-recipes/advanced-authoring/estimated-time-saved',
           ],
         },
