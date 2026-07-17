@@ -249,20 +249,20 @@ When you push changes with `mod git push`, a `push` block is created with these 
 
 The MCP server (`mod mcp`) emits telemetry differently from the commands above. Instead of writing a `trace.json`, it appends **one CSV row per MCP tool call** directly to the telemetry queue at `~/.moderne/cli/trace/mcp/`. Each row uses the `mcp` command type (`type=mcp`) and carries an `mcp` block with these fields:
 
-| Field           | Type   | Description                                                                                          |
+| Field           | Type   | Description                                                                                         |
 |-----------------|--------|-----------------------------------------------------------------------------------------------------|
-| `outcome`       | string | Tool-call outcome (e.g., `Succeeded`, `Failed`)                                                      |
-| `startTime`     | string | ISO 8601 timestamp when the tool call started                                                        |
-| `endTime`       | string | ISO 8601 timestamp when the tool call completed                                                      |
-| `sessionId`     | string | The `mod mcp` session identifier, so all rows from one session correlate                             |
-| `toolName`      | string | The MCP tool that was invoked (e.g., `run_recipe`, `find_types`)                                     |
-| `recipeId`      | string | Fully qualified recipe ID for recipe-oriented tools; empty for tools that take a query instead       |
-| `matchCount`    | number | Number of matches the tool produced                                                                  |
-| `changeCount`   | number | Number of changes the tool produced                                                                  |
-| `runId`         | string | Identifier of the underlying recipe run, when the tool triggered one                                 |
-| `resultBytes`   | number | Size of the tool result in bytes                                                                     |
-| `arguments`     | string | Truncated (~120 character) summary of the tool arguments. No full arguments or secrets are recorded  |
-| `elapsedTimeMs` | number | Duration of the tool call in milliseconds                                                            |
+| `outcome`       | string | Tool-call outcome (e.g., `Succeeded`, `Failed`)                                                     |
+| `startTime`     | string | ISO 8601 timestamp when the tool call started                                                       |
+| `endTime`       | string | ISO 8601 timestamp when the tool call completed                                                     |
+| `sessionId`     | string | The `mod mcp` session identifier, so all rows from one session correlate                            |
+| `toolName`      | string | The MCP tool that was invoked (e.g., `run_recipe`, `find_types`)                                    |
+| `recipeId`      | string | Fully qualified recipe ID for recipe-oriented tools; empty for tools that take a query instead      |
+| `matchCount`    | number | Number of matches the tool produced                                                                 |
+| `changeCount`   | number | Number of changes the tool produced                                                                 |
+| `runId`         | string | Identifier of the underlying recipe run, when the tool triggered one                                |
+| `resultBytes`   | number | Size of the tool result in bytes                                                                    |
+| `arguments`     | string | Truncated (~120 character) summary of the tool arguments. No full arguments or secrets are recorded |
+| `elapsedTimeMs` | number | Duration of the tool call in milliseconds                                                           |
 
 In the aggregate CSV these become the `mcp`-prefixed columns (`mcpOutcome`, `mcpStartTime`, `mcpEndTime`, `mcpSessionId`, `mcpToolName`, `mcpRecipeId`, `mcpMatchCount`, `mcpChangeCount`, `mcpRunId`, `mcpResultBytes`, `mcpArguments`, `mcpElapsedTimeMs`), alongside the standard `origin`, `path`, `branch`, `developer`, and `organization` columns.
 
@@ -289,10 +289,10 @@ repo3/.moderne/build/trace.json ─┘
 
 The CSV adds columns that don't exist in the JSON:
 
-| Column      | When        | Source                  | Description                                                                                                                                       |
-|-------------|-------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| `developer` | Always      | Local git configuration | The git email of the developer who ran the command (`git config user.email`), or empty if it cannot be determined. It appears as the fourth common column, after `origin`, `path`, and `branch`. |
-| `tag.<key>` | On demand   | `--trace-tag key=value` | One column per tag you supply on the command (e.g., `--trace-tag team=payments` adds a `tag.team` column). Repeat the option to add multiple tags. Useful for slicing telemetry by CI pipeline, team, or migration wave. |
+| Column      | When      | Source                  | Description                                                                                                                                                                                                              |
+|-------------|-----------|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `developer` | Always    | Local git configuration | The git email of the developer who ran the command (`git config user.email`), or empty if it cannot be determined. It appears as the fourth common column, after `origin`, `path`, and `branch`.                         |
+| `tag.<key>` | On demand | `--trace-tag key=value` | One column per tag you supply on the command (e.g., `--trace-tag team=payments` adds a `tag.team` column). Repeat the option to add multiple tags. Useful for slicing telemetry by CI pipeline, team, or migration wave. |
 
 The CSV also reshapes or omits some JSON fields:
 
@@ -304,16 +304,16 @@ The CSV also reshapes or omits some JSON fields:
 
 Many organizations use centralized observability and business intelligence (BI) tools to monitor developer workflows and measure productivity initiatives. The Moderne CLI's telemetry is designed to integrate seamlessly with these systems.
 
-Several of the paths below turn on whether you use a *wrapper*. That means a customized copy of the [`modw` script](./cli-wrapper.md), the entry point every `mod` command already runs through, which your platform team can extend to publish telemetry to a destination you control. [Publishing telemetry with a custom wrapper](#publishing-telemetry-with-a-custom-wrapper) covers how it works.
+Several options below rely on a customized *wrapper*, meaning your own copy of the [`modw` script](./cli-wrapper.md) that every `mod` command already runs through. Your platform team extends it to publish telemetry to a destination you control.
 
 Where your telemetry ends up, and whether you have to do anything to route it into BI, depends on how your CLI is deployed:
 
-| Scenario                                            | Source        | Where telemetry lands                                                                                                             | Publish it yourself?                       | Does Moderne receive it?                                          | How you get it into BI                                                                        |
-|-----------------------------------------------------|---------------|----------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
-| Platform / web UI                                   | `saas`        | Moderne's managed bucket under your tenant prefix, uploaded server-side by the recipe workers                                     | No (server-side)                             | Yes                                                              | Moderne replicates it into a bucket you own                                                   |
-| CLI signed in to a tenant (happy path)              | `cli` / `mcp` | Queued locally, then auto-pushed to Moderne's bucket through the tenant gateway on license-lease refresh (or `mod telemetry publish`) | No                                           | Yes                                                              | Replication alongside the `saas` data; a wrapper can *also* publish to a destination you control |
-| CLI not signed in, but your org is a SaaS customer  | `cli` / `mcp` | Queued locally; nothing reaches the gateway while disconnected                                                                    | No                                           | Not while disconnected. Once you're signed in, it flushes on the next license-lease refresh as above (but a short-lived host can spin down before it ever flushes) | Replication once the queue flushes; use a wrapper to your own destination if the host may stay disconnected or spin down first (for example, ephemeral mass-ingest VMs) |
-| Moderne DX or air-gapped (no tenant)                | `cli` / `mcp` | Local only; there is no gateway or Moderne bucket to push to                                                                     | Yes. Nothing pushes it for you     | No, by design (no tenant to flush to, and replication does not run) | You publish it yourself, typically by customizing the wrapper, and hold the complete picture                          |
+| Scenario                                           | Source        | Where telemetry lands                                                                                                                 | Publish it yourself?           | Does Moderne receive it?                                                                                                                                           | How you get it into BI                                                                                                                                                  |
+|----------------------------------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Platform / web UI                                  | `saas`        | Moderne's managed bucket under your tenant prefix, uploaded server-side by the recipe workers                                         | No (server-side)               | Yes                                                                                                                                                                | Moderne replicates it into a bucket you own                                                                                                                             |
+| CLI signed in to a tenant (happy path)             | `cli` / `mcp` | Queued locally, then auto-pushed to Moderne's bucket through the tenant gateway on license-lease refresh (or `mod telemetry publish`) | No                             | Yes                                                                                                                                                                | Replication alongside the `saas` data; a wrapper can *also* publish to a destination you control                                                                        |
+| CLI not signed in, but your org is a SaaS customer | `cli` / `mcp` | Queued locally; nothing reaches the gateway while disconnected                                                                        | No                             | Not while disconnected. Once you're signed in, it flushes on the next license-lease refresh as above (but a short-lived host can spin down before it ever flushes) | Replication once the queue flushes; use a wrapper to your own destination if the host may stay disconnected or spin down first (for example, ephemeral mass-ingest VMs) |
+| Moderne DX or air-gapped (no tenant)               | `cli` / `mcp` | Local only; there is no gateway or Moderne bucket to push to                                                                          | Yes. Nothing pushes it for you | No, by design (no tenant to flush to, and replication does not run)                                                                                                | You publish it yourself, typically by customizing the wrapper, and hold the complete picture                                                                            |
 
 A signed-in CLI's auto-push happens when it refreshes its license lease (at most once every three days). To flush queued telemetry on demand (for example, from CI, or right before pulling a report), run `mod telemetry publish`.
 
@@ -321,9 +321,7 @@ A signed-in CLI's auto-push happens when it refreshes its license lease (at most
 If your CLI is signed in to a Moderne SaaS v2 tenant, Moderne can replicate your telemetry into a bucket or storage account you own. See [Configuring telemetry exports and reports](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/overview.md) ([AWS](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/aws-replication.md), [Azure](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/azure-replication.md)). The self-publishing wrapper covered below is for Moderne DX customers, CLI-only deployments not connected to a tenant, or anyone who *also* wants telemetry in a destination they control.
 :::
 
-As mentioned earlier, the CLI automatically aggregates CSV files to the `$MODERNE_HOME/cli/trace` directory. These files are ready to be ingested by your existing BI tools - allowing you to track CLI usage, recipe adoption, and impact across your entire organization.
-
-You can publish these files with every command run, or you can collect them on a scheduled cadence.
+The aggregate CSV files in `$MODERNE_HOME/cli/trace` are the ones that feed your BI tools. You can publish them after every command, or collect them on a schedule.
 
 ### Publishing telemetry with a custom wrapper
 

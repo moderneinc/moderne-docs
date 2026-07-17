@@ -5,7 +5,11 @@ description: Query Moderne telemetry with AWS Athena, Snowflake, BigQuery, Datab
 
 # Querying and BI
 
-Once data is landing in your bucket or container, you can query it directly with any engine that reads CSV from object storage. This page applies to data collected either way: Moderne's platform replication (if you haven't configured it yet, see the [AWS](./aws-replication.md) or [Azure](./azure-replication.md) guides first) or self-published from the CLI wrapper (see [Exporting CLI telemetry to Amazon S3](../../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry-s3-export.md), whose worked example writes the same layout). Everything below assumes the `tenant`/`source`/`type`/`year`/`month`/`day` layout. Replication always produces it, and the wrapper example matches it, so the tables and queries work unchanged. If you customized the wrapper to upload a different path structure, adjust the partition keys and `storage.location.template` in each table to match what you actually write. The Hive partition layout means every major engine can prune to just the partitions a query needs.
+Once data is landing in your bucket or container, you can query it directly with any engine that reads CSV from object storage. Because the data is Hive-partitioned, every major engine can prune to just the partitions a query needs.
+
+This page applies whether Moderne replicates your telemetry for you or you self-publish it from the CLI wrapper. For replication, set it up first with the [AWS](./aws-replication.md) or [Azure](./azure-replication.md) guides. For self-publishing, follow [Exporting CLI telemetry to Amazon S3](../../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry-s3-export.md), whose worked example writes the same layout.
+
+Everything below assumes the `tenant`/`source`/`type`/`year`/`month`/`day` layout. Replication always produces it, and the wrapper example matches it, so the tables and queries here work unchanged. If you customized the wrapper to write a different path structure, adjust the partition keys and `storage.location.template` in each table to match.
 
 This page gives the full Athena walkthrough, then short notes for other common BI stacks, then a tour of the [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) starter pack.
 
@@ -393,18 +397,18 @@ If your BI tool isn't listed, the only requirements are: read CSV from object st
 
 Available templates (sorted by minimum CLI command required):
 
-| Template                  | Description                                             | Minimum command  |
-|---------------------------|---------------------------------------------------------|------------------|
-| Build Success Trend       | Monthly build health: success vs. failure               | `mod build`      |
-| Build Tool Distribution   | Build-tool + version distribution across repos          | `mod build`      |
-| Recipe Run Trend          | Monthly adoption: runs, distinct recipes, unique users  | `mod run`        |
-| Top Recipes               | Most-used recipes by run count, users, repos            | `mod run`        |
-| Dashboard KPIs            | Executive snapshot: all-time totals + monthly trend     | `mod git commit` |
-| Commit Trend              | Recipe execution correlated with committed code impact  | `mod git commit` |
-| Commit Activity           | Successful commits, repos changed, hours saved          | `mod git commit` |
-| Top Users                 | User engagement by recipe runs + commits                | `mod git commit` |
-| Top Recipes with Commits  | Recipes producing real committed code changes           | `mod git commit` |
-| Security Recipe Run Trend | Security remediation trend: fixes, repos, hours         | `mod git commit` |
+| Template                  | Description                                            | Minimum command  |
+|---------------------------|--------------------------------------------------------|------------------|
+| Build Success Trend       | Monthly build health: success vs. failure              | `mod build`      |
+| Build Tool Distribution   | Build-tool + version distribution across repos         | `mod build`      |
+| Recipe Run Trend          | Monthly adoption: runs, distinct recipes, unique users | `mod run`        |
+| Top Recipes               | Most-used recipes by run count, users, repos           | `mod run`        |
+| Dashboard KPIs            | Executive snapshot: all-time totals + monthly trend    | `mod git commit` |
+| Commit Trend              | Recipe execution correlated with committed code impact | `mod git commit` |
+| Commit Activity           | Successful commits, repos changed, hours saved         | `mod git commit` |
+| Top Users                 | User engagement by recipe runs + commits               | `mod git commit` |
+| Top Recipes with Commits  | Recipes producing real committed code changes          | `mod git commit` |
+| Security Recipe Run Trend | Security remediation trend: fixes, repos, hours        | `mod git commit` |
 
 Each template is self-contained. Clone the repo, pick a template, open its notebook, and you have a working dashboard you can either run as-is or port into Power BI / Tableau / Looker / Grafana / QuickSight.
 

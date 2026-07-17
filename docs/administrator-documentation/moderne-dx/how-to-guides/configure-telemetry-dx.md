@@ -5,13 +5,13 @@ description: How Moderne DX deployments collect CLI telemetry and get it into BI
 
 # Configuring telemetry for Moderne DX
 
-The Moderne CLI generates telemetry on every LST build, recipe run, and git operation. With the Moderne Platform, a signed-in CLI pushes this telemetry to your tenant automatically, and Moderne can replicate it into storage you own. A Moderne DX deployment has no Moderne tenant to push to, so self-publishing from the CLI is the only path into BI. You collect the telemetry yourself and send it to storage you control.
+The Moderne CLI records telemetry on every LST build, recipe run, and git operation. Each record shows what ran, how many repositories it touched, and how much developer effort it saved. You can track things like CLI adoption and migration impact by sending that data to your BI tools.
 
-The mechanics are shared with the rest of the documentation. This page is the DX-specific entry point and links to each step.
+A Moderne DX deployment has no Moderne tenant to receive this telemetry, so it has nowhere to go on its own. It stays on each machine, and publishing it to storage you own is your job. This guide will walk you through how to do this.
 
-## How telemetry works
+## Prerequisites
 
-Before configuring anything, read the [full guide on CLI telemetry](../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry.md) to understand what the CLI records, the `trace.json` and aggregate CSV formats, and the fields available for reporting.
+This guide assumes you've read the [full guide on CLI telemetry](../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry.md), which explains what the CLI records and the fields available for reporting.
 
 ## Collect: publish telemetry from the CLI wrapper
 
