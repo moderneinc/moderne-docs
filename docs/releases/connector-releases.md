@@ -7,13 +7,19 @@ description: The current version of the Moderne Connector and where to download 
 
 | Component | Current version |
 | --------- | --------------- |
-| Connector | 0.150.155 |
+| Connector | 0.150.163 |
 
-[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.155/connector-0.150.155.jar)
+[Download latest](https://repo1.maven.org/maven2/io/moderne/connector/0.150.163/connector-0.150.163.jar)
 
 ## Changelog
 
 ## July 2026
+
+### v0.150.163 – 2026-07-15
+
+[Download](https://repo1.maven.org/maven2/io/moderne/connector/0.150.163/connector-0.150.163.jar)
+
+* Withhold unreachable customer publishUri from the in-SaaS CLI (#1591)
 
 ### v0.150.155 – 2026-07-14
 
