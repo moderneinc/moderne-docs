@@ -30,33 +30,33 @@ This guide expects that you have:
 Haven't written your recipe yet? Moderne ships [skills for AI coding agents](../../../agent-tools/skills.md) that help you create, run, and refine recipes, automating much of the loop this guide covers by hand.
 :::
 
-## Step 1: Assemble a set of repositories
+## Step 1: Assemble your repositories and LSTs
 
-The easiest way to get a bunch of repositories to test against is to pull down a Moderne organization to your machine:
+To validate at scale, the CLI needs a set of repositories with their [LSTs](../concepts/lossless-semantic-trees.md) available. You can either download them from Moderne or build LSTs for your projects locally. Follow the below instructions depending on which one you'd prefer.
+
+### Option A: Download existing LSTs from Moderne
+
+The easiest option is to pull down a Moderne organization, which downloads the repositories, their code, and their pre-built LSTs all at once:
 
 ```bash
 mod git sync moderne /path/to/your/workspace --organization "<organization-name>" --with-sources
 ```
 
-This downloads the repositories, their code, and their LSTs so the CLI can operate on all of them at once. See [Syncing Moderne organizations](../../../moderne-cli/getting-started/cli-intro.md#syncing-moderne-organizations) for how to discover the organizations available to you.
+See [Syncing Moderne organizations](../../../moderne-cli/getting-started/cli-intro.md#syncing-moderne-organizations) for how to discover the organizations available to you.
 
-If you'd rather assemble your own set, you can point the CLI to any folder containing one or more checked-out Git repositories. Just make sure you update the commands in the rest of the doc to point to that directory.
+### Option B: Build LSTs locally
 
-## Step 2: Build LSTs
-
-If you synced a Moderne organization in Step 1, its LSTs were downloaded along with it, so you can skip ahead to [Step 3](#step-3-make-your-recipe-available-to-the-cli).
-
-If you, instead, assembled your own set of repositories - navigate into your workspace and build LSTs for every repository in it:
+If you'd rather assemble your own set, point the CLI at any folder containing one or more checked-out Git repositories and build the LSTs yourself:
 
 ```bash
-mod build .
+mod build /path/to/your/workspace
 ```
 
 :::tip
-For testing purposes, keep in mind that a recipe will skip any repository whose LST isn't built. If you are struggling to get one of your repositories to build, you can ignore it and test with other repositories.
+A recipe skips any repository whose LST isn't built, so you don't need a perfectly clean build to start. If one repository refuses to build, ignore it and validate against the rest.
 :::
 
-## Step 3: Make your recipe available to the CLI
+## Step 2: Make your recipe available to the CLI
 
 In order for the CLI to run your recipe, you'll need to let it know _where_ the recipe is. The command you'll need to run to let the CLI know this will change depending on the language your recipe is **written in**:
 
@@ -78,6 +78,10 @@ Confirm the active recipe has been set correctly by running:
 ```bash
 mod config recipes active show
 ```
+
+:::tip
+Using the Moderne IntelliJ plugin? You can set the active recipe from the IDE instead of the command line: right-click the recipe class and choose **Set Active Recipe**. See [Debugging recipes](../../../moderne-ide-integration/how-to-guides/debugging-recipes.md#step-1-set-the-active-recipe) for details.
+:::
 
 </TabItem>
 <TabItem value="csharp" label="C#">
@@ -116,15 +120,15 @@ The recipe is then available to run by its fully-qualified name. For more inform
 </TabItem>
 </Tabs>
 
-## Step 4: Run the recipe across every repository
+## Step 3: Run the recipe across every repository
 
-Now that you've pointed the CLI to your recipe, you can run it against all of your repositories via the following commands:
+Now that you've pointed the CLI to your recipe, you can run it against every repository in your workspace at once:
 
 <Tabs groupId="recipeLanguage">
 <TabItem value="java" label="Java / YAML">
 
 ```bash
-mod run . --active-recipe
+mod run /path/to/your/workspace --active-recipe
 ```
 
 </TabItem>
@@ -133,7 +137,7 @@ mod run . --active-recipe
 Run the installed recipe by its fully-qualified name:
 
 ```bash
-mod run . --recipe=<RecipeName>
+mod run /path/to/your/workspace --recipe=<RecipeName>
 ```
 
 </TabItem>
@@ -142,7 +146,7 @@ mod run . --recipe=<RecipeName>
 Run the installed recipe by its fully-qualified name:
 
 ```bash
-mod run . --recipe=<RecipeName>
+mod run /path/to/your/workspace --recipe=<RecipeName>
 ```
 
 </TabItem>
@@ -151,40 +155,48 @@ mod run . --recipe=<RecipeName>
 Run the installed recipe by its fully-qualified name:
 
 ```bash
-mod run . --recipe=<RecipeName>
+mod run /path/to/your/workspace --recipe=<RecipeName>
 ```
 
 </TabItem>
 </Tabs>
 
-## Step 5: Review the results and iterate
+## Step 4: Review the results and iterate
 
 Once the recipe run finishes, the next step is to see how your recipe did across all of the repositories. There are three things worth taking a look at:
 
 First, the **changes**. Command/Ctrl-click the `Fix results` link in the output to open the combined diff, then confirm the recipe touched everything you expected and left everything else alone.
 
+:::tip
+If you want to apply the changes your recipe made to the actual repositories, you can do so by running:
+
+```bash
+mod git apply /path/to/your/workspace --last-recipe-run
+```
+:::
+
 Next, any **errors**. The run output flags any repository where the recipe threw an error. To see what happened across the whole set at once, open the recipe run analyzer:
 
 ```bash
-mod trace runs analyze . --last-run
+mod trace runs analyze /path/to/your/workspace --last-run
 ```
 
 Finally, the **data tables**. Many recipes emit [data tables](../../../moderne-platform/getting-started/data-tables.md) alongside their changes, and the CLI suggests a `mod study` command after each run to open them:
 
 ```bash
-mod study . --last-recipe-run --data-table RecipeRunStats
+mod study /path/to/your/workspace --last-recipe-run --data-table RecipeRunStats
 ```
 
 `RecipeRunStats` and `SourcesFileResults` are good places to start for a repository-by-repository view of how the recipe behaved.
 
-When the results don't match what you expected, tweak the recipe and run it again. For Java and YAML recipes, rebuild and re-run `mod run . --active-recipe` (you only need to set the active recipe again if the file or its classpath moves). For C#, Python, and JavaScript recipes, rebuild and re-install the package first.
+When the results don't match what you expected, tweak the recipe and run it again. For Java and YAML recipes, rebuild and re-run `mod run /path/to/your/workspace --active-recipe` (you only need to set the active recipe again if the file or its classpath moves). For C#, Python, and JavaScript recipes, rebuild and re-install the package first.
 
 ## Debug a recipe against real code
 
 If you run into issues with your recipe, keep in mind that you can set breakpoints that can be hit while the recipe runs against these real repositories. To do this, add a `--debug` flag to the run command:
 
 ```bash
-mod --debug run . --active-recipe
+mod --debug run /path/to/your/workspace --active-recipe
 ```
 
 The CLI suspends on startup and waits for a debugger to attach, then stops at your breakpoints as the recipe runs against real code. Any JDWP-capable debugger works (IntelliJ IDEA, VS Code, Eclipse). See [Debugging recipes](../../../moderne-ide-integration/how-to-guides/debugging-recipes.md) for the full setup, including how to [drive it entirely from the CLI without the Moderne IDE plugin](../../../moderne-ide-integration/how-to-guides/debugging-recipes.md#debugging-without-the-moderne-plugin).
