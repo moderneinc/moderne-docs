@@ -785,6 +785,7 @@ const recipes = {
           },
           items: [
             'user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-testing',
+            'user-documentation/recipes/authoring-recipes/testing-and-best-practices/validating-recipes-at-scale',
             'user-documentation/recipes/authoring-recipes/testing-and-best-practices/recipe-conventions-and-best-practices',
           ],
         },
