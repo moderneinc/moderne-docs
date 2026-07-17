@@ -291,15 +291,16 @@ Presuming everything has been set up correctly, you should see output similar to
 
     ▶ spring-projects/spring-petclinic@main
         Build output will be written to build.log
+        Looking for Gradle subprojects in spring-petclinic
+        Selected the 17.0.19-tem JDK for spring-petclinic
     # highlight-start
-        Installing Maven prebuild plugin
-        ✓ Maven · JDK 17.0.7-tem
+        ✓ Gradle · JDK 17.0.19-tem
     # highlight-end
 
 Built 1 repository.
 ```
 
-The `Installing Maven prebuild plugin` line is the discovery phase — the CLI extracts build metadata with a lightweight Maven goal, then parses the sources itself. See [discovery and parsing](./build-steps.md#discovery-and-parsing) for details.
+Spring PetClinic ships both a Maven and a Gradle build, and the `gradle` step takes precedence over `maven` in the default pipeline, so the CLI parses it through Gradle. It discovers the project and its metadata, selects a JDK, then parses the sources itself — the `✓ Gradle · JDK 17.0.19-tem` line marks a successful build. See [discovery and parsing](./build-steps.md#discovery-and-parsing) for how the two phases work.
 
 ## Step 7: Install recipes
 
