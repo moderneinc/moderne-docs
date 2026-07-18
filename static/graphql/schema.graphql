@@ -981,7 +981,7 @@ type Column
 input CommitInput
   @join__type(graph: CHANGESETCOMMITTER)
 {
-  """Organization ID for determining available commit options."""
+  """Organization ID context for the changeset."""
   organizationId: ID
 
   """
@@ -3116,7 +3116,7 @@ type Organization
   """
   participants(first: Int = 50, after: String, where: ChangelogParticipantWhereInput, orderBy: [ChangelogParticipantOrderByInput!]): ChangelogParticipantConnection! @join__field(graph: CHANGELOGREADER)
 
-  """Available commit options for this organization."""
+  """Commit options available in this tenant."""
   commitOptions: [CommitOption!]! @join__field(graph: CHANGESETCOMMITTER)
   changesets(first: Int = 50, after: String, before: String, where: OrganizationChangesetWhereInput, orderBy: [OrganizationChangesetOrderByInput!]): OrganizationChangesetConnection! @join__field(graph: CHANGESETREADER)
 

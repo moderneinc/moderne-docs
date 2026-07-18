@@ -1798,7 +1798,7 @@ so we can resolve the recipe that was used at the time of the run (not the curre
 | `id` | ID! |  |
 | `changelog` | (first: Int = 50, after: String, where: [ChangelogEntryWhereInput](#changelogentrywhereinput), orderBy: [[ChangelogEntryOrderByInput](#changelogentryorderbyinput)!]): [ChangelogEntryConnection](#changelogentryconnection)! | PR and commit activity feed for repositories in this organization. |
 | `participants` | (first: Int = 50, after: String, where: [ChangelogParticipantWhereInput](#changelogparticipantwhereinput), orderBy: [[ChangelogParticipantOrderByInput](#changelogparticipantorderbyinput)!]): [ChangelogParticipantConnection](#changelogparticipantconnection)! | All unique participants across the changelog for this organization, aggregated from authors, assignees, closers, and reviewers. |
-| `commitOptions` | [[CommitOption](#commitoption)!]! | Available commit options for this organization. |
+| `commitOptions` | [[CommitOption](#commitoption)!]! | Commit options available in this tenant. |
 | `changesets` | (first: Int = 50, after: String, before: String, where: [OrganizationChangesetWhereInput](#organizationchangesetwhereinput), orderBy: [[OrganizationChangesetOrderByInput](#organizationchangesetorderbyinput)!]): [OrganizationChangesetConnection](#organizationchangesetconnection)! |  |
 | `devCenter` | [DevCenter](#devcenter) | DevCenter provides organization-wide campaign progress tracking. |
 | `moddy` | [Moddy](#moddy)! |  |
@@ -4059,7 +4059,7 @@ Input for creating a commit from a changeset.
 
 | Field | Type | Description |
 |-------|------|-------------|
-| `organizationId` | ID | Organization ID for determining available commit options. |
+| `organizationId` | ID | Organization ID context for the changeset. |
 | `changesetId` | ID! | Changeset ID (e.g., recipe run ID, batch changeset ID). Resolved via federation to an OrganizationChangeset. |
 | `repositories` | [[RepositoryChangesetWhereInput](#repositorychangesetwhereinput)!] | Filter which repositories and files to include. Evaluated in order - first matching rule wins for each repository. Put repo-specific rules first, global fallback rules last. If empty or not provided, all repositories and files in the changeset are included. |
 | `branchName` | String | If unset, commit to the branch that the LST was generated from. |
