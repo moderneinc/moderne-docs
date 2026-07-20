@@ -560,7 +560,7 @@ If you need to enter an SSH passphrase to clone repositories, please see our [SS
 
 #### Working with organizations in DX
 
-For Moderne DX customers, organizations are defined in [your organization's repos.csv file](../references/repos-csv.md) (or in a `repos-lock.csv` file shared with you). It's up to your team to figure out the best way to distribute this file. That being said, we'd recommend having your [mass ingest pipeline](../../../administrator-documentation/moderne-dx/how-to-guides/mass-ingest-dx.md) publish this CSV to S3 (or something similar) so people can easily download this file to their machines.
+For Moderne DX customers, organizations are defined in [your organization's repos.csv file](../references/repos-csv.md) (or in a `repos-lock.csv` file shared with you). If your [mass ingest pipeline](../../../administrator-documentation/moderne-dx/how-to-guides/mass-ingest-dx.md) runs `mod publish`, the Moderne CLI already maintains a [central `repos-lock.csv`](../how-to-guides/repos-lock-csv.md#the-central-repos-lockcsv-file) at the root of the artifact repository the LSTs are published to, so pointing people at that file is usually the easiest way to distribute it.
 
 Once you have the CSV downloaded, you can either clone all of the repositories in that file and then `cd` into the organization (a specific directory) you care about – or you can filter the CSV file down to just the ones you care about and then clone those.
 

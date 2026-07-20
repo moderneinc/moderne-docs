@@ -50,12 +50,18 @@ Organizational structure is configured via a `repos.csv` file, accessible to the
 
 Please see our [creating a repos.csv guide](../../../../user-documentation/moderne-cli/references/repos-csv.md) for details into how to create and format this file.
 
+### Keeping the hierarchy up to date with mass ingest
+
+If you run a [Mass Ingest](../mass-ingest.md) pipeline, you can host your `repos.csv` at the root of the artifact repository your LSTs are published to. Every `mod publish` then uses that file as the source of truth for the hierarchy and maintains a central `repos-lock.csv` next to it, in which every row carries the hierarchy from your `repos.csv` plus the latest `changeset` and `publishUri`. Pointing the Connector at that `repos-lock.csv` gives it both the hierarchy and direct LST locations from a single, always-current file.
+
+See [the central repos-lock.csv file](../../../../user-documentation/moderne-cli/how-to-guides/repos-lock-csv.md#the-central-repos-lockcsv-file) for the full merge behavior and the file locations for each artifact repository type.
+
 ## Connector configuration
 
 The `repos.csv` source location is provided to the Connector by setting a variable in the Connector run command. A source can be a local file (`file` source), an HTTP(S) URL (`http` source), or an S3 object URI (`s3` source — see [S3 organization source](./configure-a-connector-with-s3-access.md) for S3-specific variables). You can configure multiple sources of each type.
 
 :::tip[`repos.csv` vs. `repos-lock.csv`]
-If you set up a [Mass Ingest](../mass-ingest.md) pipeline, the `mod publish` step produces a `repos-lock.csv` with a `publishUri` for every repository. Pointing the Connector at this file lets it fetch LSTs directly from the URIs in the CSV, which is faster and more reliable than asking the Connector to discover LSTs at runtime. See [how the Connector finds your repositories and their LSTs](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts) for the full picture.
+If you set up a [Mass Ingest](../mass-ingest.md) pipeline, the `mod publish` step produces a `repos-lock.csv` with a `publishUri` for every repository. Pointing the Connector at this file lets it fetch LSTs directly from the URIs in the CSV, which is faster and more reliable than asking the Connector to discover LSTs at runtime. If you also host your `repos.csv` at the root of the artifact repository, `mod publish` keeps the hierarchy in the central `repos-lock.csv` in sync with it automatically. See [how the Connector finds your repositories and their LSTs](./connector-config.md#step-5-configure-the-connector-to-find-your-repositories-and-their-lsts) for the full picture.
 :::
 
 <Tabs groupId="agent-type">
