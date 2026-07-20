@@ -6,7 +6,7 @@ description: A comprehensive list of all recipes organized by module.
 
 _This doc indexes per-module recipe lists. Click a groupId to see its recipes._
 
-Total recipes: 7698
+Total recipes: 7246
 
 
 ## io.moderne.recipe
@@ -67,8 +67,6 @@ Total recipes: 7698
 * [rewrite-android](all-recipes-org-openrewrite-recipe.md#rewrite-android)
 * [rewrite-apache](all-recipes-org-openrewrite-recipe.md#rewrite-apache)
 * [rewrite-circleci](all-recipes-org-openrewrite-recipe.md#rewrite-circleci)
-* [rewrite-codemods](all-recipes-org-openrewrite-recipe.md#rewrite-codemods)
-* [rewrite-codemods-ng](all-recipes-org-openrewrite-recipe.md#rewrite-codemods-ng)
 * [rewrite-compiled-analysis](all-recipes-org-openrewrite-recipe.md#rewrite-compiled-analysis)
 * [rewrite-concourse](all-recipes-org-openrewrite-recipe.md#rewrite-concourse)
 * [rewrite-cucumber-jvm](all-recipes-org-openrewrite-recipe.md#rewrite-cucumber-jvm)

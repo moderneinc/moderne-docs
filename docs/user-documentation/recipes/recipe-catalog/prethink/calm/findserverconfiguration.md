@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find server configuration"}
-  description={"Extract server configuration (port, SSL, context path) from application.properties and application.yml files."}
+  description={"Extract server configuration (port, SSL, context path) from Spring Boot application.properties and application.yml files. Non-Spring server descriptors such as web.xml, jboss-web.xml, or JBoss standalone.xml are not currently supported."}
   fqName={"io.moderne.prethink.calm.FindServerConfiguration"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find server configuration</RecipeHeader.Title>
 
-<RecipeHeader.Description>Extract server configuration (port, SSL, context path) from application.properties and application.yml files.</RecipeHeader.Description>
+<RecipeHeader.Description>Extract server configuration (port, SSL, context path) from Spring Boot application.properties and application.yml files. Non-Spring server descriptors such as web.xml, jboss-web.xml, or JBoss standalone.xml are not currently supported.</RecipeHeader.Description>
 
 </RecipeHeader>
 

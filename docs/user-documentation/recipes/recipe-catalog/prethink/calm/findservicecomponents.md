@@ -8,7 +8,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeMeta
   displayName={"Find service components"}
-  description={"Identify service layer components (@Service, @Component, @Named) in the application. Excludes controllers and repositories which are handled by dedicated recipes."}
+  description={"Identify service layer components across Spring (@Service, @Component), Jakarta/Javax CDI (@Named, @Singleton), Jakarta/Javax EJB (@Stateless, @Stateful), and Micronaut (@Bean) in the application. Excludes controllers and repositories which are handled by dedicated recipes."}
   fqName={"io.moderne.prethink.calm.FindServiceComponents"}
   languages={["OpenRewrite"]}
   license={"Moderne Proprietary License"}
@@ -28,7 +28,7 @@ import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageL
 
 <RecipeHeader.Title>Find service components</RecipeHeader.Title>
 
-<RecipeHeader.Description>Identify service layer components (@Service, @Component, @Named) in the application. Excludes controllers and repositories which are handled by dedicated recipes.</RecipeHeader.Description>
+<RecipeHeader.Description>Identify service layer components across Spring (@Service, @Component), Jakarta/Javax CDI (@Named, @Singleton), Jakarta/Javax EJB (@Stateless, @Stateful), and Micronaut (@Bean) in the application. Excludes controllers and repositories which are handled by dedicated recipes.</RecipeHeader.Description>
 
 </RecipeHeader>
 

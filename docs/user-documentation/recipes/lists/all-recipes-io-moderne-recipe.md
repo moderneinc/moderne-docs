@@ -6426,7 +6426,7 @@ _41 recipes_
 
 _License: Moderne Proprietary License_
 
-_111 recipes_
+_115 recipes_
 
 * [io.moderne.prethink.ExtractCodingConventions](/user-documentation/recipes/recipe-catalog/prethink/extractcodingconventions.md)
   * **Extract coding conventions**
@@ -6446,6 +6446,9 @@ _111 recipes_
 * [io.moderne.prethink.FindGoErrorPatterns](/user-documentation/recipes/recipe-catalog/prethink/findgoerrorpatterns.md)
   * **Find Go error handling patterns**
   * Detect Go error-handling idioms: error returns, fmt.Errorf %w wrapping, errors.Is/As, panic/recover, and sentinel error variables.
+* [io.moderne.prethink.PythonDependencyReport](/user-documentation/recipes/recipe-catalog/prethink/pythondependencyreport.md)
+  * **Python dependency report**
+  * Read the dependency graph attached to Python manifests (pyproject.toml, Pipfile, requirements.txt, setup.cfg) by the parser and emit rows into the shared dependency-list-report table, mirroring the JVM dependency inventory. Includes declared (direct) dependencies and, when a lock file resolved them, transitive dependencies with concrete versions.
 * [io.moderne.prethink.UpdatePrethinkContextNoAiStarter](/user-documentation/recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
   * **Update Prethink context (no AI)**
   * Deprecated alias for `io.moderne.prethink.UpdatePrethinkContextStarter`, retained for backward compatibility with references to the former recipe name. Prethink no longer has an AI-based variant, so the &quot;(no AI)&quot; distinction is unnecessary. Use `io.moderne.prethink.UpdatePrethinkContextStarter` instead.
@@ -6455,6 +6458,9 @@ _111 recipes_
 * [io.moderne.prethink.calm.FindAspNetCoreEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findaspnetcoreendpoints.md)
   * **Find ASP.NET Core endpoints**
   * Identify HTTP endpoints declared via ASP.NET Core controllers ([ApiController], [Route], [HttpGet/Post/...]) and Minimal APIs (app.MapGet/MapPost/MapPut/MapDelete/MapPatch).
+* [io.moderne.prethink.calm.FindAspNetFrameworkEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findaspnetframeworkendpoints.md)
+  * **Find ASP.NET Framework endpoints (Web API 2 and MVC 5)**
+  * Identify HTTP endpoints declared in classic .NET Framework web applications: ASP.NET Web API 2 controllers (System.Web.Http.ApiController) and ASP.NET MVC 5 controllers (System.Web.Mvc.Controller), covering both attribute routing ([Route], [RoutePrefix], [HttpGet/Post/...], [AcceptVerbs]) and the default convention-based routes.
 * [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
   * **Find CALM relationships**
   * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
@@ -6625,10 +6631,10 @@ _111 recipes_
   * Identify security configurations including Spring Security, OAuth2, CORS, Jakarta Security (@RolesAllowed, @PermitAll, @DenyAll), and Quarkus Security settings.
 * [io.moderne.prethink.calm.FindServerConfiguration](/user-documentation/recipes/recipe-catalog/prethink/calm/findserverconfiguration.md)
   * **Find server configuration**
-  * Extract server configuration (port, SSL, context path) from application.properties and application.yml files.
+  * Extract server configuration (port, SSL, context path) from Spring Boot application.properties and application.yml files. Non-Spring server descriptors such as web.xml, jboss-web.xml, or JBoss standalone.xml are not currently supported.
 * [io.moderne.prethink.calm.FindServiceComponents](/user-documentation/recipes/recipe-catalog/prethink/calm/findservicecomponents.md)
   * **Find service components**
-  * Identify service layer components (@Service, @Component, @Named) in the application. Excludes controllers and repositories which are handled by dedicated recipes.
+  * Identify service layer components across Spring (@Service, @Component), Jakarta/Javax CDI (@Named, @Singleton), Jakarta/Javax EJB (@Stateless, @Stateful), and Micronaut (@Bean) in the application. Excludes controllers and repositories which are handled by dedicated recipes.
 * [io.moderne.prethink.calm.FindServiceEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findserviceendpoints.md)
   * **Find service endpoints**
   * Identify all REST/HTTP service endpoints exposed by the application. Supports Spring MVC, JAX-RS, Micronaut, and Quarkus REST endpoints. Also walks interface inheritance to detect endpoints in OpenAPI-codegen-first projects where @GetMapping etc. live on the interface methods.
@@ -6638,6 +6644,12 @@ _111 recipes_
 * [io.moderne.prethink.calm.FindTypeORMEntities](/user-documentation/recipes/recipe-catalog/prethink/calm/findtypeormentities.md)
   * **Find TypeORM entities**
   * Identify TypeORM entities in Node.js applications. Detects @Entity() decorator on classes and populates the DatabaseConnections table.
+* [io.moderne.prethink.calm.FindWcfEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findwcfendpoints.md)
+  * **Find WCF service endpoints**
+  * Identify WCF service operations declared via [ServiceContract] and [OperationContract] (System.ServiceModel), including REST-style webHttpBinding operations declared via [WebGet] and [WebInvoke] (System.ServiceModel.Web) with their UriTemplate routes.
+* [io.moderne.prethink.calm.FindWebFormsEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findwebformsendpoints.md)
+  * **Find ASP.NET Web Forms endpoints**
+  * Identify endpoints in classic ASP.NET (System.Web) applications: Web Forms pages (code-behind classes deriving from System.Web.UI.Page), ASMX web service operations ([WebMethod]), and generic HTTP handlers (IHttpHandler implementations).
 * [io.moderne.prethink.calm.FindWebSocketEndpoints](/user-documentation/recipes/recipe-catalog/prethink/calm/findwebsocketendpoints.md)
   * **Find WebSocket endpoints**
   * Identify WebSocket endpoints in the application. Supports Spring WebSocket, Spring STOMP messaging, and Jakarta/Javax WebSocket.

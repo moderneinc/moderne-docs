@@ -204,6 +204,9 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [io.moderne.prethink.ExtractGoDependencies](/user-documentation/recipes/recipe-catalog/prethink/extractgodependencies.md)
   * **Extract Go dependencies and usage**
   * Scan go.mod and Go source imports to produce a DependencyUsage entry per actually-imported module, including file-count and sample imports.
+* [io.moderne.prethink.PythonDependencyReport](/user-documentation/recipes/recipe-catalog/prethink/pythondependencyreport.md)
+  * **Python dependency report**
+  * Read the dependency graph attached to Python manifests (pyproject.toml, Pipfile, requirements.txt, setup.cfg) by the parser and emit rows into the shared dependency-list-report table, mirroring the JVM dependency inventory. Includes declared (direct) dependencies and, when a lock file resolved them, transitive dependencies with concrete versions.
 * [io.moderne.prethink.calm.FindCalmRelationships](/user-documentation/recipes/recipe-catalog/prethink/calm/findcalmrelationships.md)
   * **Find CALM relationships**
   * Discover method call relationships within the repository for building interaction diagrams. Captures all method-to-method calls between in-repo classes. Entity IDs are resolved by GenerateCalmArchitecture when building CALM relationships.
@@ -612,33 +615,6 @@ _This doc contains all [scanning recipes](https://docs.openrewrite.org/concepts-
 * [org.openrewrite.LanguageComposition](/user-documentation/recipes/recipe-catalog/core/languagecomposition.md)
   * **Language composition report**
   * Counts the number of lines of the various kinds of source code and data formats parsed by OpenRewrite. Comments are not included in line counts. This recipe emits its results as two data tables, making no changes to any source file. One data table is per-file, the other is per-repository.
-
-### rewrite-codemods
-
-* [org.openrewrite.codemods.ApplyCodemod](/user-documentation/recipes/recipe-catalog/codemods/applycodemod.md)
-  * **Applies a codemod to all source files**
-  * Applies a codemod represented by an NPM package to all source files.
-* [org.openrewrite.codemods.Biome](/user-documentation/recipes/recipe-catalog/codemods/biome.md)
-  * **Biome recommendations**
-  * Run [Biome](https://biomejs.dev/) recommended settings on your projects.
-* [org.openrewrite.codemods.ESLint](/user-documentation/recipes/recipe-catalog/codemods/eslint.md)
-  * **Lint source code with ESLint**
-  * Run [ESLint](https://eslint.org/) across the code to fix common static analysis issues in the code.  This requires the code to have an existing ESLint configuration.
-* [org.openrewrite.codemods.Putout](/user-documentation/recipes/recipe-catalog/codemods/putout.md)
-  * **Run Putout**
-  * Run [Putout](https://github.com/coderaiser/putout) on your projects.
-* [org.openrewrite.codemods.ReactI18Next](/user-documentation/recipes/recipe-catalog/codemods/reacti18next.md)
-  * **React i18next internationalization**
-  * Automatically internationalizes React applications by extracting hardcoded strings and replacing them with [react-i18next](https://react.i18next.com) translation calls. Handles JSX text, attributes, and template literals with variables. Creates and updates a translation JSON file with extracted strings.
-* [org.openrewrite.codemods.UI5](/user-documentation/recipes/recipe-catalog/codemods/ui5.md)
-  * **Lint UI5 projects with UI5 linter**
-  * Runs the [UI5 Linter](https://github.com/SAP/ui5-linter), a static code analysis tool for UI5 projects. It checks JavaScript, TypeScript, XML, JSON, and other files in your project and reports findings.
-
-### rewrite-codemods-ng
-
-* [org.openrewrite.codemods.migrate.angular.ApplyAngularCLI](/user-documentation/recipes/recipe-catalog/codemods/migrate/angular/applyangularcli.md)
-  * **Upgrade Angular versions**
-  * Run `ng update` to upgrade Angular CLI and Angular Core to the specified version.
 
 ### rewrite-concourse
 
