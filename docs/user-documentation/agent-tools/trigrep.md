@@ -309,7 +309,10 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `call:`        | Match method and constructor call sites by the called method's declaring type and name, subclass-aware. See [Reference filters](#reference-filters-ref-and-call). Alias: `calls:` | `call:java.util.List.add`    |
 
 :::info[Which filters require symbol data]
-The symbol-aware filters read from LST symbol metadata rather than raw text, which trigrep extracts from source code. They come in two groups. Declaration filters (`sym:`, `select:`, `type:symbol`, `visibility:`, `static:`, `final:`, `abstract:`) read a symbol's name, kind, and modifiers off the parse tree, so they work across all supported source languages: Java, Kotlin, Groovy, Scala, Python, JavaScript, TypeScript, Go, and C#. Type-reference filters (`extends:`, `implements:`, `annotated:`, `returns:`, `throws:`, `ref:`, `call:`) resolve types through the LST, so how much they find depends on the language's type attribution, which is most complete for Java.
+The symbol-aware filters read from LST symbol metadata rather than raw text, which trigrep extracts from source code. They come in two groups:
+
+* **Declaration filters** (`sym:`, `select:`, `type:symbol`, `visibility:`, `static:`, `final:`, `abstract:`) read a symbol's name, kind, and modifiers off the parse tree, so they work across all supported source languages: Java, Kotlin, Groovy, Scala, Python, JavaScript, TypeScript, Go, and C#.
+* **Type-reference filters** (`extends:`, `implements:`, `annotated:`, `returns:`, `throws:`, `ref:`, `call:`) resolve types through the LST, so how much they find depends on the language's type attribution, which is most complete for Java.
 
 Configuration and data files (XML, JSON, YAML, and the like) are indexed for text only. Literal search, regex, and the text-oriented filters (`file:`, `repo:`, `branch:`, `rev:`, `lang:`, `case:`, `content:`, `count:`, `patternType:`) work everywhere; the symbol-aware filters above do not apply to text-only files.
 :::
@@ -358,7 +361,7 @@ Quoting a single token to protect it from the shell (e.g. `"file:**/*Test.java"`
 
 | Query              | Matches                                                                                          |
 |--------------------|--------------------------------------------------------------------------------------------------|
-| `ref:T`            | `T` as a type: type-name positions ∪ `new T()` ∪ Javadoc links (the default; `ref.usage:` is an explicit alias) |
+| `ref:T`            | `T` as a type: type-name positions, `new T()`, or Javadoc links (the default; `ref.usage:` is an explicit alias) |
 | `ref.type:T`       | a written type-name position only                                                                |
 | `ref.new:T`        | a `new T()` constructor call                                                                      |
 | `ref.doc:T`        | a Javadoc `{@link}` or `@see`                                                                     |
@@ -367,7 +370,7 @@ Quoting a single token to protect it from the shell (e.g. `"file:**/*Test.java"`
 | `ref.fieldtype:T`  | a field-access expression whose result type is `T` (`this.list` where `list` is a `List`)         |
 | `ref.owner:T`      | members **declared in** `T` (its surface), not uses of it                                        |
 | `ref.[type,call]:T`| a union of the listed kinds                                                                      |
-| `ref.any:T`        | the kind-blind union of every kind                                                               |
+| `ref.any:T`        | every reference kind, no filtering                                                               |
 
 **`call:Type.method`, where a method is called.** `call:` matches method and constructor **call sites** by the called method's declaring type and name: `call:java.util.List.add` finds every site that calls `List.add`, and `call:java.util.ArrayList.<init>` finds every `new ArrayList<>()`. Because the type closure is subclass-aware, a query against a supertype's method (`call:java.util.Collection.add`) also matches calls made through a subtype receiver. Values take the same forms as the type filters (FQN, AspectJ glob, or `/regex/`). The index records only the declaring type and method name, not argument types, so `call:` can't disambiguate overloads by parameter types; full method-signature matching belongs in a recipe's `MethodMatcher`.
 
