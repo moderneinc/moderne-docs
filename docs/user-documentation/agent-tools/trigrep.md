@@ -63,10 +63,10 @@ The simplest searches are literal text matches. For example, searching for `Syst
 
 To refine your search, you can combine terms with boolean logic:
 
-* **AND** (implicit) — Multiple terms are combined with AND. For example, `@Service getUserById` only matches files containing both.
-* **OR** — Use `or` for either term to match. For example, `@Service or @Controller` matches files with either annotation.
-* **NOT** — Prefix with `-` to exclude. Because the CLI intercepts leading `-` as an option marker, insert `--` between the path and the query: `mod search . -- @RestController -test` finds files containing `@RestController` but not `test`.
-* **Grouping** — Parentheses control precedence. For example, `(@Service or @Controller) getUserById` finds files with `getUserById` that also have either annotation.
+* **AND** (implicit): Multiple terms are combined with AND. For example, `@Service getUserById` only matches files containing both.
+* **OR**: Use `or` for either term to match. For example, `@Service or @Controller` matches files with either annotation.
+* **NOT**: Prefix with `-` to exclude. Because the CLI intercepts leading `-` as an option marker, insert `--` between the path and the query: `mod search . -- @RestController -test` finds files containing `@RestController` but not `test`.
+* **Grouping**: Parentheses control precedence. For example, `(@Service or @Controller) getUserById` finds files with `getUserById` that also have either annotation.
 
 You can also combine literal searches with [filters](#filters) to narrow results by file path, repository, language, or semantic properties like visibility and inheritance.
 
@@ -187,10 +187,10 @@ Structural matching also respects string and comment boundaries, so a pattern wo
 Moderne Trigrep supports two query language dialects: **Sourcegraph** and **Zoekt**. You can switch between them with the `--syntax` flag:
 
 ```bash
-# Sourcegraph syntax (default) — path: is a Sourcegraph alias for file:
+# Sourcegraph syntax (default), path: is a Sourcegraph alias for file:
 mod search working-set 'path:*.java' @Autowired
 
-# Zoekt syntax — uses file: directly
+# Zoekt syntax uses file: directly
 mod search working-set --syntax zoekt 'file:*.java' @Autowired
 ```
 
@@ -214,20 +214,20 @@ Both dialects share the same core query features: literal search, regex, boolean
 **Filter by file path:**
 
 ```bash
-# Sourcegraph — path: is an alias for file:
+# Sourcegraph, path: is an alias for file:
 mod search working-set 'path:*.java' @Deprecated
 
-# Zoekt — uses file: directly
+# Zoekt uses file: directly
 mod search working-set --syntax zoekt 'file:*.java' @Deprecated
 ```
 
 **Explicit AND vs implicit AND:**
 
 ```bash
-# Sourcegraph — explicit AND keyword supported
+# Sourcegraph supports the explicit AND keyword
 mod search working-set KafkaTemplate AND @Autowired
 
-# Zoekt — implicit AND only (terms separated by space)
+# Zoekt allows implicit AND only (terms separated by space)
 mod search working-set --syntax zoekt KafkaTemplate @Autowired
 ```
 
@@ -278,7 +278,7 @@ This section provides a quick reference for all query operators, filters, and st
 
 ### Boolean operators
 
-Terms separated by space are implicitly ANDed. The `or` keyword creates disjunction. Parentheses group terms. A leading `-` negates a term (requires `--` between the path and the query — see the [NOT example above](#literal-and-sourcegraph-style-queries)).
+Terms separated by space are implicitly ANDed. The `or` keyword creates disjunction. Parentheses group terms. A leading `-` negates a term (requires `--` between the path and the query; see the [NOT example above](#literal-and-sourcegraph-style-queries)).
 
 ### Filters
 
@@ -290,9 +290,9 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `rev:`         | Sourcegraph-only branch/tag filter. Alias: `revision:`                                                                                   | `rev:main`                   |
 | `lang:`        | Filter by language. Aliases: `language:`, `l:` (Sourcegraph)                                                                             | `lang:java`                  |
 | `case:`        | Control case sensitivity (`yes`/`no`)                                                                                                    | `case:yes findById`          |
-| `type:`        | Restrict matching surface: `file` (content, default), `path` (file names only), or `symbol` (symbol declarations only — literal terms; see note below) | `type:symbol Person`         |
-| `sym:`         | Match symbols by substring on their fully qualified name. Pass a FQN (`sym:java.util.Collection.add`) for a precise match; bare names (`sym:add`) match every symbol whose FQN contains the substring. At index time, each method call is also recorded under every ancestor FQN that declares its own overload of the method by name and arity (resolved through the source set's type-table chain — JDK, dependencies, and the source set's own types), so a query against an ancestor FQN matches the subtype call site. Zoekt-native; trigrep also accepts it in Sourcegraph mode. Alias: `symbol:` | `sym:UserRepository`         |
-| `select:`      | Filter symbol matches by kind: `symbol.class`, `symbol.interface`, `symbol.enum`, `symbol.method`, `symbol.constructor`, `symbol.field`  | `select:symbol.method`       |
+| `type:`        | Restrict matching surface: `file` (content, default), `path` (file names only), or `symbol` (symbol declarations only, for literal terms; see note below) | `type:symbol Person`         |
+| `sym:`         | Match symbols by substring on their fully qualified name. Pass a FQN (`sym:java.util.Collection.add`) for a precise match; bare names (`sym:add`) match every symbol whose FQN contains the substring. At index time, each method call is also recorded under every ancestor FQN that declares its own overload of the method by name and arity (resolved through the source set's type-table chain: JDK, dependencies, and the source set's own types), so a query against an ancestor FQN matches the subtype call site. Zoekt-native; trigrep also accepts it in Sourcegraph mode. Alias: `symbol:` | `sym:UserRepository`         |
+| `select:`      | Filter symbol matches by kind: `symbol.class`, `symbol.interface`, `symbol.enum`, `symbol.method`, `symbol.constructor`, `symbol.field`, `symbol.javadoc-ref` | `select:symbol.method`       |
 | `count:`       | Cap total results returned by the query                                                                                                  | `count:500`                  |
 | `content:`     | Search file content explicitly (Sourcegraph). Pairs with `patternType:` and disambiguates literals that look like a filter prefix        | `content:"text"`             |
 | `patternType:` | Sourcegraph-only. Switch how bare terms are interpreted: `keyword` (default), `literal`, `regexp`, or `structural`                       | `patternType:regexp foo.bar` |
@@ -302,32 +302,40 @@ Terms separated by space are implicitly ANDed. The `or` keyword creates disjunct
 | `abstract:`    | Filter for abstract modifier (`yes`/`no`)                                                                                                | `abstract:yes`               |
 | `extends:`     | Match classes whose transitive ancestor chain (any `extends` link, computed at index time) includes the given type                       | `extends:BaseService`        |
 | `implements:`  | Match classes whose transitive interface closure (any `implements`/`extends` link, computed at index time) includes the given interface  | `implements:Repository`      |
+| `annotated:`   | Match declarations (class, method, or field) annotated with the given annotation type                                                   | `annotated:AutoConfiguration` |
 | `returns:`     | Match methods by return type                                                                                                             | `returns:List`               |
 | `throws:`      | Match methods by declared exceptions                                                                                                     | `throws:IOException`         |
+| `ref:`         | Match where a type is used as a type (like OpenRewrite's `FindTypes`). Kind-qualify with `ref.call:`, `ref.field:`, etc. See [Reference filters](#reference-filters-ref-and-call). Alias: `references:` | `ref:java.util.List`         |
+| `call:`        | Match method and constructor call sites by the called method's declaring type and name, subclass-aware. See [Reference filters](#reference-filters-ref-and-call). Alias: `calls:` | `call:java.util.List.add`    |
 
-:::info[Semantic filters aren't Java-only]
-Because `visibility:`, `static:`, `final:`, `abstract:`, `extends:`, `implements:`, `returns:`, and `throws:` read from LST metadata rather than raw text, they work across languages whose LST builds on Moderne's Java (J) model — such as Kotlin, Groovy, and C# — not just Java. Exact coverage can vary by language as support evolves.
+:::info[Which filters require symbol data]
+The symbol-aware filters read from LST symbol metadata rather than raw text, which trigrep extracts from source code. They come in two groups:
+
+* **Declaration filters** (`sym:`, `select:`, `type:symbol`, `visibility:`, `static:`, `final:`, `abstract:`) read a symbol's name, kind, and modifiers off the parse tree, so they work across all supported source languages: Java, Kotlin, Groovy, Scala, Python, JavaScript, TypeScript, Go, and C#.
+* **Type-reference filters** (`extends:`, `implements:`, `annotated:`, `returns:`, `throws:`, `ref:`, `call:`) resolve types through the LST, so how much they find depends on the language's type attribution, which is most complete for Java.
+
+Configuration and data files (XML, JSON, YAML, and the like) are indexed for text only. Literal search, regex, and the text-oriented filters (`file:`, `repo:`, `branch:`, `rev:`, `lang:`, `case:`, `content:`, `count:`, `patternType:`) work everywhere; the symbol-aware filters above do not apply to text-only files.
 :::
 
 :::info
-The Sourcegraph filters `context:`, `fork:`, `archived:`, and `timeout:` are parsed but have no effect on local indexes — they emit a warning and are dropped from the query.
+The Sourcegraph filters `context:`, `fork:`, `archived:`, and `timeout:` are parsed but have no effect on local indexes; they emit a warning and are dropped from the query.
 :::
 
 :::info[type:symbol vs sym:]
 `type:symbol` and `sym:` are not synonyms:
 
-* `type:symbol Person` matches `Person` at symbol *declaration sites* only — class headers, method/constructor signatures, and field declarations. So `class PersonRepository`, `Person currentPerson;`, and `void savePerson(Person p)` all match, but uses inside method bodies, imports, and comments do not. This restriction applies to literal terms; regex patterns (`type:symbol /Person/`) currently bypass it and search the full file.
-* `sym:Person` matches every symbol whose fully qualified name contains `Person`. That covers `Person`, `PersonRepository`, etc., plus every method and field inside them (`Person.getFirstName`, `PersonRepository.findByLastName`, ...) because each member's FQN inherits the containing class name. The match is still constrained to symbols — it won't surface string literals, comments, or other non-symbol text.
+* `type:symbol Person` matches `Person` at symbol *declaration sites* only: class headers, method/constructor signatures, and field declarations. So `class PersonRepository`, `Person currentPerson;`, and `void savePerson(Person p)` all match, but uses inside method bodies, imports, and comments do not. This restriction applies to literal terms; regex patterns (`type:symbol /Person/`) currently bypass it and search the full file.
+* `sym:Person` matches every symbol whose fully qualified name contains `Person`. That covers `Person`, `PersonRepository`, etc., plus every method and field inside them (`Person.getFirstName`, `PersonRepository.findByLastName`, ...) because each member's FQN inherits the containing class name. The match is still constrained to symbols; it won't surface string literals, comments, or other non-symbol text.
 
-Bare `Person` is broader still — every textual occurrence including imports, comments, and string literals.
+Bare `Person` is broader still: every textual occurrence including imports, comments, and string literals.
 :::
 
 :::warning[Quoting multi-token queries]
 The CLI treats a single-arg query as a **literal phrase** and re-emits it quoted in the `Searching for:` line. As a result, multi-token queries wrapped in a single pair of shell quotes lose their Sourcegraph semantics and almost always return 0 matches. Examples:
 
-* `'@Service or @Controller'` is searched as the literal phrase `@Service or @Controller` (which appears nowhere) — 0 matches.
-* `'visibility:public returns:List'` is parsed as a single filter with value `public returns:List` — fails with `Unknown visibility: public returns:List`.
-* `'KafkaTemplate -test'` is searched as the literal phrase `KafkaTemplate -test` — 0 matches. To use `-` negation, pass terms unquoted with `--`: `mod search . -- KafkaTemplate -test`.
+* `'@Service or @Controller'` is searched as the literal phrase `@Service or @Controller` (which appears nowhere), so 0 matches.
+* `'visibility:public returns:List'` is parsed as a single filter with value `public returns:List`, so it fails with `Unknown visibility: public returns:List`.
+* `'KafkaTemplate -test'` is searched as the literal phrase `KafkaTemplate -test`, so 0 matches. To use `-` negation, pass terms unquoted with `--`: `mod search . -- KafkaTemplate -test`.
 
 Pass each token as its own argument, or quote each individually:
 
@@ -344,6 +352,27 @@ mod search . 'visibility:public returns:List'
 
 Quoting a single token to protect it from the shell (e.g. `"file:**/*Test.java"` to prevent glob expansion) is fine.
 :::
+
+### Reference filters: ref: and call:
+
+`ref:` and `call:` resolve each occurrence through the LST type tables rather than matching text, so they're subclass-aware.
+
+**`ref:T`, where a type is used.** Every occurrence the index records carries a *kind*. Bare `ref:T` matches where `T` appears **as a type** (a written type-name position, a `new T()`, or a Javadoc link), the same surface as OpenRewrite's `FindTypes`. It deliberately leaves out references that are merely an *expression* of type `T` (a method call or field access on a `T` value), which would otherwise flood a search for a common type like `List`. Narrow or widen to specific kinds with a dotted qualifier:
+
+| Query              | Matches                                                                                          |
+|--------------------|--------------------------------------------------------------------------------------------------|
+| `ref:T`            | `T` as a type: type-name positions, `new T()`, or Javadoc links (the default; `ref.usage:` is an explicit alias) |
+| `ref.type:T`       | a written type-name position only                                                                |
+| `ref.new:T`        | a `new T()` constructor call                                                                      |
+| `ref.doc:T`        | a Javadoc `{@link}` or `@see`                                                                     |
+| `ref.call:T`       | a method call on a `T` value (by receiver / declaring type)                                       |
+| `ref.field:T`      | a field access whose owner is `T`                                                                 |
+| `ref.fieldtype:T`  | a field-access expression whose result type is `T` (`this.list` where `list` is a `List`)         |
+| `ref.owner:T`      | members **declared in** `T` (its surface), not uses of it                                        |
+| `ref.[type,call]:T`| a union of the listed kinds                                                                      |
+| `ref.any:T`        | every reference kind, no filtering                                                               |
+
+**`call:Type.method`, where a method is called.** `call:` matches method and constructor **call sites** by the called method's declaring type and name: `call:java.util.List.add` finds every site that calls `List.add`, and `call:java.util.ArrayList.<init>` finds every `new ArrayList<>()`. Because the type closure is subclass-aware, a query against a supertype's method (`call:java.util.Collection.add`) also matches calls made through a subtype receiver. Values take the same forms as the type filters (FQN, AspectJ glob, or `/regex/`). The index records only the declaring type and method name, not argument types, so `call:` can't disambiguate overloads by parameter types; full method-signature matching belongs in a recipe's `MethodMatcher`.
 
 ### Structural holes
 
@@ -370,15 +399,15 @@ Moderne Trigrep is fast, but because it operates on text and indexed metadata ra
 
 ### Method reference searches
 
-`sym:` matches by substring on the symbol's FQN, not by full method signature. Bare names (`sym:add`) match every symbol whose FQN contains the substring — there's no way to distinguish `java.util.List.add(Object)` from your own `ShoppingCart.add(Item)`. Even an FQN-precise query can't pin to a specific overload by parameter types; an AspectJ-style pattern like `java.util.List add(..)` isn't expressible.
+`sym:` matches by substring on the symbol's FQN, not by full method signature. Bare names (`sym:add`) match every symbol whose FQN contains the substring, so there's no way to distinguish `java.util.List.add(Object)` from your own `ShoppingCart.add(Item)`. The `call:` filter is more precise for call sites (`call:java.util.List.add` targets calls to that method by declaring type and name, subclass-aware), but it, too, records no argument types, so overloads still can't be pinned by parameter types. An AspectJ-style pattern like `java.util.List add(..)` isn't expressible; full method-signature matching belongs in a recipe's `MethodMatcher`.
 
 ### Type hierarchy awareness
 
-`extends:` and `implements:` are class-definition filters: they identify whether a class has a given type in its ancestor closure, not where that type (or any subtype) is referenced elsewhere in the code. The closure itself is computed at index time over the source set's full type-table chain — JDK, every dependency, and the source set's own types — so ancestry reached through third-party library types is matched.
+`extends:` and `implements:` are class-definition filters: they identify whether a class has a given type in its ancestor closure, not where that type (or any subtype) is referenced elsewhere in the code. The closure itself is computed at index time over the source set's full type-table chain (JDK, every dependency, and the source set's own types), so ancestry reached through third-party library types is matched.
 
 ### Cross-reference and call graph analysis
 
-Moderne Trigrep treats each match independently. It can't answer relational questions like "find all methods that call this method" or "find all fields that are written but never read."
+Moderne Trigrep treats each match independently. The `call:` filter finds a method's call sites, but trigrep can't chain matches into a call graph or answer relational questions like "which methods transitively reach this one" or "find all fields that are written but never read."
 
 If you need this kind of analysis, use OpenRewrite's [scanning recipes](https://docs.openrewrite.org/concepts-and-explanations/recipes#scanning-recipes). They can accumulate information across files.
 
@@ -423,9 +452,9 @@ During indexing, every position where each trigram appears is recorded. When you
 
 Even in a codebase with millions of files, the intersection of posting lists typically narrows the search to a handful of files that need actual verification. A typical trigram index runs about 10-20% of the original source code size.
 
-Moderne Trigrep generates its indexes from LSTs rather than raw source code, which gives the index access to symbol information, type data, and other semantic details that wouldn't be available from text alone. This is what powers semantic filters like `sym:`, `extends:`, and `visibility:`. Each symbol's related types are stored as compact V3 type-table slots (resolved at search time through the source set's type tables) rather than duplicated inline strings — so a query like `sym:`, `extends:`, or `implements:` narrows the candidate file set before any byte reads.
+Moderne Trigrep generates its indexes from LSTs rather than raw source code, which gives the index access to symbol information, type data, and other semantic details that wouldn't be available from text alone. This is what powers semantic filters like `sym:`, `extends:`, and `visibility:`. Each symbol's related types are stored as compact V3 type-table slots (resolved at search time through the source set's type tables) rather than duplicated inline strings, so a query like `sym:`, `extends:`, or `implements:` narrows the candidate file set before any byte reads.
 
-The index is produced inline by `mod build` as `.zoekt` shards. Each source set writes its own shard under `.moderne/build/{buildId}/sources/{sourceSet}/shard-*.zoekt`, and `mod build` then assembles them into a single repo-level index at `.moderne/build/{buildId}/index/merged-*.zoekt` (split into size-bounded chunks) with a sidecar `assembly.csv` recording per-part content digests. A `.complete` sentinel is written last, so a search racing a build sees a complete index or none — never a partial one. Each shard stores the document's content as the LST's printed form (`SourceFile.printAll()`), with a checksum to catch any drift between the printer and the index. Only Java sources get structured symbol extraction today; other languages get a content-only document where full-text trigram search works but the symbol-aware filters don't apply. To regenerate the index after significant code changes, simply re-run `mod build`.
+The index is produced inline by `mod build` as `.zoekt` shards. Each source set writes its own shard under `.moderne/build/{buildId}/sources/{sourceSet}/shard-*.zoekt`, and `mod build` then assembles them into a single repo-level index at `.moderne/build/{buildId}/index/merged-*.zoekt` (split into size-bounded chunks) with a sidecar `assembly.csv` recording per-part content digests. A `.complete` sentinel is written last, so a search racing a build sees a complete index or none, never a partial one. Each shard stores the document's content as the LST's printed form (`SourceFile.printAll()`), with a checksum to catch any drift between the printer and the index. Source code gets structured symbol extraction; configuration and data files (XML, JSON, YAML, and the like) get a content-only document where full-text trigram search works but the symbol-aware filters don't apply. To regenerate the index after significant code changes, simply re-run `mod build`.
 
 </details>
 
