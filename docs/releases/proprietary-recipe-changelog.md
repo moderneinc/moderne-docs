@@ -10,6 +10,14 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## July 20, 2026
+
+#### rewrite-nodejs - v0.47.2
+
+* Only npm-publish from default branch or release tag, never from PR runs
+* Replace bun with node in build scripts to fix npm-publish
+* Change increase-node-engine default to a hard cutover / raise minimum (alt to #109, #110)
+
 ## July 17, 2026
 
 #### rewrite-java-security - 3.35.2
