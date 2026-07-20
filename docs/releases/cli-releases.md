@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.17           |
+| CLI version | 4.3.18           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,16 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.3.18 (2026-07-20)
+
+#### What's Changed
+* Force spectator-reg-atlas to 1.10.x for patched shaded Jackson
+* Stage both paths of a renamed file in `mod git add`
+* Cap concurrent polyglot rewrite-rpc engines to run.polyglotParallel
+* Remove the query-time relevance ranker from trigrep search
+* Publish LST jars under a valid Maven 2 path
+* Retry failed CLI telemetry, and permanently set aside what can never be sent
 
 ### CLI / DX v4.3.17 (2026-07-16)
 

@@ -9498,7 +9498,7 @@ mod telemetry [subcommands]
 Push queued CLI telemetry to the configured Moderne tenant.
 
 
-Drains the local telemetry queue at **~/.moderne/cli/trace/** to the tenant gateway. Telemetry normally pushes automatically when the CLI refreshes its license lease — use this command to flush on demand.%n%nExits non-zero if any traces moved to **failed/** during this run (gateway rejected as misconfigured).
+Drains the local telemetry queue at **~/.moderne/cli/trace/** to the tenant gateway. Telemetry normally pushes automatically when the CLI refreshes its license lease — use this command to flush on demand.%n%nExits non-zero if the gateway permanently rejects any traces (moved to **rejected/** as unpublishable).
 
 ### Usage
 
