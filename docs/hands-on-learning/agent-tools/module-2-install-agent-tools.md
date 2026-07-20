@@ -22,7 +22,7 @@ The Moderne CLI bundles two complementary kinds of agent tooling:
 
 | Component       | What it provides                                                                                              |
 |-----------------|---------------------------------------------------------------------------------------------------------------|
-| **Skills**      | Procedural instructions that teach an agent how to create recipes, run them, and analyze impact               |
+| **Skills**      | Procedural instructions that teach an agent how to create recipes, run them, and analyze code                 |
 | **MCP server**  | A live process that exposes tools for semantic search, navigation, refactoring, and recipe execution          |
 
 The install command auto-detects which coding agents are present on your machine and installs both components for each one. See [Skills for AI coding agents](../../user-documentation/agent-tools/skills.md) and the [MCP overview](../../user-documentation/agent-tools/mcp/overview.md) for full reference docs.
@@ -35,7 +35,7 @@ The install command auto-detects which coding agents are present on your machine
 mod config agent-tools install
 ```
 
-The CLI scans for installed coding agents (Claude Code, Cursor, GitHub Copilot, Windsurf, Sourcegraph Amp, OpenAI Codex), then installs skills and registers the MCP server for each one it finds. If no agents are detected, the CLI prints a message listing the supported agents and where it looked.
+The CLI scans for installed coding agents (Claude Code, Cursor, GitHub Copilot, Windsurf, Sourcegraph Amp, OpenAI Codex, opencode), then installs skills and registers the MCP server for each one it finds. If no agents are detected, the CLI prints a message listing the supported agents and where it looked.
 
 To remove everything later, run:
 
@@ -95,7 +95,7 @@ If you only want agent tools for one specific agent, use a per-agent subcommand.
 mod config agent-tools copilot install
 ```
 
-Other supported subcommands are `claude`, `cursor`, `windsurf`, `amp`, and `codex`. Each one installs both skills and the MCP server for that agent only. If the agent isn't detected on your system, the command prints a message and exits without making changes.
+Other supported subcommands are `claude`, `cursor`, `windsurf`, `amp`, `codex`, and `opencode`. Each one installs both skills and the MCP server for that agent only. If the agent isn't detected on your system, the command prints a message and exits without making changes.
 
 This is the right call when:
 

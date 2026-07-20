@@ -37,7 +37,7 @@ mod config agent-tools copilot install
 
 Each per-agent command installs both skills and the MCP server for that agent only. If the agent is not detected on your system, the command displays a message and exits without making changes.
 
-The available per-agent subcommands are: `claude`, `windsurf`, `cursor`, `copilot`, `amp`, and `codex`.
+The available per-agent subcommands are: `claude`, `windsurf`, `cursor`, `copilot`, `amp`, `codex`, and `opencode`.
 
 To install only skills (without the MCP server) for all detected agents:
 
@@ -55,6 +55,7 @@ mod config agent-tools skills install
 | GitHub Copilot  | Yes         | Yes            | `.vscode/mcp.json` and `~/.copilot/mcp-config.json` |
 | Sourcegraph Amp | Yes         | Yes            | Registered via `amp mcp add`                        |
 | OpenAI Codex    | Yes         | Yes            | Registered via `codex mcp add`                      |
+| opencode        | Yes         | Yes            | `~/.config/opencode/opencode.json`                  |
 
 ## Next steps
 

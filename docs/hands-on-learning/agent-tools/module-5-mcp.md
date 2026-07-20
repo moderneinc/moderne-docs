@@ -35,6 +35,7 @@ Each agent has its own configuration mechanism. The CLI handles the differences 
 | GitHub Copilot  | `.vscode/mcp.json` and `~/.copilot/mcp-config.json` |
 | Sourcegraph Amp | Registered via `amp mcp add`                        |
 | OpenAI Codex    | Registered via `codex mcp add`                      |
+| opencode        | `~/.config/opencode/opencode.json`                  |
 
 For Claude Code, list registered MCP servers:
 
@@ -153,11 +154,25 @@ Pick a class or method in one of the workspace repositories that has obvious ren
 
 `change_method_name` updates the declaration and **every call site** atomically, just like an IDE rename across the whole workspace. Compare that to a regex find-and-replace that would also touch comments, string literals, and unrelated methods of the same name.
 
-#### Step 3 (optional): Try `pattern_replace` for a Refaster-style change
+#### Step 3 (optional): Try `pattern_replace` for a structural rewrite
 
-`pattern_replace` runs a Refaster template across the codebase. Provide a Java class with `@BeforeTemplate` and `@AfterTemplate` methods, and the agent applies it everywhere the pattern matches. This is the right tool when you have a mechanical pattern that's identical across many call sites (for example, replacing `Optional.ofNullable(x).orElse(y)` with `x != null ? x : y`).
+`pattern_replace` compiles a Kotlin recipe DSL at runtime and runs it across the codebase. You express the change as a `rewrite { before } to { after }` pair, and the agent applies it everywhere the `before` pattern matches. It's the right tool for a mechanical, structural rewrite that repeats across many call sites when no marketplace recipe fits, such as replacing `Arrays.asList(a, b)` with `List.of(a, b)`:
 
-See the [Refaster template documentation](../../user-documentation/recipes/authoring-recipes/concepts/recipes.md#refaster-template-recipes) for how the templates are structured. Most agents can write the template for you if you describe the change in plain English.
+```kotlin
+import org.openrewrite.Recipe
+import org.openrewrite.recipe
+
+val ArraysAsListToListOf: Recipe = recipe(
+    displayName = "Use `List.of` instead of `Arrays.asList`",
+    description = "Replace immutable Arrays.asList with List.of.",
+) {
+    edit {
+        rewrite { a: Any, b: Any -> java.util.Arrays.asList(a, b) } to { a, b -> java.util.List.of(a, b) }
+    }
+}
+```
+
+You don't need to write the DSL by hand. Describe the change in plain English and most agents will generate the recipe source for you. Reach for `edit_code` first, though, since `pattern_replace` is the fallback for when no curated marketplace recipe matches the change you want.
 
 #### Step 4: Revert if needed
 
@@ -171,7 +186,7 @@ git restore .
 ### Takeaways
 
 * MCP refactoring tools update **every reference** atomically. They are not text replacements.
-* Use `change_type`/`change_method_name` for clean renames. Use `pattern_replace` (Refaster) when the change is structural and repeated across call sites.
+* Use `change_type`/`change_method_name` for clean renames. Use `pattern_replace` (a Kotlin recipe DSL) when the change is structural and repeated across call sites.
 * For more complex changes, run an existing recipe (`run_recipe`) instead — see Exercise 5-4.
 
 ---
@@ -180,16 +195,16 @@ git restore .
 
 ### Goals for this exercise
 
-* See the agent invoke `search_recipes`, `learn_recipe`, and `run_recipe`
+* See the agent invoke `analyze_code`, `learn_recipe`, and `run_recipe`
 * Connect what you've learned in earlier modules: the agent uses Prethink + Trigrep + recipes to drive a fix
 
 ### Steps
 
 #### Step 1: Ask the agent to find a relevant recipe
 
-> Use `search_recipes` to find an OpenRewrite recipe that upgrades dependencies with known vulnerabilities. Show me the top 3 results.
+> Use `analyze_code` to find an OpenRewrite recipe that identifies dependencies with known vulnerabilities. Show me the top 3 results.
 
-The `search_recipes` tool returns a paginated list of matching recipes ranked by relevance. The agent picks one and uses `learn_recipe` to retrieve its description, options, and data table schemas before deciding to run it.
+The `analyze_code` tool returns a list of matching recipes ranked by relevance. The agent picks one and uses `learn_recipe` to retrieve its description, options, and data table schemas before deciding to run it.
 
 #### Step 2: Run the recipe
 
