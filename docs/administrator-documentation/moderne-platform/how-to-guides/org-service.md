@@ -30,24 +30,37 @@ We generally recommend forking the template and modifying it as, in most cases, 
 
 ## Connector variables
 
-Once you've created an organizations service, you'll need to update your Connector run command to provide it with additional variables. Please note that these variables/arguments must be combined with ones found in other steps in the [Configuring the Moderne Connector guide](./connector-configuration/connector-config.md).
+Once you've created an organizations service, configure your Connector to call it under the
+`moderne.custom-integrations` namespace. These variables/arguments must be combined with the
+ones found in other steps in the [Configuring the Moderne Connector guide](./connector-configuration/connector-config.md).
+
+Access scoping is **fail-closed**: if the service is unreachable or returns an error, a user is
+restricted to no organizations rather than the full hierarchy. Commit-message customization is
+**fail-open**: an unreachable or erroring service leaves the original commit message unchanged, so
+it never blocks a commit.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
 
 **Environment variables:**
 
-| Variable Name                                                | Required | Default | Description                                                                                                                                                                          |
-|--------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_URL`                     | `true`   |         | The URL of your GraphQL service that provides access control for your organizations or commit message customization.                                                                                                              |
-| `MODERNE_AGENT_ORGANIZATION_SERVICE_SKIPSSL`                 | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Variable Name                                                 | Required | Default | Description                                                                                                       |
+|---------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------|
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_URI`          | `true`   |         | The URL of your organizations service's GraphQL endpoint (e.g., `https://org-service.internal/graphql`).          |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_USERNAME`     | `false`  | `null`  | Username, if the service requires basic authentication.                                                           |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_PASSWORD`     | `false`  | `null`  | Password, if the service requires basic authentication.                                                           |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_BEARERTOKEN`  | `false`  | `null`  | Bearer token, if the service uses token authentication. Takes precedence over username/password when both are set. |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_SKIPSSL`      | `false`  | `false` | Whether to skip SSL/TLS verification for the Connector's calls to this service. Set to `true` if the service uses a self-signed SSL/TLS certificate. |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_SKIPVALIDATECONNECTIVITY` | `false` | `false` | By default, on Connector startup, we validate that we can reach this service and fail to start the Connector if we cannot. Set to `true` to skip this validation (e.g., if the service may be unavailable when the Connector boots). |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_PROXY_HOST`   | `false`  |         | Hostname of a forward proxy to use for the Connector's calls to this service. |
+| `MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_PROXY_PORT`   | `false`  |         | Port of the forward proxy. |
 
 **Example:**
 
 ```bash
 docker run \
 # ... Existing variables
--e MODERNE_AGENT_ORGANIZATION_SERVICE_URL=http://localhost:8091 \
+-e MODERNE_CUSTOMINTEGRATIONS_ORGANIZATIONSERVICE_URI=https://org-service.internal/graphql \
 # ... Additional variables
 ```
 </TabItem>
@@ -56,19 +69,31 @@ docker run \
 
 **Arguments:**
 
-| Argument Name                                                | Required | Default | Description                                                                                                                                                                          |
-|--------------------------------------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--moderne.agent.organization.service.url`                   | `true`   |         | The URL of your GraphQL service that provides access control for your organizations or commit message customization.                                                                                                             |
-| `--moderne.agent.organization.service.skipSsl`               | `false`  | `false` | Specifies whether or not to skip SSL validation for HTTP connections to this Organization service instance. This must be set to `true` if you use a self-signed SSL/TLS certificate. |
+| Argument Name                                                     | Required | Default | Description                                                                                                       |
+|-------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------|
+| `--moderne.custom-integrations.organization-service.uri`          | `true`   |         | The URL of your organizations service's GraphQL endpoint.                                                          |
+| `--moderne.custom-integrations.organization-service.username`     | `false`  | `null`  | Username, if the service requires basic authentication.                                                           |
+| `--moderne.custom-integrations.organization-service.password`     | `false`  | `null`  | Password, if the service requires basic authentication.                                                           |
+| `--moderne.custom-integrations.organization-service.bearerToken`  | `false`  | `null`  | Bearer token, if the service uses token authentication. Takes precedence over username/password when both are set. |
+| `--moderne.custom-integrations.organization-service.skipSsl`      | `false`  | `false` | Whether to skip SSL/TLS verification for the Connector's calls to this service. Set to `true` if the service uses a self-signed SSL/TLS certificate. |
+| `--moderne.custom-integrations.organization-service.skipValidateConnectivity` | `false` | `false` | By default, on Connector startup, we validate that we can reach this service and fail to start the Connector if we cannot. Set to `true` to skip this validation. |
+| `--moderne.custom-integrations.organization-service.proxy.host`   | `false`  |         | Hostname of a forward proxy to use for the Connector's calls to this service. |
+| `--moderne.custom-integrations.organization-service.proxy.port`   | `false`  |         | Port of the forward proxy. |
 
 **Example:**
 
 ```bash
-java -jar moderne-agent-{version}.jar \
+java -jar moderne-connector-{version}.jar \
 # ... Existing arguments
---moderne.agent.organization.service.url=http://localhost:8091 \
+--moderne.custom-integrations.organization-service.uri=https://org-service.internal/graphql \
 # ... Additional arguments
 ```
 </TabItem>
 </Tabs>
+
+:::note
+If you previously pointed the Moderne agent at this service with `moderne.agent.organization.service.url`,
+that setting is **not** carried over automatically — reconfigure it under
+`moderne.custom-integrations.organization-service.uri` as shown above.
+:::
 
