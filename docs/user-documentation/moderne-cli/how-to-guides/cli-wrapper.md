@@ -121,11 +121,31 @@ The `moderne-wrapper.properties` file supports these properties:
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | `version`               | CLI version to use. `RELEASE` resolves the latest release from Maven Central. `LATEST` resolves the latest snapshot. Or pin a specific version like `4.x.x`. | `RELEASE`     |
 | `distributionUrl`       | URL template for the distribution archive. Use `${version}` and `${platform}` as placeholders.                                                               | Maven Central |
+| `distributionUrlEarlyAccess` | Base URL of the repository used to resolve `LATEST`/snapshot versions. Overrides Sonatype (Maven Central Snapshots) — point it at your own snapshot repository in restricted environments. | Sonatype (Maven Central Snapshots) |
 | `distributionUsername`  | Username for basic authentication when downloading the distribution.                                                                                         | _(none)_      |
 | `distributionPassword`  | Password for basic authentication when downloading the distribution.                                                                                         | _(none)_      |
 | `distributionToken`     | Bearer token for authentication when downloading the distribution. Takes precedence over username/password if both are set.                                   | _(none)_      |
 | `distributionSha256Sum` | Expected SHA-256 of the downloaded archive. Verified if set.                                                                                                 | _(none)_      |
+| `distributionUrlCacheTtl` | How long to cache the resolved `RELEASE` version before re-checking the distribution repository, as an ISO-8601 duration (e.g. `PT1H`, `PT10M`). `PT0S` disables caching. | `PT1H` |
+| `distributionUrlEarlyAccessCacheTtl` | How long to cache the resolved `LATEST`/snapshot version before re-checking the early-access repository, as an ISO-8601 duration. `PT0S` disables caching. | `PT1H` |
 | `jdkUrl`                | URL to a JDK archive for auto-download. Set to `skip` to disable JDK auto-download entirely.                                                                 | Adoptium API  |
+
+### Caching the version lookup
+
+When `version` is dynamic (`RELEASE` or `LATEST`), the wrapper resolves it to a concrete version by fetching `maven-metadata.xml` on every invocation — a network round-trip to the artifact repository before each command runs. In environments where that repository is remote, slow, or rate-limited, this adds latency to every `mod` call.
+
+To avoid it, the wrapper caches the resolved version under `~/.moderne/cli/version-cache/` for a configurable time-to-live, so routine runs reuse the last lookup instead of re-fetching. The two resolution channels are cached independently: `distributionUrlCacheTtl` governs the `RELEASE` lookup and `distributionUrlEarlyAccessCacheTtl` the `LATEST`/snapshot lookups. Both are [ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations) (for example `PT1H` for one hour or `PT10M` for ten minutes) and default to one hour. Set a channel's value to `PT0S` to disable caching for it.
+
+```properties
+version=RELEASE
+distributionUrlCacheTtl=PT1H
+```
+
+The cache only affects how quickly the wrapper *notices* a newer published version — it never blocks an upgrade you have already pinned. To force a fresh lookup for a single run (bypassing and refreshing the cache), set `MODERNE_WRAPPER_REFRESH=1`:
+
+```bash
+MODERNE_WRAPPER_REFRESH=1 mod --version
+```
 
 ### Air-gapped or restricted environments
 
@@ -141,7 +161,12 @@ jdkUrl=skip
 Setting `jdkUrl=skip` disables the JDK auto-download, which is useful when you know a compatible JDK is already available on the system.
 
 :::warning
-In an environment that cannot reach Maven Central, you must pin a concrete `version` (such as `4.x.x`) rather than leaving it at the default `RELEASE` (or `LATEST`). The wrapper's `RELEASE` and `LATEST` resolution always queries Maven Central for `maven-metadata.xml`, regardless of any `distributionUrl` setting. If Maven Central is unreachable and the version is left dynamic, every `mod` invocation will fail at version resolution. Pinning a concrete version skips that lookup entirely.
+`distributionUrl` controls only where the distribution archive is *downloaded* from, not where a dynamic `version` is *resolved*. `RELEASE` resolution queries Maven Central for `maven-metadata.xml`, and `LATEST`/snapshot resolution queries Sonatype (Maven Central Snapshots). If neither is reachable and the version is left dynamic, every `mod` invocation fails at version resolution.
+
+In an air-gapped environment you therefore have two options:
+
+- **Pin a concrete `version`** (such as `4.x.x`), which skips the metadata lookup entirely — the simplest choice.
+- **Redirect the snapshot lookup** with `distributionUrlEarlyAccess`, pointing it at your own snapshot repository, if you need to keep tracking `LATEST` from an internal mirror.
 :::
 
 :::note
@@ -239,6 +264,7 @@ GraalVM distributions are **not compatible** with the CLI's AOT cache. The wrapp
 | `MODERNE_WRAPPER_DISTRIBUTION_TOKEN`    | Bearer token for distribution downloads (overrides user/pass)      |
 | `MODERNE_WRAPPER_DISTRIBUTION_URL`      | Override `distributionUrl` without a properties file               |
 | `MODERNE_WRAPPER_VERSION`               | Override `version` without a properties file                       |
+| `MODERNE_WRAPPER_REFRESH`               | Force a fresh version lookup this run, bypassing the TTL cache      |
 
 ## Directory layout
 
