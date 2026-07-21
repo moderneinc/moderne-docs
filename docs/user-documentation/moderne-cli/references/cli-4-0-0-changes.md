@@ -202,6 +202,17 @@ The wrapper will replace `${version}`, `${platform}`, and `${extension}` automat
 
 Setting `jdkUrl=skip` tells the wrapper not to download a JDK on its own. In this case, you will need Java 25+ available via `MODERNE_JAVA_HOME` or your `PATH`.
 
+`distributionUrl` controls where the distribution archive is downloaded from, but not where a dynamic `version` is *resolved*. `RELEASE` resolution queries Maven Central and `LATEST`/snapshot resolution queries Sonatype (Maven Central Snapshots). If you track `LATEST` from an internal snapshot repository, set `distributionUrlEarlyAccess` to that repository's base URL so the snapshot lookup is redirected away from Sonatype:
+
+```properties
+version=LATEST
+distributionUrlEarlyAccess=https://nexus.corp.example.com/repository/snapshots
+```
+
+### Caching the version lookup
+
+For a dynamic `version`, the wrapper resolves it by fetching `maven-metadata.xml` on every invocation, which is a network round-trip to the artifact repository before each command. The wrapper caches that resolved version under `~/.moderne/cli/version-cache/` for a configurable time-to-live, so routine runs don't re-check on every call. `distributionUrlCacheTtl` governs the `RELEASE` lookup and `distributionUrlEarlyAccessCacheTtl` the `LATEST`/snapshot lookups; both are ISO-8601 durations (for example `PT1H` or `PT10M`), default to one hour, and accept `PT0S` to disable caching. Set `MODERNE_WRAPPER_REFRESH=1` to force a fresh lookup for a single run. See the [CLI wrapper guide](../how-to-guides/cli-wrapper.md#caching-the-version-lookup) for details.
+
 ### Authenticated mirrors
 
 If your internal mirror requires authentication, the wrapper supports basic auth and bearer token credentials via environment variables or properties. This is especially important for first-time installs where no properties file exists yet.
