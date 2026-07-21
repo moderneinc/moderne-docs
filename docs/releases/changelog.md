@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v13.13.1 (2026/07/21)
+
+- Bug fixes and other improvements.
+
 ### UI v13.13.0 (2026/07/20)
 
 - select all matching filters for bulk PR actions
