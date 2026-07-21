@@ -126,7 +126,7 @@ On every LST build, recipe run, and git push, the Moderne CLI generates telemetr
 
 This information can be published to your central BI portal and used to verify that you're achieving your desired results. The telemetry can also be used to incentivize developers, teams, and business units to onboard onto Moderne and drive value across the platform.
 
-For detailed information on how telemetry works and how to collect it, check out our [full guide on CLI telemetry](../../../user-documentation/moderne-cli/how-to-guides/cli-telemetry.md).
+Because a DX deployment has no Moderne tenant to push telemetry to, publishing it yourself is the only path into BI. See [Configuring telemetry for Moderne DX](../how-to-guides/configure-telemetry-dx.md) for how to collect telemetry from the CLI wrapper and get it into your BI tools.
 
 ## Pull-based vs push-based changes
 
@@ -156,6 +156,6 @@ For more guidance on choosing between these approaches, see [our blog post on la
 
 ## Next steps
 
-* [Deploy the Moderne CLI from an internal Maven Central mirror](../../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) — the recommended install path for DX users
+* [Deploy the Moderne CLI from an internal Maven Central mirror](../../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) (the recommended install path for DX users)
 * [Set up mass ingest](../how-to-guides/mass-ingest-dx.md) to begin building LSTs for your repositories
 * [Learn about the architecture](../references/moderne-dx-architecture.md) and how Moderne DX compares to Moderne Platform

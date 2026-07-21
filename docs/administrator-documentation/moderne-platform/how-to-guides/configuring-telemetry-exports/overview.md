@@ -28,6 +28,12 @@ There are two **sources** that produce this telemetry:
 
 Both sources land in the same place, with the same partition layout, so queries can analyze them together or filter to one source as needed.
 
+### How and when CLI telemetry is pushed
+
+A signed-in CLI queues each trace locally and auto-pushes queued telemetry to your tenant gateway when it refreshes its license lease, which happens at most once every three days.
+
+If the default cadence isn't frequent enough for your reporting, add `mod telemetry publish` to your customized [`modw` wrapper](../../../../user-documentation/moderne-cli/how-to-guides/cli-wrapper.md) or a CI job so it runs on a schedule you control, with no change to how the CLI is used.
+
 ### Schema reference
 
 The CSV schema is hierarchical: each command embeds rows from prior pipeline stages. There are two pipelines, sharing the early stages:
@@ -89,7 +95,7 @@ The cloud-specific guides below walk through each step in detail. At a glance, y
 * Pick your destination cloud and region.
 * Create the destination bucket / storage account and container.
 * Enable versioning (and change feed, on Azure).
-* Apply the access grant from the cloud-specific guide — a Moderne-provided bucket policy on AWS, or a role-assignment command on Azure.
+* Apply the access grant from the cloud-specific guide: a Moderne-provided bucket policy on AWS, or a role-assignment command on Azure.
 * Send your CSM: tenant name, destination ARN / resource ID, and region.
 * Wait for Moderne to confirm replication is live (~1 business day).
 * Register the schema in your BI / query engine and start querying.

@@ -25,6 +25,8 @@ The standard installation methods place `modw` in `~/.moderne/cli/bin/` and add 
 
 On first run after installation or an update, you may notice a brief delay while the wrapper downloads the distribution and builds the AOT cache. Subsequent runs reuse the cached artifacts and start quickly.
 
+Because every `mod` command goes through the wrapper, it is also the recommended place to hook in site-specific behavior. The most common example is publishing CLI telemetry to storage or a BI endpoint you control, so that CLI users keep running `mod` exactly as before. See [Exporting CLI telemetry to Amazon S3](./cli-telemetry-s3-export.md) for a worked example.
+
 ## Controlling auto-updates
 
 By default, the wrapper is configured with `version=RELEASE` in its properties file. This means **every invocation checks Maven Central** for the latest release version and downloads it if a newer version is available. For individual developers, this makes the most sense as you'd want to stay current automatically.
