@@ -54,6 +54,16 @@ Returns which optional platform features are enabled in this deployment.
 Each field defaults to false and is overridden to true by the corresponding
 optional service when it is present in the supergraph composition.
 
+#### `changelogBulkPullRequestAction`
+
+```graphql
+changelogBulkPullRequestAction(id: ID!): ChangelogBulkPullRequestAction
+```
+
+**Returns:** [ChangelogBulkPullRequestAction](#changelogbulkpullrequestaction)
+
+Get a bulk pull request action by ID to poll for progress.
+
 #### `codeSearch`
 
 ```graphql
@@ -162,15 +172,29 @@ verifyToken(origin: String!, scmType: ScmType!): String
 
 ## Mutations
 
+#### `approveChangelogPullRequests`
+
+```graphql
+approveChangelogPullRequests(organizationId: ID!, selection: PullRequestSelectionInput!): ChangelogBulkPullRequestActionQueued!
+```
+
+**Returns:** [ChangelogBulkPullRequestActionQueued](#changelogbulkpullrequestactionqueued)!
+
+Approve pull requests in bulk. Returns the queued action for polling.
+
 #### `approvePullRequests`
 
 ```graphql
-approvePullRequests(organizationId: ID!, selection: PullRequestSelectionInput!): BulkPullRequestActionQueued!
+approvePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!]): BulkPullRequestActionQueued!
 ```
 
 **Returns:** [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
 
-Approve pull requests in bulk. Returns the queued action for polling.
+Approve, in bulk, the pull requests the committer created from a changeset.
+Pass `repositories` to limit the action to a subset of the changeset's
+repositories; omit it to target every pull request in the changeset. Returns
+the queued action for polling (also surfaces under
+`OrganizationChangeset.bulkPullRequestActions`).
 
 #### `cancelBulkPullRequestAction`
 
@@ -179,6 +203,16 @@ cancelBulkPullRequestAction(id: ID!): BulkPullRequestActionCanceled!
 ```
 
 **Returns:** [BulkPullRequestActionCanceled](#bulkpullrequestactioncanceled)!
+
+Cancel a pending bulk pull request action.
+
+#### `cancelChangelogBulkPullRequestAction`
+
+```graphql
+cancelChangelogBulkPullRequestAction(id: ID!): ChangelogBulkPullRequestActionCanceled!
+```
+
+**Returns:** [ChangelogBulkPullRequestActionCanceled](#changelogbulkpullrequestactioncanceled)!
 
 Cancel a pending bulk pull request action.
 
@@ -260,15 +294,26 @@ clearUserPrompt: Boolean!
 
 Clear the current user's prompt override, falling back to organization or universal.
 
+#### `closeChangelogPullRequests`
+
+```graphql
+closeChangelogPullRequests(organizationId: ID!, selection: PullRequestSelectionInput!): ChangelogBulkPullRequestActionQueued!
+```
+
+**Returns:** [ChangelogBulkPullRequestActionQueued](#changelogbulkpullrequestactionqueued)!
+
+Close pull requests in bulk. Returns the queued action for polling.
+
 #### `closePullRequests`
 
 ```graphql
-closePullRequests(organizationId: ID!, selection: PullRequestSelectionInput!): BulkPullRequestActionQueued!
+closePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!]): BulkPullRequestActionQueued!
 ```
 
 **Returns:** [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
 
-Close pull requests in bulk. Returns the queued action for polling.
+Close, in bulk, the pull requests the committer created from a changeset.
+Returns the queued action for polling.
 
 #### `commit`
 
@@ -425,15 +470,26 @@ installRecipesUniversal(bundle: RecipeBundleInput!): RecipeInstallation!
 Install a recipe bundle to the universal marketplace (visible to all).
 Requires the `admin` role.
 
+#### `mergeChangelogPullRequests`
+
+```graphql
+mergeChangelogPullRequests(organizationId: ID!, selection: PullRequestSelectionInput!, mergeMethod: MergeMethod!, deleteSourceBranch: Boolean! = false): ChangelogBulkPullRequestActionQueued!
+```
+
+**Returns:** [ChangelogBulkPullRequestActionQueued](#changelogbulkpullrequestactionqueued)!
+
+Merge pull requests in bulk. Returns the queued action for polling.
+
 #### `mergePullRequests`
 
 ```graphql
-mergePullRequests(organizationId: ID!, selection: PullRequestSelectionInput!, mergeMethod: MergeMethod!, deleteSourceBranch: Boolean! = false): BulkPullRequestActionQueued!
+mergePullRequests(organizationId: ID!, changesetId: ID!, repositories: [RepositoryInput!], mergeMethod: MergeMethod!, deleteSourceBranch: Boolean! = false): BulkPullRequestActionQueued!
 ```
 
 **Returns:** [BulkPullRequestActionQueued](#bulkpullrequestactionqueued)!
 
-Merge pull requests in bulk. Returns the queued action for polling.
+Merge, in bulk, the pull requests the committer created from a changeset.
+Returns the queued action for polling.
 
 #### `reindexChangelog`
 
@@ -796,8 +852,9 @@ An audit log download is being processed.
 | `diffTool` | [ToolInfo](#toolinfo) |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this batch change. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this batch change. |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
+| `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
 
 ##### `BatchChangeFileChange`
 
@@ -946,6 +1003,82 @@ An audit log download is being processed.
 | `startedAt` | [DateTime](#datetime)! |  |
 | `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
 
+##### `ChangelogBulkPullRequestActionCanceled`
+
+**Implements:** [ChangelogBulkPullRequestAction](#changelogbulkpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `actionType` | [ChangelogPullRequestActionType](#changelogpullrequestactiontype)! |  |
+| `user` | [User](#user)! |  |
+| `canceledBy` | [User](#user)! |  |
+| `results` | (first: Int = 50, after: String, where: [ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput), orderBy: [[ChangelogPullRequestActionOrderByInput](#changelogpullrequestactionorderbyinput)!]): [ChangelogPullRequestActionConnection](#changelogpullrequestactionconnection)! |  |
+
+##### `ChangelogBulkPullRequestActionConnection`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[ChangelogBulkPullRequestActionEdge](#changelogbulkpullrequestactionedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+##### `ChangelogBulkPullRequestActionEdge`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [ChangelogBulkPullRequestAction](#changelogbulkpullrequestaction)! |  |
+| `cursor` | String! |  |
+
+##### `ChangelogBulkPullRequestActionError`
+
+**Implements:** [ChangelogBulkPullRequestAction](#changelogbulkpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `actionType` | [ChangelogPullRequestActionType](#changelogpullrequestactiontype)! |  |
+| `user` | [User](#user)! |  |
+| `errorMessage` | String! |  |
+| `results` | (first: Int = 50, after: String, where: [ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput), orderBy: [[ChangelogPullRequestActionOrderByInput](#changelogpullrequestactionorderbyinput)!]): [ChangelogPullRequestActionConnection](#changelogpullrequestactionconnection)! |  |
+
+##### `ChangelogBulkPullRequestActionFinished`
+
+**Implements:** [ChangelogBulkPullRequestAction](#changelogbulkpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `actionType` | [ChangelogPullRequestActionType](#changelogpullrequestactiontype)! |  |
+| `user` | [User](#user)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `results` | (first: Int = 50, after: String, where: [ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput), orderBy: [[ChangelogPullRequestActionOrderByInput](#changelogpullrequestactionorderbyinput)!]): [ChangelogPullRequestActionConnection](#changelogpullrequestactionconnection)! |  |
+
+##### `ChangelogBulkPullRequestActionQueued`
+
+**Implements:** [ChangelogBulkPullRequestAction](#changelogbulkpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `actionType` | [ChangelogPullRequestActionType](#changelogpullrequestactiontype)! |  |
+| `user` | [User](#user)! |  |
+| `queuedAt` | [DateTime](#datetime)! |  |
+| `results` | (first: Int = 50, after: String, where: [ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput), orderBy: [[ChangelogPullRequestActionOrderByInput](#changelogpullrequestactionorderbyinput)!]): [ChangelogPullRequestActionConnection](#changelogpullrequestactionconnection)! |  |
+
+##### `ChangelogBulkPullRequestActionRunning`
+
+**Implements:** [ChangelogBulkPullRequestAction](#changelogbulkpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `actionType` | [ChangelogPullRequestActionType](#changelogpullrequestactiontype)! |  |
+| `user` | [User](#user)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `results` | (first: Int = 50, after: String, where: [ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput), orderBy: [[ChangelogPullRequestActionOrderByInput](#changelogpullrequestactionorderbyinput)!]): [ChangelogPullRequestActionConnection](#changelogpullrequestactionconnection)! |  |
+
 ##### `ChangelogCommit`
 
 **Implements:** [ChangelogEntry](#changelogentry)
@@ -1025,7 +1158,78 @@ A pull request (open, draft, merged, or closed).
 | `deletions` | Int | Lines removed. |
 | `changeset` | [OrganizationChangeset](#organizationchangeset) |  |
 | `diffstat` | [DiffStat](#diffstat)! |  |
-| `actions` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! | Actions (approve, merge, close) that have been applied to this pull request. Default sort order is descending by startedAt. |
+| `actions` | (first: Int = 50, after: String, where: [ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput), orderBy: [[ChangelogPullRequestActionOrderByInput](#changelogpullrequestactionorderbyinput)!]): [ChangelogPullRequestActionConnection](#changelogpullrequestactionconnection)! | Actions (approve, merge, close) that have been applied to this pull request. Default sort order is descending by startedAt. |
+
+##### `ChangelogPullRequestActionCanceled`
+
+**Implements:** [ChangelogPullRequestAction](#changelogpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `pullRequest` | [ChangelogPullRequestRef](#changelogpullrequestref)! |  |
+| `canceledBy` | [User](#user)! |  |
+
+##### `ChangelogPullRequestActionConnection`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `edges` | [[ChangelogPullRequestActionEdge](#changelogpullrequestactionedge)!]! |  |
+| `pageInfo` | [PageInfo](#pageinfo)! |  |
+| `count` | Int! |  |
+
+##### `ChangelogPullRequestActionEdge`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `node` | [ChangelogPullRequestAction](#changelogpullrequestaction)! |  |
+| `cursor` | String! |  |
+
+##### `ChangelogPullRequestActionFailed`
+
+**Implements:** [ChangelogPullRequestAction](#changelogpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `pullRequest` | [ChangelogPullRequestRef](#changelogpullrequestref)! |  |
+| `startedAt` | [DateTime](#datetime) |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+| `errorMessage` | String! |  |
+
+##### `ChangelogPullRequestActionQueued`
+
+**Implements:** [ChangelogPullRequestAction](#changelogpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `pullRequest` | [ChangelogPullRequestRef](#changelogpullrequestref)! |  |
+
+##### `ChangelogPullRequestActionRunning`
+
+**Implements:** [ChangelogPullRequestAction](#changelogpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `pullRequest` | [ChangelogPullRequestRef](#changelogpullrequestref)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+
+##### `ChangelogPullRequestActionSucceeded`
+
+**Implements:** [ChangelogPullRequestAction](#changelogpullrequestaction)
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `pullRequest` | [ChangelogPullRequestRef](#changelogpullrequestref)! |  |
+| `startedAt` | [DateTime](#datetime)! |  |
+| `finishedAt` | [DateTime](#datetime)! |  |
+
+##### `ChangelogPullRequestRef`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `origin` | String! |  |
+| `repositoryPath` | String! |  |
+| `branch` | String! |  |
+| `number` | Int! |  |
 
 ##### `ChangeParticipant`
 
@@ -1977,8 +2181,9 @@ The installation lives in a specific organization's marketplace.
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
+| `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
 
 ##### `OrganizationRecipeRunConnection`
 
@@ -2015,8 +2220,9 @@ The installation lives in a specific organization's marketplace.
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
+| `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
 
 ##### `OrganizationRecipeRunFinished`
 
@@ -2039,8 +2245,9 @@ The installation lives in a specific organization's marketplace.
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
+| `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
 
 ##### `OrganizationRecipeRunQueued`
 
@@ -2060,8 +2267,9 @@ The installation lives in a specific organization's marketplace.
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
+| `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
 
 ##### `OrganizationRecipeRunRunning`
 
@@ -2082,8 +2290,9 @@ The installation lives in a specific organization's marketplace.
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
+| `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
 
 ##### `OrganizationRecipeRunSyncing`
 
@@ -2106,8 +2315,9 @@ intrinsically (`mod run --sync-csv`) starts in Running immediately.
 | `repositories` | (first: Int = 100, after: String, where: [RepositoryChangesetWhereInput](#repositorychangesetwhereinput), orderBy: [[RepositoryChangesetOrderByInput](#repositorychangesetorderbyinput)!]): [RepositoryChangesetConnection](#repositorychangesetconnection)! |  |
 | `dataTables` | (first: Int = 50, after: String, where: [DataTableWhereInput](#datatablewhereinput), orderBy: [[DataTableOrderByInput](#datatableorderbyinput)!]): [DataTableConnection](#datatableconnection)! | Data tables produced by this recipe run. Each data table starts as Available and transitions to Processing/Finished/Error when downloadDataTable mutation is called. |
 | `visualizations` | (first: Int = 50, after: String, where: [VisualizationWhereInput](#visualizationwhereinput), orderBy: [[VisualizationOrderByInput](#visualizationorderbyinput)!]): [VisualizationConnection](#visualizationconnection)! | Visualizations produced by this recipe run. |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
+| `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
 
 ##### `PageInfo`
 
@@ -3157,7 +3367,7 @@ A bulk pull request action (approve, merge, close) that operates on potentially
 multiple repositories. Use `__typename` to determine the current state.
 
 Each `BulkPullRequestAction` contains individual `PullRequestAction` entries
-representing the state of each repository targeted by the bulk operation.
+representing the state of each pull request targeted by the bulk operation.
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -3165,6 +3375,21 @@ representing the state of each repository targeted by the bulk operation.
 | `actionType` | [PullRequestActionType](#pullrequestactiontype)! |  |
 | `user` | [User](#user)! |  |
 | `results` | (first: Int = 50, after: String, where: [PullRequestActionWhereInput](#pullrequestactionwhereinput), orderBy: [[PullRequestActionOrderByInput](#pullrequestactionorderbyinput)!]): [PullRequestActionConnection](#pullrequestactionconnection)! |  |
+
+##### `ChangelogBulkPullRequestAction`
+
+A bulk pull request action (approve, merge, close) that operates on potentially
+multiple repositories. Use `__typename` to determine the current state.
+
+Each `ChangelogBulkPullRequestAction` contains individual `ChangelogPullRequestAction` entries
+representing the state of each repository targeted by the bulk operation.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `id` | ID! |  |
+| `actionType` | [ChangelogPullRequestActionType](#changelogpullrequestactiontype)! |  |
+| `user` | [User](#user)! |  |
+| `results` | (first: Int = 50, after: String, where: [ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput), orderBy: [[ChangelogPullRequestActionOrderByInput](#changelogpullrequestactionorderbyinput)!]): [ChangelogPullRequestActionConnection](#changelogpullrequestactionconnection)! |  |
 
 ##### `ChangelogEntry`
 
@@ -3184,6 +3409,15 @@ Use `__typename` to distinguish between `ChangelogCommit` and `ChangelogPullRequ
 | `changeset` | [OrganizationChangeset](#organizationchangeset) | If this activity was originated by Moderne, the changeset it belongs to. |
 | `buildState` | [BuildState](#buildstate) | CI status (e.g. from GitHub Actions, GitLab pipelines). Null if no CI is configured or status has not been fetched yet. |
 | `diffstat` | [DiffStat](#diffstat)! | Lines added and removed. |
+
+##### `ChangelogPullRequestAction`
+
+The state of an individual repository within a `ChangelogBulkPullRequestAction`.
+Use `__typename` to determine the current state.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `pullRequest` | [ChangelogPullRequestRef](#changelogpullrequestref)! |  |
 
 ##### `CommitOptions`
 
@@ -3248,8 +3482,9 @@ interface must define the implementation types (OrganizationRecipeRun*, BatchCha
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
+| `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) initiated against pull requests that belong to this changeset. Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing last so polling clients still see in-flight actions. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this changeset. |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this changeset. |
 | `user` | [User](#user)! |  |
 | `createdAt` | [DateTime](#datetime)! |  |
 | `parent` | [OrganizationChangeset](#organizationchangeset) |  |
@@ -3276,8 +3511,9 @@ repositories. Use `__typename` to determine the current state.
 | Field | Type | Description |
 |-------|------|-------------|
 | `id` | ID! |  |
-| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions for recipe-run changesets. |
+| `changelogBulkPullRequestActions` | (first: Int = 50, after: String, where: [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput), orderBy: [[ChangelogBulkPullRequestActionOrderByInput](#changelogbulkpullrequestactionorderbyinput)!]): [ChangelogBulkPullRequestActionConnection](#changelogbulkpullrequestactionconnection)! | Bulk pull request actions for recipe-run changesets. |
 | `commits` | (first: Int = 50, after: String, where: [OrganizationCommitWhereInput](#organizationcommitwhereinput), orderBy: [[OrganizationCommitOrderByInput](#organizationcommitorderbyinput)!]): [OrganizationCommitConnection](#organizationcommitconnection) | Commit operations initiated from this recipe run. |
+| `bulkPullRequestActions` | (first: Int = 50, after: String, where: [BulkPullRequestActionWhereInput](#bulkpullrequestactionwhereinput), orderBy: [[BulkPullRequestActionOrderByInput](#bulkpullrequestactionorderbyinput)!]): [BulkPullRequestActionConnection](#bulkpullrequestactionconnection)! | Bulk pull request actions (approve, merge, close) launched from this recipe run. |
 | `recipe` | [RecipeDescriptor](#recipedescriptor) |  |
 | `user` | [User](#user)! |  |
 | `options` | [[RecipeOptionValue](#recipeoptionvalue)!]! |  |
@@ -3291,7 +3527,7 @@ repositories. Use `__typename` to determine the current state.
 
 ##### `PullRequestAction`
 
-The state of an individual repository within a `BulkPullRequestAction`.
+The state of an individual pull request within a `BulkPullRequestAction`.
 Use `__typename` to determine the current state.
 
 | Field | Type | Description |
@@ -3447,6 +3683,23 @@ of the concrete state types (Queued, Running, Finished, Canceled, Error).
 * `CANCELED`
 * `ERROR`
 
+##### `ChangelogBulkPullRequestActionOrderByField`
+
+* `CREATED_AT`
+* `STARTED_AT`
+* `FINISHED_AT`
+
+##### `ChangelogBulkPullRequestActionState`
+
+The lifecycle state of a `ChangelogBulkPullRequestAction`. Matches the `__typename`
+of the concrete state types (Queued, Running, Finished, Canceled, Error).
+
+* `QUEUED`
+* `RUNNING`
+* `FINISHED`
+* `CANCELED`
+* `ERROR`
+
 ##### `ChangelogEntryOrderByField`
 
 * `UPDATED_AT`
@@ -3466,6 +3719,26 @@ Discriminator for filtering by entry type.
 * `USERNAME`
 * `EMAIL`
 * `NAME`
+
+##### `ChangelogPullRequestActionOrderByField`
+
+* `REPOSITORY_PATH`
+* `STATE`
+* `STARTED_AT`
+
+##### `ChangelogPullRequestActionState`
+
+* `QUEUED`
+* `IN_PROGRESS`
+* `SUCCESSFUL`
+* `FAILED`
+* `CANCELED`
+
+##### `ChangelogPullRequestActionType`
+
+* `APPROVE`
+* `MERGE`
+* `CLOSE`
 
 ##### `CommitOption`
 
@@ -3994,6 +4267,34 @@ Filter by changelog author.
 | `_or` | [[ChangelogAuthorWhereInput](#changelogauthorwhereinput)!] |  |
 | `_not` | [ChangelogAuthorWhereInput](#changelogauthorwhereinput) |  |
 
+##### `ChangelogBulkPullRequestActionOrderByInput`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [ChangelogBulkPullRequestActionOrderByField](#changelogbulkpullrequestactionorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+##### `ChangelogBulkPullRequestActionStateFilter`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [ChangelogBulkPullRequestActionState](#changelogbulkpullrequestactionstate) |  |
+| `_neq` | [ChangelogBulkPullRequestActionState](#changelogbulkpullrequestactionstate) |  |
+| `_in` | [[ChangelogBulkPullRequestActionState](#changelogbulkpullrequestactionstate)!] |  |
+| `_nin` | [[ChangelogBulkPullRequestActionState](#changelogbulkpullrequestactionstate)!] |  |
+
+##### `ChangelogBulkPullRequestActionWhereInput`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `actionType` | [ChangelogPullRequestActionTypeFilter](#changelogpullrequestactiontypefilter) |  |
+| `state` | [ChangelogBulkPullRequestActionStateFilter](#changelogbulkpullrequestactionstatefilter) |  |
+| `startedAt` | [DateTimeFilter](#datetimefilter) | Filter by `startedAt`. Matches RUNNING/FINISHED/ERROR/CANCELED states that have a startedAt value; QUEUED entries (no startedAt) are excluded when a bound is supplied. |
+| `user` | [UserWhereInput](#userwhereinput) |  |
+| `_and` | [[ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput)!] |  |
+| `_or` | [[ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput)!] |  |
+| `_not` | [ChangelogBulkPullRequestActionWhereInput](#changelogbulkpullrequestactionwhereinput) |  |
+
 ##### `ChangelogEntryOrderByInput`
 
 | Field | Type | Description |
@@ -4052,6 +4353,40 @@ Filter input for participants.
 | `_and` | [[ChangelogParticipantWhereInput](#changelogparticipantwhereinput)!] |  |
 | `_or` | [[ChangelogParticipantWhereInput](#changelogparticipantwhereinput)!] |  |
 | `_not` | [ChangelogParticipantWhereInput](#changelogparticipantwhereinput) |  |
+
+##### `ChangelogPullRequestActionOrderByInput`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `field` | [ChangelogPullRequestActionOrderByField](#changelogpullrequestactionorderbyfield)! |  |
+| `direction` | [SortOrder](#sortorder)! |  |
+
+##### `ChangelogPullRequestActionStateFilter`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [ChangelogPullRequestActionState](#changelogpullrequestactionstate) |  |
+| `_neq` | [ChangelogPullRequestActionState](#changelogpullrequestactionstate) |  |
+| `_in` | [[ChangelogPullRequestActionState](#changelogpullrequestactionstate)!] |  |
+| `_nin` | [[ChangelogPullRequestActionState](#changelogpullrequestactionstate)!] |  |
+
+##### `ChangelogPullRequestActionTypeFilter`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `_eq` | [ChangelogPullRequestActionType](#changelogpullrequestactiontype) |  |
+| `_neq` | [ChangelogPullRequestActionType](#changelogpullrequestactiontype) |  |
+| `_in` | [[ChangelogPullRequestActionType](#changelogpullrequestactiontype)!] |  |
+| `_nin` | [[ChangelogPullRequestActionType](#changelogpullrequestactiontype)!] |  |
+
+##### `ChangelogPullRequestActionWhereInput`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `state` | [ChangelogPullRequestActionStateFilter](#changelogpullrequestactionstatefilter) |  |
+| `_and` | [[ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput)!] |  |
+| `_or` | [[ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput)!] |  |
+| `_not` | [ChangelogPullRequestActionWhereInput](#changelogpullrequestactionwhereinput) |  |
 
 ##### `CommitInput`
 
