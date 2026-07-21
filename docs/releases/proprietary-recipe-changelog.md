@@ -12,11 +12,9 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## July 20, 2026
 
-#### rewrite-nodejs - v0.47.2
+#### rewrite-migrate-python - v0.10.1
 
-* Only npm-publish from default branch or release tag, never from PR runs
-* Replace bun with node in build scripts to fix npm-publish
-* Change increase-node-engine default to a hard cutover / raise minimum (alt to #109, #110)
+-
 
 ## July 17, 2026
 
@@ -77,10 +75,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.87.0
 
-#### rewrite-codemods-ng - 0.21.3
-
-* Updated repository to use OpenRewrite version v8.87.0
-
 #### rewrite-compiled-analysis - 0.14.3
 
 * Updated repository to use OpenRewrite version v8.87.0
@@ -96,10 +90,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-devcenter - 1.28.0
 
 * Add Go version upgrade card
-
-#### rewrite-dotnet - 0.17.1
-
-* Updated repository to use OpenRewrite version v8.87.0
 
 #### rewrite-dropwizard - 0.5.5
 
@@ -150,10 +140,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Updated repository to use OpenRewrite version v8.87.0
 
 #### rewrite-migrate-python - 0.9.4
-
-* Updated repository to use OpenRewrite version v8.87.0
-
-#### rewrite-nodejs - 0.47.1
 
 * Updated repository to use OpenRewrite version v8.87.0
 
@@ -284,10 +270,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * chore: update @ui5/linter from 1.20.7 to 1.23.0
 
-#### rewrite-codemods-ng - 0.21.2
-
-* Updated repository to use OpenRewrite version v8.86.0
-
 #### rewrite-compiled-analysis - 0.14.2
 
 * Updated repository to use OpenRewrite version v8.86.0
@@ -327,10 +309,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-devcenter - 1.27.0
 
 * Add upgradeRecipe call to action to language DevCenters
-
-#### rewrite-dotnet - 0.17.0
-
-* Add recipe to migrate .NET install URLs from retiring Azure CDN domains
 
 #### rewrite-dropwizard - 0.5.3
 
@@ -406,10 +384,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-migrate-python - 0.9.2
 
 * Updated repository to use OpenRewrite version v8.86.0
-
-#### rewrite-nodejs - 0.47.0
-
-* Remove duplicate `UpgradeDependencyVersion` and `DependencyInsight` recipes; use core
 
 #### rewrite-nullability - 0.2.1
 
@@ -570,10 +544,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.85.0
 
-#### rewrite-codemods-ng - 0.21.1
-
-* Updated repository to use OpenRewrite version v8.85.0
-
 #### rewrite-compiled-analysis - 0.14.1
 
 * Updated repository to use OpenRewrite version v8.85.0
@@ -593,10 +563,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-devcenter - 1.26.0
 
 * Target Spring Boot 4.1 in starter DevCenter
-
-#### rewrite-dotnet - 0.16.1
-
-* Updated repository to use OpenRewrite version v8.85.0
 
 #### rewrite-dropwizard - 0.5.1
 
@@ -657,10 +623,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add Pydantic migration recipes; make type-aware recipes precise via type_utils
 * Remove unused typing import when migrating Optional/Union to PEP 604
 * Expand Pydantic migration recipes to cover 2.10–2.14
-
-#### rewrite-nodejs - 0.46.2
-
-* Updated repository to use OpenRewrite version v8.85.0
 
 #### rewrite-prethink - 0.7.3
 
@@ -734,12 +696,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Detect Python BDD step definitions (behave, pytest-bdd, lettuce)
 * Upgrade to langchain4j:1.16.3
 
-## June 5, 2026
-
-#### rewrite-nodejs - 0.46.1
-
-* OpenRewrite 8.84.1
-
 ## June 3, 2026
 
 #### rewrite-ai - 0.4.0
@@ -776,10 +732,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Regenerate recipes.csv
 
-#### rewrite-codemods-ng - 0.21.0
-
-* Regenerate recipes.csv
-
 #### rewrite-compiled-analysis - 0.14.0
 
 * Regenerate recipes.csv
@@ -801,10 +753,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Regenerate recipes.csv
 * OpenRewrite recipe best practices
 * Add example recipe IDs to upgradeRecipe options on version-upgrade cards
-
-#### rewrite-dotnet - 0.16.0
-
-* Regenerate recipes.csv
 
 #### rewrite-dropwizard - 0.4.0
 
@@ -862,11 +810,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-migrate-python - 0.8.0
 
 * Regenerate recipes.csv
-
-#### rewrite-nodejs - 0.46.0
-
-* Port dependency-vulnerability-check from TypeScript to Java
-* OpenRewrite recipe best practices
 
 #### rewrite-prethink - 0.7.0
 
@@ -977,14 +920,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.83.0
 
-#### rewrite-codemods-ng - v0.20.6
-
-* Use
-
-#### rewrite-codemods-ng - 0.20.5
-
-* Updated repository to use OpenRewrite version v8.83.0
-
 #### rewrite-compiled-analysis - 0.13.4
 
 * Updated repository to use OpenRewrite version v8.83.0
@@ -1005,10 +940,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Force opennlp-tools 2.5.9 to fix critical CVEs
 * Add DevCenter card for Angular version tracking
 * Kotlin Devcenter
-
-#### rewrite-dotnet - 0.15.4
-
-* Updated repository to use OpenRewrite version v8.83.0
 
 #### rewrite-dropwizard - 0.3.1
 
@@ -1067,15 +998,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-migrate-python - 0.7.3
 
 * Updated repository to use OpenRewrite version v8.83.0
-
-#### rewrite-nodejs - 0.45.1
-
-* Publish to NPM directly
-
-#### rewrite-nodejs - 0.45.0
-
-* Lower-case values by default for minimumSeverity in FFVD
-* Wrap editor() in Preconditions.check on 16 deprecation recipes
 
 #### rewrite-prethink - 0.6.0
 
@@ -1211,10 +1133,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * OpenRewrite v8.81.6
 
-#### rewrite-codemods-ng - v0.20.4
-
-* OpenRewrite v8.81.6
-
 #### rewrite-compiled-analysis - v0.13.3
 
 * OpenRewrite v8.81.6
@@ -1234,10 +1152,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Rename EPSSMeasure.NotFound label to "No vulnerability scores"
 * Refresh Apache Maven parent POM versions
 * Fix DataTableRowWatcher to work under CsvDataTableStore
-
-#### rewrite-dotnet - v0.15.3
-
-* OpenRewrite v8.81.6
 
 #### rewrite-dropwizard - v0.2.4
 
@@ -1290,12 +1204,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-migrate-python - v0.7.1
 
 * OpenRewrite v8.81.6
-
-#### rewrite-nodejs - v0.44.1
-
-* OpenRewrite v8.81.6
-* Bump uuid and jest-junit in /recipes-nodejs[bot]
-* Remove Java recipe of `DependencyVulnerabilityCheck`
 
 #### rewrite-prethink - v0.5.10
 
@@ -1426,10 +1334,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.81.0
 
-#### rewrite-codemods-ng - 0.20.3
-
-* Updated repository to use OpenRewrite version v8.81.0
-
 #### rewrite-compiled-analysis - 0.13.2
 
 * Updated repository to use OpenRewrite version v8.81.0
@@ -1443,10 +1347,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Updated repository to use OpenRewrite version v8.81.0
 
 #### rewrite-devcenter - 1.22.3
-
-* Updated repository to use OpenRewrite version v8.81.0
-
-#### rewrite-dotnet - 0.15.2
 
 * Updated repository to use OpenRewrite version v8.81.0
 
@@ -1490,14 +1390,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-migrate-python - 0.7.0
 
 * Transform sys.last_type and sys.last_traceback
-
-#### rewrite-nodejs - 0.44.0
-
-* Re-generate recipes.csv
-* Bump yaml from 2.8.2 to 2.8.3 in /recipes-nodejs[bot]
-* Bump handlebars from 4.7.8 to 4.7.9 in /recipes-nodejs[bot]
-* Bump picomatch from 2.3.1 to 2.3.2 in /recipes-nodejs[bot]
-* Adding project icon
 
 #### rewrite-prethink - 0.5.8
 
@@ -1584,10 +1476,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.80.0
 
-#### rewrite-codemods-ng - 0.20.2
-
-* Updated repository to use OpenRewrite version v8.80.0
-
 #### rewrite-compiled-analysis - 0.13.1
 
 * Updated repository to use OpenRewrite version v8.80.0
@@ -1601,10 +1489,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Updated repository to use OpenRewrite version v8.80.0
 
 #### rewrite-devcenter - 1.22.1
-
-* Updated repository to use OpenRewrite version v8.80.0
-
-#### rewrite-dotnet - 0.15.1
 
 * Updated repository to use OpenRewrite version v8.80.0
 
@@ -1659,10 +1543,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Add Python code quality infrastructure and 10 recipes
 * Convert search-only Python upgrade recipes to transforming recipes
-
-#### rewrite-nodejs - 0.43.1
-
-* Updated repository to use OpenRewrite version v8.80.0
 
 #### rewrite-prethink - 0.5.7
 
@@ -1739,10 +1619,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Add overrideTransitive option to Python dep check
 * Added options
 
-#### rewrite-nodejs - 0.43.0
-
-* Add ability to provide extra supplementalVulnerabilities
-
 #### rewrite-spring - 0.30.1
 
 * Bumped rewrite-jackson to `1.21.1`
@@ -1783,21 +1659,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Update Prethink context
 
-#### rewrite-codemods-ng - v0.20.1
-
-* chore(deps): bump hono from 4.11.4 to 4.12.12 in /src/main/resources/codemods[bot]
-* chore(deps): bump @hono/node-server from 1.19.9 to 1.19.13 in /src/main/resources/codemods[bot]
-* chore(deps): bump tar from 7.5.2 to 7.5.11 in /src/main/resources/codemods[bot]
-* chore(deps): bump path-to-regexp from 8.3.0 to 8.4.0 in /src/main/resources/codemods[bot]
-* chore(deps): bump qs from 6.14.1 to 6.14.2 in /src/main/resources/codemods[bot]
-* chore(deps): bump @isaacs/brace-expansion from 5.0.0 to 5.0.1 in /src/main/resources/codemods[bot]
-* chore(deps): bump picomatch and @angular/cli in /src/main/resources/codemods[bot]
-* chore(deps): bump minimatch from 10.1.1 to 10.2.4 in /src/main/resources/codemods[bot]
-
-#### rewrite-codemods-ng - 0.20.0
-
-* Update Prethink context
-
 #### rewrite-compiled-analysis - 0.13.0
 
 * Update Prethink context
@@ -1813,10 +1674,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-devcenter - 1.21.0
 
 * OpenRewrite recipe best practices
-
-#### rewrite-dotnet - 0.15.0
-
-* Update Prethink context
 
 #### rewrite-dropwizard - 0.2.0
 
@@ -1875,10 +1732,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-migrate-python - 0.5.0
 
 * Fix NPE on `validate()` of `FindMethods`
-
-#### rewrite-nodejs - 0.42.0
-
-* Update Prethink context
 
 #### rewrite-prethink - 0.5.6
 
@@ -2056,17 +1909,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.77.0
 
-#### rewrite-codemods-ng - 0.19.0
-
-* Fix MarkerPrinter RPC serialization for JS/TS files
-* Upgrade Angular
-* chore(ci): bump actions/setup-node from 4 to 6[bot]
-* chore(ci): bump actions/checkout from 4 to 6[bot]
-* chore(ci): bump gradle/actions from 4 to 6[bot]
-* chore(ci): bump actions/upload-artifact from 4 to 7[bot]
-* chore(ci): bump actions/download-artifact from 4 to 8[bot]
-* chore(ci): bump actions/setup-java from 4 to 5[bot]
-
 #### rewrite-compiled-analysis - 0.12.3
 
 * Updated repository to use OpenRewrite version v8.77.0
@@ -2086,10 +1928,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-devcenter - 1.19.0
 
 * Adapt to new DataTables interface
-
-#### rewrite-dotnet - 0.14.10
-
-* Updated repository to use OpenRewrite version v8.77.0
 
 #### rewrite-elastic - 0.5.6
 
@@ -2137,10 +1975,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * FindMethods recipe
 * `DependencyInsight` recipe
 * Regenerate recipes.csv to include FindMethods
-
-#### rewrite-nodejs - 0.41.0
-
-* Moderne Proprietary License
 
 #### rewrite-prethink - 0.5.0
 
@@ -2305,10 +2139,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.75.5
 
-#### rewrite-codemods-ng - 0.18.2
-
-* Updated repository to use OpenRewrite version v8.75.5
-
 #### rewrite-compiled-analysis - 0.12.2
 
 * Updated repository to use OpenRewrite version v8.75.5
@@ -2322,10 +2152,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Updated repository to use OpenRewrite version v8.75.5
 
 #### rewrite-devcenter - 1.18.1
-
-* Updated repository to use OpenRewrite version v8.75.5
-
-#### rewrite-dotnet - 0.14.9
 
 * Updated repository to use OpenRewrite version v8.75.5
 
@@ -2364,10 +2190,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-migrate-python - 0.3.0
 
 * Convert Find recipes to auto-fix, add RemoveFutureImports, strict type attribution
-
-#### rewrite-nodejs - 0.40.0
-
-* Replace immer with mutative
 
 #### rewrite-prethink - 0.4.0
 
@@ -2450,10 +2272,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.75.0
 
-#### rewrite-codemods-ng - 0.18.1
-
-* Updated repository to use OpenRewrite version v8.75.0
-
 #### rewrite-compiled-analysis - 0.12.1
 
 * Updated repository to use OpenRewrite version v8.75.0
@@ -2470,10 +2288,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Don't list ReportAsSecurityIssues as a measure of the SecurityIssues DevCenter
 * Fix classloader-dependent check in getSecurityRecursive
-
-#### rewrite-dotnet - 0.14.8
-
-* Updated repository to use OpenRewrite version v8.75.0
 
 #### rewrite-elastic - 0.5.4
 
@@ -2511,15 +2325,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-migrate-python - 0.2.0
 
 * Refactoring, extract `mark_deprecated` utility method
-
-#### rewrite-nodejs - v0.39.0
-
-* `IncreaseNodeEngineVersion` recipe
-* Bump minimatch from 3.1.2 to 3.1.4 in /recipes-nodejs
-* Making the `spawnSync(..)` call execute with `shell:true` for Windows
-* `IncreaseNodeEngineVersionInGithubActions` recipe
-* `FindCryptoCreateCipher` recipe
-* Next batch of search recipes
 
 #### rewrite-prethink - v0.3.4
 
@@ -2613,10 +2418,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.74.1
 
-#### rewrite-codemods-ng - 0.18.0
-
-* Remove trailing whitespace
-
 #### rewrite-compiled-analysis - 0.12.0
 
 * Update SDKMan Java version
@@ -2633,10 +2434,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Update SDKMan Java version
 * Add organization statistics recipe and FindCommitters
-
-#### rewrite-dotnet - 0.14.7
-
-* Updated repository to use OpenRewrite version v8.74.1
 
 #### rewrite-elastic - 0.5.3
 
@@ -2695,10 +2492,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Replace wrapper recipes with inline ChangeImport calls
 * Migrate [tool:pytest] from setup.cfg to [tool.pytest.ini_options]
 * Fix version placement and gaps in Python upgrade recipes
-
-#### rewrite-nodejs - 0.38.1
-
-* Updated repository to use OpenRewrite version v8.74.1
 
 #### rewrite-prethink - 0.3.3
 
@@ -2869,10 +2662,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.73.0
 
-#### rewrite-codemods-ng - 0.17.1
-
-* Updated repository to use OpenRewrite version v8.73.0
-
 #### rewrite-compiled-analysis - 0.11.5
 
 * Updated repository to use OpenRewrite version v8.73.0
@@ -2891,10 +2680,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Fix SemverRowBuilder class initialization failure
 * Update JUnit 6 card to return JUnit 5 to 6 migration
 * Increasing the memory to 6G for tests
-
-#### rewrite-dotnet - 0.14.6
-
-* Updated repository to use OpenRewrite version v8.73.0
 
 #### rewrite-elastic - 0.5.2
 
@@ -2920,11 +2705,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-kubernetes - 3.15.2
 
 * Updated repository to use OpenRewrite version v8.73.0
-
-#### rewrite-nodejs - 0.38.0
-
-* Fix test failure after new CVE
-* Inline deprecated constructors
 
 #### rewrite-program-analysis - 0.9.2
 
@@ -3087,11 +2867,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.72.0
 
-#### rewrite-codemods-ng - 0.17.0
-
-* chore(deps): bump tmp and @angular/cli in /src/main/resources/codemods[bot]
-* Add Angular v20 and v21 upgrade recipes
-
 #### rewrite-compiled-analysis - 0.11.4
 
 * Updated repository to use OpenRewrite version v8.72.0
@@ -3112,10 +2887,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Tweak DependencyVulnerabilityCheck measure names, inserted rows, and data table wrangling
 * Add a BuildToolCard to show versions of Maven/Gradle/Bazel/CLI
 * Make BuildToolCard more like LibraryUpgrade
-
-#### rewrite-dotnet - 0.14.5
-
-* Updated repository to use OpenRewrite version v8.72.0
 
 #### rewrite-elastic - 0.5.1
 
@@ -3140,10 +2911,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Updated repository to use OpenRewrite version v8.72.0
 
 #### rewrite-kubernetes - 3.15.1
-
-* Updated repository to use OpenRewrite version v8.72.0
-
-#### rewrite-nodejs - 0.37.1
 
 * Updated repository to use OpenRewrite version v8.72.0
 
@@ -3240,10 +3007,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * chore: update @ui5/linter from 1.20.5 to 1.20.7
 * Fix recipes.csv validation issues
 
-#### rewrite-codemods-ng - 0.16.2
-
-* Updated repository to use OpenRewrite version v8.71.0
-
 #### rewrite-compiled-analysis - 0.11.3
 
 * Updated repository to use OpenRewrite version v8.71.0
@@ -3260,10 +3023,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Skip all the version resolution work and just report vulnerabilities
 * Adding rows with null source compatibility should not throw exception
-
-#### rewrite-dotnet - 0.14.4
-
-* Updated repository to use OpenRewrite version v8.71.0
 
 #### rewrite-elastic - 0.5.0
 
@@ -3291,13 +3050,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-kubernetes - 3.15.0
 
 * Add `ChangeApiVersion` migrations for v1.33-35
-
-#### rewrite-nodejs - 0.37.0
-
-* `RemoveNetSetSimultaneousAccepts` recipe
-* `ReplaceStreamInternalModules` recipe
-* Adopt `InstallRecipesResponse` in `UtilNativeTypeCheckingMethodsIntegTest`
-* Introduce vulnerability filtering options
 
 #### rewrite-program-analysis - 0.9.0
 
@@ -3366,10 +3118,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * Updated repository to use OpenRewrite version v8.69.0
 
-#### rewrite-codemods-ng - 0.16.1
-
-* Updated repository to use OpenRewrite version v8.69.0
-
 #### rewrite-compiled-analysis - 0.11.2
 
 * Updated repository to use OpenRewrite version v8.69.0
@@ -3383,10 +3131,6 @@ This changelog is automatically generated from GitHub releases and only contains
 * Updated repository to use OpenRewrite version v8.69.0
 
 #### rewrite-devcenter - 1.13.1
-
-* Updated repository to use OpenRewrite version v8.69.0
-
-#### rewrite-dotnet - 0.14.3
 
 * Updated repository to use OpenRewrite version v8.69.0
 
@@ -3420,13 +3164,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-kubernetes - 3.14.1
 
 * Updated repository to use OpenRewrite version v8.69.0
-
-#### rewrite-nodejs - 0.36.0
-
-* `ReplaceTlsInternalModules` recipe
-* ReplaceTlsServerSetOptions recipe
-* `ReplaceTimersEnroll` recipe
-* Add `DependencyVulnerabilityCheck` recipe for npm security scanning
 
 #### rewrite-program-analysis - 0.8.0
 
@@ -3485,10 +3222,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 * chore: update @ui5/linter from 1.19.0 to 1.20.2
 
-#### rewrite-codemods-ng - 0.16.0
-
-* chore(deps): bump glob from 10.3.10 to 10.5.0 in /src/main/resources/codemods[bot]
-
 #### rewrite-compiled-analysis - 0.11.1
 
 * Updated repository to use OpenRewrite version v8.68.1
@@ -3504,10 +3237,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-devcenter - 1.13.0
 
 * Expect a SearchResult marker from DependencyInsight
-
-#### rewrite-dotnet - 0.14.2
-
-* Updated repository to use OpenRewrite version v8.68.1
 
 #### rewrite-elastic - 0.4.2
 
@@ -3536,22 +3265,6 @@ This changelog is automatically generated from GitHub releases and only contains
 #### rewrite-kubernetes - 3.14.0
 
 * AssertJ best practices
-
-#### rewrite-nodejs - 0.35.0
-
-* `ReplaceCryptoFips` recipe
-* `ReplaceSlowBuffer` recipe
-* `ReplaceFsAccessConstants` recipe
-* `RemovePromisifyOnPromise` recipe
-* `AvoidImplicitCoercionOfExitCode` recipe
-* `ReplaceDirentPath` recipe
-* AssertJ best practices
-* `ReplaceIsWebAssemblyCompiledModule` recipe
-* `ReplaceZlibBytesRead` recipe
-* Composite recipes for Node22 and Node24 upgrades
-* `ReplaceFsTruncateWithFd` recipe
-* `ReplaceOutgoingMessageHeaders` recipe
-* `ReplaceFsStatsConstructor` recipe
 
 #### rewrite-program-analysis - 0.7.0
 
@@ -3626,10 +3339,6 @@ Republishing to update dependencies
 * chore(deps): bump js-yaml from 4.1.0 to 4.1.1 in /src/main/resources/codemods[bot]
 * Link to ESLint docs
 
-#### rewrite-codemods-ng - 0.15.1
-
-* Updated repository to use OpenRewrite version v8.67.0
-
 #### rewrite-compiled-analysis - 0.11.0
 
 * Common static analysis issues
@@ -3646,10 +3355,6 @@ Republishing to update dependencies
 
 * Track upgrades to Spring Boot 4.0
 * Add a configurable vulnerability reporting devcenter recipe
-
-#### rewrite-dotnet - 0.14.1
-
-* Updated repository to use OpenRewrite version v8.67.0
 
 #### rewrite-elastic - 0.4.1
 
@@ -3678,18 +3383,6 @@ Republishing to update dependencies
 #### rewrite-kubernetes - 3.13.1
 
 * Updated repository to use OpenRewrite version v8.67.0
-
-#### rewrite-nodejs - 0.34.0
-
-* Bumping OpenRewrite to 8.66.2
-* `RemoveUsageOfProcessFeaturesTlsConstants` recipe
-* Adding ReplaceCryptoHashConstructor recipe
-* Amend the `ReplaceCryptoConstructors` recipe to handle DEP0181 too.
-* Bump js-yaml from 3.14.1 to 3.14.2 in /recipes-nodejs[bot]
-* Add tags to the `UseNativeTypeCheckingMethods` recipe
-* `ReplaceUtilLog` recipe
-* `ReplaceUtilExtend` recipe
-* Update to new OpenRewrite
 
 #### rewrite-program-analysis - 0.6.1
 
@@ -3797,19 +3490,11 @@ Republishing to update dependencies
 * OpenRewrite recipe best practices
 * Gradle 9.2.0
 
-#### rewrite-codemods-ng - 0.15.0
-
-* Gradle 9.2.0
-
 #### rewrite-compiled-analysis - 0.10.0
 
 * Gradle 9.2.0
 
 #### rewrite-concourse - 3.9.0
-
-* Gradle 9.2.0
-
-#### rewrite-dotnet - 0.14.0
 
 * Gradle 9.2.0
 
@@ -3826,13 +3511,6 @@ Republishing to update dependencies
 
 * Common static analysis issues
 * Gradle 9.2.0
-
-#### rewrite-nodejs - 0.33.0
-
-* Dropping usage of `immer`'s `castDraft(..)` as it was causing a leak of binary expressions across test executions
-* Add `ReplaceDeprecatedBufferSlice` recipe
-* Gradle 9.2.0
-* Add JUnit platform launcher
 
 #### rewrite-program-analysis - 0.6.0
 
@@ -3855,18 +3533,6 @@ Republishing to update dependencies
 
 * Gradle 9.2.0
 
-## October 24, 2025
-
-#### rewrite-nodejs - 0.32.5
-
-* OpenRewrite recipe best practices
-
-## October 23, 2025
-
-#### rewrite-nodejs - 0.32.4
-
-* Also remove `util` module import if possible
-
 ## October 22, 2025
 
 #### rewrite-ai-search - 0.31.1
@@ -3885,10 +3551,6 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.64.0
 
-#### rewrite-codemods-ng - 0.14.4
-
-* Updated repository to use OpenRewrite version v8.64.0
-
 #### rewrite-compiled-analysis - 0.9.1
 
 * Updated repository to use OpenRewrite version v8.64.0
@@ -3902,10 +3564,6 @@ Republishing to update dependencies
 * Updated repository to use OpenRewrite version v8.64.0
 
 #### rewrite-devcenter - 1.10.1
-
-* Updated repository to use OpenRewrite version v8.64.0
-
-#### rewrite-dotnet - 0.13.5
 
 * Updated repository to use OpenRewrite version v8.64.0
 
@@ -3936,10 +3594,6 @@ Republishing to update dependencies
 
 * Update suppressions
 
-#### rewrite-nodejs - 0.32.3
-
-* Updated repository to use OpenRewrite version v8.64.0
-
 #### rewrite-program-analysis - 0.5.6
 
 * Updated repository to use OpenRewrite version v8.64.0
@@ -3967,12 +3621,6 @@ Republishing to update dependencies
 
 * Update suppressions
 
-## October 18, 2025
-
-#### rewrite-nodejs - 0.32.1
-
-* Handle negations of the `util.is` calls too
-
 ## October 10, 2025
 
 #### rewrite-ai-search - 0.31.0
@@ -3991,10 +3639,6 @@ Republishing to update dependencies
 
 * feat: add ReactI18Next recipe for jscodeshift-react-i18next integration
 
-#### rewrite-codemods-ng - 0.14.3
-
-* Updated repository to use OpenRewrite version v8.63.0
-
 #### rewrite-compiled-analysis - 0.9.0
 
 * Add new documentation examples
@@ -4012,10 +3656,6 @@ Republishing to update dependencies
 
 * Detect JUnit 6
 * OpenRewrite recipe best practices
-
-#### rewrite-dotnet - 0.13.4
-
-* Updated repository to use OpenRewrite version v8.63.0
 
 #### rewrite-elastic - 0.3.0
 
@@ -4042,10 +3682,6 @@ Republishing to update dependencies
 * Update recipe documentation examples
 
 #### rewrite-kubernetes - 3.11.0
-
-* Update recipe documentation examples
-
-#### rewrite-nodejs - 0.30.0
 
 * Update recipe documentation examples
 
@@ -4120,10 +3756,6 @@ Republishing to update dependencies
 
 * chore: update @ui5/linter from 1.12.0 to 1.19.0
 
-#### rewrite-codemods-ng - 0.14.2
-
-* Updated repository to use OpenRewrite version v8.62.4
-
 #### rewrite-compiled-analysis - 0.8.3
 
 * Updated repository to use OpenRewrite version v8.62.4
@@ -4139,10 +3771,6 @@ Republishing to update dependencies
 #### rewrite-devcenter - 1.9.0
 
 * Track upgrades to Java 25
-
-#### rewrite-dotnet - 0.13.3
-
-* Updated repository to use OpenRewrite version v8.62.4
 
 #### rewrite-elastic - 0.2.0
 
@@ -4175,10 +3803,6 @@ Republishing to update dependencies
 * Added recipes for deprecations in Kafka 4.1
 
 #### rewrite-kubernetes - 3.10.2
-
-* Updated repository to use OpenRewrite version v8.62.4
-
-#### rewrite-nodejs - 0.29.2
 
 * Updated repository to use OpenRewrite version v8.62.4
 
@@ -4239,10 +3863,6 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.62.0
 
-#### rewrite-codemods-ng - 0.14.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
 #### rewrite-compiled-analysis - 0.8.2
 
 * Updated repository to use OpenRewrite version v8.62.0
@@ -4259,10 +3879,6 @@ Republishing to update dependencies
 
 * Add a Quarkus specific DevCenter
 * Do not assume `org.openrewrite.dataTables` messages preserve order in `DataTableWatcher`
-
-#### rewrite-dotnet - 0.13.2
-
-* Updated repository to use OpenRewrite version v8.62.0
 
 #### rewrite-elastic - v0.1.0
 
@@ -4298,10 +3914,6 @@ Republishing to update dependencies
 * Add Kafka 3.0 migration recipes
 
 #### rewrite-kubernetes - 3.10.1
-
-* Updated repository to use OpenRewrite version v8.62.0
-
-#### rewrite-nodejs - 0.29.1
 
 * Updated repository to use OpenRewrite version v8.62.0
 
@@ -4364,10 +3976,6 @@ Republishing to update dependencies
 
 * chore(deps): bump brace-expansion from 1.1.11 to 1.1.12 in /src/main/resources/codemods[bot]
 
-#### rewrite-codemods-ng - 0.14.0
-
-* chore(deps): bump brace-expansion from 2.0.1 to 2.0.2 in /src/main/resources/codemods[bot]
-
 #### rewrite-compiled-analysis - 0.8.1
 
 * Updated repository to use OpenRewrite version v8.61.1
@@ -4379,10 +3987,6 @@ Republishing to update dependencies
 #### rewrite-devcenter - 1.7.0
 
 * DevCenter for Apache Maven org in app.moderne.io
-
-#### rewrite-dotnet - 0.13.1
-
-* Updated repository to use OpenRewrite version v8.61.1
 
 #### rewrite-hibernate - 0.10.0
 
@@ -4497,14 +4101,6 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.59.1
 
-#### rewrite-codemods-ng - 0.12.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-codemods-ng - 0.12.0
-
-* Add the `--no-audit` and `--no-fund` flags
-
 #### rewrite-compiled-analysis - 0.7.3
 
 * Updated repository to use OpenRewrite version v8.59.1
@@ -4524,14 +4120,6 @@ Republishing to update dependencies
 #### rewrite-devcenter - 1.5.0
 
 * Remove original security card
-
-#### rewrite-dotnet - 0.12.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-dotnet - 0.12.0
-
-* common static analysis issues
 
 #### rewrite-hibernate - 0.9.0
 
@@ -4553,14 +4141,6 @@ Republishing to update dependencies
 #### rewrite-kubernetes - 3.8.1
 
 * Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-nodejs - 0.27.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-nodejs - 0.27.0
-
-* common static analysis issues
 
 #### rewrite-program-analysis - 0.1.1
 
