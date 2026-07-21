@@ -140,11 +140,11 @@ This module provides the infrastructure but expects you to supply your own recip
 
 ## Available recipes
 
-You generate Prethink context by running a single recipe, **Update Prethink context (no AI)**. The other recipes listed here are building blocks for [composing your own Prethink recipe](#creating-custom-prethink-recipes).
+You generate Prethink context by running a single recipe, **Update Prethink context**. The other recipes listed here are building blocks for [composing your own Prethink recipe](#creating-custom-prethink-recipes).
 
-### Update Prethink context (no AI)
+### Update Prethink context
 
-Generates Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams. This recipe does not require an LLM provider.
+Generates Moderne Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams.
 
 * **Recipe:** [`io.moderne.prethink.UpdatePrethinkContextStarter`](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextStarter)
 * **Module:** `io.moderne.recipe:rewrite-prethink`
@@ -196,12 +196,11 @@ This recipe is continuously updated with new discoveries and analysis. To view t
 ```yaml
 type: specs.openrewrite.org/v1beta/recipe
 name: io.moderne.prethink.UpdatePrethinkContextStarter
-displayName: Update Prethink context (no AI)
+displayName: Update Prethink context
 description: >-
   Generate Moderne Prethink context files with architectural discovery,
   code quality metrics, test coverage mapping, dependency inventory,
-  and FINOS CALM architecture diagrams. This recipe does not require
-  an LLM provider.
+  and FINOS CALM architecture diagrams.
 recipeList:
   # Phase 1: Architectural Discovery
   - io.moderne.prethink.FindProjectMetadata

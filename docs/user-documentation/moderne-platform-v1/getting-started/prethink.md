@@ -25,20 +25,18 @@ This doc assumes that you are familiar with [finding and running recipes in the 
 
 ## Prethink recipes
 
-The Moderne Platform provides the **Update Prethink context (no AI)** recipe:
+The Moderne Platform provides the **Update Prethink context** recipe:
 
 <figure>
-  ![The Update Prethink context (no AI) recipe listed in the Moderne Platform recipe catalog](./assets/prethink-recipes.png)
+  ![The Update Prethink context recipe listed in the Moderne Platform recipe catalog](./assets/prethink-recipes.png)
   <figcaption>_The Prethink recipe in the Moderne Platform_</figcaption>
 </figure>
 
-### Update Prethink context (no AI)
+### Update Prethink context
 
 _[Link to the recipe](https://app.moderne.io/recipes/io.moderne.prethink.UpdatePrethinkContextStarter)_
 
-This recipe generates context _without_ requiring an LLM provider. It will discover architectural patterns, map tests to implementation methods, generate dependency inventory, and create CALM architecture diagrams - without using AI. 
-
-Use this for a quick start or when AI comprehension isn't needed.
+This recipe discovers architectural patterns, maps tests to implementation methods, generates a dependency inventory, and creates CALM architecture diagrams.
 
 ## Example results
 
