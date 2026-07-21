@@ -38,7 +38,7 @@ In this exercise, you'll use the [Moderne IntelliJ plugin](https://plugins.jetbr
 </figure>
 
 6. The recipe runs against every repository you've configured in the plugin. Find code changes in the `Changes` tab and search results in the `Find` tab.
-7. You can also run this recipe from the Moderne CLI using the **Set Active Recipe** + `mod run . --active-recipe` workflow you used in [Fundamentals Module 1](../fundamentals/module-1-recipe-development-environment.md#step-4-install-and-verify-locally): right-click the class name, select **Set Active Recipe**, then run `mod run . --active-recipe` from your workshop directory.
+7. You can also run this recipe from the Moderne CLI using the **Set Active Recipe** + `mod run . --active-recipe` workflow you used in [Fundamentals Module 1](../fundamentals/module-1-recipe-development-environment.md#step-4-set-an-active-recipe-and-run-it-locally): right-click the class name, select **Set Active Recipe**, then run `mod run . --active-recipe` from your workshop directory.
 
 ### Takeaways
 

@@ -748,9 +748,9 @@ mod study . --last-recipe-run --data-table SourcesFileResults
 
 AI coding agents like Claude Code, Cursor, and GitHub Copilot work better when they have structured knowledge about your codebase rather than inferring architecture from raw code. Prethink generates this context automatically, mapping service endpoints, dependencies, test coverage, and architecture so agents reason over facts instead of guessing. To learn more, please [check out our Prethink documentation](../../agent-tools/prethink.md).
 
-### [Update Prethink context (no AI)](../../recipes/recipe-catalog/prethink/updateprethinkcontextnoaistarter.md)
+### [Update Prethink context](../../recipes/recipe-catalog/prethink/updateprethinkcontextstarter.md)
 
-> Generates Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams without requiring an LLM provider.
+> Generates Prethink context files with architectural discovery, test coverage mapping, dependency inventory, and FINOS CALM architecture diagrams.
 
 #### CLI commands
 
