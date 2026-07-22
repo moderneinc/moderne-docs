@@ -7,7 +7,7 @@ description: The current version of the Moderne CLI and links to useful CLI docu
 
 | Component   | Current version |
 | ----------- | --------------- |
-| CLI version | 4.3.18           |
+| CLI version | 4.4.0           |
 
 For CLI command documentation, see the [CLI reference](../user-documentation/moderne-cli/cli-reference.md).
 
@@ -16,6 +16,18 @@ The Moderne CLI previously followed a two-track release model with separate "sta
 :::
 
 ## Changelog
+
+### CLI / DX v4.4.0 (2026-07-22)
+
+#### What's Changed
+* bound recipe-run HTTP senders with timeouts so a stalled repository can't hang the run
+* resolve recipe by exact id before suffix fallback
+* Generate a Maven toolchains.xml from installed JDKs
+* Cache the wrapper's latest-version lookup with a per-channel TTL
+* Offline jOOQ code generation during mass-ingest via embedded pglite
+* Publish CLI snapshots and releases to the Code Genome Project
+* Run builds on Java 11+ when using com.mycila license-maven-plugin 5+
+* Tag Maven wrapper files with BuildTool(Maven) so UpdateMavenWrapper runs under the CLI
 
 ### CLI / DX v4.3.18 (2026-07-20)
 
