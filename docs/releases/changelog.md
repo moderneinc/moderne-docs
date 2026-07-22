@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v13.14.0 (2026/07/22)
+
+- restore clickable SCM line-number links in the unified diff
+
 ### UI v13.13.1 (2026/07/21)
 
 - Bug fixes and other improvements.
