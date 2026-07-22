@@ -18,10 +18,6 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## July 20, 2026
 
-#### rewrite-migrate-python - v0.10.1
-
--
-
 #### rewrite-nodejs - v0.47.2
 
 * Only npm-publish from default branch or release tag, never from PR runs
