@@ -12,6 +12,8 @@ Moderne recently announced support for JavaScript and TypeScript LSTs. With this
 
 In this guide, we'll walk you through how to configure the Moderne CLI to take advantage of this new JavaScript functionality.
 
+As of CLI v4.3.0, the CLI parses JavaScript and TypeScript out of the box, so most users don't need any `moderne.yml` changes to get started. If you're on an older CLI version or you use an explicit `build.steps` configuration, you'll need to [add the JavaScript build step manually](#adding-the-javascript-build-step-manually).
+
 <ReactPlayer className="reactPlayer" url='https://www.youtube.com/watch?v=b-IJNsozsnA' controls={true} />
 
 ## Prerequisites
@@ -21,39 +23,7 @@ This guide assumes that:
 * You have [installed and configured the Moderne CLI](../getting-started/cli-intro.md) (version `3.49.0` or higher)
 * You are familiar with running Moderne CLI commands (if not, work through our [CLI workshop](../getting-started/moderne-cli-workshop.md))
 
-## Step 1: Update your `moderne.yml` file
-
-:::info
-As of CLI v4.3.0, the `javascript` build step is part of the [default build pipeline](./build-steps.md), so no `moderne.yml` change is needed to enable JavaScript support. Follow this step only if you are on an older CLI version, or if you already have an explicit `build.steps` configuration — an explicit configuration replaces the defaults, so it must list `- type: javascript` for JavaScript to be parsed.
-:::
-
-In order to enable JavaScript support, you will need to update the [build steps](./build-steps.md) in your `moderne.yml` file to include JavaScript. This file is located at `~/.moderne/cli/moderne.yml` and is created when you first set up the CLI.
-
-If your `moderne.yml` file already includes a `build` section, you can just add the `-type: javascript` line to the end of your build steps. If it doesn't, you will need to add the entire section as seen in the example below:
-
-```yml title="moderne.yml"
-# Other keys and values...
-license:
-  key: some-license
-tenant:
-  host: https://app.moderne.io
-  apiHost: https://api.app.moderne.io
-  skipSsl: false
-  authorization: Bearer mat-some-token
-// highlight-start
-build:
-  steps:
-    - type: maven
-    - type: gradle
-    - type: bazel
-    - type: javascript
-    - type: resource
-      inclusion: |-
-        **/*
-// highlight-end
-```
-
-## Step 2: (Optionally) Configure your Node.js installation
+## Step 1: (Optionally) Configure your Node.js installation
 
 By default, the CLI uses the Node.js installation found on your `$PATH`.
 
@@ -131,7 +101,7 @@ During `mod git sync csv`, this value is written to each repository's `.moderne`
 
 You can set Node.js options via the `nodeOptions` column in your `repos.csv`. These are passed through the `NODE_OPTIONS` environment variable when building LSTs and running recipes. For more details, please check out our [repos.csv reference](../references/repos-csv.md).
 
-## Step 3: (Optionally) Clone a custom list of repositories
+## Step 2: (Optionally) Clone a custom list of repositories
 
 If you don't have the repositories you want to work with cloned locally already, you can clone a group of them by defining a `repos.csv` file that lists them out such as in the following example:
 
@@ -157,7 +127,7 @@ After creating the CSV, clone the repositories by running the following command:
 mod git sync csv . repos.csv --with-sources
 ```
 
-## Step 4: Build your JavaScript repositories
+## Step 3: Build your JavaScript repositories
 
 The next thing you'll need to do is build LSTs for each of your repositories. To build the LSTs, run:
 
@@ -179,7 +149,7 @@ Presuming everything has been set up correctly, you should see output similar to
     Cleaned 1 older builds
 ```
 
-## Step 5: Install recipes
+## Step 4: Install recipes
 
 In order to run recipes, you'll need to make sure the recipes are installed on your local machine.
 
@@ -189,7 +159,7 @@ You can install a specific JavaScript recipe module by running a command like:
 mod config recipes npm install @openrewrite/recipes-nodejs
 ```
 
-## Step 6: Run recipes
+## Step 5: Run recipes
 
 With the LSTs built and recipes installed, you can now run recipes against your JavaScript repositories. You can either specify the full recipe path for running such as in:
 
@@ -232,7 +202,7 @@ mod run . --recipe org.openrewrite.java.ChangeMethodName -PmethodPattern="* test
 ```
 :::
 
-## Step 7: View data tables
+## Step 6: View data tables
 
 Many recipes will also produce useful data tables that you can access via the `mod study` command such as in:
 
@@ -263,3 +233,35 @@ Done (9s)
 
 Data tables for each organization with rows are linked above
 ```
+
+## Adding the JavaScript build step manually
+
+You only need this step if you're on a CLI version older than v4.3.0, or if you maintain an explicit `build.steps` list in your `moderne.yml` file. An explicit list replaces the default pipeline, so it must include `- type: javascript` for JavaScript and TypeScript to be parsed. On CLI v4.3.0 and later with the default configuration, JavaScript support is already enabled and you can skip this.
+
+Update the [build steps](./build-steps.md) in your `moderne.yml` file to include JavaScript. This file is located at `~/.moderne/cli/moderne.yml` and is created when you first set up the CLI.
+
+If your `moderne.yml` file already includes a `build` section, add a `- type: javascript` step before the trailing `resource` step. If it doesn't, add the entire section as shown below:
+
+```yml title="moderne.yml"
+# Other keys and values...
+license:
+  key: some-license
+tenant:
+  host: https://app.moderne.io
+  apiHost: https://api.app.moderne.io
+  skipSsl: false
+  authorization: Bearer mat-some-token
+// highlight-start
+build:
+  steps:
+    - type: maven
+    - type: gradle
+    - type: bazel
+    - type: javascript
+    - type: resource
+      inclusion: |-
+        **/*
+// highlight-end
+```
+
+If you maintain an explicit configuration, start from the [full default pipeline](./build-steps.md#configuring-build-steps-explicitly) so you don't drop steps the CLI would otherwise run, such as `sbt` and `python`.
