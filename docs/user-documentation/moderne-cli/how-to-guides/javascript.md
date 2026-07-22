@@ -23,6 +23,10 @@ This guide assumes that:
 
 ## Step 1: Update your `moderne.yml` file
 
+:::info
+As of CLI v4.3.0, the `javascript` build step is part of the [default build pipeline](./build-steps.md), so no `moderne.yml` change is needed to enable JavaScript support. Follow this step only if you are on an older CLI version, or if you already have an explicit `build.steps` configuration — an explicit configuration replaces the defaults, so it must list `- type: javascript` for JavaScript to be parsed.
+:::
+
 In order to enable JavaScript support, you will need to update the [build steps](./build-steps.md) in your `moderne.yml` file to include JavaScript. This file is located at `~/.moderne/cli/moderne.yml` and is created when you first set up the CLI.
 
 If your `moderne.yml` file already includes a `build` section, you can just add the `-type: javascript` line to the end of your build steps. If it doesn't, you will need to add the entire section as seen in the example below:
