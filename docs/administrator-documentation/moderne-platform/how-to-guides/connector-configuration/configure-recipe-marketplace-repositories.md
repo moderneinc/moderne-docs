@@ -122,7 +122,7 @@ When a Maven repository URL points at an [AWS CodeArtifact](https://docs.aws.ama
 To enable it, configure the repository with its CodeArtifact URL and leave `password` unset; the Connector authenticates as the CodeArtifact user `aws` automatically. A statically configured `password` always takes precedence, so a manually minted token remains fully supported (for example, when the Connector runs without an AWS identity).
 
 :::info
-This applies to any Maven repository configured for the Connector, including the [LST Maven poll sources](./configure-a-connector-with-maven-repository-access.md).
+Token minting applies to recipe marketplace repositories only. CodeArtifact is not supported as an [LST source](./configure-a-connector-with-maven-repository-access.md#aws-codeartifact): CodeArtifact does not serve the maven-indexer index that LST poll discovery requires, and its package assets are immutable, so the Connector rejects CodeArtifact URLs in LST and organization source configuration at startup.
 :::
 
 #### Prerequisites
