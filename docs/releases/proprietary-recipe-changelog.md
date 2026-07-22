@@ -10,7 +10,17 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## July 22, 2026
+
+#### rewrite-devcenter - 1.28.1
+
+* Keep a single UpgradesAndMigrations row per card by flushing on recipe completion
+
 ## July 20, 2026
+
+#### rewrite-migrate-python - v0.10.1
+
+-
 
 #### rewrite-nodejs - v0.47.2
 
