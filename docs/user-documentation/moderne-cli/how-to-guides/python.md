@@ -10,6 +10,8 @@ Moderne supports Python LSTs, enabling _semantically-aware_ refactoring of Pytho
 
 In this guide, we'll walk you through how to configure the Moderne CLI to take advantage of Python support.
 
+As of CLI v4.3.0, the CLI parses Python out of the box, so most users don't need any `moderne.yml` changes to get started. If you're on an older CLI version or you use an explicit `build.steps` configuration, you'll need to [add the Python build step manually](#adding-the-python-build-step-manually).
+
 ## Prerequisites
 
 This guide assumes that:
@@ -18,35 +20,7 @@ This guide assumes that:
 * You are familiar with running Moderne CLI commands (if not, work through our [CLI workshop](../getting-started/moderne-cli-workshop.md))
 * You have Python installed on your machine
 
-## Step 1: Update your `moderne.yml` file
-
-In order to enable Python support, you will need to update the [build steps](./build-steps.md) in your `moderne.yml` file to include Python. This file is located at `~/.moderne/cli/moderne.yml` and is created when you first set up the CLI.
-
-If your `moderne.yml` file already includes a `build` section, you can just add the `- type: python` line to the end of your build steps. If it doesn't, you will need to add the entire section as seen in the example below:
-
-```yml title="moderne.yml"
-# Other keys and values...
-license:
-  key: some-license
-tenant:
-  host: https://app.moderne.io
-  apiHost: https://api.app.moderne.io
-  skipSsl: false
-  authorization: Bearer mat-some-token
-// highlight-start
-build:
-  steps:
-    - type: maven
-    - type: gradle
-    - type: bazel
-    - type: python
-    - type: resource
-      inclusion: |-
-        **/*
-// highlight-end
-```
-
-## Step 2: (Optionally) Configure your Python installation
+## Step 1: (Optionally) Configure your Python installation
 
 By default, the CLI automatically detects Python installations in standard locations on your machine.
 
@@ -104,7 +78,7 @@ To see the currently configured version:
 mod config python version show
 ```
 
-## Step 3: (Optionally) Clone a custom list of repositories
+## Step 2: (Optionally) Clone a custom list of repositories
 
 If you don't have the repositories you want to work with cloned locally already, you can clone a group of them by defining a `repos.csv` file that lists them out such as in the following example:
 
@@ -125,7 +99,7 @@ After creating the CSV, clone the repositories by running the following command:
 mod git sync csv . repos.csv --with-sources
 ```
 
-## Step 4: Build your Python repositories
+## Step 3: Build your Python repositories
 
 The next thing you'll need to do is build LSTs for each of your repositories. To build the LSTs, run:
 
@@ -149,7 +123,7 @@ Presuming everything has been set up correctly, you should see output similar to
     Cleaned 1 older builds
 ```
 
-## Step 5: Install recipes
+## Step 4: Install recipes
 
 In order to run recipes, you'll need to make sure the recipes are installed on your local machine. For example, you can install recipes from a JAR or a pip package:
 
@@ -165,7 +139,7 @@ mod config recipes pip install openrewrite-migrate-python=={{VERSION_ORG_OPENREW
 You can find the specific installation command for any recipe on its page in the [recipe catalog](https://docs.moderne.io/user-documentation/recipes/recipe-catalog/).
 :::
 
-## Step 6: Run recipes
+## Step 5: Run recipes
 
 With the LSTs built and recipes installed, you can now run recipes against your Python repositories. You can either specify the full recipe path for running such as in:
 
@@ -185,7 +159,7 @@ Then you can run the active recipe by:
 mod run . --active-recipe
 ```
 
-## Step 7: View data tables
+## Step 6: View data tables
 
 Many recipes will also produce useful data tables that you can access via the `mod study` command such as in:
 
@@ -215,3 +189,35 @@ Done (2s)
 
 Data tables for each organization with rows are linked above
 ```
+
+## Adding the Python build step manually
+
+You only need this step if you're on a CLI version older than v4.3.0, or if you maintain an explicit `build.steps` list in your `moderne.yml` file. An explicit list replaces the default pipeline, so it must include `- type: python` for Python to be parsed. On CLI v4.3.0 and later with the default configuration, Python support is already enabled and you can skip this.
+
+Update the [build steps](./build-steps.md) in your `moderne.yml` file to include Python. This file is located at `~/.moderne/cli/moderne.yml` and is created when you first set up the CLI.
+
+If your `moderne.yml` file already includes a `build` section, add a `- type: python` step before the trailing `resource` step. If it doesn't, add the entire section as shown below:
+
+```yml title="moderne.yml"
+# Other keys and values...
+license:
+  key: some-license
+tenant:
+  host: https://app.moderne.io
+  apiHost: https://api.app.moderne.io
+  skipSsl: false
+  authorization: Bearer mat-some-token
+// highlight-start
+build:
+  steps:
+    - type: maven
+    - type: gradle
+    - type: bazel
+    - type: python
+    - type: resource
+      inclusion: |-
+        **/*
+// highlight-end
+```
+
+If you maintain an explicit configuration, start from the [full default pipeline](./build-steps.md#configuring-build-steps-explicitly) so you don't drop steps the CLI would otherwise run, such as `sbt` and `javascript`.
