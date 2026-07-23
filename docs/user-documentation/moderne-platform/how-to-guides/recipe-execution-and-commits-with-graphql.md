@@ -23,13 +23,13 @@ To help you understand how to automate recipe execution and commits, we'll walk 
 * [Commit changes](#creating-a-pull-request)
 * [Ensure that committed changes are correct](#verify-commit-job)
 
-### Prerequisites:
+### Prerequisites
 
 This guide assumes that you:
 
 1. Know how to use and interact with GraphQL APIs.
 2. [Have created a Moderne personal access token](./create-api-access-tokens.md).
-3. [Have created an SCM access token.](../references/create-scm-access-tokens.md)
+3. [Have created an SCM access token](../references/create-scm-access-tokens.md).
 
 ### Recipe execution
 
@@ -37,7 +37,7 @@ This guide assumes that you:
 
 2. Navigate to the recipe you wish to run and fill out the recipe options.
 
-3. At the bottom of the recipe, you will find an `API examples` button. Click on it and then select `Run a recipe`. This will provide you with the query that will be run when executing a recipe run. Additionally, the appropriate variables will be added to this query based on your organization selection from step 1.
+3. At the bottom of the recipe, you will find an **API examples** button. Click on it and then select **Run a recipe**. This will provide you with the query that will be run when executing a recipe run. Additionally, the appropriate variables will be added to this query based on your organization selection from step 1.
 
 <figure>
   ![API examples dropdown with Run a recipe option highlighted](./assets/api-link.png)
@@ -50,20 +50,20 @@ This guide assumes that you:
 <TabItem value="run-recipe-mutation" label="Run Recipe Mutation">
 
 ```graphql
-mutation runRecipe($input: RecipeRunInput!) {
-  runRecipe(run: $input) {
+mutation runRecipe($input: RunRecipeInput!) {
+  runRecipe(input: $input) {
     id
-    __typename
   }
 }
 ```
 
-**Mutation Variables**:
+</TabItem>
+<TabItem value="mutation-variables" label="Mutation Variables">
 
 ```json
 {
   "input": {
-     "recipe": {
+    "recipe": {
       "id": "org.openrewrite.gradle.plugins.UpgradePluginVersion",
       "options": [
         { "name": "pluginIdPattern", "value": "com.gradle.plugin-publish" },
@@ -74,29 +74,30 @@ mutation runRecipe($input: RecipeRunInput!) {
   }
 }
 ```
+
 </TabItem>
 <TabItem value="curl" label="cURL">
 
-
 ```bash
 curl --request POST \
---url https://api.app.moderne.io/graphql \
---header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>' \
---header 'Content-Type: application/json' \
---data '{"query":"# Moderne API: https://api.app.moderne.io/graphql\nmutation executeRecipe($input: RecipeRunInput!) {\nrunRecipe(run: $input) {\n id\n}\n}","variables":{"input":{"recipe":{"id":"org.openrewrite.gradle.plugins.UpgradePluginVersion","options":[{"name":"pluginIdPattern","value":"com.gradle.plugin-publish"},{"name":"newVersion","value":"1.1.0"}]},"organizationId": "Gradle"}},"operationName":"executeRecipe"}'
-
+  --url https://api.app.moderne.io/graphql \
+  --header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>' \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"mutation runRecipe($input: RunRecipeInput!) {\n  runRecipe(input: $input) {\n    id\n  }\n}","variables":{"input":{"recipe":{"id":"org.openrewrite.gradle.plugins.UpgradePluginVersion","options":[{"name":"pluginIdPattern","value":"com.gradle.plugin-publish"},{"name":"newVersion","value":"1.1.0"}]},"organizationId":"Gradle"},"operationName":"runRecipe"}'
 ```
 
 </TabItem>
 </Tabs>
 
-5. The mutation will return a response that contains the `id` of the recipe run which will be used in the next step to poll for the completion of the recipe. Example response:
+Each recipe option is provided as a `name` and `value` pair. The `value` accepts whatever type the option expects, such as a string, a boolean, a number, or a list.
 
-```graphql
+5. The mutation returns the `id` of the recipe run. This `id` identifies the run (a changeset in the Moderne API) and is used in every subsequent step, including polling, data table downloads, and commits. Example response:
+
+```json
 {
   "data": {
     "runRecipe": {
-      "id": "5LPSt"
+      "id": "20260723153349-gueAs"
     }
   }
 }
@@ -104,56 +105,69 @@ curl --request POST \
 
 ### Verify recipe completion
 
-1. You will now need to poll (Moderne's web interface uses a 3-second interval) with the query shown below using the `id` from the [recipe execution mutation](recipe-execution-and-commits-with-graphql.md#recipe-execution).
+In the Moderne API, a recipe run is a changeset that belongs to the organization it ran against. Rather than a separate `state` field, the run's current state is encoded in its `__typename` (for example, `OrganizationRecipeRunRunning` or `OrganizationRecipeRunFinished`). To poll a run, you will need both the `organizationId` you ran against and the run `id` from the previous step.
+
+1. Poll (Moderne's web interface uses a 3-second interval) with the query below. Every state writer advances the `lastUpdatedAt` high-water mark, so you can poll `__typename` and `lastUpdatedAt` cheaply and only fetch the heavier results once the run reaches a terminal state.
 
 <Tabs>
-<TabItem value="query-recipe-run" label="Query Recipe Run">
+<TabItem value="recipe-run-state-query" label="Recipe Run State Query">
 
 ```graphql
-query runRecipeName($id: ID!) {
-  recipeRun(id: $id) {
-    recipe {
-      id
-      name
+query recipeRunState($orgId: ID!, $runId: ID!) {
+  organization(id: $orgId) {
+    changesets(where: { id: { _eq: $runId } }) {
+      edges {
+        node {
+          __typename
+          id
+          ... on OrganizationRecipeRun {
+            lastUpdatedAt
+            recipe {
+              id
+              displayName
+            }
+          }
+        }
+      }
     }
-    state
   }
 }
 ```
-</TabItem>
 
+</TabItem>
 <TabItem value="query-variables" label="Query Variables">
 
 ```json
-{ "id": "h7a0mwyqg" }
-```
-</TabItem>
-
-<TabItem value="curl" label="cURL">
-
-
-```bash
-curl --request POST \
---url https://api.app.moderne.io/graphql \
---header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>' \
---header 'Content-Type: application/json' \
---data '{"query":"# Moderne API: https://api.app.moderne.io/graphql\nquery runRecipeName($id: ID!) {\n recipeRun(id: $id) {\n recipe {\n id\n name\n }\n state\n }\n}","variables":{"id":"h7a0mwyqg"},"operationName":"runRecipeName"}'
+{
+  "orgId": "Gradle",
+  "runId": "20260723153349-gueAs"
+}
 ```
 
 </TabItem>
 </Tabs>
 
-2\. Once you receive a response with an `FINISHED` or `ERROR` state, you can then retrieve the repositories where changes were made. Example response:
+2. Keep polling until the run's `__typename` reaches a terminal state: `OrganizationRecipeRunFinished`, `OrganizationRecipeRunError`, or `OrganizationRecipeRunCanceled`. A run that is still in progress reports `OrganizationRecipeRunQueued` or `OrganizationRecipeRunRunning`. Example response:
 
 ```json
 {
   "data": {
-    "recipeRun": {
-      "recipe": {
-        "id": "org.openrewrite.gradle.plugins.UpgradePluginVersion",
-        "name": "Update a Gradle plugin by id"
-      },
-      "state": "FINISHED"
+    "organization": {
+      "changesets": {
+        "edges": [
+          {
+            "node": {
+              "__typename": "OrganizationRecipeRunFinished",
+              "id": "20260723153349-gueAs",
+              "lastUpdatedAt": "2026-07-23T15:34:40.812Z",
+              "recipe": {
+                "id": "org.openrewrite.gradle.plugins.UpgradePluginVersion",
+                "displayName": "Update a Gradle plugin by id"
+              }
+            }
+          }
+        ]
+      }
     }
   }
 }
@@ -161,87 +175,116 @@ curl --request POST \
 
 ### Retrieve repositories with results
 
-1. Using the `id` from the [recipe execution](#recipe-execution) response, you can now retrieve the repositories where changes were made using the query below.
+Once the run has finished, you can retrieve the repositories where changes were made from the same changeset. On a finished run, the `repositories` connection accepts a `where` filter, and passing `onlyWithResults: true` limits the results to repositories that actually changed. Each repository also carries its own `__typename` reflecting its per-repository outcome (for example, `RepositoryRecipeRunFinished`, `RepositoryRecipeRunError`, or `RepositoryRecipeRunNoLst`).
+
+1. Using the `organizationId` and the run `id`, retrieve the changed repositories with the query below.
 
 <Tabs>
-<TabItem value="retrieve-repositories-query" label="Retrieve Repositories Query">
+<TabItem value="recipe-run-results-query" label="Recipe Run Results Query">
 
 ```graphql
-query selectAllRepositoriesWithResults($id: ID!, $first: Int, $after: String) {
-  recipeRun(id: $id) {
-    summaryResultsPages(
-      first: $first
-      after: $after
-      filterBy: { onlyWithResults: true } 
-    ) {
-      count
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
+query recipeRunResults($orgId: ID!, $runId: ID!, $first: Int, $after: String) {
+  organization(id: $orgId) {
+    changesets(where: { id: { _eq: $runId } }) {
       edges {
         node {
-          repository {
-            __typename
-            origin
-            path
-            branch
+          __typename
+          ... on OrganizationRecipeRunFinished {
+            totals {
+              filesChanged
+              repositoriesWithResults
+              repositoriesSuccessful
+              repositoriesWithErrors
+            }
+            repositories(
+              first: $first
+              after: $after
+              where: { onlyWithResults: true }
+            ) {
+              count
+              pageInfo {
+                hasNextPage
+                endCursor
+              }
+              edges {
+                node {
+                  __typename
+                  repository {
+                    origin
+                    path
+                    branch
+                  }
+                }
+              }
+            }
           }
-          state
         }
       }
     }
   }
 }
 ```
-</TabItem>
 
+</TabItem>
 <TabItem value="query-variables" label="Query Variables">
 
 ```json
 {
-  "id": "h7a0mwyqg",
+  "orgId": "Gradle",
+  "runId": "20260723153349-gueAs",
   "first": 100
 }
-```
-</TabItem>
-
-<TabItem value="curl" label="cURL">
-
-
-```bash
-curl --request POST \
---url https://api.app.moderne.io/graphql \
---header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>' \
---header 'Content-Type: application/json' \
---data '{"query":"query selectAllRepositoriesWithResults($id: ID!, $first: Int, $after: String) {\n recipeRun(id: $id) {\n summaryResultsPages(\n first: $first\n after: $after\n filterBy: { onlyWithResults: true }\n ) {\n count\n pageInfo {\n hasNextPage\n endCursor\n }\n edges {\n node {\n repository {\n __typename\n origin\n path\n branch\n }\n state\n }\n }\n }\n\t}\n}","variables":{"id":"XHxCx"},"operationName":"selectAllRepositoriesWithResults"}'
 ```
 
 </TabItem>
 </Tabs>
 
-2. You can then use the `edges` array in the response, to build up the repository list used in the next step of creating a pull request. Example response:
+2. The `repositories` connection is paginated. When `pageInfo.hasNextPage` is `true`, pass `pageInfo.endCursor` back as the `after` variable to fetch the next page. Use each repository's `origin`, `path`, and `branch` to build the repository list for the commit step. Example response:
 
 ```json
 {
   "data": {
-    "recipeRun": {
-      "summaryResultsPages": {
-        "count": 1,
-        "pageInfo": {
-          "hasNextPage": false,
-          "endCursor": "0"
-        },
+    "organization": {
+      "changesets": {
         "edges": [
           {
             "node": {
-              "repository": {
-                "__typename": "GitHubRepository",
-                "origin": "github.com",
-                "path": "gradle/gradle-checksum",
-                "branch": "master"
+              "__typename": "OrganizationRecipeRunFinished",
+              "totals": {
+                "filesChanged": 3,
+                "repositoriesWithResults": 2,
+                "repositoriesSuccessful": 2,
+                "repositoriesWithErrors": 0
               },
-              "state": "FINISHED"
+              "repositories": {
+                "count": 2,
+                "pageInfo": {
+                  "hasNextPage": false,
+                  "endCursor": "MQ=="
+                },
+                "edges": [
+                  {
+                    "node": {
+                      "__typename": "RepositoryRecipeRunFinished",
+                      "repository": {
+                        "origin": "github.com",
+                        "path": "gradle/gradle-checksum",
+                        "branch": "master"
+                      }
+                    }
+                  },
+                  {
+                    "node": {
+                      "__typename": "RepositoryRecipeRunFinished",
+                      "repository": {
+                        "origin": "github.com",
+                        "path": "gradle-nexus/publish-plugin",
+                        "branch": "master"
+                      }
+                    }
+                  }
+                ]
+              }
             }
           }
         ]
@@ -253,229 +296,216 @@ curl --request POST \
 
 ### Downloading data tables
 
-1. To begin, you'll need to create and run a query that specifies what data table you'd like to create. The following command demonstrates how you'd request the `org.openrewrite.table.SourceFileResults` data table:
+Data tables are exported asynchronously. You start a download with the `downloadDataTable` mutation and then poll the run's `dataTables` connection until the download is ready. Like recipe runs, a data table's state is encoded in its `__typename`.
+
+1. Start the download by specifying the changeset (your recipe run `id`), the data table to export, and the format (`CSV` or `XLSX`). The following mutation requests the `org.openrewrite.table.SourcesFileResults` data table:
 
 <Tabs>
 <TabItem value="data-table-mutation" label="Start Data Table Download Mutation">
 
 ```graphql
-mutation demoStartDataTableDownload($recipeRunId: ID!, $dataTable: String! = "org.openrewrite.table.SourcesFileResults", $format: DataTableFormat! = CSV, $scmAccessTokens:[ScmAccessToken!]) {
+mutation startDataTableDownload($changesetId: ID!, $dataTable: String!, $format: DataTableFormat!) {
   downloadDataTable(
-    recipeRunId: $recipeRunId
+    changesetId: $changesetId
     dataTable: $dataTable
     format: $format
-    scmAccessTokens:$scmAccessTokens
   ) {
+    __typename
     id
-    state
-    stats {
-      repositories
-      fileSize
+    dataTable {
+      name
+      displayName
     }
-    stateMessage
-    downloadUrl
   }
 }
 ```
-</TabItem>
 
+</TabItem>
 <TabItem value="mutation-variables" label="Mutation Variables">
 
 ```json
 {
-  "recipeRunId": "<recipe run id>",
+  "changesetId": "20260723153349-gueAs",
   "dataTable": "org.openrewrite.table.SourcesFileResults",
-  "format": "CSV",
-  "scmAccessTokens": [
-    {
-      "origin": "https://github.com", 
-      "value" : "<github personal access token>"
-    }]
+  "format": "CSV"
 }
 ```
+
 </TabItem>
 </Tabs>
 
-2. The above command will return an ID in the response. As the data table creation will take time, you will need to poll with this ID until the download is ready:
+The mutation returns the download task in its `DataTableProcessing` state, along with the task `id` you will poll:
+
+```json
+{
+  "data": {
+    "downloadDataTable": {
+      "__typename": "DataTableProcessing",
+      "id": "20260723155616-Om91d",
+      "dataTable": {
+        "name": "org.openrewrite.table.SourcesFileResults",
+        "displayName": "Source files that had results"
+      }
+    }
+  }
+}
+```
+
+:::info
+For community data tables that belong to a group, pass the optional `group` argument to select the correct bucket.
+:::
+
+2. Because the export takes time, poll the run's `dataTables` connection with the task `id` until the download finishes:
 
 <Tabs>
-<TabItem value="data-table-download-mutation" label="Data Table Download Mutation">
+<TabItem value="data-table-download-query" label="Data Table Download Query">
 
 ```graphql
-query demoDownloadDataTable($dataTableDownloadId: ID!) {
-  dataTableDownload(id: $dataTableDownloadId) {
-    format
-    id
-    state
-    stats {
-      repositories
-      fileSize
+query dataTableDownloadState($orgId: ID!, $runId: ID!, $dataTableId: ID!) {
+  organization(id: $orgId) {
+    changesets(where: { id: { _eq: $runId } }) {
+      edges {
+        node {
+          dataTables(where: { id: { _eq: $dataTableId } }) {
+            edges {
+              node {
+                __typename
+                id
+                ... on DataTableFinished {
+                  format
+                  downloadUrl
+                }
+                ... on DataTableError {
+                  message
+                }
+              }
+            }
+          }
+        }
+      }
     }
-    stateMessage
-    downloadUrl
   }
 }
 ```
-</TabItem>
 
-<TabItem value="mutation-variables" label="Mutation Variables">
+</TabItem>
+<TabItem value="query-variables" label="Query Variables">
 
 ```json
 {
-  "dataTableDownloadId": "jNOUKRsYF"
+  "orgId": "Gradle",
+  "runId": "20260723153349-gueAs",
+  "dataTableId": "20260723155616-Om91d"
 }
 ```
+
 </TabItem>
 </Tabs>
 
-The response will either be "pending" or "success":
-
-<Tabs>
-<TabItem value="pending" label="Pending">
+The data table moves through states you can read from its `__typename`: `DataTableAvailable`, `DataTableProcessing`, `DataTableFinished`, and `DataTableError`. Keep polling until the node reports `DataTableFinished`, which exposes the `downloadUrl`:
 
 ```json
 {
   "data": {
-    "dataTableDownload": {
-      "format": "CSV",
-      "id": "vkBmCwP1E",
-      "state": "PENDING",
-      "stats": {
-        "repositories": 0,
-        "fileSize": 0,
-        "__typename": "DataTableDownloadStats"
-      },
-      "stateMessage": null,
-      "downloadUrl": null,
-      "__typename": "DataTableDownloadTask"
+    "organization": {
+      "changesets": {
+        "edges": [
+          {
+            "node": {
+              "dataTables": {
+                "edges": [
+                  {
+                    "node": {
+                      "__typename": "DataTableFinished",
+                      "id": "20260723155616-Om91d",
+                      "format": "CSV",
+                      "downloadUrl": "/api/recipe-runs/20260723153349-gueAs/20260723153353-ftHOe/datatable/org.openrewrite.table.SourcesFileResults.csv.gz"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
     }
   }
 }
 ```
-</TabItem>
 
-<TabItem value="success" label="Success">
-
-```json
-{
-  "data": {
-    "dataTableDownload": {
-      "format": "CSV",
-      "id": "vkBmCwP1E",
-      "state": "SUCCESS",
-      "stats": {
-        "repositories": 72,
-        "fileSize": 383432,
-        "__typename": "DataTableDownloadStats"
-      },
-      "stateMessage": null,
-      "downloadUrl": "https://api.app.moderne.io/dataTable/vkBmCwP1E",
-      "__typename": "DataTableDownloadTask"
-    }
-  }
-}
-```
-</TabItem>
-</Tabs>
-
-3. Once you receive a `state` of `SUCCESS`, then the data table is ready to download at the location specified by the `downloadUrl` parameter. 
+3. The `downloadUrl` is a path relative to the API base URL, so the full download location is `https://api.app.moderne.io` followed by the `downloadUrl` value. Use the returned value as-is rather than building it by hand, since it embeds internal identifiers. Note that the exported file is gzipped (for example, a `CSV` export is served as `.csv.gz`).
 
 ### Creating a pull request
 
-1. Next, we will perform the `pullRequest` mutation to create a pull request with our changes. We will be using the `id` from [recipe execution](#recipe-execution) and the response from the previous step to construct the mutation variables for committing a pull request. See the mutation variables tab below.
+The Moderne API exposes a single `commit` mutation for delivering a changeset's results back to your repositories. You choose how the changes are delivered through the `strategy` field, which accepts exactly one of `direct` (push to the origin remote), `fork`, `pullRequest`, or `forkAndPullRequest`. To open pull requests, use the `pullRequest` strategy.
 
 :::info
-The `scmAccessTokens` field inside `commitInput` is required for programmatic pull request creation. If you don't provide this token, the API will initiate an OAuth browser flow, which is not suitable for automation or scripting. Make sure you've [created an SCM access token](../references/create-scm-access-tokens.md) and include it in your request as shown in the mutation variables example.
+The `scmAccessTokens` field inside `input` is required for programmatic pull request creation. If you don't provide this token, the API will initiate an OAuth browser flow, which is not suitable for automation or scripting. Make sure you've [created an SCM access token](../references/create-scm-access-tokens.md) and include it in your request as shown in the mutation variables example.
 :::
 
+1. Perform the `commit` mutation using the run `id` as the `changesetId` and the repositories from the previous step. The `repositories` field is a list of filters: each entry matches repositories in the changeset (for example, by `path`). Omit `repositories` entirely to commit to every repository with results in the run.
+
 <Tabs>
-<TabItem value="pull-request-mutation" label="Pull Request Mutation">
+<TabItem value="commit-mutation" label="Commit Mutation">
 
 ```graphql
-mutation pullRequest($commitInput: CommitInput!, $orgId: ID, $isDraft: Boolean, $pullRequestTitle: String, $pullRequestBody: Base64) {
-  pullRequest(
-    orgId: $orgId
-    draft: $isDraft
-    commit: $commitInput
-    pullRequestTitle: $pullRequestTitle
-    pullRequestBody: $pullRequestBody
-  ) {
+mutation commit($input: CommitInput!) {
+  commit(input: $input) {
     id
-    started
-    email
-    completed
-    summaryResults {
-      count
-      successfulCount
-      failedCount
-      noChangeCount
-    }
   }
 }
 ```
-</TabItem>
 
+</TabItem>
 <TabItem value="mutation-variables" label="Mutation Variables">
 
-
-```graphql
+```json
 {
-  "isDraft": false,
-  "orgId": "Gradle",
-  "commitInput": {
-    "recipeRunId": "h7a0mwyqg",
-    "branchName": "refactor/update-a-gradle-plugin-by-id",
+  "input": {
+    "organizationId": "Gradle",
+    "changesetId": "20260723153349-gueAs",
     "message": "refactor: Update a Gradle plugin by id",
     "repositories": [
-      {
-        "branch": "master",
-        "origin": "github.com",
-        "path": "gradle/gradle-checksum"
-      },
-      {
-        "branch": "master",
-        "origin": "github.com",
-        "path": "gradle-nexus/publish-plugin"
-      }
+      { "path": { "_eq": "gradle/gradle-checksum" } },
+      { "path": { "_eq": "gradle-nexus/publish-plugin" } }
     ],
-    "scmAccessTokens": [{"origin": "github.com", "value": "MY_SCM_PERSONAL_ACCESS_TOKEN"}]
-  },
-  "pullRequestTitle": "refactor: Update a Gradle plugin by id",
-  "pullRequestBody": "cmVmYWN0b3I6IFVwZGF0ZSBhIEdyYWRsZSBwbHVnaW4gYnkgaWQ"
+    "strategy": {
+      "pullRequest": {
+        "title": "refactor: Update a Gradle plugin by id",
+        "body": "cmVmYWN0b3I6IFVwZGF0ZSBhIEdyYWRsZSBwbHVnaW4gYnkgaWQ=",
+        "draft": false
+      }
+    },
+    "scmAccessTokens": [
+      { "origin": "github.com", "value": "MY_SCM_PERSONAL_ACCESS_TOKEN" }
+    ]
+  }
 }
 ```
-</TabItem>
 
+</TabItem>
 <TabItem value="curl" label="cURL">
 
-
 ```bash
-curl --request POST
-    --url https://api.app.moderne.io/graphql \
-    --header 'Authorization: Bearer <session token or Moderne PAT here>' \
-    --header 'Content-Type: application/json' \
-    --data '{ "query": "mutation pullRequest($commitInput: CommitInput!, $orgId: ID, $isDraft: Boolean, $pullRequestTitle: String, $pullRequestBody: Base64) {\n  pullRequest(\n    orgId: $orgId\n    draft: $isDraft\n    commit: $commitInput\n    pullRequestTitle: $pullRequestTitle\n    pullRequestBody: $pullRequestBody\n  ) {\n    id\n    started\n    email\n    completed\n    summaryResults {\n      count\n      successfulCount\n      failedCount\n      noChangeCount\n    }\n  }\n}", "variables": "{\n  \"isDraft\": false,\n  \"orgId\": \"Gradle\",\n  \"commitInput\": {\n    \"recipeRunId\": \"MEY8ulZNB\",\n    \"branchName\": \"refactor/update-a-gradle-plugin-by-id\",\n    \"message\": \"refactor: Update a Gradle plugin by id\",\n    \"repositories\": [\n      {\n        \"branch\": \"master\",\n        \"origin\": \"github.com\",\n        \"path\": \"gradle/gradle-checksum\"\n      },\n      {\n        \"branch\": \"master\",\n        \"origin\": \"github.com\",\n        \"path\": \"gradle-nexus/publish-plugin\"\n      }\n    ],\n    \"scmAccessTokens\": [{\"origin\": \"github.com\", \"value\": \"MY_SCM_PERSONAL_ACCESS_TOKEN\"}]\n  },\n  \"pullRequestTitle\": \"refactor: Update a Gradle plugin by id\",\n  \"pullRequestBody\": \"cmVmYWN0b3I6IFVwZGF0ZSBhIEdyYWRsZSBwbHVnaW4gYnkgaWQ=\"\n}" }'
+curl --request POST \
+  --url https://api.app.moderne.io/graphql \
+  --header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>' \
+  --header 'Content-Type: application/json' \
+  --data '{"query":"mutation commit($input: CommitInput!) {\n  commit(input: $input) {\n    id\n  }\n}","variables":{"input":{"organizationId":"Gradle","changesetId":"20260723153349-gueAs","message":"refactor: Update a Gradle plugin by id","repositories":[{"path":{"_eq":"gradle/gradle-checksum"}},{"path":{"_eq":"gradle-nexus/publish-plugin"}}],"strategy":{"pullRequest":{"title":"refactor: Update a Gradle plugin by id","body":"cmVmYWN0b3I6IFVwZGF0ZSBhIEdyYWRsZSBwbHVnaW4gYnkgaWQ=","draft":false}},"scmAccessTokens":[{"origin":"github.com","value":"MY_SCM_PERSONAL_ACCESS_TOKEN"}]},"operationName":"commit"}'
 ```
 
 </TabItem>
 </Tabs>
 
-2. Once the mutation is executed we will receive a response with the commit `id` that we can then poll for the completion of the commit. Example response:
+The `body` is Base64-encoded. If you omit `title`, the commit `message` is used as the pull request title.
+
+2. The mutation returns the commit `id`, which you use to poll the commit's progress. Example response:
 
 ```json
 {
   "data": {
-    "pullRequest": {
-      "id": "c83315a1-397f-44cb-9ef2-9a2ca195dda6",
-      "started": "2022-12-01T22:46:01.818313Z",
-      "email": "dev@null",
-      "completed": 0,
-      "summaryResults": {
-        "count": 1,
-        "successfulCount": 0,
-        "failedCount": 0,
-        "noChangeCount": 0
-      }
+    "commit": {
+      "id": "c83315a1-397f-44cb-9ef2-9a2ca195dda6"
     }
   }
 }
@@ -483,143 +513,136 @@ curl --request POST
 
 ### Verify commit job
 
-1. Using the `id` returned from the [pull request mutation](#creating-a-pull-request) we can then poll for the completion of the commit job. When the response is returned with the `completed` property equal to the `commits.count` property the job has been completed. The `summaryResults` property will contain the count of success, failure, and no changes commit jobs. Detailed statuses are found on the `commits` property. This is a paginated query so you may need to loop through multiple pages if you wish to see detailed results for each commit.
+A commit runs asynchronously across the repositories you targeted. A commit belongs to the changeset it was created from, so you poll it through the run's `commits` connection, filtered by the commit `id`, and read its `__typename` for the overall state. The `repositories` connection reports per-repository progress: compare `completedCount` to `count` to track how many repositories have reached a terminal state.
+
+1. Poll for the commit's completion with the query below. Each repository's `__typename` reflects its individual outcome, such as `PullRequestCommitSucceeded` (which exposes a `resultLink` to the pull request and its `pullRequestStatus`), `RepositoryCommitFailed`, or `RepositoryCommitNoChanges`.
 
 <Tabs>
-<TabItem value="commit-job-query" label="Commit Job Query">
+<TabItem value="commit-state-query" label="Commit State Query">
 
 ```graphql
-query commitJob(
-  $id: ID!
-  $first: Int = 50
-  $after: String
-  $filterBy: CommitJobFilterInput
-  $orderBy: CommitJobOrderInput
-) {
-  commitJob(id: $id) {
-    id
-    started
-    email
-    completed
-    summaryResults {
-      count
-      successfulCount
-      failedCount
-      noChangeCount
-    }
-    recipeRunId
-    message
-    extendedMessage
-    options {
-      ... on PullRequestOptions {
-        branchName
-        draft
-        pullRequestBody
-        pullRequestTitle
-      }
-    }
-    started
-    commits(
-      first: $first
-      after: $after
-      filterBy: $filterBy
-      orderBy: $orderBy
-    ) {
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
-      count
+query commitState($orgId: ID!, $runId: ID!, $commitId: ID!, $first: Int, $after: String) {
+  organization(id: $orgId) {
+    changesets(where: { id: { _eq: $runId } }) {
       edges {
         node {
-          state
-          stateMessage
-          repository {
-            origin
-            path
-            branch
-            ... on GitHubRepository {
-              organization
-              name
-              ingested
+          commits(where: { id: { _eq: $commitId } }) {
+            edges {
+              node {
+                __typename
+                id
+                message
+                repositories(first: $first, after: $after) {
+                  count
+                  completedCount
+                  pageInfo {
+                    hasNextPage
+                    endCursor
+                  }
+                  edges {
+                    node {
+                      __typename
+                      repository {
+                        origin
+                        path
+                        branch
+                      }
+                      ... on PullRequestCommitSucceeded {
+                        resultLink
+                        pullRequestStatus {
+                          state
+                        }
+                      }
+                      ... on RepositoryCommitFailed {
+                        errorMessage
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
-          resultLink
         }
       }
     }
   }
 }
 ```
-</TabItem>
 
+</TabItem>
 <TabItem value="query-variables" label="Query Variables">
 
 ```json
 {
-  "first": 50,
-  "id": "c83315a1-397f-44cb-9ef2-9a2ca195dda6"
+  "orgId": "Gradle",
+  "runId": "20260723153349-gueAs",
+  "commitId": "c83315a1-397f-44cb-9ef2-9a2ca195dda6",
+  "first": 50
 }
-```
-</TabItem>
-
-<TabItem value="curl" label="cURL">
-
-
-```bash
-curl --request POST \
-  --url https://api.app.moderne.io/graphql \
-  --header 'Authorization: Bearer <YOUR MODERNE TOKEN HERE>' \
-  --header 'Content-Type: application/json' \
-  --data '{"query":"query commitJob($id: ID!, $first: Int = 50, $after: String, $filterBy: CommitJobFilterInput, $orderBy: CommitJobOrderInput) { commitJob(id: $id) { id started email completed summaryResults { count successfulCount failedCount noChangeCount __typename } __typename recipeRunId message extendedMessage options { ... on PullRequestOptions { branchName draft pullRequestBody pullRequestTitle __typename } __typename } started commits(first: $first after: $after filterBy: $filterBy orderBy: $orderBy) { pageInfo { hasNextPage endCursor __typename } count edges { node { state stateMessage repository { origin path branch ... on GitHubRepository { organization name ingested __typename } __typename } resultLink __typename } __typename } __typename } __typename } }","variables":{"first":50,"id":"c83315a1-397f-44cb-9ef2-9a2ca195dda6"},"operationName":"commitJob"}'
-
 ```
 
 </TabItem>
 </Tabs>
 
-2. Example response:
+2. Keep polling until the commit's `__typename` reaches a terminal state: `OrganizationCommitFinished`, `OrganizationCommitCanceled`, or `OrganizationCommitError`. A commit still in progress reports `OrganizationCommitQueued` or `OrganizationCommitRunning`. Example response:
 
 ```json
 {
   "data": {
-    "commitJob": {
-      "id": "c83315a1-397f-44cb-9ef2-9a2ca195dda6",
-      "started": "2022-12-01T22:46:01.818313Z",
-      "email": "dev@null.com",
-      "completed": 1,
-      "summaryResults": {
-        "count": 1,
-        "successfulCount": 1,
-        "failedCount": 0,
-        "noChangeCount": 0
-      },
-      "recipeRunId": "NazKj",
-      "message": "refactor: Update a Gradle plugin by id",
-      "extendedMessage": null,
-      "options": {
-        "branchName": "refactor/update-a-gradle-plugin-by-id",
-        "draft": false,
-        "pullRequestBody": null,
-        "pullRequestTitle": null
-      },
-      "commits": {
-        "pageInfo": {
-          "hasNextPage": false,
-          "endCursor": "c2ltcGxlLWN1cnNvcjA="
-        },
-        "count": 1,
+    "organization": {
+      "changesets": {
         "edges": [
           {
             "node": {
-              "state": "COMPLETED",
-              "stateMessage": null,
-              "repository": {
-                "branch": "master",
-                "origin": "github.com",
-                "path": "gradle/gradle-checksum"
-              },
-              "resultLink": "https://github.com/gradle/gradle-checksum/pull/14"
+              "commits": {
+                "edges": [
+                  {
+                    "node": {
+                      "__typename": "OrganizationCommitFinished",
+                      "id": "c83315a1-397f-44cb-9ef2-9a2ca195dda6",
+                      "message": "refactor: Update a Gradle plugin by id",
+                      "repositories": {
+                        "count": 2,
+                        "completedCount": 2,
+                        "pageInfo": {
+                          "hasNextPage": false,
+                          "endCursor": "MQ=="
+                        },
+                        "edges": [
+                          {
+                            "node": {
+                              "__typename": "PullRequestCommitSucceeded",
+                              "repository": {
+                                "origin": "github.com",
+                                "path": "gradle/gradle-checksum",
+                                "branch": "master"
+                              },
+                              "resultLink": "https://github.com/gradle/gradle-checksum/pull/14",
+                              "pullRequestStatus": {
+                                "state": "OPEN"
+                              }
+                            }
+                          },
+                          {
+                            "node": {
+                              "__typename": "PullRequestCommitSucceeded",
+                              "repository": {
+                                "origin": "github.com",
+                                "path": "gradle-nexus/publish-plugin",
+                                "branch": "master"
+                              },
+                              "resultLink": "https://github.com/gradle-nexus/publish-plugin/pull/8",
+                              "pullRequestStatus": {
+                                "state": "OPEN"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
             }
           }
         ]
