@@ -1,4 +1,8 @@
 # Platform changelog
+### UI v13.16.0 (2026/07/23)
+
+- Bug fixes and other improvements.
+
 ### UI v13.15.0 (2026/07/23)
 
 - migrate error pages and SCM authorization to ERROR_MESSAGES
