@@ -50,10 +50,20 @@ jobs:
       - uses: actions/setup-go@v6
         with:
           go-version: '1.25'
-      # nuget recipes install via `dotnet`; rewrite-csharp ships as net10.0, so 8/9 won't work.
+      # nuget recipes need the .NET SDK; rewrite-csharp ships as net10.0, so 8/9 won't work.
       - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '10.0.x'
+      # The CLI restores the C# recipe packages with the classic NuGet CLI (`nuget.exe`),
+      # which runs under Mono on Linux. Install both and expose `nuget` on PATH.
+      - name: Install Mono and the NuGet CLI (for nuget recipes)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends mono-complete
+          sudo curl -fsSL -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+          printf '#!/usr/bin/env bash\nexec mono /usr/local/bin/nuget.exe "$@"\n' | sudo tee /usr/local/bin/nuget >/dev/null
+          sudo chmod +x /usr/local/bin/nuget
+          nuget help | head -1
 
       - name: Build marketplace CSV
         id: build

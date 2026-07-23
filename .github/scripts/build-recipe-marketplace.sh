@@ -130,7 +130,7 @@ tool_available() {
     pip) command -v python3 >/dev/null || command -v python >/dev/null ;;
     npm) command -v npm >/dev/null ;;
     go)  command -v go >/dev/null ;;
-    nuget) command -v dotnet >/dev/null ;;
+    nuget) command -v dotnet >/dev/null && command -v nuget >/dev/null ;;
     *)   return 0 ;;
   esac
 }
