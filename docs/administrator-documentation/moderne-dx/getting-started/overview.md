@@ -156,6 +156,6 @@ For more guidance on choosing between these approaches, see [our blog post on la
 
 ## Next steps
 
-* [Deploy the Moderne CLI from an internal Maven Central mirror](../../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) (the recommended install path for DX users)
+* [Deploy the Moderne CLI from an internal artifact repository](../../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) (the recommended install path for DX users)
 * [Set up mass ingest](../how-to-guides/mass-ingest-dx.md) to begin building LSTs for your repositories
 * [Learn about the architecture](../references/moderne-dx-architecture.md) and how Moderne DX compares to Moderne Platform

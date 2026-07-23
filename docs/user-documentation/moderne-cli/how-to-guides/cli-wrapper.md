@@ -29,15 +29,15 @@ Because every `mod` command goes through the wrapper, it is also the recommended
 
 ## Controlling auto-updates
 
-By default, the wrapper is configured with `version=RELEASE` in its properties file. This means **every invocation checks Maven Central** for the latest release version and downloads it if a newer version is available. For individual developers, this makes the most sense as you'd want to stay current automatically.
+By default, the wrapper is configured with `version=RELEASE` in its properties file. This means **every invocation checks for the latest release version** and downloads it if a newer version is available. For individual developers, this makes the most sense as you'd want to stay current automatically.
 
-That being said, for CI/CD pipelines where reproducibility matters, enterprise environments with network restrictions or change-control policies, or air-gapped networks where Maven Central is not reachable, you'll want to pin to a specific version instead:
+That being said, for CI/CD pipelines where reproducibility matters, enterprise environments with network restrictions or change-control policies, or air-gapped networks that restrict outbound internet access, you'll want to pin to a specific version instead:
 
 ```bash
 mod wrapper --global --version <version>
 ```
 
-This writes the specified version to your global `moderne-wrapper.properties` file. The wrapper will use exactly that version and stop checking Maven Central for updates.
+This writes the specified version to your global `moderne-wrapper.properties` file. The wrapper will use exactly that version and stop checking for updates.
 
 To re-enable auto-updates later:
 
@@ -54,7 +54,7 @@ You can also track the latest snapshot builds (for testing pre-release changes) 
 mod wrapper --global --auto-update-snapshot
 ```
 
-This sets the version to `LATEST`, which resolves against Maven Central Snapshots.
+This sets the version to `LATEST`, which tracks the latest snapshot build.
 :::
 
 ## Project wrapper
@@ -83,7 +83,7 @@ mod wrapper --version <version>
 
 ### Pointing the project wrapper at your internal mirror
 
-In environments where the CLI must download distributions from an internal mirror rather than Maven Central, edit the generated `moderne-wrapper.properties` to set `distributionUrl`. For example:
+In environments where the CLI must download distributions from an internal mirror, edit the generated `moderne-wrapper.properties` to set `distributionUrl`. For example:
 
 ```properties
 version=4.2.10
@@ -110,7 +110,7 @@ The wrapper makes outbound network calls to two services:
 
 | What                                 | Source                                    | When                                                |
 |--------------------------------------|-------------------------------------------|-----------------------------------------------------|
-| CLI distribution (JAR + JRE)         | Maven Central                             | On first run or version change                      |
+| CLI distribution (JAR + JRE)         | Moderne's distribution repository         | On first run or version change                      |
 | JDK (if no compatible Java is found) | [Eclipse Adoptium](https://adoptium.net/) | Only when no bundled JRE or system JDK is available |
 
 You can control both of these with properties (see below).
@@ -121,9 +121,9 @@ The `moderne-wrapper.properties` file supports these properties:
 
 | Property                | Description                                                                                                                                                  | Default       |
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
-| `version`               | CLI version to use. `RELEASE` resolves the latest release from Maven Central. `LATEST` resolves the latest snapshot. Or pin a specific version like `4.x.x`. | `RELEASE`     |
-| `distributionUrl`       | URL template for the distribution archive. Use `${version}` and `${platform}` as placeholders.                                                               | Maven Central |
-| `distributionUrlEarlyAccess` | Base URL of the repository used to resolve `LATEST`/snapshot versions. Overrides Sonatype (Maven Central Snapshots) — point it at your own snapshot repository in restricted environments. | Sonatype (Maven Central Snapshots) |
+| `version`               | CLI version to use. `RELEASE` resolves the latest release. `LATEST` resolves the latest snapshot. Or pin a specific version like `4.x.x`. | `RELEASE`     |
+| `distributionUrl`       | URL template for the distribution archive. Use `${version}` and `${platform}` as placeholders.                                                               | Moderne's distribution repository |
+| `distributionUrlEarlyAccess` | Base URL of the repository used to resolve `LATEST`/snapshot versions. Overrides the default snapshot source — point it at your own snapshot repository in restricted environments. | Moderne's distribution repository |
 | `distributionUsername`  | Username for basic authentication when downloading the distribution.                                                                                         | _(none)_      |
 | `distributionPassword`  | Password for basic authentication when downloading the distribution.                                                                                         | _(none)_      |
 | `distributionToken`     | Bearer token for authentication when downloading the distribution. Takes precedence over username/password if both are set.                                   | _(none)_      |
@@ -151,7 +151,7 @@ MODERNE_WRAPPER_REFRESH=1 mod --version
 
 ### Air-gapped or restricted environments
 
-If your network cannot reach Maven Central, you can host the CLI distribution on an internal mirror and point the wrapper to it:
+If your network restricts outbound internet access, you can host the CLI distribution on an internal mirror and point the wrapper to it:
 
 ```properties
 version=4.x.x
@@ -163,7 +163,7 @@ jdkUrl=skip
 Setting `jdkUrl=skip` disables the JDK auto-download, which is useful when you know a compatible JDK is already available on the system.
 
 :::warning
-`distributionUrl` controls only where the distribution archive is *downloaded* from, not where a dynamic `version` is *resolved*. `RELEASE` resolution queries Maven Central for `maven-metadata.xml`, and `LATEST`/snapshot resolution queries Sonatype (Maven Central Snapshots). If neither is reachable and the version is left dynamic, every `mod` invocation fails at version resolution.
+`distributionUrl` controls only where the distribution archive is *downloaded* from, not where a dynamic `version` is *resolved*. Both `RELEASE` and `LATEST`/snapshot resolution query Moderne's distribution repository for `maven-metadata.xml`. If it is not reachable and the version is left dynamic, every `mod` invocation fails at version resolution.
 
 In an air-gapped environment you therefore have two options:
 
@@ -304,7 +304,7 @@ The list below covers what is currently known to break. It is not exhaustive. Th
 
 * **The AOT cache is not used.** The wrapper trains and reuses a Project Leyden ahead-of-time compilation cache that significantly improves CLI startup. Running the JAR directly skips this, so every invocation pays the full JVM warm-up cost.
 
-* **CLI auto-update is not performed.** The wrapper checks Maven Central (or your configured mirror) for new releases and downloads them. Running the JAR directly means you are responsible for updating the JAR manually whenever you want a new version.
+* **CLI auto-update is not performed.** The wrapper checks for and downloads new releases automatically. Running the JAR directly means you are responsible for updating the JAR manually whenever you want a new version.
 
 ### If you really must run without the wrapper
 
@@ -335,7 +335,7 @@ That gets you a working CLI with HTTPS, but it is still missing everything else 
 If you're currently running the JAR directly, you don't need to change everything at once:
 
 1. **Start with developer machines** — have developers install via `curl https://app.moderne.io/cli | bash` while CI continues using the JAR directly
-2. **Point the wrapper at your internal mirror** — set `distributionUrl` in `moderne-wrapper.properties` to your Artifactory URL so the wrapper downloads from there instead of Maven Central
+2. **Point the wrapper at your internal mirror** — set `distributionUrl` in `moderne-wrapper.properties` to your Artifactory URL so the wrapper downloads from there instead of the default location
 3. **Adopt the project wrapper for CI** — commit `modw` to your repository and have CI run `./modw` instead of `java -jar`. This ensures CI and developers use the same version
 
 Your existing tooling for environment setup (e.g., scripts that configure Java versions, populate `.moderne/moderne.yml`, or set repository-specific environment variables) can continue to work alongside the wrapper.

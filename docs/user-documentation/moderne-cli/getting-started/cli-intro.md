@@ -367,13 +367,13 @@ This will grab _all_ of the recipes from your tenant – so please expect this c
 </TabItem>
 <TabItem value="dx" label="Moderne DX">
 
-> For Moderne DX, follow the [deploying the CLI from an internal Maven Central mirror](./cli-internal-mirror.md) guide.
+> For Moderne DX, follow the [deploying the CLI from an internal artifact repository](./cli-internal-mirror.md) guide.
 </TabItem>
 </Tabs>
 
 ## Connecting to internal tools
 
-If your environment cannot reach Maven Central directly, install the CLI from your internal mirror by following our [guide to deploying the CLI from an internal Maven Central mirror](./cli-internal-mirror.md).
+If your organization installs the CLI from an internal artifact repository (common for Enterprise and DX deployments), follow our [guide to deploying the CLI from an internal artifact repository](./cli-internal-mirror.md).
 
 If you also need to point the CLI at other internal tooling (a non-default Maven settings file, an internal Artifactory for recipes, etc.), see our [guide to configuring the CLI to work with internal tools](./cli-internal-tools.md).
 

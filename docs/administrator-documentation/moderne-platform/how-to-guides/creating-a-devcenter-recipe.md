@@ -29,7 +29,25 @@ The first thing you need to do is to create a new recipe repository using either
 
 ### Step 2: Add the rewrite-devcenter dependency
 
-Once you've created your recipe repository, you will need to update your `build.gradle` or `pom.xml` file to include a dependency on [io.moderne.recipe:rewrite-devcenter](https://central.sonatype.com/artifact/io.moderne.recipe/rewrite-devcenter). This will give you access to key components you need to create and run DevCenter recipes.
+Once you've created your recipe repository, you will need to update your `build.gradle` or `pom.xml` file to include a dependency on [io.moderne.recipe:rewrite-devcenter](https://artifacts.codegenomeproject.org/maven/io/moderne/recipe/rewrite-devcenter/). This will give you access to key components you need to create and run DevCenter recipes.
+
+:::info[Code Genome Project credentials required]
+`rewrite-devcenter` resolves from the [Code Genome Project repository](https://artifacts.codegenomeproject.org/maven), which requires authentication. Add the repository and your Code Genome Project username and token to your build. For `build.gradle.kts`:
+
+```kotlin
+repositories {
+    maven {
+        url = uri("https://artifacts.codegenomeproject.org/maven")
+        credentials {
+            username = "USERNAME"
+            password = "TOKEN"
+        }
+    }
+}
+```
+
+Maven users add the same repository to `pom.xml` and put the credentials in `settings.xml`.
+:::
 
 ### Step 3: Create a declarative DevCenter recipe
 
