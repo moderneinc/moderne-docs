@@ -10,6 +10,17 @@ This page contains release notes for [Moderne proprietary OpenRewrite recipes](h
 This changelog is automatically generated from GitHub releases and only contains information from the past year.
 :::
 
+## July 23, 2026
+
+#### rewrite-prethink - v0.11.0
+
+* Detect Redisson pub/sub producers and consumers
+* Recognize `kotlin.test.Test` annotation in test gap analysis
+* Recognize JUnit 5 meta test annotations in test gap analysis
+* Describe parameterized-test coverage assertion via AssertJ .as()
+* Recognize spec-style test frameworks (Kotest, Spek) in test gap analysis
+* Make StructuralFingerprintVisitor and MinHashLsh public
+
 ## July 22, 2026
 
 #### rewrite-devcenter - 1.28.1
@@ -17,6 +28,10 @@ This changelog is automatically generated from GitHub releases and only contains
 * Keep a single UpgradesAndMigrations row per card by flushing on recipe completion
 
 ## July 20, 2026
+
+#### rewrite-migrate-python - v0.10.1
+
+- OpenRewrite v8.87.4:
 
 #### rewrite-nodejs - v0.47.2
 
@@ -4483,17 +4498,9 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.59.1
 
-#### rewrite-ai-search - 0.29.0
-
-* common static analysis issues
-
 #### rewrite-android - 0.11.1
 
 * Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-android - 0.11.0
-
-* common static analysis issues
 
 #### rewrite-circleci - 3.7.1
 
@@ -4507,17 +4514,9 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.59.1
 
-#### rewrite-codemods-ng - 0.12.0
-
-* Add the `--no-audit` and `--no-fund` flags
-
 #### rewrite-compiled-analysis - 0.7.3
 
 * Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-compiled-analysis - 0.7.2
-
-* Updated repository to use OpenRewrite version v8.59.0
 
 #### rewrite-concourse - 3.6.1
 
@@ -4535,21 +4534,10 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.59.1
 
-#### rewrite-dotnet - 0.12.0
-
-* common static analysis issues
-
 #### rewrite-hibernate - 0.9.0
 
 * Hibernate7 misc type changes
 * Test the total of Hibernate 7.0 migration
-
-#### rewrite-hibernate - 0.8.0
-
-* Migrate deprecated Session interface methods to their Hibernate 7.0 replacements
-* Migrate from JPA EntityManager to Hibernate Session
-* Remove hibernate.annotations
-* Migrate Session save/update/delete method calls
 
 #### rewrite-java-security - 3.15.0
 
@@ -4564,33 +4552,17 @@ Republishing to update dependencies
 
 * Updated repository to use OpenRewrite version v8.59.1
 
-#### rewrite-nodejs - 0.27.0
-
-* common static analysis issues
-
 #### rewrite-program-analysis - 0.1.1
 
 * Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-program-analysis - v0.1.0
-
-* Initial version
 
 #### rewrite-reactive-streams - 0.14.3
 
 * Updated repository to use OpenRewrite version v8.59.1
 
-#### rewrite-reactive-streams - 0.14.2
-
-* Updated repository to use OpenRewrite version v8.59.0
-
 #### rewrite-spring - 0.10.1
 
 * Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-spring - 0.10.0
-
-* common static analysis issues
 
 #### rewrite-sql - 2.6.1
 
