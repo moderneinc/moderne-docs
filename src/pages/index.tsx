@@ -15,23 +15,33 @@ export const HeroSection: FunctionComponent = () => {
     <section className={styles.hero}>
       <div className={styles.heroContent}>
         <h1 className={styles.heroHeading}>
-          <span className={styles.heroHeadingBlue}>Explore documentation</span>
+          Explore documentation
           <br />
-          <span className={styles.heroHeadingDark}>and tutorials to go further</span>
+          and tutorials to{' '}
+          <span className={styles.heroHeadingSpectral}>go further</span>
         </h1>
         <p className={styles.heroSubheading}>
-          Discover how to fix vulnerabilities, standardize code quality, 
+          Discover how to fix vulnerabilities, standardize code quality,
           perform type-aware code searches, and accelerate refactoring at enterprise scale.
         </p>
-        <div>
+        <div className={styles.heroActions}>
           <NeoButton
             variant="primary"
             size="medium"
+            className={styles.morpheusButtonPrimary}
             href="/user-documentation/moderne-platform/getting-started/running-your-first-recipe"
             icon={<ArrowRight size={16} />}
             iconPosition="right"
           >
             Get started
+          </NeoButton>
+          <NeoButton
+            variant="secondary"
+            size="medium"
+            className={styles.morpheusButtonSecondary}
+            href="#what-is-moderne"
+          >
+            What is Moderne?
           </NeoButton>
         </div>
       </div>
@@ -64,12 +74,13 @@ export const WhatIsModerneSection: FunctionComponent = () => {
 
   return (
     <section className={styles.whatIsSection}>
+      <div className={styles.spectralBar} />
       <div className={styles.sectionHeader}>
         <h2 className={styles.sectionTitle} id='what-is-moderne'>What is Moderne?</h2>
         <p className={styles.sectionDescription}>
           Moderne builds the knowledge, discovery, and execution tools coding agents rely on to operate faster, more accurately, and at far lower cost across real-world software systems. Powered by the <Link href="https://docs.openrewrite.org/">OpenRewrite</Link> <Link href="/user-documentation/recipes/authoring-recipes/concepts/lossless-semantic-trees">Lossless Semantic Tree (LST)</Link>, the industry's most comprehensive context model for understanding and transforming your code at scale.
         </p>
-        <p className={styles.sectionDescription}>  
+        <p className={styles.sectionDescription}>
           With Moderne, organizations can automate framework migrations, remediate security vulnerabilities, perform organization-wide code search, and standardize code quality across thousands of repositories.
         </p>
       </div>
@@ -92,6 +103,7 @@ export const WhatIsModerneSection: FunctionComponent = () => {
 export const AboutModerneSection: FunctionComponent = () => {
   return (
     <section className={styles.platformSection}>
+      <div className={styles.spectralBar} />
       <h2 className={styles.sectionTitle}>More about Moderne</h2>
       <div className={styles.platformContent}>
         <p>
@@ -123,38 +135,28 @@ export const AboutModerneSection: FunctionComponent = () => {
   );
 }
 
-
-export const GemDecorations: FunctionComponent = () => {
-  return (
-    <div className={styles.gemDecorations}>
-      {/* Large gems on edges */}
-      <img
-        src="/img/gems/pink-large.png"
-        alt=""
-        className={clsx(styles.gem, styles.gemLargeRight)}
-      />
-      <img
-        src="/img/gems/pink.png"
-        alt=""
-        className={clsx(styles.gem, styles.gemLargeLeft)}
-      />
-    </div>
-  );
-}
-
 const Home: FunctionComponent = () => {
   return (
     <>
       <Head>
         <meta property="og:image" content="/img/og-home.png" />
         <meta name="twitter:card" content="summary_large_image" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Layout
         title="Moderne Documentation"
         description="Explore documentation and tutorials for automated code remediation. Fix vulnerabilities, standardize code quality, perform type-aware code searches, and accelerate refactoring at enterprise scale with Moderne Platform, CLI, DX, and more."
       >
-        <main className={styles.homePage}>
-          <GemDecorations />
+        <main className={clsx(styles.homePage, 'morpheus-landing')}>
           <div className={styles.pageBody}>
             <HeroSection />
             <ProductCardsGrid products={homepageProducts} />
