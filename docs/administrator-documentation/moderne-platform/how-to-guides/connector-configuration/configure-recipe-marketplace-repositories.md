@@ -115,6 +115,69 @@ java -jar connector-{version}.jar \
 </TabItem>
 </Tabs>
 
+### AWS CodeArtifact
+
+When a Maven repository URL points at an [AWS CodeArtifact](https://docs.aws.amazon.com/codeartifact/latest/ug/welcome.html) endpoint (`<domain>-<account-id>.d.codeartifact.<region>.amazonaws.com`) and you leave the password unset, the Connector mints and refreshes CodeArtifact authorization tokens itself. CodeArtifact tokens are short-lived (up to 12 hours), so this removes the need to manually generate and rotate a token before it expires. The Connector resolves AWS credentials through the [default credential provider chain](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials-chain.html) (IAM role, profile, environment variables, etc.), mints one token per CodeArtifact domain, and re-mints ahead of expiry so the request path does not block.
+
+To enable it, configure the repository with its CodeArtifact URL and leave `password` unset; the Connector authenticates as the CodeArtifact user `aws` automatically. Statically configured credentials (`username` + `password`) always take precedence, so a manually minted token remains fully supported (for example, when the Connector runs without an AWS identity).
+
+:::info
+Token minting does not apply to LST or organization sources. CodeArtifact is not supported as an [LST source](./configure-a-connector-with-maven-repository-access.md#aws-codeartifact): CodeArtifact does not serve the maven-indexer index that LST poll discovery requires, and its package assets are immutable, so the Connector rejects CodeArtifact URLs in LST and organization source configuration at startup.
+:::
+
+#### Prerequisites
+
+The AWS identity available to the Connector must be allowed to mint tokens for your CodeArtifact domain and read from the repository:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "codeartifact:GetAuthorizationToken",
+            "Resource": "arn:aws:codeartifact:<region>:<account-id>:domain/<domain>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "codeartifact:ReadFromRepository",
+            "Resource": "arn:aws:codeartifact:<region>:<account-id>:repository/<domain>/<repository>"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "sts:GetServiceBearerToken",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+`codeartifact:GetAuthorizationToken` mints the token and is scoped to the domain. `codeartifact:ReadFromRepository` authorizes the artifact downloads the token is then used for, and is scoped to the repository; without it, token minting succeeds but every artifact download returns HTTP 403. `sts:GetServiceBearerToken` does not support resource-level restrictions and must use `"*"`.
+
+<Tabs groupId="agent-type">
+<TabItem value="oci-container" label="OCI Container">
+
+```bash
+docker run \
+# ... Existing variables
+-e MODERNE_RECIPE_MARKETPLACE_REPOSITORIES_MAVEN_0_URI=https://my-domain-111122223333.d.codeartifact.us-east-1.amazonaws.com/maven/my-repo/ \
+# ... Additional variables
+```
+
+</TabItem>
+
+<TabItem value="executable-jar" label="Executable JAR">
+
+```bash
+java -jar connector-{version}.jar \
+# ... Existing arguments
+--moderne.recipe.marketplace.repositories.maven[0].uri=https://my-domain-111122223333.d.codeartifact.us-east-1.amazonaws.com/maven/my-repo/ \
+# ... Additional arguments
+```
+
+</TabItem>
+</Tabs>
+
 ## NPM
 
 NPM repositories support either basic authentication (`username` + `password`) or bearer token authentication (`bearerToken`), but not both at the same time.
