@@ -119,10 +119,10 @@ java -jar connector-{version}.jar \
 
 When a Maven repository URL points at an [AWS CodeArtifact](https://docs.aws.amazon.com/codeartifact/latest/ug/welcome.html) endpoint (`<domain>-<account-id>.d.codeartifact.<region>.amazonaws.com`) and you leave the password unset, the Connector mints and refreshes CodeArtifact authorization tokens itself. CodeArtifact tokens are short-lived (up to 12 hours), so this removes the need to manually generate and rotate a token before it expires. The Connector resolves AWS credentials through the [default credential provider chain](https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/credentials-chain.html) (IAM role, profile, environment variables, etc.), mints one token per CodeArtifact domain, and re-mints ahead of expiry so the request path does not block.
 
-To enable it, configure the repository with its CodeArtifact URL and leave `password` unset; the Connector authenticates as the CodeArtifact user `aws` automatically. A statically configured `password` always takes precedence, so a manually minted token remains fully supported (for example, when the Connector runs without an AWS identity).
+To enable it, configure the repository with its CodeArtifact URL and leave `password` unset; the Connector authenticates as the CodeArtifact user `aws` automatically. Statically configured credentials (`username` + `password`) always take precedence, so a manually minted token remains fully supported (for example, when the Connector runs without an AWS identity).
 
 :::info
-Token minting applies to recipe marketplace repositories only. CodeArtifact is not supported as an [LST source](./configure-a-connector-with-maven-repository-access.md#aws-codeartifact): CodeArtifact does not serve the maven-indexer index that LST poll discovery requires, and its package assets are immutable, so the Connector rejects CodeArtifact URLs in LST and organization source configuration at startup.
+Token minting does not apply to LST or organization sources. CodeArtifact is not supported as an [LST source](./configure-a-connector-with-maven-repository-access.md#aws-codeartifact): CodeArtifact does not serve the maven-indexer index that LST poll discovery requires, and its package assets are immutable, so the Connector rejects CodeArtifact URLs in LST and organization source configuration at startup.
 :::
 
 #### Prerequisites
