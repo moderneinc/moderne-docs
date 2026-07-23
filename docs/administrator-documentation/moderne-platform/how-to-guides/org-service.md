@@ -30,14 +30,9 @@ We generally recommend forking the template and modifying it as, in most cases, 
 
 ## Connector variables
 
-Once you've created an organizations service, configure your Connector to call it under the
-`moderne.custom-integrations` namespace. These variables/arguments must be combined with the
-ones found in other steps in the [Configuring the Moderne Connector guide](./connector-configuration/connector-config.md).
+Once you've created an organizations service, configure your Connector to call it under the `moderne.custom-integrations` namespace. These variables/arguments must be combined with the ones found in other steps in the [Configuring the Moderne Connector guide](./connector-configuration/connector-config.md).
 
-Access scoping is **fail-closed**: if the service is unreachable or returns an error, a user is
-restricted to no organizations rather than the full hierarchy. Commit-message customization is
-**fail-open**: an unreachable or erroring service leaves the original commit message unchanged, so
-it never blocks a commit.
+Access scoping is **fail-closed**: if the service is unreachable or returns an error, a user is restricted to no organizations rather than the full hierarchy. Commit-message customization is **fail-open**: an unreachable or erroring service leaves the original commit message unchanged, so it never blocks a commit.
 
 <Tabs groupId="agent-type">
 <TabItem value="oci-container" label="OCI Container">
@@ -92,8 +87,6 @@ java -jar moderne-connector-{version}.jar \
 </Tabs>
 
 :::note
-If you previously pointed the Moderne agent at this service with `moderne.agent.organization.service.url`,
-that setting is **not** carried over automatically — reconfigure it under
-`moderne.custom-integrations.organization-service.uri` as shown above.
+If you previously pointed the Moderne agent at this service with `moderne.agent.organization.service.url`, that setting is **not** carried over automatically — reconfigure it under `moderne.custom-integrations.organization-service.uri` as shown above.
 :::
 
