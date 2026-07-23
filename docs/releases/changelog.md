@@ -1,4 +1,9 @@
 # Platform changelog
+### UI v13.15.0 (2026/07/23)
+
+- migrate error pages and SCM authorization to ERROR_MESSAGES
+- create a user organization from a Find recipe's results
+
 ### UI v13.14.0 (2026/07/22)
 
 - restore clickable SCM line-number links in the unified diff
