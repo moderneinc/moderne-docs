@@ -71,7 +71,7 @@ docker run \
 
 | Argument Name                                                     | Required | Default | Description                                                                                                       |
 |-------------------------------------------------------------------|----------|---------|-------------------------------------------------------------------------------------------------------------------|
-| `--moderne.custom-integrations.organization-service.uri`          | `true`   |         | The URL of your organizations service's GraphQL endpoint.                                                          |
+| `--moderne.custom-integrations.organization-service.uri`          | `true`   |         | The URL of your GraphQL service that provides access control for your organizations or commit message customization.                                                          |
 | `--moderne.custom-integrations.organization-service.username`     | `false`  | `null`  | Username, if the service requires basic authentication.                                                           |
 | `--moderne.custom-integrations.organization-service.password`     | `false`  | `null`  | Password, if the service requires basic authentication.                                                           |
 | `--moderne.custom-integrations.organization-service.bearerToken`  | `false`  | `null`  | Bearer token, if the service uses token authentication. Takes precedence over username/password when both are set. |
