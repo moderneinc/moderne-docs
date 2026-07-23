@@ -76,7 +76,10 @@ mkdir -p "$MODERNE_CLI_HOME"
 # ---------------------------------------------------------------------------
 # 1. Acquire the Moderne CLI: reuse an installed `mod`, else download the jar.
 # ---------------------------------------------------------------------------
-if command -v mod >/dev/null 2>&1; then
+# Only trust a PATH `mod` that identifies as the Moderne CLI: installing Mono (needed
+# for nuget recipes) puts an unrelated `mod` tool on PATH that would otherwise hijack
+# every command. Anything else falls through to the Maven Central jar.
+if command -v mod >/dev/null 2>&1 && command mod --version 2>/dev/null | grep -qi moderne; then
   log "Using 'mod' found on PATH: $(command -v mod)"
   # `command mod` bypasses the mod() wrapper defined below.
   MOD_BIN=(command mod)
@@ -130,6 +133,7 @@ tool_available() {
     pip) command -v python3 >/dev/null || command -v python >/dev/null ;;
     npm) command -v npm >/dev/null ;;
     go)  command -v go >/dev/null ;;
+    nuget) command -v dotnet >/dev/null && command -v nuget >/dev/null ;;
     *)   return 0 ;;
   esac
 }
