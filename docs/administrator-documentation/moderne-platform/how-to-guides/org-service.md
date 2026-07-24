@@ -87,6 +87,6 @@ java -jar moderne-connector-{version}.jar \
 </Tabs>
 
 :::note
-If you previously pointed the Moderne agent at this service with `moderne.agent.organization.service.url`, that setting is **not** carried over automatically — reconfigure it under `moderne.custom-integrations.organization-service.uri` as shown above.
+If you previously pointed the Moderne agent at this service with `moderne.agent.organization.service.url`, that setting is **not** carried over automatically — reconfigure it under `moderne.custom-integrations.organization-service.uri` as shown above. The value must be the service's full GraphQL endpoint including the `/graphql` path, not just the host.
 :::
 
