@@ -1207,9 +1207,32 @@ const licensing = {
   ],
 };
 
+const codeGenomeProject = {
+  type: 'category' as const,
+  label: 'Code Genome Project',
+  customProps: {
+    gemIcon: 'green-triangle',
+    megaMenu: true,
+    homepageHref: '/user-documentation/code-genome-project/overview',
+  },
+  link: {
+    type: 'generated-index' as const,
+    title: 'Code Genome Project',
+    description: 'A Maven-compatible repository of OpenRewrite recipes and the Moderne CLI, plus a public open source code search dataset, hosted at codegenomeproject.org.',
+    slug: '/user-documentation/code-genome-project',
+    keywords: ['code genome project', 'recipes', 'maven', 'token', 'search'],
+  },
+  items: [
+    'user-documentation/code-genome-project/overview',
+    'user-documentation/code-genome-project/accessing-the-code-genome-project',
+    'user-documentation/code-genome-project/searching-the-code-genome-project',
+  ],
+};
+
 // Final sidebar composition
 const sidebars: SidebarsConfig = {
   docs: [
+    codeGenomeProject,
     platform.practitioner,
     cli,
     agentTools,

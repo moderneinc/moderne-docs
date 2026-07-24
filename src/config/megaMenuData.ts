@@ -36,6 +36,7 @@ const derivedProducts = deriveProductsFromSidebars();
  * Products not in this list will appear at the end
  */
 const secondaryNavOrder = [
+  'Code Genome Project',
   'Platform',
   'CLI',
   'Agent tools',
@@ -49,6 +50,7 @@ const secondaryNavOrder = [
  * Preferred order for homepage product cards (matches design)
  */
 const homepageCardOrder = [
+  'Code Genome Project',
   'Platform',
   'CLI',
   'Agent tools',
