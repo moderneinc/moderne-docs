@@ -84,7 +84,7 @@ If your organization has a private Moderne tenant, install from your tenant's UR
 
 ### Platform distribution
 
-Download the installer for your platform from your Moderne tenant, or from [app.moderne.io](https://app.moderne.io) if you don't have a tenant, and run it. The installer places the CLI in `~/.moderne/cli/` and adds it to your `PATH`:
+Download the installer for your platform from your Moderne tenant, or from [app.moderne.io](https://app.moderne.io) if you don't have a tenant, and run it. If you don't have access to a private SaaS tenant or `app.moderne.io`, work with your internal artifact repository team to onboard the Code Genome Project repository to your Artifactory or Nexus and install from there (see [Deploying the CLI from an internal artifact repository](../getting-started/cli-internal-mirror.md)). The installer places the CLI in `~/.moderne/cli/` and adds it to your `PATH`:
 
 ```bash
 # Linux (self-extracting installer)

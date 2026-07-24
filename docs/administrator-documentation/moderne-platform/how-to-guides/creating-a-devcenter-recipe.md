@@ -32,7 +32,7 @@ The first thing you need to do is to create a new recipe repository using either
 Once you've created your recipe repository, you will need to update your `build.gradle` or `pom.xml` file to include a dependency on [io.moderne.recipe:rewrite-devcenter](https://artifacts.codegenomeproject.org/maven/io/moderne/recipe/rewrite-devcenter/). This will give you access to key components you need to create and run DevCenter recipes.
 
 :::info[Code Genome Project credentials required]
-`rewrite-devcenter` resolves from the [Code Genome Project repository](https://artifacts.codegenomeproject.org/maven), which requires authentication. Add the repository and your Code Genome Project username and token to your build. For `build.gradle.kts`:
+`rewrite-devcenter` resolves from the [Code Genome Project repository](https://artifacts.codegenomeproject.org/maven), which requires authentication. Because it is a Moderne proprietary recipe (`io.moderne.recipe`), your Code Genome Project account must have the customer entitlement to download it. Add the repository and your Code Genome Project username and token to your build. For `build.gradle.kts`:
 
 ```kotlin
 repositories {

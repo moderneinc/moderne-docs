@@ -99,7 +99,11 @@ moderne-connector:latest
 
 **Example Dockerfile**
 
-For a working example, see the [`moderne-connector-example` Dockerfile](https://github.com/moderneinc/moderne-connector-example/blob/main/Dockerfile), which Moderne maintains and keeps current. Adapt it to your own base image, tools, and services, and keep it up to date as vulnerabilities arise.
+For a working example, see the [`moderne-connector-example` Dockerfile](https://github.com/moderneinc/moderne-connector-example/blob/main/Dockerfile), which Moderne maintains.
+
+:::info
+You are responsible for creating your own Dockerfile and base image, and for keeping it up to date as vulnerabilities arise. The linked example is a starting point; yours will differ, as it should point to and use your own tools and services.
+:::
 
 **Example environment variables file**
 
