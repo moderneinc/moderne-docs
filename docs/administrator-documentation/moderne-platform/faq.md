@@ -46,7 +46,7 @@ Mass ingest compiles every repository. To perform that compilation, all project 
 
 Your custom recipe JARs are stored in your Artifactory. In order to load them into the Moderne Platform, the Connector must have access to pull them from your Artifactory instance.
 
-If your organization wants to reduce dependency on external repositories like the Code Genome Project repository, all recipe JARs (including OpenRewrite recipes) and their dependencies can be served from your Artifactory.
+If your organization wants to reduce dependency on external repositories like the Code Genome Project repository, all recipe JARs (including OpenRewrite recipes) and their dependencies can be served from your artifact repository (for example, Artifactory or Nexus).
 
 **How to limit Artifactory usage**: Enable the in-memory POM cache on the Connector. The Moderne Platform also maintains a POM cache on the service that manages recipes.
 

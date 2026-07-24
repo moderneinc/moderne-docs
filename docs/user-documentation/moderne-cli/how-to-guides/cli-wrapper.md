@@ -110,7 +110,7 @@ The wrapper makes outbound network calls to two services:
 
 | What                                 | Source                                    | When                                                |
 |--------------------------------------|-------------------------------------------|-----------------------------------------------------|
-| CLI distribution (JAR + JRE)         | Moderne's distribution repository         | On first run or version change                      |
+| CLI distribution (JAR + JRE)         | Code Genome Project         | On first run or version change                      |
 | JDK (if no compatible Java is found) | [Eclipse Adoptium](https://adoptium.net/) | Only when no bundled JRE or system JDK is available |
 
 You can control both of these with properties (see below).
