@@ -1,21 +1,33 @@
-.homePage {
-  background-color: var(--background, #f7f7fe);
-  min-height: calc(100vh - var(--ifm-navbar-height));
-  position: relative;
-  overflow: hidden;
-}
+/**
+ * Landing page — Morpheus theme.
+ *
+ * The --mo-* custom properties are defined in src/css/custom.css under the
+ * .morpheus-landing scope, which index.tsx applies alongside .homePage, so
+ * nothing leaks into site chrome or docs pages. Reference prototype:
+ * https://moderneinc.github.io/prototypes/docs-morpheus.html
+ */
 
-[data-theme='dark'] .homePage {
-  background-color: var(--brand-midnight);
+.homePage {
+  background-color: var(--mo-bg);
+  font-family: var(--mo-font);
+  color: var(--mo-text);
+  position: relative;
+
+  /* The navbar is transparent and the page background normally stops below it.
+     Pull the cream canvas up behind the header chrome, then restore the exact
+     same offset as padding so content lands where .main-wrapper would put it. */
+  margin-top: calc(-1 * (var(--ifm-navbar-height) + var(--ifm-secondary-nav-height) + var(--ifm-announcement-bar-height)));
+  padding-top: calc(var(--ifm-navbar-height) + var(--ifm-secondary-nav-height) + var(--ifm-announcement-bar-height));
+  min-height: 100vh;
 }
 
 .pageBody {
-  max-width: 1440px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 80px 100px 100px;
+  padding: 64px 36px 90px;
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_5, 40px);
+  gap: 44px;
   position: relative;
   z-index: 1;
 }
@@ -23,8 +35,8 @@
 /* Tablet breakpoint */
 @media (max-width: 996px) {
   .pageBody {
-    padding: var(--neo-spacing_4, 32px) var(--neo-spacing_3, 24px);
-    gap: var(--neo-spacing_4, 32px);
+    padding: 32px 24px 64px;
+    gap: 32px;
   }
 }
 
@@ -32,50 +44,93 @@
   display: flex;
   align-items: flex-start;
   width: 100%;
+  padding-top: 24px;
 }
 
 .heroContent {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_3, 24px);
-  max-width: 600px;
+  gap: 18px;
+  max-width: 640px;
 }
 
 .heroHeading {
-  font-family: var(--ifm-font-family-base);
-  font-size: 54px;
-  font-weight: var(--neo-font-weight-medium);
+  font-family: var(--mo-font);
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
   line-height: 1.1;
+  color: var(--mo-text);
   margin: 0;
 }
 
-.heroHeadingBlue {
-  color: var(--brand-digital-blue);
-}
-
-.heroHeadingDark {
-  color: var(--brand-midnight);
-}
-
-[data-theme='dark'] .heroHeadingBlue {
-  color: var(--brand-digital-green);
-}
-
-[data-theme='dark'] .heroHeadingDark {
-  color: var(--neo-surfaces-white);
+.heroHeadingSpectral {
+  background: var(--mo-spectral);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .heroSubheading {
-  font-family: var(--ifm-font-family-base);
-  font-size: 28px;
-  font-weight: var(--neo-font-weight-medium);
-  line-height: 1.4;
-  color: var(--brand-midnight);
+  font-family: var(--mo-font);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--mo-muted);
+  max-width: 560px;
   margin: 0;
 }
 
-[data-theme='dark'] .heroSubheading {
-  color: var(--neo-surfaces-white);
+.heroActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* Morpheus button overrides for NeoButton. Doubled class selectors so they
+   reliably out-rank NeoButton's own variant + state rules. */
+.morpheusButtonPrimary.morpheusButtonPrimary {
+  font-family: var(--mo-font);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 17px;
+  border-radius: 4px;
+  background-color: var(--mo-btn-primary-bg);
+  color: var(--mo-btn-primary-fg);
+  border: 1px solid transparent;
+}
+
+.morpheusButtonPrimary.morpheusButtonPrimary:hover:not(:disabled) {
+  background-color: var(--mo-btn-primary-bg-hover);
+  color: var(--mo-btn-primary-fg);
+}
+
+.morpheusButtonPrimary.morpheusButtonPrimary:focus-visible {
+  outline: 2px solid var(--mo-link);
+  outline-offset: 2px;
+}
+
+.morpheusButtonSecondary.morpheusButtonSecondary {
+  font-family: var(--mo-font);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 17px;
+  border-radius: 4px;
+  background-color: var(--mo-field);
+  color: var(--mo-text);
+  border: 1px solid var(--mo-line-strong);
+}
+
+.morpheusButtonSecondary.morpheusButtonSecondary:hover:not(:disabled) {
+  background-color: var(--mo-surface);
+  color: var(--mo-text);
+}
+
+.morpheusButtonSecondary.morpheusButtonSecondary:focus-visible {
+  outline: 2px solid var(--mo-link);
+  outline-offset: 2px;
 }
 
 /* Mobile breakpoint */
@@ -85,78 +140,97 @@
   }
 
   .heroSubheading {
-    font-size: var(--neo-font-size-default, 16px);
+    font-size: 15px;
   }
 
   .pageBody {
-    padding: var(--neo-spacing_3, 24px) var(--neo-spacing_2, 16px);
+    padding: 24px 16px 48px;
   }
 }
 
-/* What is Moderne Section */
-.whatIsSection {
+/* Spectral accent bar shared by the prose sections */
+.spectralBar {
+  width: 64px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--mo-spectral);
+}
+
+/* What is Moderne / More about Moderne — Morpheus prose cards */
+.whatIsSection,
+.platformSection {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_5, 40px);
+  gap: 18px;
   width: 100%;
+  background-color: var(--mo-card);
+  border: 1px solid var(--mo-line);
+  border-radius: 12px;
+  padding: 28px 30px;
 }
 
 .sectionHeader {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_3, 24px);
+  gap: 12px;
   width: 100%;
 }
 
 .sectionTitle {
-  font-family: var(--ifm-font-family-base);
-  font-size: 24px;
-  font-weight: var(--neo-font-weight-semi-bold);
-  line-height: 1.4;
-  color: var(--brand-midnight);
+  font-family: var(--mo-font);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--mo-text);
   margin: 0;
-}
-
-[data-theme='dark'] .sectionTitle {
-  color: var(--neo-surfaces-white);
+  /* Land the #what-is-moderne anchor below the fixed header with breathing room */
+  scroll-margin-top: 24px;
 }
 
 .sectionDescription {
-  font-family: var(--ifm-font-family-base);
-  font-size: 15px;
-  font-weight: var(--neo-font-weight-regular, 400);
-  line-height: 1.4;
-  color: var(--brand-midnight);
-  max-width: 700px;
+  font-family: var(--mo-font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--mo-muted);
+  max-width: 720px;
   margin: 0;
 }
 
-[data-theme='dark'] .sectionDescription {
-  color: var(--neo-surfaces-white);
+.sectionDescription strong {
+  color: var(--mo-text);
+  font-weight: 600;
+}
+
+.sectionDescription a {
+  color: var(--mo-link);
+  text-decoration: none;
+}
+
+.sectionDescription a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .videoGrid {
   display: flex;
-  gap: var(--neo-spacing_5, 40px);
+  gap: 24px;
   flex-wrap: wrap;
 }
 
 /* Hairline outer border + 8px padding around home-page video thumbnails */
 .videoThumbnail {
-  padding: var(--neo-spacing_1);
-  background-color: transparent;
-  border: 1px solid var(--neo-grey-200);
-  border-radius: var(--neo-border-radius-m);
-  box-shadow: var(--neo-shadow-card);
+  padding: 8px;
+  background-color: var(--mo-field);
+  border: 1px solid var(--mo-line);
+  border-radius: 12px;
+  box-shadow: none;
   box-sizing: content-box;
 }
 
-[data-theme='dark'] .videoThumbnail {
-  border-color: var(--neo-grey-700);
-}
-
 .videoThumbnail > * {
-  border-radius: var(--neo-border-radius-x-s);
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -164,101 +238,39 @@
 .videoThumbnail :global(video),
 .videoThumbnail :global(img) {
   display: block;
-  border-radius: var(--neo-border-radius-x-s);
-}
-
-
-@media (max-width: 996px) {
-  .videoGrid {
-    gap: var(--neo-spacing_3, 24px);
-  }
-
-}
-
-/* Platform Details Section */
-.platformSection {
-  display: flex;
-  flex-direction: column;
-  gap: var(--neo-spacing_3, 24px);
-  width: 100%;
+  border-radius: 8px;
 }
 
 .platformContent {
-  font-family: var(--ifm-font-family-base);
-  font-size: 15px;
-  font-weight: var(--neo-font-weight-regular, 400);
-  line-height: 1.4;
-  color: var(--brand-midnight);
-  max-width: 700px;
-}
-
-[data-theme='dark'] .platformContent {
-  color: var(--neo-surfaces-white);
+  font-family: var(--mo-font);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--mo-muted);
+  max-width: 720px;
 }
 
 .platformContent p {
-  margin: 0 0 var(--neo-spacing_2, 16px) 0;
+  margin: 0 0 12px 0;
 }
 
 .platformContent p:last-child {
   margin-bottom: 0;
 }
 
+.platformContent strong {
+  color: var(--mo-text);
+  font-weight: 600;
+}
+
 .platformContent a {
-  color: var(--brand-digital-blue);
+  color: var(--mo-link);
   text-decoration: none;
 }
 
 .platformContent a:hover {
   text-decoration: underline;
-}
-
-[data-theme='dark'] .platformContent a {
-  color: var(--brand-digital-green);
-}
-
-.gemDecorations {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.gem {
-  position: absolute;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
-}
-
-/* Large edge gems */
-.gemLargeRight {
-  top: -10px;
-  right: -140px;
-  width: 410px;
-  height: auto;
-  opacity: 0.9;
-  transform: rotate(30deg);
-}
-
-.gemLargeLeft {
-  top: 155px;
-  left: -414px;
-  width: 780px;
-  height: auto;
-  opacity: 0.9;
-  transform: rotate(342.44deg);
-}
-
-/* Dark mode: show large gems */
-[data-theme='dark'] .gemLargeRight {
-  opacity: 0.6;
-}
-
-[data-theme='dark'] .gemLargeLeft {
-  opacity: 0.6;
+  text-underline-offset: 3px;
 }
 
 /* Small mobile */
@@ -266,11 +278,9 @@
   .heroHeading {
     font-size: 28px;
   }
-}
 
-/* Hide gems on mobile */
-@media (max-width: 996px) {
-  .gemDecorations {
-    display: none;
+  .whatIsSection,
+  .platformSection {
+    padding: 20px;
   }
 }

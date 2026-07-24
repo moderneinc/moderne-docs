@@ -724,3 +724,50 @@ html[data-theme='dark'] {
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 calc(var(--ifm-pre-padding) - 3px) 0 var(--ifm-pre-padding);
 }
+
+/* Morpheus landing-page scope
+   The --mo-* tokens power the redesigned landing page only. The class is applied
+   solely by src/pages/index.tsx, so these values never reach site chrome or docs
+   pages. Reference: https://moderneinc.github.io/prototypes/docs-morpheus.html */
+.morpheus-landing {
+  --mo-font: 'Geist', var(--ifm-font-family-base);
+  --mo-font-mono: 'Geist Mono', monospace;
+  --mo-spectral: linear-gradient(92deg, #e6399b, #9d5be8, #3e7bf6, #25d0c0, #30f284, #b7e84c);
+  --mo-bg: #f2f0ea;
+  --mo-field: #fbfaf6;
+  --mo-card: #f4f2eb;
+  --mo-surface: #edebe2;
+  --mo-surface2: #e4e1d6;
+  --mo-row-hover: #edebe2;
+  --mo-line: rgba(35, 35, 66, 0.12);
+  --mo-line-strong: rgba(35, 35, 66, 0.5);
+  --mo-text: #232342;
+  --mo-muted: #62627a;
+  --mo-link: #1245ae;
+  --mo-btn-primary-bg: #232342;
+  --mo-btn-primary-bg-hover: #2c2c50;
+  --mo-btn-primary-fg: #fbfaf6;
+  --mo-tile-panel: #fbfaf6;
+  --mo-tile-stroke: rgba(35, 35, 66, 0.5);
+  --mo-tile-accent: #3e5be8;
+}
+
+html[data-theme='dark'] .morpheus-landing {
+  --mo-bg: #141419;
+  --mo-field: #222229;
+  --mo-card: #26262e;
+  --mo-surface: #2a2a32;
+  --mo-surface2: #33333d;
+  --mo-row-hover: #2e2e38;
+  --mo-line: rgba(240, 240, 246, 0.12);
+  --mo-line-strong: rgba(240, 240, 246, 0.38);
+  --mo-text: #f1f0ea;
+  --mo-muted: #9c9ca8;
+  --mo-link: #7fa9f9;
+  --mo-btn-primary-bg: #f1f0ea;
+  --mo-btn-primary-bg-hover: #ffffff;
+  --mo-btn-primary-fg: #17171c;
+  --mo-tile-panel: #26262e;
+  --mo-tile-stroke: rgba(240, 240, 246, 0.38);
+  --mo-tile-accent: #8ca0f5;
+}

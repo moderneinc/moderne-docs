@@ -1,30 +1,46 @@
 /**
- * ProductCardsGrid - Displays products in a responsive 4-column grid
+ * ProductCardsGrid — Morpheus "Browse by area" cards.
+ *
+ * Consumes the --mo-* custom properties defined on the landing page's
+ * .homePage scope (src/pages/index.module.css). This component is only
+ * rendered on the landing page; mount it elsewhere and the variables
+ * must be provided by that scope.
  */
 
 .browseByProduct {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_3);
+  gap: 22px;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  border-bottom: 1px solid var(--mo-line);
+  padding-bottom: 12px;
 }
 
 .sectionTitle {
-  font-size: var(--neo-font-size-default);
-  font-weight: var(--neo-font-weight-medium);
-  color: var(--ifm-heading-color);
+  font-family: var(--mo-font);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--mo-text);
   margin: 0;
+}
+
+.sectionMeta {
+  font-family: var(--mo-font-mono);
+  font-size: 11px;
+  color: var(--mo-muted);
+  margin-left: auto;
 }
 
 .productGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--neo-spacing_3);
-}
-
-@media (max-width: 996px) {
-  .productGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
 }
 
 @media (max-width: 576px) {
@@ -35,61 +51,69 @@
 
 .productCard {
   display: flex;
-  padding: var(--neo-spacing_3);
-  background: transparent;
-  border: 1px solid var(--neo-border-card);
-  border-radius: var(--neo-border-radius-x-s);
+  gap: 15px;
+  align-items: flex-start;
+  padding: 18px;
+  background: var(--mo-card);
+  border: 1px solid var(--mo-line);
+  border-radius: 12px;
+  color: var(--mo-text);
   text-decoration: none;
   transition: background-color var(--ifm-transition-fast) ease,
-              border-color var(--ifm-transition-fast) ease,
-              box-shadow var(--ifm-transition-fast) ease;
+              border-color var(--ifm-transition-fast) ease;
 }
 
 .productCard:hover {
-  background: var(--neo-surfaces-white);
-  border-color: transparent;
-  box-shadow: var(--neo-shadow-card);
+  background: var(--mo-row-hover);
   text-decoration: none;
+  color: var(--mo-text);
+}
+
+.productCardTile {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--mo-tile-panel);
+  border: 1px solid var(--mo-tile-stroke);
+  border-radius: 10px;
+  color: var(--mo-tile-accent);
 }
 
 .productCardContent {
   display: flex;
   flex-direction: column;
-  gap: var(--neo-spacing_1_2);
+  gap: 4px;
   min-width: 0;
 }
 
 .productCardTitle {
-  font-size: var(--neo-font-size-default);
-  font-weight: var(--neo-font-weight-semi-bold);
-  color: var(--ifm-heading-color);
+  font-family: var(--mo-font);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--mo-text);
   margin: 0;
   line-height: 1.3;
 }
 
 .productCardDescription {
-  font-size: var(--neo-font-size-sm);
-  font-weight: var(--neo-font-weight-regular);
-  color: var(--neo-typography-body-secondary);
+  font-family: var(--mo-font);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--mo-muted);
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-/* Dark mode adjustments */
-:global(html[data-theme='dark']) .productCard {
-  background: transparent;
-  border-color: var(--neo-grey-700);
-}
-
-:global(html[data-theme='dark']) .productCard:hover {
-  background: var(--neo-grey-800);
-  border-color: var(--neo-grey-600);
-}
-
-:global(html[data-theme='dark']) .productCardTitle {
-  color: var(--neo-surfaces-white);
-}
-
-:global(html[data-theme='dark']) .productCardDescription {
-  color: var(--neo-grey-300);
+.productCardGo {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mo-font);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mo-link);
+  margin-top: 4px;
 }
