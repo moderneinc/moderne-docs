@@ -33,7 +33,7 @@ With the Moderne CLI configured and the plugin downloaded and installed, you're 
 
 The first thing you'll need to do is tell the Moderne plugin where the CLI is located. To do this, go to `Settings` --> `Tools` --> `Moderne`.
 
-If the CLI is installed on the system PATH (e.g., with Homebrew or Chocalatey), you'll want to select the top radio button, and the plugin should automatically find the CLI. If you have downloaded the CLI via Maven Central or an internal artifact repository as a JAR, you'll want to pick the second radio button and specify the path where it has been downloaded on disk:
+If the CLI is installed on the system PATH (e.g., with Homebrew or Chocolatey), you'll want to select the top radio button, and the plugin should automatically find the CLI. If you have downloaded the CLI as a JAR (for example, from an internal artifact repository), you'll want to pick the second radio button and specify the path where it has been downloaded on disk:
 
 ![Configuring the Moderne IDE plugin with the Moderne CLI](./assets/ModernePluginCLIConfig.gif)
 

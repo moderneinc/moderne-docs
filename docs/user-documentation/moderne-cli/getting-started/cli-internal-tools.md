@@ -8,7 +8,7 @@ description: How to configure the Moderne CLI to integrate with internal tooling
 This guide covers configuring the Moderne CLI to integrate with internal tooling at your organization. It assumes you already have the CLI installed.
 
 :::info
-If you're starting from scratch in an environment that cannot reach Maven Central directly (typical for DX and many Enterprise deployments), first install the CLI by following the [deploying the CLI from an internal Maven Central mirror](./cli-internal-mirror.md) guide. Once installed, return here to wire up the other internal integrations you need.
+If you're starting from scratch in an environment that installs the CLI from an internal artifact repository (typical for DX and many Enterprise deployments), first install the CLI by following the [deploying the CLI from an internal artifact repository](./cli-internal-mirror.md) guide. Once installed, return here to wire up the other internal integrations you need.
 :::
 
 ## Pointing the CLI at a custom Maven settings file

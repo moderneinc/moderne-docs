@@ -356,7 +356,7 @@ mvn install
 
 ### Publishing to artifact repositories
 
-The [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project is configured to publish to Moderne's open artifact repository (via the `publishing` task at the bottom of the `build.gradle.kts` file). If you want to publish elsewhere, you'll want to update that task. [app.moderne.io](https://app.moderne.io) can draw recipes from the provided repository, as well as from [Maven Central](https://search.maven.org).
+The [rewrite-recipe-starter](https://github.com/moderneinc/rewrite-recipe-starter) project is configured to publish to Moderne's open artifact repository (via the `publishing` task at the bottom of the `build.gradle.kts` file). If you want to publish elsewhere, you'll want to update that task. [app.moderne.io](https://app.moderne.io) can draw recipes from the provided repository, as well as from the [Code Genome Project repository](https://artifacts.codegenomeproject.org/maven).
 
 :::info
 Running the publish task _will not_ update [app.moderne.io](https://app.moderne.io), as only Moderne employees can add new recipes. If you want to add your recipe to [app.moderne.io](https://app.moderne.io), please ask the team in [Slack](https://join.slack.com/t/rewriteoss/shared\_invite/zt-nj42n3ea-b\~62rIHzb3Vo0E1APKCXEA) or in [Discord](https://discord.gg/xk3ZKrhWAb).

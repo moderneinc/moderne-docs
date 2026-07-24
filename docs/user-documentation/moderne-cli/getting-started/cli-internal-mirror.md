@@ -1,33 +1,35 @@
 ---
-sidebar_label: "Deploying the CLI from an internal Maven Central mirror"
-description: How to install and configure the Moderne CLI in environments that fetch artifacts from an internal mirror of Maven Central.
+sidebar_label: "Deploying the CLI from an internal artifact repository"
+description: How to install and configure the Moderne CLI in environments that fetch artifacts from an internal artifact repository instead of directly from the public internet.
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Deploy the Moderne CLI from an internal Maven Central mirror
+# Deploy the Moderne CLI from an internal artifact repository
 
 This guide walks through installing and configuring the Moderne CLI in environments where the CLI must fetch its distribution and recipe artifacts from an internal artifact repository instead of accessing the public internet directly.
 
 By the end of this guide, you'll have the CLI installed from your internal mirror and stocked with the recipe JARs needed to run recipes.
 
+You will work with your internal Artifactory or Nexus team to onboard `https://artifacts.codegenomeproject.org/maven` as a new remote repository.
+
 ## Prerequisites
 
 This guide assumes that you have:
 
-* An internal artifact repository mirroring Maven Central (e.g., Artifactory or Nexus)
+* An internal artifact repository (e.g., Artifactory or Nexus) mirroring the artifacts the CLI needs
 * A Moderne license - which you'll activate per the [Moderne CLI license documentation](./moderne-cli-license.md) after completing the installation of the CLI
 
 ## Step 1: Ensure required artifacts exist in your internal artifact repository
 
 Before installing the CLI, ensure your internal artifact repository contains the following artifacts:
 
-* **The Moderne CLI distribution** — distributed as a platform-specific self-extracting installer that bundles the `modw` wrapper, a Java 25 runtime, and the CLI JAR. It's published to Maven Central under platform-specific artifact IDs: [`moderne-cli-linux`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-linux/versions), [`moderne-cli-osx`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-osx/versions), and [`moderne-cli-windows`](https://central.sonatype.com/artifact/io.moderne/moderne-cli-windows/versions).
+* **The Moderne CLI distribution** — distributed as a platform-specific self-extracting installer that bundles the `modw` wrapper, a Java 25 runtime, and the CLI JAR. It's published under platform-specific artifact IDs: `moderne-cli-linux`, `moderne-cli-osx`, and `moderne-cli-windows`.
 * **Recipe modules** — see [the latest versions of every OpenRewrite module](../../recipes/lists/latest-versions-of-every-openrewrite-module.md) reference for the full list of recipe JARs and a ready-to-run CLI install command. The reference covers both the open-source OpenRewrite recipes (`org.openrewrite.*`) and Moderne's proprietary recipes (`io.moderne.recipe`).
 
 :::tip
-If your mirror is configured as a remote proxy of Maven Central (e.g., a virtual repository in Artifactory or a proxy repo in Nexus), artifacts are fetched on demand and cached automatically. If your mirror requires explicit sync-on-approval, each version you intend to use must be synced before users can install or upgrade.
+If your mirror is configured as a remote proxy of the upstream repositories (e.g., a virtual repository in Artifactory or a proxy repo in Nexus), configure it with the appropriate upstream credentials so it can authenticate. Artifacts are then fetched on demand and cached automatically. If your mirror requires explicit sync-on-approval, each version you intend to use must be synced before users can install or upgrade.
 :::
 
 ## Step 2: Install the CLI from your internal mirror
@@ -82,7 +84,7 @@ The macOS distribution bundles a JRE for **Apple Silicon only**. Intel Mac users
 :::
 
 :::note
-By default, the CLI checks Maven Central on each run and auto-updates to the latest release. If your environment cannot reach Maven Central directly, you'll need to configure how the wrapper resolves and downloads versions — see [air-gapped or restricted environments](../how-to-guides/cli-wrapper.md#air-gapped-or-restricted-environments) in the CLI wrapper guide.
+By default, the CLI checks for updates on each run and auto-updates to the latest release. If your environment restricts outbound internet access, you'll need to configure how the wrapper resolves and downloads versions — see [air-gapped or restricted environments](../how-to-guides/cli-wrapper.md#air-gapped-or-restricted-environments) in the CLI wrapper guide.
 :::
 
 Verify the installation by running `mod --version`.
@@ -91,7 +93,7 @@ For more on how the wrapper works (auto-update behavior, distribution URLs, JDK 
 
 ## Step 3: Install recipe JARs
 
-With the CLI installed, the final piece is to stock it with recipes. This assumes the recipe JARs you want are already available in your internal artifact repository (per Step 1) — either because your mirror proxies Maven Central or because an administrator has synced them explicitly.
+With the CLI installed, the final piece is to stock it with recipes. This assumes the recipe JARs you want are already available in your internal artifact repository (per Step 1) — either because your mirror proxies the upstream repositories or because an administrator has synced them explicitly.
 
 Run the `mod config recipes jar install` command and provide it with the JARs you wish to install. The latest version of every JAR, along with a ready-to-paste CLI install command, can be found at the bottom of [the latest versions of every OpenRewrite module doc](../../recipes/lists/latest-versions-of-every-openrewrite-module.md#cli-installation). This page is updated automatically with every release.
 

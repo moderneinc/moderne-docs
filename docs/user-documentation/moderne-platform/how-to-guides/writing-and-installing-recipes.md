@@ -27,7 +27,7 @@ If your recipe is more complex than that, please check out the [OpenRewrite reci
 You may also find it beneficial to work through our [recipe authoring workshop](../../../hands-on-learning/fundamentals/workshop-overview.md) that will take you through the process of writing and running many different types of recipes.
 
 :::tip
-As a Moderne customer, you have access to the [Moderne recipe bom](https://central.sonatype.com/artifact/io.moderne.recipe/moderne-recipe-bom/versions) which can help you align versions of all Moderne recipe modules.
+As a Moderne customer, you have access to the [Moderne recipe bom](https://artifacts.codegenomeproject.org/maven/io/moderne/recipe/moderne-recipe-bom/) which can help you align versions of all Moderne recipe modules.
 :::
 
 ## Step 2: Create a recipe JAR

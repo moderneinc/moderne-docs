@@ -67,7 +67,7 @@ mod config moderne login
 The login command opens a browser, asks you to grant the CLI access to your account, and stores a token locally that's valid for 365 days. If you're running on an Enterprise tenant, replace the URL with your tenant's hostname.
 
 :::tip[Restrictive networks]
-On corporate networks with proxies or limited Maven Central / Moderne SaaS access, see [Deploying the CLI from an internal Maven Central mirror](../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) for installation, and [Configuring the CLI to work with internal tools](../../user-documentation/moderne-cli/getting-started/cli-internal-tools.md) for related integrations, before continuing. Without a properly configured setup, you'll commonly see:
+On corporate networks with proxies or limited internet / Moderne SaaS access, see [Deploying the CLI from an internal artifact repository](../../user-documentation/moderne-cli/getting-started/cli-internal-mirror.md) for installation, and [Configuring the CLI to work with internal tools](../../user-documentation/moderne-cli/getting-started/cli-internal-tools.md) for related integrations, before continuing. Without a properly configured setup, you'll commonly see:
 
 * `mod git sync moderne` reports `PARTIAL SUCCESS` because a few LSTs sit on hosts your network can't reach
 * `mod config recipes jar install` fails to resolve a JAR — point it at your internal Artifactory/Nexus first via `mod config recipes artifacts`
