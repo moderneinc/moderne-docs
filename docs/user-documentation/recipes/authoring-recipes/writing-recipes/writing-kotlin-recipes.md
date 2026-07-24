@@ -421,6 +421,12 @@ mod config recipes jar install com.yourorg:kotlin-recipe-starter:LATEST
 mod run . --recipe=com.yourorg.UseModernKotlinApis
 ```
 
+Repeat those two commands each time you change a recipe, so that the CLI picks up the rebuilt jar.
+
+:::info
+The [active recipe](../../../moderne-cli/cli-reference.md#mod-config-recipes-active-set) shortcut used elsewhere in the docs takes a `.java`, `.yml`, or `.yaml` source file, so it does not accept the `.kt` files you write with the DSL. Publish and install the jar as above to iterate on a Kotlin recipe.
+:::
+
 To share the recipe more widely, publish the artifact to your organization's artifact repository and [install it in the Moderne Platform](../../../moderne-platform/how-to-guides/writing-and-installing-recipes.md) so that anyone in your organization can run it.
 
 ## Next steps
