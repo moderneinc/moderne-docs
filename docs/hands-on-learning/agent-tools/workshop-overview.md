@@ -41,7 +41,7 @@ You will also need:
 
 * The [Moderne CLI](../../user-documentation/moderne-cli/getting-started/cli-intro.md) (version 4.2.1 or higher recommended). You'll install this in [Module 1](./module-1-cli-and-lsts.md)
 * A JDK installed locally (Java 17 or higher recommended)
-* An AI coding agent. The exercises demo with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview), but every step works with [Cursor](https://cursor.sh), [GitHub Copilot](https://github.com/features/copilot), [Windsurf](https://codeium.com/windsurf), [Sourcegraph Amp](https://ampcode.com), or [OpenAI Codex](https://openai.com/codex)
+* An AI coding agent. The exercises demo with [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview), but every step works with [Cursor](https://cursor.sh), [GitHub Copilot](https://github.com/features/copilot), [Windsurf](https://codeium.com/windsurf), [Sourcegraph Amp](https://ampcode.com), [OpenAI Codex](https://openai.com/codex), or [opencode](https://opencode.ai)
 * A Moderne account on [app.moderne.io](https://app.moderne.io) (a free login is sufficient)
 
 If you've never used the Moderne CLI before, work through the [Introduction to OpenRewrite](../introduction/workshop-overview.md) workshop first. This workshop assumes you're comfortable running `mod` commands.
@@ -55,7 +55,7 @@ Most agents ask for your approval before running tools (reading files, executing
 :::
 
 :::tip[Agent-agnostic by design]
-Examples in this workshop demo with Claude Code (slash commands like `/moderne:create-recipe`, the `claude` startup command). Every step works the same way in Cursor, GitHub Copilot, Windsurf, Amp, and Codex. When you see a Claude-specific command, substitute the equivalent for your agent. See [Invoking skills](../../user-documentation/agent-tools/skills.md#invoking-skills) for the per-agent syntax.
+Examples in this workshop demo with Claude Code (slash commands like `/moderne:create-recipe`, the `claude` startup command). Every step works the same way in Cursor, GitHub Copilot, Windsurf, Amp, Codex, and opencode. When you see a Claude-specific command, substitute the equivalent for your agent. See [Invoking skills](../../user-documentation/agent-tools/skills.md#invoking-skills) for the per-agent syntax.
 :::
 
 ## Workshop modules
