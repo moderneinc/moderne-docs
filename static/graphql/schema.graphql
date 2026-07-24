@@ -379,7 +379,7 @@ type BatchChange implements OrganizationChangeset
   dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this batch change."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -388,15 +388,15 @@ type BatchChange implements OrganizationChangeset
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
-  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
 
   """
   Bulk pull request actions (approve, merge, close) launched from this changeset.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 type BatchChangeFileChange implements FileChange
@@ -520,7 +520,7 @@ interface BulkPullRequestAction
   id: ID!
   actionType: PullRequestActionType!
   user: User!
-  results(first: Int = 50, after: String, where: PullRequestActionWhereInput, orderBy: [PullRequestActionOrderByInput!]): PullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  results(first: Int = 50, after: String, where: PullRequestActionWhereInput, orderBy: [PullRequestActionOrderByInput!]): PullRequestActionConnection!
 }
 
 type BulkPullRequestActionCanceled implements BulkPullRequestAction
@@ -531,7 +531,7 @@ type BulkPullRequestActionCanceled implements BulkPullRequestAction
   actionType: PullRequestActionType!
   user: User!
   canceledBy: User!
-  results(first: Int = 50, after: String, where: PullRequestActionWhereInput, orderBy: [PullRequestActionOrderByInput!]): PullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  results(first: Int = 50, after: String, where: PullRequestActionWhereInput, orderBy: [PullRequestActionOrderByInput!]): PullRequestActionConnection!
 }
 
 type BulkPullRequestActionConnection
@@ -557,7 +557,7 @@ type BulkPullRequestActionError implements BulkPullRequestAction
   actionType: PullRequestActionType!
   user: User!
   errorMessage: String!
-  results(first: Int = 50, after: String, where: PullRequestActionWhereInput, orderBy: [PullRequestActionOrderByInput!]): PullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  results(first: Int = 50, after: String, where: PullRequestActionWhereInput, orderBy: [PullRequestActionOrderByInput!]): PullRequestActionConnection!
 }
 
 type BulkPullRequestActionFinished implements BulkPullRequestAction
@@ -569,7 +569,7 @@ type BulkPullRequestActionFinished implements BulkPullRequestAction
   user: User!
   startedAt: DateTime!
   finishedAt: DateTime!
-  results(first: Int = 50, after: String, where: PullRequestActionWhereInput, orderBy: [PullRequestActionOrderByInput!]): PullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  results(first: Int = 50, after: String, where: PullRequestActionWhereInput, orderBy: [PullRequestActionOrderByInput!]): PullRequestActionConnection!
 }
 
 enum BulkPullRequestActionOrderByField
@@ -596,7 +596,7 @@ type BulkPullRequestActionQueued implements BulkPullRequestAction
   actionType: PullRequestActionType!
   user: User!
   queuedAt: DateTime!
-  results(first: Int = 50, after: String, where: PullRequestActionWhereInput, orderBy: [PullRequestActionOrderByInput!]): PullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  results(first: Int = 50, after: String, where: PullRequestActionWhereInput, orderBy: [PullRequestActionOrderByInput!]): PullRequestActionConnection!
 }
 
 type BulkPullRequestActionRunning implements BulkPullRequestAction
@@ -607,7 +607,7 @@ type BulkPullRequestActionRunning implements BulkPullRequestAction
   actionType: PullRequestActionType!
   user: User!
   startedAt: DateTime!
-  results(first: Int = 50, after: String, where: PullRequestActionWhereInput, orderBy: [PullRequestActionOrderByInput!]): PullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  results(first: Int = 50, after: String, where: PullRequestActionWhereInput, orderBy: [PullRequestActionOrderByInput!]): PullRequestActionConnection!
 }
 
 """
@@ -679,7 +679,7 @@ interface ChangelogBulkPullRequestAction
   id: ID!
   actionType: ChangelogPullRequestActionType!
   user: User!
-  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection!
 }
 
 type ChangelogBulkPullRequestActionCanceled implements ChangelogBulkPullRequestAction
@@ -690,7 +690,7 @@ type ChangelogBulkPullRequestActionCanceled implements ChangelogBulkPullRequestA
   actionType: ChangelogPullRequestActionType!
   user: User!
   canceledBy: User!
-  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection!
 }
 
 type ChangelogBulkPullRequestActionConnection
@@ -716,7 +716,7 @@ type ChangelogBulkPullRequestActionError implements ChangelogBulkPullRequestActi
   actionType: ChangelogPullRequestActionType!
   user: User!
   errorMessage: String!
-  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection!
 }
 
 type ChangelogBulkPullRequestActionFinished implements ChangelogBulkPullRequestAction
@@ -728,7 +728,7 @@ type ChangelogBulkPullRequestActionFinished implements ChangelogBulkPullRequestA
   user: User!
   startedAt: DateTime!
   finishedAt: DateTime!
-  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection!
 }
 
 enum ChangelogBulkPullRequestActionOrderByField
@@ -755,7 +755,7 @@ type ChangelogBulkPullRequestActionQueued implements ChangelogBulkPullRequestAct
   actionType: ChangelogPullRequestActionType!
   user: User!
   queuedAt: DateTime!
-  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection!
 }
 
 type ChangelogBulkPullRequestActionRunning implements ChangelogBulkPullRequestAction
@@ -766,7 +766,7 @@ type ChangelogBulkPullRequestActionRunning implements ChangelogBulkPullRequestAc
   actionType: ChangelogPullRequestActionType!
   user: User!
   startedAt: DateTime!
-  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  results(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection!
 }
 
 """
@@ -1064,7 +1064,7 @@ type ChangelogPullRequest implements ChangelogEntry
   Actions (approve, merge, close) that have been applied to this pull request.
   Default sort order is descending by startedAt.
   """
-  actions(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  actions(first: Int = 50, after: String, where: ChangelogPullRequestActionWhereInput, orderBy: [ChangelogPullRequestActionOrderByInput!]): ChangelogPullRequestActionConnection! @cost(weight: 50)
 }
 
 """
@@ -1237,7 +1237,7 @@ type CodeSearchResult
 {
   groupId: String!
   artifactId: String!
-  fileChanges(first: Int = 100, after: String): FileChangeConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  fileChanges(first: Int = 100, after: String): FileChangeConnection!
 }
 
 type CodeSearchResultConnection
@@ -1469,7 +1469,7 @@ type Conversation
   id: ID!
   organization: Organization!
   user: User!
-  messages(first: Int = 100, after: String): MessageConnection! @cost(weight: 50) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  messages(first: Int = 100, after: String): MessageConnection! @cost(weight: 50)
 
   """
   Current turn state for this conversation. Carries the server-
@@ -1863,7 +1863,7 @@ type DevCenter
   """
   DevCenter runs for this organization, ordered by start time descending.
   """
-  runs(first: Int = 10, after: String, where: DevCenterRunWhereInput, orderBy: [DevCenterRunOrderByInput!]): DevCenterRunConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  runs(first: Int = 10, after: String, where: DevCenterRunWhereInput, orderBy: [DevCenterRunOrderByInput!]): DevCenterRunConnection! @cost(weight: 50)
 }
 
 """How DevCenter card results are aggregated across repositories."""
@@ -3432,13 +3432,13 @@ type Organization
   id: ID!
 
   """PR and commit activity feed for repositories in this organization."""
-  changelog(first: Int = 50, after: String, where: ChangelogEntryWhereInput, orderBy: [ChangelogEntryOrderByInput!]): ChangelogEntryConnection! @join__field(graph: CHANGELOGREADER) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  changelog(first: Int = 50, after: String, where: ChangelogEntryWhereInput, orderBy: [ChangelogEntryOrderByInput!]): ChangelogEntryConnection! @join__field(graph: CHANGELOGREADER) @cost(weight: 100)
 
   """
   All unique participants across the changelog for this organization,
   aggregated from authors, assignees, closers, and reviewers.
   """
-  participants(first: Int = 50, after: String, where: ChangelogParticipantWhereInput, orderBy: [ChangelogParticipantOrderByInput!]): ChangelogParticipantConnection! @join__field(graph: CHANGELOGREADER) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  participants(first: Int = 50, after: String, where: ChangelogParticipantWhereInput, orderBy: [ChangelogParticipantOrderByInput!]): ChangelogParticipantConnection! @join__field(graph: CHANGELOGREADER) @cost(weight: 100)
 
   """Commit options available in this tenant."""
   commitOptions: [CommitOption!]! @join__field(graph: CHANGESETCOMMITTER)
@@ -3460,7 +3460,7 @@ type Organization
   non-null for user-defined organizations.
   """
   user: User @join__field(graph: ORGANIZATION)
-  repositories(first: Int = 100, after: String, where: RepositoryWhereInput, orderBy: [RepositoryOrderByInput!]): RepositoryConnection! @join__field(graph: ORGANIZATION) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  repositories(first: Int = 100, after: String, where: RepositoryWhereInput, orderBy: [RepositoryOrderByInput!]): RepositoryConnection! @join__field(graph: ORGANIZATION)
 
   """
   Direct children of this organization in the tree, paginated.
@@ -3475,7 +3475,7 @@ type Organization
   
   `orderBy` defaults to NAME ascending when unspecified.
   """
-  children(first: Int = 100, after: String, where: OrganizationWhereInput, orderBy: [OrganizationOrderByInput!]): OrganizationConnection! @join__field(graph: ORGANIZATION) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  children(first: Int = 100, after: String, where: OrganizationWhereInput, orderBy: [OrganizationOrderByInput!]): OrganizationConnection! @join__field(graph: ORGANIZATION)
   marketplace: RecipeMarketplace @join__field(graph: RECIPEMARKETPLACE)
 }
 
@@ -3504,15 +3504,15 @@ interface OrganizationChangeset
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field(graph: CHANGELOGREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field(graph: CHANGELOGREADER)
 
   """Commit operations initiated from this changeset."""
-  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field(graph: CHANGESETCOMMITTER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field(graph: CHANGESETCOMMITTER)
 
   """
   Bulk pull request actions (approve, merge, close) launched from this changeset.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field(graph: CHANGESETCOMMITTER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field(graph: CHANGESETCOMMITTER)
   user: User! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
   createdAt: DateTime! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
   parent: OrganizationChangeset @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER)
@@ -3530,7 +3530,7 @@ interface OrganizationChangeset
   Each visualization starts as Available and transitions to Processing/Finished/Error
   when runVisualization mutation is called.
   """
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: CHANGESETVISUALIZER) @join__field(graph: CODESEARCH) @join__field(graph: RECIPEWORKER) @cost(weight: 50)
 }
 
 type OrganizationChangesetConnection
@@ -3641,7 +3641,7 @@ interface OrganizationCommit
   extendedMessage: Base64
 
   """Paginated results per repository."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
 }
 
 """Commit was canceled before completion."""
@@ -3661,7 +3661,7 @@ type OrganizationCommitCanceled implements OrganizationCommit
   canceledBy: User!
 
   """Paginated results per repository (partial)."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
 }
 
 type OrganizationCommitConnection
@@ -3696,7 +3696,7 @@ type OrganizationCommitError implements OrganizationCommit
   errorMessage: String!
 
   """Paginated results per repository (partial)."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
 }
 
 """Commit completed successfully (all or partial success)."""
@@ -3713,7 +3713,7 @@ type OrganizationCommitFinished implements OrganizationCommit
   finishedAt: DateTime!
 
   """Paginated results per repository."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
 }
 
 enum OrganizationCommitOrderByField
@@ -3742,7 +3742,7 @@ type OrganizationCommitQueued implements OrganizationCommit
   startedAt: DateTime!
 
   """Paginated results per repository."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
 }
 
 """Commit is actively being processed across repositories."""
@@ -3758,7 +3758,7 @@ type OrganizationCommitRunning implements OrganizationCommit
   startedAt: DateTime!
 
   """Paginated results per repository."""
-  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  repositories(first: Int = 50, after: String, where: RepositoryCommitWhereInput, orderBy: [RepositoryCommitOrderByInput!]): RepositoryCommitConnection!
 }
 
 """Filter input for organization-level commit queries."""
@@ -3835,15 +3835,15 @@ interface OrganizationRecipeRun implements OrganizationChangeset
   id: ID!
 
   """Bulk pull request actions for recipe-run changesets."""
-  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field(graph: CHANGELOGREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field(graph: CHANGELOGREADER)
 
   """Commit operations initiated from this recipe run."""
-  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field(graph: CHANGESETCOMMITTER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field(graph: CHANGESETCOMMITTER)
 
   """
   Bulk pull request actions (approve, merge, close) launched from this recipe run.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field(graph: CHANGESETCOMMITTER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field(graph: CHANGESETCOMMITTER)
   recipe: RecipeDescriptor @join__field(graph: CHANGESETREADER)
   user: User! @join__field(graph: CHANGESETREADER)
   options: [RecipeOptionValue!]! @join__field(graph: CHANGESETREADER)
@@ -3868,7 +3868,7 @@ interface OrganizationRecipeRun implements OrganizationChangeset
   dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @cost(weight: 50)
 }
 
 type OrganizationRecipeRunCanceled implements OrganizationChangeset & OrganizationRecipeRun
@@ -3906,7 +3906,7 @@ type OrganizationRecipeRunCanceled implements OrganizationChangeset & Organizati
   dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -3915,15 +3915,15 @@ type OrganizationRecipeRunCanceled implements OrganizationChangeset & Organizati
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
-  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
 
   """
   Bulk pull request actions (approve, merge, close) launched from this changeset.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 type OrganizationRecipeRunConnection
@@ -3974,7 +3974,7 @@ type OrganizationRecipeRunError implements OrganizationChangeset & OrganizationR
   dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -3983,15 +3983,15 @@ type OrganizationRecipeRunError implements OrganizationChangeset & OrganizationR
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
-  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
 
   """
   Bulk pull request actions (approve, merge, close) launched from this changeset.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 type OrganizationRecipeRunFinished implements OrganizationChangeset & OrganizationRecipeRun
@@ -4028,7 +4028,7 @@ type OrganizationRecipeRunFinished implements OrganizationChangeset & Organizati
   dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -4037,15 +4037,15 @@ type OrganizationRecipeRunFinished implements OrganizationChangeset & Organizati
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
-  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
 
   """
   Bulk pull request actions (approve, merge, close) launched from this changeset.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 enum OrganizationRecipeRunOrderByField
@@ -4097,7 +4097,7 @@ type OrganizationRecipeRunQueued implements OrganizationChangeset & Organization
   dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @join__field(graph: CHANGESETREADER) @join__field(graph: RECIPEWORKER, external: true) @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -4106,15 +4106,15 @@ type OrganizationRecipeRunQueued implements OrganizationChangeset & Organization
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
-  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
 
   """
   Bulk pull request actions (approve, merge, close) launched from this changeset.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 type OrganizationRecipeRunRunning implements OrganizationChangeset & OrganizationRecipeRun
@@ -4149,7 +4149,7 @@ type OrganizationRecipeRunRunning implements OrganizationChangeset & Organizatio
   dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -4158,15 +4158,15 @@ type OrganizationRecipeRunRunning implements OrganizationChangeset & Organizatio
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
-  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
 
   """
   Bulk pull request actions (approve, merge, close) launched from this changeset.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 enum OrganizationRecipeRunState
@@ -4224,7 +4224,7 @@ type OrganizationRecipeRunSyncing implements OrganizationChangeset & Organizatio
   dataTables(first: Int = 50, after: String, where: DataTableWhereInput, orderBy: [DataTableOrderByInput!]): DataTableConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
 
   """Visualizations produced by this recipe run."""
-  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  visualizations(first: Int = 50, after: String, where: VisualizationWhereInput, orderBy: [VisualizationOrderByInput!]): VisualizationConnection! @cost(weight: 50)
 
   """
   Bulk pull request actions (approve, merge, close) initiated against pull
@@ -4233,15 +4233,15 @@ type OrganizationRecipeRunSyncing implements OrganizationChangeset & Organizatio
   Default sort: STARTED_AT DESC with QUEUED entries (no startedAt) appearing
   last so polling clients still see in-flight actions.
   """
-  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  changelogBulkPullRequestActions(first: Int = 50, after: String, where: ChangelogBulkPullRequestActionWhereInput, orderBy: [ChangelogBulkPullRequestActionOrderByInput!]): ChangelogBulkPullRequestActionConnection! @join__field
 
   """Commit operations initiated from this changeset."""
-  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  commits(first: Int = 50, after: String, where: OrganizationCommitWhereInput, orderBy: [OrganizationCommitOrderByInput!]): OrganizationCommitConnection @join__field
 
   """
   Bulk pull request actions (approve, merge, close) launched from this changeset.
   """
-  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"]) @join__field
+  bulkPullRequestActions(first: Int = 50, after: String, where: BulkPullRequestActionWhereInput, orderBy: [BulkPullRequestActionOrderByInput!]): BulkPullRequestActionConnection! @join__field
 }
 
 input OrganizationRecipeRunWhereInput
@@ -4758,13 +4758,13 @@ type Query
   @join__type(graph: RECIPEWORKER)
 {
   """Query audit log events with pagination and filtering."""
-  auditLogs(first: Int = 100, after: String, where: AuditLogWhereInput, orderBy: [AuditLogOrderByInput!]): AuditLogConnection! @join__field(graph: AUDITREADER) @cost(weight: 100) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  auditLogs(first: Int = 100, after: String, where: AuditLogWhereInput, orderBy: [AuditLogOrderByInput!]): AuditLogConnection! @join__field(graph: AUDITREADER) @cost(weight: 100)
 
   """
   Query audit log downloads with pagination and filtering.
   Use where: { id: { _eq: "..." } } to poll a specific download.
   """
-  auditLogsDownloads(first: Int = 50, after: String, where: AuditLogsDownloadWhereInput, orderBy: [AuditLogsDownloadOrderByInput!]): AuditLogsDownloadConnection! @join__field(graph: AUDITREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  auditLogsDownloads(first: Int = 50, after: String, where: AuditLogsDownloadWhereInput, orderBy: [AuditLogsDownloadOrderByInput!]): AuditLogsDownloadConnection! @join__field(graph: AUDITREADER)
 
   """Returns the currently authenticated user."""
   currentUser: User! @join__field(graph: AUTHZ)
@@ -4784,7 +4784,7 @@ type Query
   optional service when it is present in the supergraph composition.
   """
   capabilities: PlatformCapabilities! @join__field(graph: CAPABILITIES)
-  connectors(first: Int = 100, after: String, where: ConnectorWhereInput, orderBy: [ConnectorOrderByInput!]): ConnectorConnection! @join__field(graph: CAPABILITIES) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  connectors(first: Int = 100, after: String, where: ConnectorWhereInput, orderBy: [ConnectorOrderByInput!]): ConnectorConnection! @join__field(graph: CAPABILITIES)
 
   """Get a bulk pull request action by ID to poll for progress."""
   changelogBulkPullRequestAction(id: ID!): ChangelogBulkPullRequestAction @join__field(graph: CHANGELOGREADER)
@@ -4798,7 +4798,7 @@ type Query
   Searches the given repository and all its descendants in the hierarchy.
   Results are grouped by artifact (groupId:artifactId) with file-level matches.
   """
-  codeSearch(repositoryId: String!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection! @join__field(graph: CODESEARCH) @cost(weight: 50) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  codeSearch(repositoryId: String!, query: String!, first: Int = 100, after: String): CodeSearchResultConnection! @join__field(graph: CODESEARCH) @cost(weight: 50)
 
   """
   Look up a single conversation by id. Returns null when no conversation
@@ -4806,7 +4806,7 @@ type Query
   moderne-ui client already references.
   """
   conversation(conversationId: ID!): Conversation @join__field(graph: MODDY)
-  organizations(first: Int = 100, after: String, where: OrganizationWhereInput, orderBy: [OrganizationOrderByInput!]): OrganizationConnection! @join__field(graph: ORGANIZATION) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  organizations(first: Int = 100, after: String, where: OrganizationWhereInput, orderBy: [OrganizationOrderByInput!]): OrganizationConnection! @join__field(graph: ORGANIZATION)
   organization(id: ID!): Organization! @join__field(graph: ORGANIZATION)
 
   """Get available DevCenter recipes for configuration."""
@@ -5360,7 +5360,7 @@ type RecipeMarketplace
 {
   categories(first: Int = 100, after: String, where: RecipeCategoryWhereInput, orderBy: [RecipeCategoryOrderByInput!]): RecipeCategoryConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"], requireOneSlicingArgument: false)
   recipes(first: Int = 100, after: String, where: RecipeWhereInput, orderBy: [RecipeOrderByInput!]): RecipeDescriptorConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"], requireOneSlicingArgument: false)
-  installations(first: Int = 50, after: String, where: RecipeInstallationWhereInput, orderBy: [RecipeInstallationOrderByInput!]): RecipeInstallationConnection! @listSize(slicingArguments: ["first"], sizedFields: ["edges"], requireOneSlicingArgument: false)
+  installations(first: Int = 50, after: String, where: RecipeInstallationWhereInput, orderBy: [RecipeInstallationOrderByInput!]): RecipeInstallationConnection! @cost(weight: 50)
 }
 
 input RecipeOptionInput
@@ -6454,7 +6454,7 @@ type User
   username: String @join__field(graph: AUTHZ)
   role: UserRole @join__field(graph: AUTHZ)
   lastActive: DateTime @join__field(graph: AUTHZ)
-  tokens(first: Int = 100, after: String, where: AccessTokenWhereInput, orderBy: [AccessTokenOrderByInput!]): AccessTokenConnection! @join__field(graph: AUTHZ) @cost(weight: 50) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  tokens(first: Int = 100, after: String, where: AccessTokenWhereInput, orderBy: [AccessTokenOrderByInput!]): AccessTokenConnection! @join__field(graph: AUTHZ) @cost(weight: 50)
   moddy: Moddy! @join__field(graph: MODDY)
 }
 
@@ -6600,7 +6600,7 @@ type VisualizationError implements Visualization
   startedAt: DateTime! @join__field(graph: CHANGESETREADER)
   finishedAt: DateTime! @join__field(graph: CHANGESETREADER)
   message: String! @join__field(graph: CHANGESETREADER)
-  repositories(first: Int = 100, after: String): VisualizationRepositoryConnection! @join__field(graph: CHANGESETREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  repositories(first: Int = 100, after: String): VisualizationRepositoryConnection! @join__field(graph: CHANGESETREADER)
 }
 
 type VisualizationFinished implements Visualization
@@ -6616,7 +6616,7 @@ type VisualizationFinished implements Visualization
   finishedAt: DateTime! @join__field(graph: CHANGESETREADER)
   duration: Duration @join__field(graph: CHANGESETREADER)
   output: VisualizationOutput! @join__field(graph: CHANGESETREADER)
-  repositories(first: Int = 100, after: String): VisualizationRepositoryConnection! @join__field(graph: CHANGESETREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  repositories(first: Int = 100, after: String): VisualizationRepositoryConnection! @join__field(graph: CHANGESETREADER)
 }
 
 type VisualizationImageOutput implements VisualizationOutput
@@ -6691,7 +6691,7 @@ type VisualizationProcessing implements Visualization
   descriptor: VisualizationDescriptor!
   changesetId: ID!
   startedAt: DateTime!
-  repositories(first: Int = 100, after: String): VisualizationRepositoryConnection! @join__field(graph: CHANGESETREADER) @listSize(slicingArguments: ["first"], sizedFields: ["edges"])
+  repositories(first: Int = 100, after: String): VisualizationRepositoryConnection! @join__field(graph: CHANGESETREADER)
 }
 
 type VisualizationRepository
