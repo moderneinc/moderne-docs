@@ -1,7 +1,7 @@
 ---
 sidebar_label: Writing Kotlin recipes
 description: How to write, test, and run Kotlin recipes with the OpenRewrite Kotlin recipe DSL.
-keywords: [kotlin recipe, kotlin dsl, kotlin refactoring, openrewrite kotlin, rewrite-kotlin, kotlinvisitor, kotlintemplate, write a kotlin recipe]
+keywords: [kotlin recipe, kotlin dsl, kotlin refactoring, openrewrite kotlin, rewrite-kotlin, kotlinvisitor, kotlintemplate, write a kotlin recipe, groovy recipe, scala recipe]
 ---
 
 # Writing Kotlin recipes
@@ -10,7 +10,7 @@ Most refactorings you want to apply to a Kotlin codebase are pattern-shaped: thi
 
 The **Kotlin recipe domain-specific language (DSL)** removes that boilerplate. It is a [K2 compiler plugin](https://kotlinlang.org/docs/whatsnew20.html) shipped inside `rewrite-kotlin` that reads a before/after pair of Kotlin lambdas and synthesizes a `Recipe` subclass at compile time - the same way [Refaster's annotation processor](./refaster-recipes.md) does for Java.
 
-In this guide, we will walk you through setting up a Kotlin recipe project, writing pattern-shaped recipes with the DSL, testing them, and dropping into an imperative visitor when a change needs more than a fixed before/after pair.
+In this guide, we will walk you through setting up a Kotlin recipe project, writing pattern-shaped recipes with the DSL, testing them, and dropping into an imperative visitor when a change needs more than a fixed before/after pair. You'll also see how a recipe authored this way can rewrite Java, Groovy, and Scala sources, not just Kotlin ones.
 
 :::tip
 If you would rather start from working code, the [`kotlin-recipe-starter` repository](https://github.com/moderneinc/kotlin-recipe-starter) contains every recipe in this guide, with tests, packaging, and CI already set up. Click **Use this template** on GitHub, rename the `com.yourorg` group to your own, and start writing.
@@ -35,7 +35,7 @@ The handful of Kotlin constructs that have no Java equivalent - `when` expressio
 Two practical consequences follow from that shared model:
 
 * An ordinary Java or [declarative YAML recipe](./types-of-recipes.md#declarative-recipes) already runs against Kotlin sources. A type-based recipe such as `org.openrewrite.java.ChangeType` rewrites Kotlin the same way it rewrites Java, and `KotlinVisitor` extends `JavaVisitor`, adding `visitX(K.X, P)` overloads for the Kotlin-specific nodes.
-* The relationship runs in both directions. A recipe authored with the Kotlin DSL compiles to a language-agnostic, `MethodMatcher`-driven recipe. If its pattern names a shared or pure-Java API, that recipe rewrites **Java** sources too.
+* The relationship runs in both directions. A recipe authored with the Kotlin DSL compiles to a language-agnostic, `MethodMatcher`-driven recipe. If its pattern names a shared or pure-Java API, that recipe also rewrites **Java, Groovy, and Scala** sources, whose LSTs are built on the same Java model. See [rewriting other JVM languages](#rewriting-other-jvm-languages-with-a-kotlin-recipe).
 
 ### The three ways to write a Kotlin recipe
 
@@ -214,9 +214,16 @@ class UseModernKotlinApisTest : RewriteTest {
 
 Always include at least one no-change test so that you can be confident your recipe does not touch code it should not. For more on structuring recipe tests, see the [recipe testing guide](../testing-and-best-practices/recipe-testing.md).
 
-## Rewriting Java sources with a Kotlin recipe
+## Rewriting other JVM languages with a Kotlin recipe
 
-Because the compiled recipe is `MethodMatcher`-driven over the shared Java LST, a pattern that names a pure-Java API rewrites Java sources as readily as Kotlin ones. Here, `Character.isSpace(char)` has been deprecated since JDK 1.1 in favor of the identically shaped `Character.isWhitespace(char)`. Because only the method name changes, the replacement is valid syntax in both languages:
+Kotlin is not the only language whose LST is built on the Java one. `G.CompilationUnit` (Groovy) and `S.CompilationUnit` (Scala) implement `JavaSourceFile` just as `K.CompilationUnit` does. Because the compiled recipe is `MethodMatcher`-driven over that shared Java LST, a pattern whose before and after templates name a **pure-Java** API rewrites Java, Groovy, and Scala sources as readily as Kotlin ones.
+
+Two conditions have to hold for that reach:
+
+* The API named in the `rewrite { }` and `to { }` lambdas is a pure-Java one, so the matcher resolves to a type every JVM language sees rather than to a Kotlin-only synthetic facade
+* The replacement is valid syntax in each target language, which for a plain method rename it generally is
+
+Here, `Character.isSpace(char)` has been deprecated since JDK 1.1 in favor of the identically shaped `Character.isWhitespace(char)`. Only the method name changes, so the rewrite holds in every one of those languages:
 
 ```kotlin title="UseIsWhitespace.kt"
 @file:Suppress("DEPRECATION", "DEPRECATION_ERROR")
@@ -231,7 +238,7 @@ val UseIsWhitespace: Recipe = recipe(
 }
 ```
 
-You can prove that with a single test class that runs the same recipe through both the `kotlin(...)` and `java(...)` assertion helpers:
+You can prove that by running the same recipe through more than one assertion helper in a single test class. Each language module ships its own: `kotlin(...)` from `rewrite-kotlin`, `java(...)` from `rewrite-java`, `groovy(...)` from `rewrite-groovy`, and `scala(...)` from `rewrite-scala`. Here are the Kotlin and Java halves:
 
 ```kotlin title="UseIsWhitespaceTest.kt"
 @Test
