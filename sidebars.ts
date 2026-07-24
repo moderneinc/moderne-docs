@@ -752,6 +752,7 @@ const recipes = {
             'user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-javascript-refactoring-recipe',
             'user-documentation/recipes/authoring-recipes/writing-recipes/writing-a-csharp-refactoring-recipe',
             'user-documentation/recipes/authoring-recipes/writing-recipes/writing-python-recipes',
+            'user-documentation/recipes/authoring-recipes/writing-recipes/writing-kotlin-recipes',
             'user-documentation/recipes/authoring-recipes/writing-recipes/refaster-recipes',
           ],
         },

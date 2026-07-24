@@ -11,7 +11,7 @@ Across a large codebase, you often need to make the same change many times over:
 While we've done our best to provide you with [a wide variety of C# recipes](../../recipe-catalog/csharp/README.md), you may find it useful to write your own. In this guide, we will walk you through everything you need to know to get started with creating and publishing your own C# recipe.
 
 :::info
-This guide focuses on authoring recipes in **C#**. If you would rather write recipes in another language, there are companion guides for [writing a Java refactoring recipe](./writing-a-java-refactoring-recipe.md), [writing a JavaScript refactoring recipe](./writing-a-javascript-refactoring-recipe.md), and [writing a Python refactoring recipe](./writing-python-recipes.md). The core concepts carry over closely, since C# recipes build on the same Java model those guides use.
+This guide focuses on authoring recipes in **C#**. If you would rather write recipes in another language, there are companion guides for [writing a Java refactoring recipe](./writing-a-java-refactoring-recipe.md), [writing a JavaScript refactoring recipe](./writing-a-javascript-refactoring-recipe.md), [writing a Python refactoring recipe](./writing-python-recipes.md), and [writing Kotlin recipes](./writing-kotlin-recipes.md). The core concepts carry over closely, since C# recipes build on the same Java model those guides use.
 :::
 
 ## Prerequisites
