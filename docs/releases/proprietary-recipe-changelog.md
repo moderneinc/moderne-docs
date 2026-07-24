@@ -12,6 +12,20 @@ This changelog is automatically generated from GitHub releases and only contains
 
 ## July 23, 2026
 
+#### rewrite-devcenter - 1.29.0
+
+* Show CD/LoC counts on the Vulnerabilities DevCenter
+* Show CD/LoC counts on all remaining DevCenters
+* Count lines of code in-process without printing the LST
+* Fix broken DevCenter documentation link
+
+#### rewrite-devcenter - 1.28.2
+
+* Show CD/LoC counts on the Vulnerabilities DevCenter
+* Show CD/LoC counts on all remaining DevCenters
+* Count lines of code in-process without printing the LST
+* Fix broken DevCenter documentation link
+
 #### rewrite-prethink - v0.11.0
 
 * Detect Redisson pub/sub producers and consumers
@@ -4491,92 +4505,4 @@ Republishing to update dependencies
 #### rewrite-struts - 0.19.0
 
 * rename settings.local.json to settings.json
-
-## July 23, 2025
-
-#### rewrite-ai-search - 0.29.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-android - 0.11.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-circleci - 3.7.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-codemods - 0.16.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-codemods-ng - 0.12.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-compiled-analysis - 0.7.3
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-concourse - 3.6.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-cryptography - 0.6.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-devcenter - 1.5.0
-
-* Remove original security card
-
-#### rewrite-dotnet - 0.12.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-hibernate - 0.9.0
-
-* Hibernate7 misc type changes
-* Test the total of Hibernate 7.0 migration
-
-#### rewrite-java-security - 3.15.0
-
-* Find hard-coded IPv4 loopback addresses
-* Test cases that demonstrate behavior for direct dependencies
-
-#### rewrite-kubernetes - 3.8.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-nodejs - 0.27.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-program-analysis - 0.1.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-reactive-streams - 0.14.3
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-spring - 0.10.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-sql - 2.6.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-struts - 0.18.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-terraform - 3.6.1
-
-* Updated repository to use OpenRewrite version v8.59.1
-
-#### rewrite-vulncheck - 0.4.1
-
-* Updated repository to use OpenRewrite version v8.59.1
 
