@@ -5,7 +5,7 @@ description: Field-by-field reference for the trace.csv telemetry file the Moder
 
 # trace.csv reference
 
-The Moderne CLI and platform record telemetry for each command as a row in a `trace.csv` file — one row per repository per command. For how that telemetry is generated and collected, see [Understanding CLI usage across your organization](../how-to-guides/cli-telemetry.md); for how to replicate it to your own cloud storage and query it, see [Querying and BI](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/querying-and-bi.md).
+The Moderne CLI and platform record telemetry for each command as a row in a `trace.csv` file, one row per repository per command. For how that telemetry is generated and collected, see [Understanding CLI usage across your organization](../how-to-guides/cli-telemetry.md); for how to replicate it to your own cloud storage and query it, see [Querying and BI](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/querying-and-bi.md).
 
 This page is the field reference for those rows.
 
@@ -13,7 +13,7 @@ This page is the field reference for those rows.
 
 - **Traces are hierarchical.** Each command writes its own stage plus every earlier stage in the workflow. A `mod run` row therefore carries the sync, build, and run columns; a `mod git commit` row carries everything through commit. A stage a command didn't reach is left empty.
 - **`organization` is always the last column.** Because each command type carries a different set of stages, the row width and the position of `organization` differ by type.
-- **Every field is written as text.** The **Type** column below is the *logical* type of the value (what it represents), not a storage type — a CSV field is always text until you cast it.
+- **Every field is written as text.** The **Type** column below is the *logical* type of the value (what it represents), not a storage type; a CSV field is always text until you cast it.
 - **Column headers are mixed-case** in the file (`runStartTime`). Query engines that fold identifiers to lowercase (Athena, Trino) will expose them lowercased (`runstarttime`).
 
 ## Trace hierarchy
@@ -34,7 +34,7 @@ Each command produces a trace that includes its own stage plus all prior stages.
 | `mod git checkout` | `checkout` | Checkout (standalone) |
 | MCP server tool call | `mcp` | MCP (standalone) |
 
-`mod publish` branches off after Build rather than continuing the Run → Apply → Add → Commit → Push chain, so its rows carry the Sync + Build + Publish columns and none of the Run/Apply/Add/Commit/Push columns. `mod exec`, `mod git checkout`, and MCP tool calls are standalone — they carry the common columns plus their own stage, with no earlier workflow stages.
+`mod publish` branches off after Build rather than continuing the Run → Apply → Add → Commit → Push chain, so its rows carry the Sync + Build + Publish columns and none of the Run/Apply/Add/Commit/Push columns. `mod exec`, `mod git checkout`, and MCP tool calls are standalone: they carry the common columns plus their own stage, with no earlier workflow stages.
 
 ## Common fields
 
@@ -172,7 +172,7 @@ Populated after `mod git push`.
 
 ## Publish stage
 
-Populated after `mod publish`. These columns appear only in `mod publish` rows — they are not part of the `mod git sync` → `mod git push` workflow chain. Because `mod publish` branches off after Build, the publish columns slot in immediately after the build stage.
+Populated after `mod publish`. These columns appear only in `mod publish` rows; they are not part of the `mod git sync` → `mod git push` workflow chain. Because `mod publish` branches off after Build, the publish columns slot in immediately after the build stage.
 
 | Column | Type | Description | Example |
 |--------|------|-------------|---------|
@@ -185,7 +185,7 @@ Populated after `mod publish`. These columns appear only in `mod publish` rows �
 
 ## MCP fields
 
-Populated by Moderne MCP server tool calls. MCP rows are standalone — they carry the common columns plus the MCP columns, with no sync/build/run stages.
+Populated by Moderne MCP server tool calls. MCP rows are standalone: they carry the common columns plus the MCP columns, with no sync/build/run stages.
 
 | Column | Type | Description | Example |
 |--------|------|-------------|---------|

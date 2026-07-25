@@ -7,7 +7,7 @@ description: Query Moderne telemetry from object storage with Athena, Snowflake,
 
 Once telemetry is landing in your bucket or container, you can query it directly with any engine that reads CSV from object storage. If you haven't configured replication yet, start with the [AWS](./aws-replication.md) or [Azure](./azure-replication.md) guide. The Hive partition layout means every major engine can prune to just the partitions a query needs.
 
-The [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) repository is a starter kit for turning this telemetry into reports and dashboards — an example data layer to make it queryable, ready-to-run report queries, and dashboards to render them. Start there to go from raw telemetry to working reports without assembling the query layer yourself.
+The [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) repository is a starter kit for turning this telemetry into reports and dashboards: an example data layer to make it queryable, ready-to-run report queries, and dashboards to render them. Start there to go from raw telemetry to working reports without assembling the query layer yourself.
 
 ## The data
 
@@ -21,21 +21,24 @@ tenant=<your-tenant>/source={saas|cli}/type=<command>/year=YYYY/month=MM/day=DD/
 
 ## Query it
 
-Any engine that reads CSV from object storage and understands Hive partitions will work. The [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) repo's **data layer** shows how to make the telemetry queryable — with a complete AWS Athena example (table definitions plus an optional daily CSV→Parquet compaction job for faster, cheaper queries) — alongside the report SQL. Start there, then use the notes below to adapt the layout to another stack.
+Any engine that reads CSV from object storage and understands Hive partitions will work.
 
-The notes below point each engine at the raw CSV — the zero-setup path:
+For ongoing reporting, we recommend materializing the telemetry into a columnar format such as Parquet or Delta rather than querying the CSV in place. Raw CSV is all-string and uncompressed, so queries scan the full files and every value needs casting. The [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) repo's **data layer** shows one way to do this, with a complete AWS Athena example: per-type ingest tables plus a daily compaction job that lands a single Parquet-backed `traces` table, alongside the report SQL that queries it.
 
-* **Snowflake** — create an external stage pointing at your bucket (`CREATE STAGE ... URL='s3://<your-dest-bucket>/' STORAGE_INTEGRATION=...`), then query it directly or wrap it in an external table. Snowflake's directory-table feature picks up the Hive partitions automatically.
-* **Google BigQuery** — register your bucket via a [BigLake](https://cloud.google.com/biglake) connection, then create an external table with `hive_partition_uri_prefix` set to the bucket root. BigQuery recognizes the `tenant=/source=/type=/year=/month=/day=` keys natively.
-* **Databricks** — mount the bucket as a Unity Catalog external location, then create an external table `PARTITIONED BY (tenant, source, type, year, month, day)`. Spark's CSV reader handles the schema and headers.
-* **Microsoft Fabric / Synapse** — use a serverless SQL pool with `OPENROWSET(BULK ...)` for ad-hoc queries, or create a Lakehouse shortcut to the bucket and let Fabric infer partitions. Both work against S3 and ADLS Gen2.
-* **DuckDB** — simplest for local exploration. With the `httpfs` extension loaded, `SELECT * FROM read_csv_auto('s3://<your-dest-bucket>/tenant=acme/**/*.csv', hive_partitioning=true)` works with no catalog setup.
+To explore the data first, or to build your own layout, here is the basic setup for reading the raw CSV with each engine. Note that the raw data is partitioned by command `type`, and because traces are hierarchical each `type=` partition holds only that command's columns, so you query one type at a time or union the types you need.
 
-If your tool isn't listed, the only requirements are to read CSV from object storage and recognize Hive-style partitions for predicate pushdown — every modern engine meets both. And as with the Athena example's CSV→Parquet compaction, any of these engines can materialize the telemetry into its native columnar format (Parquet, Delta, or a managed table) for faster, cheaper queries as your volume grows.
+* **AWS Athena**: define an external table over a `type=` prefix with `OpenCSVSerde` and query it directly.
+* **Snowflake**: create an external stage pointing at your bucket (`CREATE STAGE ... URL='s3://<your-dest-bucket>/' STORAGE_INTEGRATION=...`), then query it directly or wrap it in an external table. Snowflake's directory-table feature picks up the Hive partitions automatically.
+* **Google BigQuery**: register your bucket via a [BigLake](https://cloud.google.com/biglake) connection, then create an external table with `hive_partition_uri_prefix` set to the bucket root. BigQuery recognizes the `tenant=/source=/type=/year=/month=/day=` keys natively.
+* **Databricks**: mount the bucket as a Unity Catalog external location, then create an external table `PARTITIONED BY (tenant, source, type, year, month, day)`. Spark's CSV reader handles the schema and headers.
+* **Microsoft Fabric / Synapse**: use a serverless SQL pool with `OPENROWSET(BULK ...)` for ad-hoc queries, or create a Lakehouse shortcut to the bucket and let Fabric infer partitions. Both work against S3 and ADLS Gen2.
+* **DuckDB**: simplest for local exploration. With the `httpfs` extension loaded, `SELECT * FROM read_csv_auto('s3://<your-dest-bucket>/tenant=acme/type=run/**/*.csv', hive_partitioning=true)` reads one type with no catalog setup.
+
+If your tool isn't listed, the only requirements are to read CSV from object storage and recognize Hive-style partitions for predicate pushdown, which every modern engine meets. Whichever engine you land on, the Athena example's CSV→Parquet compaction is the pattern to copy: materialize into that engine's native columnar format once your volume grows past exploration.
 
 ## Reports and dashboards
 
-Beyond the data layer, [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) includes ready-made reports — each a SQL query paired with a rendering and sample data so it runs out of the box — and dashboard examples you can adapt to your own BI tool. Browse the repo for the current set.
+Beyond the data layer, [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) includes ready-made reports, each a SQL query paired with a rendering and sample data so it runs out of the box, along with dashboard examples you can adapt to your own BI tool. See the repo for the current set.
 
 ## Troubleshooting
 
@@ -62,4 +65,4 @@ S3 Replication Time Control (RTC) is available if your contract requires 15-minu
 
 ### My BI doesn't see new partitions
 
-How an engine learns about new partitions varies. Some synthesize them from the path and never need a refresh — Athena *partition projection*, or DuckDB globbing the path directly. Others rely on a registered catalog and need a periodic refresh or auto-discovery: a Glue crawler, Databricks Unity Catalog, or Snowflake external tables without auto-refresh. The moderne-bi-templates Athena data layer uses **registered partitions**, but its compaction job registers each new day as it writes it — so the table stays current without a crawler.
+How an engine learns about new partitions varies. Some synthesize them from the path and never need a refresh, such as Athena *partition projection* or DuckDB globbing the path directly. Others rely on a registered catalog and need a periodic refresh or auto-discovery: a Glue crawler, Databricks Unity Catalog, or Snowflake external tables without auto-refresh. The moderne-bi-templates Athena data layer uses **registered partitions**, but its compaction job registers each new day as it writes it, so the table stays current without a crawler.
