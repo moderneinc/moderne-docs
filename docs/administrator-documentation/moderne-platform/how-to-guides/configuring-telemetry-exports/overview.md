@@ -37,9 +37,7 @@ The CSV schema is hierarchical: each command embeds rows from prior pipeline sta
 
 In addition, `mod exec` (`type=exec`) and `mod git checkout` (`type=checkout`) emit standalone traces that are not part of either pipeline chain.
 
-The full column-by-column reference lives in the BI-templates repo:
-
-* [trace.csv data dictionary](https://github.com/moderneinc/moderne-bi-templates/blob/main/data-dictionary/trace-csv.md)
+The full column-by-column reference is the [trace.csv reference](../../../../user-documentation/moderne-cli/references/trace-csv.md).
 
 A quick orientation:
 
