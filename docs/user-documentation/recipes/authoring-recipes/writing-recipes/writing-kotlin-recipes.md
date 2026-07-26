@@ -408,24 +408,68 @@ class FindKotlinFunctions : Recipe() {
 
 ## Running your recipe against a codebase
 
-Once your tests pass, you'll want to try the recipe against real repositories. Publish the recipe module to your local Maven repository:
+Once your tests pass, you'll want to try the recipe against real repositories. The [Moderne CLI](../../../moderne-cli/getting-started/cli-intro.md) runs a recipe straight from your compiled classes, so each change to a recipe costs a recompile rather than a publish.
+
+### Knowing what your recipe is called
+
+Before you can name a recipe on the command line, you need to know what it compiles to. The compiler plugin synthesizes a class for each recipe declared with the DSL, and that class name - not the property name - is the recipe ID:
+
+| Declaration | Recipe ID |
+|-------------|-----------|
+| `val UseUppercase: Recipe = recipe(…)` | `com.yourorg.UseUppercase$KtRecipe` |
+| `val UseModernKotlinApis: Recipe = recipes(…)` | `com.yourorg.UseModernKotlinApis$KtRecipe` |
+| `class UseElvisThrow : Recipe()` | `com.yourorg.UseElvisThrow` |
+
+:::warning
+Wrap any recipe ID containing `$` in single quotes, as in `'com.yourorg.UseUppercase$KtRecipe'`. An unquoted `$KtRecipe` is expanded to an empty string by most shells, and the CLI then reports the recipe as not found.
+:::
+
+### Iterating with the active recipe
+
+Compile the recipe module, then point the CLI at the Kotlin source file that declares your recipe:
+
+```bash
+./gradlew classes
+mod config recipes active set src/main/kotlin/com/yourorg/UseModernKotlinApis.kt --recipe='com.yourorg.UseUppercase$KtRecipe'
+```
+
+[`mod config recipes active set`](../../../moderne-cli/cli-reference.md#mod-config-recipes-active-set) detects your build tool, extracts the Kotlin compile classpath, and records the recipe as the active one. You can leave off `--recipe` when the file declares a single recipe; when it declares several, the CLI reports which one it selected and lists the alternatives.
+
+:::info
+Kotlin sources are accepted by `mod config recipes active set` as of Moderne CLI 4.4.2. Earlier versions take only `.java`, `.yml`, and `.yaml` files.
+:::
+
+Then build the LSTs for the repositories you want to try the recipe on, and run the active recipe against them:
+
+```bash
+mod build ./workspace
+mod run ./workspace --active-recipe
+```
+
+From there, each edit to your recipe costs one `./gradlew classes` and one `mod run ./workspace --active-recipe`. Because the CLI loads the recipe from the Gradle or Maven classpath, there is no jar to package and no artifact to publish in between. Add `--continuous` to the Gradle command to have it recompile on every save.
+
+When the recipe runs but does not change what you expected, [attach a debugger](../../../moderne-ide-integration/how-to-guides/debugging-recipes.md) to that same active recipe with `modw --debug run ./workspace --active-recipe` and step through your visitor.
+
+:::tip
+The Moderne IntelliJ plugin's **Set Active Recipe** action is a UI shortcut for the same command, so you can select the recipe from the editor instead of typing its ID. The plugin needs a [licensed CLI](../../../moderne-cli/getting-started/moderne-cli-license.md).
+:::
+
+### Publishing your recipe
+
+Once the recipe does what you want, publish the module so that others can run it, or so that you can run it with the [OpenRewrite Gradle or Maven plugin](https://docs.openrewrite.org/running-recipes) instead of the CLI:
 
 ```bash
 ./gradlew publishToMavenLocal
 ```
 
-Then install it into the Moderne CLI's recipe marketplace and run it against repositories whose LSTs you have already built:
+You can then install the published artifact into the Moderne CLI's recipe marketplace and run it by ID:
 
 ```bash
 mod config recipes jar install com.yourorg:kotlin-recipe-starter:LATEST
-mod run . --recipe=com.yourorg.UseModernKotlinApis
+mod run ./workspace --recipe='com.yourorg.UseModernKotlinApis$KtRecipe'
 ```
 
-Repeat those two commands each time you change a recipe, so that the CLI picks up the rebuilt jar.
-
-:::info
-The [active recipe](../../../moderne-cli/cli-reference.md#mod-config-recipes-active-set) shortcut used elsewhere in the docs takes a `.java`, `.yml`, or `.yaml` source file, so it does not accept the `.kt` files you write with the DSL. Publish and install the jar as above to iterate on a Kotlin recipe.
-:::
+Publishing and installing on every edit is a much slower loop than the active recipe, so save it for sharing a finished recipe rather than for developing one.
 
 To share the recipe more widely, publish the artifact to your organization's artifact repository and [install it in the Moderne Platform](../../../moderne-platform/how-to-guides/writing-and-installing-recipes.md) so that anyone in your organization can run it.
 

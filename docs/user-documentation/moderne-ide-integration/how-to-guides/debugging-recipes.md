@@ -89,7 +89,7 @@ Instead of right-clicking the class in IntelliJ, point the CLI at your recipe so
 mod config recipes active set src/main/java/com/example/MyRecipe.java
 ```
 
-This detects whether the project uses Gradle or Maven, extracts the classpath, and writes the same `~/.moderne/cli/active.recipe` file that `Set Active Recipe` produces. It accepts `.java`, `.yml`, and `.yaml` files, and takes a `--recipe` option to select a specific recipe from a multi-document YAML file or a nested Java class.
+This detects whether the project uses Gradle or Maven, extracts the classpath, and writes the same `~/.moderne/cli/active.recipe` file that `Set Active Recipe` produces. It accepts `.java`, `.kt`, `.yml`, and `.yaml` files, and takes a `--recipe` option to select a specific recipe from a source file or multi-document YAML file that declares several. For `.kt` files, see [writing Kotlin recipes](../../recipes/authoring-recipes/writing-recipes/writing-kotlin-recipes.md#running-your-recipe-against-a-codebase).
 
 Confirm what's configured with:
 
