@@ -410,30 +410,16 @@ class FindKotlinFunctions : Recipe() {
 
 Once your tests pass, you'll want to try the recipe against real repositories. The [Moderne CLI](../../../moderne-cli/getting-started/cli-intro.md) runs a recipe straight from your compiled classes, so each change to a recipe costs a recompile rather than a publish.
 
-### Knowing what your recipe is called
-
-Before you can name a recipe on the command line, you need to know what it compiles to. The compiler plugin synthesizes a class for each recipe declared with the DSL, and that class name - not the property name - is the recipe ID:
-
-| Declaration | Recipe ID |
-|-------------|-----------|
-| `val UseUppercase: Recipe = recipe(…)` | `com.yourorg.UseUppercase$KtRecipe` |
-| `val UseModernKotlinApis: Recipe = recipes(…)` | `com.yourorg.UseModernKotlinApis$KtRecipe` |
-| `class UseElvisThrow : Recipe()` | `com.yourorg.UseElvisThrow` |
-
-:::warning
-Wrap any recipe ID containing `$` in single quotes, as in `'com.yourorg.UseUppercase$KtRecipe'`. An unquoted `$KtRecipe` is expanded to an empty string by most shells, and the CLI then reports the recipe as not found.
-:::
-
 ### Iterating with the active recipe
 
 Compile the recipe module, then point the CLI at the Kotlin source file that declares your recipe:
 
 ```bash
 ./gradlew classes
-mod config recipes active set src/main/kotlin/com/yourorg/UseModernKotlinApis.kt --recipe='com.yourorg.UseUppercase$KtRecipe'
+mod config recipes active set src/main/kotlin/com/yourorg/UseModernKotlinApis.kt
 ```
 
-[`mod config recipes active set`](../../../moderne-cli/cli-reference.md#mod-config-recipes-active-set) detects your build tool, extracts the Kotlin compile classpath, and records the recipe as the active one. You can leave off `--recipe` when the file declares a single recipe; when it declares several, the CLI reports which one it selected and lists the alternatives.
+[`mod config recipes active set`](../../../moderne-cli/cli-reference.md#mod-config-recipes-active-set) detects your build tool, extracts the Kotlin compile classpath, and records the recipe as the active one. When the file declares several recipes, the CLI reports which one it selected, along with the alternatives you can pick from instead.
 
 :::info
 Kotlin sources are accepted by `mod config recipes active set` as of Moderne CLI 4.4.2. Earlier versions take only `.java`, `.yml`, and `.yaml` files.
@@ -452,6 +438,20 @@ When the recipe runs but does not change what you expected, [attach a debugger](
 
 :::tip
 The Moderne IntelliJ plugin's **Set Active Recipe** action is a UI shortcut for the same command, so you can select the recipe from the editor instead of typing its ID. The plugin needs a [licensed CLI](../../../moderne-cli/getting-started/moderne-cli-license.md).
+:::
+
+### Knowing what your recipe is called
+
+To name a recipe on the command line, you need to know what it compiles to. The compiler plugin synthesizes a class for each recipe declared with the DSL, and that class name - not the property name - is the recipe ID:
+
+| Declaration | Recipe ID |
+|-------------|-----------|
+| `val UseUppercase: Recipe = recipe(…)` | `com.yourorg.UseUppercase$KtRecipe` |
+| `val UseModernKotlinApis: Recipe = recipes(…)` | `com.yourorg.UseModernKotlinApis$KtRecipe` |
+| `class UseElvisThrow : Recipe()` | `com.yourorg.UseElvisThrow` |
+
+:::warning
+Wrap any recipe ID containing `$` in single quotes, as in `'com.yourorg.UseUppercase$KtRecipe'`. An unquoted `$KtRecipe` is expanded to an empty string by most shells, and the CLI then reports the recipe as not found.
 :::
 
 ### Publishing your recipe
