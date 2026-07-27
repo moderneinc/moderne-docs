@@ -21,7 +21,7 @@ For the complete worked example (the `modw` and `modw.cmd` edits, the configurat
 
 ## Query: build reports from the collected data
 
-If you follow the worked example, the wrapper writes the same `tenant`/`source`/`type`/`year`/`month`/`day` partition layout that Moderne's platform replication produces, so you query your data exactly like a replicated tenant would. See [Querying and BI](../../moderne-platform/how-to-guides/configuring-telemetry-exports/querying-and-bi.md) for the AWS Athena walkthrough, notes for other engines such as Snowflake, BigQuery, Databricks, and Fabric, and the Moderne BI templates starter pack.
+If you follow the worked example, the wrapper writes the same `tenant`/`source`/`type`/`year`/`month`/`day` partition layout that Moderne's platform replication produces, so you query your data exactly like a replicated tenant would. See [Querying and BI](../../moderne-platform/how-to-guides/configuring-telemetry-exports/querying-and-bi.md) for how to make the data queryable, notes for engines such as Athena, Snowflake, BigQuery, Databricks, and Fabric, and the Moderne BI templates starter kit.
 
 Because you own the wrapper, you can upload a different path structure if you prefer. Nothing depends on matching the replication layout except the ready-made table definitions, so if you diverge, adjust those to match the paths you actually write.
 

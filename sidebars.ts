@@ -597,6 +597,7 @@ const cli = {
       items: [
         'user-documentation/moderne-cli/references/repos-csv',
         'user-documentation/moderne-cli/references/recipes-csv',
+        'user-documentation/moderne-cli/references/trace-csv',
         'user-documentation/moderne-cli/references/cli-4-0-0-changes',
         'user-documentation/moderne-cli/references/faq',
         'user-documentation/moderne-cli/references/cli-3-45-0-changes',

@@ -123,4 +123,4 @@ If your Moderne tenant is AWS-backed but your BI stack runs on Azure (or vice ve
 
 ## Next
 
-With data landing in your container, register the schema and start building reports. Continue to [Querying and BI](./querying-and-bi.md). The Athena walkthrough on that page is AWS-specific, but the *Other BI systems* section covers Microsoft Fabric and Synapse (the most natural Azure-side choice) along with other engines.
+With data landing in your container, register the schema and start building reports. Continue to [Querying and BI](./querying-and-bi.md). The Athena notes there are AWS-specific, but the per-engine notes cover Microsoft Fabric and Synapse (the most natural Azure-side choice) along with other engines.
