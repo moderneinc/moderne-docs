@@ -1,0 +1,40 @@
+---
+title: "Simplify redundant nil check"
+sidebar_label: "Simplify redundant nil check"
+hide_title: true
+---
+
+import { RecipeHeader, RecipeMeta, RecipeList, OptionsTable, ExampleList, UsageList, DataTableList } from '@site/src/components/recipe';
+
+<RecipeMeta
+  displayName={"Simplify redundant nil check"}
+  description={"Simplify `x != nil && len(x) > 0` to `len(x) > 0` for slices and maps."}
+  fqName={"org.openrewrite.golang.codequality.SimplifyRedundantNilCheck"}
+  languages={["OpenRewrite"]}
+  license={"Moderne Proprietary License"}
+/>
+
+<RecipeHeader
+  type={"Single recipe"}
+  languages={["OpenRewrite"]}
+  tags={[]}
+  license={"Moderne Proprietary License"}
+  fqName={"org.openrewrite.golang.codequality.SimplifyRedundantNilCheck"}
+  artifact={"org.openrewrite.recipe:recipes-go"}
+  appLink={"https://app.moderne.io/recipes/org.openrewrite.golang.codequality.SimplifyRedundantNilCheck"}
+  markdownUrl={"https://raw.githubusercontent.com/moderneinc/moderne-docs/refs/heads/main/docs/user-documentation/recipes/recipe-catalog/golang/codequality/simplifyredundantnilcheck.md"}
+  moderneOnly
+>
+
+<RecipeHeader.Title>Simplify redundant nil check</RecipeHeader.Title>
+
+<RecipeHeader.Description>Simplify `x != nil && len(x) > 0` to `len(x) > 0` for slices and maps.</RecipeHeader.Description>
+
+</RecipeHeader>
+
+<UsageList usage={{"recipeName":"org.openrewrite.golang.codequality.SimplifyRedundantNilCheck","displayName":"Simplify redundant nil check","groupId":"org.openrewrite.recipe","artifactId":"recipes-go","versionKey":"VERSION_ORG_OPENREWRITE_RECIPE_RECIPES_GO","requiresConfiguration":false}}>
+
+## Usage
+
+</UsageList>
+
