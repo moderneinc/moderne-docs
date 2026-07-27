@@ -65,14 +65,16 @@ The upload won't interfere with your workflow. If it fails for any reason, the o
 * `mod build`
 * `mod run`
 * `mod exec`
+* `mod publish`
 * `mod git sync`
 * `mod git apply`
 * `mod git add`
 * `mod git commit`
 * `mod git push`
-* `mod git checkout`
 
 </details>
+
+`mod git checkout` also writes a trace, but only into the repository it touched. It is never queued for upload, so the wrapper has nothing to publish for it.
 
 :::note
 The wrapper (`modw` and `modw.cmd`) ships as part of the CLI distribution, so an upgrade that changes the wrapper scripts replaces your customized copy. Keep your customized wrapper in source control and re-apply it after upgrading. The scripts change rarely, so this is infrequent, and [pinning the CLI version](./cli-wrapper.md#controlling-auto-updates) puts you in control of when it can happen at all.
@@ -346,7 +348,7 @@ You should see output similar to:
 
 ## Querying the data
 
-As long as you kept the path structure from the example above, your uploads use the same `tenant`/`source`/`type`/`year`/`month`/`day` layout that Moderne's platform replication produces, so your self-published data queries exactly like replicated tenant data. Follow [Querying and BI](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/querying-and-bi.md) for the full AWS Athena walkthrough (registering the schema, setting up a workgroup, and example queries), notes for other engines such as Snowflake, BigQuery, Databricks, and Fabric, and the [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) starter pack of table definitions and dashboards.
+As long as you kept the path structure from the example above, your uploads use the same `tenant`/`source`/`type`/`year`/`month`/`day` layout that Moderne's platform replication produces, so your self-published data queries exactly like replicated tenant data. See [Querying and BI](../../../administrator-documentation/moderne-platform/how-to-guides/configuring-telemetry-exports/querying-and-bi.md) for how to make the data queryable, notes for engines such as Athena, Snowflake, BigQuery, Databricks, and Fabric, and the [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) starter kit of table definitions, report queries, and dashboards.
 
 Your data carries only `source=cli` rows (replicated tenants also carry `source=saas` from the web UI), so any query that filters on `source` still works. Keep `source='cli'` for CLI-only reporting, or drop the filter to include everything present.
 

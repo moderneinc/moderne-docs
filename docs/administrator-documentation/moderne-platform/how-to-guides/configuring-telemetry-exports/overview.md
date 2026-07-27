@@ -17,7 +17,9 @@ The platform-native telemetry described here ships with **Moderne SaaS v2 tenant
 
 ## What gets collected
 
-Moderne produces a single, uniform trace schema regardless of where the command ran. Each completed command writes one row to a `trace.csv`. Rows include only command metadata: repository identifiers, timings, tool versions, outcomes, and the user's git email. No source code, no recipe output, no secrets, and no LST contents are emitted.
+Moderne produces a single, uniform trace schema regardless of where the command ran. Each completed command writes one row to a `trace.csv`. Rows include only command metadata: repository identifiers, timings, tool versions, outcomes, and the user's git email. No source code, no recipe output, and no LST contents are emitted.
+
+One exception is worth knowing about: `mod exec` records the command line it ran (`execCommand`) and the directory it ran in (`execExecutionDirectory`). Pass credentials to `mod exec` through environment variables rather than as command arguments, so they are not captured in telemetry.
 
 There are two **sources** that produce this telemetry:
 
@@ -41,7 +43,7 @@ The CSV schema is hierarchical: each command embeds rows from prior pipeline sta
 * **Recipe pipeline**: sync → build → run → apply → add → commit → push.
 * **Publish pipeline**: sync → build → publish (the LST publication path used by [mass ingest](../mass-ingest.md) and CI).
 
-In addition, `mod exec` (`type=exec`) and `mod git checkout` (`type=checkout`) emit standalone traces that are not part of either pipeline chain.
+In addition, `mod exec` (`type=exec`) and MCP server tool calls (`type=mcp`) emit standalone traces that are not part of either pipeline chain. `mod git checkout` writes a trace too, but only into the repository it touched; it is never exported.
 
 The full column-by-column reference is the [trace.csv reference](../../../../user-documentation/moderne-cli/references/trace-csv.md).
 
@@ -52,10 +54,11 @@ A quick orientation:
 | Common                      | `origin`, `path`, `branch`, `developer`                                           | always                                                         |
 | Sync                        | `syncOutcome`, `syncChangeset`, `syncElapsedTimeMs`                               | `mod git sync`                                                 |
 | Build                       | `buildOutcome`, `buildCliVersion`, `buildLineCount`, build-tool versions          | `mod build`                                                    |
-| Run                         | `runRecipe`, `runOutcome`, `runResultsCount`, `runElapsedTimeMs`                  | `mod run`                                                      |
+| Run                         | `runRecipeId`, `runOutcome`, `runFilesWithFixResults`, `runElapsedTimeMs`         | `mod run`                                                      |
 | Apply / Add / Commit / Push | per-stage outcomes and identifiers                                                | corresponding `mod git ...`                                    |
 | Publish                     | `publishOutcome`, `publishStartTime`, `publishEndTime`, `publishId`, `publishUri` | `mod publish` (LST publication; used by mass-ingest pipelines) |
-| Exec / Checkout             | standalone traces (common columns only)                                           | `mod exec`, `mod git checkout`                                 |
+| Exec                        | `execCommand`, `execExitCode`, `execExecutionDirectory`, `execElapsedTimeMs`      | `mod exec`                                                     |
+| MCP                         | `mcpToolName`, `mcpOutcome`, `mcpMatchCount`, `mcpElapsedTimeMs`                  | MCP server tool calls                                          |
 | Organization                | `organization`                                                                    | when run within a Moderne organization context                 |
 
 ## How telemetry flows into your environment

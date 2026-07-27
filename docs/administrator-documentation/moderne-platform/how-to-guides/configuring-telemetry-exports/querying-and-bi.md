@@ -29,14 +29,18 @@ Any engine that reads CSV from object storage and understands Hive partitions wi
 
 For ongoing reporting, we recommend materializing the telemetry into a columnar format such as Parquet or Delta rather than querying the CSV in place. Raw CSV is all-string and uncompressed, so queries scan the full files and every value needs casting. The [moderne-bi-templates](https://github.com/moderneinc/moderne-bi-templates) repo's **data layer** shows one way to do this, with a complete AWS Athena example: per-type ingest tables plus a daily compaction job that lands a single Parquet-backed `traces` table, alongside the report SQL that queries it.
 
-To explore the data first, or to build your own layout, here is the basic setup for reading the raw CSV with each engine. Note that the raw data is partitioned by command `type`, and because traces are hierarchical each `type=` partition holds only that command's columns, so you query one type at a time or union the types you need.
+To explore the data first, or to build your own layout, here is the basic setup for reading the raw CSV with each engine.
 
-* **AWS Athena**: define an external table over a `type=` prefix with `OpenCSVSerde` and query it directly.
+**The raw data is organized per command type.** Because traces are hierarchical, each `type=` partition holds only that command's columns, in that command's order. There is no single raw table spanning every type, so you query one type at a time or union the types you need. This is the first thing that surprises people pointing an engine at the bucket.
+
+Note also that a row is one repository's run of a command, not the command itself. A single `mod run` across 200 repositories writes 200 rows sharing one `runId`, so count runs with `COUNT(DISTINCT runid)` rather than `COUNT(*)`.
+
+* **AWS Athena**: define an external table over a `type=` prefix with `OpenCSVSerde` and query it directly. `OpenCSVSerde` matches columns by position rather than by name, so each command type needs its own table whose column list matches that type's header exactly. The [moderne-bi-templates data layer](https://github.com/moderneinc/moderne-bi-templates) scripts these tables for you and is the recommended setup.
 * **Snowflake**: create an external stage pointing at your bucket (`CREATE STAGE ... URL='s3://<your-dest-bucket>/' STORAGE_INTEGRATION=...`), then query it directly or wrap it in an external table. Snowflake's directory-table feature picks up the Hive partitions automatically.
 * **Google BigQuery**: register your bucket via a [BigLake](https://cloud.google.com/biglake) connection, then create an external table with `hive_partition_uri_prefix` set to the bucket root. BigQuery recognizes the `tenant=/source=/type=/year=/month=/day=` keys natively.
 * **Databricks**: mount the bucket as a Unity Catalog external location, then create an external table `PARTITIONED BY (tenant, source, type, year, month, day)`. Spark's CSV reader handles the schema and headers.
 * **Microsoft Fabric / Synapse**: use a serverless SQL pool with `OPENROWSET(BULK ...)` for ad-hoc queries, or create a Lakehouse shortcut to the bucket and let Fabric infer partitions. Both work against S3 and ADLS Gen2.
-* **DuckDB**: simplest for local exploration. With the `httpfs` extension loaded, `SELECT * FROM read_csv_auto('s3://<your-dest-bucket>/tenant=acme/type=run/**/*.csv', hive_partitioning=true)` reads one type with no catalog setup.
+* **DuckDB**: simplest for local exploration. With the `httpfs` extension loaded, `SELECT * FROM read_csv_auto('s3://<your-dest-bucket>/tenant=acme/*/type=run/**/*.csv', hive_partitioning=true)` reads one type with no catalog setup. The `*` matches the `source=` level, which sits between `tenant=` and `type=`.
 
 If your tool isn't listed, the only requirements are to read CSV from object storage and recognize Hive-style partitions for predicate pushdown, which every modern engine meets. Whichever engine you land on, the Athena example's CSV→Parquet compaction is the pattern to copy: materialize into that engine's native columnar format once your volume grows past exploration.
 
@@ -61,7 +65,7 @@ Please confirm that:
 
 ### Some `mod` commands are missing traces
 
-Only the commands listed in the [trace hierarchy](../../../../user-documentation/moderne-cli/references/trace-csv.md#trace-hierarchy) emit telemetry: sync, build, run, apply, add, commit, push, publish, exec, checkout, and mcp. `mod config`, `mod license`, and similar admin commands do not. If you run [mass ingest](../mass-ingest.md), expect the bulk of your telemetry volume to come from `type=publish` rows.
+Only the commands listed in the [trace hierarchy](../../../../user-documentation/moderne-cli/references/trace-csv.md#trace-hierarchy) emit exported telemetry: sync, build, run, apply, add, commit, push, publish, exec, and mcp. `mod config`, `mod license`, and similar admin commands do not. `mod git checkout` writes a trace only into the repository it touched and never queues it for upload, so there is no `type=checkout` partition to query. If you run [mass ingest](../mass-ingest.md), expect the bulk of your telemetry volume to come from `type=publish` rows.
 
 ### Replication lag is too high
 
@@ -69,4 +73,4 @@ S3 Replication Time Control (RTC) is available if your contract requires 15-minu
 
 ### My BI doesn't see new partitions
 
-How an engine learns about new partitions varies. Some synthesize them from the path and never need a refresh, such as Athena *partition projection* or DuckDB globbing the path directly. Others rely on a registered catalog and need a periodic refresh or auto-discovery: a Glue crawler, Databricks Unity Catalog, or Snowflake external tables without auto-refresh. The moderne-bi-templates Athena data layer uses **registered partitions**, but its compaction job registers each new day as it writes it, so the table stays current without a crawler.
+How an engine learns about new partitions varies. Some synthesize them from the path and never need a refresh, such as Athena *partition projection* or DuckDB globbing the path directly. Others rely on a registered catalog and need a periodic refresh or auto-discovery: a Glue crawler, Databricks Unity Catalog, or Snowflake external tables without auto-refresh. In the moderne-bi-templates Athena data layer, the raw ingest tables use partition projection, while the compacted `traces` table uses **registered partitions** that its compaction job adds as it writes each day, so neither needs a crawler.

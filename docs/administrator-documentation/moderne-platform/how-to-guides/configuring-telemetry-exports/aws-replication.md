@@ -100,4 +100,4 @@ tenant=acme/source=cli/type=commit/year=2026/month=05/day=20/def456.csv
 
 ## Next
 
-With data landing in your bucket, register the schema and start building reports. Continue to [Querying and BI](./querying-and-bi.md). The Athena walkthrough on that page uses an AWS-native query path that requires no additional infrastructure beyond what you've just set up.
+With data landing in your bucket, register the schema and start building reports. Continue to [Querying and BI](./querying-and-bi.md). The Athena notes there use an AWS-native query path that requires no additional infrastructure beyond what you've just set up.
